@@ -12,8 +12,10 @@
 
 <p>Plot: {{foundMovie.plot}}</p>
 
-<a href="/movies/{{foundMovie.id}}/edit"> Edit </a>
+<p><a href="/movies/{{foundMovie.id}}/edit"> Edit Movie</a></p>
 
+<form action="/movies/{{foundMovie.id}}/delete" method="POST">
+    <button>Delete Movie</button>
+</form>
 <br>
-
 <a href="/movies">Back to movies</a>

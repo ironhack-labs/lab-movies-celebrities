@@ -20,6 +20,7 @@ router.post('/movies/create', (req, res, next) => {
     res.redirect('back')
 });
 
+//list all movies
 router.get('/movies', (req, res, next) => {
     Movie.find()
     .populate('cast', 'name -_id')
@@ -29,6 +30,38 @@ router.get('/movies', (req, res, next) => {
     .catch((err) => 
         console.log(`There was an error retrieving the movies: ${err}`));
 });
+
+//delete a movie
+router.post('/movies/:movieId/delete', (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.movieId)
+      .then(() => res.redirect('/movies'))
+      .catch((err) => console.log(`Error while deleting the movie from DB: ${err}`));
+  });
+
+
+//edit a movie
+router.get('/movies/:movieId/edit', (req, res, next) => {
+    Movie.findById(req.params.movieId)
+    .populate('cast', 'name -_id')
+    .then((foundMovie) => {
+        console.log({foundMovie: foundMovie.cast})
+        const wholeCast = Celebrity.find()
+        res.render('movies/edit-movies.hbs', { foundMovie, wholeCast });
+    })
+    .catch((err) => console.log(`Error while editing the movie details from DB: ${err}`));
+});
+
+router.post("/movies/:movieId/update", (req, res, next) => {
+    const { title, genre, plot } = req.body;
+
+    Movie.findByIdAndUpdate(req.params.movieId, { title, genre, plot }, { new: true })
+      .then((updatedMovie) => {
+        // console.log("updated:", updatedBook);
+  
+        res.redirect(`/movies/${updatedMovie.id}`);
+      })
+      .catch((err) => console.log(`Error while saving the Movie updates: ${err}`));
+  });
 
 //display Movie Details
 router.get('/movies/:movieId', (req, res, next) => {
