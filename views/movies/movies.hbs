@@ -1,0 +1,7 @@
+<h2>All movies</h2>
+<ul>
+    {{#each foundMovies}}
+    <li>{{title}}</li>
+    <a href="/movies/{{_id}}">Movie Details</a>
+    {{/each}}
+</ul>
