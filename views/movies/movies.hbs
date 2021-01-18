@@ -1,0 +1,12 @@
+<h2>Movies</h2><hr>
+
+{{#each moviesFromDB}}
+    <div>
+    <h4><a href="movies/{{id}}">{{title}}</a></h4>
+    Genre: {{genre}}<br>
+    </div>
+    <hr>
+{{/each}}
+
+<a href="/movies/new">Add a new movie</a>
+

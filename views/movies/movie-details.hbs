@@ -1,0 +1,19 @@
+<h2>Details for: {{ foundMovie.title }}</h2>
+
+<p>Genre: {{foundMovie.genre}}</p>
+
+<p>Cast:<br>  
+    <ul>
+    {{#each foundMovie.cast}}
+    <li>{{ name }}</li>
+{{/each}}
+</ul>
+</p>
+
+<p>Plot: {{foundMovie.plot}}</p>
+
+<a href="/movies/{{foundMovie.id}}/edit"> Edit </a>
+
+<br>
+
+<a href="/movies">Back to movies</a>

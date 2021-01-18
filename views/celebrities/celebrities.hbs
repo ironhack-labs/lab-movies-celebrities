@@ -1,0 +1,13 @@
+<h2>Celebrities</h2>
+
+{{#each celebritiesFromDB}}
+    <div>
+    <h4>Name: {{name}}</h4>
+    Occupation: {{occupation}}<br>
+    Catch Phrase: {{catchPhrase}}
+    </div>
+    <hr>
+{{/each}}
+
+<a href="/celebrities/new">Add a new Celebrity</a>
+
