@@ -1,0 +1,28 @@
+<div class="container">
+  <nav>
+    | <a href="/">HOME</a> |
+  </nav>
+<hr>
+
+<h2><b><u>Movie List</u></b></h2> <p>(click name for more details)</p> 
+
+
+<div>
+{{#each movieFromDB}}
+<hr>
+<h3><a href="/celebrity-details">{{name}}</a></h3> 
+<br>
+ <form action="/movies/{{id}}/delete" method="post">
+    <button> Delete </button>
+  </form>
+{{/each}}
+<hr>
+</div>
+
+
+<br>
+<hr>
+<button><a href="/movies/new"> Add Movie</a></button>
+
+
+

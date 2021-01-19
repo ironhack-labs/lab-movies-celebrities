@@ -1,0 +1,43 @@
+<div class="container">
+  <nav>
+    | <a href="/">HOME</a> |
+  </nav>
+<hr>
+
+<h2>Add a Movie</h2>
+
+<form action="/movies/create" method="POST">
+<hr>
+<label> Movie Title:
+    <input type="text" name="title">
+</label>
+<hr>
+<label> Movie Genre:
+    <input type="text" name="genre">
+</label>
+<hr>
+<label> Movie Plot:
+  <textarea name="plot"  cols="45" rows="10"></textarea> 
+</label>
+<hr>
+<br>
+<label> Cast: 
+  <br>
+  <br>
+  {{#each celebrityFromDB}}
+  <input value="{{_id}}" type="checkbox" name="cast">
+  <label > {{name}}</label><br>
+  {{/each}}
+</label>
+<hr>
+<button type="submit">SAVE</button>
+</form>
+
+
+
+
+
+
+
+
+

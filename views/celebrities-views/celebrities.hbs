@@ -1,0 +1,21 @@
+<div class="container">
+  <nav>
+    | <a href="/">HOME</a> |
+  </nav>
+<hr>
+
+<h2><b><u>Celebrity List</u></b></h2> <p>(click name for more details)</p> 
+
+
+<div>
+{{#each celebrityFromDB}}
+<hr>
+<h3><a href="/celebrity-details">{{name}}</a></h3> 
+{{/each}}
+<hr>
+</div>
+
+
+<br>
+<hr>
+<button><a href="/celebrities/new"> Add Celebrity</a></button>
