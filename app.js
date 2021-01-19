@@ -15,7 +15,9 @@ require("./configs/db.config");
 // Middleware Setup
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -28,6 +30,8 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 // default value for title local
 app.locals.title = 'Cruisemate\'s Movies & Celebrities';
 
+
+//=================middlewares==============
 // const index = require('./routes/index');
 // app.use('/', index);
 //      |  |  |

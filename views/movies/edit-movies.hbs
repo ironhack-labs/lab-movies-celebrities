@@ -9,17 +9,20 @@
     </label>
     <br>
     <label> Plot
-    <textarea name="plot" cols="30" rows="10">{{foundMovie.plot}}</textarea>
+        <textarea name="plot" cols="30" rows="10">{{foundMovie.plot}}</textarea>
     </label>
     <br>
-    {{!-- <label> Cast
-    <select name="cast" multiple> --}}
-        {{!-- <option selected value="{{foundMovie.cast}}">{{foundMovie.cast.name}}</option> --}}
-    {{!-- {{#each wholeCast}}
-       <option value="{{name}}">{{name}}</option>
-    {{/each}} --}}
-    {{!-- </select>
-    </label> --}}
+    <label> Cast
+        <select name="cast" multiple>
+            {{#each allCelebritiesFromDB}}
+            {{#if isInCast}}
+            <option value="{{id}}" selected>{{name}}</option>
+            {{else}}
+            <option value="{{id}}">{{name}}</option>
+            {{/if}}
+            {{/each}}
+        </select>
+    </label>
     <br>
     <button type="submit"> Edit Movie </button>
 </form>
