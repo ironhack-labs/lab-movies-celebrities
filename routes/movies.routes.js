@@ -33,22 +33,30 @@ router.post('/movies/create', (req, res, next) => {
 
 router.get("/movies", (req, res, next) => {
  Movie.find()
-    .then((moviesFromDB) => res.render("movies-views/movies", { moviesFromDB }))
+    .then((movieFromDB) => res.render("movies-views/movies", { movieFromDB }))
+    
     .catch((err) => console.log(`Error while getting all movies from DB: ${err}`));
 });
 
 
-//last
-router.get("/movies/:movieId", (req, res, next) => {
-  // console.log("ID: ", req.params.bookId);
+router.post("/movies/:movieId/delete", (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.movieId)
+    .then(() => res.redirect("/movies"))
+    .catch((err) => console.log(`Error while deleting a movie from DB: ${err}`));
+});
 
+
+
+
+router.get("/movies/:movieId", (req, res, next) => {
   Movie.findById(req.params.movieId)
     .populate("cast")
     .then((foundMovie) => {
-      // console.log(foundMovie);
-      res.render("movies-views/movie-details.hbs", {foundMovie });
+      console.log(foundMovie);
+      res.render("movies-views/movie-details", {foundMovie});
     })
-    .catch((err) => console.log(`Error while getting the book details from DB: ${err}`));
+    .catch((err) => console.log(`Error while getting the movie details from DB: ${err}`));
 });
+
 
 module.exports = router;

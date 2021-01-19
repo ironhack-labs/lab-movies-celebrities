@@ -1,0 +1,19 @@
+<div class="container">
+  <nav>
+    | <a href="/">HOME</a> |
+  </nav>
+<hr>
+
+<h2>{{foundMovie.title}} Details</h2>
+<br>
+<br>
+<div>
+<h4>{{foundMovie.genre}}</h4>
+<p>{{foundMovie.plot}}</p>
+<ul>
+  {{#each foundMovie.cast}}
+  <li>{{name}}</li>
+  {{/each}}
+</ul>
+
+</div>
