@@ -1,0 +1,11 @@
+<h2>Celebrity details</h2>
+
+<p>Name: {{foundCeleb.name}}</p>
+<p>Occupation: {{foundCeleb.occupation}}</p>
+<p>Catch phrase: {{foundCeleb.catchPhrase}}</p>
+
+
+<form action="/celebrities/{{foundCeleb._id}}/delete" method="post">
+<button>Delete</button>
+</form>
+<a href="/celebrities/{{foundCeleb._id}}/edit">Edit</a>

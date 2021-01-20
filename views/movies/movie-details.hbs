@@ -3,7 +3,12 @@
 <p>Title: {{foundMovie.title}}</p>
 <p>Genre: {{foundMovie.genre}}</p>
 <p>Plot: {{foundMovie.plot}}</p>
-<p>Cast: {{foundMovie.cast.[0].name}}</p>
+<p>Cast:</p>
+<ul>
+    {{#each foundMovie.cast}}
+    <li>{{ name }}</li>
+    {{/each}}
+</ul>
 
 <form action="/movies/{{foundMovie._id}}/delete" method="post">
 <button>Delete</button>

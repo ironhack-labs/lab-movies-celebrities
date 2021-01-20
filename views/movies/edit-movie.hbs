@@ -1,6 +1,6 @@
 <h2>Edit movie</h2>
 
-<form action="/movies/{{_id}}" method="post">
+<form action="/movies/{{foundMovie._id}}" method="post">
 <label>Title
     <input type="text" name="title" value="{{foundMovie.title}}">
 </label>
@@ -14,14 +14,17 @@
 </label>
 
 <label>Cast
-    <select name="cast">
-        <option selected value="{{foundMovie.cast._id}}">
-            {{foundMovie.cast.name}}
-        </option>
-        {{#each allOtherCelebs}}
-        <option value="{{_id}}">{{name}}</option>
+    {{!-- <input type="text" name="cast" value="{{foundMovie.cast.[0].name}}"> --}}
+    <select name="cast" multiple>
+        {{#each allCelebsFromDB}}
+        {{#if isInCast}}
+            <option selected value="{{_id}}"> {{ name }}</option>
+        {{ else }}  
+            <option value="{{_id}}">{{ name }}</option>
+        {{/if}}
         {{/each}}
     </select>
+
 </label>
 
 

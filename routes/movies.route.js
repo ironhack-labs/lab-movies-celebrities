@@ -63,12 +63,23 @@ router.get(`/movies/:id/edit`, (req,res,next) => {
     Movie.findById(req.params.id)
     .populate(`cast`)
     .then(foundMovie => {
+        // console.log(`Found movie: ${foundMovie}`)
         Celebrity.find()
         .then(allCelebsFromDB => {
-            const allOtherCelebs = allCelebsFromDB.filter((celeb) => {
-                !celeb._id.equals(foundMovie.cast._id)
-            });
-            res.render(`movies/edit-movie`, { foundMovie, allOtherCelebs });
+            // console.log(allCelebsFromDB)
+            allCelebsFromDB.forEach(eachCeleb => {
+                foundMovie.cast.forEach(movieCast => {
+                    if(eachCeleb._id.equals(movieCast._id)){
+                        eachCeleb.isInCast = true;
+                    }
+                })
+            })
+
+
+
+
+            // console.log(`found movie:`, foundMovie.cast[0]);
+            res.render(`movies/edit-movie`, { foundMovie, allCelebsFromDB });
         })
     })
     .catch(error => {
