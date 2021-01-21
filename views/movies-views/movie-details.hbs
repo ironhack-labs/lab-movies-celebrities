@@ -4,16 +4,20 @@
   </nav>
 <hr>
 
-<h2>{{foundMovie.title}} Details</h2>
-<br>
+<h2><u>{{foundMovie.title}} Details</u></h2>
 <br>
 <div>
-<h4>{{foundMovie.genre}}</h4>
-<p>{{foundMovie.plot}}</p>
+<h4>Genre: {{foundMovie.genre}}</h4>
+<br>
+<h4>Plot:</h4> 
+<h6>{{foundMovie.plot}}</h6>
+<br>
+<h5>Cast:</h5>
 <ul>
   {{#each foundMovie.cast}}
-  <li>{{name}}</li>
+  <a href="/celebrities/{{_id}}"><li>{{name}}</li></a>
+  <br>
   {{/each}}
 </ul>
-
+<button><a href="/movies/{{foundMovie._id}}/edit">EDIT MOVIE</a></button>
 </div>

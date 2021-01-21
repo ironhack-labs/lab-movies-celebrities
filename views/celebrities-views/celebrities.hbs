@@ -10,7 +10,11 @@
 <div>
 {{#each celebrityFromDB}}
 <hr>
-<h3><a href="/celebrity-details">{{name}}</a></h3> 
+<h3><a href="/celebrities/{{id}}">{{name}}</a></h3> 
+<br>
+ <form action="/celebrities/{{_id}}/delete"  method="post">
+    <button> Delete </button>
+  </form>
 {{/each}}
 <hr>
 </div>
@@ -18,4 +22,4 @@
 
 <br>
 
-<button><a href="/celebrities/new"> Add Celebrity</a></button>
+<button><a href="/celebrities/new">Add Celebrity</a></button>

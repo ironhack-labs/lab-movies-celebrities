@@ -47,6 +47,39 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
 
 
 
+router.get("/movies/:id/edit", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then((foundMovie) => {
+      Celebrity.find()
+      .then(allCelebritiesFromDB => {
+          allCelebritiesFromDB.forEach(oneCeleb => {
+              foundMovie.cast.forEach(castMember => {
+                  if(castMember.equals(oneCeleb._id)) {
+                      oneCeleb.isInCast = true
+                  }
+              }) 
+           });
+          res.render("movies-views/edit-movie", {foundMovie, allCelebritiesFromDB})
+      })
+    })
+      .catch((err) => console.log(`Error while getting the movie from DB for editing: ${err}
+    })`))
+});
+
+
+
+router.post("/movies/:id", (req, res, next) => {
+  const {title, genre, plot, cast} = req.body
+
+ Movie.findByIdAndUpdate(req.params.id,  {title, genre, plot, cast} , { new: true })
+    .then((updatedMovie) => {
+      console.log("updated:", updatedMovie);
+      res.redirect(`/movies/${updatedMovie._id}`);
+    })
+    .catch((err) => console.log(`Error while saving  updates to a movie: ${err}`));
+});
+
+
 
 router.get("/movies/:movieId", (req, res, next) => {
   Movie.findById(req.params.movieId)

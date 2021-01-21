@@ -6,29 +6,38 @@
 
 <h2>Edit a Movie</h2>
 
-<form action="/movies/create" method="POST">
+<form action="/movies/{{foundMovie.id}}" method="POST">
 <hr>
 <label> Movie Title:
-    <input type="text" name="title" value="{{.title}}">
+    <input type="text" name="title" value="{{foundMovie.title}}">
 </label>
 <hr>
 <label> Movie Genre:
-    <input type="text" name="genre" value="{{.genre}}">
+    <input type="text" name="genre" value="{{foundMovie.genre}}">
 </label>
 <hr>
 <label> Movie Plot:
-  <textarea name="plot"  cols="45" rows="10">{{.plot}}</textarea> 
+  <textarea name="plot"  cols="45" rows="10">{{foundMovie.plot}}</textarea> 
 </label>
 <hr>
 <br>
 <label> Cast: 
   <br>
   <br>
-  {{#each celebrityFromDB}}
-  <input value="{{_id}}" type="checkbox" name="cast">
+  {{#each allCelebritiesFromDB}}
+  {{#if isInCast}}
+  <input value="{{id}}" type="checkbox" name="cast" checked>
   <label > {{name}}</label><br>
+{{else}}
+  <input value="{{id}}" type="checkbox" name="cast">
+  <label > {{name}}</label><br> 
+  {{/if}} 
   {{/each}}
 </label>
 <hr>
 <button type="submit">UPDATE</button>
 </form>
+
+
+
+  
