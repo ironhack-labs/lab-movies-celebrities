@@ -2,11 +2,12 @@
 <hr>
 <ul>
     {{#each moviesFromDB}}
-    <li>{{ title }} </li>
+    <li>{{ title }} 
     <a href="/movies/{{id}}"> View Details </a>
     <form action="/movies/{{id}}/delete" method="post">
         <button> Delete </button>
     </form>
+    </li>
     <br>
     {{/each}}
 </ul>

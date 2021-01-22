@@ -1,7 +1,7 @@
 <h2>Create a new movie</h2>
 
 {{!-- localhost:3000/authors --}}
-<form action="/movies/create" method="POST">
+<form action="/movies" method="POST">
     <label> Title
         <input type="text" name="title">
     </label>
@@ -12,6 +12,14 @@
     <label> Plot
     <textarea name="plot" cols="30" rows="10"></textarea>
     </label>
+
+    <label> Cast:</label>
+    <select name="cast" multiple>
+    {{#each celebritiesFromDb}}
+        <option value="{{_id}}">{{ name }}</option>
+    {{/each}}
+    </select>
+
 
 <button type="submit"> Save </button>
 </form>

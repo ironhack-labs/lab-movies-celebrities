@@ -1,21 +1,22 @@
 const mongoose = require("mongoose");
+const { Schema, model } = mongoose;
 
 require("../configs/db.config");
 
 // const Celebrity = require("../models/celebrity.model");
 
 // const celebrities = [
-//     { title: "DJ Khaled", 
-//     genre: "record producer",
-//     plot: "Another One",
+//     { name: "DJ Khaled", 
+//     occupation: "record producer",
+//     catchPhrase: "Another One",
 //     },
-//     { title: "Ariana Grande", 
-//     genre: "singer",
-//     plot: "Say It With Emojis",
+//     { name: "Ariana Grande", 
+//     occupation: "singer",
+//     catchPhrase: "Say It With Emojis",
 //     },
-//     { title: "Walter Cronkite", 
-//     genre: "broadcaster",
-//     plot: "And That's The Way It Is",
+//     { name: "Walter Cronkite", 
+//     occupation: "broadcaster",
+//     catchPhrase: "And That's The Way It Is",
 //     }
 // ];
 
@@ -36,18 +37,21 @@ const movies = [
     { title: "Where at", 
     genre: "comedy",
     plot: "family reunion",
+    cast: [],
     },
     { title: "Tonight", 
     genre: "drama",
     plot: "Missing person",
+    cast: [],
     },
     { title: "Forever", 
     genre: "romance",
     plot: "family hatred",
+    cast: [],
     }
 ];
 
-// node bin/seeds.js
+// // node bin/seeds.js
 
 Movie.create(movies)
     .then((moviesFromDB) => {

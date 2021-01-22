@@ -7,6 +7,14 @@
 <p>Genre: {{foundMovie.genre}}</p>
 <br>
 <p>Plot: {{foundMovie.plot}}</p>
+<br>
+<ul>
+<p>Cast: {{#each foundMovie.cast}}
+    <li> {{ name }} </li>
+    {{/each}}
+</p>
+</ul>
+
 
 <a href="/movies/{{foundMovie._id}}/edit"> Edit </a>
 

@@ -10,6 +10,7 @@ const movieSchema = new Schema(
     // description: { type: String },
     genre: String,
     plot: String,
+    cast: [ {type: Schema.Types.ObjectId, ref: "Celebrity" }]
     },
     {
     timestamps: true
