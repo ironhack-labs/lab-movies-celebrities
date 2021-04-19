@@ -1,5 +1,8 @@
 <div>
 {{#each movies}}
 <h2>{{title}}</h2>
+<a href="/movies/{{_id}}">See more</a>
+<form action="/movies/{{_id}}/delete" method="post"><button type="submit">Delete</button></form>
+<button><a href="/movies/{{_id}}/edit">Edit</a></button>
 {{/each}}
 </div>

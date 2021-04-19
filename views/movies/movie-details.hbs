@@ -1,0 +1,14 @@
+<div>
+{{#each movie}}
+<h2>{{title}}</h2>
+<h2>{{genre}}</h2>
+<h2>{{plot}}</h2>
+<ul>
+  {{#each cast}}  
+<li>{{this.name}}</li>
+
+{{/each}}
+</ul>
+
+{{/each}}
+</div>
