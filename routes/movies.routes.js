@@ -2,13 +2,21 @@ const express = require('express')
 const router = express.Router()
 
 const Movie = require('../models/movie')
+const Celebrity = require('../models/celebrity')
 
 router.get('/movies/new', (req, res) => {
-    res.render('movies/new-movie')
+    Celebrity.find()
+    .then((result)=>{
+    res.render('movies/new-movie', {celeb: result})
+    })
+    .catch((error)=>{
+    console.log(error)
+    })
+    
 })
 
 router.post('/movies/create', (req, res) => {
-    const {title, genre, plot} = req.body
+    const {title, genre, plot, cast} = req.body
     Movie.create(req.body)
         .then((result) => {
             console.log(result)
@@ -32,6 +40,17 @@ router.get('/movies', (req, res)=>{
     
 })
 
-
+router.get('/movies/:_id', (req, res)=>{
+    Movie.findById(req.params)
+    .populate('cast')
+   .then((result)=>{
+    console.log(result)
+    res.render('movies/movie-details', {movie: result})
+   })
+   .catch((error)=>{
+   console.log(error)
+   })
+   
+})
 
 module.exports = router
