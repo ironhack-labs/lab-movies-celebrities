@@ -1,5 +1,6 @@
 const express = require("express");
 const Celebrity = require("../models/celebrity.model");
+const { get } = require("./movies.routes");
 const router = express.Router();
 
 
@@ -10,11 +11,21 @@ router.post("/new", (req, res, next) => {
     Celebrity.create(req.body)
     .then((result) => {
         console.log(result)
-        res.redirect("/all")
+        res.redirect("/celebrities/all")
     }).catch((err) => {
         console.log(err);
-        res.redirect("/new")
-        
+        res.render("celebrities/new-celebrity.hbs")
     });
 });
+
+router.get(`/all`, (req, res) => {
+  Celebrity.find({})
+    .then((result) => {
+      res.render("celebrities/celebrities.hbs", { celebs: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
