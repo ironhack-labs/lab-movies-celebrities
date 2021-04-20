@@ -27,4 +27,46 @@ router.get(`/all`, (req, res) => {
     });
 });
 
+router.get(`/:_id`,(req,res)=>{
+  Celebrity.findById(req.params)
+  .populate(`cast`)
+  .then((result) => {
+      res.render("celebrities/celebrity-details", {celebs: result})
+  }).catch((err) => {
+      console.log(err);
+      
+  });
+  })
+  
+  router.post(`/:_id/delete`, (req,res)=>{
+      Celebrity.findByIdAndDelete(req.params._id)
+      .then((result) => {
+          console.log(result)
+          res.redirect(`/celebrities/all`)
+      }).catch((err) => {
+          console.log(err);  
+      }); 
+  })
+  
+  router.get(`/:_id/edit`, (req,res)=>{
+    res.render(`celebrities/edit-celebrity`)
+    .then((result) => {
+      console.log(result);
+      })
+    .catch((err) => {
+      console.log(err);
+      });
+  })
+  
+  router.post(`/:_id/edit`, (req, res) => {
+    Celebrity.findByIdAndUpdate(req.params._id, req.body)
+      .then((result) => {
+        console.log(result);
+        res.redirect("/celebrities/all");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
 module.exports = router;
