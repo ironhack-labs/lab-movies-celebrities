@@ -9,7 +9,7 @@ router.get("/celebrity/new", (req, res, next) => {
 router.post('/celebrities/create',(req,res)=>{
     Celebrity.create(req.body)
     .then((result)=>{
-    console.log(result)
+   // console.log(result)
     res.redirect('/celebrities/celebrities')
     })
     .catch((error)=>{
@@ -22,7 +22,7 @@ router.post('/celebrities/create',(req,res)=>{
 router.get('/celebrities/celebrities', (req,res)=>{
     Celebrity.find({})
     .then((result)=>{
-    console.log(result)
+    //console.log(result)
     const data ={celebrity: result}
     res.render('celebrities/celebrities', data)
     })
@@ -30,6 +30,49 @@ router.get('/celebrities/celebrities', (req,res)=>{
     console.log(error)
     })
         
+})
+
+router.get('/celebrities/:_id', (req,res)=>{
+    Celebrity.findById(req.params)
+    .then((result)=>{
+    res.render('celebrities/celebrity-details', {celebrity: result})
+    })
+    .catch((error)=>{
+    console.log(error)
+    })
+});
+
+router.post('/celebrities/:_id/delete',(req,res)=>{
+    Celebrity.findByIdAndDelete(req.params)
+    .then((result)=>{
+    res.redirect('/celebrities/celebrities')
+    })
+    .catch((error)=>{
+    console.log(error)
+    })
+})
+
+router.get('/celebrities/:_id/edit',(req,res)=>{
+    Celebrity.findById(req.params._id)
+    .then((result)=>{
+    console.log(result)
+    res.render('celebrities/edit-celebrity', result)
+    })
+    .catch((error)=>{
+    console.log(error)
+    })
+})
+
+router.post('/celebrities/:_id/edit', (req,res)=>{
+    Celebrity.findByIdAndUpdate(req.params._id, req.body)
+    .then((result)=>{
+    console.log(result)
+    res.redirect('/celebrities/celebrities')
+    })
+    .catch((error)=>{
+    console.log(error)
+    })
+    
 })
 
 module.exports = router;
