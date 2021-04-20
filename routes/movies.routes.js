@@ -1,5 +1,4 @@
 const express = require('express')
-const {render} = require('../app')
 const CelebrityModel = require('../models/celebrity.model')
 const MovieModel = require('../models/movie.model')
 const router = express.Router()
@@ -14,21 +13,21 @@ router.get('/movies', (req, res) => {
     })
 })
 
-router.get('/movies/:_id', (req, res) => {
-    MovieModel.findById(req.params._id)
+router.get('/movies/new', (req, res) => {
+    console.log('hello')
+    CelebrityModel.find()
     .then((result) => {
-        res.render('movies/movie-details', result)
+        res.render('movies/new-movie', {data: result})
     })
     .catch((err) => {
         console.log(err)
     })
 })
 
-router.get('/movies/new', (req, res) => {
-    console.log('hola')
-    CelebrityModel.find()
+router.get('/movies/:_id', (req, res) => {
+    MovieModel.findById(req.params._id)
     .then((result) => {
-        res.render('movies/new-movie', {data: result})
+        res.render('movies/movie-details', result)
     })
     .catch((err) => {
         console.log(err)

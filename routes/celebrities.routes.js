@@ -1,5 +1,4 @@
 const express = require('express')
-const {render} = require('../app')
 const CelebrityModel = require('../models/celebrity.model')
 const router = express.Router()
 
