@@ -3,8 +3,6 @@ const celebritiesRouter = new express.Router();
 const CelebrityModel = require("./../models/celebrity.model");
 
 
-
-
 // Show a form to CREATE a celebrity
 celebritiesRouter.get("/new", async (req, res, next) => {
   const celebrities = await CelebrityModel.find();
@@ -31,6 +29,5 @@ celebritiesRouter.get("/celebrities", async (req, res, next) => {
     next(err);
   }
 });
-
 
 module.exports = celebritiesRouter;
