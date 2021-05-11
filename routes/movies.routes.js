@@ -28,7 +28,7 @@ moviesRouter.post("/create", async (req, res, next) => {
   }
 });
 
-// // Get all movies
+// Get all movies
 moviesRouter.get("/movies", async (req, res, next) => {
   try {
     res.render("movies/movies", { movies: await MovieModel.find() });
@@ -36,5 +36,17 @@ moviesRouter.get("/movies", async (req, res, next) => {
     next(err);
   }
 });
+
+// Get one movie's details
+moviesRouter.get("/:id", async (req, res, next) => {
+  try {
+    const movie = await MovieModel.findById(req.params.id).populate("cast");
+    console.log(movie);
+    res.render("movies/movie-details", movie);
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = moviesRouter;
