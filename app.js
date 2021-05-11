@@ -6,6 +6,8 @@ const favicon = require("serve-favicon");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const createError = require("http-errors");
+
 
 const app = express();
 
@@ -33,5 +35,12 @@ app.locals.title = "Express - Generated with IronGenerator";
 //      |  |  |
 //      V  V  V
 app.use("/", require("./routes/index.routes"));
+app.use("/celebrities", require("./routes/celebrities.routes"));
+app.use("/movies", require("./routes/movies.routes"))
+
+app.use(function (req, res, next) {
+    next(createError(404));
+  });
+
 
 module.exports = app;
