@@ -48,5 +48,16 @@ moviesRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+// Delete movie
+
+moviesRouter.post("/:id/delete", async (req, res, next) => {
+  try {
+    await MovieModel.findByIdAndRemove(req.params.id);
+    res.redirect("../movies");
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = moviesRouter;
