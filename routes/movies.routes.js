@@ -59,5 +59,28 @@ moviesRouter.post("/:id/delete", async (req, res, next) => {
   }
 });
 
+// Get movie to edit
+moviesRouter.get("/:id/edit", async (req, res, next) => {
+  try {
+    const celebrities = await CelebrityModel.find();
+    const movie = await MovieModel.findById(req.params.id).populate("cast");
+    console.log(movie);
+    res.render("movies/edit-movie", { celebrities, movie });
+  } catch (err) {
+    next(err);
+  }
+});
+
+moviesRouter.post("/:id", async (req, res, next) => {
+  try {
+    const movieToUpdate = { ...req.body };
+    console.log(movieToUpdate);
+    await MovieModel.findByIdAndUpdate(req.params.id, movieToUpdate);
+    res.redirect("../movies/movies"); // This is supposed to redirect to ../movies/:id but I can't figure it out!
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 module.exports = moviesRouter;
