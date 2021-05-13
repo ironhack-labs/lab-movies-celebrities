@@ -1,0 +1,21 @@
+<h1>Celebrities page 1</h1>
+
+
+<a href="/celebrities/new">ADD</a>
+<a href="/celebrities/details">Details</a>
+
+
+<h3>List of all Celebrities</h3>
+<hr>
+
+<div>
+    {{#each celebrities}}
+    <div>
+        <h4> Name : {{this.name}}</h4>
+        <p> Occupation : {{this.occupation}}</p>
+        <p>catchPhrase: {{this.catchPhrase}}</p>
+    </div>
+    <hr>
+    {{/each}}
+</div>
+
