@@ -1,0 +1,16 @@
+{{!-- iteration 2 : 
+6. In the views/celebrities/index.hbs view file:
+Add a link that goes to the page you just created with the form to create a new celebrity. --}}
+
+
+<h2>
+    celebrities
+</h2>
+
+
+<a href="/celebrities/new">new celebrity</a>
+
+{{#each celebrities}}
+{{this.name}}
+{{/each}}
+
