@@ -76,7 +76,7 @@ moviesRouter.post("/:id", async (req, res, next) => {
     const movieToUpdate = { ...req.body };
     console.log(movieToUpdate);
     await MovieModel.findByIdAndUpdate(req.params.id, movieToUpdate);
-    res.redirect("../movies/movies"); // This is supposed to redirect to ../movies/:id but I can't figure it out!
+    res.redirect("../movies/" + req.params.id); // This is supposed to redirect to ../movies/:id but I can't figure it out!
   } catch (err) {
     next(err);
   }
