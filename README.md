@@ -111,7 +111,7 @@ The `Celebrity` model should have:
 - `occupation` - String (what the celebrity does, why they are famous. For example _actor, singer, comedian_, or you can put _unknown_ if your celebrity is someone like Kim Kardashian)
 - `catchPhrase` - String (every celebrity needs a good catch phrase. Well maybe not all of them have one in real life, but all of _our_ celebrities will have a catch phrase. This can be pretty much anything.)
 
-Go ahead and create the `Celebrity.model.js` model file in the `models` folder. Using schema, create the `Celebrity` model with the above mentioned properties. _Don't forget to export the model._ 2. In the `Celebrity.model.js` model file:
+Go ahead and locate the `Celebrity.model.js` model file in the `models` folder. Using schema, create the `Celebrity` model with the above mentioned properties. _Don't forget to export the model._ 2. In the `Celebrity.model.js` model file:
 
 <br>
 
