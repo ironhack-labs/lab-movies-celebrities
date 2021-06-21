@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const Movie = require("../models/Movie.model");
+const Celebrity = require("../models/Celebrity.model");
 
 module.exports.home = (req, res, next) => {
   Movie.find()
@@ -11,7 +12,9 @@ module.exports.home = (req, res, next) => {
 };
 
 module.exports.createMovie = (req, res, next) => {
-  res.render("movies/new-movie.hbs");
+  Celebrity.find().then((celebrities) => {
+    res.render("movies/new-movie.hbs", { celebrities });
+  });
 };
 
 module.exports.doCreateMovie = (req, res, next) => {
@@ -34,7 +37,15 @@ module.exports.idMovie = (req, res, next) => {
 module.exports.editMovie = (req, res, next) => {
   const { id } = req.params;
   Movie.findById(id)
-    .then((movie) => res.render(`movies/edit-movie.hbs`, { movie }))
+    .then((movie) => {
+      Celebrity.find().then((celebrity) => {
+        const data = {
+          ...movie,
+          celebrity,
+        };
+        res.render(`movies/edit-movie.hbs`, data);
+      });
+    })
     .catch((e) => console.error(e));
 };
 

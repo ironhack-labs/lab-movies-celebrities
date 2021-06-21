@@ -1,11 +1,18 @@
 <h2>Update your movie</h2>
 
-<form action="/movies/{{movie.id}}/edit" method="POST">
+<form action="/movies/{{_doc._id}}/edit" method="POST">
   <label for="title">Movie title:</label>
-  <input type="text" id="title" name="title" value={{movie.title}} />
+  <input type="text" id="title" name="title" value={{_doc.title}} />
   <label for="genre">Movie genre:</label>
-  <input type="text" id="genre" name="genre" value={{movie.genre}} />
+  <input type="text" id="genre" name="genre" value={{_doc.genre}} />
   <label for="plot">Movie plot:</label>
-  <input type="text" id="plot" name="plot" value={{movie.plot}} />
+  <input type="text" id="plot" name="plot" value={{_doc.plot}} />
+  <label for="celebrities">Choose a celebrity:</label>
+  <select name="cast" id="cast" multiple>
+    {{#each celebrity}}
+      <option value={{this.name}}>{{this.name}}</option>
+    {{/each}}
+  </select>
+
   <button type="submit">Update</button>
 </form>

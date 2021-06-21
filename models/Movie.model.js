@@ -13,6 +13,13 @@ const movieSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    cast: [
+      {
+        type: mongoose.Schema.Types.String,
+        ref: "Celebrity",
+        required: true,
+      },
+    ],
   },
 
   {

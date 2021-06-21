@@ -22,6 +22,12 @@ const celebritySchema = new mongoose.Schema(
   }
 );
 
+celebritySchema.virtual('celebrities', {
+  ref: 'Celebrity',
+  localField: '_id',
+  foreignField: 'cast',
+});
+
 const Celebrity = mongoose.model("Celebrity", celebritySchema);
 
 module.exports = Celebrity;
