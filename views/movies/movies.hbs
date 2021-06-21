@@ -1,0 +1,14 @@
+<a href="/" class="btn btn-primary" role="button">Home</a>
+
+<a href="/movies/create" class="btn btn-primary" role="button">Add a new
+  celebrities</a>
+
+{{#each movies}}
+
+  <h1>name: {{this.title}}</h1>
+  <h2>occupation: {{this.genre}}</h2>
+  <h3>catchPhrase: {{this.plot}}</h3>
+  <a href="/movies/{{this.id}}" class="btn btn-primary" role="button">See
+    more</a>
+
+{{/each}}

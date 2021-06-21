@@ -1,17 +1,15 @@
-//  Add your code here
-
 const mongoose = require("mongoose");
-const celebritySchema = new mongoose.Schema(
+const movieSchema = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    occupation: {
+    genre: {
       type: String,
       required: true,
     },
-    catchPhrase: {
+    plot: {
       type: String,
       required: true,
     },
@@ -22,6 +20,6 @@ const celebritySchema = new mongoose.Schema(
   }
 );
 
-const Celebrity = mongoose.model("Celebrity", celebritySchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
-module.exports = Celebrity;
+module.exports = Movie;
