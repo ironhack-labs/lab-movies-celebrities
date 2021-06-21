@@ -1,20 +1,37 @@
-<h2>Add new Movie</h2>
+<div class="container d-felx flex-row align-items-center">
+  <h2 class="text-center fw-bolder pt-5">Add a new movie</h2>
 
-<form action="/movies/create" method="POST">
-  <label for="title">title:</label>
-  <input type="text" id="title" name="title" />
-  <label for="genre">genre:</label>
-  <input type="text" id="genre" name="genre" />
-  <label for="plot">plot:</label>
-  <input type="text" id="plot" name="plot" />
+  <form
+    action="/movies/create"
+    method="POST"
+    class="d-flex flex-row justify-content-center pt-3"
+  >
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="title" class="fw-bolder">Title:</label>
+      <input type="text" class="form-control" id="title" name="title" />
+    </div>
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="genre" class="fw-bolder">Genre:</label>
+      <input type="text" class="form-control" id="genre" name="genre" />
+    </div>
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="plot" class="fw-bolder">Plot:</label>
+      <input type="text" class="form-control" id="plot" name="plot" />
 
-  <label for="celebrities">Choose a celebrity:</label>
+    </div>
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="celebrities">Choose a celebrity:</label>
+      <select name="cast" id="cast" multiple>
+        {{#each celebrities}}
+          <option
+            value={{this.name}}
+            style="width: 200px;"
+          >{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
 
-  <select name="cast" id="cast" multiple>
-    {{#each celebrities}}
-      <option value={{this.name}}>{{this.name}}</option>
-    {{/each}}
-  </select>
+    <button type="submit" class="btn btn-primary">Add</button>
 
-  <button type="submit">Add</button>
-</form>
+  </form>
+</div>

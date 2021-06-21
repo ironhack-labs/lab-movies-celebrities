@@ -1,21 +1,40 @@
-<h2>Update your celebrity</h2>
+<div class="container d-felx flex-row align-items-center">
+  <h2 class="text-center fw-bolder pt-5">Update your celebrity</h2>
 
-<form action="/celebrities/{{celebrity.id}}/edit" method="POST">
-  <label for="name">Celebrities name:</label>
-  <input type="text" id="name" name="name" value={{celebrity.name}} />
-  <label for="occupation">Celebrities occupation:</label>
-  <input
-    type="text"
-    id="occupation"
-    name="occupation"
-    value={{celebrity.occupation}}
-  />
-  <label for="catchPhrase">Celebrities catchPhrase:</label>
-  <input
-    type="text"
-    id="catchPhrase"
-    name="catchPhrase"
-    value={{celebrity.catchPhrase}}
-  />
-  <button type="submit">Update</button>
-</form>
+  <form action="/celebrities/{{celebrity.id}}/edit" method="POST" class="d-flex flex-row justify-content-center pt-3">
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="name" class="fw-bolder">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        value={{celebrity.name}}
+      />
+    </div>
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="occupation" class="fw-bolder">Occupation:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="occupation"
+        name="occupation"
+        value={{celebrity.occupation}}
+      />
+    </div>
+    <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+      <label for="catchPhrase" class="fw-bolder">CatchPhrase:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="catchPhrase"
+        name="catchPhrase"
+        value={{celebrity.catchPhrase}}
+      />
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+
+  </form>
+</div>

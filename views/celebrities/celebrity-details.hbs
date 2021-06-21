@@ -1,16 +1,35 @@
-<a href="/" class="btn btn-primary" role="button">Home</a>
-
-<a href="/celebrities" class="btn btn-primary" role="button">Celebrities</a>
-
-
-  <h1>name: {{celebrity.name}}</h1>
-  <h2>occupation: {{celebrity.occupation}}</h2>
-  <h3>catchPhrase: {{celebrity.catchPhrase}}</h3>
-
-<a
-  href="/celebrities/{{celebrity.id}}/edit"
-  class="btn btn-primary"
-  role="button"
->Udpate</a>
-<form action="/celebrities/{{celebrity.id}}/delete" method="POST">
-  <button class="btn btn-danger">Delete</button>
+<div class="d-flex flex-column align-items-center justify-content-center pb-3">
+  <h1 class="text-center pt-3 fw-bolder">Celebrity</h1>
+</div>
+<div class="d-flex flex-row justify-content-center px-5">
+  <div class="card px-3 border-0" style="width: 400px;">
+    <img
+      src="https://phantom-marca.unidadeditorial.es/956f281c3744e86b8482ffe7cae261b6/resize/828/f/webp/assets/multimedia/imagenes/2021/04/25/16193814047499.jpg"
+      class="card-img-top img-fluid d-flex mx-auto"  
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title"><strong>Name:</strong> {{celebrity.name}}</h5>
+      <h5 class="card-title"><strong
+        >Occupation:</strong>{{celebrity.occupation}}</h5>
+      <h5 class="card-title"><strong
+        >CatchPhrase:</strong>{{celebrity.catchPhrase}}</h5>
+      <div class="d-flex flex-column">
+        <a
+          href="/celebrities/{{celebrity.id}}/edit"
+          class="btn btn-primary p-2 mt-2"
+          role="button"
+        >Edit</a>
+        <a>
+          <form
+            action="/celebrities/{{celebrity.id}}/delete"
+            method="POST"
+            class="d-flex flex-column pt-3"
+          >
+            <button class="btn btn-danger pt-2">Delete</button>
+          </form>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

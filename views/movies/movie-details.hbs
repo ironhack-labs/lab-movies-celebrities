@@ -1,17 +1,35 @@
-<a href="/" class="btn btn-primary" role="button">Home</a>
-
-<a href="/movies" class="btn btn-primary" role="button">Movies</a>
-
-
-  <h1>title: {{movie.title}}</h1>
-  <h2>genre: {{movie.genre}}</h2>
-  <h3>plot: {{movie.plot}}</h3>
-  <h3>cast: {{movie.cast}}</h3>
-
-<a
-  href="/movies/{{movie.id}}/edit"
-  class="btn btn-primary"
-  role="button"
->Udpate</a>
-<form action="/movies/{{movie.id}}/delete" method="POST">
-  <button class="btn btn-danger">Delete</button>
+<div class="d-flex flex-column align-items-center justify-content-center pb-3">
+  <h1 class="text-center pt-3 fw-bolder">Movie</h1>
+</div>
+<div class="d-flex flex-row justify-content-center px-5">
+  <div class="card px-3 border-0" style="width: 400px;">
+    <img
+      src="https://media.istockphoto.com/photos/cinema-objects-picture-id184151977"
+      class="card-img-top img-fluid d-flex mx-auto"
+      style="height: 175px;width:350px"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title"><strong>Title:</strong> {{movie.title}}</h5>
+      <h5 class="card-title"><strong>Genre:</strong>{{movie.genre}}</h5>
+      <h5 class="card-title"><strong>Plot:</strong>{{movie.plot}}</h5>
+      <h5 class="card-title"><strong>cast:</strong>{{movie.cast}}</h5>
+      <div class="d-flex flex-column">
+        <a
+          href="/movies/{{movie.id}}/edit"
+          class="btn btn-primary p-2 mt-2"
+          role="button"
+        >Edit</a>
+        <a>
+          <form
+            action="/movies/{{movie.id}}/delete"
+            method="POST"
+            class="d-flex flex-column pt-3"
+          >
+            <button class="btn btn-danger pt-2">Delete</button>
+          </form>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

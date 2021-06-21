@@ -1,12 +1,25 @@
-<a href="/" class="btn btn-primary" role="button">Home</a>
+<div class="d-flex flex-column align-items-center justify-content-center pb-5">
+  <h1 class="text-center pt-5 pb-2 fw-bolder">CELEBRITIES</h1>
+  <a href="/celebrities/create" class="btn btn-primary p-2 fw-bolder" role="button">Add a new
+    celebrities</a>
+</div>
+<div class="d-flex flex-row justify-content-center px-5 pt-5">
+  {{#each celebrities}}
+    <div class="card px-3 border-0" style="width: 18rem;">
+      <img
+        src="https://phantom-marca.unidadeditorial.es/956f281c3744e86b8482ffe7cae261b6/resize/828/f/webp/assets/multimedia/imagenes/2021/04/25/16193814047499.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title"><strong>Name:</strong> {{this.name}}</h5>
+        <a
+          href="/celebrities/{{this.id}}"
+          class="btn btn-primary d-flex flex-column justify-content-center"
+          role="button"
+        >See more</a>
+      </div>
+    </div>
 
-<a href="/celebrities/create" class="btn btn-primary" role="button">Add a new
-  celebrities</a>
-
-{{#each celebrities}}
-
-  <h1>name: {{this.name}}</h1>
-  <a href="/celebrities/{{this.id}}" class="btn btn-primary" role="button">See
-    more</a>
-
-{{/each}}
+  {{/each}}
+</div>

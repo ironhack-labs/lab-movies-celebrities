@@ -1,8 +1,21 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Big Shoulders Stencil Display', cursive;
 }
 
 a {
   color: #00b7ff;
+  font-size: 20px
+}
+
+.bg-image {
+  background-image: url("https://i.blogs.es/aa91a3/cine-/1366_2000.jpg");
+  background-size: cover;
+  height: 92vh;
+  width: 100vw;
+}
+
+h5{
+  font-size: 35px
 }

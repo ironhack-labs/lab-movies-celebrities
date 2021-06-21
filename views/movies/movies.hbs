@@ -1,12 +1,28 @@
-<a href="/" class="btn btn-primary" role="button">Home</a>
+<div class="d-flex flex-column align-items-center justify-content-center pb-5">
+  <h1 class="text-center pt-5 pb-2 fw-bolder">MOVIES</h1>
+  <a
+    href="/movies/create"
+    class="btn btn-primary p-2 fw-bolder"
+    role="button"
+  >Add a new movies</a>
+</div>
+<div class="d-flex flex-row justify-content-center px-5 pt-5">
+  {{#each movies}}
+    <div class="card px-3 border-0" style="width: 18rem;">
+      <img
+        src="https://media.istockphoto.com/photos/cinema-objects-picture-id184151977"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title"><strong>title:</strong> {{this.title}}</h5>
+        <a
+          href="/movies/{{this.id}}"
+          class="btn btn-primary d-flex flex-column justify-content-center"
+          role="button"
+        >See more</a>
+      </div>
+    </div>
 
-<a href="/movies/create" class="btn btn-primary" role="button">Add a new
-  movies</a>
-
-{{#each movies}}
-
-  <h1>title: {{this.title}}</h1>
-  <a href="/movies/{{this.id}}" class="btn btn-primary" role="button">See
-    more</a>
-
-{{/each}}
+  {{/each}}
+</div>
