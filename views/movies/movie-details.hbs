@@ -1,0 +1,16 @@
+<a href="/" class="btn btn-primary" role="button">Home</a>
+
+<a href="/movies" class="btn btn-primary" role="button">Movies</a>
+
+
+  <h1>title: {{movie.title}}</h1>
+  <h2>genre: {{movie.genre}}</h2>
+  <h3>plot: {{movie.plot}}</h3>
+
+<a
+  href="/movies/{{movie.id}}/edit"
+  class="btn btn-primary"
+  role="button"
+>Udpate</a>
+<form action="/movies/{{movie.id}}/delete" method="POST">
+  <button class="btn btn-danger">Delete</button>

@@ -1,0 +1,16 @@
+<a href="/" class="btn btn-primary" role="button">Home</a>
+
+<a href="/celebrities" class="btn btn-primary" role="button">Celebrities</a>
+
+
+  <h1>name: {{celebrity.name}}</h1>
+  <h2>occupation: {{celebrity.occupation}}</h2>
+  <h3>catchPhrase: {{celebrity.catchPhrase}}</h3>
+
+<a
+  href="/celebrities/{{celebrity.id}}/edit"
+  class="btn btn-primary"
+  role="button"
+>Udpate</a>
+<form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+  <button class="btn btn-danger">Delete</button>
