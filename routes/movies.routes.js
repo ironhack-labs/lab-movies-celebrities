@@ -13,7 +13,6 @@ module.exports.home = (req, res, next) => {
 
 module.exports.createMovie = (req, res, next) => {
   Celebrity.find().then((celebrities) => {
-    console.log(celebrities);
     res.render("movies/new-movie.hbs", { celebrities });
   });
 };
@@ -40,14 +39,12 @@ module.exports.idMovie = (req, res, next) => {
 module.exports.editMovie = (req, res, next) => {
   Promise.all([Movie.findById(req.params.id), Celebrity.find()])
     .then(([movie, celebrities]) => {
-      console.log(celebrities);
       res.render(`movies/edit-movie.hbs`, { movie, celebrities });
     })
     .catch((e) => console.error(e));
 };
 
 module.exports.doEditMovie = (req, res, next) => {
-  console.log(req.body)
   Movie.findByIdAndUpdate(req.params.id, req.body)
     .then((movie) => res.redirect(`/movies`))
     .catch((e) => console.error(e));
