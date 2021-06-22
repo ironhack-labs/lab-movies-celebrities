@@ -13,6 +13,7 @@ module.exports.home = (req, res, next) => {
 
 module.exports.createMovie = (req, res, next) => {
   Celebrity.find().then((celebrities) => {
+    console.log(celebrities);
     res.render("movies/new-movie.hbs", { celebrities });
   });
 };
@@ -28,35 +29,33 @@ module.exports.doCreateMovie = (req, res, next) => {
 module.exports.idMovie = (req, res, next) => {
   const { id } = req.params;
   Movie.findById(id)
+    .populate("cast")
     .then((movie) => {
-      res.render("movies/movie-details.hbs", { movie });
+      console.log(movie);
+      res.render("movies/movie-details.hbs", movie);
     })
     .catch((e) => console.error(e));
 };
 
 module.exports.editMovie = (req, res, next) => {
-  const { id } = req.params;
-  Movie.findById(id)
-    .then((movie) => {
-      Celebrity.find().then((celebrity) => {
-        const data = {
-          ...movie,
-          celebrity,
-        };
-        res.render(`movies/edit-movie.hbs`, data);
-      });
+  Promise.all([Movie.findById(req.params.id), Celebrity.find()])
+    .then(([movie, celebrities]) => {
+      console.log(celebrities);
+      res.render(`movies/edit-movie.hbs`, { movie, celebrities });
     })
     .catch((e) => console.error(e));
 };
 
 module.exports.doEditMovie = (req, res, next) => {
+  console.log(req.body)
   Movie.findByIdAndUpdate(req.params.id, req.body)
     .then((movie) => res.redirect(`/movies`))
     .catch((e) => console.error(e));
 };
 
 module.exports.deleteMovie = (req, res, next) => {
-  Movie.findByIdAndDelete(req.params.id)
+  const { id } = req.params;
+  Movie.findByIdAndDelete(id)
     .then((movie) => res.redirect(`/movies`))
     .catch((e) => console.error(e));
 };

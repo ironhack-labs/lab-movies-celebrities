@@ -1,8 +1,8 @@
-<div class="d-flex flex-column align-items-center justify-content-center pb-3">
-  <h1 class="text-center pt-3 fw-bolder">Movie</h1>
+<div class="d-flex flex-column align-items-center justify-content-center pb-2">
+  <h1 class="text-center pt-2 fw-bolder">Movie</h1>
 </div>
 <div class="d-flex flex-row justify-content-center px-5">
-  <div class="card px-3 border-0" style="width: 400px;">
+  <div class="card px-2 border-0" style="width: 500px;">
     <img
       src="https://media.istockphoto.com/photos/cinema-objects-picture-id184151977"
       class="card-img-top img-fluid d-flex mx-auto"
@@ -10,23 +10,26 @@
       alt="..."
     />
     <div class="card-body">
-      <h5 class="card-title"><strong>Title:</strong> {{movie.title}}</h5>
-      <h5 class="card-title"><strong>Genre:</strong>{{movie.genre}}</h5>
-      <h5 class="card-title"><strong>Plot:</strong>{{movie.plot}}</h5>
-      <h5 class="card-title"><strong>cast:</strong>{{movie.cast}}</h5>
+      <h5 class="card-title"><u><strong>Title: </strong></u> {{title}}</h5>
+      <h5 class="card-title"><u><strong>Genre: <strong></u> {{genre}}</h5>
+      <h5 class="card-title"><u><strong>Plot: <strong></u> {{plot}}</h5>
+      <h5 class="card-title"><u><strong>cast: <strong></u></h5>
+      {{#each cast}}
+        <p>{{this.name}}, {{this.occupation}} - "{{this.catchPhrase}}"</p>        
+      {{/each}}
       <div class="d-flex flex-column">
         <a
-          href="/movies/{{movie.id}}/edit"
-          class="btn btn-primary p-2 mt-2"
+          href="/movies/{{id}}/edit"
+          class="btn btn-primary p-1 mt-1"
           role="button"
         >Edit</a>
         <a>
           <form
-            action="/movies/{{movie.id}}/delete"
+            action="/movies/{{id}}/delete"
             method="POST"
-            class="d-flex flex-column pt-3"
+            class="d-flex flex-column pt-1"
           >
-            <button class="btn btn-danger pt-2">Delete</button>
+            <button class="btn btn-danger pt-1">Delete</button>
           </form>
         </a>
       </div>

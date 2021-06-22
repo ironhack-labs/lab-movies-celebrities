@@ -1,7 +1,7 @@
 <div class="container d-felx flex-row align-items-center">
   <h2 class="text-center fw-bolder pt-5">Update your movie</h2>
 
-  <form action="/movies/{{_doc._id}}/edit" method="POST" class="d-flex flex-row justify-content-center pt-3">
+  <form action="/movies/{{movie.id}}/edit" method="POST" class="d-flex flex-row justify-content-center pt-3">
     <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
       <label for="title" class="fw-bolder">Title:</label>
       <input
@@ -9,7 +9,7 @@
         class="form-control"
         id="title"
         name="title"
-        value={{_doc.title}}
+        value={{movie.title}}
       />
     </div>
     <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
@@ -19,7 +19,7 @@
         class="form-control"
         id="genre"
         name="genre"
-        value={{_doc.genre}}
+        value={{movie.genre}}
       />
     </div>
     <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
@@ -29,15 +29,15 @@
         class="form-control"
         id="plot"
         name="plot"
-        value={{_doc.plot}}
+        value={{movie.plot}}
       />
 
     </div>
     <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
       <label for="celebrities">Choose a celebrity:</label>
       <select name="cast" id="cast" multiple>
-        {{#each celebrity}}
-          <option value={{this.name}} style="width: 200px;">{{this.name}}</option>
+        {{#each celebrities}}
+          <option value={{this.id}} style="width: 200px;">{{this.name}}</option>
         {{/each}}
       </select>
     </div>
