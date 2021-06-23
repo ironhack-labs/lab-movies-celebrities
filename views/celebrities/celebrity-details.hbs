@@ -1,0 +1,12 @@
+<h2>{{name}}</h2>
+    <div>
+        <p>Occupation: {{occupation}}</p>
+        <p>Catch Phrase: {{catchPhrase}}</p>
+    
+        <form class = "mb-3" action="/celebrities/{{id}}/edit" method="GET">
+            <button type="submit" class="btn btn-primary">Edit celebrity</button>
+        </form>
+        <form action="/celebrities/{{id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger">Delete celebrity</button>
+        </form>
+    </div>

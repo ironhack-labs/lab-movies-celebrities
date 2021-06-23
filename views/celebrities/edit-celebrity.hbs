@@ -1,0 +1,21 @@
+<h2>Edit {{name}}</h2>
+
+    <form action="/celebrities/{{id}}/edit" method="POST">
+    <div class="d-flex flex-row ">
+        <div class="justify-content-center" style="margin-right: 10px;">
+            <h5>Name</h5>
+            <input name="name" placeholder="Name" value="{{name}}">
+        </div>
+        <div class="justify-content-center" style="margin-right: 10px;">
+            <h5>Occupation</h5>
+            <input name="occupation" placeholder="Occupation" value="{{occupation}}">
+        </div>
+        <div class="justify-content-center" style="margin-right: 10px;">
+            <h5>Catch Phrase</h5>
+            <textarea name="catchPhrase" placeholder="Catch Phrase">{{catchPhrase}}</textarea>
+        </div>
+
+    </div>
+        
+        <button type="submit" class="btn btn-primary">Edit celebrity</button>
+    </form>
