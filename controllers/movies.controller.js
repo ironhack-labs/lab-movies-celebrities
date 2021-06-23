@@ -28,4 +28,14 @@ module.exports.list =((req, res, next) => {
         res.render("movies/movies", { movies })
     })
     .catch(e => console.error(e))
+});
+
+module.exports.detail = ((req, res, next) => {
+    const { id } = req.params;
+    Movie.findById(id)
+        .populate("cast")
+        .then((movie) => {
+            console.log(movie)
+            res.render("movies/movie-details", movie )
+        } )
 })

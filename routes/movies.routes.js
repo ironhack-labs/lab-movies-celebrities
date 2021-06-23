@@ -9,6 +9,8 @@ router.get("/create", movieControllers.create);
 
 router.post("/create", movieControllers.doCreate);
 
+router.get("/movies/:id", movieControllers.detail)
+
 // all your routes here
 
 module.exports = router;

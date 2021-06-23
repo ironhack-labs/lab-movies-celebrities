@@ -1,0 +1,15 @@
+<h2>{{title}}</h2>
+    <div>
+        <p>Genre: {{genre}}</p>
+        <p>Plot: {{plot}}</p>
+        <div>
+            <h4>Cast</h4>
+            {{#each cast}}
+                <p>{{name}}</p>
+                    <ul>
+                        <li>Occupation: {{occupation}}</li>
+                        <li>Catch Phrase: {{catchPhrase}}</li>
+                    </ul>
+            {{/each}}
+        </div>
+    </div>
