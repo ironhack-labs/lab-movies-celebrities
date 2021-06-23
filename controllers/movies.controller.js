@@ -47,4 +47,19 @@ module.exports.delete = ((req, res, next) => {
             res.redirect("/movies")
         })
         .catch((e) => console.error(e))
+});
+
+module.exports.edit = ((req, res, next) => {
+    Promise.all([Movie.findById(req.params.id), Celebrity.find()])
+        .then(([movie, celebrities]) => {
+            console.log(movie)
+            res.render("movies/edit-movie", { movie, celebrities })
+        })
+        .catch((e) => console.error(e))
+})
+
+module.exports.doEdit = ((req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.redirect(`/movies/${req.params.id}`))
+        .catch(() => res.redirect(`/movies/${req.params.id}/edit`))
 })

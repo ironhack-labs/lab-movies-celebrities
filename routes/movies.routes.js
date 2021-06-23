@@ -9,10 +9,13 @@ router.get("/create", movieControllers.create);
 
 router.post("/create", movieControllers.doCreate);
 
-router.get("/movies/:id", movieControllers.detail);
+router.get("/:id", movieControllers.detail);
 
-router.post("/movies/:id/delete", movieControllers.delete)
+router.post("/:id/delete", movieControllers.delete);
 
+router.get("/:id/edit", movieControllers.edit)
+
+router.post("/:id/edit", movieControllers.doEdit)
 // all your routes here
 
 module.exports = router;

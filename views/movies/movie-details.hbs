@@ -12,7 +12,9 @@
                     </ul>
             {{/each}}
         </div>
-
+        <form action="/movies/{{id}}/edit" method="GET">
+            <button type="submit" class="btn btn-primary">Edit movie</button>
+        </form>
         <form action="/movies/{{id}}/delete" method="POST">
             <button type="submit" class="btn btn-danger">Delete movie</button>
         </form>
