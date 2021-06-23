@@ -39,3 +39,12 @@ module.exports.detail = ((req, res, next) => {
             res.render("movies/movie-details", movie )
         } )
 })
+
+module.exports.delete = ((req, res, next) => {
+    const { id } = req.params;
+    Movie.findByIdAndDelete(id)
+        .then(() => {
+            res.redirect("/movies")
+        })
+        .catch((e) => console.error(e))
+})

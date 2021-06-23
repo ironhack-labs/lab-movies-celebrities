@@ -9,7 +9,9 @@ router.get("/create", movieControllers.create);
 
 router.post("/create", movieControllers.doCreate);
 
-router.get("/movies/:id", movieControllers.detail)
+router.get("/movies/:id", movieControllers.detail);
+
+router.post("/movies/:id/delete", movieControllers.delete)
 
 // all your routes here
 
