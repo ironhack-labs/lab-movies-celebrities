@@ -3,7 +3,7 @@ const Celebrity = require('../models/Celebrity.model');
 
 module.exports.createCelebrity = (req, res, next) => {
     res.render('celebrities/new-celebrity')
-}
+};
 
 module.exports.doCreateCelebrity = (req, res, next) => {
     Celebrity.create(req.body)
@@ -12,5 +12,6 @@ module.exports.doCreateCelebrity = (req, res, next) => {
     })
     .catch((e) => res.render('celebrities/new-celebrity'))
 };
+
 
 module.exports = router;

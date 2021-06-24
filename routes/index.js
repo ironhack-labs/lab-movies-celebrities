@@ -10,4 +10,6 @@ router.get("/", (req, res, next) => {
 router.get('/celebrities/create', celebrityController.createCelebrity);
 router.post('/celebrities/create', celebrityController.doCreateCelebrity);
 
+router.get('/celebrities', celebrityController);
+
 module.exports = router;
