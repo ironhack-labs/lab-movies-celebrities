@@ -4,7 +4,7 @@ const movieController = require('../controllers/movies.controller');
 
 /* GET home page */
 router.get("/", (req, res, next) => {
-  res.render("index", {title: 'Celebrities'});
+  res.render("index");
 });
 
 router.get('/celebrities/create', celebrityController.createCelebrity);
