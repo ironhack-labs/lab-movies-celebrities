@@ -53,16 +53,16 @@ router.get('/:movieId/edit', (req, res, next) => {
         .then(() => Celebrity.find())
         .then(result => celebrities = result)
         .then(() => {
-            // const selectedCeleb = celebrities.map((cel => {
-            //     if(movie.cast.includes(cel.id)) return {cel, selected: true}
-            //     else return {cel, selected: false}
-            // }))
-            res.render('movies/edit-movie', {movie, celebrities});
+            const selCelebs = celebrities.map((cel) => {
+                return {cel, selected: movie.cast.includes(cel.id)}
+            })
+            res.render('movies/edit-movie', {movie, selCelebs});
         }) 
         .catch(err => console.error(err));
 });
 
 router.post('/:movieId/edit', (req, res, next) => {
+    res.send(req.body);
     Movie
         .findByIdAndUpdate(req.params.movieId, req.body)
         .then(() => res.redirect('/movies/'+req.params.movieId))
