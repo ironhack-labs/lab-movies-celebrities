@@ -7,11 +7,20 @@ module.exports.createCelebrity = (req, res, next) => {
 
 module.exports.doCreateCelebrity = (req, res, next) => {
     Celebrity.create(req.body)
-    .then((celebity) => {
-        res.redirect('/celebrities')
-    })
-    .catch((e) => res.render('celebrities/new-celebrity'))
+        .then((celebrity) => {
+            res.redirect('/celebrities')
+        })
+        .catch((e) => res.render('celebrities/new-celebrity'))
 };
 
+module.exports.findCelebrity = (req, res, next) => {
+    Celebrity.find()
+        .then((celebrities) => {
+            res.render('celebrities/celebrities.hbs', {
+                    celebrities
+                })
+        .catch((e) => res.render('celebrities/new-celebrity'))
+        })
+}
 
 module.exports = router;
