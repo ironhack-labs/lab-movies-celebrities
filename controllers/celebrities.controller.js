@@ -25,3 +25,20 @@ module.exports.findCelebrity = (req, res, next) => {
         })
         .catch((e) => console.log((e)))
 };
+
+
+// Editar celebrities
+
+module.exports.editCelebrity = (req, res, next) => {
+    Celebrity.findById(req.params)
+      .then((celebrity) =>
+        res.render('celebrities/edit-celebrity.hbs', { celebrity })
+      )
+      .catch((e) => console.error(e));
+  };
+  
+  module.exports.doEditCelebrity = (req, res, next) => {
+    Celebrity.findByIdAndUpdate(req.params.id, req.body)
+      .then((celebrity) => res.redirect('/celebrities'))
+      .catch((e) => console.error(e));
+  };
