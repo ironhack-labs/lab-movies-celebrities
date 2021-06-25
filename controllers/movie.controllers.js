@@ -49,13 +49,16 @@ module.exports.deleteMovie = (req, res, next) => {
 }
 
 module.exports.editMovie = (req, res, next) => {
+    console.log("Entering edit movies")
     Promise.all([Movie.findById(req.params.id), Celebrity.find()])
     .then(([movie, celebrities]) => {
-        res.render("movies/edit-movie", { movie, celebrities })
+        res.render("movies/edit-movies", { movie, celebrities })
     })
     .catch((e) => console.error(e))
 }
 
-module.exports.doEditMovie = (req, res, next) => {
-    
-}
+module.exports.doEditMovie = ((req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => res.redirect(`/movies/${req.params.id}`))
+        .catch(() => res.redirect(`/movies/${req.params.id}/edit`))
+}) 

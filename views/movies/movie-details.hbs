@@ -8,8 +8,9 @@
 {{/each}}
 
 <h3>Actions:</h3>
+<form action="/movies/{{id}}/edit" method="GET">
+    <button type="submit" class="btn btn-primary">Edit movie</button>
+</form>
 <form action="/movies/{{id}}/delete" method="POST">
-<button type="submit"  class="btn btn-danger">Delete this movie</button>
-<form action="/movies/{{id}}/edit" method="POST"></form>
-<button type="submit"  class="btn btn-primary">Edit this movie</button>
+    <button type="submit" class="btn btn-danger">Delete movie</button>
 </form>
