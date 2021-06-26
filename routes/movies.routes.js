@@ -62,7 +62,6 @@ router.get('/:movieId/edit', (req, res, next) => {
 });
 
 router.post('/:movieId/edit', (req, res, next) => {
-    res.send(req.body);
     Movie
         .findByIdAndUpdate(req.params.movieId, req.body)
         .then(() => res.redirect('/movies/'+req.params.movieId))
