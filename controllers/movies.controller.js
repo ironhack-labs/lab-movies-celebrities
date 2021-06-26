@@ -32,17 +32,17 @@ module.exports.findMovie = (req, res, next) => {
 
 // Detalles de las movies
 module.exports.findId = (req, res, next) => {
-    Movie.findById(req.params)
+    Movie.findById(req.params.id)
         .populate('cast')
         .then((movie) => {
-            res.render("movies/movie-details", { movie })
+            res.render('movies/movie-details', { movie })
         })
         .catch((e) => console.log((e)))
 };
 
 // Borrar movies POST
 module.exports.deleteMovie = (req, res, next) => {
-    Movie.findByIdAndRemove(req.params)
-    .then((movie) => res.redirect('/movies', { movie }))
+    Movie.findByIdAndDelete(req.params.id)
+    .then((movie) => res.redirect('/movies'))
     .catch((e) => console.error(e));
 };
