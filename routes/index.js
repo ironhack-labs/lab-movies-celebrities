@@ -27,8 +27,8 @@ router.get('/movies/:id', movieController.findId);
 
 router.post('/movies/:id/delete', movieController.deleteMovie);
 
-router.get("/:id/edit", movieController.edit)
-router.post("/:id/edit", movieController.doEdit)
+router.get('movies/:id/edit', movieController.edit)
+router.post('movies/:id/edit', movieController.doEdit)
 
 // Exportación de rutas
 module.exports = router;
