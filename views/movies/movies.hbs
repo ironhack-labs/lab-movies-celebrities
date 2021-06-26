@@ -6,8 +6,12 @@
         {{#each movies}}
         <div class="col col-4">
 
+            {{>movieCard01}}
+            {{>movieCardDetailsButton}}
+            {{>movieCard03}}
+
             
-            <div class="card mb-3">
+            {{!-- <div class="card mb-3">
 
                 <img src="{{image}}" alt="" class="card-img-top">
                 <div class="card-body">
@@ -34,7 +38,7 @@
                     </a>
                 </div>
 
-            </div>   
+            </div>    --}}
             
         </div> 
         {{/each}}

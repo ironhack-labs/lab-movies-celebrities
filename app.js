@@ -13,8 +13,8 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const path = require("path");
 const hbs = require('hbs');
-// hbs.registerPartials(__dirname + "/views/partials")
-hbs.registerPartials(path.join(__dirname, "/views/partials"))
+hbs.registerPartials(__dirname + "/views/partials")
+// hbs.registerPartials(path.join(__dirname, "/views/partials"))
 
 
 const app = express();
