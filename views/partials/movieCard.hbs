@@ -1,0 +1,32 @@
+<div class="card mb-3">
+
+    <img src="{{image}}" alt="" class="card-img-top">
+    <div class="card-body">
+
+        <h5 class="card-title">{{title}}</h5>
+
+{{!-- *************************** --}}
+            <p class="card-text">{{genre}}</p>
+            <p class="card-text">
+                <span class="text-muted">{{plot}}</span>                                
+            </p>
+            <ul>
+                {{#each cast}}
+                <li>
+                    {{name}}
+                </li>
+                {{/each}}
+            </ul>
+ {{!-- **********************************                                            --}}
+            <a class="btn btn-warning" href="/movies/{{_id}}/edit">
+                Edit
+            </a>
+{{!-- ************************************* --}}
+            <form class="d-inline col col-4" action="/movies/{{_id}}/delete" method="post">
+                <button class="btn btn-danger btn-lg">Delete</button>
+            </form>   
+
+            {{!-- *************************************************** --}}
+        </div>
+
+    </div> 

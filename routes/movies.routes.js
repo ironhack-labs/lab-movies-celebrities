@@ -1,17 +1,10 @@
-// const router = require("express").Router();
-// router.get("/movies", (req, res, next) => {
-//     res.send('Movies Page!')
-// });
+const router = require("express").Router();
 
-// module.exports = router;
 const Movie = require('../models/Movie.model')
 const Celebrity = require('../models/Celebrity.model')
 
-
-
-module.exports = router => {
-
-router.get("/movies", (req, res, next) => {
+// all localhost:3000/movies routes here:
+router.get("/", (req, res, next) => {
         Movie
         .find({})
         .populate('cast')
@@ -21,7 +14,7 @@ router.get("/movies", (req, res, next) => {
         })
     });
 
-router.get("/movie/create", (req, res, next) => {
+router.get("/create", (req, res, next) => {
     Celebrity
     .find({})
     .then( celebrities => {
@@ -32,7 +25,7 @@ router.get("/movie/create", (req, res, next) => {
 });
 
     
-router.post("/movie/create", (req, res, next) => {
+router.post("/create", (req, res, next) => {
     const movie = req.body
     const {title, image, genre, plot, cast} = movie
     const validationConst = title && genre && image && plot 
@@ -58,7 +51,7 @@ router.post("/movie/create", (req, res, next) => {
         .catch(err => console.log(err))
 });
 
-router.get('/movies/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
     // res.send("Success!!!")
     const {id} = req.params
     Movie
@@ -69,7 +62,7 @@ router.get('/movies/:id', (req, res, next) => {
         })
 })
 
-router.post('/movie/:id/delete', (req, res, next) => {
+router.post('/:id/delete', (req, res, next) => {
     const {id} = req.params
     Movie   
         .findByIdAndRemove(id)
@@ -80,7 +73,7 @@ router.post('/movie/:id/delete', (req, res, next) => {
 })
 
 
-router.get("/movie/:id/edit", (req, res, next) => {
+router.get("/:id/edit", (req, res, next) => {
     const {id} = req.params
     Movie
         .findById(id)
@@ -89,7 +82,7 @@ router.get("/movie/:id/edit", (req, res, next) => {
         .then( movie => res.render('movies/edit-movie', movie ))    
 });
 
-router.post('/movie/:id/edit', (req, res, next) => {
+router.post('/:id/edit', (req, res, next) => {
     const {id} = req.params
     const {title, genre, image, plot, cast} = req.body
     Movie
@@ -105,4 +98,4 @@ router.post('/movie/:id/edit', (req, res, next) => {
 
 
 
-}
+module.exports = router;

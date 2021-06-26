@@ -11,7 +11,11 @@ const express = require('express');
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
+const path = require("path");
 const hbs = require('hbs');
+// hbs.registerPartials(__dirname + "/views/partials")
+hbs.registerPartials(path.join(__dirname, "/views/partials"))
+
 
 const app = express();
 
@@ -23,6 +27,7 @@ const projectName = 'lab-movies-celebrities';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+app.locals.siteTitle = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
 const index = require('./routes/index');

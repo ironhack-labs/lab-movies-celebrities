@@ -6,7 +6,9 @@
     <div class="row">
         <div class="col col-6 offset-3">
 
-            <div class="card mb-3">
+            {{>movieCard}}
+
+            {{!-- <div class="card mb-3">
 
                 <img src="{{image}}" alt="" class="card-img-top">
                 <div class="card-body">
@@ -24,15 +26,15 @@
                         {{/each}}
                     </ul>
                                                     
-                    <a class="btn btn-warning" href="/movie/{{_id}}/edit">
+                    <a class="btn btn-warning" href="/movies/{{_id}}/edit">
                         Edit
                     </a>
-                    <form class="d-inline col col-4" action="/movie/{{_id}}/delete" method="post">
+                    <form class="d-inline col col-4" action="/movies/{{_id}}/delete" method="post">
                         <button class="btn btn-danger btn-lg">Delete</button>
                     </form>   
                 </div>
 
-            </div>   
+            </div>    --}}
             
         </div> 
     </div>
