@@ -28,6 +28,14 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
+const newCelebrities = require('./routes/celebrities.routes');
+
+app.use('/', newCelebrities); //mucho tiempo perdido aquí, hemos de mantener el '/' y no poner /celebrities/create. 
+//dado que estamos queriendo que la app use dicha ruta en el inicio.. y no en ew celebrity view
+
+const newMovies= require('./routes/movies.routes')
+app.use('/', newMovies)
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 
