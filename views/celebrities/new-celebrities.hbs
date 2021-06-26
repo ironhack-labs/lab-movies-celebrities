@@ -1,30 +1,32 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-md-3 input-group input-group-lg">
             <form action="" method="post">
                 <hr>
                 <label for="name">Celebrity Name:
                     <input class="form-control" class="form-control" type="text">
-                    <hr>
+
                 </label>
+                <hr>
                 <hr>
                 <label for="occupation">Celebrity Occupation:
                     <input class="form-control" class="form-control" type="text">
-                    <hr>
+
                 </label>
+                <hr>
                 <hr>
                 <label for="catchPhrase">Celebrity Catchphrase:
                     <input class="form-control" class="form-control" type="text">
-                    <hr>
+
                 </label>
-                <button class="btn btn-light btn-block" type="submit">Submit</button>
+                <hr>
+                <button class="btn btn-outline-light btn-block" type="submit">Submit</button>
             </form>
+            {{#if errorMessage}}
+            <div style="margin-top: 20px; padding: 5px; color: white; background: rgba(182, 50, 50, 0.877); text-align: center; font-size: .95em">
+                {{errorMessage}}</div>
+            {{/if}}
         </div>
     </div>
 </div>
 
-{{!-- -Add an <h2> for the page's heading.
-    Add a <form> tag that makes a POST request to /celebrities/create.
-        Add <input> tags inside the form so the user can fill in values for each attribute of the celebrity. Make an
-        input for name, occupation, and catchPhrase
-        Add a <button> tag in the form so the user can submit the form once they are done filling it out. --}}

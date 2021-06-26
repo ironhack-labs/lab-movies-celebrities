@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 *{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', monospace;
 }
 nav{
   margin-bottom: 50px;
 }
 body{
-  background-color: rgba(236, 224, 208, 0.568);
+  background-color: rgba(36, 34, 31, 0.61);
 }
