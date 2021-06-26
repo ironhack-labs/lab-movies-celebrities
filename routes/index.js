@@ -13,8 +13,8 @@ router.post('/celebrities/create', celebrityController.doCreateCelebrity);
 
 router.get('/celebrities/', celebrityController.findCelebrity);
 
-router.get("/celebrities/:id/edit", celebrityController.editCelebrity);
-router.post("/celebrities/:id/edit", celebrityController.doEditCelebrity);
+// router.get("/celebrities/:id/edit", celebrityController.editCelebrity);
+// router.post("/celebrities/:id/edit", celebrityController.doEditCelebrity);
 
 
 // Rutas de movies
@@ -27,8 +27,8 @@ router.get('/movies/:id', movieController.findId);
 
 router.post('/movies/:id/delete', movieController.deleteMovie);
 
-router.get('movies/:id/edit', movieController.edit)
-router.post('movies/:id/edit', movieController.doEdit)
+router.get('movies/:id/edit', movieController.editMovie)
+router.post('movies/:id/edit', movieController.doEditMovie)
 
 // Exportación de rutas
 module.exports = router;

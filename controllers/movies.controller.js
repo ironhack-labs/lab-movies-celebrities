@@ -46,3 +46,17 @@ module.exports.deleteMovie = (req, res, next) => {
     .then((movie) => res.redirect('/movies'))
     .catch((e) => console.error(e));
 };
+
+module.exports.editMovie = (req, res, next) => {
+    Movie.findById(req.params)
+      .then((movie) =>
+        res.render('movies/edit-movie.hbs', { movie })
+      )
+      .catch((e) => console.error(e));
+  };
+  
+  module.exports.doEditMovie = (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body)
+      .then((movie) => res.redirect('/movies'))
+      .catch((e) => console.error(e));
+  };

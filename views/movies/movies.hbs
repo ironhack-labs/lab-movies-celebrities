@@ -1,5 +1,13 @@
-<h2>Movies</h2>
-
+<h1>Movies</h1>
+  <a
+    href="/movies/create"
+    role="button"
+  >Add a new movie</a>
 {{#each movies as |movie|}}
-<p>{{movie.title}}</p>
-{{/each}}
+        <h5><strong>Title:</strong> {{movie.title}}</h5>
+        <a
+          href="/movies/{{this.id}}"
+          role="button"
+        >See more</a>
+      </div>
+  {{/each}}
