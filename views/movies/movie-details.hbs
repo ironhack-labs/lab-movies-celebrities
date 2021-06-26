@@ -1,10 +1,10 @@
-<h2>{{title}}</h2>
+<h2>{{movie.title}}</h2>
 <div>
-  <p>Genre: {{genre}}</p>
-  <p>Plot: {{plot}}</p>
+  <p>Genre: {{movie.genre}}</p>
+  <p>Plot: {{movie.plot}}</p>
   <div>
     <h4>Cast</h4>
-    {{#each cast as |celebrity|}}
+    {{#each movie.cast as |celebrity|}}
       <p>{{celebrity.name}}</p>
       <ul>
         <li>Occupation: {{celebrity.occupation}}</li>
@@ -12,10 +12,10 @@
       </ul>
     {{/each}}
   </div>
-  <form action="/movies/{{id}}/edit" method="GET">
+  <form action="/movies/{{movie._id}}/edit" method="GET">
     <button type="submit">Edit movie</button>
   </form>
-  <form action="/movies/{{id}}/delete" method="POST">
+  <form action="/movies/{{movie._id}}/delete" method="POST">
     <button type="submit">Delete movie</button>
   </form>
 </div>

@@ -48,7 +48,7 @@ module.exports.deleteMovie = (req, res, next) => {
 };
 
 module.exports.editMovie = (req, res, next) => {
-    Movie.findById(req.params)
+    Movie.findById(req.params.id)
       .then((movie) =>
         res.render('movies/edit-movie.hbs', { movie })
       )
