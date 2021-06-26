@@ -1,32 +1,34 @@
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-6"><h2>Add a new celebrity</h2></div>
         <div class="col-md-3 input-group input-group-lg">
+
             <form action="/celebrities/create" method="post">
                 <hr>
                 <label for="name">Celebrity Name:
-                    <input class="form-control" class="form-control" type="text">
+                    <input class="form-control" name="name" type="text">
 
                 </label>
                 <hr>
                 <hr>
                 <label for="occupation">Celebrity Occupation:
-                    <input class="form-control" class="form-control" type="text">
+                    <input class="form-control" name="occupation" type="text">
 
                 </label>
                 <hr>
                 <hr>
                 <label for="catchPhrase">Celebrity Catchphrase:
-                    <input class="form-control" class="form-control" type="text">
+                    <input class="form-control" name="catchPhrase" type="text" autocomplete="off">
 
                 </label>
                 <hr>
                 <button class="btn btn-outline-light btn-block" type="submit">Submit</button>
             </form>
             {{#if errorMessage}}
-            <div style="margin-top: 20px; padding: 5px; color: white; background: rgba(182, 50, 50, 0.877); text-align: center; font-size: .95em">
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: rgba(182, 50, 50, 0.877); text-align: center; font-size: .95em">
                 {{errorMessage}}</div>
             {{/if}}
         </div>
     </div>
 </div>
-

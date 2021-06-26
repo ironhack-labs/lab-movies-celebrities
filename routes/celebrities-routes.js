@@ -10,13 +10,21 @@ router.get("/celebrities/create", (req, res) => res.render("./../views/celebriti
 
 router.post('/celebrities/create', (req, res) => {
 
-const { name, occupation, catchPhrase} = req.body
+    const { name, occupation, catchPhrase } = req.body
+    // Celebrity
+    //     .findOne({ name })
+    //     .then(celebrity => {
 
+    //         if (celebrity) {
+    //             res.render('/celebrities/create', { errorMessage: ' Celebrity already registered' })
+    //             return
+    //         }
+    //     })
     Celebrity
         .create({ name, occupation, catchPhrase })
-        .then(console.log(req.body))
+        .then(console.log('req.body =', [req.body]))
         .then(() => res.redirect('/celebrities/list'))
-    .catch(err => console.log(err))
+        .catch(err => console.log(err))
 })
 /*GET celebrities list */
 router.get('/celebrities/list', (req, res) => {
@@ -30,7 +38,7 @@ router.get('/celebrities/list', (req, res) => {
         .catch(err => console.log(err))
 })
 
- 
+
 
 
 
@@ -43,12 +51,12 @@ router.get('/celebrities/list', (req, res) => {
 
 
 module.exports = router;
-/* 
+/*
 Create the /celebrities/create POST route in routes/celebrities.routes.js.
-In that route we have to create an instance of the Celebrity model 
+In that route we have to create an instance of the Celebrity model
 (don't forget, we should get all the info from the form through req.body)
 If there is an error, render the celebrities/new-celebrity view so the user can try again and
-If there is no error, redirect to the page with the list of celebrities. 
+If there is no error, redirect to the page with the list of celebrities.
 This route will be created in the next iteration /celebrities
 In the views/index.hbs view file:
 Add a link that goes to the page you just created with the form to create a new celebrity.
