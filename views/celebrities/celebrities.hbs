@@ -1,0 +1,34 @@
+<h1>Celebrities</h1>
+<div class="container">
+    <div class="row">
+        {{#each celebrities}}
+        <div class="col col-4">
+
+            <div class="card mb-3">
+
+                        <img src="{{image}}" alt="" class="card-img-top">
+                        <div class="card-body">
+
+                            <h5 class="card-title">{{name}}</h5>
+                            <p class="card-text">{{ocupation}}</p>
+                            <p class="card-text">
+                                <span class="text-muted">{{catchPhrase}}</span>                                
+                            </p>
+                            <a class="btn btn-primary" href="#">
+                                Details on {{name}}
+                            </a>
+                            <a class="btn btn-warning" href="#">
+                                Edit
+                            </a>
+                        </div>
+
+            </div>   
+            
+        </div> 
+        {{/each}}
+    </div>
+</div>
+
+
+
+<a href="/celebrity/create" class="btn btn-info btn-lg">New Celebrity</a>
