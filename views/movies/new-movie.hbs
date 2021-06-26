@@ -24,9 +24,19 @@
                 <label class="form-label" for="plot">Plot</label>
                 <textarea class="form-control" type="text" id="plot" name="plot"></textarea>
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="cast">Cast</label>
-                
+
+
+            <div class="col-auto my-1">
+            <label class="mr-sm-2 sr-only" for="cast">Cast</label>
+            <select class="custom-select mr-sm-2" id="cast" name="cast">
+                <option selected>Choose...</option>
+                {{#each celebrities}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+                {{!-- <option value="60d76477c5b1c935187cf47b">One</option>
+                <option value="60d764bf4cda7b444c6a8b4d">Two</option>
+                <option value="60d764f24cda7b444c6a8b52">Three</option> --}}
+            </select>
             </div>
 
             <div class="mb-3">

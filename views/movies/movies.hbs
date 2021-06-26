@@ -6,21 +6,34 @@
 
             <div class="card mb-3">
 
-                        <img src="{{image}}" alt="" class="card-img-top">
-                        <div class="card-body">
+                <img src="{{image}}" alt="" class="card-img-top">
+                <div class="card-body">
 
-                            <h5 class="card-title">{{title}}</h5>
-                            <p class="card-text">{{genre}}</p>
-                            <p class="card-text">
-                                <span class="text-muted">{{plot}}</span>                                
-                            </p>
-                            <a class="btn btn-primary" href="#">
-                                Details on {{title}}
-                            </a>
-                            <a class="btn btn-warning" href="#">
-                                Edit
-                            </a>
-                        </div>
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{genre}}</p>
+                    <p class="card-text">
+                        <span class="text-muted">{{plot}}</span>                                
+                    </p>
+                    <ul>
+                        {{#each cast}}
+                        <li>
+                            {{name}}
+                        </li>
+                        {{/each}}
+                    </ul>
+
+
+                    
+
+
+
+                    <a class="btn btn-primary" href="#">
+                        Details on {{title}}
+                    </a>
+                    <a class="btn btn-warning" href="#">
+                        Edit
+                    </a>
+                </div>
 
             </div>   
             

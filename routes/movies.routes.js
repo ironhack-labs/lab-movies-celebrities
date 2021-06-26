@@ -11,18 +11,26 @@ const Celebrity = require('../models/Celebrity.model')
 
 module.exports = router => {
 
-    router.get("/movies", (req, res, next) => {
+router.get("/movies", (req, res, next) => {
         Movie
         .find({})
+        .populate('cast')
         .then( movies => {
             // res.send(movies)
             res.render('movies/movies', {movies})
         })
     });
 
-    router.get("/movie/create", (req, res, next) => {
-        res.render('movies/new-movie')
-    });
+router.get("/movie/create", (req, res, next) => {
+    Celebrity
+    .find({})
+    .then( celebrities => {
+        res.render('movies/new-movie', {celebrities})
+    }
+    )
+    
+});
+
     
 router.post("/movie/create", (req, res, next) => {
     const movie = req.body
@@ -48,10 +56,41 @@ router.post("/movie/create", (req, res, next) => {
 
     Movie
         .create( movie)
-        .then( () => res.redirect('/movies'))
+        .then( () => res.send(movie))
+        // .then( () => res.redirect('/movies'))
         .catch(err => console.log(err))
 
 });
+
+
+// router.post("/movie/create", (req, res, next) => {
+//     const movie = req.body
+//     const {title, image, genre, plot, cast} = movie
+//     const validationConst = title && genre && image && plot 
+
+//     if(!validationConst){
+//         res.render('movies/new-movie', {errorMessage: `All fields are mandatory.`})
+//         return
+//     }
+    
+
+//     Movie
+//         .findOne({title})
+//         .then( foundMovie => {
+//             if(foundMovie){
+//                 res.render('movies/new-movie', {errorMessage: `${movie} already registered.`})
+//                 return
+//             }
+//         })
+
+
+
+//     Movie
+//         .create( movie)
+//         .then( () => res.redirect('/movies'))
+//         .catch(err => console.log(err))
+
+// });
 
     router.get("/edit-movie", (req, res, next) => {
         res.render('movies/edit-movie')
