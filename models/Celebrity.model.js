@@ -1,6 +1,21 @@
 /*Iteration #2: The Celebrity model
-Our first step is to create the Celebrity model and add some celebrities in our database.
+Our first step is to create the Celebrity model and add some celebrities in our database.*/
 
+const mongoose = require("mongoose")
+
+const celebritySchema = new mongoose.Schema({
+    name: String,
+    occupation: String,
+    catchPhrase: String,
+    rating: Number
+}, {
+    timestamps: true
+})
+
+const Celebrity = mongoose.model("Celebrity", celebritySchema)
+
+module.exports = Celebrity
+/*
 The Celebrity model should have:
 
 name - String (like Tom Cruise, Beyonce, Daffy Duck, etc.)
