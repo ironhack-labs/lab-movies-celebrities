@@ -4,9 +4,33 @@ const router = require("express").Router();
 const Celebrity = require('./../models/Celebrity.model')
 
 /* GET celebrities page */
-router.get("/celebrities/create", (req, res, next) => res.render("./../views/celebrities/new-celebrities"))
+router.get("/celebrities/create", (req, res) => res.render("./../views/celebrities/new-celebrities"))
 
+/*POST celebrities page*/
 
+router.post('/celebrities/create', (req, res) => {
+
+const { name, occupation, catchPhrase} = req.body
+
+    Celebrity
+        .create({ name, occupation, catchPhrase })
+        .then(console.log(req.body))
+        .then(() => res.redirect('/celebrities/list'))
+    .catch(err => console.log(err))
+})
+/*GET celebrities list */
+router.get('/celebrities/list', (req, res) => {
+
+    Celebrity
+        .find()
+        .select('name')
+        .select('occupation')
+        .select('catchPhrase')
+        .then(celebrities => res.render('./../views/celebrities/celebrities', { celebrities }))
+        .catch(err => console.log(err))
+})
+
+ 
 
 
 
