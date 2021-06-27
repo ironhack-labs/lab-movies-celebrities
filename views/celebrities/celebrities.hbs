@@ -1,4 +1,9 @@
-<h1>Celebrities</h1>
+<h2>Celebrities</h2>
+{{#if errorMessage}}
+<div
+    style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+    {{errorMessage}}</div>
+{{/if}}
 <div class="container">
     <div class="row">
         {{#each celebrities}}
@@ -10,9 +15,9 @@
                         <div class="card-body">
 
                             <h5 class="card-title">{{name}}</h5>
-                            <p class="card-text">{{ocupation}}</p>
+                            <p class="card-text"><strong>Occupation: </strong> {{occupation}}</p>
                             <p class="card-text">
-                                <span class="text-muted">{{catchPhrase}}</span>                                
+                                <span class="text-muted"><strong>Catchphrase: </strong>{{catchPhrase}}</span>                                
                             </p>
                             <a class="btn btn-primary" href="#">
                                 Details on {{name}}

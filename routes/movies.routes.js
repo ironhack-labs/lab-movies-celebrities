@@ -5,13 +5,15 @@ const Celebrity = require('../models/Celebrity.model')
 
 // all localhost:3000/movies routes here:
 router.get("/", (req, res, next) => {
+    // what if the list if empty?
         Movie
         .find({})
-        .populate('cast')
+        .populate('cast') //not necessary
         .then( movies => {
             // res.send(movies)
             res.render('movies/movies', {movies})
         })
+        .catch( err => console.log(err))
     });
 
 router.get("/create", (req, res, next) => {
@@ -30,8 +32,8 @@ router.post("/create", (req, res, next) => {
     const {title, image, genre, plot, cast} = movie
     const validationConst = title && genre && image && plot 
 
-    if(!validationConst){
-        res.render('movies/new-movie', {errorMessage: `All fields are mandatory.`})
+    if(!validationConst || (typeof cast === "string")){
+        res.render('movies/new-movie', {errorMessage: `All fields are mandatory. Refresh page.`})
         return
     }   
 

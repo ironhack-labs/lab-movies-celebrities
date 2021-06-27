@@ -1,11 +1,12 @@
-    <p class="card-text">{{genre}}</p>
+    <p class="card-text"><strong>Genre</strong> : {{genre}}</p>
     <p class="card-text">
-        <span class="text-muted">{{plot}}</span>                                
+        <span class="text-muted"><strong>Plot</strong>: {{plot}}</span>                                
     </p>
     <ul>
+        <strong>Cast</strong>:
         {{#each cast}}
         <li>
-            {{name}}
+            {{name}} | {{occupation}}  | <em>"{{catchPhrase}}"</em>
         </li>
         {{/each}}
     </ul>
