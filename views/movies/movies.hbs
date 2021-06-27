@@ -5,10 +5,8 @@
 
     {{#each movies}}
     <p>- <strong> {{title}} </strong><br>
-        {{!-- <small>
-            {{occupation}} |
-            <i> {{catchPhrase}}</i>
-        </small> --}}
+        <a href="/movies/detailes/{{id}}" class="link-dark">Detailes</a> |
+        <a href="/movies/edit?book_id={{id}}" class="link-dark">Edit</a>
     </p>
     {{/each}}
 
