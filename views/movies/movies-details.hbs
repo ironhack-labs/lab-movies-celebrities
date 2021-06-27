@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1>{{title}}</h1>
+
+    <hr>
+    <div class="row justify-content-center">
+        
+        <form action="/movies/{{id}}/delete" method="POST">
+            <div class="col-md-12">
+
+                <p><strong>Plot</strong>: {{plot}}</p>
+                <p><strong>Genre</strong>: {{genre}}</p>
+                <p><strong>Cast</strong>:
+                    
+                    {{#each cast}}
+                    {{name}}</p>
+                    <p><strong>Occupation</strong>: {{occupation}}</p>
+                    <p><strong>Catch Phrase</strong>: {{catchPhrase}}</p>          
+                    {{/each}}
+                
+                <hr>
+            </div>
+                
+            <button class='btn btn-dark btn-block' type="submit">Delete Movie</button>
+            
+        </form>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Movies's list</h2>
+            <hr>
+            {{#each movies}}
+            <p>{{title}} |
+                <small>
+                    <a href="/movies/{{id}}">Details</a> |
+                    <a href="/movies/{{id}}/edit">Edit</a>
+                </small>
+            {{/each}}       
+            </p>
+            <hr>
+            <a href="/movies/create" class="btn btn-dark">Add a new movie to the list</a>
+
+        </div>
+    </div>
+</div>
