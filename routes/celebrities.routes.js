@@ -18,7 +18,7 @@ router.post('/celebrities/create', (req, res) => {
 
     //DESPUÉS DE REVISAR TEMA CATCHPHRASE, HAGO PRUEBA CREANDO UN NUEVO CELEBRITY Y UNA MOVIE ASOCIADA 
     //AL MISMO Y SI QUE ME APARECE EN MOVIE DETAILS EL CATCHPHRASE DE ESA CELEBRITY, TODO OK AHORA
-    
+
     Celebrity
 
         .create({ name, occupation, catchPhrase })
@@ -62,7 +62,7 @@ router.post('/celebrities/:id/delete', (req, res) => {
 
 // CELEBRITY DETAILS
 
-    
+
 
 router.get('/celebrities/:id', (req, res) => {
 
@@ -79,7 +79,33 @@ router.get('/celebrities/:id', (req, res) => {
 
 })
 
+//EDIT CELEBRITY (generar formulario con los datos rellenados de la celebrity a editar)
 
+router.get('/celebrities/:id/edit', (req, res) => {
+
+
+    const { id } = req.params
+
+    Celebrity
+        .findById(id)
+        .then((celebrity) => res.render('celebrities/edit-celebrities', celebrity))
+
+})
+
+//POST, ENVIAR LOS DATOS EDITADOS A LA BASE DE DATOS Y VOLVEMOS AL LISTADO UNA VEZ PULSAMOS 'EDIT CELEBRITY'
+
+router.post('/celebrities/:id', (req, res) => {
+
+    const { id } = req.params
+    const { name, occupation, catchPhrase } = req.body
+
+    Celebrity
+
+        .findByIdAndUpdate(id, { name, occupation, catchPhrase })
+
+        .then(() => res.redirect('../celebrities'))
+        .catch(err => console.log(err))
+})
 
 
 
