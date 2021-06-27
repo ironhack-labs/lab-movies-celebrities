@@ -1,0 +1,38 @@
+<div class="container">
+
+    <h1>DETAILS</h1>
+
+    <h1>Celebrity: {{name}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Occupation</strong>: {{occupation}}</p>
+            <p><strong>Catchphrase</strong>: {{catchPhrase}}</p>
+
+        </div>
+
+
+
+        {{!-- DESPUÉS DE COGER CADA PELI CON EL ID, Y POPULATE EL ATRIBUTO CAST DEL MODEL MOVIES
+        TENEMOS QUE ITERAR SOBRE EL ARRAY CAST PARA DESPLEGAR TODOS LOS "NAMES" DEL MODELO CELEBRITY --}}
+
+
+
+
+
+    </div>
+</div>
+
+<hr>
+<form action="/celebrities/{{id}}/delete" method="post">
+
+    <button type="submit" class="btn btn-dark">Delete this Celebrity </button>
+
+</form>
+
+<hr>
+<a href="../celebrities" class="btn btn-dark">Volver al listado</a>
+
+</div>

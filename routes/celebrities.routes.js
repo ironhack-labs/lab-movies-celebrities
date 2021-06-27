@@ -22,7 +22,7 @@ router.post('/celebrities/create', (req, res) => {
     Celebrity
 
         .create({ name, occupation, catchPhrase })
-        .then(() => res.redirect('celebrities'))
+        .then(() => res.redirect('../celebrities'))
         .catch(err => (console.log(err), res.redirect('celebrities/new-celebrity')))
 })
 
@@ -43,6 +43,45 @@ router.get('/celebrities', (req, res) => {
 
 
 })
+
+
+
+//DELETE A CELEBRITY
+
+router.post('/celebrities/:id/delete', (req, res) => {
+
+    const { id } = req.params
+
+    Celebrity
+
+        .findByIdAndRemove(id)
+        .then(() => res.redirect('..'))
+        .catch(err => console.log(err))
+
+})
+
+// CELEBRITY DETAILS
+
+    
+
+router.get('/celebrities/:id', (req, res) => {
+
+    const { id } = req.params
+
+
+    Celebrity
+
+        .findById(id)
+        .then(celebrity => res.render('celebrities/celebrities-details', celebrity))
+        .catch(err => console.log(err))
+
+
+
+})
+
+
+
+
 
 
 // all your routes here

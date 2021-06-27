@@ -16,8 +16,8 @@
 
                 {{!-- DESPUÉS DE COGER CADA PELI CON EL ID, Y POPULATE EL ATRIBUTO CAST DEL MODEL MOVIES
                 TENEMOS QUE ITERAR SOBRE EL ARRAY CAST PARA DESPLEGAR TODOS LOS "NAMES" DEL MODELO CELEBRITY --}}
-              
-              
+
+
                 {{#each cast}}
 
             <p>{{name}}</p>
@@ -27,6 +27,7 @@
 
             <hr>
 
+
             {{/each}}
 
             </p>
@@ -34,7 +35,13 @@
     </div>
 
     <hr>
+    <form action="/movies/{{id}}/delete" method="post">
 
-    <a href="movies/movies" class="btn btn-dark">Volver al listado</a>
+        <button type="submit" class="btn btn-dark">Delete this movie </button>
+
+    </form>
+
+    <hr>
+    <a href="../movies/movies" class="btn btn-dark">Volver al listado</a>
 
 </div>
