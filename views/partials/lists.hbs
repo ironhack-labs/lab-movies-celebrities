@@ -1,0 +1,24 @@
+<main class='celebriti-list bg-dark'>
+  <div class='container border-top border-light'>
+    {{#if celeb}}
+      <h2 class='text-center pt-5 text-info'>Celebridades</h2>
+    {{else}}
+      <h2 class='text-center pt-5 text-info'>Películas</h2>
+    {{/if}}
+    <div class='row pt-5'>
+      {{#if celeb}}
+        {{#each celeb}}
+          <div class='col-md-4 text-center pb-5'>
+            <a href='/celebrity/{{id}}'>{{name}}</a>
+          </div>
+        {{/each}}
+      {{else}}
+        {{#each movies}}
+          <div class='col-md-4 text-center pb-5'>
+            <a href='/movie/{{id}}'>{{title}}</a>
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</main>

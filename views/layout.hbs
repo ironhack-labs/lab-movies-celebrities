@@ -1,21 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
     <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/styles/style.css' />
   </head>
-
   <body>
-    <div class="container">
-      {{{body}}}
-    </div>
+    <nav class='navbar navbar-expand-sm navbar-light bg-light bg-dark'>
+      <a class='navbar-brand' href='/'>{{title}}</a>
+      <div class='collapse navbar-collapse'>
+        <ul class='navbar-nav ml-auto'>
+          <li class='nav-item'>
+            <a class='nav-link' href='/'>Home</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/celebrities/create'>crear celebrity</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/celebrities'>Celebridades</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/movies/create'>crear pelicula</a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='/movies'>Películas</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {{{body}}}
 
-    <script src="/javascripts/script.js"></script>
+    <script src='/javascripts/script.js'></script>
   </body>
 
 </html>

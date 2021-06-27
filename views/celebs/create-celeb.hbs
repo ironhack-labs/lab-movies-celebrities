@@ -1,0 +1,30 @@
+<main class='main-create-celeb'>
+
+  <h2 class='text-center pt-5 pb-5 h2-create text-light'>Crea un nuevo famoso</h2>
+  <div class='container bg-light pb-2 pt-2 rounded'>
+
+    <form action='/celebrities/create' method='POST'>
+      <div class='form-group'>
+
+        <label for='name'>Name</label>
+        <input type='text' class='form-control' id='name' name='name' />
+      </div>
+
+      <div class='form-group'>
+        <label for='occupation'>Ocupación</label>
+        <input type='text' class='form-control' id='occupation' name='occupation' />
+      </div>
+
+      <div class='form-group'>
+        <label for='image'>IMG(url)</label>
+        <input type='text' class='form-control' id='image' name='image' />
+      </div>
+
+      <div class='form-group'>
+        <label for='catchPhrase'>Frase</label>
+        <input type='text' class='form-control' id='catchPhrase' name='catchPhrase' />
+      </div>
+      <button type='submit' class='btn btn-success btn-block'>Crear</button>
+    </form>
+  </div>
+</main>

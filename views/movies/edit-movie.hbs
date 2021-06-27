@@ -1,0 +1,44 @@
+
+
+<main class="main-edit">
+
+<div class="container pt-5">
+
+
+{{#with movie}}
+<form action='/movie/{{id}}' method='POST'>
+  <div class='form-group'>
+      
+
+    <label for='title'>Título</label>
+    <input type='text' class='form-control' id='title' name='title' value="{{title}}"/>
+    {{! <small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small> }}
+  </div>
+
+  <div class='form-group'>
+    <label for='genre'>Género</label>
+    <input type='text' class='form-control' id='genre' name='genre' value="{{genre}}" />
+  </div>
+
+  <div class='form-group'>
+    <label for='plot'>IMG(url)</label>
+    <input type='text' class='form-control' id='plot' name='plot' value="{{plot}}" />
+  </div>
+
+  
+ 
+  <select name='celebId' class='form-select d-block ml-auto mr-auto' aria-label='.form-select-lg example'>
+      {{#each cast}}
+    <option selected value="{{id}}">{{name}}</option>
+    {{/each}}
+{{/with}}
+
+    {{#each celebs}}
+      <option value='{{id}}'>{{name}}</option>
+    {{/each}}
+  </select>
+
+  <button type='submit' class='btn btn-primary btn-block mt-3'>Editar</button>
+</form>
+</div>
+</main>

@@ -1,0 +1,40 @@
+<main class='main-create-film'>
+
+  <div class='container container-form d-flex align-items-center'>
+
+    <div class='form bg-light rounded pt-4 pr-4 pb-4 pl-4'>
+
+      <h1 class='text-center'>Crea tu película</h1>
+
+      <form action='/movies/create' method='POST'>
+        <div class='form-group'>
+
+          <label for='title'>Título</label>
+          <input type='text' class='form-control' id='title' name='title' />
+          {{! <small id='emailHelp' class='form-text text-muted'>We'll never share your email with anyone else.</small> }}
+        </div>
+
+        <div class='form-group'>
+          <label for='genre'>Género</label>
+          <input type='text' class='form-control' id='genre' name='genre' />
+        </div>
+
+        <div class='form-group'>
+          <label for='plot'>IMG(url)</label>
+          <input type='text' class='form-control' id='plot' name='plot' />
+        </div>
+
+        <select name='celebId' class='form-select d-block ml-auto mr-auto' aria-label='.form-select-lg example'>
+          <option selected>Select your celebrity</option>
+
+          {{#each celebs}}
+            <option value='{{id}}'>{{name}}</option>
+          {{/each}}
+        </select>
+
+        <button type='submit' class='btn btn-primary'>Crear</button>
+      </form>
+
+    </div>
+  </div>
+</main>

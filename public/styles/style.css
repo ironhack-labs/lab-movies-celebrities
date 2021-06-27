@@ -1,0 +1,88 @@
+body {
+  /* padding: 50px; */
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.main-index {
+  height: 95vh;
+  background: url('../images/celebs.jpeg') no-repeat;
+  background-size: cover;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  transition: all 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(235, 203, 203);
+}
+
+.navbar-light .navbar-brand {
+  color: crimson;
+  transition: all 0.3s;
+}
+.navbar-light .navbar-brand:hover {
+  color: rgb(235, 203, 203);
+}
+
+/* create celeb */
+
+.main-create-celeb {
+  height: 95vh;
+  background: url('../images/celebrities.jpeg') no-repeat;
+  background-size: cover;
+}
+
+.rounded {
+  border-radius: 15px !important;
+}
+
+.h2-create {
+  text-shadow: 0px 0px 6px black;
+}
+
+.celebriti-list {
+  height: 95vh;
+}
+.celebriti-list a {
+  text-decoration: none;
+}
+
+.main-create-film {
+  height: 95vh;
+  background: url('../images/rollo-peli.jpeg') no-repeat;
+  background-size: cover;
+}
+
+.form {
+  width: 100%;
+}
+
+.container-form {
+  height: 95vh;
+}
+
+.details img {
+  width: 100%;
+}
+
+/* edit */
+
+.main-edit {
+  height: 95vh;
+  background: url('../images/maintenance.jpeg') no-repeat;
+  background-size: cover;
+}
+.main-edit label {
+  text-shadow: -1px -1px 2px white;
+}
+
+.main-details {
+  height: 95vh;
+  color: white;
+}

@@ -1,0 +1,58 @@
+<main class='main-details bg-dark border-top border-light pb-5'>
+  <div class='container details'>
+      <h1 class='text-center pt-5'>Details</h1>
+      <div class='row pt-5'>
+        <div class='col-md-5'>
+    {{#if celeb}}
+        {{#with celeb}}
+            <img src='{{image}}' alt='title' />
+        {{/with}}
+    {{else}}
+        {{#with movie}}
+             <img src='{{plot}}' alt='title' />
+        {{/with}}
+    {{/if}}        
+        </div>
+        <div class='col-md-7 d-flex flex-column justify-content-between pt-5'>
+          <div>
+        {{#if movie}}
+        {{#with movie}}
+            <h3>{{title}}</h3>
+            <h4>{{genre}}</h4>
+            {{#each cast}}
+                <p><strong>Actor principal:</strong> {{name}}</p>
+                <p><strong>Frase conocida de <a href="/celebrity/{{id}}">{{name}}</a>:</strong> {{catchPhrase}}</p>
+        {{/each}}
+        {{/with}}
+        {{else}}
+        {{#with celeb}}
+            <h3>{{name}}</h3>
+            <p>{{occupation}}</p>
+            <p>{{catchPhrase}}</p>
+        {{/with}}
+        {{/if}}
+          </div>
+          <div>
+              {{#if movie}}
+                {{#with movie}}
+                    <form action='/movie/{{id}}/edit/{{#each cast}}{{id}}{{/each}}' method='POST'>
+                    <input type='submit' value='Edit' class="btn btn-info btn-block" />
+                    </form>
+                    <form action='/movie/{{id}}/delete' method='POST'>
+                    <input type='submit' value='delete' class="btn btn-danger btn-block" />
+                {{/with}}
+              {{else}}
+              {{#with celeb}}
+            <form action='/celeb/{{id}}/edit' method='get'>
+              <input type='submit' value='Edit' class='btn btn-info btn-block' />
+            </form>
+            <form action='/celeb/{{id}}/delete' method='POST'>
+              <input type='submit' value='delete' class='btn btn-danger btn-block' />
+            </form>
+            {{/with}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+  </div>
+</main>

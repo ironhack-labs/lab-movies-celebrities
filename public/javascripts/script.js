@@ -1,7 +1,13 @@
 document.addEventListener(
-  "DOMContentLoaded",
+  'DOMContentLoaded',
   () => {
-    console.log("IronGenerator JS imported successfully!");
+    console.log('IronGenerator JS imported successfully!')
   },
   false
-);
+)
+
+window.addEventListener('load', () => {
+  let width = window.innerWidth
+
+  width < 768 ? (document.querySelector('main').style.height = 'auto') : null
+})
