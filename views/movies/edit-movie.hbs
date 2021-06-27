@@ -23,10 +23,18 @@
 
             <div class="col-auto my-1">
             <label class="mr-sm-2 sr-only" for="cast">Cast</label>
-            <select class="custom-select mr-sm-2" id="cast" name="cast">
-                <option selected>Choose...</option>
-                {{#each cast}}
-                    <option value="{{_id}}">{{name}}</option>
+            <p>Cast: <em class="text-muted">(press and hold Ctrl for multiple sellection...)</em></p>
+            <select class="custom-select mr-sm-2" id="cast" name="cast" multiple>
+                {{!-- <option >Choose...</option> --}}
+                {{#each cast}} 
+
+                    <option value="{{_id}}" 
+                    {{#if this.selected}}
+                    selected
+                    {{/if}}
+                    >{{name}}</option>
+
+                    {{!-- <option value="{{_id}}">{{name}}</option> --}}
                 {{/each}}
             </select>
             </div>

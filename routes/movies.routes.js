@@ -75,20 +75,48 @@ router.post('/:id/delete', (req, res, next) => {
 })
 
 
-router.get("/:id/edit", (req, res, next) => {
+router.get("/:id/edit", async (req, res, next) => {
     const {id} = req.params
+    const celebs = await Celebrity.find({})
+
     Movie
         .findById(id)
         .populate('cast')
         // .then( movie => res.send({movie} ))    
-        .then( movie => res.render('movies/edit-movie', movie ))    
+        .then( movie => {
+            console.log(celebs.length)
+
+            movie.oldCastList = movie.cast
+            console.log(movie.oldCastList.length)
+            movie.cast = celebs
+            console.log(movie.cast.length)
+            movie.cast.forEach( actor => {
+                actor.selected = movie.oldCastList.some(oldActor => oldActor.name == actor.name)
+                console.log(actor.name, actor.selected)
+            })
+            // res.send( movie.oldCastList )
+            // res.send( {...celebs, ...movie} )
+            res.render('movies/edit-movie', movie )
+
+        }   )
 });
+
+
+// router.get("/:id/edit",  (req, res, next) => {
+//     const {id} = req.params
+
+//     Movie
+//         .findById(id)
+//         .populate('cast')
+//         // .then( movie => res.send({movie} ))    
+//         .then( movie => res.render('movies/edit-movie', movie ))    
+// });
 
 router.post('/:id/edit', (req, res, next) => {
     const {id} = req.params
     const {title, genre, image, plot, cast} = req.body
     Movie
-        .findByIdAndUpdate(id, {title, genre, image, plot})
+        .findByIdAndUpdate(id, {title, genre, image, plot, cast})
         .then( () => res.redirect('/movies'))
         .catch( (err) => res.send(`Get a grip. You've got errors: ${err}`))
         

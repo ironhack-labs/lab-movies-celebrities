@@ -28,8 +28,10 @@
 
             <div class="col-auto my-1">
             <label class="mr-sm-2 sr-only" for="cast">Cast</label>
+            <p>Cast: <em class="text-muted">(press and hold Ctrl for multiple sellection...)</em></p>
+            
             <select class="custom-select mr-sm-2" id="cast" name="cast" multiple>
-                <option selected>press and hold Ctrl for multiple sellection...</option>
+                {{!-- <option selected>press and hold Ctrl for multiple sellection...</option> --}}
                 {{#each celebrities}}
                     <option value="{{_id}}">{{name}}</option>
                 {{/each}}

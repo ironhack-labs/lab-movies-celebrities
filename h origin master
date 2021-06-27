@@ -1,0 +1,86 @@
+[33mcommit 4db1179faa5ebd506cde4d186cb023182d0c071f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Silviu Dilimot <silviudilimot@gmail.com>
+Date:   Sun Jun 27 17:56:18 2021 +0200
+
+    Multiple celebs selection enabled. To do: Celebs Selection in Edit Movies form
+
+[33mcommit 110a15156160d0dd0f341ae382b5e0a6b7da8c12[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Silviu Dilimot <silviudilimot@gmail.com>
+Date:   Sun Jun 27 01:26:21 2021 +0200
+
+    Partials solved. To do: functional dropDownList
+
+[33mcommit a9e5f2438b65af852baecc3b5795b091acdb0293[m
+Author: Silviu Dilimot <silviudilimot@gmail.com>
+Date:   Sun Jun 27 01:04:28 2021 +0200
+
+    Grouped routes. To do: partials, dropDownList
+
+[33mcommit c9dd7b297b7db85d9de7c54b53ae4a765a5ca201[m
+Author: Silviu Dilimot <silviudilimot@gmail.com>
+Date:   Sat Jun 26 22:31:25 2021 +0200
+
+    To do: enable multiple celebs selection. Properly populate drop=down list on edit-movie page
+
+[33mcommit fa0f7ec3459f1a39d16e8179f18b77085eddf7a8[m
+Author: Silviu Dilimot <silviudilimot@gmail.com>
+Date:   Sat Jun 26 21:16:10 2021 +0200
+
+    Functional celebrities drop-down list implemented on new-movie page. To Do: Enable multiple selection
+
+[33mcommit 98665bbb8238036a5d71579527ed7bb3917707ed[m
+Author: Silviu Dilimot <silviudilimot@gmail.com>
+Date:   Sat Jun 26 20:30:24 2021 +0200
+
+    Can add celebs and movies to collections. To do: movie's cast
+
+[33mcommit a5c2328f960bf463232cdc73ebcbdb8ec54b9f60[m
+Merge: 2f2eb97 103fc90
+Author: Ironhack Education Team <admin.education@ironhack.com>
+Date:   Wed May 26 02:18:29 2021 +0200
+
+    Merge pull request #6 from jorgeberrizbeitia/master
+    
+    Ironlauncher structure & README file updates
+
+[33mcommit 103fc9035389db06bb3754fc6cc306a842946bd9[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Wed May 26 02:17:59 2021 +0200
+
+    add model.js file
+
+[33mcommit 2bf54aa9cd8c74fa21cd1aeef5bca72852c1f3d1[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Wed May 26 02:13:47 2021 +0200
+
+    review and update readme
+
+[33mcommit 5ad5e1a3a4611c0b827c5d825f4958e2ba0a519c[m
+Author: Jorge <jorgeberrizbeitia@gmail.com>
+Date:   Sun Apr 18 15:36:29 2021 +0200
+
+    updated README and model structure
+
+[33mcommit 8f3392a68de772d47fb15aa5f98db0a408654929[m
+Author: Jorge <jorgeberrizbeitia@gmail.com>
+Date:   Sat Apr 17 13:13:26 2021 +0200
+
+    added ironlauncher structure
+
+[33mcommit 2f2eb9730c6fc0ea14024150cdbf0c85b77d9f9b[m
+Author: Ironhack Education Team <admin.education@ironhack.com>
+Date:   Mon Mar 1 16:44:42 2021 +0100
+
+    Update README.md
+
+[33mcommit d2a47043a2d264d1d267d7a4b424e9cc7b2f782a[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Thu Jan 28 03:55:44 2021 +0100
+
+    add stale bot
+
+[33mcommit 6a3c76bde3964ec2e9085b5d7b7bfd92d2c179fb[m
+Author: sandrabosk <sandraboskovic@hotmail.com>
+Date:   Sat Jan 16 21:00:22 2021 +0100
+
+    add movies and celebrities updated
