@@ -10,7 +10,7 @@
                 <strong>Cast</strong>:
                 {{#each cast}}
                 <li>
-                    {{name}} | {{occupation}} | <em>"{{catchPhrase}}"</em>
+                    {{name}} |<br> {{occupation}} |<br> <em>"{{catchPhrase}}"</em>
                 </li>
                 {{/each}}
             </ul>
@@ -19,6 +19,8 @@
             Plot: {{plot}} <br>
         </small>
         <hr>
+        <form action="/movies/{{id}}/delete" method="post">
+        <button type="submit" class="btn btn-outline-light"> <strong>Delete</strong></button></form>
     </p>
 
 

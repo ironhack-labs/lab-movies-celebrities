@@ -8,25 +8,25 @@
             <form action="/movies/edit?book_id={{id}}" method="post">
                 <hr>
                 <label for="title">Movie Title:
-                    <input class="form-control" name="title" type="text">
+                    <input class="form-control" name="title" type="text" value="{{title}}">
 
                 </label>
                 <hr>
                 <hr>
                 <label for="genre">Movie genre:
-                    <input class="form-control" name="genre" type="text">
+                    <input class="form-control" name="genre" type="text" value="{{genre}}">
 
                 </label>
                 <hr>
                 <hr>
                 <label for="plot">Movie Plot:
-                    <input class="form-control" name="plot" type="text" autocomplete="off">
+                    <input class="form-control" name="plot" type="text"  value="{{plot}}">
 
                 </label>
                 <hr>
                 <hr>
                 <label for="plot">Movie Cast:
-                    <input class="form-control" name="cast" type="text" autocomplete="off"
+                    <input class="form-control" name="cast" type="text"  value="{{cast}}"
                         placeholder="Insert Celebrities By IdRef">
 
                 </label>
