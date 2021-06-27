@@ -1,23 +1,41 @@
 <h2>Add a new movie</h2>
 
-<form action="/movies/create" method="post">
-    <label for="movie-title">Name</label>
-    <input type="text" name="title" id="movie-title">
+<div class="container">
+    <div class="row text-align-center">
 
-    <label for="movie-genre">Genre</label>
-    <input type="text" name="genre" id="movie-genre">
+        <form action="/movies/create" method="post" class="col-8 container-fluid">
+            <div class="row g-4 container-fluid">
 
-    <label for="movie-plot">Plot</label>
-    <input type="text" name="plot" id="movie-plot">
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-title">Name</label>
+                    <input type="text" name="title" id="movie-title">
+                </div>
 
-    <label for="movie-cast">Cast</label>
-    <select name="cast" id="movie-cast" multiple>
-        {{#each celebrities}}
-            <option value={{id}}> {{name}} </option>
-        {{/each}}
-    </select>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-genre">Genre</label>
+                    <input type="text" name="genre" id="movie-genre">
+                </div>
 
-    <button type="submit">Create</button>
-</form>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-plot">Plot</label>
+                    <input type="text" name="plot" id="movie-plot">
+                </div>
 
-<p>{{errorMessage}}</p>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-cast">Cast <span>(press CTRL to add several celebrities)</span></label>
+                    <select name="cast" id="movie-cast" multiple>
+                        {{#each celebrities}}
+                        <option value={{id}}> {{name}} </option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="col-12 btn btn-secondary">Create</button>
+
+            </div>
+        </form>
+
+        <p>{{errorMessage}}</p>
+
+    </div>
+</div>

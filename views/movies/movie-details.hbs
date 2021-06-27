@@ -1,22 +1,68 @@
 <h2> Detalles de la película </h2>
 
-<h3>{{title}}</h3>
-<p>{{genre}}</p>
-<p>{{plot}}</p>
+<div class="container-fluid">
+    <div class="row bg-light details container-fluid">
 
-<ul>
-    {{#each cast}}
-        <li>
-            <h4>{{name}}</h4>
-            <p>{{occupation}}</p>
-            <p>{{catchPhrase}}</p>
-        </li>
-    {{/each}}
-</ul>
+        <div class="row justify-content-between">
+            <h3 class="col-4"><span class="col-4">{{title}}</span></h3>
+        </div>
 
-<form action="/movies/{{id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-</form>
+        <hr>
 
-<a href="/movies/{{id}}/edit">Editar</a>
+        <div class="row justify-content-between">
+            <h4 class="col-4"><strong> Género: </strong></h4>
+            <p class="col-8"><span class="col-4">{{genre}}</span></p>
+        </div>
 
+        <hr>
+
+        <div class="row justify-content-between">
+            <h4 class="col-4"><strong> Argumento: </strong></h4>
+            <p class="col-8"><span class="col-4">{{plot}}</span></p>
+        </div>
+
+        <hr>
+
+        <div class="row justify-content-between">
+            <h4>Cast: </h4>
+            <ul>
+                {{#each cast}}
+                <li>
+                    <div class="container-fluid">
+                        <div class="row bg-light details container-fluid">
+
+                            <div class="row justify-content-between">
+                                <p class="col-4">Name: </p>
+                                <span class="col-8">{{name}}</span>
+                            </div>
+
+                            <hr>
+
+                            <div class="row justify-content-between">
+                                <p class="col-4">Occupation: </p>
+                                <span class="col-8">{{occupation}}</span>
+                            </div>
+
+                            <hr>
+
+                            <div class="row justify-content-between">
+                                <p class="col-4">Catch phrase: </p>
+                                <span class="col-8">{{catchPhrase}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <form action="/movies/{{id}}/delete" method="POST" class="no-bg text-align-center container-fluid">
+            <div class="row g-0 justify-content-between">
+                <button type="submit" class="btn btn-warning btn-delete col-12 col-md-6 col-lg-4">Delete</button>
+                <a href="/movies/{{id}}/edit" class="btn btn-secondary col-12 col-md-6 col-lg-4">Editar</a>
+            </div>
+        </form>
+
+    </div>
+</div>

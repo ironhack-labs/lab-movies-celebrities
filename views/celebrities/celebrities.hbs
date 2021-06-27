@@ -1,9 +1,17 @@
 <h2>Celebridades</h2>
 
-<ul>
-{{#each celebrities}}
-    <li>
-        <a href="/celebrities/{{id}}"><h3> {{name}} </h3></a>
-    </li>
-{{/each}}
-</ul>
+<div class="container-fluid">
+
+    <ul class="row g-0">
+        {{#each celebrities}}
+        <li class="col-12 col-sm-6 col-md-4 col-lg-3 text-align-center">
+            <div class="item">
+                <a href="/celebrities/{{id}}" class="item-link">
+                    <h3> {{name}} </h3>
+                </a>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+
+</div>

@@ -1,8 +1,217 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+h1 {
+	margin: 50px auto;
+	font-weight: 700;
+	text-shadow: rgba(128, 128, 128, 0.3) 2px 2px;
+}
+
+h2 {
+	margin: 30px auto;
+	font-weight: 700;
+}
+
+h3 {
+	color: inherit;
+	font-size: 22px;
+}
+
+h3:hover {
+	color: inherit;
+	transform: inherit;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+hr {
+	padding: 0 20px;
+	background-color: rgb(31, 31, 39);
 }
 
 a {
-  color: #00b7ff;
+	color: rgb(91, 89, 107);
+	font-weight: 100;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out !important;
+}
+
+a:hover {
+	color: rgba(91, 89, 107, 0.5);
+	transform: skewX(-5deg) !important;
+}
+
+.row a {
+	margin: 5px;
+}
+
+.nav-link {
+	font-size: 20px;
+	margin: 0 20px;
+}
+
+ul > li {
+	list-style: none;
+}
+
+.item {
+	margin: 1px;
+	background-color: rgb(196, 196, 212);
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out;
+}
+
+.item:hover {
+	margin: 1px 3px;
+	background-color: rgba(196, 196, 212, 0.5);
+}
+
+form {
+	background-color: rgb(196, 196, 212);
+	padding: 40px;
+	border-radius: 3px;
+}
+
+label {
+	font-weight: 500;
+	color: rgb(91, 89, 107);
+}
+
+input {
+	background-color: rgb(215, 215, 236);
+	color: rgb(91, 89, 107);
+	border: solid 2px rgb(215, 215, 236);
+	border-radius: 3px;
+	padding: 5px 10px;
+	transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+	caret-color: white;
+	color: rgb(91, 89, 107);
+	outline: none;
+	border: solid 2px white;
+	padding-left: 10px;
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+option {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+select {
+	background-color: rgb(215, 215, 236);
+	border: solid 2px rgb(215, 215, 236);
+	border-radius: 3px;
+	padding: 5px 10px;
+	transition: all 0.2s ease-in-out;
+}
+
+select:focus {
+	outline: none;
+	padding-left: 10px;
+}
+
+option {
+	color: rgb(91, 89, 107);
+	transition: all 0.2s ease-in-out;
+	border-radius: 3px;
+}
+
+option:hover {
+	color: rgb(91, 89, 107, 0.6);
+}
+
+option:checked {
+	padding-left: 10px;
+}
+
+.details {
+	border-radius: 3px;
+	padding: 10px 0;
+}
+
+.details span {
+	color: rgb(91, 89, 107);
+	font-weight: 500;
+}
+
+.details form {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.details a {
+	margin: 0;
+}
+
+.btn-delete {
+	color: white;
+	transition: all 0.3s ease-in-out;
+}
+
+.btn-delete:hover {
+	color: white;
+	transform: skewX(-5deg);
+	background-color: rgb(218, 30, 17);
+}
+
+/* UTILITIES */
+
+.full-width {
+	width: 100%;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.vertical-margin-0 {
+	margin: 0 auto;
+}
+
+.vertical-margin-1 {
+	margin: 8px auto;
+}
+
+.vertical-margin-2 {
+	margin: 16px auto;
+}
+
+.horizontal-margin-0 {
+	margin: auto 0;
+}
+
+.horizontal-margin-1 {
+	margin: auto 8px;
+}
+
+.horizontal-margin-2 {
+	margin: 16px auto;
+}
+
+.no-bg {
+	background-color: transparent;
+}
+
+.bg-light {
+	background-color: rgb(183, 183, 199);
+}
+
+.bg-medium {
+	background-color: rgb(124, 124, 139);
+}
+
+.bg-dark {
+	background-color: rgb(31, 31, 39);
 }

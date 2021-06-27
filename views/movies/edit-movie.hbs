@@ -1,30 +1,46 @@
 <h2>Editar película</h2>
 
-<form action="/movies/{{movie.id}}/edit" method="post">
+<div class="container">
+    <div class="row text-align-center">
 
-    <label for="movie-title">Name</label>
-    <input type="text" name="title" id="movie-title" value='{{movie.title}}'>
+        <form action="/movies/{{movie.id}}/edit" method="post" class="col-8 container-fluid">
+            <div class="row g-4 container-fluid">
 
-    <label for="movie-genre">Genre</label>
-    <input type="text" name="genre" id="movie-genre" value='{{movie.genre}}'>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-title">Name</label>
+                    <input type="text" name="title" id="movie-title" value='{{movie.title}}'>
+                </div>
 
-    <label for="movie-plot">Plot</label>
-    <input type="text" name="plot" id="movie-plot" value='{{movie.plot}}'>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-genre">Genre</label>
+                    <input type="text" name="genre" id="movie-genre" value='{{movie.genre}}'>
+                </div>
 
-    <label for="movie-cast">Cast</label>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-plot">Plot</label>
+                    <input type="text" name="plot" id="movie-plot" value='{{movie.plot}}'>
+                </div>
 
-    <select name="cast" id="movie-cast" multiple>
-        {{#each selCelebs}}
-            {{#if selected}}
-                <option value={{cel.id}} selected> {{cel.name}} </option>
-            {{else}}
-                <option value={{cel.id}}> {{cel.name}} </option>
-            {{/if}}
-        {{/each}}
-    </select>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="movie-cast">Cast <span>(press CTRL to add several celebrities)</span></label>
 
-    <button type="submit">Update</button>
+                    <select name="cast" id="movie-cast" multiple>
+                        {{#each selCelebs}}
+                        {{#if selected}}
+                        <option value={{cel.id}} selected> {{cel.name}} </option>
+                        {{else}}
+                        <option value={{cel.id}}> {{cel.name}} </option>
+                        {{/if}}
+                        {{/each}}
+                    </select>
+                </div>
 
-</form>
+                <button type="submit" class="col-12 btn btn-secondary">Update</button>
 
-<p>{{errorMessage}}</p>
+            </div>
+        </form>
+
+        <p>{{errorMessage}}</p>
+
+    </div>
+</div>

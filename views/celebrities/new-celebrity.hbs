@@ -1,16 +1,30 @@
 <h2>Add a new celebrity</h2>
 
-<form action="/celebrities/create" method="post">
-    <label for="celebrity-name">Name</label>
-    <input type="text" name="name" id="celebrity-name">
+<div class="container">
+    <div class="row text-align-center">
 
-    <label for="celebrity-occupation">Occupation</label>
-    <input type="text" name="occupation" id="celebrity-occupation">
+        <form action="/celebrities/create" method="post" class="col-8 container-fluid">
+            <div class="row g-4 container-fluid">
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="celebrity-name">Name</label>
+                    <input type="text" name="name" id="celebrity-name">
+                </div>
 
-    <label for="celebrity-catch">Catch phrase</label>
-    <input type="text" name="catchPhrase" id="celebrity-catch">
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="celebrity-occupation">Occupation</label>
+                    <input type="text" name="occupation" id="celebrity-occupation">
+                </div>
 
-    <button type="submit">Create</button>
-</form>
+                <div class="col-12 row g-0 text-align-left vertical-margin-2">
+                    <label for="celebrity-catch">Catch phrase</label>
+                    <input type="text" name="catchPhrase" id="celebrity-catch">
+                </div>
 
-<p>{{errorMessage}}</p>
+                <button type="submit" class="col-12 btn btn-secondary">Create</button>
+            </div>
+        </form>
+
+        <p class="error">{{errorMessage}}</p>
+
+    </div>
+</div>
