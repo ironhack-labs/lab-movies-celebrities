@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Nueva pelicula</h1>
+            <hr>
+            <form action="/movies/create" method="POST">
+                <!--action envia los resultados-->
+                <div class="form-group">
+                    <label for="title">Titulo</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genero</label>
+                    <input type="text" class="form-control" name="genre" id="genre">
+                </div>
+                <div class="form-group">
+                    <label for="plot">Trama</label>
+                    <input type="text" class="form-control" name="plot" id="plot">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Crear pelicula</button>
+                <br>
+                <a href="/">Inicio</a>
+            </form>
+        </div>
+
+    </div>
+
+</div>
