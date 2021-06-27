@@ -1,0 +1,22 @@
+<h1>edit movie</h1>
+
+<hr>
+
+<form action="/movies/{{id}}/edit" method="POST">
+
+    <div class="form-group">
+        <label for="title">title</label>
+        <input type="text"  name="title" id="title" value="{{title}}">
+    </div>
+
+    <div class="form-group">
+        <label for="genre">genre</label>
+        <input type="text"  name="genre" id="genre" value="{{id}}">
+    </div>
+
+    <div class="form-group">
+        <label for="plot">plot</label>
+        <input type="text"  name="plot" id="plot" value="{{plot}}">
+    </div>
+
+    <button type="submit">submit edition</button>
