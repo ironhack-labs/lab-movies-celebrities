@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h1>{{name}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Nationality</strong>: {{nationality}}</p>
+        </div>
+        <div class="col-md-4">
+            <p><strong>Ligue</strong>: {{ligue}}</p>
+            <p><strong>Founding Date</strong>: {{founded}}</p>
+            <p><strong>Founding Players</strong>:
+
+                {{#each formerPlayers}}
+                <p><strong>Name</strong>: {{name}}</p>
+                <p><strong>Nationality</strong>: {{nationality}}</p>
+                <p><strong>Most Famous Catch Phrases</strong>: {{catchPhrase}}</p>
+                <hr>
+                {{/each}}
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/teams/list" class="btn btn-dark">Back to team's list</a>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+
+    <h1>Teams's List</h1>
+    <hr>
+
+    {{#each teams}}
+    <p>- {{name}}
+        <small>
+            <a href="details/{{id}}">See details</a> |
+            <a href="edit?book_id={{id}}">Edit</a>
+        </small>
+    </p>
+    {{/each}}
+
+</div>
