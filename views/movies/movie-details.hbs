@@ -1,0 +1,34 @@
+<div class="container">
+
+    <h1>Datalles Peli</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h4>{{title}}</h4>
+            <br>
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger btn-lg">Eliminar Peli</button>
+            </form>
+            <br>
+            <a class="btn btn-primary btn-lg" href="/movies/{{id}}/edit">Editar</a>
+        </div>
+        <div class="col-md-4">
+            <p><strong>Trama</strong>: {{plot}}</p>
+            <p><strong>Género</strong>: {{genre}}</p>
+            <p><strong>Reparto</strong>:</p>
+
+            {{#each cast}}
+            <p><strong>Nombre</strong>: {{name}}</p>
+            <p><strong>Ocupación</strong>: {{occupation}}</p>
+            <p><strong>Frase Atrapadora</strong>: {{catchPhrase}}</p>
+            {{/each}}
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/movies" class=" btn btn-dark">Volver al listado</a>
+
+</div>

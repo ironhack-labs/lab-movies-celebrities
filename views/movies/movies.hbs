@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h1>Las Movies</h1>
+    <hr>
+
+    {{#each movies}}
+    <h4>- <a href="/movies/{{id}}">{{title}}</a></h4>
+    {{!-- <p>- {{title}}
+        <small>
+            <a href="/libros/detalles/{{id}}">detalles</a> |
+            <a href="/libros/editar?book_id={{id}}">editar</a>
+        </small>
+    </p> --}}
+    {{/each}}
+
+</div>
