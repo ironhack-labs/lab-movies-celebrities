@@ -9,19 +9,24 @@ router.get('/movies/create', (req, res) => {
 })
 
 router.post('/movies/create', (req, res) => {
-  // res.send(req.body)
-  let { title, genre, plot, celebId } = req.body
+  let { title, genre, plot, celebIds } = req.body
 
+  celebIds = celebIds.split(',')
+  console.log(celebIds)
   if (plot === '') plot = undefined
 
   const errorMsg = `One celebrity is required! <a href='/celebrities/create' class="text-info">create</a> one if needed.`
 
-  console.log(celebId)
+  if (!celebIds) res.render('movies/create-movie', { error: errorMsg })
 
-  if (!celebId) res.render('movies/create-movie', { error: errorMsg })
-
-  Movies.create({ title, genre, plot, cast: celebId })
-    .then(movie => res.redirect('/movies'))
+  Movies.create({ title, genre, plot })
+    .then(movie => {
+      celebIds.forEach(id => {
+        Movies.findByIdAndUpdate(movie._id, { $push: { cast: id } })
+          .then(movieUpdated => res.redirect('/movies'))
+          .catch(err => console.log(err))
+      })
+    })
     .catch(err => console.log(err))
 })
 

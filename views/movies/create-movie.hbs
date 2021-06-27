@@ -24,7 +24,13 @@
           <input type='text' class='form-control' id='plot' name='plot' />
         </div>
 
-        <select name='celebId' class='form-select d-block ml-auto mr-auto' aria-label='.form-select-lg example'>
+        <div class='form-group'>
+          <input type='text' class='form-control' id='celebIds' name='celebIds' hidden />
+        </div>
+
+        <textarea name='' id='idArrays' cols='30' rows='3' class='d-block ml-auto'></textarea>
+
+        <select id='select' class='form-select d-block ml-auto mr-auto' aria-label='.form-select-lg example'>
           <option selected value=''>Select your celebrity</option>
 
           {{#each celebs}}
