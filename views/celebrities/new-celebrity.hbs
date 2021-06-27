@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h2>New Celebrity</h2>
+
+            <form action="/celebrities/create" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" name="occupation" id="occupation">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="catchPhrase">Phrase</label>
+                    <input type="text" name="catchPhrase" id="catchPhrase">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">To create a new celebritie</button>
+
+            </form>
+
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+                {{errorMessage}}</div>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
