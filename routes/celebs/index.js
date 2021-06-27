@@ -7,15 +7,12 @@ router.get('/celebrities/create', (req, res) => res.render('celebs/create-celeb'
 router.post('/celebrities/create', (req, res) => {
   let { name, occupation, image, catchPhrase } = req.body
   if (image === '') image = undefined
+  if (occupation === '') occupation = undefined
+  if (catchPhrase === '') catchPhrase = undefined
+
   Celeb.create({ name, occupation, image, catchPhrase })
-    .then(celeb => {
-      res.redirect('/celebrities')
-      // res.render('celebs', celeb)
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/celebrities/create')
-    })
+    .then(celeb => res.redirect('/celebrities'))
+    .catch(err => res.redirect('/celebrities/create'))
 })
 
 // list celebrity

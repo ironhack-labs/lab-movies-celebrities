@@ -3,7 +3,10 @@ const Celeb = require('./Celebrity.model')
 
 const MovieSchema = new mongoose.Schema(
   {
-    title: String,
+    title: {
+      type: String,
+      required: true,
+    },
     genre: String,
     plot: {
       type: String,

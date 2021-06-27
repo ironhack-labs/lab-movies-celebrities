@@ -5,7 +5,4 @@ router.get('/', (req, res, next) => {
   res.render('index')
 })
 
-// require('./celebs/')
-// require('./movies/')
-
 module.exports = router

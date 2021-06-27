@@ -3,10 +3,13 @@ const mongoose = require('mongoose')
 
 const celebSchema = new mongoose.Schema(
   {
-    name: String,
+    name: {
+      type: String,
+      required: true,
+    },
     occupation: {
       type: String,
-      default: 'unknown',
+      default: 'unknown occupation',
     },
     image: {
       type: String,

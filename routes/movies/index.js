@@ -14,6 +14,12 @@ router.post('/movies/create', (req, res) => {
 
   if (plot === '') plot = undefined
 
+  const errorMsg = `One celebrity is required! <a href='/celebrities/create' class="text-info">create</a> one if needed.`
+
+  console.log(celebId)
+
+  if (!celebId) res.render('movies/create-movie', { error: errorMsg })
+
   Movies.create({ title, genre, plot, cast: celebId })
     .then(movie => res.redirect('/movies'))
     .catch(err => console.log(err))

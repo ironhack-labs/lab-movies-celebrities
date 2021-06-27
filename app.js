@@ -12,6 +12,7 @@ const express = require('express')
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs')
+const Celeb = require('./models/Celebrity.model')
 
 const app = express()
 
@@ -21,6 +22,9 @@ require('./config')(app, hbs)
 // default value for title local
 app.locals.title = `Movies & celebrities`
 
+Celeb.find()
+  .then(celebs => (app.locals.celebs = celebs))
+  .catch(err => console.log(err))
 // 👇 Start handling routes here
 const index = require('./routes/')
 const celebs = require('./routes/celebs/')
