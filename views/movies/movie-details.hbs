@@ -1,0 +1,19 @@
+<h2>{{ title }}</h2>
+{{#each cast}}
+{{!-- itero --}}
+<h2>{{name}}</h2>
+{{/each}}
+<h2> {{genre}} </h2>
+{{!-- <h2> {{cast.0.name}} </h2> --}}
+<h2> {{plot}} </h2>
+
+{{!-- //dentro de cast tenemos objetos con actores --}}
+{{!-- --}}
+
+
+
+<form action="/movies/movies-list/{{id}}/delete" method="POST">
+
+    <button type="submit" class="btn btn-dark btn-block btn-lg">Eliminar</button>
+
+</form>

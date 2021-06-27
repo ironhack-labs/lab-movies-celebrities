@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h2>Añade una celebrity</h2>
+
+            <hr>
+
+            <form action="/celebrities/add-celebrities" method="POST">
+
+                <div class="form-group">
+                    <label for="name">nombre</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="ocuppation">Ocupación</label>
+                    <input type="text" class="form-control" name="ocuppation" id="ocuppation">
+                </div>
+                <div class="form-group">
+                    <label for="catchPrase">Frase Mitica</label>
+                    <input type="text" class="form-control" name="catchPrase" id="catchPrase">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Añadir</button>
+
+            </form>
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+                {{errorMessage}}
+            </div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>
