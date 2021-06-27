@@ -3,7 +3,7 @@ node_modules
 
 # Debug log from npm
 npm-debug.log
-
+seeds.js
 # Environment Variables should NEVER be published
 .env
 

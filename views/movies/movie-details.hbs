@@ -14,13 +14,15 @@
                 </li>
                 {{/each}}
             </ul>
-<hr>
+            <hr>
             Genre: {{genre}} <br>
             Plot: {{plot}} <br>
         </small>
         <hr>
-        <form action="/movies/{{id}}/delete" method="post">
-        <button type="submit" class="btn btn-outline-light"> <strong>Delete</strong></button></form>
+    <form action="/movies/{{id}}/delete" method="post">
+        <button type="submit" class="btn btn-outline-light"> <strong>Delete ✖</strong></button>
+    </form><br>
+    <a class="btn btn-outline-light btn-sm" href="/movie/edit?movie_id={{id}}" ">Edit ✏</a>
     </p>
 
 

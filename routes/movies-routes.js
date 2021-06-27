@@ -45,7 +45,7 @@ router.post('/movies/:movie_id/delete', (req, res) => {
        
     Movie    
         .findByIdAndRemove(movie_id)
-        .then(movies => res.redirect('/movies/list'))
+        .then(() => res.redirect('/movies/list'))
 })
 
 
@@ -59,17 +59,21 @@ router.get('/movie/edit', (req, res) => {
         .then(movie => res.render('movies/edit-movie', movie))
         .catch(err => console.log(err))
 })
+/*POST movie edit*/
 
+router.post('/movies/edit', (req, res) => {
 
+    const { movie_id } = req.query
+    const { title, genre, plot, cast } = req.body
+    
 
+    Movie
+        .findByIdAndUpdate(movie_id, { title, genre, plot, cast  })
+        .then(() => res.redirect('/movies/list'))
+        .catch(err => console.log(err))
+})
 
 
 
 module.exports = router;
-/**
-Iteration #9: Deleting Movies
 
-In the route:
-Use the Movie model's findByIdAndRemove() method to delete the specific movie by its id.
-If everything is good (.then()), redirect to the list of movies page
-If there's an error, catch it */

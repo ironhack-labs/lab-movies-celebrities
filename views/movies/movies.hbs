@@ -5,8 +5,8 @@
 
     {{#each movies}}
     <p>- <strong> {{title}} </strong><br>
-        <a href="/movie/details/{{id}}" class="link-dark">Details</a> |
-        <a href="/movie/edit?movie_id={{id}}" class="link-dark">Edit</a>
+        <a class="btn btn-outline-light btn-sm" href="/movie/details/{{id}}">Details 📑</a> |
+        <a class="btn btn-outline-light btn-sm" href="/movie/edit?movie_id={{id}}">Edit ✏</a>
     </p>
     {{/each}}
 

@@ -18,7 +18,7 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 // default value for title local
-const projectName = "Luca's Movies & Celebrities";
+const projectName = "Luca's Film Create Movies & Celebrities";
 
 app.locals.project_title = `${projectName}🚀`;
 

@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-3 input-group input-group-lg">
 
-            <form action="/movies/edit?book_id={{id}}" method="post">
+            <form action="/movies/edit?movie_id={{id}}" method="post">
                 <hr>
                 <label for="title">Movie Title:
                     <input class="form-control" name="title" type="text" value="{{title}}">
@@ -32,11 +32,7 @@
                 </label>
                 <button class="btn btn-outline-light btn-block" type="submit">Submit</button>
             </form>
-            {{#if errorMessage}}
-            <div
-                style="margin-top: 20px; padding: 5px; color: white; background: rgba(182, 50, 50, 0.877); text-align: center; font-size: .95em">
-                {{errorMessage}}</div>
-            {{/if}}
+        
         </div>
     </div>
 </div>

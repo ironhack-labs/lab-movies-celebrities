@@ -11,3 +11,7 @@ body{
 ::placeholder{
   font-size: 0.75em;
 }
+img{
+  margin: 5px auto;
+  opacity: 0.6;
+}
