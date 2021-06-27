@@ -12,15 +12,39 @@
             <p><strong>Ligue</strong>: {{ligue}}</p>
             <p><strong>Founding Date</strong>: {{founded}}</p>
             <p><strong>Founding Players</strong>:
+                <hr>
 
                 {{#each formerPlayers}}
-                <p><strong>Name</strong>: {{name}}</p>
-                <p><strong>Nationality</strong>: {{nationality}}</p>
-                <p><strong>Most Famous Catch Phrases</strong>: {{catchPhrase}}</p>
-                <hr>
-                {{/each}}
+            <p><strong>Name</strong>: {{name}}</p>
+            <p><strong>Nationality</strong>: {{nationality}}</p>
+            <p><strong>Most Famous Catch Phrases</strong>: {{catchPhrase}}</p>
+            <hr>
+            {{/each}}
             </p>
         </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-6">
+
+                <h1>Delete a Team</h1>
+
+                <hr>
+
+                <form action="/teams/details/{{id}}/delete" method="POST">
+
+                    <button type="submit" class="btn btn-dark btn-block btn-lg">Delete Team</button>
+
+                </form>
+            </div>
+
+        </div>
+
     </div>
 
     <hr>
