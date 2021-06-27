@@ -22,7 +22,7 @@ router.post('/celebrities/create', (req, res) => {
     //     })
     Celebrity
         .create({ name, occupation, catchPhrase })
-        .then(console.log('req.body =', [req.body]))
+        
         .then(() => res.redirect('/celebrities/list'))
         .catch(err => console.log(err))
 })
