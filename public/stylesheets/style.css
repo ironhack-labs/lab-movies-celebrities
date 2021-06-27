@@ -8,3 +8,6 @@ nav{
 body{
   background-color: rgba(36, 34, 31, 0.61);
 }
+::placeholder{
+  font-size: 0.75em;
+}

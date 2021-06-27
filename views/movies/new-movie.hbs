@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>Coming soon.</h2>
+       </div> 
+        <div class="col-md-3 input-group input-group-lg">
+
+            <form action="/movies/create" method="post">
+                <hr>
+                <label for="title">Movie Title:
+                    <input class="form-control" name="title" type="text">
+
+                </label>
+                <hr>
+                <hr>
+                <label for="genre">Movie genre:
+                    <input class="form-control" name="genre" type="text">
+
+                </label>
+                <hr>
+                <hr>
+                <label for="plot">Movie Plot:
+                    <input class="form-control" name="plot" type="text" autocomplete="off">
+
+                </label>
+                <hr>
+                <hr>
+                <label for="plot">Movie Cast:
+                    <input class="form-control" name="cast" type="text" autocomplete="off" placeholder="Insert Celebrities By IdRef">
+                
+                </label>
+                <button class="btn btn-outline-light btn-block" type="submit">Submit</button>
+            </form>
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: rgba(182, 50, 50, 0.877); text-align: center; font-size: .95em">
+                {{errorMessage}}</div>
+            {{/if}}
+        </div>
+    </div>
+</div>
