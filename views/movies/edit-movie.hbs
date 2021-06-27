@@ -1,0 +1,18 @@
+<h2>Editar película</h2>
+
+<form action="/movies/{{id}}/edit" method="POST">
+<label for="title">Titulo:</label>
+<input id="title" type="text" name="title">
+<label for="genre">Genero:</label>
+<input id="genre" type="text" name="genre">
+<label for="plot">Argumento:</label>
+<input id="plot" type="text" name="plot">
+<label for="cast">Reparto:</label>
+
+<select name="cast" id="cast" multiple>
+    {{#each celebrities}}
+    <option value="{{id}}">{{name}}</option>
+    {{/each}}
+</select>
+</form>
+
