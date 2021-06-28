@@ -1,0 +1,41 @@
+<h2>New-Movies</h2>
+<div class="container">
+    <div class="row">
+        <div class="col col-6 offset-3">
+
+            <form action="/movies/create" method="POST">
+
+                <div class="form-group">
+                    <label for="title">Titulo</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genero</label>
+                    <input type="text" class="form-control" name="genre" id="genre">
+                </div>
+
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <input type="text" class="form-control" name="plot" id="plot">
+                </div>
+
+                <div class="form-group">
+                    <label for="cast">Cast</label>
+                    <input type="text" class="form-control" name="cast" id="cast">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Registrar New Movie</button>
+
+                {{!--
+            </form>
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: red; text-align: center; font-size: .95em">
+                {{errorMessage}}
+            </div>
+            {{/if}} --}}
+
+        </div>
+    </div>
+</div>
