@@ -35,7 +35,8 @@
           <div>
               {{#if movie}}
                 {{#with movie}}
-                    <form action='/movie/{{id}}/edit/{{#each cast}}{{id}}{{/each}}' method='POST'>
+                    {{!-- <a href="/movie/{{id}}/edit/{{#each cast}}{{id}}{{/each}}">checkRoute</a> --}}
+                    <form action='/movie/{{id}}/edit/{{#each cast}}?id={{id}}{{/each}}' method='POST'>
                     <input type='submit' value='Edit' class="btn btn-info btn-block" />
                     </form>
                     <form action='/movie/{{id}}/delete' method='POST'>

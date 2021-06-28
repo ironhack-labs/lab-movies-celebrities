@@ -61,14 +61,18 @@ router.post('/movie/:id/delete', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.post('/movie/:filmId/edit/:celebId', (req, res) => {
-  const { filmId, celebId } = req.params
+router.post('/movie/:filmId/edit', (req, res) => {
+  const { filmId } = req.params
+
+  let celebIds = req.query.id.split('?id=')
+  // res.send(celebIds)
 
   Movies.findById(filmId)
     .populate('cast')
     .then(movie => movie)
     .then(movie => {
-      Celeb.find({ _id: { $ne: celebId } })
+      // he seleccionado manualmentre
+      Celeb.find({ _id: { $ne: celebIds[0] } })
         .then(celebs => {
           res.render('movies/edit-movie', { movie, celebs })
         })
