@@ -1,0 +1,24 @@
+<h2>Add a new movie</h2>
+
+
+
+<form method="POST" action="/movies/create">
+
+    <input class="form-control" type="text" placeholder="Title" aria-label="default input example" name="title">
+    <br>
+    <input class="form-control" type="text" placeholder="Genre" aria-label="default input example" name="genre">
+    <br>
+    <input class="form-control" type="text" placeholder="Plot" aria-label="default input example" name="plot">
+    <br>
+    <label for="cast">Choose cast</label>
+    <select name="cast" id="cast" multiple>
+        {{#each celebs}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>    
+    <br>
+    <button class="btn btn-primary" type="submit">SUBMIT</button>
+</form>
+   <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>  
+
+
