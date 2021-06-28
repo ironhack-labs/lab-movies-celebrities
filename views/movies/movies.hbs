@@ -1,0 +1,19 @@
+<h1>List of Movies</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+ {{#each allMovies}}
+    <tr>
+      <td><a href="/movies/{{this._id}}">{{this.title}}</a></td>
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+

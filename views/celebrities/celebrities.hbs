@@ -1,0 +1,35 @@
+<h1>List of Celebrities</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Catch Phrase</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+ {{#each allCelebrities}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.occupation}}</td>
+      <td>{{this.catchPhrase}}</td>
+      <td>
+        <form action="/celebrities/{{this._id}}/edit">
+          <div class="mb-3">
+           <button class="btn btn-primary" type="submit">EDIT</button>
+          </div>
+        </form>
+      </td>
+      <td>
+        <form method="POST" action="/celebrities/{{this._id}}/delete">
+          <div class="mb-3">
+          <button class="btn btn-primary" type="submit" >DELETE</button>
+         </div>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

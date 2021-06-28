@@ -1,0 +1,19 @@
+<h1>Add A New Movie!</h1>
+<p>
+<form method="POST" action="/movies/create">
+    <div>
+        <input class="form-control" type="text" size="50" placeholder="Title" aria-label="default input example" name="title">
+        <br>
+        <input class="form-control" type="text" size="50" placeholder="Genre" aria-label="default input example" name="genre">
+        <br>
+        <input class="form-control" type="text"  size="50" placeholder="Plot"  aria-label="default input example" name="plot">
+        <br>
+        <select name="cast" multiple>
+            {{#each allCelebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <button class="btn btn-primary" type="submit">SUBMIT</button>
+    </div>
+</form>
+</p>
