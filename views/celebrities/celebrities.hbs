@@ -1,0 +1,23 @@
+<div class="container">
+
+    <h2>Celebridades</h2> <a href="/celebridades/registrar" class="btn btn-dark">Registrar nueva celebridad</a>
+    <hr>
+
+    <div class="row">
+
+        {{#each celebrities}}
+        <div class="col-3">
+            <img src="{{image}}" alt="image" align="center">
+            <h2> {{name}}</h2>
+            <p>"{{catchPhrase}}"</p>
+
+            <p align="center"><a class="btn btn-outline-secondary" href="/celebridades/detalles/{{id}}">Detalles</a>
+                <a class="btn btn-outline-secondary" href="/celebridades/{{id}}/editar">Editar</a>
+                <a class="btn btn-outline-danger" href="/celebridades/borrar/{{id}}">Borrar</a>
+            </p>
+        </div>
+        {{/each}}
+    </div>
+
+
+</div>

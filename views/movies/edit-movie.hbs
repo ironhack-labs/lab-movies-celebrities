@@ -1,0 +1,53 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+
+
+        <div class="col-md-6 ">
+            <br><br><br><br>
+            <img src="{{image}}" alt="image" style="width: 100%">
+
+        </div>
+
+        <div class="col-md-6">
+
+            <h1>Editar {{title}}</h1>
+
+            <hr>
+
+            <form action="/movies/{{id}}/editar" method="POST">
+
+                <div class="form-group">
+                    <label for="title">Nombre de la pelicula</label>
+                    <input type="text" class="form-control" name="title" id="title" value="{{title}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genero</label>
+                    <input type="text" class="form-control" name="genre" id="genre" value="{{genre}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <input type="text" class="form-control" name="plot" id="plot" value="{{plot}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="celebrity">Reparto</label>
+                    <input type="text" class="form-control" name="celebrity" id="celebrity" value="{{celebrity}}">
+                </div>
+                <div class="form-group">
+                    <label for="image">URL imagen</label>
+                    <input type="text" class="form-control" name="image" id="image" value="{{image}}">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Actualizar pelicula</button>
+                <a class="btn btn-danger btn-block btn-lg" href="/movies">Cancelar</a>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>

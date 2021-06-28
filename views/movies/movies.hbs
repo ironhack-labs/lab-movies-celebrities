@@ -1,0 +1,24 @@
+<div class="container">
+
+    <h2>Peliculas</h2> <a href="/movies/registrar" class="btn btn-dark">Registrar nueva pelicula</a>
+    <hr>
+
+    <div class="row">
+
+        {{#each movies}}
+        <div class="col-3">
+            <img src="{{image}}" alt="image" align="center">
+            <h2> {{title}}</h2>
+
+
+            <p align="center">
+                <a class="btn btn-dark" href="/movies/detalles/{{id}}">Detalles</a>
+                <a class="btn btn-dark" href="/movies/{{id}}/editar">Editar</a>
+                <a class="btn btn-dark" href="/movies/borrar/{{id}}">Borrar</a>
+            </p>
+        </div>
+        {{/each}}
+    </div>
+
+
+</div>

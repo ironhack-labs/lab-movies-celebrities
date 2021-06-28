@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1>{{title}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Argumento</strong>: {{plot}}</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{{image}}" alt="image" style="width: 100%">
+            <p><strong>Genero</strong>: {{genre}}</p>
+            <p><strong>Reparto</strong>
+
+                {{#each cast}}
+                {{name}}
+                <hr>
+                {{/each}}
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/movies/" class="btn btn-dark">Volver al listado de peliculas</a>
+
+</div>

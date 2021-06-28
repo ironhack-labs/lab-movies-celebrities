@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-6">
+
+            <h2>Nueva Pelicula</h2>
+
+            <hr>
+
+            <form action="/movies/registrar" method="POST">
+
+                <div class="form-group">
+                    <label for="title">Nombre de la pelicula</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+
+                <div class="form-group">
+                    <label for="genre">Genero</label>
+                    <input type="text" class="form-control" name="genre" id="genre">
+                </div>
+
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <input type="text" class="form-control" name="plot" id="plot">
+                </div>
+
+                <div class="form-group">
+                    <label for="cast">Reparto</label>
+
+                    <select name="cast" id="cast" class="form-control">
+                        <option value="">Protagonista</option>
+                        {{#each celebrities}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">URL imagen</label>
+                    <input type="text" class="form-control" name="image" id="image">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Registrar pelicula</button>
+
+            </form>
+            {{#if errorMessage}}
+            <div
+                style="margin-top: 20px; padding: 5px; color: white; background: rgba(0, 45, 245, 0.747); text-align: center; font-size: .95em">
+                {{errorMessage}}</div>
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>

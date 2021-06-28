@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+
+
+        <div class="col-md-6 ">
+            <br><br><br><br>
+            <img src="{{image}}" alt="image" style="width: 100%">
+
+        </div>
+
+        <div class="col-md-6">
+
+            <h1>Editar {{name}}</h1>
+
+            <hr>
+
+            <form action="/celebridades/{{id}}/editar" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Nombre de la celebridad</label>
+                    <input type="text" class="form-control" name="name" id="name" value="{{name}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="ocupation">Ocupación</label>
+                    <input type="text" class="form-control" name="ocupation" id="ocupation" value="{{ocupation}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="catchPhrase">Frase celebre</label>
+                    <input type="text" class="form-control" name="catchPhrase" id="catchPhrase" value="{{catchPhrase}}">
+                </div>
+
+                <div class="form-group">
+                    <label for="image">URL imagen</label>
+                    <input type="text" class="form-control" name="image" id="image" value="{{image}}">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block btn-lg">Actualizar celebridad</button>
+                <a class="btn btn-danger btn-block btn-lg" href="/celebridades">Cancelar</a>
+            </form>
+        </div>
+
+    </div>
+
+</div>
