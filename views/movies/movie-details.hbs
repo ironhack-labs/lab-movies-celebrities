@@ -1,37 +1,27 @@
-<h1>List of Details</h1>
+<h1>Movie Details</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Genre</th>
-      <th scope="col">Plot</th>
-      <th scope="col">Cast</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{singleMovie.title}}</td>
-      <td>{{singleMovie.genre}}</td>
-      <td>{{singleMovie.plot}}</td>
-      <td>{{#each singleMovie.cast}}{{this}}{{/each}}</td>
-        <td>
-        <form action="/movies/{{singleMovie._id}}/edit">
+
+    <h3>{{movie.title}}</h3>
+    <h4>{{movie.genre}}</h4>
+    <p>{{movie.plot}}</p>
+    
+    <h4>Cast:</h4>
+{{#each movie.cast}}
+<h5>{{this.name}} - {{this.occupation}}</h5>
+<p><i>{{this.catchPhrase}}</i></p>
+
+{{/each}}
+      
+        <form action="/movies/{{movie._id}}/edit">
           <div class="mb-3">
            <button class="btn btn-primary" type="submit">EDIT</button>
           </div>
         </form>
-      </td>
-      <td>
-        <form method="POST" action="/movies/{{singleMovie._id}}/delete">
+      
+    
+        <form method="POST" action="/movies/{{movie._id}}/delete">
           <div class="mb-3">
           <button class="btn btn-primary" type="submit" >DELETE</button>
          </div>
-      </td>
-    </tr>
-    </tr>
-
-  </tbody>
-</table>
+         </form>
+    

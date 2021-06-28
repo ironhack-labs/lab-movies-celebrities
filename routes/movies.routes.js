@@ -34,27 +34,41 @@ router.post("/movies/create", (req,res,next) => {
 })
 
 //MOVIE DETAILS
-router.get("/movies/:id", (req,res,next) => {
-    movieId = req.params.id
 
-    MovieModel.findById(movieId)
-    .then((singleMovie) => {
-        res.render("movies/movie-details.hbs", {singleMovie})
-    }).catch((err) => {
+router.get('/movies/:id', (req,res, next) => {
+    const {id} = req.params
+    MovieModel.findById(id)
+    .populate('cast')
+        .then((movie) => {
+            res.render('movies/movie-details.hbs', {movie})
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
+
+
+
+
+router.get('/movies/:id/edit', (req,res, next) => {
+    const {id} = req.params;
+    MovieModel.findById(id)
+    .populate('cast')
+    .then((movie) => {
+        CelebrityModel.find()
+        .then((allCelebrities) => {
+            res.render('movies/edit-movie.hbs', {movie, allCelebrities})
+
+        }).catch((error) => {
+            next(error)
+        });
+        
+    })
+    .catch((err) => {
         next(err)
-    });
+    })
 })
 
-// EDIT MOVIE - GET
-router.get('/movies/:id/edit', (req, res, next) => {
-  let movieId  = req.params.id
-  MovieModel.findById(movieId)
-  .then((singleMovie) => {
-      res.render('movies/edit-movie.hbs', {singleMovie})
-  }).catch((err) => {
-    next(err)
-  });
-})
 
 // EDIT MOVIE - POST
 router.post('/movies/:id/edit', (req, res, next) => {
