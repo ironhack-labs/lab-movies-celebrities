@@ -1,0 +1,25 @@
+<script></script>
+<h2>Edit the movies</h2>
+
+<form method="POST" action="/movies/{{singleMovieData._id}}">
+  <label for="movie">Title</label>
+  <input type="text" name="title" value="{{singleMovieData.title}}" />
+  <br />
+  <label for="movie">Genre</label>
+  <input type="text" name="genre" value="{{singleMovieData.genre}}" />
+  <br />
+  <label for="movie">Plot</label>
+  <input type="text" name="plot" value="{{singleMovieData.plot}}" />
+  <br />
+
+  <select name="cast" id="cast" multiple>
+    {{#each selectedCelebrities}}
+      <option value="{{this._id}}" selected>{{this.name}}</option>
+    {{/each}}
+    {{#each notSelectedCelebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Create</button>
+</form>
