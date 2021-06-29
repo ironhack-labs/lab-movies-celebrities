@@ -1,0 +1,20 @@
+<h2>Add a new movie</h2>
+<form action="/movies/create" method="post">
+
+
+<label for="cast">Choose a cast:</label>
+
+<select name="cast" id="cast" multiple>
+
+{{#each celebrities}}
+  <option value={{this.cast.type}}>{{this.name}}</option>       
+ 
+
+ {{/each}}
+</select>
+
+{{!---user should see the cast name in the option tags, 
+//but the information that should be transmitted (value) is the _id we will use for the cast attribute of the movie.--}}
+
+</form>
+
