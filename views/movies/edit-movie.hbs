@@ -1,6 +1,6 @@
 <h1>Edit Movies</h1>
 
-<form action="/movies/{{_id}}/edit" method="POST">
+<form action="/movies/{{movieToEdit._id}}/edit" method="POST">
 
     <label for="">Title</label>
     <input type="text" name="title" value={{movieToEdit.title}}>

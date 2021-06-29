@@ -56,7 +56,7 @@ router.post("/movies/:movieId/edit", async (req, res)=>{
         plot,
         cast
     })
-    res.params.redirect("/movies")
+    res.redirect("/movies")
 })
 
 module.exports = router;
