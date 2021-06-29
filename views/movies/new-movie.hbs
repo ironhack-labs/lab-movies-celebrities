@@ -1,0 +1,38 @@
+<h2>New Movie</h2>
+<hr>
+<div>
+    <a href="/celebrities">Celebrities List</a>
+</div>
+<div>
+    <a href="/celebrities/create">Create a New Celebrity</a>
+</div>
+<div>
+    <a href="/movies">Movies List</a>
+</div>
+<div>
+    <a href="/movies/create">Create a New Movie</a>
+</div>
+
+<hr>
+
+<form action="/movies/create" method="POST">
+
+    <input type="text" name="title" placeholder="title" />
+
+
+    <input type="text" name="genre" placeholder="genre" />
+
+    <input type="text" name="plot" placeholder="plot" />
+
+    <select name="cast" multiple>
+        <option value="">All cast members</option>
+        {{#each allCast}}
+        
+        <option value={{_id}}>{{name}}</option>
+    
+        {{/each}}
+    </select>
+
+
+    <button type="submit">Create</button>
+</form>
