@@ -1,0 +1,30 @@
+<h2>Create a Movie</h2>
+
+<form action="" method="POST">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" placeholder="The Silence of the Lambs" name="title">
+    </div>
+
+    <div class="form-group">
+        <label>Genre</label>
+        <input type="text" class="form-control" placeholder="Crime" name="genre">
+    </div>
+
+    <div class="form-group">
+        <label>Plot</label>
+        <input type="text" class="form-control"
+            placeholder="A young F.B.I. cadet must receive the help of a cannibal killer." name="plot">
+    </div>
+  
+    <div>
+        <select class="form-select" aria-label="Default select example" name="cast">
+            {{#each allCelebrities }}
+            <option value={{_id}}>{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

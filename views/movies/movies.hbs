@@ -1,0 +1,13 @@
+<div class="row">
+    {{#unless allTheMovies}}
+    <h2>No Movies to show, add some!</h2>
+    {{/unless}}
+
+    {{#each allTheMovies}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <a href="/movies/{{_id}}">{{title}}</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

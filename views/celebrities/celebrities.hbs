@@ -1,0 +1,24 @@
+<div class="row">
+    {{#unless allTheCelebrities}}
+    <h2>No celebrities to show, add some!</h2>
+    {{/unless}}
+
+    {{#each allTheCelebrities}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ocupation}}</h6>
+            <p class="card-text">{{catchPhrase}}</p>
+
+        </div>
+        <div class="d-flex justify-content-around">
+            <form action="/celebrities/{{_id}}/edit" method="GET">
+                <button type="submit" class="btn btn-success">Edit</button>
+            </form>
+            <form action="/celebrities/{{_id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>

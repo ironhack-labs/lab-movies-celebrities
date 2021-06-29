@@ -1,0 +1,29 @@
+<h2> Movie Details</h2>
+<a href="/movies" class="">Go back</a>
+<div class="row">
+
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-subtitle mb-2 ">{{genre}}</h6>
+            <p class="card-text">{{plot}}</p>
+            <hr>
+            <h6 class="card-subtitle mb-2 text-muted">{{cast.name}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted"> {{cast.catchPhrase}}</h6>
+
+            <div class="d-flex justify-content-around">
+                <form action="/movies/{{_id}}/edit" method="GET">
+                    <button type="submit" class="btn btn-success">Edit</button>
+                </form>
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
