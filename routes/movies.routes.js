@@ -41,10 +41,10 @@ router.post("/movies/create", (req, res, next) => {
 
 router.get("/movies/:id" , (req, res, next) => {
     const { id } = req.params
-    //const {title, genre, plot} = req.body
+
 
     MovieModel.findById(id)
-        // .populate('cast')
+        .populate('cast')
         .then((movie) => {
             res.render("movies/movie-details", movie)
         })

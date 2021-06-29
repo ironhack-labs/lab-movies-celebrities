@@ -1,6 +1,8 @@
 //  Add your code here
 const mongoose = require('mongoose')
 
+require('./Celebrity.model')
+
 const MovieSchema = new mongoose.Schema({
     title: String,
     genre: String,
