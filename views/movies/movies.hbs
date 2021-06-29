@@ -1,0 +1,15 @@
+<h2>Here are your movies!</h2>
+
+{{#each movieList}}
+
+<p>{{title}}</p>
+
+<br>
+
+<a href = "/movies/{{_id}}">Movie details</a>
+
+{{/each}}
+
+<br><br>
+
+<a href = "/movies/create">Create a new movie!</a>

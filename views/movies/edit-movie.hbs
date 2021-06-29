@@ -1,0 +1,32 @@
+<h2>Edit Movie</h2>
+
+<form action='/movies/{{movie._id}}' method="POST">
+  <label for=''>Title</label>
+  <input type= "text" name='title'  placeholder = "{{movie.title}}">
+
+  <br>
+  <label for=''>Genre</label>
+  <input type= "text" name='genre'  placeholder = "{{movie.genre}}">
+
+  <br>
+  <label for=''>Plot</label>
+  <input type= "text" name='plot'  placeholder = "{{movie.plot}}">
+
+  <br>
+
+  <label for=''>Cast</label><br>
+
+  <select name="cast" multiple>
+
+    <option disable selected value="">Select cast members</option>
+
+    {{#each celebs}}
+        <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+
+  </select>
+
+  <br> <br>
+
+  <button type='submit'>Update</button>
+</form>
