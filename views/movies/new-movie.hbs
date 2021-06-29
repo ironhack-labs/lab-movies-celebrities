@@ -20,10 +20,16 @@
         Cast
     </label>
     <select multiple name="cast">
-        {{#each movies}}
+        {{#each celebrities}}
             <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
     </select>
     <br>
     <button type="submit">Submit</button>
 </form>
+
+<h4>
+  <a href="/movies">
+    Go Back
+  </a>
+</h4>

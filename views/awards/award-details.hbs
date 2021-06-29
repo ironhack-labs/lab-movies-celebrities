@@ -1,0 +1,29 @@
+<h1>Award Detail</h1>
+
+<h1>{{award.name}}</h1>
+{{#each award.movie}}
+    <h4>{{this.title}}</h4>
+    <h4>{{this.genre}}</h4>
+    <h4>{{this.plot}}</h4>
+{{/each}}
+{{#each award.cast}}
+    <h4>{{this.name}}</h4>
+    <h4>{{this.occupation}}</h4>
+    <h4>{{this.catchPhrase}}</h4>
+{{/each}}
+
+<form action="/awards/{{award._id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
+<h4>
+  <a href="/awards/{{award._id}}/edit">
+    Edit
+  </a>
+</h4>
+
+<h4>
+  <a href="/awards">
+    Go Back
+  </a>
+</h4>

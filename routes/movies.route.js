@@ -16,12 +16,11 @@ router.get("/movies", (req, res, next) => {
 
 router.get('/movies/create', (req, res, next) => {
     CelebrityModel.find()
-        .then((movies) => {
-            res.render('movies/new-movie', {movies});
+        .then((celebrities) => {
+            res.render('movies/new-movie', {celebrities});
         }).catch((err) => {
             next(err);
         }) 
-    
 });
 
 router.post("/movies/create", (req, res, next) => {

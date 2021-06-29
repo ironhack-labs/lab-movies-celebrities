@@ -1,0 +1,40 @@
+<h2>
+  New Award
+</h2>
+<form action="/awards/create" method="POST">
+  <label>
+    Name
+  </label>
+  <input type="text" name="name" />
+  <br />
+  <label>
+    Movie
+  </label>
+  <select multiple name="movie">
+    {{#each movies}}
+      <option value="{{this._id}}">
+        {{this.title}}
+      </option>
+    {{/each}}
+  </select>
+  <br />
+  <label>
+    Cast
+  </label>
+  <select multiple name="cast">
+    {{#each celebrities}}
+      <option value="{{this._id}}">
+        {{this.name}}
+      </option>
+    {{/each}}
+  </select>
+  <br />
+  <button type="submit">
+    Submit
+  </button>
+</form>
+<h4>
+  <a href="/awards">
+    Go Back
+  </a>
+</h4>

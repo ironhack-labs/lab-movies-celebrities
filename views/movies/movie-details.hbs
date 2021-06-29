@@ -1,6 +1,6 @@
 <h1>Movie Detail</h1>
 
-<h1>{{movie.name}}</h1>
+<h1>{{movie.title}}</h1>
 <h2>{{movie.genre}}</h2>
 <h3>{{movie.plot}}</h3>
 {{#each movie.cast}}
@@ -12,3 +12,15 @@
 <form action="/movies/{{movie._id}}/delete" method="POST">
     <button type="submit">Delete</button>
 </form>
+
+<h4>
+  <a href="/movies/{{movie._id}}/edit">
+    Edit
+  </a>
+</h4>
+
+<h4>
+  <a href="/movies">
+    Go Back
+  </a>
+</h4>
