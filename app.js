@@ -32,10 +32,10 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const celebrities = require('./routes/celebrities.routes');
-app.use('/celebrities', index);
+app.use('/celebrities', celebrities);
 
 const movies = require('./routes/movies.routes');
-app.use('/movies', index);
+app.use('/movies', movies);
 
 
 
