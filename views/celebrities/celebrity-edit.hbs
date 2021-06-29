@@ -1,0 +1,14 @@
+<form action="/movies/{{celebrityEdit._id}}/edit" method="POST">
+
+    <label for="">Name</label>
+    <input type="text" name="name" value="{{celebrityEdit.name}}">
+
+    <label for="">Occupation</label>
+    <input type="text" name="occupation" value={{celebrityEdit.occupation}}>
+
+    <label for="">Catch Phrase</label>
+    <input type="text" name="catchPhrase" value={{celebrityEdit.catchPhrase}}>
+
+    <button type="submit">Update</button>
+
+</form>
