@@ -6,7 +6,8 @@
     <p>Occupation: {{occupation}}</p>
     <p>Catch Phrase: {{catchPhrase}}</p>
 {{/each}}
-
+    <a href="/movies/{{_id}}/edit">Edit</a>
+    <br><br>
     <form action="/movies/{{_id}}/delete" method="POST">
       <button type="submit">Delete</button>
     </form>

@@ -51,15 +51,15 @@ router.post("/movies/:movieId/delete", async (req, res) => {
     res.render("movies/edit-movie", { movieToEdit, allCelebrities });
   });
   
-  router.post("/books/:bookId/edit", async (req, res) => {
-    const { title, description, rating, author } = req.body;
-    await Book.findByIdAndUpdate(req.params.bookId, {
+  router.post("/movies/:movieId/edit", async (req, res) => {
+    const { title, genre, plot, cast } = req.body;
+    await Movie.findByIdAndUpdate(req.params.movieId, {
       title,
-      description,
-      rating,
-      author,
+      genre,
+      plot,
+      cast,
     });
-    res.redirect("/books");
+    res.redirect("/movies");
   });
 
 module.exports = router;
