@@ -57,7 +57,7 @@ router.get("/movies/:id", (req, res, next)=>{
 router.post('/movies/:id/delete', (req, res, next) => {
     let dynamicId = req.params.id
 
-    TodoModel.findByIdAndDelete(dynamicId)
+    MovieModel.findByIdAndDelete(dynamicId)
         .then(() => {
             res.redirect('/movies')
         })
