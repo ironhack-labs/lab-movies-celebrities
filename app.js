@@ -14,15 +14,12 @@ const express = require('express');
 const hbs = require('hbs');
 
 // register new function
-hbs.registerHelper('checkDupe', function(movie, celebID) {
-    for(castMember of movie) {
-        if(castMember.name === celebID) {
-        console.log("true", movie)
-        return true
-    }
-    else {return false}
-    }
+hbs.registerHelper('checkDupe', function(movieCast, celebName) {
+    let namesArray = [];
+    movieCast.forEach(castMember => namesArray.push(castMember.name))
+    if (namesArray.includes(celebName)) {return true}
 }) 
+
 
 const app = express();
 

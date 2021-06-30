@@ -1,8 +1,8 @@
 <h2>Celebrities:</h2>
-
-<a href="/celebrities/create">
-  <button>Add a new celebrity!</button>
+<a href="/">
+  <button>Home</button>
 </a>
+
 <br>
 <br>
 <br>
@@ -11,11 +11,11 @@
     <h3>{{name}}</h3>
     <p> Occupation : {{occupation}} </p>
     <p> CatchPhrase : "{{catchPhrase}}"</p>
-    <a href="/celebrities/{{_id}}/edit">
+{{!--     <a href="/celebrities/{{_id}}/edit">
         <button>Edit</button>
-    </a> 
+    </a>  --}}
     <br>
-    <br>
+
     <form action='/celebrities/{{_id}}/delete' method="POST">
         <button type='submit'>Delete</button>
     </form>
@@ -23,3 +23,6 @@
     <br>
 
 {{/each}}
+<a href="/celebrities/create">
+  <button>Add a new celebrity!</button>
+</a>
