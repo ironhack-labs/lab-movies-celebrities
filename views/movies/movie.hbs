@@ -1,0 +1,16 @@
+
+{{!-- This will be where we list all the movies --}}
+
+<h1> 🍿 Movie list 🎥</h1>
+{{#each moviesFound }}
+<div>
+    <a href="/movies-list/{{_id}}">
+    {{title}}
+{{!-- 
+    <form action="/books/{{_id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form> --}}
+</div>
+<br>
+<br>
+{{/each}}

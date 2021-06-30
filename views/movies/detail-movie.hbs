@@ -1,0 +1,20 @@
+
+{{!-- This will be where we list all the movies --}}
+
+<h1> 🍿 About the movie 🎥</h1>
+<div>
+    {{title}}
+    </a>
+    <p>{{plot}}</p>
+    <p>{{genre}}</p>
+<h2>Cast information</h2>
+
+  {{#each cast}}
+    <h2>{{name}}</h2>
+  {{/each}}
+{{!-- 
+    <form action="/books/{{_id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form> --}}
+</div>
+<br>

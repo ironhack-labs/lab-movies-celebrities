@@ -1,0 +1,18 @@
+<h3>Booky-celebrity list 📚</h3>
+<br>
+<br>
+{{#each celebrityFound }}
+<div>
+    {{!-- <a href="/books/{{_id}}"> --}}
+    <h5>{{name}}</h5>
+    </a>
+    <p>Occupation: {{occupation}}</p>
+    <p>Favorite saying: {{catchphrase}}</p>
+{{!-- 
+    <form action="/books/{{_id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form> --}}
+</div>
+<br>
+<br>
+{{/each}}
