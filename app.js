@@ -13,6 +13,17 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+// register new function
+hbs.registerHelper('checkDupe', function(movie, celebID) {
+    for(castMember of movie) {
+        if(castMember.name === celebID) {
+        console.log("true", movie)
+        return true
+    }
+    else {return false}
+    }
+}) 
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares

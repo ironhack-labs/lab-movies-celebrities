@@ -16,7 +16,7 @@ router.post("/create" , (req, res, next) => {
     Celebrity.create( {name, occupation, catchPhrase} )
     .then((newCeleb) => {
         console.log(newCeleb);
-        res.redirect('back'); 
+        res.redirect('/celebrities'); 
     })
     .catch((err)=> {
         console.log("Error adding new celeb: ", err)
@@ -29,7 +29,16 @@ router.post("/create" , (req, res, next) => {
 
 
 router.get("/" , (req, res, next) => {
-    res.render("./celebrities/celebrities")
+    Celebrity.find().
+    then(celebList => {
+        console.log(celebList)
+        res.render("./celebrities/celebrities" , {celebList})
+    })
+    .catch((err)=> {
+        console.log("Error displaying celebs: ", err)
+        res.redirect("celebrities");
+    })
+    
 })
 
 

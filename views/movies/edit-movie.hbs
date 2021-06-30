@@ -1,0 +1,46 @@
+<h2>Update a movie:</h2>
+<br>
+{{#with movie}}
+<form action='/movies/{{_id}}/edit' method="POST">
+    <label for=''>Title</label><br>
+    <input type='text' name='title' value="{{title}}">
+    <br>
+
+    <br>
+    <label for=''>Genre :</label><br>
+    <input type='text' name='propellers' value="{{genre}}">
+    <br>
+
+    <br>
+    <label for=''>Plot :</label><br>
+    <input type='text' name='plot' value="{{plot}}">
+    <br>
+{{/with}}
+
+    <br>
+    <label for=''>Cast: </label><br>
+    <select name="cast" multiple>
+        <option disable selected value="">Select cast members:</option>
+
+        {{#each movie.cast}}
+            <option selected value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+
+         {{#each celebs}}
+        {{#unless (checkDupe  ../movie.cast name)}}
+            <option value="{{this._id}}">{{this.name}}</option>
+        {{/unless}}
+        {{/each}} 
+
+    </select>
+    <br>
+    <br>
+
+    <button type='submit'>Update</button>
+</form>
+
+<br>
+<br>
+<a href="/movies">
+  <button>Go back to movies</button>
+</a>
