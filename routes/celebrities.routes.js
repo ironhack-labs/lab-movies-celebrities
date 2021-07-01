@@ -1,9 +1,10 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
+const sessionInfo = require('../middleware/sessionInfo')
 
 const Celebrity = require('../models/Celebrity.model');
 
-router.get('/create', (req, res) => {
+router.get('/create', sessionInfo, (req, res) => {
       res.render('./celebrities/new-celebrity')
   })
 

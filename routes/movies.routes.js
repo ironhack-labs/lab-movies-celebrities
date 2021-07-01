@@ -1,10 +1,11 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
+const sessionInfo = require('../middleware/sessionInfo')
 
 const Celebrity = require('../models/Celebrity.model');
 const Movie = require('../models/Movie.model');
 
-router.get('/create', (req, res) => {
+router.get('/create', sessionInfo, (req, res) => {
     Celebrity.find()
     .then((celebList) => res.render('./movies/new-movies', {celebList}))
 })
@@ -28,12 +29,11 @@ router.get('/', (req, res) => {
     .then((movieList) => res.render('./movies/movies', {movieList}))
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', sessionInfo, (req, res) => {
     const id = req.params.id
 
     Movie.findById(id)
-    .populate("cast")
-    .then((foundMovie) => res.render('./movies/movie-details', foundMovie))
+    .populate(user('./movies/movie-details', foundMovie))
 })
 
 router.post('/:id', (req, res) => {
