@@ -2,6 +2,7 @@ const express = require("express");
 const authRouter = express.Router();
 const User = require("../models/User.model")
 const mongoose = require("mongoose");
+const ifLoggedIn = require('../middleware/ifLoggedIn')
 
 const bcrypt = require("bcrypt");
 
@@ -10,7 +11,7 @@ const saltRounds = process.env.SALT || 10;
 //const zxcvbn = require("zxcvbn");
 
 
-authRouter.get("/signup", (req, res) => {
+authRouter.get("/signup", ifLoggedIn, (req, res) => {
   res.render("auth-views/signup");
 });
 
@@ -64,20 +65,8 @@ authRouter.post("/signup", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-authRouter.get('/logout', (req, res)=>{
-  req.session.destroy(err =>{
-    if(err){
-      res.render("error", { message: "Something went wrong! Yikes!" });
-    }else{
-      console.log("You have successfully logged out!")
-      res.redirect('/')
-    }
-  })
-})
 
-
-
-authRouter.get("/login", (req, res) => {
+authRouter.get("/login", ifLoggedIn, (req, res) => {
     res.render("auth-views/login");
   });
 
@@ -109,6 +98,18 @@ authRouter.post("/login", (req, res)=>{
         }
   })
 
+})
+
+
+authRouter.get('/logout', (req, res)=>{
+  req.session.destroy(err =>{
+    if(err){
+      res.render("error", { message: "Something went wrong! Yikes!" });
+    }else{
+      console.log("You have successfully logged out!")
+      res.redirect('/')
+    }
+  })
 })
 
 
