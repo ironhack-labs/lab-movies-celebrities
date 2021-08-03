@@ -2,6 +2,6 @@
 
 <ul>
   {{#each moviesFromDb}}
-    <li>{{this.title}}</li>
+    <a href="/movies/{{this._id}}"><li>{{this.title}}</li></a>
   {{/each}}
 </ul>
