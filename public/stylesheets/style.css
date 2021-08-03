@@ -6,3 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
+
+.celebrities {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 2vh;
+}
