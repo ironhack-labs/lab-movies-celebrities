@@ -18,8 +18,8 @@
 
   <label for="cast-select"> Cast:
     <select name="cast">
-      <option value="{{movie.cast}}"selected></option>
-      {{#each movie.cast}}
+      <option value=""selected>{{movie.cast.0.name}}</option>
+      {{#each remainingCelebrities}}
         <option value="{{this._id}}"> {{this.name}} </option>
       {{/each}}
     </select>

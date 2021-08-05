@@ -38,10 +38,15 @@ router.get("/movies", (req, res, next) => {
 // Iteration#10 Editing Movies
 router.get("/movies/:movieId/edit", (req, res, next) => {
   const { movieId } = req.params;
-  Movie.findById(movieId)
-    .populate("cast")
-    .then((movieToEdit) => {
-      res.render("movies/edit-movie.hbs", { movie: movieToEdit });
+  let allCelebrities;
+  Celebrity.find()
+  .then ((celebritiesFromDB)=>{
+    allCelebrities = celebritiesFromDB;
+    return Movie.findById(movieId).populate("cast");
+  })
+    .then((movieFromDB) => {
+      let remainingCelebrities = allCelebrities.filter(celeb => celeb._id.toString() != movieFromDB.cast[0]._id.toString())
+      res.render("movies/edit-movie.hbs", { movie: movieFromDB, remainingCelebrities });
     })
     .catch((error) => next(error));
 });
