@@ -15,3 +15,8 @@ a {
 button {
   margin-top: 2vh;
 }
+
+.movies {
+  display: flex;
+  flex-direction: column;
+}

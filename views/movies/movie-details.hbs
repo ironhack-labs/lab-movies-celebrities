@@ -1,0 +1,14 @@
+{{!-- views/books/book-details.hbs --}}
+ 
+<h2>Movie Details for {{movie.title}}</h2>
+<p>Title: {{movie.title}}</p>
+<p>Genre: {{movie.genre}}</p>
+<p>Plot: {{movie.plot}}/10</p>
+<hr>
+
+<form action="/movies/{{movie._id}}/delete" method="POST">
+    <button>Delete</button>
+
+</form>
+<br><br>
+<a href="/movies">Back</a>
