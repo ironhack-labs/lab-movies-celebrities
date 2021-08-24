@@ -1,0 +1,8 @@
+<h2>Celebrities</h2>
+{{#each celebrities}}
+  <h5>{{this.name}}</h5>
+{{/each}}
+<hr />
+<form action="/celebrities/create" method="GET">
+  <button type="submit">Add a celebrity</button>
+</form>

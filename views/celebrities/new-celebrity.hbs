@@ -1,0 +1,16 @@
+<h2>Add A New Celebrity</h2>
+<form action="/celebrities/create" method="POST">
+  <input type="text" name="name" placeholder="Name" />
+  <br />
+  <label for="occupation">Occupation</label>
+  <select name="occupation">
+    <option value="actor">Actor</option>
+    <option value="singer">Singer</option>
+    <option value="comedian">Comedian</option>
+    <option value="unknown">Unkown</option>
+  </select>
+  <br />
+  <input type="textarea" name="catchPhrase" placeholder="Catch Phrase" />
+  <br />
+  <button type="submit">Add Celebrity</button>
+</form>
