@@ -3,14 +3,15 @@ const router = express.Router();
 const Movie = require('../models/Movie.model');
 const Celebrity = require('../models/Celebrity.model');
 
+// GET to get all the movies listed
 router.get('/', (req, res, next) => {
   Movie.find()
     .then((allMoviesFromDB) => {
-      // console.log(JSON.stringify(allMoviesFromDB, null, '\t'));
       res.render('movies/movies', { movies: allMoviesFromDB });
     })
     .catch((err) => {
       console.log('Movies were not retrieved from the DB', err);
+      next(err);
     });
 });
 
@@ -21,62 +22,79 @@ router.get('/create', (req, res, next) => {
     })
     .catch((err) => {
       console.log(`Error appeared while getting the info from the DB: ${err}`);
+      res.redirect('/movies/create');
     });
 });
 
 // POST to create a new movie and corresponidng CAST
 router.post('/create', (req, res, next) => {
-  const newMovie = req.body;
   const { title, genre, plot, cast } = req.body;
-  console.log(`Title: ${title}\nGenre: ${genre}\nPlot: ${plot}\nCast: ${cast}`);
-  Movie.create({ title, genre, plot, cast }).then(() => {
-    res.redirect('/movies');
-  });
+  Movie.create({ title, genre, plot, cast })
+    .then(() => {
+      res.redirect('/movies');
+    })
+    .catch((err) => {
+      console.log(
+        `Error appeared on the way to create the post of movie: ${err}`
+      );
+      next(err);
+    });
 });
 
-// GET to get the movie by its ID and popukate with CAST
+// GET to get the movie by its ID and populate with CAST
 router.get('/:movieId', (req, res, next) => {
-  console.log('Movie id', req.params.movieId);
   Movie.findById(req.params.movieId)
     .populate('cast')
     .then((movieFromDB) => {
-      console.log(JSON.stringify(movieFromDB, null, '\t'));
       res.render('movies/movie-details', movieFromDB);
     })
     .catch((err) => {
       console.log(`Movie was not found or smth went wrong: ${err}`);
+      next(err);
     });
 });
 
-router.post('/:movieId/delete', (req, res) => {
+//POST to remove/delete the movie by its ID
+router.post('/:movieId/delete', (req, res, next) => {
   const movieId = req.params.movieId;
   console.log('IDDD ' + movieId);
-  Movie.findByIdAndRemove(movieId).then((removedMovie) => {
-    console.log(removedMovie);
-    res.redirect('/movies');
-  });
+  Movie.findByIdAndRemove(movieId)
+    .then((removedMovie) => {
+      console.log(removedMovie);
+      res.redirect('/movies');
+    })
+    .catch((err) => {
+      console.log(`Sometning went wrong during deleting th emovie: ${err}`);
+      next(err);
+    });
 });
 
-router.get('/:movieId/edit', (req, res) => {
+// GET to edit the movie by its ID
+router.get('/:movieId/edit', (req, res, next) => {
   const movieId = req.params.movieId;
-  // Movie.findByIdAndUpdate(movieId, {}).then()
-  Movie.findById(movieId).then((movieFromDB) => {
-    Celebrity.findById(movieFromDB.cast).then((castFromDB) => {
-      Celebrity.find().then((allCelebs) => {
-        console.log('Movie From DB: ' + movieFromDB);
-        console.log('Cast from DB: ' + castFromDB);
-        console.log('Celebs from DB: ' + allCelebs);
-        res.render('movies/edit-movie', {
-          movie: movieFromDB,
-          cast: castFromDB,
-          celebrities: allCelebs,
+  Movie.findById(movieId)
+    .then((movieFromDB) => {
+      let castId = movieFromDB.cast;
+      Celebrity.findById(castId).then((castFromDB) => {
+        Celebrity.find().then((allCelebs) => {
+          res.render('movies/edit-movie', {
+            movie: movieFromDB,
+            cast: castFromDB,
+            celebrities: allCelebs,
+          });
         });
       });
+    })
+    .catch((err) => {
+      console.log(
+        `Something went wrong during getting the info from DB: ${err}`
+      );
+      next(err);
     });
-  });
 });
 
-router.post('/:movieId', (req, res) => {
+// POST to update the movie and its cast by movie ID
+router.post('/:movieId', (req, res, next) => {
   const { movieId } = req.params;
   const { title, genre, plot, cast } = req.body;
   Movie.findByIdAndUpdate(movieId, {
@@ -84,10 +102,15 @@ router.post('/:movieId', (req, res) => {
     genre,
     plot,
     cast,
-  }).then((updatedMovie) => {
-    console.log(updatedMovie);
-    res.redirect(`/movies/${movieId}`);
-  });
+  })
+    .then((updatedMovie) => {
+      console.log(updatedMovie);
+      res.redirect(`/movies/${movieId}`);
+    })
+    .catch((err) => {
+      console.log(`Smth went wrong during posting the movie: ${err}`);
+      next(err);
+    });
 });
 
 module.exports = router;
