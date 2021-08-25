@@ -1,8 +1,150 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url(/images/cinema.jpg);
+  background-size: cover;
+  display: flex;
+  height: 100vh;
 }
 
 a {
-  color: #00b7ff;
+  color: #00B7FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  display: -webkit-flex;
+  height: auto;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  margin: auto auto 0 auto;
+}
+
+.card {
+  text-align: center;
+  margin: .1rem;
+  margin-top: 1rem;
+  position: relative;
+  color: #fff;
+  background-color: blanchedalmond;
+  border-radius: 5px;
+  width: 200px;
+  padding-top: 0.5rem
+}
+
+.card h4 a {
+  background: #FF8162;
+  cursor: pointer;
+  border-width: 0;
+  border-radius: 3px;
+  display: inline-block;
+  width: 75%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.card h4,
+.card h3 {
+  margin: 5px auto;
+  max-width: 200px;
+  color: black;
+}
+
+.card img {
+  width: 150px;
+}
+
+
+.track,
+.track-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #BEBEBE;
+  color: #fff;
+  margin: .1rem 1rem;
+  padding: .3rem;
+  border-radius: 3px;
+}
+
+.track {
+  padding-right: 7%;
+  padding-left: 7%;
+  height: 4rem;
+}
+
+.track-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #707070;
+  margin-bottom: -0.5rem;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.movies-contianer {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.movies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex: 1 0 45%;
+}
+
+
+.movies-list-header {
+  margin: auto auto 2rem 2rem;
+}
+
+
+.movie-details-container {
+  display: flex;
+  background-color: #fff;
+  margin-top: 7rem;
+  width: 75%;
+}
+
+
+.movie-cover {
+  display: inline-block;
+  margin: auto;
+  padding: 2rem;
+}
+
+.movie-details {
+  display: inline-block;
+  margin: auto;
+  padding: 1rem;
+}
+
+.director-name {
+  font-weight: 500;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.showtime-items {
+  display: flex;
 }

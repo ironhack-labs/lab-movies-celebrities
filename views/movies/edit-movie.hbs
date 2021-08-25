@@ -1,0 +1,31 @@
+<div>
+  <form action='/movies/{{movie._id}}' method='POST'>
+    <label for=''>
+      Title
+      <input type='text' name='title' value={{movie.title}}>
+    </label>
+    <label for=''>
+        Genre
+      <input type='text' name='genre' value={{movie.genre}}>
+    </label>
+    Plot:
+    <label for=''>
+      <input type='text' name='plot' value={{movie.plot}}>
+    </label>
+
+    <label for='cast-select'>
+      Cast:
+      <select name='cast'>
+        <option selected value={{cast.name}}>{{cast.name}}</option>
+          {{#each celebrities}}
+          <option value={{_id}}>
+            {{name}}
+          </option>
+          {{/each}}
+      </select>
+    </label>
+
+    <button>
+      Submit the movie!
+    </button>
+  </form>

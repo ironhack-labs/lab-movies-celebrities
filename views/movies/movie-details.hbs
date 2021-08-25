@@ -1,0 +1,83 @@
+<div class='movie-details-container'>
+  <div class='movie-cover'>
+    <img src="{{image}}" alt='' />
+  </div>
+  <div class='movie-details'>
+    <a href='/movies'>
+      Go back
+    </a>
+    <h2>
+      {{title}}
+    </h2>
+    <div>
+      <h4>
+        Title:
+        <span class='director-name'>
+          {{title}}
+        </span>
+      </h4>
+      <h4>
+        Genre:
+        <span class='genre-name'>
+          {{genre}}
+        </span>
+      </h4>
+      <h4>
+        Plot:
+        <span class='plot-name'>
+          {{plot}}
+        </span>
+      </h4>
+      <h4>
+        Cast:
+        <ul>
+          {{#each this.cast}}
+            <hr />
+            <li>
+              Name:
+              {{name}}
+            </li>
+            <li>
+              Occupation:
+              {{occupation}}
+            </li>
+            <li>
+              Catch Phrase:
+              {{catchPhrase}}
+            </li>
+            <hr />
+          {{/each}}
+        </ul>
+      </h4>
+    </div>
+    <ul>
+      {{#each stars}}
+        <li class='star-item'>
+          {{this}}
+        </li>
+      {{/each}}
+    </ul>
+    <p class='description'>
+      {{description}}
+    </p>
+    {{!-- <div class='showtime-items'>
+      {{#each showtimes}}
+      <p>
+        {{this}} |
+      </p>
+      {{/each}}
+    </div> --}}
+  </div>
+  <div class='remove-movie'>
+    <form action="/movies/{{_id}}/delete" method='POST'>
+      <button>
+        Delete this Movie
+      </button>
+    </form>
+    <button>
+      <a href="/movies/{{_id}}/edit">
+        Update this Movie
+      </a>
+    </button>
+  </div>
+</div>

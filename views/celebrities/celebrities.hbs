@@ -1,0 +1,20 @@
+<h2>Celebrities</h2>
+<ul>
+  {{#each celebFromDB}}
+    <li>
+      <p>
+        Name: {{name}}
+      </p>
+      <p>
+        Occupation: {{occupation}}
+      </p>
+      <p>
+        Catch phrase:
+        <b>
+          {{catchPhrase}}
+        </b>
+      </p>
+    </li>
+    <hr>
+  {{/each}}
+</ul>
