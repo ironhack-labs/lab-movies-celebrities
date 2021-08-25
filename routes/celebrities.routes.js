@@ -14,7 +14,7 @@ router.post('/celebrities/create', (req, res, next) => {
     const { name, occupation, catchPhrase } = req.body;
     Celebrity.create({ name, occupation, catchPhrase })
     .then(newSavedCelebrity => {
-        res.redirect('/celebrities/create');
+        res.redirect('/celebrities');
     })
     .catch((err) => console.log("There was an error while creating your celebrity", err));
 });

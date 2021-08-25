@@ -1,0 +1,15 @@
+<h2>My Movies</h2>
+
+<br>
+
+{{#each movies}}
+<div>
+    <h5> 
+        <a href="/movies/{{_id}}">{{ title }}</a>
+    </h5>
+    <p>Genre: {{ genre }}</p>
+    <p>Plot: {{ plot }}</p>
+    <p>Cast: {{ cast }}</p>
+    <hr>
+</div>
+{{/each}}
