@@ -45,6 +45,7 @@
               Catch Phrase:
               {{catchPhrase}}
             </li>
+            <a href="/celebrities/{{_id}}">See details</a>
             <hr />
           {{/each}}
         </ul>
@@ -60,13 +61,6 @@
     <p class='description'>
       {{description}}
     </p>
-    {{!-- <div class='showtime-items'>
-      {{#each showtimes}}
-      <p>
-        {{this}} |
-      </p>
-      {{/each}}
-    </div> --}}
   </div>
   <div class='remove-movie'>
     <form action="/movies/{{_id}}/delete" method='POST'>

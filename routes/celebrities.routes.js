@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Celebrity = require('../models/Celebrity.model');
 const Celebrities = require('../models/Celebrity.model');
 
 /*************************************************
@@ -41,6 +42,32 @@ router.post('/create', (req, res) => {
         `Error appeared when creating the celebrity, trying again... \n${err}`
       );
       res.redirect('/celebrities/create');
+    });
+});
+
+//GET to see celebritie details/card
+router.get('/:celebId', (req, res, next) => {
+  const { celebId } = req.params;
+  Celebrity.findById(celebId)
+    .then((celebrityFromDB) => {
+      res.render('celebrities/celebrity-details', celebrityFromDB);
+    })
+    .catch((err) => {
+      console.log(`Something went wrong during getting the Celebrity: ${err}`);
+      next(err);
+    });
+});
+
+//GET to edit celebity, renders the form for submission
+router.get('/:celebId/edit', (req, res, next) => {
+  const { celebId } = req.params;
+  Celebrity.findById(celebId)
+    .then((foundCelebrity) => {
+      res.render('celebrities/edit-celebrity', foundCelebrity);
+    })
+    .catch((err) => {
+      console.log(`Smth went wrong while retrieving the celebrity: ${err}`);
+      next(err);
     });
 });
 

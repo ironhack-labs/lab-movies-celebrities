@@ -1,0 +1,22 @@
+<div>
+  <form action="/celebrities/{{_id}}/edit" method='POST'>
+    <label for=''>
+      Name
+      <input type='text' name='name' value={{name}} />
+    </label>
+    <label for=''>
+      Occupation
+      <input type='text' name='occupation' value={{occupation}} />
+    </label>
+    Catch phrase
+    <label for=''>
+      {{!-- <input type='text' name='catchPhrase' value={{catchPhrase}} /> --}}
+      <textarea name='catchPhrase' rows='4' cols='50'>
+        {{catchPhrase}}
+      </textarea>
+    </label>
+    <button>
+      Save
+    </button>
+  </form>
+</div>
