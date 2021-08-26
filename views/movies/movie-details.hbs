@@ -12,8 +12,18 @@
 <h4><b>Cast:</b></h4>
 <br>
 {{#each cast}}
-<p><strong>{{ name }}</strong></p>
+<h6><strong>{{ name }}</strong></h6>
 <p>Occupation: {{ occupation }}</p>
 <p>Catch Phrase: {{ catchPhrase }}</p>
 <hr>
 {{/each}}
+<br>
+<a href="/movies/{{_id}}/edit">Edit Movie</a>
+<br>
+<br>
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button>Delete movie</button>
+</form>
+<br>
+
+    

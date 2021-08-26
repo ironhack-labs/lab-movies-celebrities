@@ -42,4 +42,39 @@ router.get('/movies/:id', (req, res, next) => {
     .catch(err => console.log("There was an error while attempting to display movie details", err));
 });
 
-module.exports = router;
+// Deleting movies
+router.post('/movies/:id/delete', (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.id)
+    .then(() => res.redirect('/movies'))
+    .catch(err => console.log("There was an error while trying to delete the movie", err))
+});
+
+// Editing movies
+router.get('/movies/:movieId/edit', (req, res, next) => {
+    Movie.findById(req.params.movieId)
+    .populate('cast')
+    .then((movieToUpdate) => {
+        let castId = movieToUpdate.castId;
+        Celebrity.findById(castId)
+        .then((castFromDB) => {
+            Celebrity.find()
+            .then((allCelebritiesFromDB) => {
+                res.render('movies/edit-movie', { movie: movieToUpdate, cast: castFromDB, celebrities: allCelebritiesFromDB });
+            })
+        })   
+    })
+    .catch(err => console.log("There was an error while trying to update the movie", err))
+})
+
+router.post('/movies/:id/edit', (req, res, next) => {
+    const { title, genre, plot, cast } = req.body;
+    Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast }, { new: true })
+    .populate('cast')
+    .then((updatedMovie) => {
+        res.redirect(`/movies/${req.params.id}`);
+    })
+    .catch(err => console.log('An error occurred while trying to submit the form', err))
+});
+
+
+module.exports = router;  
