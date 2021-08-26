@@ -1,0 +1,19 @@
+<h2>{{ title }}</h2>
+<hr>
+<p>
+    <b>Genre:</b> {{ genre }}
+</p>
+<br>
+<p>
+    <b>Plot:</b> {{ plot }}
+</p>
+<br>
+<br>
+<h4><b>Cast:</b></h4>
+<br>
+{{#each cast}}
+<p><strong>{{ name }}</strong></p>
+<p>Occupation: {{ occupation }}</p>
+<p>Catch Phrase: {{ catchPhrase }}</p>
+<hr>
+{{/each}}

@@ -35,6 +35,7 @@ router.get('/movies', (req, res, next) => {
 // Movie details routing
 router.get('/movies/:id', (req, res, next) => {
     Movie.findById(req.params.id)
+    .populate('cast')
     .then(movieDetail => {
         res.render('movies/movie-details', movieDetail);
     })
