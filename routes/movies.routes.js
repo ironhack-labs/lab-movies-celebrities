@@ -71,12 +71,11 @@ router.post('/:movieId/delete', (req, res, next) => {
 
 // GET to edit the movie by its ID
 router.get('/:movieId/edit', (req, res, next) => {
-  const movieId = req.params.movieId;
-  Movie.findById(movieId)
+  Movie.findById(req.params.movieId)
     .then((movieFromDB) => {
-      let castId = movieFromDB.cast;
-      Celebrity.findById(castId).then((castFromDB) => {
-        Celebrity.find().then((allCelebs) => {
+      Celebrity.findById(movieFromDB.cast).then((castFromDB) => {
+        Celebrity.find({ _id: { $ne: castFromDB._id } }).then((allCelebs) => {
+          console.log(allCelebs);
           res.render('movies/edit-movie', {
             movie: movieFromDB,
             cast: castFromDB,
@@ -97,6 +96,7 @@ router.get('/:movieId/edit', (req, res, next) => {
 router.post('/:movieId', (req, res, next) => {
   const { movieId } = req.params;
   const { title, genre, plot, cast } = req.body;
+  console.log('CASTS: ' + cast);
   Movie.findByIdAndUpdate(
     movieId,
     {
@@ -113,7 +113,7 @@ router.post('/:movieId', (req, res, next) => {
     })
     .catch((err) => {
       console.log(`Smth went wrong during posting the movie: ${err}`);
-      next(err);
+      res.redirect('/movies/:movieId/edit');
     });
 });
 

@@ -15,8 +15,9 @@
 
     <label for='cast-select'>
       Cast:
-      <select name='cast'>
-        <option selected value={{cast.name}}>{{cast.name}}</option>
+      <select name='cast' style="width: 200px"
+            size="8" multiple>
+        <option selected value={{cast._id}}>{{cast.name}}</option>
           {{#each celebrities}}
           <option value={{_id}}>
             {{name}}
@@ -24,7 +25,6 @@
           {{/each}}
       </select>
     </label>
-
     <button>
       Submit the movie!
     </button>
