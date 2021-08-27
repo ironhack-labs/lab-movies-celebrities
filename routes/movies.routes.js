@@ -75,7 +75,6 @@ router.get('/:movieId/edit', (req, res, next) => {
     .then((movieFromDB) => {
       Celebrity.findById(movieFromDB.cast).then((castFromDB) => {
         Celebrity.find({ _id: { $ne: castFromDB._id } }).then((allCelebs) => {
-          console.log(allCelebs);
           res.render('movies/edit-movie', {
             movie: movieFromDB,
             cast: castFromDB,
