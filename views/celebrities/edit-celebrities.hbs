@@ -1,7 +1,12 @@
-<h2 class="celebrities">Add A New Celebrity</h2>
-<form action="/celebrities/create" method="POST">
+<h2 class="celebrities">Edit the Celebrity</h2>
+<form action="/celebrities/{{celebrity._id}}/edit" method="POST">
   <div class="form-floating mb-3">
-    <input type="text" name="name" class="form-control" placeholder="Name" />
+    <input
+      type="text"
+      name="name"
+      value="{{celebrity.name}}"
+      class="form-control"
+    />
     <label for="name" class="form-label">Name</label>
   </div>
   <div class="form-floating mb-3">
@@ -10,7 +15,10 @@
       class="form-select mb-3"
       aria-label=".form-select example"
     >
-      <option selected>Click to select occupation</option>
+      <option
+        value="{{celebrity.occupation}}"
+        selected
+      >{{celebrity.occupation}}</option>
       <option value="Actor">Actor</option>
       <option value="Singer">Singer</option>
       <option value="Comedian">Comedian</option>
@@ -22,10 +30,10 @@
     <input
       type="textarea"
       name="catchPhrase"
+      value="{{celebrity.catchPhrase}}"
       class="form-control"
-      placeholder="Catch Phrase"
     />
     <label for="catchPhrase" class="form-label">Catch Phrase</label>
   </div>
-  <button type="submit" class="btn btn-secondary btn-add">Add Celebrity</button>
+  <button type="submit" class="btn btn-secondary btn-add">Edit Celebrity</button>
 </form>

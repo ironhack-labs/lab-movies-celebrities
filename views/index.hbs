@@ -1,10 +1,21 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 <hr />
-<form action="/celebrities" method="GET">
-  <button type="submit">See all celebrities</button>
-</form>
-<br />
-<form action="/celebrities/create" method="GET">
-  <button type="submit">Add a celebrity</button>
-</form>
+<div class="container">
+  <div class="enter enter-celebrities">
+    <form action="/celebrities" method="GET">
+      <button type="submit" class="btn btn-light">See all celebrities</button>
+    </form>
+    <form action="/celebrities/create" method="GET">
+      <button type="submit" class="btn btn-light">Add a celebrity</button>
+    </form>
+  </div>
+  <div class="enter enter-movies">
+    <form action="/movies" method="GET">
+      <button type="submit" class="btn btn-light">See all movies</button>
+    </form>
+    <form action="/movies/create" method="GET">
+      <button type="submit" class="btn btn-light">Add a movie</button>
+    </form>
+  </div>
+</div>

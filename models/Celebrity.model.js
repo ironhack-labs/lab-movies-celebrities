@@ -9,12 +9,12 @@ const celebritySchema = new Schema({
   },
   occupation: {
     type: String,
-    enum: ["actor", "singer", "comedian", "unknown"],
+    enum: ["Actor", "Singer", "Comedian", "Unknown"],
   },
   catchPhrase: String,
 });
 
 // export the model
-const CelebrityModel = model("Celebrity", celebritySchema);
+const CelebrityModel = model("CelebrityModel", celebritySchema);
 
 module.exports = CelebrityModel;

@@ -1,0 +1,48 @@
+<h2 class="movies">Add A New Movie</h2>
+<form action="/movies/create" method="POST">
+  <div class="form-floating mb-3">
+    <input type="text" name="title" class="form-control" placeholder="Title" />
+    <label for="title" class="form-label">Title</label>
+  </div>
+  <div class="form-floating mb-3">
+    <select
+      name="genre"
+      class="form-select mb-3"
+      aria-label=".form-select example"
+    >
+      <option selected>Click to select genre</option>
+      <option value="Drama">Drama</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Thriller">Thriller</option>
+      <option value="Documentary">Documentary</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Action">Action</option>
+      <option value="Other">Other</option>
+    </select>
+    <label for="genre" class="form-label">Genre</label>
+  </div>
+  <div class="form-floating mb-3">
+    <textarea
+      name="plot"
+      rows="3"
+      placeholder="Movie plot"
+      class="form-control"
+    ></textarea>
+    <label for="plot" class="form-label">Plot</label>
+  </div>
+  <div class="form-floating mb-3">
+    <select
+      name="cast"
+      class="form-select"
+      multiple
+      aria-label=".form-select example"
+      id="form-select-multiple"
+    >
+      {{#each celebrities}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+    <label for="cast" class="form-label">Cast</label>
+  </div>
+  <button type="submit" class="btn btn-secondary btn-add">Add Movie</button>
+</form>

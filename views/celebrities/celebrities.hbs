@@ -1,8 +1,11 @@
-<h2>Celebrities</h2>
-{{#each celebrities}}
-  <h5>{{this.name}}</h5>
-{{/each}}
-<hr />
+<h2 class="celebrities">Celebrities</h2>
+<ul class="list-group list-group-flush">
+  {{#each celebrities}}
+    <li class="list-group-item">{{this.name}}
+      <div><a href="/celebrities/{{this._id}}">See More</a></div></li>
+  {{/each}}
+</ul>
 <form action="/celebrities/create" method="GET">
-  <button type="submit">Add a celebrity</button>
+  <button type="submit" class="btn btn-secondary btn-add">Add a
+    celebrity</button>
 </form>

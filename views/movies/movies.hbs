@@ -1,0 +1,10 @@
+<h2 class="movies">Movies</h2>
+<ul class="list-group list-group-flush">
+  {{#each movies}}
+    <li class="list-group-item">{{this.title}}
+      <div><a href="/movies/{{this._id}}">See More</a></div></li>
+  {{/each}}
+</ul>
+<form action="/movies/create" method="GET">
+  <button type="submit" class="btn btn-secondary btn-add">Add a movie</button>
+</form>
