@@ -20,8 +20,14 @@
     <label>
         Cast:
         <select name="cast" multiple="multiple">
+            {{!-- <option selected value=""></option> --}}
             {{#each celebrities}}
             <option value="{{ _id }}">
+                {{ name }}
+            </option>
+            {{/each}}
+            {{#each cast}}
+            <option selected value="{{ _id }}">
                 {{ name }}
             </option>
             {{/each}}

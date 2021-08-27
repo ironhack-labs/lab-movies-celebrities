@@ -9,4 +9,7 @@ a {
 
 nav {
   position: fixed;
+  top: 0vh;
+  padding: 30px 0px 10px 0px;
+  background-color: white;
 }

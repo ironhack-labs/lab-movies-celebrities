@@ -54,14 +54,17 @@ router.get('/movies/:movieId/edit', (req, res, next) => {
     Movie.findById(req.params.movieId)
     .populate('cast')
     .then((movieToUpdate) => {
-        let castId = movieToUpdate.castId;
-        Celebrity.findById(castId)
-        .then((castFromDB) => {
-            Celebrity.find()
-            .then((allCelebritiesFromDB) => {
-                res.render('movies/edit-movie', { movie: movieToUpdate, cast: castFromDB, celebrities: allCelebritiesFromDB });
-            })
-        })   
+        // let castId = movieToUpdate.castId;
+        // Celebrity.findById(castId)
+        // .then((castFromDB) => {
+        Celebrity.find()
+        .then((allCelebritiesFromDB) => {
+            const movieCastIds = movieToUpdate.cast.map(member => member._id);
+            const restOfTheCast = allCelebritiesFromDB.filter(castMemeber => !movieCastIds.includes(castMemeber._id));
+            console.log(movieToUpdate)
+            res.render('movies/edit-movie', { movie: movieToUpdate, cast: movieToUpdate.cast, celebrities: restOfTheCast });
+        })
+        // })   
     })
     .catch(err => console.log("There was an error while trying to update the movie", err))
 })
