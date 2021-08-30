@@ -3,9 +3,16 @@
     <img src="{{image}}" alt='' />
   </div>
   <div class='movie-details'>
-    <a href='/movies'>
-      Go back
-    </a>
+    <div>
+      <a href='/'>
+        Home
+      </a>
+    </div>
+    <div>
+      <a href='/movies'>
+        Go back
+      </a>
+    </div>
     <h2>
       {{title}}
     </h2>
@@ -44,7 +51,9 @@
               Catch Phrase:
               {{catchPhrase}}
             </li>
-            <a href="/celebrities/{{_id}}">See details</a>
+            <a href="/celebrities/{{_id}}">
+              See details
+            </a>
             <hr />
           {{/each}}
         </ul>

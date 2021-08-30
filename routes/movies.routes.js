@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Movie = require('../models/Movie.model');
 const Celebrity = require('../models/Celebrity.model');
+const isLoggedIn = require('../middleware/isLoggedIn');
 
 // GET to get all the movies listed
 router.get('/', (req, res, next) => {
@@ -15,7 +16,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/create', (req, res, next) => {
+router.get('/create', isLoggedIn, (req, res, next) => {
   Celebrity.find()
     .then((foundCelebrities) => {
       res.render('movies/new-movie', { celebrities: foundCelebrities });

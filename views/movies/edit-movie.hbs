@@ -1,11 +1,16 @@
 <div>
+  <div>
+    <a href='/'>
+      Home
+    </a>
+  </div>
   <form action='/movies/{{movie._id}}' method='POST'>
     <label for=''>
       Title
       <input type='text' name='title' value={{movie.title}}>
     </label>
     <label for=''>
-        Genre
+      Genre
       <input type='text' name='genre' value={{movie.genre}}>
     </label>
     <label for=''>Plot:
@@ -15,14 +20,13 @@
     <label for='cast-select'>
       Cast:
       <br>
-      <select name='cast' style="width: 200px"
-            size="8" multiple>
+      <select name='cast' style="width: 200px" size="8" multiple>
         <option selected value={{cast._id}}>{{cast.name}}</option>
-          {{#each celebrities}}
-          <option value={{_id}}>
-            {{name}}
-          </option>
-          {{/each}}
+        {{#each celebrities}}
+        <option value={{_id}}>
+          {{name}}
+        </option>
+        {{/each}}
       </select>
     </label>
     <button>

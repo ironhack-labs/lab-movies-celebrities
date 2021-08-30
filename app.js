@@ -1,36 +1,39 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
-require('dotenv/config');
+require('dotenv/config')
 
 // ℹ️ Connects to the database
-require('./db');
+require('./db')
 
-const express = require('express');
-const hbs = require('hbs');
+const express = require('express')
+const hbs = require('hbs')
 
-const app = express();
+const app = express()
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
-require('./config')(app);
+require('./config')(app)
 
 // default value for title local
-const projectName = 'lab-express-cinema';
+const projectName = 'lab-express-cinema'
 const capitalized = (string) =>
-  string[0].toUpperCase() + string.slice(1).toLowerCase();
+  string[0].toUpperCase() + string.slice(1).toLowerCase()
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`
 
 // 👇 Start handling routes here
-const index = require('./routes/index');
-app.use('/', index);
+const index = require('./routes/index')
+app.use('/', index)
 
-const movies = require('./routes/movies.routes');
-app.use('/movies', movies);
+const authRoutes = require('./routes/auth.routes')
+app.use('/auth', authRoutes)
 
-const celebrities = require('./routes/celebrities.routes');
-app.use('/celebrities', celebrities);
+const movies = require('./routes/movies.routes')
+app.use('/movies', movies)
+
+const celebrities = require('./routes/celebrities.routes')
+app.use('/celebrities', celebrities)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+require('./error-handling')(app)
 
-module.exports = app;
+module.exports = app

@@ -1,0 +1,37 @@
+<div id='form'>
+  <div>
+    <a href='/'>
+      Home
+    </a>
+  </div>
+  <br />
+  <h2>
+    Signup
+  </h2>
+  <form action='/auth/signup' method='POST'>
+    <label>
+      Username
+      <input type='text' name='username' placeholder='First name' />
+    </label>
+
+    {{! <label>
+      Email
+      <input type='email' name='email' placeholder='some@email.com' />
+    </label> }}
+
+    <label>
+      Password
+      <input type='password' name='password' placeholder='********' />
+    </label>
+
+    <button type='submit'>
+      CREATE ACCOUNT
+    </button>
+
+    <h3 class='error-message'>
+      {{#if errorMessage}}
+        {{errorMessage}}
+      {{/if}}
+    </h3>
+  </form>
+</div>

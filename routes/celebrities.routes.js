@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const Celebrity = require('../models/Celebrity.model');
 const Celebrities = require('../models/Celebrity.model');
+const isLoggedIn = require('../middleware/isLoggedIn');
+const isLoggedOut = require('../middleware/isLoggedout');
 
 /*************************************************
  * The GET router to get all the celebrities listed *
@@ -19,7 +21,7 @@ router.get('/', (req, res) => {
 /*****************************************************
  * The GET router to get the form to add a celebrity *
  *****************************************************/
-router.get('/create', (req, res, next) => {
+router.get('/create', isLoggedIn, (req, res, next) => {
   res.render('celebrities/new-celebrity');
 });
 
