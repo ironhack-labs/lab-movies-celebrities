@@ -45,7 +45,11 @@
       id="form-select-multiple"
     >
       {{#each celebrities}}
-        <option value="{{this._id}}">{{this.name}}</option>
+        {{#if isSelected}}
+          <option value="{{this._id}}" selected>{{this.name}}</option>
+        {{else}}
+          <option value="{{this._id}}">{{this.name}}</option>
+        {{/if}}
       {{/each}}
     </select>
     <label for="cast" class="form-label">Cast</label>

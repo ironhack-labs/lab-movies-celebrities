@@ -69,7 +69,17 @@ router.get("/:id/edit", (req, res, next) => {
       return CelebrityModel.find();
     })
     .then((celebrities) => {
-      res.render("movies/edit-movie", { movie, celebrities });
+      const selectedCelebrities = celebrities.map((celebrity) => {
+        return {
+          ...JSON.parse(JSON.stringify(celebrity)),
+          isSelected: movie.cast.includes(celebrity._id),
+        };
+      });
+      console.log(movie, selectedCelebrities);
+      res.render("movies/edit-movie", {
+        movie,
+        celebrities: selectedCelebrities,
+      });
     })
     .catch((err) => {
       console.log("error while accessing the movie:", err);
