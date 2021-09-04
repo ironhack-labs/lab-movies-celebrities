@@ -12,6 +12,7 @@ const express = require('express');
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
+const router = require('./routes/index');
 
 const app = express();
 
@@ -25,8 +26,17 @@ const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerC
 app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
-const index = require('./routes/index');
+const index = require('./routes/index')
+const celebrities = require('./routes/celebrities.routes')
+const movie = require('./routes/movie.routes')
+
+
 app.use('/', index);
+app.use('/movie', movie);
+app.use('/celebrities', celebrities);
+
+// app.use(require('./routes/index'))
+// app.use(require('./routes/movie'))
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
