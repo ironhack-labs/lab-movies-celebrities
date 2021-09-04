@@ -21,6 +21,7 @@ const moviesRoutes = require('./routes/movies.routes')
 
 app.use('/', index);
 app.use('/', celebritiesRoutes)
+app.use('/', moviesRoutes)
 
 require('./error-handling')(app);
 
