@@ -20,7 +20,7 @@ const celebritiesRoutes = require('./routes/celebrities.routes')
 const moviesRoutes = require('./routes/movies.routes')
 
 app.use('/', index);
-app.use('/celebrities', celebritiesRoutes)
+app.use('/', celebritiesRoutes)
 
 require('./error-handling')(app);
 
