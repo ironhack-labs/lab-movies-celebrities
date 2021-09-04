@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+
+    <div class="col-md-4">
+        <h2>Crea tu pelicula</h2>
+        <form action="/movies/create" method="POST">
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="genre">genero</label>
+                <input type="text" class="form-control" id="genre" name="genre">
+            </div>
+            <div class="form-group">
+                <label for="plot">plottt</label>
+                <input type="text" class="form-control" id="plot" name="plot">
+            </div>
+            <div class="form-group">
+                <label for="plot">plottt</label>
+                <select name="cars" id="cars" multiple>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+            </select>
+            </div>
+          
+
+            <button type="submit" class="btn btn-dark btn-block">Crear pelicula</button>
+        </form>
+
+        <hr>
+        <a href="/" class="btn btn-dark">Volver</a>
+
+    </div>
+</div>
