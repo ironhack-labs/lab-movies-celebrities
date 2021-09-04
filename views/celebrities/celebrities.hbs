@@ -1,0 +1,17 @@
+<h2>List of celebrities!!</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        {{#each celebrities}}
+        <div class="col-md-3">
+            <h3>Name</h3>
+            <p>{{name}}</p>
+            <hr>
+            <h3>Occupation</h3>
+            <p>{{occupation}}</p>
+            <hr>
+            <h3>Catchphrase</h3>
+            <p>{{catchPhrase}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
