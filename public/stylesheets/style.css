@@ -1,8 +1,30 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.navbar a {
+  color: #fff;
+}
+
+.navbar a:hover {
+  color: #fff;
+}
+
+.movies_container {
+  font-size: 1.4rem;
+  text-decoration: none;
+  list-style: none;
+}
+
+.movies_columna li {
+  list-style: none;
+  margin-left: -45px;
+}
+
+.movies_columna a {
+  color: #fff;
+}
+
+.movies_columna a:hover {
+  color: yellow;
 }

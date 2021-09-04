@@ -1,10 +1,12 @@
-<h2>List of movies!!</h2>
-<div class="container">
+<div class="container text-center">
+    <h2>List of movies!!</h2>
+</div>
+<div class="container movies_container">
     <div class="row justify-content-center">
         {{#each movies}}
-        <div class="col-md-3">
+        <div class="col-md-3 movies_columna bg-dark text-white text-center m-2 p-3">
             <h3>Titulo</h3>
-            <a href="/movies/{{_id}}"><p>{{title}}</p></a>
+            <a href="/movies/id/{{_id}}"><p>{{title}}</p></a>
             <hr>
             <h3>Genero</h3>
             <p>{{genre}}</p>

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9 movies_columna text-center m-2 p-3">
+            <h2>{{this.title}} INFO</h2>
+            <h3>Title</h3>
+            <p>{{this.title}}</p>
+            <hr>
+            <h3>Genre</h3>
+            <p>{{this.genre}}</p>
+            <hr>
+            <h3>Plot</h3>
+            <p>{{this.plot}}</p>
+            <hr>
+            <h3>Cast</h3>
+                {{#each cast}}
+                <h4>Name</h4>
+                <p>{{this.name}}</p>
+                <h4>Occupation</h4>
+                <p>{{this.occupation}}</p>
+                <h4>Catch Phrase</h4>
+                <p>{{this.catchPhrase}}</p>
+                {{/each}}
+        </div>
+    </div>
+</div>
+<div class="container form_container">
+    <div class="row justify-content-center">
+        <div class="col-md-9 p-3 m-2">
+            <form action="/movies/id/{{this._id}}/delete" method="post">
+                <button type="submit" class="btn btn-danger btn-block">Delete Movie</button>
+            </form>
+            <a class="btn btn-danger btn-block mt-5" href="/movies/id/{{this.id}}/edit">EDIT</a>
+        </div>
+    </div>
+</div>

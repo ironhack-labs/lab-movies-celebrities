@@ -1,0 +1,37 @@
+<h2>Edit movie: {{this.title}}</h2>
+
+<form class="form-group" action="/movies/id/{{this._id}}" method="post">
+    <div class="form-group">
+        <input type="hidden" class="form-control" id="id" name="id" value="{{this._id}}">
+    </div>
+    <div class="form-group">
+        <label for="title">Titulo</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{this.title}}">
+    </div>
+    <div class="form-group">
+        <label for="genre">Genero</label>
+        <input type="text" class="form-control" id="genre" name="genre" value="{{this.genre}}">
+    </div>
+    <div class="form-group">
+        <label for="plot">Plot</label>
+        <input type="text" class="form-control" id="plot" name="plot" value="{{this.plot}}">
+    </div>
+    <div class="form-group">
+        <label for="cast">Cast</label>
+        <select name="cast" id="cast" multiple>
+            {{#each this.cast}}
+            <option selected value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-dark btn-block">Editar</button>
+</form>
+
+
+
+
+
+
+
+
+</form>

@@ -1,23 +1,23 @@
 
 
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2>Add a new Movie</h2>
             <form action="/movies/create" method="post">
-            <div class="form-group">
+            <div class="form-group mt-5">
                 <label for="title">Titulo</label>
                 <input type="text" class="form-control" id="title" name="title">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="genre">Genero</label>
                 <input type="text" class="form-control" id="genre" name="genre">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="plot">Plot</label>
                 <input type="text" class="form-control" id="plot" name="plot">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="cast">Cast</label>
                 <select name="cast" id="cast" multiple>
                     {{#each celebrities}}
@@ -25,8 +25,8 @@
                     {{/each}}
                 </select>
             </div>
-            <button type="submit" class="btn btn-dark btn-block">Crear movie</button>
-            <a class="btn btn-dark btn-block" href="/">Vuelve a index</a>
+            <button type="submit" class="btn btn-danger btn-block">Crear movie</button>
+            <a class="btn btn-danger btn-block" href="/">Vuelve a index</a>
         </form>
         </div>
     </div>
