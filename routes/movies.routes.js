@@ -28,7 +28,7 @@ router.post('/create', (req, res) => {
 router.get('/', (req, res) => {
     Movie
         .find()
-        .populate('cast') 
+        .select('title')
         .then(movies => res.render('movies/movies', { movies }))
         .catch(err => console.log(err))
 })
@@ -39,6 +39,18 @@ router.get('/:id', (req, res) => {
         .findById(id)
         .populate('cast') 
         .then(movie => res.render('movies/movie-details', { movie }))
+        .catch(err => console.log(err))
+})
+
+router.get('/:id/delete', (req, res) => {
+    const { id } = req.params
+    console.log(id)
+    Movie
+        .findByIdAndRemove(id, (err, result) => { 
+            if(err) console.log(err); 
+            else console.log(result) 
+           })
+        .then(() => res.redirect('/movies'))
         .catch(err => console.log(err))
 })
 

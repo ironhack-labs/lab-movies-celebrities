@@ -1,15 +1,18 @@
-<div class="row">
+<h2>Details</h2>
+<hr>
 
-    <div class="col-md-12 celebrity">
-        <h3>{{movie.title}}</h3>
-        <h5>{{movie.genre}}</h5>
-        <p>{{movie.plot}}</p>
-        <h5>Cast</h5>
-        <ul>
-            {{#each movie.cast}}
-                <li>{{name}}</li>
-            {{/each}}
-        </ul>
-    </div>
+<h3>{{movie.title}}</h3>
+<h5>{{movie.genre}}</h5>
+<p>{{movie.plot}}</p>
+<h5>Cast</h5>
+<ul>
+    {{#each movie.cast}}
+        <li>
+            <b>{{name}}</b> - {{occupation}} <br> "{{catchPhrase}}"
+        </li>
+    {{/each}}
+</ul>
 
-</div>
+<form action="/movies/{{id}}/delete" method="POST">
+    <button type="submit" class="btn btn-dark btn-block">Delete movie</button>
+</form>
