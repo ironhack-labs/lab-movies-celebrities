@@ -1,8 +1,23 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+}
+
+.navbar {
+  margin-bottom: 30px;
+}
+
+#errorMessage {
+  color: red;
+  margin-top: 10px;
+}
+
+.celebrity {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  margin: 10px;
+  padding: 20px 30px;
 }
