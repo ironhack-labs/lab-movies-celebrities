@@ -1,5 +1,5 @@
 <div class="container col-6 justify-content-center">    
-   <h2>New Movie</h2>
+   <h2>Edit Movie</h2>
 <hr>
 </div>
 <div class="container">
@@ -10,9 +10,9 @@
     <div class="col-md-6">
       <form action="/movies/:{{id}}" method="POST">
         <div class="form-group">
-          <label for="titleMovie">{{Title}}</label>
+          <label for="titleMovie">Title</label>
           <input
-            value="{{title}}"
+            value="{{findMovie.title}}"
             type="text"
             class="form-control"
             id="titleMovie"
@@ -20,9 +20,9 @@
           /></div>
 
           <div class="form-group">
-          <label for="genreMovie">{{Genre}}</label>
+          <label for="genreMovie">Genre</label>
           <input
-            value="{{genre}}"
+            value="{{findMovie.genre}}"
             type="text"
             class="form-control"
             id="genreMovie"
@@ -30,27 +30,27 @@
           /></div>
 
         <div class="form-group">
-          <label for="plotMovie">{{Plot}}</label>
+          <label for="plotMovie">Plot</label>
           <input
-            value="{{plot}}"
+            value="{{findMovie.plot}}"
             type="text"
             class="form-control"
-            id="ploMovie"
+            id="plotMovie"
             name="{{plot}}"
           /></div>
            <div class="form-group">
-          <label for="castMovie">{{Cast}}</label>
+          <label for="castMovie">Cast</label>
             <select class="form-control" name="{{cast}}" id="castMovie">
-              <option value="{{cast}}" disabled selected>Choose an Actor</option>
+              <option value="" disabled selected>Choose an Actor</option>
             {{#each theCelebrities}}
-             <option value={{this.id}}>{{this.name}}</option>
+             <option value={{findCelebrities.id}}>{{findCelebrities.name}}</option>
              {{/each}}
             </select>
           </div>
         <button
           type="submit"
           class="btn btn-dark btn-block"
-        >Registrar Pelicula</button>
+        >Modificar Pelicula</button>
       </form>
     </div>
   </div> 
