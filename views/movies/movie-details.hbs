@@ -1,0 +1,34 @@
+<div class="row d-flex justify-content-around align-items-baseline">
+    <h2 class="mt-5">{{title}}</h2>
+    <a class="btn btn-outline-dark mb-3" href="/movies">Go Back</a>
+</div>
+
+<div class="container justify-content-center">
+    <div class="col-12">
+        <hr>
+    </div>
+</div>
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="col-6">
+        <p><strong>Title: </strong>{{title}}</p>
+        <p><strong>Genre: </strong>{{genre}}</p>
+        <p><strong>Plot: </strong>{{plot}}</p>
+        <hr>
+        {{#each this.cast}}
+        <p>Cast: {{name}}
+        <p>Occupation: {{occupation}}</p>
+        <p>Catch Phrase: {{catchPhrase}}</p>
+        <hr>
+        {{/each}}
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+            <a class="text-white btn btn-primary mr-5" href="/movies/{{_id}}/edit">
+                Edit
+            </a>
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+            
+        </div>
+    </div>
+</div>

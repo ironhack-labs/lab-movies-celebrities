@@ -1,0 +1,40 @@
+<div class="row d-flex justify-content-around align-items-baseline">
+    <h2 class="mt-5"><strong>Edit: </strong>{{movie.title}}</h2>
+    <a class="btn btn-outline-dark mb-3" href="/movies">Cancel</a>
+</div>
+
+<div class="container justify-content-center">
+    <div class="col-12">
+        <hr>
+    </div>
+</div>
+<br>
+
+<div class="container d-flex justify-content-center">
+    <div class="col-6">
+        <form action='/movies/{{movie._id}}' method="POST" autocomplete="off">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name="title" value={{movie.title}}>
+            </div>
+            <div class="form-group">
+                <label>Genre</label>
+                <input type="text" class="form-control" name="genre" value={{movie.genre}}>
+            </div>
+            <div class="form-group">
+                <label>Plot</label>
+                <input type="text" class="form-control" name="plot" value={{movie.plot}}>
+            </div>
+            <div class="form-group">
+                <label for="cast-select">Cast</label>
+                <select class="form-control" name="cast" id="cast">
+                    <option value={{cast._id}} disabled selected>{{cast._id}}</option>
+                    {{#each celebrities}}
+                    <option value={{_id}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-dark btn-block">Submit changes</button>
+        </form>
+    </div>
+</div>

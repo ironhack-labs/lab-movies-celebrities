@@ -1,0 +1,25 @@
+<div class="row d-flex justify-content-around align-items-baseline">
+    <a class="btn mt-5 mb-5" href="/"><img class="mr-2" style="width: 32px" src="/images/back-arrow.png" alt="back arrow">Go back</a>
+    <h1>Movies</h1>
+    <a class="btn btn-dark mt-5 mb-5" href="./movies/create">Add a Movie</a>
+</div>
+
+<div class="container justify-content-center">
+    <div class="col-12">
+        <hr>
+    </div>
+</div>
+
+<br>
+
+<div class="container d-flex justify-content-center">
+    <div class="col-6">
+        {{#each movies}}
+        <div class="row d-flex justify-content-between">
+            <p>{{title}}</p>
+            <a href='/movies/{{_id}}'>Details</a>
+        </div>
+
+        {{/each}}
+    </div>
+</div>
