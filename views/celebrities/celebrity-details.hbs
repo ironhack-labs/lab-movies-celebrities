@@ -1,11 +1,35 @@
 <div class="container">
 
-    <h2>Celebrity Details</h2>
+    <div class="row">
 
-    <ul>
-        <li><b>Name</b>: {{name}}</li>
-        <li><b>Occupation</b>: {{occupation}}</li>
-        <li><b>Catch Phrase</b>: {{catchPhrase}}</li>
-    </ul>
+        <div class="col-6">
+
+            <h2>Celebrity Details</h2>
+
+            <ul>
+                <li><b>Name</b>: {{name}}</li>
+                <li><b>Occupation</b>: {{occupation}}</li>
+                <li><b>Catch Phrase</b>: {{catchPhrase}}</li>
+            </ul>
+
+        </div>
+
+    <div class="col-6 d-flex align-items-start">
+
+            <form action="/celebrities/{{_id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger mr-4">Delete celebrity</button>
+            </form>
+
+            <a
+                class="btn btn-primary"
+                href="/celebrities/{{_id}}/edit"
+                role="button"
+            >Edit Celebrity</a>
+        </div>
+
+    </div>
+
+
+    
 
 </div>
