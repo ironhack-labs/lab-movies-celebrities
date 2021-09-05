@@ -25,3 +25,7 @@ a {
 .movie-btn {
  padding-left: 15px;
 }
+
+.movies li {
+  font-size: 1.4em;
+}

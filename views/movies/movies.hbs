@@ -1,8 +1,7 @@
 <h2>Movies</h2>
 <hr>
-<a href="/movies/create">🎥 Create a new movie! 📽🎞</a>
-<hr>
-<ul>
+
+<ul class="movies">
     {{#each movies}}
         <li>
             <a href="/movies/{{id}}">{{title}}</a>
@@ -10,5 +9,7 @@
     {{/each}}
 </ul>
 
+<hr>
+<h4><a href="/movies/create">🎥 Create a new movie! 📽🎞</a></h4>
 <hr>
 <a href="/" class="btn btn-dark">Go back</a>

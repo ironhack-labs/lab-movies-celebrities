@@ -2,6 +2,9 @@ const router = require("express").Router();
 const Celebrity = require('./../models/Celebrity.model');
 const Movie = require('./../models/Movie.model');
 
+
+// Create movie
+
 router.get('/create', (req, res) => {
 
     Celebrity
@@ -12,6 +15,7 @@ router.get('/create', (req, res) => {
 })
 
 router.post('/create', (req, res) => {
+
     const { title, genre, plot, cast } = req.body
     const movie = { title, genre, plot, cast }
     
@@ -19,9 +23,11 @@ router.post('/create', (req, res) => {
         Celebrity
             .find()
             .select('name id')
-            .then(celebrities => res.render('movies/new-movie', { movie, celebrities, errorMsg: 'All fields must be completed' }))
+            .then(celebrities => {
+                res.render('movies/new-movie', { movie, celebrities, errorMsg: 'All fields must be completed' })
+            })
             .catch(err => console.log(err))
-        return;
+        return
     }
 
     Movie
@@ -30,7 +36,11 @@ router.post('/create', (req, res) => {
         .catch(err => console.log(err))
 })
 
+
+// Movies main page
+
 router.get('/', (req, res) => {
+
     Movie
         .find()
         .select('title')
@@ -38,8 +48,13 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err))
 })
 
+
+// Movie details
+
 router.get('/:id', (req, res) => {
+
     const { id } = req.params
+
     Movie
         .findById(id)
         .populate('cast') 
@@ -47,17 +62,25 @@ router.get('/:id', (req, res) => {
         .catch(err => console.log(err))
 })
 
+
+// Delete movie
+
 router.post('/:id/delete', (req, res) => {
+
     const { id } = req.params
+
     Movie
         .findByIdAndRemove(id)
         .then(res.redirect('/movies'))
         .catch(err => console.log(err))
 })
 
-router.get('/:id/edit', (req, res) => {
-    const { id } = req.params
 
+// Edit movie
+
+router.get('/:id/edit', (req, res) => {
+
+    const { id } = req.params
     const movie = Movie.findById(id).populate('cast') 
     const celebrities = Celebrity.find()
 
@@ -77,6 +100,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.post('/:id', (req, res) => {
+
     const { id } = req.params
     const { title, genre, plot, cast } = req.body
     const movie = { id, title, genre, plot, cast }
@@ -85,7 +109,8 @@ router.post('/:id', (req, res) => {
         Celebrity
             .find()
             .then(celebrities => {
-                res.render('movies/edit-movie', { movie, celebrities, errorMsg: 'All fields must be completed' })
+                res.render('movies/edit-movie', { movie, celebrities, 
+                            errorMsg: 'All fields must be completed' })
             })
             .catch(err => console.log(err)) 
         return; 
@@ -96,7 +121,6 @@ router.post('/:id', (req, res) => {
         .then(res.redirect(`/movies/${movie.id}`))
         .catch(err => console.log(err)) 
 })
-
 
 
 module.exports = router;
