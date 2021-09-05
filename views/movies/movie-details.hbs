@@ -1,19 +1,44 @@
-<h2>Movie details</h2>
+<div class="container">
 
-<ul>
-    <li> <b>Title:</b> {{title}}</li>
-    <li> <b>Genre:</b> {{genre}}</li>
-    <li> <b>Plot:</b> {{plot}}</li>
-    <li>
-        <b>Cast:</b>
-        {{#each cast}}
+    <div class="row">
+
+        <div class="col-6">
+
+            <h2>Movie details</h2>
+
             <ul>
+                <li> <b>Title:</b> {{title}}</li>
+                <li> <b>Genre:</b> {{genre}}</li>
+                <li> <b>Plot:</b> {{plot}}</li>
                 <li>
-                    {{name}},
-                    {{occupation}}.
-                    <em> "{{catchPhrase}}" </em>
+                    <b>Cast:</b>
+                    {{#each cast}}
+                        <ul>
+                            <li>
+                                {{name}},
+                                {{occupation}}.
+                                <em> "{{catchPhrase}}" </em>
+                            </li>
+                        </ul>
+                    {{/each}}
                 </li>
             </ul>
-        {{/each}}
-    </li>
-</ul>
+
+        </div>
+
+        <div class="col-6 d-flex align-items-start">
+
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger mr-4">Delete movie</button>
+            </form>
+
+            <a
+                class="btn btn-primary"
+                href="/movies/{{_id}}/edit"
+                role="button"
+            >Edit Movie</a>
+        </div>
+
+    </div>
+
+</div>

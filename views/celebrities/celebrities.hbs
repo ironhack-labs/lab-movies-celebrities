@@ -4,7 +4,9 @@
 
 <ul>
     {{#each celebrities}}
-        <li>{{name}}</li>
+        <li>
+            <a href="/celebrities/details/{{_id}}">{{name}}</a>
+        </li>
     {{/each}}
 </ul>
 

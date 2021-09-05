@@ -12,6 +12,17 @@ router.get("/celebrities", (req, res) => {
 
 })
 
+router.get("/celebrities/details/:id", (req, res) => {
+    const { id } = req.params;
+
+    Celebrity
+        .findById(id)
+        .then((celebrity) => {
+            res.render("./celebrities/celebrity-details", celebrity);
+        })
+        .catch((err) => console.log(err));
+});
+
 router.get("/celebrities/create", (req, res) => {
     res.render("./celebrities/new-celebrity")
 })
