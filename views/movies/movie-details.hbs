@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <h2> Details of the film </h2>
+    <div class="row bg-light">
+        <div class="row">
+            <h3 class="col-4"><span class="col-4">{{title}}</span></h3>
+        </div>
+        <hr>
+        <div class="row">
+            <h4 class="col-4">Género:</h4>
+            <p class="col-8"><span class="col-4">{{genre}}</span></p>
+        </div>
+        <hr>
+        <div class="row">
+            <h4 class="col-4">Argumento:</h4>
+            <p class="col-8"><span class="col-4">{{plot}}</span></p>
+        </div>
+        <hr>
+        <div class="row justify-content-between">
+            <h4>Cast: </h4>
+            <ul>
+                {{#each cast}}
+                <li>
+                    <div class="container-fluid">
+                        <div>
+                            <div class="row ">
+                                <p class="col-4">Name: </p>
+                                <span class="col-6">{{name}}</span>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <p class="col-4">Occupation: </p>
+                                <span class="col-6">{{occupation}}</span>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <p class="col-4">Catch phrase: </p>
+                                <span class="col-6">{{catchPhrase}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <form action="/movies/{{id}}/delete" method="POST">
+            <div class="row">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="/movies/{{id}}/edit" class="btn btn-dark">Editar</a>
+            </div>
+        </form>
+    </div>
+</div>

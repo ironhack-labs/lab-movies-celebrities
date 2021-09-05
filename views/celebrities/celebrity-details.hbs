@@ -1,0 +1,26 @@
+<div class="container">
+    <h2> Details if the celebrity</h2>
+        <div class="row bg-light details">
+            <div class="row justify-content-between">
+                <p class="col-4">Name: </p>
+                <span class="col-4">{{name}}</span>
+            </div>
+            <hr>
+            <div class="row justify-content-between">
+                <p class="col-4">Ocupation: </p>
+                <span class="col-4">{{ocupation}}</span>
+            </div>
+            <hr>
+            <div class="row justify-content-between">
+                <p class="col-4">Catch phrase: </p>
+                <span class="col-4">{{catchPhrase}}</span>
+            </div>
+            <hr>
+            <form action="/celebrities/{{id}}/delete" method="POST" class="no-bg text-align-center container-fluid">
+                <div class="row g-0 justify-content-between">
+                    <button type="submit" class="btn btn-danger btn-delete col-12 col-md-6 col-lg-4">Delete</button>
+                    <a href="/celebrities/{{id}}/edit" class="btn btn-dark col-12 col-md-6 col-lg-4">Editar</a>
+                </div>
+            </form>
+        </div>
+</div>

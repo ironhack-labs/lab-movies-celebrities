@@ -1,0 +1,12 @@
+<div>
+    <h2>Movies</h2>
+    <ul class="row">
+        {{#each movies}}
+        <li class="col-12">
+            <a href="/movies/{{this.id}}">
+            <h3> {{this.title}} </h3>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
