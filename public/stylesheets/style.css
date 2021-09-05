@@ -1,5 +1,6 @@
 body {
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background-image: url('/images/bg.jpg');
 }
 
 .navbar a {
@@ -21,10 +22,30 @@ body {
   margin-left: -45px;
 }
 
-.movies_columna a {
+.title h1 {
+  font-family: 'Concert One', cursive;
   color: #fff;
+  font-size: 8rem;
 }
 
-.movies_columna a:hover {
-  color: yellow;
+.movies_title h2 {
+  font-family: 'Concert One', cursive;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.movies_title p {
+  font-family: 'Concert One', cursive;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.celebrities_title h2 {
+  font-family: 'Concert One', cursive;
+  color: #fff;
+  font-size: 5rem;
+}
+
+.movie_container a {
+  color: black;
 }
