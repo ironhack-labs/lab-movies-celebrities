@@ -5,16 +5,13 @@ const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model")
 
 
-// Movie related routes
-
-
 // Render movie creation form
 router.get('/movies/create', (req, res) => {
     
     Celebrity
-        .find()
-        .then(theCelebrities => res.render('./movies/new-movie', {celebrities: theCelebrities}))
-        .catch(err => console.log(err))
+    .find()
+    .then(theCelebrities => res.render('./movies/new-movie', {celebrities: theCelebrities}))
+    .catch(err => console.log(err))
 })
 
 // Create movie & redirect to movie list
@@ -63,18 +60,25 @@ router.post('/movies/id/:id/delete', (req, res) => {
     .catch(err => console.log(err))
 })
 
-// Edit movies
+// Update movies
 router.get('/movies/id/:id/edit', (req, res) => {
 
     const { id } = req.params
+    const data = {}
 
     Movie
     .findById(id)
-    .populate('cast')
-    .then(theMovie => res.render('./movies/edit-movie', theMovie))
+    .then(theMovie => data.movie = theMovie)
+    Celebrity
+    .find()
+    .then(theCelebrities => data.celebrities = theCelebrities)
+    .then(() => {
+        res.render('./movies/edit-movie', {movie: data.movie, celebrities: data.celebrities})
+    })
     .catch(err => console.log(err))
 
 })
+
 
 router.post('/movies/id/:id', (req, res) => {
 
