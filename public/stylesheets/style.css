@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 a {
-  color: #00b7ff;
+  color: #a200ff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h6 {
+  font-weight: 600;
 }

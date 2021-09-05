@@ -1,0 +1,80 @@
+<div class='container'>
+  <h3>Movie details</h2>
+
+<div class='container'>
+
+
+<hr>
+<div class='row'>
+   <h6>Genre:</h6> 
+
+</div>
+<div class='row'>
+   {{genre}} 
+
+</div>
+<hr>
+<div class='row'>
+ <h6>Plot: </h6>{{plot}}
+
+</div>
+<hr>
+<div class='row'>
+  <h6> Cast details:</h6> 
+    <ul>
+                {{#each cast}}
+                <li>
+                    
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <p>Name: </p>
+                                {{name}}
+                           </div>
+
+                            <hr>
+
+                          <div class="col-md-4">
+                                <p>Occupation: </p>
+                                {{occupation}}
+                            </div>
+
+                            <hr>
+
+                            <div class="col-md-4">
+                                <p>Catch phrase: </p>
+                                {{catchPhrase}}
+                           </div>
+
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+ 
+
+       
+</div>
+</div>
+
+<form action="/movies/{{_id}}/delete" method="POST" class="text-align-center">
+           <div class="row justify-content-start d-flex flex-row">
+                <div class="col-md-3">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+            <div class="col-md-3">
+
+ <a href="/movies/{{_id}}/edit" type='button' class="btn btn-warning">Edit</a>
+
+            </div>
+            
+            
+            
+            
+            </div>
+             
+        </form>
+</div>
+
+
+

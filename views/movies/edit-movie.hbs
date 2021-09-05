@@ -1,0 +1,32 @@
+<div class="container">
+  
+  <h2>Edit movie</h2>
+   <form action='/movies/edit' method='POST'>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" value='{{currentMovie.title}}'>
+   </div>
+    <div class="form-group">
+    <label for="genre">Genre</label>
+    <input type="text" class="form-control" id="genre" name="genre" value='{{currentMovie.genre}}'>
+   </div>
+     <div class="form-group">
+    <label for="plot">Plot</label>
+    <input type="text" class="form-control" id="plot" name="plot" value='{{currentMovie.plot}}'>
+   </div>
+   <div class="form-group">
+    <label for="cast">Cast</label>
+                    <select name="cast" id="cast" value={{currentCelebrities}} multiple>
+                        {{#each currentCelebrities}}
+                        <option value={{_id}}> {{name}} </option>
+                        {{/each}}
+                    </select>
+   </div>
+
+
+
+
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+ </form>
+ {{errorMessage}}
