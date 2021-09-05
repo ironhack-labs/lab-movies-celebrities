@@ -1,5 +1,23 @@
-<h2>Listado de pelicula</h2>
-<div>
-    {{#each movies}}<p>{{title}}</p>
+<h2>Listado de peliculas</h2>
+<div class="row">
+    
+    {{#each movies}}
+    <div class="col-4 mt-5">
+    <p>{{title}}</p>
+    <br>
+    <a href='/movies/details/{{id}}'>Detalles</a>
+    <hr>
+
+    {{!-- <ul>
+        <li>{{genre}}</li>
+        <li>{{plot}}</li>
+        <li>
+            {{#each cast}}
+            <p>{{id}}</p>
+            {{/each}}
+        </li>
+    </ul> --}}
+    </div>
     {{/each}}
+    </div>
 </div>

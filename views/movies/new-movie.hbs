@@ -8,20 +8,21 @@
                 <input type="text" class="form-control" id="title" name="title">
             </div>
             <div class="form-group">
-                <label for="genre">genero</label>
+                <label for="genre">Genero</label>
                 <input type="text" class="form-control" id="genre" name="genre">
             </div>
             <div class="form-group">
-                <label for="plot">plottt</label>
+                <label for="plot">Trama</label>
                 <input type="text" class="form-control" id="plot" name="plot">
             </div>
+        
             <div class="form-group">
-                <label for="plot">plottt</label>
-                <select name="cars" id="cars" multiple>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="opel">Opel</option>
-                    <option value="audi">Audi</option>
+                <label for="celebrities">Celebridades --</label>
+                <select name="cast" id="celebrities" multiple>
+                    {{#each celebrities}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+
             </select>
             </div>
           
