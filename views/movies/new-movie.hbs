@@ -1,0 +1,57 @@
+
+ <div class="container col-6 justify-content-center">    
+   <h2>New Movie</h2>
+<hr>
+</div>
+<div class="container">
+
+  <hr />
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <form action="/movies/create" method="POST">
+        <div class="form-group">
+          <label for="titleMovie">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titleMovie"
+            name="title"
+          /></div>
+
+          <div class="form-group">
+          <label for="genreMovie">Genre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="genreMovie"
+            name="genre"
+          /></div>
+
+        <div class="form-group">
+          <label for="plotMovie">Plot</label>
+          <input
+            type="text"
+            class="form-control"
+            id="ploMovie"
+            name="plot"
+          /></div>
+           <div class="form-group">
+          <label for="castMovie">Cast:</label>
+            <select class="form-control" name="cast" id="castMovie">
+              <option value="" disabled selected>Choose an Actor</option>
+            {{#each theCelebrities}}
+             <option value={{this.id}}>{{this.name}}</option>
+             {{/each}}
+            </select>
+          </div>
+        <button
+          type="submit"
+          class="btn btn-dark btn-block"
+        >Registrar Pelicula</button>
+      </form>
+    </div>
+  </div> 
+
+  <hr>
+  <a href="/" class="btn btn-dark">Volver</a></div>

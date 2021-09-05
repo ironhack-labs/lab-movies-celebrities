@@ -1,0 +1,64 @@
+
+
+<div class="container">
+<div class="row justify-content-center">
+
+
+
+
+<div class="container col-6 justify-content-center">   
+
+
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{title}}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{genre}} <br> {{cast}}</h5>
+    <p class="card-text">{{plot}}</p>
+  </div>
+
+</div>
+
+</div>
+
+<div class="container">
+
+  <hr />
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <form action="/:{{id}}/edit" method="POST">
+        <div class="form-group">
+        
+
+            <button
+          type="submit"
+          class="btn btn-dark btn-block"
+        >Editar {{title}}</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="container">
+
+  <hr />
+  <div class="row justify-content-center">
+
+    <div class="col-md-6">
+      <form action="/movies/{{id}}/delete" method="POST">
+        <div class="form-group">
+        
+
+            <button
+          type="submit"
+          class="btn btn-dark btn-block"
+        >Eliminar {{title}}</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+</div>
