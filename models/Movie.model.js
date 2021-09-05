@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
-    title: String,
+    title: {
+        type: String,
+        required: true,
+        default: 'unknown'
+    },
     genre: String,
     plot: String,
     cast: [{

@@ -13,9 +13,14 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
     const { title, genre, plot, cast } = req.body
+    const movie = { title, genre, plot, cast }
     
     if (title.length === 0 || genre.length === 0 || plot.length === 0) {
-        res.render('movies/new-movie', { errorMsg: 'All fields must be completed' })
+        Celebrity
+            .find()
+            .select('name id')
+            .then(celebrities => res.render('movies/new-movie', { movie, celebrities, errorMsg: 'All fields must be completed' }))
+            .catch(err => console.log(err))
         return;
     }
 
@@ -42,16 +47,48 @@ router.get('/:id', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get('/:id/delete', (req, res) => {
+router.post('/:id/delete', (req, res) => {
     const { id } = req.params
-    console.log(id)
     Movie
-        .findByIdAndRemove(id, (err, result) => { 
-            if(err) console.log(err); 
-            else console.log(result) 
-           })
-        .then(() => res.redirect('/movies'))
+        .findByIdAndRemove(id)
+        .then(res.redirect('/movies'))
         .catch(err => console.log(err))
 })
+
+router.get('/:id/edit', (req, res) => {
+    const { id } = req.params
+
+    const movie = Movie.findById(id).populate('cast') 
+    const celebrities = Celebrity.find()
+
+    Promise.all([movie, celebrities]).then(data => {
+        const [ movie, celebrities ] = data
+        res.render('movies/edit-movie', { movie, celebrities })
+    })
+    .catch(err => console.log(err))    
+})
+
+router.post('/:id', (req, res) => {
+    const { id } = req.params
+    const { title, genre, plot, cast } = req.body
+    const movie = { id, title, genre, plot, cast }
+
+    if (title.length === 0 || genre.length === 0 || plot.length === 0) {
+        Celebrity
+            .find()
+            .then(celebrities => {
+                res.render('movies/edit-movie', { movie, celebrities, errorMsg: 'All fields must be completed' })
+            })
+            .catch(err => console.log(err)) 
+        return; 
+    }
+
+    Movie
+        .findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+        .then(movie => res.redirect(`/movies/${movie.id}`))
+        .catch(err => console.log(err)) 
+})
+
+
 
 module.exports = router;

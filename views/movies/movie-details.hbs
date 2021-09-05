@@ -1,6 +1,5 @@
 <h2>Details</h2>
 <hr>
-
 <h3>{{movie.title}}</h3>
 <h5>{{movie.genre}}</h5>
 <p>{{movie.plot}}</p>
@@ -13,6 +12,13 @@
     {{/each}}
 </ul>
 
-<form action="/movies/{{id}}/delete" method="POST">
-    <button type="submit" class="btn btn-dark btn-block">Delete movie</button>
-</form>
+<hr class="mt-5">
+<div class="row movie-btn">
+    <a href="/movies/{{movie.id}}/edit" class="btn btn-primary mr-2">Edit movie</a>
+    <form action="/movies/{{movie.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger">Delete movie</button>
+    </form>
+</div>
+
+<hr>
+<a href="/" class="btn btn-dark">Go back</a>

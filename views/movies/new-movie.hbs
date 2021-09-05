@@ -8,15 +8,15 @@
         <form action="/movies/create" method="POST">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
             </div>
             <div class="form-group">
                 <label for="genre">Genre</label>
-                <input type="text" class="form-control" id="genre" name="genre">
+                <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
             </div>
             <div class="form-group">
                 <label for="plot">Plot</label>
-                <input type="text" class="form-control" id="plot" name="plot">
+                <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}">
             </div>
             <div class="form-group">
                 <label for="cast">Cast</label> 
