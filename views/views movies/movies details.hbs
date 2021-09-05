@@ -1,0 +1,37 @@
+<div class="container">
+
+    <h2>Details of {{title}}</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            Title
+            <br>
+            {{title}}
+        </div>
+        <div class="col-md-6">
+            Genre
+            <br>
+            {{genre}}
+        </div>
+        <div class="col-md-6">
+            Plot
+            <br>
+            {{plot}}
+        </div>
+
+    </div>
+
+    <hr>
+
+    <a href="/movies/editar?movie_id={{id}}" class="btn btn-warning">Edit</a>
+    <a href="/movies" class="btn btn-dark">Back</a>
+</div>
+
+{{router.get('/movies/details/:movie_id', (req, res) => {
+    const {movie_id} = req.params
+    Movie
+        .findById(movie_id)
+        .then(theMovie=> res.render('movies/details', theMovie))
+        .catch(err =>console.log(err)) }
+    
+})

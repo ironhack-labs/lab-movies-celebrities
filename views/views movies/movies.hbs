@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h2>Movies Name</h2>
+    <hr>
+
+    {{#each movies}}
+
+
+    <p>
+        {{title}}
+        <small>- {{title}} -
+            [<a href="/movies/details/{{id}}">see details</a>]
+            [<a href="/movies/edit?movie_id={{id}}">edit</a>]
+        </small>
+    </p>
+
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Back</a>
+</div>
+
+
+
