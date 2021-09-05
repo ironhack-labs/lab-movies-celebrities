@@ -66,11 +66,14 @@ router.get("/movies/:id/edit", (req, res) => {
         .populate("cast")
         .then((movie) => {
             movieDetails.movie = movie;
+            movieDetails.currentCast = movie.cast;
             return Celebrity.find();
         })
         .then((celebrities) => {
-            movieDetails.celebrities = celebrities;
+            let castIds = movieDetails.movie.cast.map((celeb) => {return celeb._id.toString()})
+            const nonCastCelebrities = celebrities.filter((celebrity) => !castIds.includes(celebrity._id.toString()))
 
+            movieDetails.nonCastCelebrities = nonCastCelebrities;
             res.render("./movies/edit-movie", movieDetails);
         })
         .catch((err) => console.log(err));

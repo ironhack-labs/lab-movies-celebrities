@@ -41,7 +41,16 @@
 
             <select multiple class="form-control" id="cast" name="cast">
 
-                {{#each celebrities}}
+                {{#each currentCast}}
+
+                    <option value="{{_id}}" selected>
+                        {{name}}
+                    </option>
+
+                {{/each}}
+
+                
+                {{#each nonCastCelebrities}}
 
                     <option value="{{_id}}">
                         {{name}}

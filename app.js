@@ -12,7 +12,7 @@ require('./config')(app)
 
 const projectName = 'Movies and celebrities';
 
-app.locals.titleSite = `${projectName} - Generated with Ironlauncher`
+app.locals.titleSite = `${projectName}`
 
 const index = require('./routes/index');
 
