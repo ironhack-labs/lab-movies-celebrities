@@ -5,6 +5,10 @@ const celebritySchema = new Schema({
     name: String,
     occupation: String,
     catchPhrase: String,
+    isSelected: {
+        type: Boolean,
+        default: false
+    }
 }, { 
     timestamps: true 
 })

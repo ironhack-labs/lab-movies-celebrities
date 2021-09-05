@@ -1,11 +1,11 @@
-<h2>Create a celebrity</h2>
+<h2>Edit a celebrity</h2>
 <hr>
 
 <div class="row justify-content-center">
 
     <div class="col-md-6">
 
-        <form action="/celebrities/create" method="POST">
+        <form action="/celebrities/{{id}}" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{name}}">
@@ -19,8 +19,10 @@
                 <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}">
             </div>
            
-            <button type="submit" class="btn btn-dark btn-block">Create celebrity</button>
+            <button type="submit" class="btn btn-dark btn-block">Edit celebrity</button>
         </form>
+
+        {{id}}
 
         {{#if errorMsg}}
             <p id="errorMessage">{{errorMsg}}</p>

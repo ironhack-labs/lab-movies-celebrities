@@ -63,6 +63,14 @@ router.get('/:id/edit', (req, res) => {
 
     Promise.all([movie, celebrities]).then(data => {
         const [ movie, celebrities ] = data
+
+        celebrities.forEach(celebrity => {
+            for (let i = 0; i < movie.cast.length; i++) {
+                if (movie.cast[i].id === celebrity.id) {
+                    celebrity.isSelected = true;
+                }
+            }
+        });
         res.render('movies/edit-movie', { movie, celebrities })
     })
     .catch(err => console.log(err))    
@@ -85,7 +93,7 @@ router.post('/:id', (req, res) => {
 
     Movie
         .findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
-        .then(movie => res.redirect(`/movies/${movie.id}`))
+        .then(res.redirect(`/movies/${movie.id}`))
         .catch(err => console.log(err)) 
 })
 

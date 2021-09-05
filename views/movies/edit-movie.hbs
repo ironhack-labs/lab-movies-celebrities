@@ -23,7 +23,11 @@
                 <br>
                 <select id="cast" name="cast" multiple>
                     {{#each celebrities}}
-                        <option value="{{id}}">{{name}}</option>
+                        {{#if this.isSelected}}
+                            <option value="{{id}}" selected>{{name}}</option>
+                        {{else}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/if}}
                     {{/each}}
                 </select>
             </div>

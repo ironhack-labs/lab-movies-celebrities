@@ -1,0 +1,17 @@
+<h2>Details</h2>
+<hr>
+
+<h3>{{celebrity.name}}</h3>
+<h5>{{celebrity.occupation}}</h5>
+<p>{{celebrity.catchPhrase}}</p>
+
+<hr class="mt-5">
+<div class="row movie-btn">
+    <a href="/celebrities/{{celebrity.id}}/edit" class="btn btn-primary btn-sm mr-2">Edit celebrity</a>
+            <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger btn-sm">Delete celebrity</button>
+            </form>
+</div>
+
+<hr>
+<a href="/" class="btn btn-dark">Go back</a>
