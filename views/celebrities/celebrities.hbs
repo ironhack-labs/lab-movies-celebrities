@@ -1,0 +1,20 @@
+<h1>Celebrities</h1>
+<br>
+
+<a href="/celebrities/create">
+  <button class="btn btn-success">Add a new celebrity</button>
+</a>
+
+{{#each allCelebrities}}
+<a href="/celebrities/{{this._id}}">
+<h2>
+    {{this.name}}
+</h2>
+</a>
+<h3>
+    {{this.occupation}}
+</h3>
+<blockquote>
+    {{this.catchPhrase}}
+</blockquote>
+{{/each}}

@@ -1,0 +1,30 @@
+<h1>Add New Movie</h1>
+
+<form action="/movies/" method="POST">
+
+  <label class="form-label" for="title">Title</label>
+  <input class="form-control" type="text" name="title" />
+
+  <br />
+  <label class="form-label" for="genre">Genre</label>
+  <input class="form-control" type="text" name="genre" />
+
+  <br />
+  <label class="form-label" for="plot">Plot</label>
+  <textarea class="form-control" type="text" name="plot" rows="3">
+  </textarea>
+
+  <br />
+  <label class="form-label" for="cast">Cast</label>
+  <select name="cast" id="cast" class="form-control form-select" multiple aria-label="multiple select example">
+    <option selected>Open this select menu</option>
+    {{#each allCelebrities}}
+    <option value="{{this._id}}">
+        {{this.name}}
+    </option>
+    {{/each}}
+  </select>
+  <br />
+  <button type="submit" class="btn btn-success">Create</button>
+
+</form>

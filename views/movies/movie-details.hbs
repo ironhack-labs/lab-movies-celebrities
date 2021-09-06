@@ -1,0 +1,27 @@
+<h1>
+  {{title}}
+</h1>
+<h2>
+  {{genre}}
+</h2>
+<blockquote>
+  {{plot}}
+</blockquote>
+
+<h2>Cast</h2>
+
+{{#each cast}}
+<h3>
+    {{this.name}}
+</h3>
+<h4>
+    {{this.occupation}}
+</h4>
+<blockquote>
+    {{this.catchPhrase}}
+</blockquote>
+{{/each}}
+<br>
+
+<a href="/movies/{{this._id}}/edit">Edit this movie</a>
+<a href="/movies/{{this._id}}/delete">Delete this movie</a>
