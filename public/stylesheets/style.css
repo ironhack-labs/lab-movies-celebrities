@@ -5,4 +5,18 @@ body {
 
 a {
   color: #00b7ff;
+} 
+
+
+.mt-20{
+  margin-top: 20px;
+} 
+
+.mt-10{
+  margin-top: 10px;
+}
+ 
+
+.mt-40{
+  margin-top: 40px;
 }

@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-6">
+
+            <h2>Movie details</h2>
+
+            <ul>
+                <li> <b>Title:</b> {{title}}</li>
+                <li> <b>Genre:</b> {{genre}}</li>
+                <li> <b>Plot:</b> {{plot}}</li>
+                <li>
+                    <b>Cast:</b>
+                    {{#each cast}}
+                        <ul>
+                            <li>{{name}}, {{occupation}}. <em> "{{catchPhrase}}" </em></li>
+                        </ul>
+                    {{/each}}
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-6 d-flex align-items-start">
+
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger mr-4">Delete movie</button>
+            </form>
+
+    </div>
+
+</div>
