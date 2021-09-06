@@ -23,22 +23,24 @@ require('./config')(app);
 const projectName = 'lab-movies-celebrities';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+app.locals.title = `${capitalized(projectName)} - Generated with Ironlauncher`;
+
 
 // 👇 Start handling routes here
 const index = require('./routes/index')
+const movies = require('./routes/movies.routes')
 const celebrities = require('./routes/celebrities.routes')
-const movie = require('./routes/movie.routes')
-
 
 app.use('/', index);
-app.use('/movie', movie);
+app.use('/movies', movies)
 app.use('/celebrities', celebrities);
+
 
 // app.use(require('./routes/index'))
 // app.use(require('./routes/movie'))
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
+
 
 module.exports = app;

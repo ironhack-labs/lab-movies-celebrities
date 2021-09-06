@@ -23,11 +23,10 @@ router.get("/create", (req, res, next) => {
 
 router.post('/create', (req, res) => {
     const { name, occupation, catchPhrase } = req.body
-
     Celebrity
         .create({ name, occupation, catchPhrase })
         .then(() => {
-            res.render('celebrities/celebrities')
+            res.redirect('/celebrities')
         })
         .catch(err => console.error(err))
 

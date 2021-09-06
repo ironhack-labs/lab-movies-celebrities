@@ -1,0 +1,25 @@
+<div class="row justify-content-center mt-5">
+
+    <form action="/movies/create" method="POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Genre</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="genre">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Plot</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="plot">
+        </div>
+        <select name="cast">
+            {{#each celebrities }}
+            <option class="dropdown-item" value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </form>
+</div>
