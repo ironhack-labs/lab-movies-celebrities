@@ -1,0 +1,28 @@
+<h2>ADD MOVIE</h2>
+{{!-- 
+title: String,
+        genre: String,
+        plot: String,
+        cast: [{type: Schema.Types.ObjectId, ref: 'Celebrity'}] --}}
+
+<form action="/movies/create" method="POST">
+
+<label for="">Title</label>
+<input type="text" name="title">
+<br>
+<label for="">Genre</label>
+<input type="text" name="genre">
+<br>
+<label for="">Plot</label>
+<input type="text" name="plot">
+<br>
+<label for="">Cast</label>
+<select name="cast" multiple>
+    <option disable selected value="">Select an author from the list</option>
+    {{#each allCelebs}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+</select>
+<br>
+<button type="submit">ADD</button>
+</form>
