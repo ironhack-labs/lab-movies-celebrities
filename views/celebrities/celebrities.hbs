@@ -1,13 +1,11 @@
-<div class="container">
-
+<div class="mb-3 centeredDiv d-flex flex-column">
     <h2>Celebrities</h2>
-
-    <ul>
-        {{#each celebrities}}
-        <li>
-            <a href="/celebrities/details/{{_id}}">{{name}}</a>
-        </li>
-        {{/each}}
-    </ul>
-
+    {{#each celebrities}}
+    <a href="/celebrities/details/{{_id}}">
+        <h3>{{name}}</h3>
+    </a>
+    {{/each}}
+</div>
+<div class="formDiv">
+    <a href="/"><button type="text" class="btn btn-dark"> Home </button></a>
 </div>
