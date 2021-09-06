@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Tus celebrities favoritas</h2>
+    <hr>
+
+    {{#each celebrities}}
+    <p>
+        <b>{{name}}</b> - {{occupation}} // <i>{{catchPhrase}}</i>
+    </p>
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Tus peliculas favoritas</h2>
+    <hr>
+
+    {{#each movies}}
+    <p>{{title}} - <small><a href="/movies/{{id}}">Detalles</a></p></small>
+    <hr style="opacity: .5;">
+    {{/each}}
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>
