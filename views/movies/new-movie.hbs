@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Movie</h1>
+    <hr>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <form action="/movies/crear" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre">
+                </div>
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <input type="text" class="form-control" id="plot" name="plot">
+                </div>
+
+                <div class="form-group">
+                    <label for="cast">Cast</label>
+                    <input type="text" class="form-control" id="cast" name="cast">
+                </div>
+                
+                <button type="submit" class="btn btn-dark btn-block">Crear movie</button>
+            </form>
+        </div>
+    </div>
+
+
+    <hr>
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>
