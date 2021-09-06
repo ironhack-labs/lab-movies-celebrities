@@ -1,0 +1,32 @@
+<div class="container">
+    <h3><strong>{{title}}</strong></h3>
+    <br>
+    <h4>{{genre}}</h4>
+    <br>
+    <p>{{plot}}</p>
+
+    <hr>
+    
+        <h4>Cast</h4>
+        <br>
+        {{#each cast}}
+            <strong>{{name}}</strong>
+            <small>{{occupation}}</small>
+            <i>"{{catchPhrase}}"</i> 
+            <hr>
+        {{/each}}
+        <br>
+    
+
+    <div class="col-md-6">
+
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-dark btn-block">Delete Movie</button>
+            </form>
+        </div>
+
+    </div>
+<br>
+
+    <a href="/" class="btn btn-dark">Home</a>
+</div>

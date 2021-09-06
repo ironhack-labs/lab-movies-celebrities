@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>This Are Our Movies</h2>
+    <hr>
+
+    {{#each movies}}
+
+    <p>
+        - {{title}} <a href="/movies/{{id}}"><small>Details</small></a>
+    </p>
+
+    <hr>
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Home</a>
+</div>
