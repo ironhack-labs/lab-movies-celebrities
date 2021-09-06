@@ -5,13 +5,14 @@
     <div class="col-md-6">
         <div class="row ">
             <div class="col-md">
-            <p> Titulo: {{title}}</p>            
-            <p>Genero: {{genre}}</p>
-            <p>Trama: {{plot}}</p>
+            <h3>Titulo: </h3><p>{{title}}</p>
+            <h3>Genero: </h3><p>{{genre}}</p>
+            <h3>Trama: </h3><p>{{plot}}</p>
             </div>
         </div>
     </div>
     <div class="col-md-6">
+        <h3>Cast de la pelicula</h3>
         {{#each cast}}
         <ul>
             <li>Nombre: {{name}}</li>
@@ -26,5 +27,12 @@
 
 <hr>
 
-{{!-- <a href="/libros/editar?book_id={{id}}" class="btn btn-warning">Editar</a> --}}
+<form action='/movies/details/{{id}}/delete' method="post">
+
+    <button type="submit" class="btn btn-danger">Borrar pelicula</button>
+
+</form>
+<hr>
+
+<a href="/movies/details/{{id}}/edit" class="btn btn-warning">Editar</a>
 <a href="/movies" class="btn btn-dark">Volver a las peliculas</a>

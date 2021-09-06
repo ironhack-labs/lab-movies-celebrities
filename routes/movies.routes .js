@@ -52,13 +52,50 @@ router.get("/", (req, res)=> {
 router.get('/details/:movie_id', (req, res) => {
 
   const { movie_id } = req.params
-  console.log('NO ARRIESGO =====>', movie_id)
+  // console.log('NO ARRIESGO =====>', movie_id)
 
   Movie
     .findById(movie_id)
     .populate('cast')
     .then(theMovie => res.render(`movies/movie-details`, theMovie))
     .catch(err => console.log(err))
+
+})
+
+//Borrar pelicula/movie
+// router.get('/details/:movie_id/delete', (req, res) => res.send(hola, "hola buenas"))
+router.post('/details/:movie_id/delete', (req, res) => {
+
+  const {movie_id} = req.params
+  console.log("hola buenas" + movie_id)
+
+  Movie
+    .findByIdAndDelete(movie_id)
+    .then(() => res.redirect(`movies/movies`))
+    .catch(err => console.log('Hubo un error:', err))
+
+})
+
+//Editar peliculas
+
+router.get('/details/:movie_id/edit', (req, res) => {
+
+ 
+
+  const { movie_id } = req.params
+  console.log('NO ARRIESGO =====>', movie_id)
+
+  Movie
+    .findById(movie_id)
+    .populate('cast')
+    .then(theMovie => theMovie)
+    Celebrity.find()
+ // .select('id name')
+  .then(celebrities => {
+    //console.log("que he encontrado:" + celebrities)
+    res.render('movies/edit-movie', { celebrities })
+  })
+  .catch(err => console.log(err))
 
 })
 

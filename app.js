@@ -16,7 +16,7 @@ require('./config')(app);
 const projectName = 'Movies & Celebrities';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)}`;
+app.locals.titleBest = `${capitalized(projectName)}`;
 
 const index = require('./routes/index');
 app.use('/', index);
