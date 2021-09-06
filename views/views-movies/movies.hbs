@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Lista de Peliculas</h1>
+    <hr>
+
+    {{#each movies}}
+
+    <h3>
+        {{title}}
+    </h3>
+    <p>
+        {{#each cast}}
+        {{name}}
+        {{/each}}
+    </p>
+    <a href="/movies/details/{{id}}">Detalles</a>
+
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>

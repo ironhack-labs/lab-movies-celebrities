@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Crear Celebrity</h2>
+    <hr>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <form action="/celebrities/create" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="occupation">Ocupación</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation">
+                </div>
+                <div class="form-group">
+                    <label for="catchPhrase">Eslogan</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Crear celebirtie</button>
+            </form>
+        </div>
+    </div>
+
+
+    <hr>
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>
