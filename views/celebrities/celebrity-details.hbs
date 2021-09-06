@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h2 class="mt-5">DETAILS</h2>
+            <hr class="mt-5 mb-5">
+            <h3>{{name}}</h3>
+            <p>Occupation: {{occupation}}</p>
+            <p>Catch Phrase: {{catchPhrase}}</p>
+
+            <form action="/celebrities/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger">DELETE</button>
+                <a href="/celebrities/{{id}}/edit" class="btn btn-primary">EDIT</a>
+            </form>
+
+        </div>
+    </div>
+
+</div>

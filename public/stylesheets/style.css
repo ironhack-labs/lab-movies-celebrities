@@ -1,8 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#error {
+  color: red;
 }
 
-a {
-  color: #00b7ff;
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.home {
+  background-image: url(./../images/hollywood.jpg);
+  /* position: relative; */
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }

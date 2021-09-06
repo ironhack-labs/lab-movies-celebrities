@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h2 class="mt-5">DETAILS</h2>
+            <hr class="mt-5 mb-5">
+            <h3>{{title}}</h3>
+            <p>Genre: {{genre}}</p>
+            <p>Plot: {{plot}}</p>
+            {{#each cast}}
+            <p>Cast: {{name}}</p>
+            {{/each}}
+
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger">DELETE</button>
+                <a href="/movies/{{id}}/edit" class="btn btn-primary">EDIT</a>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+
+            <h2 class="mb-5 text-center mt-5">CELEBRITIES</h2>
+            <hr class="mb-5">
+
+            <div class="row">
+                {{#each celebrities}}
+                <div class="col-md-3">
+                    <ul class="list-group mb-4">
+                        <a class="text-decoration-none text-white"
+                            href="/celebrities/celebrity-details/{{name}}/{{id}}">
+                            <li class="list-group-item text-center bg-dark">
+                                {{name}}
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
