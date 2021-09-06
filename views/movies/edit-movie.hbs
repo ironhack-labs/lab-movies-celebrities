@@ -1,0 +1,10 @@
+<h2>EDIT MOVIE</h2>
+
+
+
+<form action="/movies/{{id}}" method="POST">
+{{#each }}
+<label for="plot">Plot</label>
+<input type="text" class="form-control" id="plot" name="plot">
+    <button type="submit" class="btn btn-dark btn-block">Delete Movie</button>
+</form>
