@@ -12,6 +12,6 @@ const celebritySchema = new Schema(
 	}
 );
 
-const Celebrity = model('Comment', celebritySchema);
+const Celebrity = model('Celebrities', celebritySchema);
 
 module.exports = Celebrity;
