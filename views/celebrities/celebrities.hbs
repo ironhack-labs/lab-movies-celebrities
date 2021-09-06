@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Celebrities</h1>
+    <hr>
+
+    {{#each celebrities}}
+
+    <p>
+        <small>- {{name}} -
+            {{!-- [<a href="/libros/detalles/{{id}}">ver detalles</a>]
+            [<a href="/libros/editar?book_id={{id}}">editar</a>] --}}
+        </small>
+    </p>
+
+    <hr style="opacity: .5;">
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver</a>
+</div>

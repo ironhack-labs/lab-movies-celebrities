@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h1>{{title}}</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            Genre
+            <br>
+            {{genre}}
+        </div>
+        <div class="col-md-6">
+            Plot
+            <br>
+            {{plot}}
+        </div>
+        <div class="col-md-6">
+            Cast
+            <br>
+            {{#each cast}}
+            {{name}}
+            <hr>
+            {{/each}}
+        </div>
+    </div>
+
+    <hr>
+
+    {{!-- <a href="/movie/editar?movie_id={{id}}" class="btn btn-warning">Editar</a> --}}
+    <a href="/movies" class="btn btn-dark">back</a>
+</div>
