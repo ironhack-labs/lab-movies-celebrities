@@ -6,7 +6,10 @@ const celebritySchema = new Schema(
 		title: String,
 		genre: String,
 		plot: String,
-		cast: Array
+		cast: {
+			type: Schema.Types.ObjectId,
+			ref: 'Celebrity'
+		}
 	},
 	{
 		timestamps: true
