@@ -34,4 +34,16 @@ router.post("/movies/create", (req, res, next) => {
 		})
 });
 
+router.get('/movies/:id', (req, res, next) => {
+	const movieToDetail = req.params.id;
+	Movie.findById (movieToDetail)
+	//https://mongoosejs.com/docs/populate.html
+		.populate ("cast")
+		.then (movie => {
+			res.render ("movies/movie-details", movie)
+		})
+	
+		.catch((err) => console.log('Error while showing the movie details: ', err));
+});
+
 module.exports = router;
