@@ -5,19 +5,29 @@ const Celebrity = require('../models/Celebrity.model');
 
 // all your routes here
 
-route.post(':d/delete', (req,res) => {
+// router.post('/:id', (req,res) => {
+
+// })
+
+// router.get('/:id/edit', (req,res) => {
+//     Movie.findById(req.params.id)
+//     .populate('cast')
+//     .then((updateMovie, castMembers) => res.render('edit-movie', updateMovie, {castMembers}))
+// });
+
+router.post('/:id/delete', (req,res) => {
     Movie.findByIdAndRemove(req.params.id)
     .then(() => res.redirect('/movies'))
     .catch(err => console.log(err))
-})
-
-router.get('/:id', (req,res) => {
-    Movie.findById(req.params.id)
-    .populate('cast')
-    .then(movieDetails => {
-        res.render('movie-details', movieDetails)})
-    .catch(err => console.log(err));
 });
+
+// router.get('/:id', (req,res) => {
+//     Movie.findById(req.params.id)
+//     .populate('cast')
+//     .then(movieDetails => {
+//         res.render('movie-details', movieDetails)})
+//     .catch(err => console.log(err))
+// });
 
 router.get('/create', (req,res) => {
     Celebrity.find()
