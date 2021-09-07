@@ -66,3 +66,8 @@ a {
   border:1px solid black;
   margin-bottom:2px;
 }
+
+.showMovieInfo{
+  min-width: 50vw !important;
+  max-width: 50vw !important;
+}
