@@ -1,0 +1,18 @@
+<h2>all about your favorite movie </h2>
+
+<h4>{{movie.title}} </h4>
+
+<h6> {{movie.genre}}</h6>
+<h6> {{movie.plot}}</h6>
+
+<h4>Cast</h4>
+
+<ul>
+{{#each movie.cast}}
+<li>
+    {{this.name}} — {{this.occupation}} — {{this.catchphrase}}
+</li>
+
+{{/each}}
+
+</ul>
