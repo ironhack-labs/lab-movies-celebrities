@@ -25,7 +25,7 @@ router.post('/celebrities/create', (req, res) => {
 			res.redirect('/celebrities');
 			console.log('Created a celebrity ');
 		})
-		.catch((error) => console.log('Error while creating a new celebrity ->', error));
+		.catch((error) => console.log('Error while creating a new celebrity POST ->', error));
 });
 // --------------------------------------------
 // POST - Celebrities - [LIST] show all celebrities after Creating one
@@ -34,6 +34,6 @@ router.get('/celebrities', (req, res) => {
 		.then((celebrities) => {
 			res.render('./celebrities/celebrities.hbs', { celebrities });
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => console.log('Error while showing all the celebrities GET ->', err));
 });
 module.exports = router;

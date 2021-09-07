@@ -19,7 +19,7 @@ router.get('/movies/create', (req, res, next) => {
 		.then((celebrities) => {
 			res.render('./movies/new-movie', { celebrities });
 		})
-		.catch((err) => console.log(err));
+		.catch((err) => console.log('Error while creating a new movie GET ->', err));
 });
 // POST - Celebrities CREATE in celebrities/create
 router.post('/movies/create', (req, res) => {
@@ -33,7 +33,7 @@ router.post('/movies/create', (req, res) => {
 			res.redirect('/movies');
 			console.log('Created a movie ');
 		})
-		.catch((error) => console.log('Error while creating a new movie ->', error));
+		.catch((error) => console.log('Error while creating a new movie POST ->', error));
 });
 // --------------------------------------------
 // GET - ALL THE MOVIES [LIST]
@@ -43,11 +43,12 @@ router.get('/movies', (req, res) => {
 		.then((movies) => {
 			res.render('./movies/movies', { movies });
 		})
-		.catch((err) => console.log('Error while trying to deliver all the movies ->', err));
+		.catch((err) => console.log('Error while trying to deliver all the movies GET ->', err));
 });
 // --------------------------------------------
 // MOVIE DETAILS - one movie detail
 // populate() the cast
+// coger Celebrities?
 router.get('/movies/details/:id', (req, res) => {
 	const { id } = req.params;
 
@@ -56,7 +57,7 @@ router.get('/movies/details/:id', (req, res) => {
 		.then((movie) => {
 			res.render('./movies/movie-details', movie);
 		})
-		.catch((err) => console.log('Error while trying to show the movie info ->', err));
+		.catch((err) => console.log('Error while trying to show the movie info GET ->', err));
 });
 
 module.exports = router;
