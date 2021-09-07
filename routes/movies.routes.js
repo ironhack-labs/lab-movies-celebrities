@@ -16,11 +16,21 @@ router.post("/:id/delete", (req, res) => {
 router.get("/:id/edit", (req, res) => {
   const id = req.params.id;
   // Celebrity.find();
+  // Movie.findById(id)
+  //   .populate("cast")
+  //   .then((movie) => {
+  //     console.log("cast");
+  //     res.render("movies/edit-movie", { movie: movie });
+  //   })
+  //   .catch((err) => console.log(err));
+
   Movie.findById(id)
-    .populate("cast")
     .then((movie) => {
-      console.log("cast");
-      res.render("movies/edit-movie", { movie: movie });
+      Celebrity.find()
+        .then((celebs) => {
+          res.render("movies/edit-movie", { movie: movie, celebs: celebs });
+        })
+        .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));
 });

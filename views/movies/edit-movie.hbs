@@ -23,7 +23,7 @@
   <label for="cast">Cast</label>
   <select name="cast" multiple>
     <option disable selected value="">Select a cast member from the list</option>
-    {{#each movie.cast}}
+    {{#each celebs}}
       <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select>
