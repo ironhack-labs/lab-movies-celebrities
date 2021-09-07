@@ -1,0 +1,33 @@
+<h2>New Movie</h2>
+
+<form action= "/movies/create" method="post" class="row g-3">
+  <div class="col-md-12">
+    <label for="movieTitle" class="form-label">Title</label>
+    <input type="text" class="form-control" name="title">
+  </div>
+  <div class="col-md-6">
+    <label for="genre" class="form-label">Genre</label>
+    <input type="text" class="form-control" name="genre">
+  </div>
+  <div class="col-md-6">
+    <label for="plot" class="form-label">Plot</label>
+    <input type="text" class="form-control" name="plot">
+  </div>
+  <div class="col-md-6">
+    <label for="cast" class="form-label">
+	Cast 
+	<ul>
+		<li>For windows: Hold down the control (ctrl) button to select multiple options</li>
+		<li>For Mac: Hold down the command button to select multiple options</li>
+	</ul>
+	</label>
+	<select name="cast" id="cast" multiple>
+		{{#each celebrities}}
+			<option value="{{_id}}">{{name}}</option>
+		{{/each}}
+	</select>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Send</button>
+  </div>
+</form>
