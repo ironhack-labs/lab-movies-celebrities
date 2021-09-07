@@ -67,6 +67,11 @@ a {
   margin-bottom:2px;
 }
 
+.addBorderToMovie2{
+  border:1px solid black;
+  padding: 10px 10px;
+}
+
 .showMovieInfo{
   min-width: 50vw !important;
   max-width: 50vw !important;

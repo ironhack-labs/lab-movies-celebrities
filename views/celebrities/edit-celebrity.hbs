@@ -1,0 +1,23 @@
+<div class="container2">
+    <h2 class="titleEveryPage">Update a celebrity</h2><br>
+    <div class="mb-3 centeredDiv d-flex flex-column">
+        <form action="/celebrities/{{celebrities._id}}/edit" method="post" class="formDiv d-flex flex-column">
+            <label class="form-label"> Name
+                <input type="text" name="name" class="form-control" value="{{celebrities.name}}" />
+            </label>
+
+            <label class="form-label"> Occupation
+                <input type="text" name="occupation" class="form-control" value="{{celebrities.occupation}}" />
+            </label>
+
+            <label class="form-label"> Catchphrase
+                <input type="text" name="catchPhrase" class="form-control" value="{{celebrities.catchPhrase}}" />
+            </label>
+
+            <button type="submit" class="btn btn-dark indexButton"> Update the celebrity </button>
+        </form>
+    </div>
+    <div class="formDiv">
+        <a href="/"><button type="text" class="btn btn-dark indexButton"> Home </button></a>
+    </div>
+</div>

@@ -1,18 +1,20 @@
 <div class="container2">
-    <div class="mb-3 centeredDiv d-flex flex-column showMovieInfo">
-        <h5><strong>Title</strong> <br>{{title}}</h5>
-        <h5><strong>Genre</strong> <br>{{genre}}</h5>
-        <h5><strong>Plot</strong> <br>{{plot}}</h5><br><br>
-        <h5><strong>Celebrity involved</strong></h5>
+    <div class="addBorderToMovie2">
+        <div class="mb-3 centeredDiv d-flex flex-column showMovieInfo">
+            <h5><strong>Title</strong> <br>{{title}}</h5>
+            <h5><strong>Genre</strong> <br>{{genre}}</h5>
+            <h5><strong>Plot</strong> <br>{{plot}}</h5><br><br>
+            <h5><strong>Celebrity involved</strong></h5>
 
-        {{#each cast}}
-        {{this.name}}
-        {{this.occupation}}
-        {{this.catchPhrase}}
-        {{/each}}
-    </div>
+            {{#each cast}}
+            {{this.name}}
+            {{this.occupation}}
+            {{this.catchPhrase}}
+            {{/each}}
+        </div>
 
-    <div class="formDiv">
-        <a href="/"><button type="text" class="btn btn-dark indexButton"> Home </button></a>
+        <div class="formDiv">
+            <a href="/"><button type="text" class="btn btn-dark indexButton"> Home </button></a>
+        </div>
     </div>
 </div>
