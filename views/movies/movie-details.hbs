@@ -1,0 +1,19 @@
+<div class="generalDrones">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Titulo de la pelicula: {{title}}</h5>
+      <h5 class="card-title">Genero de la pelicula: {{genre}}</h5>
+      <h5 class="card-title">Plot de la pelicula: {{plot}}</h5>
+      {{#each cast}}
+        <p>Name: {{this.name}}</p>
+        <p>>Occupation: {{this.occupation}}</p>
+        <p>Catch phrase: {{this.catchPhrase}}</p>
+        <br /><br />
+      {{/each}}
+    </div>
+  </div>
+  <form method="POST" action="/movies/{{_id}}/delete">
+    <button>Delete</button>
+  </form>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="generalDrones">
+  {{#each dbMovie}}
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Titulo de la pelicula: {{title}}</h5>
+        <a href="/movies/{{_id}}" class="card-link">Detalles de la pelicula</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
