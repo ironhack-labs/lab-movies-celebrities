@@ -18,9 +18,6 @@
     <label for=''>Cast</label>
      <select name='cast' multiple>
          <option disable value="" >Select a celebrity from the list</option>
-         {{#each movie.cast}}
-            <option value="{{this._id}}" selected>{{this.name}}</option>
-         {{/each}}
          {{#each allCelebrities}}
              <option value="{{this._id}}">{{this.name}}</option>
          {{/each}}
