@@ -14,13 +14,13 @@
       <input type="text" name="plot" />
     </label>
 
-    <label for="cast">Cast</label>
-    <select name="cast" multiple>
-        {{#each celebrities}}
-            <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-    </select>
-
+    <label for="cast">Cast
+        <select name="cast" multiple>
+            {{#each celebrities}}
+                <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </label>
     <button type="submit"> Create Movie </button>
   </div>
 

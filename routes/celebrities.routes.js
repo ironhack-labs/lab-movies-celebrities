@@ -22,7 +22,7 @@ router.get('/celebrities', (req, res, next) => {
     Celebrity
         .find()
         .then((celebritiesDB) => {
-          console.log('Retrieved drones from DB:', celebritiesDB);
+          console.log('Retrieved celebrities from DB:', celebritiesDB);
           res.render('celebrities/celebrities.hbs', {celebrities: celebritiesDB});
         })
         .catch(error => {
