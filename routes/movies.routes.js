@@ -1,8 +1,10 @@
 const router = require('express').Router();
+require('../db');
 
 // Importing model
-const Movie = require('../models/Movie.model');
 const Celebrity = require('../models/Celebrity.model');
+const Movie = require('../models/Movie.model');
+
 // --------------------------------------------
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -34,6 +36,7 @@ router.post('/movies/create', (req, res) => {
 		.catch((error) => console.log('Error while creating a new movie ->', error));
 });
 // --------------------------------------------
+// GET - ALL THE MOVIES [LIST]
 router.get('/movies', (req, res) => {
 	Movie.find()
 		.select('title')
@@ -42,4 +45,18 @@ router.get('/movies', (req, res) => {
 		})
 		.catch((err) => console.log('Error while trying to deliver all the movies ->', err));
 });
+// --------------------------------------------
+// MOVIE DETAILS - one movie detail
+// populate() the cast
+router.get('/movies/details/:id', (req, res) => {
+	const { id } = req.params;
+
+	Movie.findById(id)
+		.populate('cast')
+		.then((movie) => {
+			res.render('./movies/movie-details', movie);
+		})
+		.catch((err) => console.log('Error while trying to show the movie info ->', err));
+});
+
 module.exports = router;
