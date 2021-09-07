@@ -16,4 +16,19 @@ router.post('/celebrities/create', (req, res, next) => {
     .catch(error => next(error));
 }); 
 
+
+/* Iteration #4: Listing Our Celebrities */
+router.get('/celebrities', (req, res, next) => {
+    Celebrity
+        .find()
+        .then((celebritiesDB) => {
+          console.log('Retrieved drones from DB:', celebritiesDB);
+          res.render('celebrities/celebrities.hbs', {celebrities: celebritiesDB});
+        })
+        .catch(error => {
+          console.log('Error while getting the drones from the DB: ', error);
+          next(error);
+        });
+    });
+
 module.exports = router;
