@@ -4,6 +4,10 @@
     <a href="/movies/details/{{_id}}">
         <h3>{{title}}</h3>
     </a>
+    <form action="/movies/{{id}}/delete" method="POST">
+        <button class="btn btn-dark">Delete</button>
+    </form>
+    <br><br>
     {{/each}}
 </div>
 <div class=" formDiv">
