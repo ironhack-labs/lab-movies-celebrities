@@ -67,5 +67,23 @@ router.post('/movies/:id/delete', (req, res, next) => {
 
 
 
+router.get('/movies/:id/edit', (req, res, next) => {
+    Movie
+      .findById(req.params.id)
+      .then(movieToEdit => {
+        res.render('movies/edit-movie.hbs', { movie: movieToEdit }); 
+      })
+      .catch(error => next(error));
+});
+  
+router.post('/movies/:id/edit', (req, res, next) => {
+    const { title, genre, plot, cast } = req.body;
+    Movie
+      .findByIdAndUpdate(req.params.id, { title, genre, plot, cast}, { new: true })
+      .then(() => res.redirect('/movies'))
+      .catch(error => next(error));
+});  
+
+
 
 module.exports = router;

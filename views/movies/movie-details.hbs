@@ -1,3 +1,5 @@
+<a href="/">Home</a><br><br>
+
 <h2>Movie Details</h2>
 <h5>Title: {{title}}</h5>
 <h5>Genre: {{genre}}</h5>
@@ -8,7 +10,7 @@
     <p>Occupation: {{occupation}}</p>
     <p>Phrase: {{catchPhrase}}</p>
 {{/each}}
-
-<form action="/movies/{{id}}/delete" method="POST">
+<a href="/movies/{{_id}}/edit">Edit</a>
+<form action="/movies/{{_id}}/delete" method="POST">
     <button type="submit">Delete</button>
-</fo
+</form>

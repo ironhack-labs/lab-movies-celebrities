@@ -1,3 +1,5 @@
+<a href="/">Home</a><br><br>
+
 <h2>Create a new movie</h2>
 
 <form action="/movies/create" method="post">
@@ -14,7 +16,7 @@
       <input type="text" name="plot" />
     </label>
 
-    <label for="cast">Cast
+    <label>Cast
         <select name="cast" multiple>
             {{#each celebrities}}
                 <option value="{{_id}}">{{name}}</option>
@@ -28,4 +30,3 @@
 
     <a href="/movies">View Movies</a><br>
  
-   <a href="/">Home</a>
