@@ -10,6 +10,16 @@ const Celebrity = require('../models/Celebrity.model');
 router.get('/movies/create', (req, res, next) => {
     res.render('movies/new-movie.hbs');
 });
+
+// Necesito mezclar Celebrities y Movies 
+/* router.get('/movies/create', (req, res, next) => {
+	Celebrity
+        .find()
+		.then(celebritiesDB => {
+			res.render('movies/new-movie.hbs', { celebritiesDB });
+		})
+		.catch((err) => console.log('Error', err));
+}) */
   
 router.post('/movies/create', (req, res, next) => {
     const { title, genre, plot, cast } = req.body;
@@ -19,23 +29,14 @@ router.post('/movies/create', (req, res, next) => {
       .catch(error => next(error));
 }); 
 
-// Necesito mezclar Celebrities y Movies
 
-/* router.get('/movies/create', (req, res, next) => {
-	Celebrity
-        .find()
-		.then(celebritiesDB => {
-			res.render('movies/new-movie.hbs', { celebritiesDB });
-		})
-		.catch((err) => console.log('Error', err));
-}) */
 
 /* Iteration #7: Listing Our Movies */
 router.get('/movies', (req, res, next) => {
     Movie
         .find()
+        .populate('cast')// --> we are saying: give me whole cast object????
         .then(moviesDB => {
-          console.log('Retrieved movies from DB:', moviesDB);
           res.render('movies/movies.hbs', {movies: moviesDB});
         })
         .catch(error => {
@@ -47,6 +48,7 @@ router.get('/movies', (req, res, next) => {
 router.get('/movies/:id', (req, res, next) => {
     Movie
         .findById(req.params.id) 
+        .populate('cast')// --> we are saying: give me whole cast object????
         .then(thisMovie => {
             res.render('movies/movie-details.hbs', thisMovie)
         })

@@ -1,10 +1,11 @@
 
 <div class="container">
-        <h2>Celebrities</h2>
+        <h2>Celebrities List</h2>
+        <ul>
                 {{#each celebrities}}
-                        <h3>Name: {{name}}</h3>
+                       <li><h5>{{name}}</h5></li>
                 {{/each}}
-        <a href="/celebrities/create">Create New Celebrity</a><br>
-        <a href="/">Home</a>    
+        </ul>
+        <button type="button" class="btn btn-info"><a href="/celebrities/create">Create New Celebrity</a></button>
 </div>
 
