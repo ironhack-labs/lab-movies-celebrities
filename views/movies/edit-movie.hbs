@@ -2,15 +2,15 @@
     Edit Movies
 </h2>
 
-<form action="/movies/{{_id}}" method="POST">
+<form action="/movies/{{updateMovie._id}}" method="POST">
 
-    <input type="text" value={{title}} name="title">
-    <input type="text" value={{plot}} name="plot">
-    <input type="text" value={{genre}} name="genre">
+    <input type="text" value={{updateMovie.title}} name="title">
+    <input type="text" value={{updateMovie.genre}} name="genre">
+    <input type="text" value={{updateMovie.plot}} name="plot">
 
     <label for="cast">Select cast</label>
     <select name="cast" multiple>
-        {{#each allCelebrities}}
+        {{#each celebrities}}
         <option value={{_id}}>{{name}}</option>
         {{/each}}
     </select>

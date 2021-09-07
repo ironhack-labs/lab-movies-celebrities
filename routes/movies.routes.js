@@ -56,22 +56,26 @@ router.get("/movies/:id/edit" , (req, res) =>{
 
     const {id} = req.params
 
-    let celebritiesArr = []
+    const  updateMovie = Movie.findById(id)
+    const celebrities = Celebrity.find()
 
-    Celebrity
-    .find()
-    .then(allCelebrities => res.send(allCelebrities))
-    .catch(err => console.log(err))
-    
-    
-    Movie
-    .findById(id)
-    .populate("cast")
-    .then((movieToUpdate, allCelebrities) => { console.log(` this celebrities: ${allCelebrities}`),
-        res.render("movies/edit-movie", movieToUpdate, celebritiesArr)})
-    .catch(err => console.log(err))
+    Promise.all([ updateMovie, celebrities ])
+		.then(([ updateMovie, celebrities ]) => res.render('movies/edit-movie.hbs', { updateMovie, celebrities }))
+		.catch((err) => console.log('Error while trying to show the movie info GET router ->', err));
+     
 })
 
+router.post("/movies/:id" ,(req, res) =>{
+
+    const {id} = req.params
+    const {title, genre , plot, cast} = req.body
+
+    Movie.findByIdAndUpdate(id, {title,genre,plot,cast}, {new:true})
+    .then(updated =>{ console.log(`updated: ${updated}`),
+res.redirect("/movies/movies")})
+    .catch(err=> console.log(err))
+
+})
 
 
 
