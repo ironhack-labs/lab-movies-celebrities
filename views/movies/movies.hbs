@@ -1,15 +1,23 @@
-<div class="mb-3 centeredDiv d-flex flex-column">
-    <h2>Movies</h2>
-    {{#each movies}}
-    <a href="/movies/details/{{_id}}">
-        <h3>{{title}}</h3>
-    </a>
-    <form action="/movies/{{id}}/delete" method="POST">
-        <button class="btn btn-dark">Delete</button>
-    </form>
-    <br><br>
-    {{/each}}
-</div>
-<div class=" formDiv">
-    <a href="/"><button type="text" class="btn btn-dark"> Home </button></a>
+<div class="container2">
+    <div class="mb-3 centeredDiv d-flex flex-column autoScroller">
+        <h2>Movies</h2><br>
+        {{#each movies}}
+        <div class="addBorderToMovie">
+            <a href="/movies/details/{{_id}}" class="noStyle">
+                <h3>{{title}}</h3>
+            </a>
+            <div class="d-flex flex-row justify-content-center">
+                <form action="/movies/{{id}}/delete" method="POST">
+                    <button class="btn btn-dark mr-5 indexButton">Delete</button>
+                </form> <br>
+                <a href="/movies/{{id}}/edit" class="margin20"><button type="text" class="btn btn-dark indexButton">
+                        Update
+                    </button></a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class=" formDiv">
+        <a href="/"><button type="text" class="btn btn-dark indexButton"> Home </button></a>
+    </div>
 </div>

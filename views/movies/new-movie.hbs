@@ -1,29 +1,31 @@
-<h2 class="titleEveryPage">Add a new movie</h2>
-<div class="mb-3 centeredDiv d-flex flex-column">
-    <form action="/movies/create" method="post" class="formDiv">
-        <label class="form-label"> Title:
-            <input type="text" name="title" class="form-control" />
-        </label>
+<div class="container2">
+    <h2 class="titleEveryPage">Add a new movie</h2>
+    <div class="mb-3 centeredDiv d-flex flex-column">
+        <form action="/movies/create" method="post" class="formDiv d-flex flex-column">
+            <label class="form-label"> Title
+                <input type="text" name="title" class="form-control" />
+            </label>
 
-        <label class="form-label"> Genre:
-            <input type="text" name="genre" class="form-control" />
-        </label>
+            <label class="form-label"> Genre
+                <input type="text" name="genre" class="form-control" />
+            </label>
 
-        <label class="form-label"> Plot:
-            <input type="text" name="plot" class="form-control" />
-        </label>
+            <label class="form-label"> Plot
+                <input type="text" name="plot" class="form-control" />
+            </label>
 
-        <label class="form-label"> Cast:
-            <select multiple class="form-control orm-select-lg " name="cast">
-                {{#each celebrities}}
-                <option value="{{_id}}">{{name}}</option>
-                {{/each}}
-            </select>
-        </label>
+            <label class="form-label"> Cast
+                <select multiple class="form-control orm-select-lg " name="cast">
+                    {{#each celebrities}}
+                    <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </label>
 
-        <button type="submit" class="btn btn-dark"> Add the movie </button>
-    </form>
-</div>
-<div class="formDiv">
-    <a href="/"><button type="text" class="btn btn-dark"> Home </button></a>
+            <button type="submit" class="btn btn-dark indexButton"> Add the movie </button>
+        </form>
+    </div>
+    <div class="formDiv">
+        <a href="/"><button type="text" class="btn btn-dark indexButton"> Home </button></a>
+    </div>
 </div>

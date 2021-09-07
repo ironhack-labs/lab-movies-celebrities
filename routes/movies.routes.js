@@ -1,6 +1,7 @@
 const router = require('express').Router();
 require('../db');
 
+const { populate } = require('../models/Celebrity.model');
 // Importing model
 const Celebrity = require('../models/Celebrity.model');
 const Movie = require('../models/Movie.model');
@@ -68,6 +69,38 @@ router.post('/movies/:id/delete', (req, res, next) => {
 	Movie.findByIdAndDelete(id)
 		.then(() => res.redirect('/movies'))
 		.catch((error) => console.log('Error while trying to delete the movie POST router ->', error));
+});
+// ------------------------------------------------------
+// UPDATE movies - GET route to display the form to update a specific movie
+// ------------------------------------------------------
+router.get('/movies/:id/edit', (req, res, next) => {
+	// Iteration #4: Update the drone
+	const { id } = req.params;
+
+	const movies = Movie.findById(id);
+	const celebrities = Celebrity.find();
+
+	Promise.all([ movies, celebrities ])
+		.then(([ movies, celebrities ]) => res.render('movies/edit-movie.hbs', { movies, celebrities }))
+		.catch((err) => console.log('Error while trying to show the movie info GET router ->', err));
+	//res.render('movies/edit-movie.hbs', [ movies, celebrities ])
+	//res.send([ movies, celebrities ])
+});
+// ------------------------------------------------------
+// UPDATE movies - POST route to actually make updates on a specific movie
+// ------------------------------------------------------
+router.post('/movies/:id/edit', (req, res) => {
+	// Iteration #4: Update the drone
+	const { id } = req.params;
+	const { title, genre, plot, cast } = req.body;
+
+	Movie.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+		// sin id a lo mejor
+		.then((movies) => res.redirect(`/movies/details/${movies._id}`))
+		.catch((error, movies) => {
+			console.log('Error while updating a movie ->', error);
+			res.render('movies/edit-movie.hbs', movies);
+		});
 });
 // --------------------------------------------
 module.exports = router;
