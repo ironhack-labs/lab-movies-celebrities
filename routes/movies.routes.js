@@ -39,6 +39,36 @@ router.post('/create', (req, res)=> {
         })
     
 });
+router.post('/:id/delete', (req, res)=> {
+    Movie.findByIdAndDelete(req.params.id)
+    .then(deletedMovie => res.redirect("/movies"))
+    .catch(error=> console.log(error))
+})
+
+router.route('/:id/edit')
+.get((req, res)=> {
+    Movie.findById(req.params.id)
+        .populate('cast')
+        .then(movie => {
+            Celebrity.find()
+                .then(allCelebrities => {
+                    res.render('movies/edit-movie', {movie, allCelebrities: allCelebrities})
+                })
+        })
+        .catch(error => console.log('problem here'))
+})
+.post((req, res)=>{
+    const {title, genre, plot, cast} = req.body
+    Movie.findByIdAndUpdate(
+      req.params.id,
+      {title, genre, plot, cast}
+    )
+    .then(updateMovie => res.redirect(`/movies/${req.params.id}`))
+    .catch(error => console.log(error))
+  })
+
+
+
 
 router.get('/:id', (req, res) => {
     const {id} = req.params
@@ -50,6 +80,7 @@ router.get('/:id', (req, res) => {
             res.render('movies/movie-details', {movie})
         }).catch((error) => console.log('movie not found', error))
 })
+
 
 
 module.exports = router;
