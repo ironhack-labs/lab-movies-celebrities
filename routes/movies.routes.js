@@ -5,24 +5,25 @@ const Movie = require ("../models/Movie.model.js")
 
 // all your routes here
 
+router.get('/movies/', (req, res, next) => {
+	Movie.find()
+		.then((moviesArray) => {
+			res.render('movies/movies', { moviesArray });
+		})
+		.catch((err) => console.log('Error while listing the movies: ', err));
+});
+
 router.get('/movies/create', (req, res, next) => {
 	Celebrity.find()
-	/* 	Query.prototype.select()
-		Parameters
-		arg «Object|String|Array<String>»
-		Returns:
-		«Query» this
-		Specifies which document fields to include or exclude (also known as the query "projection") */
-		//.select('name')
 		.then((celebrities) => {
 			res.render('movies/new-movie', { celebrities });
 		})
 		.catch((err) => console.log('Error while creating the movie: ', err));
 });
 
-
 router.post("/movies/create", (req, res, next) => {
 	const {title, genre, plot, cast} = req.body; 
+	//console.log(req.body);
 	Movie.create({title, genre, plot, cast})
 		.then ((createdMovie) => {
 			res.redirect ("/movies")
