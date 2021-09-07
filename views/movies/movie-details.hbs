@@ -1,0 +1,28 @@
+<a href="/movies">Back</a>
+<br />
+<br />
+<h2>Movie details</h2>
+<br /><br />
+<div>
+  <p><b>Title:</b> {{title}}</p>
+  <p><b>genre:</b> {{genre}}</p>
+  <p><b>Plot</b>: {{plot}}</p>
+  <br /><br />
+  <h6><b>Cast:</b></h6>
+  <br /><br />
+
+  {{#each cast}}
+    <p><b>Name: </b>{{name}}</p>
+    <p><b>Occupation: </b> {{occupation}}</p>
+    <p><b>Catch phrase: </b> {{catchPhrase}}</p>
+    <br /><br />
+  {{/each}}
+
+  <form action="/movies/{{id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  <br>
+  <form action="/movies/{{id}}/edit" method="GET">
+    <button type="submit">Edit</button>
+  </form>
+</div>

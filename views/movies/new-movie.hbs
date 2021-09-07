@@ -1,0 +1,37 @@
+<h2>Add new movie</h2>
+<br><br>
+<form action="/movies/create" method="POST">
+
+  <label for="title" name="title">
+    Title:
+    <input type="text" name="title" id="title" />
+  </label>
+  <br /><br>
+  <label for="genre" name="genre">
+    Genre:
+    <input type="text" name="genre" id="genre" />
+  </label>
+  <br /><br>
+  <label for="plot" name="plot">
+    Plot:<br>
+    <textarea name="plot" id="plot" cols="30" rows="10"></textarea>
+  </label>
+  <br /><br>
+  <label for="cast" id="cast">
+    Cast:
+    <select name="cast" id="cast">
+      {{! <option value="Unknown" selected >Unknown</option> }}
+      {{#each celebrities}}
+        <option value="{{id}}"> {{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+  <br /><br>
+  <button type="submit"> Submit</button>
+
+</form>
+
+{{! title: String,
+  genre: String,
+  plot: String,
+  cast: [Schema.Types.ObjectId], }}
