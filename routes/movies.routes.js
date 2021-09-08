@@ -50,12 +50,31 @@ router.get("/movies/:id", (req, res) => {
   Movie.findById(id)
     .populate("cast")
     .then((selectedMovie) => {
-      res.render("movies/movie-details", { movieDetails: selectedMovie });
+      res.render("movies/movie-details", selectedMovie);
     })
     .catch((err) => {
       next(err);
       console.log(`Err while getting the movie from the DB: ${err}`);
     });
+});
+
+router.post("/movies/:id/delete", (req, res) => {
+  const { id } = req.params;
+
+  Movie.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch((err) => {
+      console.log(`Err while deleting the movie from the DB: ${err}`);
+    });
+});
+
+router.get("/movies/:id/edit", (req, res) => {
+  const id = req.params.id;
+
+  Movie.findById(id);
+  Celebrity.find().then(res.render());
 });
 
 module.exports = router;
