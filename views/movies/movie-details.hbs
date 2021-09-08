@@ -1,0 +1,17 @@
+<h1>{{data.name}}</h1>
+<h3>{{data.genre}}</h3>
+<h3>{{data.plot}}</h3>
+<h3>Cast:</h3>
+{{#each data.cast}}
+<h5>{{name}}</h5>
+{{/each}}
+
+</form>
+<form id="delete" method="get" action="/movies/{{data.id}}/edit">
+    <button type="submit">Edit</button>
+</form>
+
+</form>
+<form id="delete" method="post" action="/movies/{{data.id}}/delete">
+    <button type="submit">Delete</button>
+</form>
