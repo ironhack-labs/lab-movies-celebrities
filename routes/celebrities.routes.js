@@ -1,13 +1,21 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
+
+//Middleware
+function isLoggedIn(req, res, next) {
+  if (req.session.currentUser) next();
+  // next invocation tells Express that the middleware has done all it work
+  else res.redirect("/auth/login");
+}
+
 // all your routes here
 
-router.get("/new-celebrity", (req, res) => {
+router.get("/new-celebrity", isLoggedIn, (req, res) => {
   res.render("celebrities/new-celebrity");
 });
 
-router.post("/", (req, res) => {
+router.post("/new-celebrity", (req, res) => {
   const { name, occupation, catchPhrase } = req.body;
 
   Celebrity.create({ name, occupation, catchPhrase })

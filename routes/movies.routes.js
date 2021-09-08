@@ -2,9 +2,35 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
+
+//Middleware
+function isLoggedIn(req, res, next) {
+  if (req.session.currentUser) next();
+  // next invocation tells Express that the middleware has done all it work
+  else res.redirect("/auth/login");
+}
+
 // all your routes here
 
-router.post("/:id/delete", (req, res) => {
+//CREATE MOVIEWS
+router.get("/new-movie", isLoggedIn, (req, res) => {
+  Celebrity.find()
+    .then((celebs) => {
+      res.render("movies/new-movie", { celebs: celebs });
+    })
+    .catch((err) => console.log(err));
+});
+
+router.post("/new-movie", (req, res) => {
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.create({ title, genre, plot, cast })
+    .then((newMovie) => res.redirect("/movies"))
+    .catch((err) => res.redirect("/movies/new-movie"));
+});
+
+//DELETE MOVIEWS
+router.post("/:id/delete", isLoggedIn, (req, res) => {
   const id = req.params.id;
   Movie.findByIdAndRemove(id)
     .then((deletedMovie) => {
@@ -13,16 +39,9 @@ router.post("/:id/delete", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/:id/edit", (req, res) => {
+//EDIT MOVIES
+router.get("/:id/edit", isLoggedIn, (req, res) => {
   const id = req.params.id;
-  // Celebrity.find();
-  // Movie.findById(id)
-  //   .populate("cast")
-  //   .then((movie) => {
-  //     console.log("cast");
-  //     res.render("movies/edit-movie", { movie: movie });
-  //   })
-  //   .catch((err) => console.log(err));
 
   Movie.findById(id)
     .then((movie) => {
@@ -35,7 +54,7 @@ router.get("/:id/edit", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/:id", (req, res) => {
+router.post("/:id/edit", (req, res) => {
   const id = req.params.id;
   const { title, genre, plot, cast } = req.body;
   Movie.findByIdAndUpdate(id, { title, genre, plot, cast })
@@ -45,6 +64,7 @@ router.post("/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+//MOVIE DETAILS
 router.get("/:id", (req, res) => {
   const id = req.params.id;
   Movie.findById(id)
@@ -55,26 +75,10 @@ router.get("/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/new-movie", (req, res) => {
-  Celebrity.find()
-    .then((celebs) => {
-      res.render("movies/new-movie", { celebs });
-    })
-    .catch((err) => console.log(err));
-});
-
-router.post("/", (req, res) => {
-  const { title, genre, plot, cast } = req.body;
-
-  Movie.create({ title, genre, plot, cast })
-    .then((newMovie) => res.redirect("/movies"))
-    .catch((err) => res.redirect("/movies/new-movie"));
-});
-
+//DISPLAY ALL MOVIES
 router.get("/", (req, res) => {
   Movie.find()
     .then((movies) => {
-      console.log(movies);
       res.render("movies/movies", { movies });
     })
     .catch((err) => console.log(err));

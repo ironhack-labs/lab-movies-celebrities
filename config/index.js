@@ -17,15 +17,38 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+const MongoStore = require("connect-mongo");
+
+const session = require("express-session");
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs
   app.use(logger("dev"));
 
+  app.use(cookieParser());
+
+  //session
+  app.use(
+    session({
+      secret: process.env.SESSION_KEY, //defined in the .env file
+      saveUninitialized: false,
+      resave: false,
+      cookie: {
+        maxAge: 24 * 60 * 60 * 1000, //this is 1 day (24h, 60min, 60sec, 1000ms)
+        //maximum age of cookie will influence how often user will need to log back in, in miliseconds
+      },
+      store: MongoStore.create({
+        mongoUrl:
+          process.env.MONGODB_URI ||
+          "mongodb://localhost/lab-movies-celebrities",
+        ttl: 24 * 60 * 60, //time to leave, in seconds
+      }),
+    })
+  );
   // To have access to `body` property in the request
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
-  app.use(cookieParser());
 
   // Normalizes the path to the views folder
   app.set("views", path.join(__dirname, "..", "views"));
@@ -35,5 +58,7 @@ module.exports = (app) => {
   app.use(express.static(path.join(__dirname, "..", "public")));
 
   // Handles access to the favicon
-  app.use(favicon(path.join(__dirname, "..", "public", "images", "favicon.ico")));
+  app.use(
+    favicon(path.join(__dirname, "..", "public", "images", "favicon.ico"))
+  );
 };
