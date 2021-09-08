@@ -57,16 +57,16 @@ router.get('/celebrities/:id/edit', (req, res, next) => {
 	const celebToDetail = req.params.id;
 	Celebrity.findById (celebToDetail)
 		.then ((celeb) => {
-			console.log("hey!")
 			res.render ("celebrities/edit-celebrity.hbs", celeb)
 		})
 		.catch((error) => console.log('Error while editing the celebrity: ', error));
 });
 
 router.post('/celebrities/:id/edit', (req, res) => {
+	console.log("hey!")
 	const celebToEdit = req.params.id;
 	const { name, occupation, catchPhrase} = req.body;
-	Celebrity.findByIdAndUpdate(celebToEdit, { name, occupation, catchPhrase}, { new: true })
+	Celebrity.findByIdAndUpdate(celebToEdit, { name, occupation, catchPhrase})
 		.then((whatever) => res.redirect(`/celebrities/${celebToEdit}`))
 		.catch((error) => {
 			console.log('Error while editing the celebrity', error);
