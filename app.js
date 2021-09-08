@@ -34,6 +34,12 @@ app.use('/celebrities', celebritiesRouter);
 const moviesRouter = require('./routes/movies.routes');
 app.use('/movies', moviesRouter);
 
+const authRouter = require('./routes/auth.routes');
+app.use('/auth', authRouter);
+
+const privateRouter = require('./routes/private.routes')
+app.use('/private',  privateRouter)
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 
