@@ -1,14 +1,14 @@
 <div class="generalDrones">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Titulo de la pelicula: {{title}}</h5>
-      <h5 class="card-title">Genero de la pelicula: {{genre}}</h5>
-      <h5 class="card-title">Plot de la pelicula: {{plot}}</h5>
-      {{#each cast}}
-        <p>Name: {{this.name}}</p>
-        <p>>Occupation: {{this.occupation}}</p>
-        <p>Catch phrase: {{this.catchPhrase}}</p>
-        <br /><br />
+      <h5 class="card-title">Titulo de la pelicula: {{dbMovieOne.title}}</h5>
+      <h5 class="card-title">Genero de la pelicula: {{dbMovieOne.genre}}</h5>
+      <h5 class="card-title">Plot de la pelicula: {{dbMovieOne.plot}}</h5>
+      <h5 class="card-title">Cast de la pelicula:</h5>
+      {{#each dbMovieOne.cast}}
+        <p>Name: {{name}}</p>
+        <p>Occupation: {{occupation}}</p>
+        <p>Catch phrase: {{catchPhrase}}</p>
       {{/each}}
     </div>
   </div>

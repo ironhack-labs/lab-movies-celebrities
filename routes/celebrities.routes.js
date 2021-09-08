@@ -15,7 +15,7 @@ router.post("/create", (req, res, next) => {
     .then(
       (celebrityFromDB) =>
         console.log(`New celebrity created: ${celebrityFromDB.name}.`),
-      res.redirect("/celebrities/celebrities")
+      res.redirect("/celebrities")
     )
     .catch((error) => next(error), res.redirect("/celebrities/new-celebrity"));
 });

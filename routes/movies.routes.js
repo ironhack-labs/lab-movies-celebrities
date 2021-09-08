@@ -42,7 +42,7 @@ router.get("/movies/:id", (req, res, next) => {
   Movie.findById(movieId)
     .populate("cast")
     .then((dbMovieOne) => {
-      res.render("movies/movie-details", dbMovieOne);
+      res.render("movies/movie-details", { dbMovieOne });
       console.log(dbMovieOne);
     })
     .catch((err) =>
