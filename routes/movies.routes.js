@@ -32,7 +32,7 @@ router.post('/movies/create', (req, res) => {
 	Movie.create({ title, genre, plot, cast })
 		.then(() => {
 			res.redirect('/movies');
-			console.log('Created a movie ');
+			//console.log('Created a movie ');
 		})
 		.catch((error) => console.log('Error while creating a new movie POST router ->', error));
 });
