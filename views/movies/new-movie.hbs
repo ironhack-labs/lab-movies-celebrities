@@ -1,0 +1,28 @@
+<h2>Go get your popcorn - Movie Time</h2>
+
+<form action="/movies/create" method="POST">
+    
+    <label for=''>Title</label>
+    <input type='text' name='title'>
+    
+    <br>
+    <label for=''>Genre</label>
+    <input type='text' name='genre'>
+    
+    <br>
+    <label for=''>Plot</label>
+    <input type='text' name='plot'>
+
+    <br>
+    <label for=''>Cast</label>
+    <select name='cast' multiple>
+        <option disable selected value="" >Select a celebrity from the list</option>
+        {{#each allCelebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+    <br>
+    <button type='submit'>Add New Movie</button>
+
+</form>
