@@ -32,5 +32,45 @@ router.post("/celebrities/create", (req, res, next) => {
 		})
 });
 
+router.get('/celebrities/:id', (req, res, next) => {
+	const celebrityToDetail = req.params.id;
+	Celebrity.findById (celebrityToDetail)
+	//https://mongoosejs.com/docs/populate.html
+		.then (celeb => {
+			res.render ("celebrities/celebrity-detail", celeb)
+		})
+	
+		.catch((error) => console.log('Error while showing the celebrity details: ', error));
+});
+
+router.post('/celebrities/:id/delete', (req, res, next) => {
+	const celebToDelete = req.params.id;
+	Celebrity.findByIdAndDelete(celebToDelete)
+		.then( (whatever) => {
+			res.redirect('/celebrities')
+		})
+		.catch((error) => console.log('Error while deleting the celebrity: ', error));
+
+})
+
+router.get('/celebrities/:id/edit', (req, res, next) => {
+	const celebToDetail = req.params.id;
+	Celebrity.findById (celebToDetail)
+		.then ((celeb) => {
+			console.log("hey!")
+			res.render ("celebrities/edit-celebrity.hbs", celeb)
+		})
+		.catch((error) => console.log('Error while editing the celebrity: ', error));
+});
+
+router.post('/celebrities/:id/edit', (req, res) => {
+	const celebToEdit = req.params.id;
+	const { name, occupation, catchPhrase} = req.body;
+	Celebrity.findByIdAndUpdate(celebToEdit, { name, occupation, catchPhrase}, { new: true })
+		.then((whatever) => res.redirect(`/celebrities/${celebToEdit}`))
+		.catch((error) => {
+			console.log('Error while editing the celebrity', error);
+		});
+});
 
 module.exports = router;

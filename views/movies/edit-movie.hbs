@@ -1,0 +1,41 @@
+<h2>Edit: {{p1.title}}</h2>
+
+<form action= "/movies/{{p1._id}}/edit" method="post" class="row g-3">
+  <div class="col-md-12">
+    <label for="movieTitle" class="form-label">Title</label>
+    <input type="text" class="form-control" name="title" value="{{p1.title}}">
+  </div>
+  <div class="col-md-6">
+    <label for="genre" class="form-label">Genre</label>
+    <input type="text" class="form-control" name="genre" value="{{p1.genre}}">
+  </div>
+  <div class="col-md-6">
+    <label for="plot" class="form-label">Plot</label>
+    <input type="text" class="form-control" name="plot" value="{{p1.plot}}">
+  </div>
+  <div class="col-md-6">
+    <label for="cast" class="form-label">
+	Cast 
+	<ul>
+		<li>For windows: Hold down the control (ctrl) button to select multiple options</li>
+		<li>For Mac: Hold down the command button to select multiple options</li>
+	</ul>
+	</label>
+{{!-- 			{{#each p2}}
+			<p>{{this.name}}</p>
+		{{/each}} --}}
+	<select name="cast" id="cast" multiple>
+		{{#each p2}}
+			<option value="{{this._id}}">{{this.name}}</option>
+		{{/each}}
+	</select>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Send</button>
+  </div>
+</form>
+
+
+
+
+BONUS: Make the current cast members selected so the user knows who is in the cast currently.

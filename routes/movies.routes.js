@@ -10,7 +10,7 @@ router.get('/movies/', (req, res, next) => {
 		.then((moviesArray) => {
 			res.render('movies/movies', { moviesArray });
 		})
-		.catch((err) => console.log('Error while listing the movies: ', err));
+		.catch((error) => console.log('Error while listing the movies: ', error));
 });
 
 router.get('/movies/create', (req, res, next) => {
@@ -18,7 +18,7 @@ router.get('/movies/create', (req, res, next) => {
 		.then((celebrities) => {
 			res.render('movies/new-movie', { celebrities });
 		})
-		.catch((err) => console.log('Error while creating the movie: ', err));
+		.catch((error) => console.log('Error while creating the movie: ', error));
 });
 
 router.post("/movies/create", (req, res, next) => {
@@ -43,7 +43,7 @@ router.get('/movies/:id', (req, res, next) => {
 			res.render ("movies/movie-details", movie)
 		})
 	
-		.catch((err) => console.log('Error while showing the movie details: ', err));
+		.catch((error) => console.log('Error while showing the movie details: ', error));
 });
 
 router.post('/movies/:id/delete', (req, res, next) => {
@@ -56,6 +56,32 @@ router.post('/movies/:id/delete', (req, res, next) => {
 		.catch((error) => console.log('Error while deleting the movie: ', error));
 
 })
+
+router.get('/movies/:id/edit', (req, res, next) => {
+	const movieToDetail = req.params.id;
+	const p1 = Movie.findById (movieToDetail)
+	const p2 = Celebrity.find ()
+	//const actions = [p1,p2]
+	Promise.all ([p1,p2])
+		.then (([p1,p2]) => {
+			console.log ([p1,p2])
+			res.render ("movies/edit-movie.hbs", { p1,p2 })
+		})
+	
+		.catch((error) => console.log('Error while editing the movie: ', error));
+});
+
+router.post('/movies/:id/edit', (req, res) => {
+	const movieToEdit = req.params.id;
+	const { title, genre, plot, cast } = req.body;
+	console.log ("Hello!")
+	Movie.findByIdAndUpdate(movieToEdit, { title, genre, plot, cast }, { new: true })
+		.then((whatever) => res.redirect(`/movies/${movieToEdit}`))
+		.catch((error) => {
+			console.log('Error while editing the movie', error);
+		});
+});
+
 
 
 module.exports = router;
