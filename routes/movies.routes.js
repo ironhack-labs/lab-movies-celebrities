@@ -4,8 +4,18 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require('../models/Movie.model');
 
+// middleware
+function isLoggedIn(req, res, next) {
+    if(req.session.currentUser) { // if current user found
+        next()
+    } else {
+        res.redirect("/auth/login")
+    }
+  }
+  
+
 // all your routes here
-router.get('/create', (req, res)=> {
+router.get('/create', isLoggedIn, (req, res)=> {
     console.log('create get')
     Celebrity.find()
         .then(allCelebrities => {
@@ -16,7 +26,7 @@ router.get('/create', (req, res)=> {
 
 
 
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     Movie.find()
     .then(allMovies => {
         console.log(allMovies)
@@ -26,7 +36,7 @@ router.get('/', (req, res) => {
   
 //
   
-router.post('/create', (req, res)=> {
+router.post('/create', isLoggedIn, (req, res)=> {
     console.log('create post')
 
     const {title, genre, plot, cast} = req.body
@@ -40,7 +50,7 @@ router.post('/create', (req, res)=> {
     
 });
 
-router.post('/:id/delete', (req, res)=> {
+router.post('/:id/delete', isLoggedIn, (req, res)=> {
     Movie.findByIdAndDelete(req.params.id)
     .then(deletedMovie => res.redirect("/movies"))
     .catch(error=> console.log(error))
@@ -48,7 +58,7 @@ router.post('/:id/delete', (req, res)=> {
 
 // edit movie
 router.route('/:id/edit')
-.get((req, res)=> {
+.get(isLoggedIn, (req, res)=> {
     Movie.findById(req.params.id)
         // .populate('cast')
         .then(movie => {
@@ -67,7 +77,7 @@ router.route('/:id/edit')
         })
         .catch(error => console.log('problem here'))
 })
-.post((req, res)=>{
+.post(isLoggedIn, (req, res)=>{
     const {title, genre, plot, cast} = req.body
     Movie.findByIdAndUpdate(
       req.params.id,
@@ -79,7 +89,7 @@ router.route('/:id/edit')
 
 // show details of movie
 
-router.get('/:id', (req, res) => {
+router.get('/:id', isLoggedIn, (req, res) => {
     const {id} = req.params
 
     Movie.findById(id)
