@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Celebrities List</h2>
+  <ul>
+    {{#each celebrities}}
+      <li><h5>{{name}}</h5></li>
+    {{/each}}
+  </ul>
+  <button type="button" class="btn btn-info"><a
+      href="/celebrities/create"
+    >Create New Celebrity</a></button>
+</div>
