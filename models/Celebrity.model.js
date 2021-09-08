@@ -5,13 +5,21 @@ const {
 } = require("mongoose");
 
 const celebritySchema = new Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     occupation: {
         type: String,
-        default: "unknown"
+        required: true
     },
-    catchPhrase: String,
-}, );
+    catchPhrase: {
+        type: String,
+        required: true
+    }
+}, {
+    timestamps: true
+});
 
 const Celebrity = model("Celebrity", celebritySchema);
 

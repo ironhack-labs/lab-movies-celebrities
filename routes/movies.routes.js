@@ -3,8 +3,17 @@ const Celebrity = require('../models/Celebrity.model');
 const Movie = require('../models/Movie.model');
 const router = express.Router();
 
+
+
+function isLoggedIn(req, res, next) {
+    if (req.session.currentUser) next() // next invocation tells Express that the middleware has done all it work
+    else res.redirect("/auth/login")
+}
+
+
+
 router.get(
-    "/create",
+    "/create", isLoggedIn,
     (req, res) => {
         Celebrity.find()
             .then((allCelebs) => {
@@ -29,7 +38,7 @@ router.get(
             });
     })
 
-router.get("/:id/delete", (req, res) => {
+router.get("/:id/delete", isLoggedIn, (req, res) => {
     Movie.findByIdAndDelete(req.params.id)
         .then(deletedMovie => res.redirect("/movies"))
         .catch(error => console.log(error))

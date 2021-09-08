@@ -17,14 +17,37 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+const MongoStore = require("connect-mongo")
+
+const session = require("express-session")
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs
   app.use(logger("dev"));
 
+
+  app.use(cookieParser());
+
+  app.use(session({
+    secret: process.env.SESSION_KEY,
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000 // One day is 24hr 60min 60sec 1000 ms
+    },
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/lab-movies-celebrities",
+      ttl: 24 * 60 * 60
+    })
+  }));
+
+
   // To have access to `body` property in the request
   app.use(express.json());
-  app.use(express.urlencoded({ extended: false }));
+  app.use(express.urlencoded({
+    extended: false
+  }));
   app.use(cookieParser());
 
   // Normalizes the path to the views folder

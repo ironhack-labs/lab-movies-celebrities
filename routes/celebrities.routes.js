@@ -3,8 +3,14 @@ const router = express.Router();
 const Celebrity = require('../models/Celebrity.model');
 
 
+function isLoggedIn(req, res, next) {
+    if (req.session.currentUser) next() // next invocation tells Express that the middleware has done all it work
+    else res.redirect("/auth/login")
+}
+
+
 router.get(
-    "/create",
+    "/create", isLoggedIn,
     (req, res) => {
         res.render("celebrities/new-celebrity")
     })
