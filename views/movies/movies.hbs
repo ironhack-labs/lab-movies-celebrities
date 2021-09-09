@@ -1,0 +1,21 @@
+  <div class="container">
+        <h2>Movies List</h2>
+        <div class="row">
+                {{#each movies}}
+                <div class="card col-sm-4">
+                        <h5>Title:</h5>
+                        <p>{{title}}</p>
+                        <h5>Genre:</h5>
+                        <p>{{genre}}</p>
+                        <h5>Plot:</h5>
+                        <p>Plot: {{plot}}</p>
+                        <h5>Cast:</h5>
+                        <p>{{cast}}</p>
+                        <button type="button" class="btn btn-dark"><a href="/movies/{{_id}}">Movie details</a></button>
+                </div>
+                {{/each}}
+        </div>
+        <div>
+                <button type="button" class="btn btn-info"><a href="/movies/create">Create New Movie</a></button>
+        </div>
+</div>

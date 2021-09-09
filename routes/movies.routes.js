@@ -9,6 +9,7 @@ router.get("/movies/create", (req, res, next) => {
   res.render("movies/new-movie.hbs");
 });
 
+
 router.post("/movies/create", (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
   Movie.create({ title, genre, plot, cast })
