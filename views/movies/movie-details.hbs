@@ -8,9 +8,9 @@
     <p>{{plot}}</p>
     <h5>Cast</h5>
     {{#each cast}}
-        <p>Name:{{name}}</p>
-        <p>Occupation: {{occupation}}</p>
-        <p>Phrase: {{catchPhrase}}</p>
+        <p>Name:{{this.name}}</p>
+{{!--         <p>Occupation: {{this.occupation}}</p>
+        <p>Phrase: {{this.catchPhrase}}</p> --}}
     {{/each}}
     <div class="modify">
         <button type="button" class="btn btn-dark"><a href="/movies/{{_id}}/edit">Edit</a></button>

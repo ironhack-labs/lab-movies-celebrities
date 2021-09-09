@@ -7,19 +7,19 @@ const Celebrity = require('../models/Celebrity.model');
 
 
 /* Iteration #6: Adding New Movies */
-router.get('/movies/create', (req, res, next) => {
+/* router.get('/movies/create', (req, res, next) => {
     res.render('movies/new-movie.hbs');
-});
+}); */
 
 // Necesito mezclar Celebrities y Movies 
-/* router.get('/movies/create', (req, res, next) => {
+router.get('/movies/create', (req, res, next) => {
 	Celebrity
-        .find()
+    .find()
 		.then(celebritiesDB => {
-			res.render('movies/new-movie.hbs', { celebritiesDB });
+			res.render('movies/new-movie.hbs', { celebrities: celebritiesDB });
 		})
 		.catch((err) => console.log('Error', err));
-}) */
+});
   
 router.post('/movies/create', (req, res, next) => {
     const { title, genre, plot, cast } = req.body;
@@ -45,6 +45,7 @@ router.get('/movies', (req, res, next) => {
         });
     });
 
+/* Iteration #8: The Movie Details Page */
 router.get('/movies/:id', (req, res, next) => {
     Movie
         .findById(req.params.id) 
@@ -59,6 +60,7 @@ router.get('/movies/:id', (req, res, next) => {
 });
 
 
+
 /* Iteration #9: Deleting Movies */
 router.post('/movies/:id/delete', (req, res, next) => {
     Movie
@@ -70,10 +72,12 @@ router.post('/movies/:id/delete', (req, res, next) => {
 
 
 router.get('/movies/:id/edit', (req, res, next) => {
-    Movie
-      .findById(req.params.id)
-      .then(movieToEdit => {
-        res.render('movies/edit-movie.hbs', { movie: movieToEdit }); 
+  const p1 =  Movie.findById(req.params.id)
+  const p2 =  Celebrity.find()
+  Promise.all([p1, p2])
+
+      .then(([p1, p2] )=> {
+        res.render('movies/edit-movie.hbs', { p1, p2 }); 
       })
       .catch(error => next(error));
 });
@@ -82,6 +86,8 @@ router.post('/movies/:id/edit', (req, res, next) => {
     const { title, genre, plot, cast } = req.body;
     Movie
       .findByIdAndUpdate(req.params.id, { title, genre, plot, cast}, { new: true })
+      .populate('cast')// --> we are saying: give me whole cast object????
+
       .then(() => res.redirect('/movies'))
       .catch(error => next(error));
 });  
