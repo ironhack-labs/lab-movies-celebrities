@@ -32,4 +32,27 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+  Movie.findById(id)
+    .populate("cast")
+    .then((movie) => {
+      console.log(movie);
+      res.render("movies/movie-details", { movie });
+    })
+    .catch((error) => {
+      console.log("err!!");
+    });
+});
+
+router.post("/:id/delete", (req, res) => {
+  Movie.findByIdAndDelete(req.params.id)
+    .then((deletedMovie) => {
+      res.redirect("/movies");
+    })
+    .catch((error) => {
+      console.log("arr!!");
+    });
+});
+
 module.exports = router;
