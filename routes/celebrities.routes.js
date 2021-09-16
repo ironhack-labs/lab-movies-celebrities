@@ -8,9 +8,9 @@ router.get("/create", (req, res) => {
 });
 
 router.post("/create", (req, res) => {
-  const { name, occupation, catchphrase } = req.body;
+  const { name, occupation, catchPhrase } = req.body;
   console.log(req.body);
-  Celebrity.create({ name, occupation, catchphrase })
+  Celebrity.create({ name, occupation, catchPhrase })
     .then((newCelebrity) => res.redirect("/celebrities"))
     .catch((error) => res.render("celebrities/new-celebrity"));
 });
