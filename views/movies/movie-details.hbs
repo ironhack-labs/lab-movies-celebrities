@@ -4,10 +4,14 @@
 <h6>Plot: {{movie.plot}}</h6>
 <h6>Cast: </h6>
     {{#each movie.cast}}
-      <h7>{{this.name}}</h7>
-      <h7>{{this.occupation}}</h7>
-      <h7>{{this.catchPhrase}}</h7>
-    {{/each}}
+      <h7>Name: {{this.name}}</h7>
+      <br/>
+      <h7>Occupation: {{this.occupation}}</h7>
+      <br/>
+      <h7>Catch Phrase: {{this.catchPhrase}}</h7>
+      <br/>
+    {{/each}}    
 <form action="/movies/{{movie.id}}/delete" method="POST">
+<br/>
 <button type="submit">Delete!!</button>
 </form>
