@@ -1,8 +1,8 @@
-<h1>Celebrities</h1>
+<h1>Movies</h1>
 <ul>
-{{#each movies}}
+{{#each theMovies}}
 <li>
-<a href="/">{{this.title}}</a>
+<a href="/movies/{{_id}}">{{this.title}}</a>
 </li>
 {{/each}}
 </ul>

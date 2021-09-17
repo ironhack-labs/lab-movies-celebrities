@@ -21,11 +21,11 @@ router.post("/create", (req, res) => {
 
 router.get("/", (req, res) => {
   Movie.find()
-    .then((movies) => {
-      res.render("movies/movies", { movies });
+    .then((theMovies) => {
+      res.render("movies/movies", { theMovies });
     })
     .catch((error) => {
-      console.log("no celebs", error);
+      console.log("no movies", error);
     });
 });
 
