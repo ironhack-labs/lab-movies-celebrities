@@ -13,7 +13,7 @@ router.post("/create", (req, res) => {
 
   Celebrity.create({ name, occupation, catchphrase })
     .then((theceleb) => {
-      res.redirect("/celebrities");
+      res.redirect("/");
     })
     .catch((error) => res.render("celebrities/new-celebrity"));
 });

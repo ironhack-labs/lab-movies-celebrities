@@ -5,23 +5,15 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  director: {
+  genre: {
     type: String,
     required: true,
   },
-  stars: {
-    type: [String],
-  },
-  image: {
-    type: String,
-    default:
-      "https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg",
-  },
-  description: {
+  plot: {
     type: String,
   },
-  showtimes: {
-    type: [String],
+  cast: {
+    type: String,
   },
 });
 
