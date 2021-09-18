@@ -9,6 +9,10 @@ router.get("/create", (req, res) => {
   res.render("movies/new-movie");
 });
 
+router.get("/create", (req, res) => {
+  res.render("movies/new-movie");
+});
+
 router.post("/create", (req, res) => {
   const { title, genre, plot } = req.body;
 
@@ -27,6 +31,15 @@ router.get("/", (req, res) => {
     .catch((error) => {
       console.log("no movies", error);
     });
+});
+
+router.get("/:id", (req, res, next) => {
+  const movieID = req.params.id;
+
+  Movie.findById(movieID).then((movieDetail) => {
+    res.render("movies/movie-details", { movieDetail });
+    console.log(movieDetail);
+  });
 });
 
 module.exports = router;

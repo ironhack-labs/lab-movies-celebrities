@@ -21,7 +21,6 @@ router.post("/create", (req, res) => {
 router.get("/", (req, res) => {
   Celebrity.find()
     .then((theCelebs) => {
-      console.log(theCelebs);
       res.render("celebrities/celebrities", { celebs: theCelebs });
     })
     .catch((error) => {
