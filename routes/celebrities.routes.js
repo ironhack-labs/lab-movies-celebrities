@@ -5,6 +5,9 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
+// router.get("/index", (req, res, next) => { //HAy que ponerlo???????
+// 	res.render("/", index);
+// });
 router.get("/create", (req, res, next) => {
 	res.render("celebrities/new-celebrity");
 });
@@ -23,26 +26,13 @@ router.post("/create", (req, res, next) => {
 		});
 });
 
-router.get("/celebrities", (req, res, next) => {
-	Celebrity.find()
-		.then((allCelebrities) => {
-			res.render("celebrities/celebrities", {
-				celebrities: allCelebrities,
-			});
-		})
-		.catch(error);
+router.get("/", (req, res, next) => {
+	Celebrity.find().then((allCelebrities) => {
+		res.render("celebrities/celebrities", {
+			celebrities: allCelebrities,
+		});
+	});
+	// .catch(error);
 });
 
-// router.post("/add", (req, res, next) => {
-// 	const { name, occupation, catchphrase } = req.body;
-// 	const newCelebrity = new Celebrity({ name, occupation, catchphrase });
-// 	newCelebrity
-// 		.save()
-// 		.then((celebrity) => {
-// 			res.redirect("/celebrities");
-// 		})
-// 		.catch((error) => {
-// 			res.render("celebrities/new-celebrity");
-// 		});
-// });
 module.exports = router;
