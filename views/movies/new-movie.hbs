@@ -1,15 +1,21 @@
 <h2>Movie Form</h2>
 <hr />
-<form action="/movies" method="POST">
-	Title:
+<form action="/movies/" method="POST">
+	<label for="name">Title:</label>
 	<input type="text" name="title" />
-	<br />
-	<br />
-	Genre:
-	<input type="text" name="genre" /><br /><br />
-	Plot:
-	<input type="text" name="plot" /><br /><br />
-	Cast:
-	<input type="text" name="cast" /><br /><br />
+	<br /><br />
+	<label for="name">Genre:</label>
+	<input type="text" name="genre" />
+	<br /><br />
+	<label for="name">Plot:</label>
+	<input type="text" name="plot" />
+	<br /><br />
+	<label for="name">Cast:</label>
+	<select name="cast" multiple>
+		{{#each celebrities}}
+			<option value="{{this._id}}">{{this.name}}</option>
+		{{/each}}
+	</select>
+	<br /><br />
 	<button type="submit">Create a new Movie</button>
 </form>
