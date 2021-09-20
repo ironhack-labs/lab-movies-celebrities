@@ -33,4 +33,16 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  Movie.findById(req.params.id)
+    .populate("cast")
+    .then((oneMovie) => {
+      console.log(oneMovie);
+      res.render("movies/movie-details", { oneMovie });
+    })
+    .catch((error) => {
+      console.log("err!!");
+    });
+});
+
 module.exports = router;
