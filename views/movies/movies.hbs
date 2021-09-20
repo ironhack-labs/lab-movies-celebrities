@@ -10,7 +10,9 @@
                         <h5>Plot:</h5>
                         <p>Plot: {{plot}}</p>
                         <h5>Cast:</h5>
-                        <p>{{cast.[0].name}}</p>
+                                {{#each cast}}
+                                        <p>{{name}}</p>
+                                {{/each}}
                         <button type="button" class="btn btn-dark"><a href="/movies/{{_id}}">Movie details</a></button>
                 </div>
                 {{/each}}
