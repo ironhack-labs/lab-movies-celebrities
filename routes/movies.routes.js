@@ -55,4 +55,35 @@ router.post("/:id/delete", (req, res) => {
     });
 });
 
+router.get("/:id/edit", (req, res) => {
+  Movie.findById(req.params.id)
+    .then((movie) => {
+      Celebrity.find().then((allCelebrities) => {
+        const celebritiesFiltered = allCelebrities.filter((celebrity) => {
+          if (movie.cast.includes(celebrity._id)) {
+            return false;
+          }
+          return true;
+        });
+        console.log(celebritiesFiltered);
+        res.render("movies/edit-movie", {
+          movie,
+          allCelebrities: celebritiesFiltered,
+        });
+      });
+    })
+    .catch((error) => console.log("err!!"));
+});
+
+router.post("/:id/edit", (req, res) => {
+  const { title, genre, plot, cast } = req.body;
+  Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast })
+    .then((updateMovie) => {
+      res.redirect("/movies/${req.parms.id}");
+    })
+    .catch((error) => {
+      console.log("err!!");
+    });
+});
+
 module.exports = router;
