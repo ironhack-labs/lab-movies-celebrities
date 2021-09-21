@@ -1,11 +1,11 @@
+{{!-- Muestra la LISTA DE PELIS --}}
+
 <h2>List of Movies</h2>
 <a href="/">Go Back</a>
 </br>
 {{#each movies}}
 <hr>
   <p>Title: {{this.title}}</p>
-  <p>Genre: {{this.genre}}</p>
-  <p>Plot: {{this.plot}}</p>
-  <p>Cast: {{this.cast}}</p>
   <a href="/movies/{{this._id}}">See more</a> 
 {{/each}}
+

@@ -40,4 +40,15 @@ router.get("/", (req, res, next) => {
 		});
 });
 
+// MOVIE DETAILS PAGE ROUTER
+
+router.get("/:id", (req, res, next) => {
+	Movie.findById(req.params.id)
+		.populate("cast")
+		.then((movieDetail) => {
+			res.render("movies/movie-details", { movieDetail });
+		})
+		.catch((err) => console.log("Error displaying movie details: ", err));
+});
+
 module.exports = router;
