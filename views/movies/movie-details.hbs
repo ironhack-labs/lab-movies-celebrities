@@ -12,5 +12,6 @@
   <p><strong>Catch Phrase: </strong> {{this.catchPhrase}}</p>
 {{/each}}
 
-
-  {{!-- <a href="/movies/{{this._id}}">See more</a>  --}}
+<form action="/movies/{{movieDetail._id}}/delete" method="POST">
+<button type="submit">Delete this movie</button>
+</form>

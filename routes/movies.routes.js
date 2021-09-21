@@ -51,4 +51,14 @@ router.get("/:id", (req, res, next) => {
 		.catch((err) => console.log("Error displaying movie details: ", err));
 });
 
+// DELETING A MOVIE
+
+router.post("/:id/delete", (req, res) => {
+	Movie.findByIdAndRemove(req.params.id)
+		.then(() => {
+			res.redirect("/movies");
+		})
+		.catch((err) => console.log("Error deleting the movie: ", err));
+});
+
 module.exports = router;

@@ -3,9 +3,11 @@
 <h2>List of Movies</h2>
 <a href="/">Go Back</a>
 </br>
+<ul>
 {{#each movies}}
 <hr>
-  <p>Title: {{this.title}}</p>
-  <a href="/movies/{{this._id}}">See more</a> 
+<li>
+  <a href="/movies/{{this._id}}">{{this.title}}</a> 
+</li>
 {{/each}}
-
+</ul>
