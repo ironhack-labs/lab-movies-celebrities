@@ -1,0 +1,22 @@
+<h2>Create a new celeb here</h2>
+<form action="/celebrities/create" method="POST">
+  <br />
+  <label>Name
+    <input type="text" name="name" placeholder="Please write your name" />
+  </label>
+  <br />
+  <label>Occupation
+    <input type="text" name="occupation" placeholder="Please fill occupation" />
+  </label>
+  <br />
+  <label>CatchPhrase
+    <input
+      type="text"
+      name="catchphrase"
+      placeholder="Please fill CatchPhrase"
+    />
+  </label>
+  <br />
+  <a href="/celebrities">Submit</a>
+  {{! <button type="submit">submit</button> }}
+</form>
