@@ -3,12 +3,18 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
-// const Celebrity = require("../models/Celebrity.model");
+const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
 
 router.get("/create", (req, res, next) => {
-	res.render("movies/new-movie");
+	Celebrity.find()
+		.then((celebritiesFromDB) => {
+			res.render("movies/new-movie", { celebritiesFromDB });
+		})
+		.catch((err) =>
+			console.log("Error displaying the form to create a movie.", err),
+		);
 });
 router.post("/create", (req, res, next) => {
 	const { title, genre, plot, cast } = req.body;
@@ -17,9 +23,9 @@ router.post("/create", (req, res, next) => {
 		.then(() => {
 			res.redirect("/movies");
 		})
-		.catch((error) => {
-			console.log("Error creating a new Movie", error);
-			res.render("movies/new-movie", { errorMsj: "No movie" });
+		.catch((err) => {
+			console.log("Error creating a new Movie", err);
+			res.render("movies/new-movie");
 		});
 });
 

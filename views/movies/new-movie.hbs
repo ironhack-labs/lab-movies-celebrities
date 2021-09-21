@@ -13,12 +13,12 @@
 <label for="plot">Plot</label>
 <input type="text" name="plot" id="plot"/>
 <br />
-<label for="cast">Cast</label>
-<input type="text" name="cast" id="cast"/>
-{{#each movies}}
-{{this.name}}{{this._id}}
-<option value={{this._id}}>{{this.name}}</option>
-{{/each}}
+<label for="">Cast:</label>
+  <select name="cast">
+    {{#each celebritiesFromDB}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
 <br />
 <br />
   <button type:"submit">Submit</button>
