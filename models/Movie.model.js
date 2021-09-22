@@ -1,20 +1,20 @@
 //  Add your code here
 const mongoose = require("mongoose")
-
+const { Schema, model } = require('mongoose');
 
 //schema
-const movieSchema = mongoose.Schema({
+const movieSchema = new Schema({
     title: String,
     genre: String,
     plot: String,
     cast: {
-        type: [Object],
+        type: Schema.Types.ObjectId,
         ref: "Celebrity"
     }
 })
 
 //modelo
-const Movie=mongoose.model("movies", movieSchema)
+const Movie= model("movies", movieSchema)
 
 //exportación
 module.exports = Movie

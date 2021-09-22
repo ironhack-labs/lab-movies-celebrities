@@ -1,12 +1,19 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
+const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
 //muestra el formulario
 //crear todas las pelis
 router.get("/movies/create", (req, res) => {
-    res.render("movies/new-movie")
+    Celebrity.find()
+    .then((celeb) => {
+        res.render("movies/new-movie", {celebrities: celeb})
+    })
+    .catch((e) => {
+        console.log(e)
+    })
 })
 
 //esta ruta recibe la info del formulario 
@@ -20,7 +27,7 @@ router.post("/movies/create", (req, res) => {
     })
         .then((newMovie) => {
             console.log(newMovie)
-            res.render("movies/movies")
+            res.redirect("/movies")
         })
         .catch((e) => {
             console.log(e)

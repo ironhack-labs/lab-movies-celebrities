@@ -1,16 +1,16 @@
 //  Add your code here
 const mongoose = require("mongoose")
-
+const { Schema, model } = require('mongoose');
 
 //schema
-const celebritySchema = mongoose.Schema({
+const celebritySchema = new Schema({
     name: String,
     ocupation: String,
     catchPhrase: String
 })
 
 //modelo
-const Celebrity=mongoose.model("celebrities", celebritySchema)
+const Celebrity= model("celebrities", celebritySchema)
 
 //exportación
 module.exports = Celebrity
