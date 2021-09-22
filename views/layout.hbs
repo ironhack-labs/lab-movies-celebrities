@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
     <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
   <body>
-    <div class="container">
+    <nav>
+      <a href='/celebrities'>Celebrities List</a>
+      <a href='/celebrities/create'>Create a Celebritie</a>
+      <a href='/movies/create'>Create Movie</a>
+      <a href='/movies'>Movies List</a>
+
+    </nav>
+    <div class='container'>
       {{{body}}}
     </div>
 
-    <script src="/javascripts/script.js"></script>
+    <script src='/javascripts/script.js'></script>
   </body>
 
 </html>

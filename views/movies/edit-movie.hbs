@@ -1,0 +1,26 @@
+<h2>EDIT PAGE</h2>
+
+<form action='/movies/{{dbMovie.id}}' method='POST'>
+
+<label for=''>Title</label>
+  <input type='text' name='title' value="{{dbMovie.title}}" />
+  <label for=''>Genre</label>
+  <input type='text' name='genre' id='' value="{{dbMovie.genre}}" />
+  <label for=''>Plot</label>
+  <input type='text' name='plot' id='' value="{{dbMovie.plot}}"/>
+  <label for='cast-select'>
+    <label for=''>cast</label>
+    <select name='cast'>
+      <option disable selected >{{celebrities.name}}</option>
+      {{#each dbCelebrities}}
+
+        <option value='{{this._id}}'>{{this.name}}</option>
+      {{/each}}
+
+    </select>
+
+  </label>
+  <button type='submit'>SEND</button>
+</form>
+
+</form>
