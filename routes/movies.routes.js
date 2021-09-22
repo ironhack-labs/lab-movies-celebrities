@@ -83,4 +83,15 @@ router.get("/:id/edit", (req, res) => {
 // 		.catch((err) => console.log("Error deleting the movie: ", err));
 // });
 
+// UPDATE THE MOVIE
+
+router.post("/:id/edit", (req, res) => {
+	const { title, genre, plot, cast } = req.body;
+	Movie.findByIdAndUpdate(req.params.id)
+		.then(() => {
+			res.redirect("movies/movie-details");
+		})
+		.catch((err) => console.log("Error deleting the movie: ", err));
+});
+
 module.exports = router;
