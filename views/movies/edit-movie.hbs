@@ -1,0 +1,23 @@
+<h2>Edit a Movie</h2>
+
+<form action="/movies/{{data.movieFind._id}}/edit" method="POST">
+  <label for="label-title">Title</label>
+  <input type="text" name="title" id="label-title" value="{{data.movieFind.title}}">
+
+  <label for="label-genre">Genre</label>
+  <input type="text" name="genre" id="label-genre" value="{{data.movieFind.genre}}">
+
+  <label for="label-plot">Plot</label>
+  <input type="text" name="plot" id="label-plot" value="{{data.movieFind.plot}}">
+
+  <label for="celebrity-select">
+    <select name="cast">
+      <option disable selected value="{{data.movieFind.cast.[0]._id}}">{{data.movieFind.cast.[0].name}}</option>
+      {{#each data.celebrities }}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+
+
+    <button type="submit">Finish Edit</button>
+</form>

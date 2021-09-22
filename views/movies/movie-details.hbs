@@ -1,0 +1,16 @@
+<h2>Movie Details</h2>
+{{!-- por que usar un each para ver solo un objeto????? --}}
+<p>{{title}}</p>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+{{#each cast}}
+<p>{{name}}</p>
+<p>{{occupation}}</p>
+<p>{{catchPhrase}}</p>
+{{/each}}
+<form action="/movies/{{_id}}/delete" method="POST">
+  <button type="submit">Delete Movie</button>
+</form>
+<a href="/movies/{{_id}}/edit">Edit Movie</a>
+
+<a href="/movies">Back to movies list</a>
