@@ -63,17 +63,24 @@ router.post("/:id/delete", (req, res) => {
 
 // EDITING A MOVIE
 
-router.get("/:id/edit ", (req, res) => {
+router.get("/:id/edit", (req, res) => {
 	Movie.findById(req.params.id)
+		.populate("cast")
 		.then((movieFounded) => {
-			Celebrity.find().then((allCelebs) => {
-				res.render("/movies/edit-movie", {
-					movie: movieFounded,
-					allCelebs,
-				});
-			});
-		})
-		.catch((err) => console.log("Error deleting the movie: ", err));
+			res.render("movies/edit-movie", { movieFound: movieFounded });
+		});
 });
+// router.get("/:id/edit ", (req, res) => {
+// 	Movie.findById(req.params.id)
+// 		.then((movieFounded) => {
+// 			Celebrity.find().then((allCelebs) => {
+// 				res.render("movies/edit-movie", {
+// 					movieFound: movieFounded,
+// 					allCelebs,
+// 				});
+// 			});
+// 		})
+// 		.catch((err) => console.log("Error deleting the movie: ", err));
+// });
 
 module.exports = router;
