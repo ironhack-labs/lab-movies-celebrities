@@ -61,4 +61,19 @@ router.post("/:id/delete", (req, res) => {
 		.catch((err) => console.log("Error deleting the movie: ", err));
 });
 
+// EDITING A MOVIE
+
+router.get("/:id/edit ", (req, res) => {
+	Movie.findById(req.params.id)
+		.then((movieFounded) => {
+			Celebrity.find().then((allCelebs) => {
+				res.render("/movies/edit-movie", {
+					movie: movieFounded,
+					allCelebs,
+				});
+			});
+		})
+		.catch((err) => console.log("Error deleting the movie: ", err));
+});
+
 module.exports = router;
