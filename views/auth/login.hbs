@@ -1,0 +1,27 @@
+{{!-- views/auth/login --}}
+
+<div>
+
+  <h2>Iniciar sesión</h2>
+
+  <form action="/auth/login" method="POST">
+    <h2>Email</h2>
+    <input type="email" name="email" placeholder="m@mikenieva.com" />
+
+
+    <h2>Password</h2>
+    <input type="password" name="password" placeholder="holamundo" />
+
+    <button type="submit">
+      Iniciar sesión
+    </button>
+
+    {{#if errorMessage}}
+    <p style="color: red">{{errorMessage}}</p>
+    {{/if}}
+
+
+  </form>
+
+
+</div>

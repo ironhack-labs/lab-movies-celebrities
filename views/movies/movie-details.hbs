@@ -8,9 +8,14 @@
 <p>{{occupation}}</p>
 <p>{{catchPhrase}}</p>
 {{/each}}
+
+{{#if currentUser}}
 <form action="/movies/{{_id}}/delete" method="POST">
   <button type="submit">Delete Movie</button>
 </form>
 <a href="/movies/{{_id}}/edit">Edit Movie</a>
+{{else}}
+<h5>Si quieres editar y borrar inicia primero sesión</h5>
+{{/if}}
 
 <a href="/movies">Back to movies list</a>

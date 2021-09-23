@@ -1,0 +1,14 @@
+{{!-- views/users/profile.hbs --}}
+<h1>Tu perfil</h1>
+
+{{#if foundUser}}
+
+Hola {{foundUser.username}}
+
+<a href="/movies/create">Crea una película</a>
+
+<a href="/celebrities/create">Crea una celebridad</a>
+
+{{else}}
+<p>Aún no has iniciado sesión</p>
+{{/if}}
