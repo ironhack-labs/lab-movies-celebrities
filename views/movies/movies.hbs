@@ -7,7 +7,12 @@
 {{#each movies}}
 <hr>
 <li>
-  <a href="/movies/{{this._id}}">{{this.title}}</a> 
+  <a href="/movies/{{this._id}}">{{this.title}}</a>
+  {{!-- Button to direct EDIT or DELETE MOVIE in this page are optional. --}}
+<br>
+<br>
+  
+<button><a href="/movies/{{this._id}}/edit">Edit this Movie</a></button>
 </li>
 {{/each}}
 </ul>

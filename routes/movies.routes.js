@@ -16,10 +16,13 @@ router.get("/create", (req, res, next) => {
 			console.log("Error displaying the form to create a movie.", err),
 		);
 });
+
+//CREATE a new Movie
+
 router.post("/create", (req, res, next) => {
 	const { title, genre, plot, cast } = req.body;
 
-	Movie.create({ title, genre, plot, cast })
+	Movie.create(req.body)
 		.then(() => {
 			res.redirect("/movies");
 		})
@@ -62,18 +65,29 @@ router.post("/:id/delete", (req, res) => {
 });
 
 // EDITING A MOVIE
+// This retrieves wich movie we want to EDIT with a prefilled form.
 
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res, next) => {
 	Movie.findById(req.params.id)
 		.populate("cast")
-		.then((movieFounded) => {
-			res.render("movies/edit-movie", { movieFound: movieFounded });
-		});
+		.then((movieToEdit) => {
+			console.log(movieToEdit);
+			res.render("movies/edit-movie", { movie: movieToEdit });
+		})
+		.catch((error) => next(error));
 });
-// router.get("/:id/edit ", (req, res) => {
+
+// router.get("/:id/edit", (req, res) => {
+// 	Movie.findById(req.params.id)
+// 		.populate("cast")
+// 		.then((movieFounded) => {
+// 			res.render("movies/edit-movie", { movieFound: movieFounded });
+// 		});
+// });
+// router.get("/:id/edit ", (req, res, next) => {
 // 	Movie.findById(req.params.id)
 // 		.then((movieFounded) => {
-// 			Celebrity.find().then((allCelebs) => {
+// 			Celebrity.find({ name }).then((allCelebs) => {
 // 				res.render("movies/edit-movie", {
 // 					movieFound: movieFounded,
 // 					allCelebs,
@@ -84,14 +98,15 @@ router.get("/:id/edit", (req, res) => {
 // });
 
 // UPDATE THE MOVIE
+// This send the new data form to the DATABASE and UPDATE the old one. It doesn't create a new one, JUST UPDATE.
 
-router.post("/:id/edit", (req, res) => {
+router.post("/:id/edit", (req, res, next) => {
+	// const { id } = req.params;
 	const { title, genre, plot, cast } = req.body;
-	Movie.findByIdAndUpdate(req.params.id)
-		.then(() => {
-			res.redirect("movies/movie-details");
-		})
-		.catch((err) => console.log("Error deleting the movie: ", err));
+
+	Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
+		.then((updatedMovie) => res.redirect(`/movies/${updatedMovie.id}`))
+		.catch((error) => next(error));
 });
 
 module.exports = router;

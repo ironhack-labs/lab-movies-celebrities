@@ -4,20 +4,31 @@
 <a href="/movies">Back to movies list</a>
 </br>
 <hr>
-  <h4>{{movieDetail.title}}</h4>
+  <h4>Movie: {{movieDetail.title}}</h4>
 <p><strong>Genre: </strong> {{movieDetail.genre}}</p>  
 <p><strong>Plot:</strong>  {{movieDetail.plot}}</p>
-{{#each movieDetail.cast}}
 <p><strong>Cast: </strong></p>
-  <p><strong>Name: </strong> {{this.name}}</p>
-  <p><strong>Occupation: </strong> {{this.occupation}}</p>
-  <p><strong>Catch Phrase: </strong> {{this.catchPhrase}}</p>
-{{/each}}
+<ul>
+{{#each movieDetail.cast}}
+<li>{{this.name}}</li>
+  
 
-{{!-- Form and Button to DELETE A MOVIE.
-Once clicked on Submit Button, activate the "controller" from the DELETING A MOVIE post Method in the movies.routes.js file --}}
+  {{!-- <p><strong>Name: </strong> {{this.name}}</p> --}}
+  {{!-- <p><strong>Occupation: </strong> {{this.occupation}}</p>
+  <p><strong>Catch Phrase: </strong> {{this.catchPhrase}}</p> --}}
+{{/each}}
+</ul>
+<br>
+<br>
+
+
+{{!-- Form and Button to DELETE A MOVIE and to EDIT THE MOVIE..
+Once clicked on Submit DELETE Button, it activates the "controller" from the DELETING A MOVIE post Method in the movies.routes.js file --}}
+<form action="/movies/{{movieDetail._id}}/edit">
+<button type="submit">Edit this movie</button>
+</form>
+<br>
 <form action="/movies/{{movieDetail._id}}/delete" method="POST">
 <button type="submit">Delete this movie</button>
 </form>
-<br>
-<a href="/movies/{{movieDetail._id}}/edit">Edit the Movie</a>
+{{!-- <button><a href="/movies/{{movieDetail._id}}/edit">Edit the Movie</a></button> --}}
