@@ -2,98 +2,26 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
+const moviesController = require("../controllers/moviesController")
 
 // all your routes here
 //muestra el formulario
 //crear todas las pelis
-router.get("/movies/create", (req, res) => {
-    Celebrity.find()
-    .then((celeb) => {
-        res.render("movies/new-movie", {celebrities: celeb})
-    })
-    .catch((e) => {
-        console.log(e)
-    })
-})
+router.get("/create", moviesController.getCreatedMovies)
 
 //esta ruta recibe la info del formulario 
-router.post("/movies/create", (req, res) => {
-    const { title, genre, plot, cast } = req.body 
-    Movie.create({
-        title,
-        genre,
-        plot,
-        cast
-    })
-        .then((newMovie) => {
-            console.log(newMovie)
-            res.redirect("/movies")
-        })
-        .catch((e) => {
-            console.log(e)
-        })
-})
+router.post("/create", moviesController.createMovie)
 
 //mostrar todas las pelis
-router.get("/movies", (req, res) => {
-   Movie.find()
-    .then((movies) => {
-        const list = movies
-        console.log(list)
-        res.render("movies/movies", {movies: list})
-    }) 
-    .catch((e) => {
-        console.log(e)
-    })
-})
+router.get("/", moviesController.getMovies)
 
-router.get("/movies/:id", (req, res) => {
-    const { id } = req.params
-    Movie.findById(id)
-    .populate("cast")
-    .then((details) => {
-        console.log(details)
-        res.render("movies/movie-details", {movies: details})
-    })
-    .catch((e) => {
-        console.log(e)
-    })
-  })
+//detalles
+router.get("/:id", moviesController.movieDetails)
 
-  router.post("/movies/:id/delete", (req, res) => {
-    const { id } = req.params
-    Movie.findByIdAndRemove(id)
-      .then(() => {
-        res.redirect("/movies/movies")
-      })
-      .catch((e) => {
-        console.log(e)
-      })
-  })
+router.post("/:id/delete", moviesController.deleteMovie)
+//editar peli
+router.get("/:id/edit", moviesController.editMovie)
 
-  router.get("/movies/:id/edit", (req, res) => {
-    const {id} = req.params
-    Movie.findById(id)
-    .populate("cast")
-    Celebrity.findOne({name: name})
-    .then((edit) => {
-    res.render("movies/edit-movie", {edit})
-  })
-    .catch((e) => {
-    console.log(e)
-  })
-})
-  
-router.get("/movies/:id", (req, res) => {
-    const { id } = req.params
-    const { title, genre, plot, cast } = req.body
-    Movie.findByIdAndUpdate(id, { title, genre, plot, cast })
-    .then(() =>{
-    res.redirect("/movies/movies")
-    })
-    .catch((e) => {
-        console.log(e)
-      })
-  })
+router.post("/:id/edit", moviesController.editMovieForm)
 
 module.exports = router;

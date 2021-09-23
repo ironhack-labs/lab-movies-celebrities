@@ -32,7 +32,10 @@ const celeb = require('./routes/celebrities.routes');
 app.use('/', celeb);
 
 const mov = require('./routes/movies.routes');
-app.use('/', mov);
+app.use('/movies', mov);
+
+const auth = require('./routes/auth');
+app.use('/auth', auth);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

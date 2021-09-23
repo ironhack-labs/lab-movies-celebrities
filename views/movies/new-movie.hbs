@@ -10,7 +10,7 @@
     <label for="cast">cast</label>
     <select name="cast">
       {{#each celebrities}}
-        <option>{{name}}</option>
+        <option value="{{_id}}">{{name}}</option>
       {{/each}}
     </select>
   <button type="submit">Create movie</button>
