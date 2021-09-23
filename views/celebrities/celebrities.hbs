@@ -1,8 +1,13 @@
 <h2>Celebrities List</h2>
 
 {{#each celebrityList}}
-<h3>{{this.name}}</h3>
-<p>{{this.occupation}}</p>
-<p>{{this.catchPhrase}}</p>
 
+  <div class='list-group'>
+    <div class='d-flex w-100 justify-content-between'>
+      <h3 class='mb-1'>{{this.name}}</h3>
+    </div>
+    <p class='mb-1'>{{this.occupation}}</p>
+    <p class='mb-1'>{{this.catchPhrase}}</p>
+
+  </div>
 {{/each}}

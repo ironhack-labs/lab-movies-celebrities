@@ -1,23 +1,29 @@
-<h2>Create a Movie</h2>
+{{#if currentUser}}
 
-<form action='/movies/create' method='POST'>
-  <label for=''>Title</label>
-  <input type='text' name='title' />
-  <label for=''>Genre</label>
-  <input type='text' name='genre' id='' />
-  <label for=''>Plot</label>
-  <input type='text' name='plot' id='' />
-  <label for='cast-select'>
-    <label for=''>cast</label>
-    <select name='cast'>
-      <option disable selected value=''></option>
-      {{#each dbCelebrities}}
+  <h2>Create a Movie</h2>
 
-        <option value='{{this._id}}'>{{this.name}}</option>
-      {{/each}}
+  <form action='/movies/create' method='POST'>
+    <label for=''>Title</label>
+    <input type='text' name='title' />
+    <label for=''>Genre</label>
+    <input type='text' name='genre' id='' />
+    <label for=''>Plot</label>
+    <input type='text' name='plot' id='' />
+    <label for='cast-select'>
+      <label for=''>cast</label>
+      <select name='cast'>
+        <option disable selected value=''></option>
+        {{#each dbCelebrities}}
 
-    </select>
+          <option value='{{this._id}}'>{{this.name}}</option>
+        {{/each}}
 
-  </label>
-  <button type='submit'>SEND</button>
-</form>
+      </select>
+
+    </label>
+    <button type='submit'>SEND</button>
+  </form>
+
+{{else}}
+  <a href='/auth/login'>Inicia Sesion para crear unapelicula</a>
+{{/if}}

@@ -6,15 +6,50 @@
     <meta http-equiv='X-UA-Compatible' content='ie=edge' />
     <title>{{title}}</title>
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' />
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU'
+      crossorigin='anonymous'
+    />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
   <body>
-    <nav>
-      <a href='/celebrities'>Celebrities List</a>
-      <a href='/celebrities/create'>Create a Celebritie</a>
-      <a href='/movies/create'>Create Movie</a>
-      <a href='/movies'>Movies List</a>
+    <nav class='nav'>
+      <ul>
+        <li> <a href='/celebrities' class='nav-link'>Celebrities List</a></li>
+        <li> <a href='/celebrities/create' class='nav-link'>Create a Celebritie</a> </li>
+        <li><a href='/movies/create' class='nav-link'>Create Movie</a> </li>
+        <li><a href='/movies' class='nav-link'>Movies List</a> </li>
+
+      </ul>
+
+      <ul>
+
+        {{#if currentUser}}
+          <li>
+            <a href='/user/profile' class='nav-link'>Mi perfil</a>
+          </li>
+
+          <li>
+            <form action='/auth/logout' method='POST'>
+              <button>Cerrar sesión</button>
+            </form>
+          </li>
+        {{else}}
+
+          <li>
+            <a href='/auth/signup' class='nav-link'>Registrarme</a>
+          </li>
+
+          <li>
+            <a href='/auth/login' class='nav-link'>Iniciar sesión</a>
+          </li>
+
+        {{/if}}
+
+      </ul>
 
     </nav>
     <div class='container'>

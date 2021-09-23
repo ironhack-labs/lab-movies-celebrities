@@ -1,4 +1,4 @@
-<h2>{{title}} Details</h2>
+<h1>{{title}} </h1>
 
 <p>{{genre}}</p>
 <p>{{plot}}</p>
@@ -10,7 +10,7 @@
   {{/each}}
 
 </ul>
-
+ {{#if currentUser}}
 <form action='/movies/{{_id}}/delete' method='POST'>
   <button type='submit'>
     DELETE
@@ -21,3 +21,7 @@
   <button type='submit'>
     edit
  </button>
+
+   {{else}}
+        <a href='/auth/login'>Inicia Sesion para editar o borrar la pelicula</a>
+        {{/if}}
