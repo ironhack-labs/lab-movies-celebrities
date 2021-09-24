@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const userController = require("./../controllers/userController");
+const userController = require("./../Controllers/userController");
 
 const routeGuards = require("./../middlewares/route-guard");
 
