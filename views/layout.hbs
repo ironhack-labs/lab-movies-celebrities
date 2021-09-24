@@ -11,6 +11,24 @@
   </head>
 
   <body>
+     <nav>
+        <ul>
+            {{#if currentUser }}
+                <li><a href="/users/profile">Mi perfil</a></li>
+
+                <li>
+                    <form action="/auth/logout" method="POST">
+                        <button>Cerrar sesión</button>
+                    </form>
+                </li>
+
+            {{else}}
+                <li><a href="/auth/signup">Registrarme</a></li>
+                <li><a href="/auth/login">Iniciar sesión</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
     <div class="container">
       {{{body}}}
     </div>

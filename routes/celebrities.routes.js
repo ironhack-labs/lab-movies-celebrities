@@ -7,13 +7,13 @@ const celebritiesController = require("../controllers/celebrities.controller")
 
 // all your routes here
 //muestra el formulario
-router.get("/celebrities/create", (req, res) => {
+router.get("/create", (req, res) => {
     res.render("celebrities/new-celebrity")
 })
 
 //esta ruta recibe la info del formulario 
-router.post("/celebrities/create", celebritiesController.createCelebrity)
+router.post("/create", celebritiesController.createCelebrity)
 
-router.get("/celebrities", celebritiesController.allCelebrities)
+router.get("/", celebritiesController.allCelebrities)
 
-module.exports = router;
+module.exports = router
