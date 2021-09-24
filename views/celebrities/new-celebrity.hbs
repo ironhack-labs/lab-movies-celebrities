@@ -1,18 +1,28 @@
-<h2>New celebrity</h2>
-<div>
-    <ul>
-        <li>Name: {{celebrities.name}}</li>
-        <li>Ocupation: {{celebrities.ocupation}}</li>
-        <li>Catch Phrase: {{celebrities.catchPhrase}}</li>
-    </ul> 
-
-
-<form action="/celebrities/create" method="POST">
-    <label for="name">Name</label>
-    <input type="text" name="name" placeholder="{{celebrities.name}}">
-    <label for="ocup">Ocupation</label>
-    <input type="text" name="ocupation" placeholder="{{celebrities.ocupation}}">
-    <label for="phrase">Catch Phrase</label>
-    <input type="text" name="catchPhrase" placeholder="{{celebrities.catchPhrase}}">
-    <button type="submit">Create celeb</button>
-</form> 
+<div class="container d-flex justify-content-center flex-wrap">
+    <h2 class="my-4 w-100">New celebrity</h2>
+    <form action="/celebrities/create" method="post" class="w-50 d-flex flex-column mt-5 needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control" value="{{celebrities.name}}" required>
+            <div class="invalid-feedback">
+                Please provide a name
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="ocupation" class="form-label">Ocupation</label>
+            <input type="ocupation" name="ocupation" id="ocupation" class="form-control" value="{{celebrities.ocupation}}" required>
+            <div class="invalid-feedback">
+                Please provide a Ocupation
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="catchPhrase" class="form-label">Catch Phrase</label>
+            <input type="text" name="catchPhrase" id="catchPhrase" class="form-control" value="{{celebrities.catchPhrase}}" required>
+            <div class="invalid-feedback">
+                Please provide a Catch Phrase
+            </div>
+        </div>
+        <span class="text-danger mb-3">{{errorMessage}}</span>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -1,8 +1,26 @@
-<h1>Todas la celebridades</h1>
-    <div>
+<div class="container">
+
+    {{#if celebrities}}
+    <div class="d-flex justify-content-between align-items-baseline my-5">
+        <h1>Todas las celebridades</h1><a class="btn btn-primary" href="/celebrities/create">New Movie</a>
+    </div>
+    <div class="row">
         {{#each celebrities}}
-            <h2>{{name}}</h2>
-            <p>Ocupation: {{ocupation}}</p>
-            <p>Catch Phrase: {{catchPhrase}}</p>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">Ocupation: {{ocupation}}</p>
+                    <p class="card-text">Catch Phrase: {{catchPhrase}}</p>
+                </div>
+            </div>
+        </div>
+
         {{/each}}
     </div>
+    {{else}}
+    <div class="d-flex justify-content-between align-items-baseline my-5">
+        <h1 class="">No se encontraron celebridades</h1><a class="btn btn-primary" href="/celebrities/create">New Movie</a>
+    </div>
+    {{/if}}
+</div>

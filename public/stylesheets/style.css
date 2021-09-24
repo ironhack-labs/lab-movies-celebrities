@@ -1,8 +1,28 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.masthead {
+  min-height: calc(100vh - 59px);
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  background: linear-gradient(#0000003d, #0000003d), url("/images/movies.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-a {
-  color: #00b7ff;
+.accordion-item {
+  border: unset;
+}
+
+.accordion-button:not(.collapsed) {
+  color: unset;
+  background-color: unset;
+  box-shadow: none;
+}
+
+.img-movie {
+  height: 100% !important;
+  object-fit: cover;
 }
