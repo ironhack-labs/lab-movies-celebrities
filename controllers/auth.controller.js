@@ -1,6 +1,7 @@
-const User = require("../models/User.model")
 const bcryptjs = require("bcryptjs")
 const saltRounds = 10
+
+const User = require("../models/User.model")
 
 exports.signUp = (req, res) => {
     res.render("auth/signup")
@@ -34,7 +35,7 @@ exports.login = (req, res) => {
 exports.loginSubmit = async (req, res) => {
     const { username, password } = req.body
     try {
-        if (!username || !password || !username.length || !password.length) throw new Error("Uno o mas campos son erroneos")
+        if (username === "" || password === "") throw new Error("Uno o mas campos son erroneos")
         const foundUser = await User.findOne({ username })
         console.log(foundUser)
         if (!foundUser) throw new Error("El usuario o la contraseña son erróneas. Intenta nuevamente")
