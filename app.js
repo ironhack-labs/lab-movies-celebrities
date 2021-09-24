@@ -24,6 +24,7 @@ const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowe
 
 app.use(express.urlencoded({extended: true}))
 
+//mantener la sesión
 app.use((req, res, next) => {
         //locals permite leer un valor específico (currentUser)
     res.locals.currentUser = req.session.currentUser

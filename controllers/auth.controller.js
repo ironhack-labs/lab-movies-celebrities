@@ -39,9 +39,9 @@ exports.loginSubmit = async (req, res) => {
         console.log(foundUser)
         if (!foundUser) throw new Error("El usuario o la contraseña son erróneas. Intenta nuevamente")
 
-        const passwordMath = await bcryptjs.compareSync(password, foundUser.passwordHash)
+        const passwordMatch = await bcryptjs.compareSync(password, foundUser.passwordHash)
 
-        if (!passwordMath) throw new Error("La contraseña es incorrecta. Intenta nuevamente")
+        if (!passwordMatch) throw new Error("La contraseña es incorrecta. Intenta nuevamente")
 
         req.session.currentUser = foundUser
 
