@@ -2,22 +2,26 @@
 
 <form method="POST" action="/movies/create">
 <label>Title
-    <input type="text" name="title" > 
+    <input type="text" name="title" placeholder="The movie title"> 
 </label>
 <br>
 <label>Genre
-    <input type="text" name="genre" >
+    <input type="text" name="genre" placeholder="The movie genre">
 </label>
 <br>
 <label>Plot
-    <input type="text" name="plot" > 
+    <input type="text" name="plot" placeholder="The movie plot"> 
 </label>
 <br>
 <label>Cast:
+     </label>
+  <br />
     <select name="cast" multiple>
-        {{#each celebs}}
+        {{#each allCelebrities}}
           <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
     </select>
+    <br>
+    <br>
 <button type="submit">Create your super movie</button>
 </form>
