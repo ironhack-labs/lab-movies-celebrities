@@ -25,12 +25,12 @@ router.get("/movies/create", (req, res, next)=>{
 
 router.post("/movies/create", (req, res, next)=>{
 
-    const {title, genre, plot } = req.body;
+    const {title, genre, plot, cast } = req.body;
 
     Movie
-    .create({title, genre, plot})
+    .create({title, genre, plot, cast})
     .then(()=>{
-        res.render("movies/moviesList")
+        res.redirect("/movies/list")
     })
     .catch( (error) => {
         console.log("Error adding new book to DB", error);
@@ -44,7 +44,7 @@ router.get('/movies/list', (req, res, next)=>{
     Movie
     .find()
     .then((listOfMoviesFromDB)=>{
-        console.log(listOfMoviesFromDB);
+        // console.log(listOfMoviesFromDB);
         res.render("movies/moviesList", {moviesArr: listOfMoviesFromDB})
     })
     .catch( (error) => {
@@ -55,8 +55,32 @@ router.get('/movies/list', (req, res, next)=>{
 
 })
 
+router.get('/movies/:id/', (req, res, next)=>{
+    Movie
+    .findById(req.params.id)
+    .populate("cast")
+    .then((datafromDB)=>{
+        console.log('----->', datafromDB);
+        res.render('movies/movie-details', datafromDB)
+    })
+    .catch( (error) => {
+        console.log("Error adding to DB", error);
+        next(error);
+    });
+})
 
 
+router.post("/movies/:id/delete", (req, res, next)=>{
+    Movie
+    .findByIdAndDelete(req.params.id)
+    .then(()=>{
+        res.redirect("/movies/list")
+    })
+    .catch( (error) => {
+        console.log("Error adding to DB", error);
+        next(error);
+    });
+})
 
 
 

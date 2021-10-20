@@ -4,7 +4,8 @@
 {{#each moviesArr}}
     <hr>
     <p>Title: {{this.title}}</p>
-    <p>Genre: {{this.genre}}</p>
+    {{!-- <p>Genre: {{this.genre}}</p>
     <p>Plot: {{this.plot}}</p>
-    <p>Cast: {{this.cast}}</p>
+    <p>Cast: {{this.cast}}</p> --}}
+    <a href="/movies/{{_id}}">Details</a>
 {{/each}}

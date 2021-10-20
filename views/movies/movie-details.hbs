@@ -1,0 +1,13 @@
+<h2>Details 2</h2>
+
+{{!-- {{#each this}} --}}
+    <hr>
+    <p>Title: {{this.title}}</p>
+    <p>Genre: {{this.genre}}</p>
+    <p>Plot: {{this.plot}}</p>
+    <p>Cast: {{this.cast.name}} {{this.cast.surname}}</p>
+
+    <form action="/movies/{{this._id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
+{{!-- {{/each}} --}}
