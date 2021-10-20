@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const movieSchema = new Schema(
+const celebritySchema = new Schema(
   {
     name: String,
     occupation: String,
@@ -8,4 +8,6 @@ const movieSchema = new Schema(
   }
 );
 
-module.exports = model('Movie', movieSchema);
+module.exports = model('Celebrity', celebritySchema);
+
+

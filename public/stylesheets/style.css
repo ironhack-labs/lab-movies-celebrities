@@ -1,18 +1,33 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*background-image: url("/images/celebrities.jpeg");
+  background-size: cover;*/
 }
 
 a {
   color: #00b7ff;
 }
 
-.nav-ul {
+.nav-bar-ul {
   text-decoration: none;
   display: flex;
-  
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 li{
   list-style-type: none;
+}
+
+.newCelebrity {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.submit {
+  padding: 5px;
+  margin: 10px;
+  width: 100px;
 }
