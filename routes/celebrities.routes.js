@@ -1,5 +1,4 @@
 const Celebrity = require("../models/Celebrity.model");
-
 const router = require("express").Router();
 
 router.get('/celebrities/create', (req, res, next) => {
