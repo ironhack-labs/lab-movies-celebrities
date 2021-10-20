@@ -61,5 +61,18 @@ router.get("/movies/create", (req, res, next) => {
   
   });
 
+  router.get("/movies/:movieId", (req, res, next) => {
+    
+    Movie.findById(req.params.movieId)
+    // .populate('author')
+        .then( (moviesFromDB) => {
+            res.render("movies/movie-details", moviesFromDB);
+        })
+        .catch( (error) => {
+            console.log("Error getting details for a single movie from DB", error);
+            next(error);
+        });
+});
+
 
 module.exports = router;
