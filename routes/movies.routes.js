@@ -63,14 +63,30 @@ router.get('/movies/:id/edit', (req, res, next) => {
     Promise.all([movieDetails, celebritiesList])
         .then((data) => {
             let movie = data[0];
-            let movieCast = data[0].cast
             let celebrities = data[1]
-            res.render('movies/edit-movie', {movie, celebrities, movieCast})
+            res.render('movies/edit-movie', {movie, celebrities})
         })
         .catch(error => console.log('Could not load movie details', error))
     
 })
 
+router.post('/movies/:id/edit', (req, res, next) => {
+    const {title, genre, plot, cast} = req.body;
+    const newDetails = {
+        title,
+        genre,
+        plot,
+        cast
+    };
+    Movie.findByIdAndUpdate(req.params.id, newDetails, { new: true })
+        .populate('cast')
+        .then((updatedMovie) => {
+            res.redirect(`/movies/${updatedMovie._id}`)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+})
 
 
 module.exports = router;
