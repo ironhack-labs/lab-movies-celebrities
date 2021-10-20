@@ -12,4 +12,4 @@ const celebSchema = new Schema(
   }
 );
 
-module.exports = model('Book', celebSchema);
+module.exports = model('Celebrities', celebSchema);
