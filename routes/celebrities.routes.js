@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Celebrity = require('../models/Celebrity.model')
 
 router.get('/celebrities/create', (req, res, next) => {
-    res.render("celebrities/new-celebrity.hbs")
+    res.render("celebrities/new-celebrity")
 });
 
 router.post('/celebrities/create', (req, res, next) => {
@@ -16,5 +16,14 @@ router.post('/celebrities/create', (req, res, next) => {
         })
 })
 
+router.get('/celebrities', (req, res, next) => {
+    Celebrity.find()
+        .then( (data) => {
+            res.render('celebrities/celebrities', {celebArr: data})
+        })
+        .catch(err => {
+            console.log(`An error has occured: ${err}`)
+        })
+})
 
 module.exports = router;
