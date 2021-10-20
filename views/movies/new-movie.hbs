@@ -14,14 +14,14 @@
     <textarea name="plot" cols="30" rows="4"> </textarea>
   </label>
 
-  <label> Cast:
+  <label> Cast:</label>
     <select name="cast">
     {{#each castArr}}
-    <option value="{{this._id}}">{{this.name}}</option>
+      <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select>
     
-  </label>
+ 
 
   <button type="submit" class="submit"> Create </button>
 </form>
