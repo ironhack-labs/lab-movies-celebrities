@@ -1,7 +1,7 @@
 
-<h2>Movie details</h2>
+<h2><strong>Movie details</strong></h2>
 
-<h4>{{this.title}}</h4>
+<h3>Title: {{this.title}}</h3>
 <h3>Genre: {{this.genre}}</h3>
 <h3>Plot: {{this.plot}}</h3>
 <h3>Cast: </h3>
@@ -12,6 +12,14 @@
     <p>{{this.catchPhrase}}</p>
 {{/each}}
 
-<form action="/movies/{{this._id}}/delete" method="post">
-    <button>Delete the movie</button>
-</form>
+
+<div id="container-btns">
+
+    <form action="/movies/{{this._id}}/delete" method="post">
+        <button>Delete the movie</button>
+    </form>
+
+    <form action="/movies/{{this._id}}/edit" method="post">
+        <button>Edit the movie</button>
+    </form>
+</div>

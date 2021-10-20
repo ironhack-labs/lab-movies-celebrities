@@ -70,12 +70,40 @@ router.post("/movies/:moviesId/delete", (req, res, next) => {
 })
 
 
+
 router.get("/movies/:moviesId/edit", (req, res, next) => {
-    Movie.findById(req.params.moviesId)
-    Celebrity.find().populate("cast")
+    const movieInfo = Movie.findById(req.params.moviesId).populate("cast")
+    const celebrityInfo = Celebrity.find()
+
     .then(() => {
-        res.render("movies/edit-movie", )
+        
+
+        res.render("movies/edit-movie", {movieInfo, celebrityInfo})
+    })
+
+
+    .catch((err) => {
+        console.log("Error getting info for editting a movie", err);
+        next(err)
     })
 })
+
+
+router.post("/movies/:moviesId/edit", (req, res, next) => {
+    const {title, genre, plot, cast} = req.body;
+    const newInfo = {title, genre, plot, cast};
+
+    Movie.findByIdAndUpdate(req.params.moviesId, newInfo, {new : true})
+        .then((moviesFromDB) => {
+            res.redirect("/movies/" + moviesFromDB._id + "/edit");
+        })
+
+        .catch((err) => {
+            console.log("Error editting a movie", err);
+            next(err)
+        })
+})
+
+
 
 module.exports = router;

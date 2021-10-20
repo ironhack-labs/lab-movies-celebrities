@@ -1,8 +1,12 @@
-<h2>Movies</h2>
+<h2><strong>Movies</strong></h2>
 
 {{#each moviesArr}}
+<div id="container-links-movies">
+    
 
-<a href="/movies/{{_id}}"> Movie name: {{this.title}}</a>
+    <a href="/movies/{{this._id}}">{{this.title}}</a>
+</div>
+    {{/each}}
 
-{{/each}}
+
 

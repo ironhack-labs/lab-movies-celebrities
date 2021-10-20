@@ -4,5 +4,44 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: white;
+  text-decoration: none;
+  background-color: green;
+  border-radius: 20px;
+  padding: 20px;
 }
+
+#container-links {
+  margin-top: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+label, input, textarea {
+  display: block;
+  margin: 1rem 0;
+}
+
+button {
+  color: white;
+  text-decoration: none;
+  background-color: green;
+  border-radius: 10px;
+  padding: 20px;
+
+}
+
+#container-links-movies {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#container-btns {
+  display: flex;
+  flex-direction: row;
+
+}
+
