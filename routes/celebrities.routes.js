@@ -12,7 +12,7 @@ router.post('/celebrities/create', (req, res, next) => {
                 res.redirect('/celebrities')
         })
         .catch( () => {
-            res.redirect('celebrities/new-celebrity')
+            res.redirect('/new-celebrity')
         })
 })
 
