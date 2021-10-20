@@ -11,7 +11,7 @@ router.post("/celebrities/create", (req, res, next)=>{
   Celebrity
     .create({name, occupation, catchPhrase})
     .then(()=>{
-      //res.send("that's ok")
+      console.log(req.body)
       res.redirect("/celebrities")
     })
     .catch( (error) => {
