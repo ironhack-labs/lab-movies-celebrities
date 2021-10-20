@@ -8,21 +8,34 @@ router.get("/celebrities/create", (req, res, next)=>{
 
 router.post("/celebrities/create", (req, res, next)=>{
   const {name, occupation, catchPhrase} = req.body;
+  
   Celebrity
     .create({name, occupation, catchPhrase})
-    .then(()=>{
-      console.log(req.body)
+    .then((dataFromDB)=>{
+      console.log(dataFromDB)
       res.redirect("/celebrities")
     })
     .catch( (error) => {
-      console.log("Error adding new book to DB", error);
+      console.log("Error creating new celebrity in the DB", error);
       next(error);
-  });
+    });
 
 })
 
 router.get("/celebrities", (req, res, next)=>{
-  res.render("celebrities/celebrities")
+  Celebrity
+    .find()
+    .then((celebrityFromDB)=>{
+      console.log(celebrityFromDB)
+      const data= {
+        celebrityArr: celebrityFromDB
+      }
+      res.render("celebrities/celebrities", data)
+    })
+    .catch( (error) => {
+      console.log("Error showing celebrities from the DB", error);
+      next(error);
+    });
 })
 
 router.get("/movies", (req, res, next)=>{

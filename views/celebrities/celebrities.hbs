@@ -1,1 +1,21 @@
 <h1>Celebrities List</h1>
+
+{{#each celebrityArr}}
+    <div>
+        <p>
+            Name: {{this.name}}
+        </p>
+        <p>
+            Occupation: {{this.occupation}}
+        </p>
+
+        <p>
+            CatchPhrase: {{this.carchPhrase}}
+        </p>
+
+
+        <form action="/books/{{this._id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>
+{{/each}}
