@@ -23,6 +23,20 @@ router.post("/celebrities/create", (req, res, next)=>{
 
 })
 
+router.get('/celebrities/list', (req, res, next)=>{
+
+    Celebrity
+    .find()
+    .then((listOfCelebFromDB)=>{
+        res.render("celebrities/celebritiesList", {celebArr: listOfCelebFromDB})
+    })
+    .catch( (error) => {
+        console.log("Error adding new book to DB", error);
+        next(error);
+    });
+
+
+})
 
 
 
