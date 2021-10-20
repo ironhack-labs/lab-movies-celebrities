@@ -35,23 +35,12 @@ router.get("/movies/:movieId", (req, res, next) => {
   Movie.findById(req.params.movieId)
     .populate('cast')
     .then((movieDetails) => {
-      res.render("movies/movie-details", {mDetail: movieDetails });
+      res.render("movies/movie-details", { mDetail: movieDetails });
     })
     .catch((error) => {
       console.log("Error getting movie details from DB", error);
       next(error);
     });
-})
-router.get("/movies/:movieId", (req,res,next)=>{
-  Movie.findById(req.params.movieId)
-  .populate('cast')
-  .then((movieDetails)=>{
-    res.render("movies/movie-details",{movieDetails});
-  })
-  .catch((error) => {
-    console.log("Error getting movie details from DB", error);
-    next(error);
-});
 })
 
 router.get("/movies", (req, res, next) => {
@@ -62,6 +51,16 @@ router.get("/movies", (req, res, next) => {
     })
     .catch((error) => {
       console.log("Error getting movies from DB", error);
+      next(error);
+    });
+})
+router.post("/movies/:movieId/delete", (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.movieId)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch((error) => {
+      console.log("Error deleting movie  from DB", error);
       next(error);
     });
 })

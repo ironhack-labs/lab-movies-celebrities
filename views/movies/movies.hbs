@@ -3,5 +3,8 @@
 {{#each allMoviesArr}}
 <p>Title:{{this.title}}</p>
 <a href="/movies/{{this._id}}">More details</a>
+<form action="/movies/{{this._id}}/delete" method="POST">
+  <button>Delete</button>
+</form>
 <hr>
 {{/each}}

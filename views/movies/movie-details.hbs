@@ -2,9 +2,11 @@
 <h3>Title:{{mDetail.title}}</h3>
 <h4>Genre:{{mDetail.genre}}</h4>
 <h5>Plot:{{mDetail.plot}}</h5>
-
+<div> Cast:
 {{#each mDetail.cast}}
 <p>Name:{{this.name}}</p>
 <p>Occupation:{{this.occupation}}</p>
 <p>Catch Phrase:{{this.catchPhrase}}</p>
 {{/each}}
+</div>
+
