@@ -57,6 +57,25 @@ router.get("/movies/:moviesId", (req, res, next) => {
 })
 
 
+router.post("/movies/:moviesId/delete", (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.moviesId)
+    .then(() => {
+        res.redirect("/movies")
 
+    })
+    .catch((err) => {
+        console.log("Error deleting a movie", err);
+        next(err)
+    })
+})
+
+
+router.get("/movies/:moviesId/edit", (req, res, next) => {
+    Movie.findById(req.params.moviesId)
+    Celebrity.find().populate("cast")
+    .then(() => {
+        res.render("movies/edit-movie", )
+    })
+})
 
 module.exports = router;
