@@ -22,8 +22,14 @@ router.post('/movies/create', (req, res, next) => {
         .catch( (err) => {
             console.log(`An error has occured: ${err}`)
         })
-    
 })
 
+router.get('/movies', (req, res, next) => {
+    Movies.find()
+        .then( (data) => {
+            console.log(data)
+            res.render('movies/movies', {allMovies: data})
+        })
+})
 
 module.exports = router;
