@@ -1,4 +1,5 @@
 const Celebrity = require("../models/Celebrity.model");
+const Movie = require("../models/Movie.model")
 
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
@@ -19,21 +20,24 @@ router.post("/celebrities/create", (req, res, next)=>{
     })
 
     .catch((err) => {
-        console.log("ups, an error has been detected getting the information from the create form", err);
+        console.log("ups, an error has been detected getting the information from the create form of celebrities", err);
         res.redirect("/celebrities")
     })
 
 })
 
 
+
 router.get("/celebrities",(req, res, next) => {
     Celebrity.find()
     .then((allCelebritiesFromDB) => {
-        // console.log("Celebrities", allCelebritiesFromDB)
+        
         const data = {
             celebritiesArr : allCelebritiesFromDB
+
+            
         }
-        res.render("celebrities/celebrities.hbs", data)
+        res.render("celebrities/celebrities", data)
 
     })
     .catch()
