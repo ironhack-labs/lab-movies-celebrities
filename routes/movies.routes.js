@@ -43,6 +43,16 @@ router.get('/movies/:id', (req, res, next) => {
         .catch((err) => {
             console.log(`An error has occured: ${err}`)
         })
+});
+
+router.post('/movies/:id/delete', (req, res, next) => {
+    Movies.findByIdAndRemove(req.params.id)
+        .then( () => {
+            res.redirect('/movies')
+        })
+        .catch( (err) => {
+            console.log(`An error has occured: ${err}`)
+        })
 })
 
 module.exports = router;

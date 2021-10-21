@@ -17,3 +17,7 @@
     <h5>Catch Phrase:</h5>
     <p>{{catchPhrase}}</p>
 {{/each}}
+
+<form action="/movies/{{this.id}}/delete" method="post">
+<button type="submit">delete</button>
+</form>
