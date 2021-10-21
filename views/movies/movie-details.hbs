@@ -14,9 +14,17 @@
     Plot: {{this.plot}}
   </p>
 
-  <p>
-    Cast: {{this.cast.name}}
-  </p>
+  <div>
+    <p>
+      Cast:
+      <ul>
+        <li>Name: {{this.cast.name}}</li>
+        <li>Occupation: {{this.cast.occupation}} </li>
+        <li>catchPhrase: {{this.cast.catchPhrase}}</li>
+      </ul>
+   </p>
+  </div>
+  
 
 
   <form action="/movies/{{this._id}}/delete" method="POST">
