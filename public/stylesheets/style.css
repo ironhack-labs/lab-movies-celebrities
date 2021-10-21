@@ -20,6 +20,10 @@ li{
   list-style-type: none;
 }
 
+button {
+  margin: 10px;
+}
+
 .newCelebrity {
   display: flex;
   flex-direction: column;

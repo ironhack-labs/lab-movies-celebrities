@@ -1,0 +1,30 @@
+<h1>Movies Details List</h1>
+
+<hr/>
+<div>
+  <p>
+    Title: {{this.title}}
+  </p>
+
+  <p>
+    Genre: {{this.genre}}
+  </p>
+
+  <p>
+    Plot: {{this.plot}}
+  </p>
+
+  <p>
+    Cast: {{this.cast.name}}
+  </p>
+
+
+  <form action="/movies/{{this._id}}/delete" method="POST">
+    <button>Delete</button>
+  </form>
+</div>
+
+
+<hr />
+
+<a href="/movies">Back</a>

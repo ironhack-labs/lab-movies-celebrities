@@ -48,6 +48,19 @@ router.post("/movies/create", (req, res, next)=>{
 
 })
 
+router.get("/movies/:movieId", (req, res, next) => {
+  Movie.findById(req.params.movieId)
+      .populate("cast")
+      .then( (movieFromDB) => {
+        console.log(">>>>>MOVIES FROM DB>>>>", movieFromDB)  
+        res.render("movies/movie-details", movieFromDB);
+      })
+      .catch( (error) => {
+          console.log("Error getting details for this movie", error);
+          next(error);
+      });
+});
+
 router.post('/movies/:movieId/edit', (req, res, next) => {
 
   const {title, genre, plot, cast} = req.body;

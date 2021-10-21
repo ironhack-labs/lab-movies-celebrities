@@ -7,20 +7,7 @@
             Title: {{this.title}}
         </p>
 
-        <p>
-            Genre {{this.genre}}
-        </p>
-
-        <p>
-            Plot {{this.plot}}
-        </p>
-
-        <p>
-            Cast {{this.cast.name}}
-        </p>
-
-
-
+        <a href="/movies/{{this._id}}">More details</a>
 
         <form action="/movies/{{this._id}}/delete" method="POST">
             <button>Delete</button>
