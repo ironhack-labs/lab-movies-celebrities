@@ -15,6 +15,7 @@ router.get('/movies/create', (req, res, next) => {
 
 router.post('/movies/create', (req, res, next) => {
     const {title, genre, plot, cast} = req.body;
+    console.log(cast)
     Movies.create({ title, genre, plot, cast })
         .then( () => {
             res.redirect('/movies')
@@ -29,6 +30,18 @@ router.get('/movies', (req, res, next) => {
         .then( (data) => {
             console.log(data)
             res.render('movies/movies', {allMovies: data})
+        })
+})
+
+router.get('/movies/:id', (req, res, next) => {
+    Movies.findById(req.params.id)
+        .populate('cast')
+        .then((allInfos) => {
+            console.log(allInfos)
+            res.render('movies/movie-details', allInfos)
+        })
+        .catch((err) => {
+            console.log(`An error has occured: ${err}`)
         })
 })
 
