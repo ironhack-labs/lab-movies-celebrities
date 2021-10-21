@@ -26,6 +26,16 @@ li{
   margin: auto;
 }
 
+.newMovie{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.class {
+  width: 100px;
+}
+
 .submit {
   padding: 5px;
   margin: 10px;
