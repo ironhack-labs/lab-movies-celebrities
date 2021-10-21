@@ -18,13 +18,14 @@
     <p>
       Cast:
       <ul>
-        <li>Name: {{this.cast.name}}</li>
-        <li>Occupation: {{this.cast.occupation}} </li>
-        <li>catchPhrase: {{this.cast.catchPhrase}}</li>
+        <li>* Name: {{this.cast.name}}</li>
+        <li>* Occupation: {{this.cast.occupation}} </li>
+        <li>* CatchPhrase: {{this.cast.catchPhrase}}</li>
       </ul>
    </p>
   </div>
-  
+
+  <a href="/movies/{{this._id}}/edit">Edit</a>
 
 
   <form action="/movies/{{this._id}}/delete" method="POST">

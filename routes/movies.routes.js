@@ -60,6 +60,18 @@ router.get("/movies/:movieId", (req, res, next) => {
       });
 });
 
+router.get('/movies/:movieId/edit', (req, res, next) => {
+  Movie
+    .findById(req.params.movieId)
+    .populate("cast")
+    .then( (movieFromDB) => {
+      res.render("movies/edit-movie", movieFromDB);
+      })
+    .catch( (error) => {
+      console.log("Error getting details for that movie from DB to render edit form", error);
+      next(error);
+    });
+});
 router.post('/movies/:movieId/edit', (req, res, next) => {
 
   const {title, genre, plot, cast} = req.body;
@@ -73,7 +85,7 @@ router.post('/movies/:movieId/edit', (req, res, next) => {
   Movie
     .findByIdAndUpdate(req.params.bookId, newDetails, {new: true})
     .then( (movieFromDB) => {
-          res.redirect('/movies/' + movieFromDB._id);
+          res.redirect('/movies' + movieFromDB._id);
     })
     .catch( (error) => {
           console.log("Error updating movie details", error);
