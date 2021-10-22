@@ -1,0 +1,22 @@
+<h2>Movies List</h2>
+
+<hr/>
+{{#each moviesArray}}
+    <div>
+        <p>
+            Title: {{this.title}}
+        </p>
+
+        <p>
+            Genre {{this.genre}}
+        </p>
+
+        <p>
+            Plot {{this.plot}}
+        </p>
+
+        <p>
+            Cast {{this.cast.name}}
+        </p>
+    </div>
+{{/each}}

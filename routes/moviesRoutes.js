@@ -21,6 +21,23 @@ router.get("/movies", (req, res, next)=>{
             });
 })
 
+router.get("/movies/:movieId", (req, res, next)=>{
+    Movie.findById(req.params.movieId)
+    .populate('cast')
+    .then((moviesFromDB)=>{
+
+        const moviesData = {
+            moviesArray:moviesFromDB
+        }
+        res.render("movies/movie-details", moviesFromDB)
+    })
+    .catch((error)=>{
+        console.log("oooops, an error did occur showing movie details", error)
+        next(error)
+            });
+});
+
+
 
 
 
