@@ -1,0 +1,15 @@
+<main>
+    <h2>Celebrities List</h2>
+    <ul>
+        {{#each celebrities}}
+        <li>
+            <a href="/celebrities/{{id}}">
+                <h3>{{name}}</h3>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/celebrities/create"> Create a new Celebrity</a>
+    <a href="/">Back to Home Page</a>
+</main>

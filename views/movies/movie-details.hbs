@@ -1,0 +1,52 @@
+<main>
+    <header>
+        <h2>Movie Details</h2>
+    </header>
+
+    <article>
+        <h3>{{title}}</h3>
+    </article>
+
+    <article>
+        <h3>{{genre}}</h3>
+    </article>
+
+    <article>
+        <h3>{{plot}}</h3>
+    </article>
+
+    <article>
+        <h4>Cast: </h3>
+        <aside>
+            <ul>
+                {{#each cast}}
+                <li>
+                    <div>
+                        <h5>Name: </h5>
+                        <span>{{name}}</span>
+                    </div>
+
+                    <div>
+                        <h5>Occupation: </h5>
+                        <span>{{occupation}}</span>
+                    </div>
+
+                    <div>
+                        <h5>Catch phrase: </h5>
+                        <span>{{catchPhrase}}</span>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </aside>
+
+        <form action="/movies/{{id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+            <a href="/movies/{{id}}/edit">Editar</a>
+        </form>
+        <aside>
+            <a href="/">Back to Home Page</a>
+        </aside>
+        
+    </article>
+</main>
