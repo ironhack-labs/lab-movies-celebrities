@@ -17,11 +17,19 @@ router.get("/movies/create", (req, res) => {
 
     router.get("/movies", (req, res) => {
       
-        Celebrity.find()
+        Movie.find()
             .then(allTheMovies => res.render("movies/movies", { allTheMovies }))
             .catch(err => console.log(err))
           
           });
+
+          router.get("/movies/:id", (req, res) => {
+
+            Movie.findById(req.params.id)
+              .populate("cast")
+              .then(movie => res.render("movies/movie-details", movie))
+              .catch(err => console.log(err))
+          })
 
 
 module.exports = router;
