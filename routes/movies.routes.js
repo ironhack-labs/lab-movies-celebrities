@@ -40,4 +40,33 @@ router.post('/:movieId/delete', (req, res, next) => {
     .catch((err) => console.error(err))
 })
 
+router.get('/:movieId/edit', (req, res, next) => {
+  const thisMovie = {}
+
+  Movie.findById(req.params.movieId)
+    .populate('cast')
+    .then((movie) => {
+      thisMovie.movie = movie
+      thisMovie.currentCast = movie.cast
+      return Celebrity.find()
+    })
+    .then((celebrities) => {
+      let castIds = thisMovie.movie.cast.map((cel) => {
+        return cel.id.toString()
+      })
+      const notInCastCelebs = celebrities.filter(
+        (celeb) => !castIds.includes(celeb.id.toString())
+      )
+
+      thisMovie.notInCastCelebs = notInCastCelebs
+      res.render('movies/edit-movie', thisMovie)
+    })
+})
+
+router.post('/:movieId/edit', (req, res, next) => {
+  Movie.findByIdAndUpdate(req.params.movieId, req.body)
+    .then(() => res.redirect(`/movies/${req.params.movieId}`))
+    .catch((err) => console.error(err))
+})
+
 module.exports = router
