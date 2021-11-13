@@ -1,0 +1,13 @@
+<a href="/" class="backButton">Back</a><h1>Movies list</h1>
+<hr />
+
+<div class="movies-list">
+  <ol>
+    {{#each movies}}
+
+      <a href="movies/{{_id}}"> <li>{{title}} -- {{genre}}</li></a>
+
+    {{/each}}
+  </ol>
+
+</div>

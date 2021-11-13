@@ -1,8 +1,141 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2luZW1hfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+}
+.container {
+  padding: 30px;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.527);
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.celebrities-menu {
+  font-size: 1.5rem;
+  font-family: Poppins;
+}
+
+.celebrities-menu ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+.celebrities-menu a:hover {
+  color: rgb(95, 12, 12);
+}
+
+.celebrities-menu a {
+  color: black;
+  text-decoration: none;
+}
+
+.celebrities-list {
+  font-size: 1.5rem;
+  font-family: Poppins;
+}
+.celebrities-list a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.celebrities-list li {
+  margin: 15px 0;
+}
+h2 {
+  font-size: 2rem;
+}
+.new-celebrity {
+  font-size: 1.2rem;
+  font-family: Poppins;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-celebrity form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-movie {
+  font-size: 1.2rem;
+  font-family: Poppins;
+}
+
+.new-movie h2 {
+  text-align: center;
+}
+
+.movies-list {
+  font-size: 1.5rem;
+  font-family: Poppins;
+}
+
+.movies-list li {
+  margin: 15px 0;
+}
+
+.movies-list a:hover {
+  color: rgb(95, 12, 12);
+}
+
+.movieEl {
+  font-family: Poppins;
+}
+
+.movieEl h2 {
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+.movieEl .card-text {
+  font-size: 1.8rem;
+}
+
+.movieEl p {
+  font-size: 1.6rem;
+}
+
+.movieEl form button {
+  background-color: rgb(95, 35, 35);
+  color: white;
+  font-size: 1.15rem;
+  border: none;
+}
+
+.movieEl a {
+  background-color: rgb(95, 35, 35);
+  color: white;
+  font-size: 1.15rem;
+  padding: 5px;
+  box-shadow: 0 0 5 10 black;
+  text-decoration: none;
+}
+.backButton {
+  background-color: rgb(95, 35, 35);
+  color: white;
+  font-size: 1.15rem;
+  padding: 5px;
+  box-shadow: 0 0 5 10 black;
+  text-decoration: none;
+  font-family: Poppins;
+  margin: 20px 0px;
+}
+
+.backButton:hover {
+  background-color: white;
+  color: black;
+}
+.largeTitle {
+  width: 300px;
 }

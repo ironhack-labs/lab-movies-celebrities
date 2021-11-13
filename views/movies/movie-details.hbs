@@ -1,0 +1,58 @@
+<div class="movieEl">
+  <a href="/" class="backButton">Back</a>
+  <h2 class="card-title">{{movie.title}}</h2>
+
+  <p class="card-text"><strong>Genre:</strong> {{movie.genre}}</p>
+  <p class="card-text"><strong>Plot: </strong>{{movie.plot}}</p>
+  {{#each movie.cast}}
+    <tag><strong>Nombre:</strong> : {{name}} </tag>
+    <br />
+    <tag> <strong>Occupation:</strong> {{occupation}} </tag>
+    <br />
+
+    <tag> <strong>Phrase:</strong> {{catchPhrase}} </tag>
+  {{/each}}
+
+  <form action="/movies/{{movie._id}}/delete" method="POST">
+    <br />
+    <button type="submit">Delete movie</button>
+  </form>
+
+  <a href="{{movie._id}}/edit">Edit Movie</a>
+
+</div>
+
+{{!-- 
+
+<div class="card">
+
+  <div class="card-body">
+
+
+
+
+
+
+
+
+    <h2 class="card-title">{{movie.title}}</h2>
+    <p class="card-text"><strong>Genre:</strong> {{movie.genre}}</p>
+    <p class="card-text"><strong>Plot: </strong>{{movie.plot}}</p>
+    {{#each movie.cast}}
+      <tag><strong>Nombre:</strong> : {{name}} </tag>
+      <br />
+      <tag> <strong>Occupation:</strong> {{occupation}} </tag>
+      <br />
+
+      <tag> <strong>Phrase:</strong> {{catchPhrase}} </tag>
+    {{/each}}
+
+    <form action="/movies/{{movie._id}}/delete" method="POST">
+      <br />
+      <button type="submit">Delete movie</button>
+    </form>
+
+    <a href="{{movie._id}}/edit">Edit Movie</a>
+
+  </div>
+</div> --}}
