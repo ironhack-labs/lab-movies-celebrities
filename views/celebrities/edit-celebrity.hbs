@@ -1,0 +1,28 @@
+<main>
+    <article>
+        <h2>Edit Celebrity Details</h2>
+
+        <form action="/celebrities/{{id}}/edit" method="POST">
+            <aside>
+                <label for="celebrity-name">Name</label>
+                <input type="text" , name="name" id="celebrity-name" value="{{name}}">
+            </aside>
+            
+            <aside>
+                <label for="celebrity-occupation">Occupation</label>
+                <input type="text" , name="occupation" id="celebrity-occupation" value="{{occupation}}">
+            </aside>
+            
+            <aside>
+                <label for="celebrity-phrase">Catch Phrase</label>
+                <input type="text" , name="catchPhrase" id="celebrity-phrase" value="{{catchPhrase}}">
+            </aside>
+
+            <button type="submit">Submit changes</button>
+
+        </form>
+
+        <a href="/">Back to Home Page</a>
+        <p>{{errorMessage}}</p>
+    </article>
+</main>

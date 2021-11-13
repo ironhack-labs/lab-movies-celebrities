@@ -1,0 +1,30 @@
+<main>
+    <header>
+        <h2>Celebrity Details</h2>
+    </header>
+    <article>
+        <aside>
+            <h5>Name: </h5>
+            <span>{{name}}</span>
+        </aside>
+
+        <aside>
+            <h5>Occupation: </h5>
+            <span>{{occupation}}</span>
+        </aside>
+
+        <aside>
+            <h5>Catch phrase: </h5>
+            <span>{{catchPhrase}}</span>
+        </aside>
+
+        <form action="/celebrities/{{id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+            <a href="/celebrities/{{id}}/edit">Edit</a>
+        </form>
+        <aside>
+            <a href="/">Back to Home Page</a>
+        </aside>
+
+    </article>
+</main>
