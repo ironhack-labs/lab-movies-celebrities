@@ -1,0 +1,26 @@
+
+<div id="form">
+    <h2>New movies here!</h2>
+    <form action="new-movie" method="POST">
+
+        <label> The Tittle
+        <input value="{{theTittle}}" type="text" name="theTittle" placeholder="Fight club">
+        </label>
+        <label> Genre
+        <input value="{{genre}}" type="text" name="genre" placeholder="Fight">
+        </label>
+        <label> Plot
+        <input value="{{plot}}" type="text" name="plot" placeholder="Club">
+        </label>
+        <label> Cast
+        <input value="{{cast}}" type="text" name="cast" placeholder="">
+        </label>
+        <hr>
+        <button type="submit">Añadir</button> 
+
+        <a href="movies">All movies here!!</a>
+        {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+        {{/if}}
+    </form>
+</div>
