@@ -24,10 +24,10 @@ router.post('/create', (req,res,next)=>{
 router.get('/', (req,res,next)=> {
     Celebrity.find()
     .then(allCelebrities =>{
-        res.render('celebrities',{allCelebrities})
+        res.render('celebrities/celebrities',{allCelebrities})
     })
    .catch(err => {
-       res.render("celebrities", {err})
+       res.render("celebrities/celebrities", {err})
    })
 })
 
