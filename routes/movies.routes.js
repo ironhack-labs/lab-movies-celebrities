@@ -14,11 +14,11 @@ router.get("/movies/create/:celebrity_id", (req, res, next) => {
     
     const id = req.params.celebrity_id
 
-    Celebrity.findById(id)
-        .populate("name")
+    Movie.findById(id)
+        .populate("cast")
         .then(celebrityId => {
 
-            res.render("movies/movies", {celebrityId})
+            res.render("movies/movies", celebrityId)
 
         })
         .catch(err => console.log(err))
@@ -28,7 +28,7 @@ router.get("/movies/create/:celebrity_id", (req, res, next) => {
 
 router.post("/movies/create/:celebrity_id", (req, res) => {
 
-    const { }
+    // const { }
 
 
 
