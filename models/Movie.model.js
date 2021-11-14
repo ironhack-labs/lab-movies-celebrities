@@ -2,28 +2,28 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const celebritySchema = new Schema(
+const movieSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
       unique: true,
     },
-    occupation: {
+    genre: {
       type: String,
       required: true,
     },
-    catchPhrase: {
+    plot: {
       type: String,
       required: true,
-      unique: true,
     },
+    cast: [{ type: Schema.Types.ObjectId, ref: "Celebrity" }],
   },
   {
     timestamps: true,
   }
 );
 
-const Celebrity = model("Celebrity", celebritySchema);
+const Movie = model("Movie", movieSchema);
 
-module.exports = Celebrity;
+module.exports = Movie;

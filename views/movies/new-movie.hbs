@@ -1,0 +1,49 @@
+<a href="/" class="btn-menu"> >Back to menu</a>
+
+<h1 class="mt-5">New Movie</h1>
+
+<form action="/movies/create" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="title"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Genre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputPassword1"
+      name="genre"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword2" class="form-label">Plot</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputPassword2"
+      name="plot"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="disabledSelect" class="form-label">Cast</label>
+    <p>
+      <select
+        id="disabledSelect"
+        class="form-select text-center"
+        name="cast"
+        multiple
+      >
+        {{#each celebrities}}
+          <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </p>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,8 +1,53 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eccfc3;
 }
 
 a {
-  color: #00b7ff;
+  color: #904c77;
+}
+
+a:hover {
+  color: #957d95;
+  text-decoration: none;
+}
+
+.btn-menu {
+  padding: 10px 20px;
+  margin: 2% 0 5% 0;
+  border-radius: 300px;
+  background-color: #904c77;
+  transition: transform 0.2s;
+  color: black;
+}
+
+.btn-menu:hover {
+  text-decoration: none;
+  transform: scale(0.9);
+  background-color: #957d95;
+  color: black;
+}
+
+.btn {
+  background-color: #904c77;
+  border: #904c77;
+}
+
+.btn:hover {
+  transform: scale(0.9);
+  background-color: #957d95;
+}
+
+.card {
+  background-color: #faeff2;
+}
+
+#edit-movie {
+  margin: 49px;
+  height: 40px;
+}
+
+#disabledSelect {
+  width: 200px;
 }

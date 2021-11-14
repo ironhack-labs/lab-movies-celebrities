@@ -1,0 +1,38 @@
+<a href="/" class="btn-menu"> >Back to menu</a>
+
+<h1 class="mt-5">New Celebrity</h1>
+
+<form action="/celebrities/create" method="POST">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      name="name"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Occupation</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputPassword1"
+      name="occupation"
+    />
+    <div id="emailHelp" class="form-text">For example actor, singer, comedian,
+      or you can put unknown if your celebrity is someone like Kim Kardashian</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword2" class="form-label">Catch Phrase</label>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputPassword2"
+      name="catchPhrase"
+    />
+    <div id="emailHelp" class="form-text">Every celebrity needs a good catch
+      phrase</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

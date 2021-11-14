@@ -1,0 +1,22 @@
+<a href="/" class="btn-menu"> >Back to menu</a>
+
+<div class="container text-center">
+  <h1 class="my-5">All Movies</h1>
+  <div class="column">
+    <div class="row">
+      {{#each allTheMovies}}
+        <div class="card col-lg-3 mt-2 border-0">
+          <div class="card-body">
+            <a href="/movies/{{_id}}"><h5 class="card-title">{{title}}</h5></a>
+
+            <p class="card-text"><small class="text-muted">{{genre}}</small></p>
+            <p class="card-text">{{plot}}</p>
+            {{!-- <ul>
+              <li>{{cast}}</li>
+            </ul> --}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

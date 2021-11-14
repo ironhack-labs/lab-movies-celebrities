@@ -1,0 +1,45 @@
+<a href="/movies" class="btn-menu"> >Back to movies</a>
+<div class="container text-center">
+  <h1 class="my-5">{{movieDetails.title}}</h1>
+  <p>
+    <small class="text-muted">{{movieDetails.genre}}</small>
+  </p>
+  <p>{{movieDetails.plot}}</p>
+  <h3>Cast</h3>
+
+  <div class="container text-center">
+    <div class="column">
+      <div class="row">
+        {{#each movieDetails.cast}}
+          <div class="card col-lg-3 my-4 border-0">
+            <div class="card-body">
+              <p class="card-title">{{name}}</p>
+              <p class="card-text"><small
+                  class="text-muted"
+                >{{occupation}}</small></p>
+              <p class="card-text">{{catchPhrase}}</p>
+            </div>
+          </div>
+          <div class="col-lg-1"></div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="d-flex justify-content-around">
+      <form
+        action="/movies/{{movieDetails.id}}/delete"
+        method="POST"
+        class="mt-5"
+      >
+        <button type="submit" class="btn btn-primary">Delete Movie</button>
+      </form>
+      <a
+        href="/movies/{{movieDetails.id}}/edit"
+        class="btn btn-primary"
+        id="edit-movie"
+      >Edit Movie</a>
+    </div>
+  </div>
+
+</div>
