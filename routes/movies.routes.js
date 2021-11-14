@@ -31,5 +31,15 @@ router.get("/movies/create", (req, res) => {
               .catch(err => console.log(err))
           })
 
+          router.post("/movies/:id/delete", (req, res) => {
+
+            Movie.findByIdAndRemove()(req.params.id)
+              .then(movie => res.render("movies/movie-delate", movie))
+              .catch(err => console.log(err))
+          })
+
+         
+
+
 
 module.exports = router;
