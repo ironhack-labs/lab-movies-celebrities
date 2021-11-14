@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const celebritySchema = new mongoose.Schema({
-  name: {
+const movieSchema = new mongoose.Schema({
+  title: {
     type: String,
     required: true,
     minlength: 2,
@@ -9,7 +9,7 @@ const celebritySchema = new mongoose.Schema({
     trim: true,
     set: (value) => value.charAt(0).toUpperCase() + value.substring(1),
   },
-  occupation: {
+  genre: {
     type: String,
     default: "unknown",
     minlength: 2,
@@ -17,13 +17,14 @@ const celebritySchema = new mongoose.Schema({
     trim: true,
   },
 
-  catchPhrase: {
+  plot: {
     type: String,
     required: true,
     trim: true,
   },
+  cast: [{ type: mongoose.Types.ObjectId, ref: "Celebrity" }],
 });
 
-const Celebrity = mongoose.model("Celebrity", celebritySchema);
+const Movie = mongoose.model("Movie", movieSchema);
 
-module.exports = Celebrity;
+module.exports = Movie;
