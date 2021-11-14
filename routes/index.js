@@ -5,4 +5,5 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+require('./celebrities.routes');
 module.exports = router;
