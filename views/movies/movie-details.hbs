@@ -1,0 +1,20 @@
+<div>
+    <h3 class="movie-details">Movie Details</h3>
+
+       <h5>Title: {{details.title}}</h5>
+
+        <p>Genre: {{details.genre}}</p>
+        <p>Plot: {{details.plot}}</p>
+        {{#each details.cast}}
+            <p>Name: {{username}}</p>
+            <p>Occupation: {{occupation}}</p>
+            <p>Catch Phrase: {{catchPhrase}}</p>
+        {{/each}}
+
+    
+    <form action="/movies/{{id}}/delete" method="POST">
+        <button type="submit">Delete Movie</button>
+    </form>
+
+    <a href="/movies">Back to the movies</a>
+</div>

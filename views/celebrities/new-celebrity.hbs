@@ -1,0 +1,53 @@
+<div>
+    <h2 class="new-celebrity">New Celebrity</h2>
+
+    <h2>Add a New Celebrity</h2>
+
+
+    <form action="/celebrities/create" method="POST">
+      <label>
+        Name:
+        <input type="text" name="username" />
+      </label>
+
+      <label>
+        Occupation:
+        <input type="text" name="occupation" />
+      </label>
+
+      <label>
+        Catch Phrase:
+        <input type="text" name="catchPhrase" />
+      </label>
+
+    <button type="submit">Send Celebrity</button>
+    <a href="/">Back to main menu</a>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+    </form>
+{{!-- 
+        <form action="/celebrities/create" method="POST">
+        <aside>
+            <label for="celebrity-name">Name</label>
+            <input type="text" , name="name" id="celebrity-name">
+        </aside>
+
+        <aside>
+            <label for="celebrity-occupation">Occupation</label>
+            <input type="text" , name="occupation" id="celebrity-occupation">
+        </aside>
+
+        <aside>
+            <label for="celebrity-phrase">Catch Phrase</label>
+            <input type="text" , name="catchPhrase" id="celebrity-phrase">
+        </aside>
+
+
+        <button type="submit">Create Celebrity</button>
+
+        </form> --}}
+
+
+</div>
