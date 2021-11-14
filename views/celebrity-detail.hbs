@@ -1,0 +1,23 @@
+<h2>Celebrity Details </h2>
+<hr />
+<ul>
+  <label for="Name">Name :
+    <li>{{celebrityDetail.name}}</li>
+  </label>
+  <hr />
+  <label for="Occupation">Occupation :
+    <li>{{celebrityDetail.occupation}}</li>
+  </label>
+  <hr />
+  <label for="CatchPhrase">CatchPhrase :
+    <li>{{celebrityDetail.catchPhrase}}</li>
+  </label>
+  <hr />
+</ul>
+<form action="/celebrity/{{celebrityDetail._id}}/delete" method="post">
+  <button class="btn btn-secondary" type="submit">Delete Celebrity</button>
+</form>
+<form action="/celebrity/{{celebrityDetail._id}}/edit" method="get">
+  <button class="btn btn-secondary" type="submit">Edit Celebrity</button>
+</form>
+<a class="btn btn-secondary" href="/">HOME</a>

@@ -1,0 +1,32 @@
+<h2>Movie Detail</h2>
+<hr />
+<ul>
+  <label for="Title">Title :
+    <li>{{movieDetail.title}}</li>
+  </label>
+  <hr />
+  <label for="Genre">Genre :
+    <li>{{movieDetail.genre}}</li>
+  </label>
+  <hr />
+  <label for="Plot">Plot :
+    <li>{{movieDetail.plot}}</li>
+  </label>
+  <hr />
+  <label for="">Cast :
+    {{#each movieDetail.cast}}
+
+      <li>{{name}}</li>
+
+    {{/each}}
+  </label>
+  <hr />
+</ul>
+<form action="/movie/{{movieDetail._id}}/delete" method="post">
+  <button class="btn btn-secondary" type="submit">Delete Movie</button>
+</form>
+<form action="/movie/{{movieDetail._id}}/edit" method="get">
+  <button class="btn btn-secondary" type="submit">Edit Movie</button>
+</form>
+
+<a class="btn btn-secondary" href="/">HOME</a>

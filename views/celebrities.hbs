@@ -1,0 +1,9 @@
+<h2>All celebrities</h2>
+<hr />
+<ul>
+  {{#each allCelebrities}}
+    <a href="/celebrity/{{_id}}"><li>{{name}}</li></a>
+    <hr />
+  {{/each}}
+</ul>
+<a class="btn btn-secondary" href="/">HOME</a>

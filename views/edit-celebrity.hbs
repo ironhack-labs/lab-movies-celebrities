@@ -1,0 +1,26 @@
+<h2>Edit Celebrity</h2>
+<hr />
+<form action="/celebrity/{{findedCelebrity._id}}/edit" method="post">
+  <label for="">Name :
+    <input type="text" name="name" value="{{findedCelebrity.name}}" />
+  </label>
+  <label for="">Occupation :
+    <input
+      type="text"
+      name="occupation"
+      value="{{findedCelebrity.occupation}}"
+    />
+  </label>
+  <label for="">CatchPhrase :
+    <input
+      type="text"
+      name="catchPhrase"
+      value="{{findedCelebrity.catchPhrase}}"
+    />
+  </label>
+
+  <button type="submit">Update info</button>
+
+</form>
+
+<a class="btn btn-secondary" href="/">HOME</a>
