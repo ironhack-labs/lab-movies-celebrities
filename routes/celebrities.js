@@ -23,4 +23,32 @@ router.get("/celebrities", (req, res) => {
   });
 });
 
+router.get("/celebrity/:id", (req, res) => {
+  const { id } = req.params;
+  Celebrity.findById(id).then((celeb) => {
+    res.render("celebrities/celebrity-details", { celeb: celeb });
+  });
+});
+
+router.post("/celebrities/:id/delete", (req, res) => {
+  const { id } = req.params;
+
+  Celebrity.findByIdAndRemove(id).then(() => res.redirect("/celebrities"));
+});
+
+router.get("/celebrity/:id/edit", (req, res) => {
+  const { id } = req.params;
+
+  Celebrity.findById(id).then((celeb) => {
+    res.render("celebrities/edit-celebrity", { celeb: celeb });
+  });
+});
+
+router.post("/celebrities/:id", (req, res) => {
+  const { id } = req.params;
+
+  Celebrity.findByIdAndUpdate(id, req.body).then((updatedCeleb) => {
+    res.redirect("/celebrity/" + id);
+  });
+});
 module.exports = router;

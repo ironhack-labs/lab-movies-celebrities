@@ -1,0 +1,15 @@
+<div class="movieEl">
+  <a href="/" class="backButton">Back</a>
+  <h2 class="card-title">{{celeb.name}}</h2>
+
+  <p class="card-text"><strong>Occupation:</strong> {{celeb.occupation}}</p>
+  <p class="card-text"><strong>CatchPhrase: </strong>{{celeb.catchPhrase}}</p>
+
+  <form action="/celebrities/{{celeb._id}}/delete" method="POST">
+    <br />
+    <button type="submit">Delete Celebrity</button>
+  </form>
+
+  <a href="{{celeb._id}}/edit">Edit Celeb</a>
+
+</div>

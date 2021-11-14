@@ -8,10 +8,12 @@
     <input type="text" name="title" class="largeTitle" value="{{movie.title}}" />
     <input type="text" name="genre" value="{{movie.genre}}" />
     <input type="text" name="plot" value="{{movie.plot}}" />
-    <select name="cast">
+    <select name="cast" multiple>
       {{#each celebs}}
         <option value="{{id}}">{{name}} - {{cast}}</option>
+        <hr />
       {{/each}}
+
     </select>
     <input type="submit" />
 

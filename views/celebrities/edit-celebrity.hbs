@@ -1,0 +1,29 @@
+<a href="/" class="backButton">Back</a>
+<h2>Edit Celebrity</h2>
+
+<div class="new-celebrity">
+
+  <form action="/celebrities/{{celeb._id}}" method="POST">
+    <label>
+      Name:
+      <input type="text" name="name" value="{{celeb.name}}" />
+
+    </label>
+    <br />
+
+    <label>
+      Occupation:
+      <input type="text" name="occupation" value="{{celeb.occupation}}" />
+
+    </label>
+    <br />
+    <label>
+      CatchPhrase:
+      <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}" />
+
+    </label>
+
+    <input type="submit" />
+
+  </form>
+</div>
