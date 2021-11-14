@@ -60,23 +60,22 @@ router.get("/movies/:id/edit", (req, res) => {
         .then((celebrities) => {
             Movie.findById(id)
             .populate("cast")
-            .then(({movie, celebrities}) => {
+            .then((movie) => {
                 console.log(movie);
                 res.render("movies/edit-movie", {movie, celebrities})
-        })
+            })
         })
 })
 
-router.post("/movies/:id/edit", (req, res) => {
+router.post("/movies/:id", (req, res) => {
     console.log("hola");
-    const { title, genre, plot, cast } = req.body;
     const {id} = req.params
 
-    Movie.findByIdAndUpdate(id, {title, genre, plot, cast}, {new: true})
+    Movie.findByIdAndUpdate(id, req.body, {new: true})
         .populate("cast")
         .then(movie => {
             console.log(movie);
-            res.render("movies/movie-details", movie)
+            res.redirect("/movies/" + id)
         })
         .catch(err => console.log(err))
 })
