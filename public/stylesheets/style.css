@@ -45,12 +45,9 @@ a {
 }
 .celebrities-list a {
   color: rgb(0, 0, 0);
-  text-decoration: none;
 }
 
 .celebrities-list a:hover {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
   color: rgb(95, 12, 12);
 }
 .celebrities-list li {
