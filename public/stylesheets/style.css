@@ -1,3 +1,7 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -6,3 +10,78 @@ body {
 a {
   color: #00b7ff;
 }
+
+.container {
+padding: 5% 0%;
+}
+.container nav {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+.container nav ul {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  list-style: none;
+  margin: 0px;
+}
+.container nav ul li {
+  text-align: center;
+}
+.container nav ul li a {
+  text-decoration: none;
+}
+.go-back {
+  width: 100%;
+  display: block;
+  position: relative;
+  margin: 5% 0%;
+}
+.block-celebrities,
+.block-movies {
+   width: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    position: relative;
+    list-style: none;
+    margin: 0px;
+  }
+  .block-celebrities li,
+  .block-movies li {
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    gap: 20px;
+    position: relative;
+    list-style: none;
+    margin: 0px;
+   }
+   .block-celebrities li p,
+   .block-moviesli p {
+    width: auto;
+    display: block;
+    position: relative;
+   }
+   .block-celebrities li a,
+   .block-movies li a {
+    width: auto;
+    display: block;
+    position: relative;
+  }
+  .block-celebrities li form,
+  .block-movies li form {
+    width: auto;
+    display: block;
+    position: relative;
+  }
+  .block-celebrities li form button, 
+  .block-movies li form button {
+     
+  }

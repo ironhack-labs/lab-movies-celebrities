@@ -1,0 +1,13 @@
+<h1>Movies List</h1>
+<a href="/" class="go-back">Go back</a>
+<ul class="block-movies">
+  {{#each movies}}
+      <li>
+        <p><strong>Title: </strong>  {{this.title}}</p>
+        <a href="/movies/{{this._id}}">See more</a>
+        <form action="/movies/{{this._id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+      </li>
+  {{/each}}
+</ul>
