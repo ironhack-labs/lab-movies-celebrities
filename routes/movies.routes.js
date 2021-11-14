@@ -16,10 +16,11 @@ router.post("/new-movie", (req, res) => {
 })
 
 
-// router.get("/movies", (req, res) => {
+ router.get("/movies", (req, res) => {
+     const { id } = req.body;
     
-//     movie.find()
-//         .then(movie => res.render("/movies", {movie}))
-//         .catch(err => console.log(err))
-// })
+    Movie.find(id)
+        .then(movie => res.render("/movies", {movie}))
+        .catch(err => console.log(err))
+})
 module.exports = router;

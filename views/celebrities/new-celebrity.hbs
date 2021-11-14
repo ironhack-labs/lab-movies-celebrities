@@ -4,20 +4,17 @@
     <form action="new-celebrity" method="POST">
 
         <label> Name
-        <input value="{{name}}" type="text" name="name" placeholder="M.Rajoy">
+        <input type="text" name="name" placeholder="M.Rajoy">
         </label>
         <label> Occupation
-        <input value="{{occupation}}" type="text" name="occupation" placeholder="Tipo de incógnito">
+        <input type="text" name="occupation" placeholder="Tipo de incógnito">
         </label>
         <label> Catchphrase
-        <input value="{{catchphrase}}" type="text" name="catchphrase" placeholder="Viva el vino">
+        <input type="text" name="catchphrase" placeholder="Viva el vino">
         </label>
         <hr>
         <button type="submit">Añadir</button> 
 
         <a href="celebrities">All celebrities here!</a>
-        {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-        {{/if}}
     </form>
 </div>
