@@ -28,6 +28,14 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
+// iteration 1 > Routes 
+// LINKEADO PARA QUE EL SERVER TENGA ACCESO A ESTA RUTA
+app.use('/celebrities', require('./routes/celebrities.routes'))
+
+// iteration 1 > Routes 
+// LINKEADO PARA QUE EL SERVER TENGA ACCESO A ESTA RUTA
+app.use('/movies', require('./routes/movies.routes'))
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

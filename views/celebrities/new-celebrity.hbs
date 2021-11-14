@@ -1,0 +1,34 @@
+{{!-- Iteration 3. 3 --}}
+
+
+
+{{!-- 3.Add an <h2> for the page's heading. --}}
+<h2>Add a New Celebrity</h2>
+
+{{!--4. Add a <form> tag that makes a POST request to /celebrities/create. --}}
+<form action="/celebrities/create" method="POST">
+    
+{{!-- 3.Add <input> tags inside the form so the user can fill in values 
+for each attribute of the celebrity. 
+Make an input for
+name, occupation, and catchPhrase --}}
+        <label for="celebrity-name">Name</label>
+        <input type="text" , name="name" id="celebrity-name">
+  
+        <label for="celebrity-occupation">Occupation</label>
+        <input type="text" , name="occupation" id="celebrity-occupation">
+
+
+ 
+        <label for="celebrity-phrase">Catch Phrase</label>
+        <input type="text" , name="catchPhrase" id="celebrity-phrase">
+ 
+
+{{!--3. Add a <button> tag in the form so the user can submit 
+    the form once they are done filling it out. --}}
+    <button type="submit">Create Celebrity</button>
+
+</form>
+
+<a href="/">Back to Home Page</a>
+<p>{{errorMessage}}</p>

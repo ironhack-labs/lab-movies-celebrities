@@ -1,0 +1,34 @@
+<h2>Add a New Movie</h2>
+
+<form action="/movies/create" method="POST">
+    {{!-- <aside> --}}
+        <label for="movie-title">Title</label>
+        <input type="text" , name="title" id="movie-title">
+  {{!--   </aside> --}}
+
+    {{!-- <aside> --}}
+        <label for="movie-genre">Genre</label>
+        <input type="text" , name="genre" id="movie-genre">
+  {{!--   </aside> --}}
+
+    {{!-- <aside> --}}
+        <label for="movie-plot">Plot</label>
+        <textarea name="plot" id="movie-plot"></textarea>
+  {{!--   </aside> --}}
+
+    {{!-- <aside> --}}
+        <label for="movie-cast">Cast <span>(press CTRL to add more than one)</span></label>
+        <select name="cast" id="movie-cast" multiple>
+            {{#each celebrities}}
+            <option value={{id}}> {{name}} </option>
+            {{/each}}
+        </select>
+  {{!--   </aside> --}}
+
+
+    <button type="submit">Create Movie</button>
+
+</form>
+
+<a href="/">Back to Home Page</a>
+<p>{{errorMessage}}</p>

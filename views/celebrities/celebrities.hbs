@@ -1,0 +1,21 @@
+{{!-- // iteration 1 > Views --}}
+
+{{!-- 
+
+{{!-- iteration 4.3 --}}
+In the views/celebrities/celebrities.hbs view file: --}}
+
+{{!--3. Add an <h2> tag for the page's heading. --}}
+<h2>Celebrities List</h2>
+<ul>
+   
+    {{!--3. Use a hbs #each loop to display 
+    tags with each celebrity's name. --}}
+    {{#each celebrities}}
+    <li>
+        <a href="/celebrities/{{id}}">
+            <h3>{{name}}</h3>
+        </a>
+    </li>
+    {{/each}}
+</ul>

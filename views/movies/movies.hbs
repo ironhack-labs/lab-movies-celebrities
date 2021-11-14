@@ -1,0 +1,13 @@
+<h2>Movies List</h2>
+<ul>
+    {{#each movies}}
+    <li>
+        <a href="/movies/{{id}}">
+            <h3>{{title}}</h3>
+        </a>
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/movies/create"> Create a new Movie</a>
+<a href="/">Back to Home Page</a>
