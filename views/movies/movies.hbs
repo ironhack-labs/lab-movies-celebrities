@@ -1,0 +1,19 @@
+<a href="/" class="btn btn-outline-danger">Back</a>
+<br><br>
+
+<h1>Movies</h1>
+ <br>
+<hr>
+
+<div>
+    <ul>
+        {{#each movies}}
+        <a href="movies/{{_id}}">
+            <li>{{title}} - {{genre}}</li>
+        </a>
+        {{/each}}
+    </ul>
+
+</div>
+
+<a class="btn btn-outline-danger" href="/movies/create" role="button">New movie</a>

@@ -1,0 +1,27 @@
+<a href="/" class="btn btn-outline-danger">Back</a>
+<br><br>
+
+<div >
+    
+    <h1 class="card-title">{{movie.title}}</h1>
+
+    <p class="card-text"><strong>Genre:</strong> {{movie.genre}}</p>
+    <p class="card-text"><strong>Plot: </strong>{{movie.plot}}</p>
+    {{#each movie.cast}}
+
+    <h5>Celebrity:</h5>
+    <strong>Nombre:</strong>  {{name}} <br>
+    <strong>Occupation:</strong> {{occupation}} <br>
+    <strong>Phrase:</strong> {{catchPhrase}} 
+    {{/each}}<br><br>
+
+    <a class="btn btn-outline-danger" href="/movies" role="button">View all movies</a>
+
+    <form  action="/movies/{{movie._id}}/delete" method="POST">
+        <br />
+        <button class="btn btn-outline-danger" type="submit">Delete movie</button>
+    </form> <br>
+
+    <a class="btn btn-outline-danger" href="{{movie._id}}/edit-movie">Edit Movie</a> 
+
+</div>

@@ -1,0 +1,41 @@
+<a href="/" class="btn btn-outline-danger">Back</a>
+<br><br>
+
+<h1>New movidita</h1>
+
+
+<hr>
+
+<div class="new-movie">
+
+    <form action="/movies/create" method="POST">
+        <label>
+            Title:
+            <input type="text" name="title" />
+
+        </label>
+        <br />
+
+        <label>
+            Genre:
+            <input type="text" name="genre" />
+
+        </label>
+        <br />
+        <label>
+            Plot:
+            <input type="text" name="plot" />
+
+        </label><br>
+        <label>Celebrity: </label>
+        <select name="cast">
+            {{#each celebs}}
+            <option value="{{id}}">{{name}} - {{cast}}</option>
+            {{/each}}
+        </select><br><br>
+
+
+        <input class="btn btn-outline-danger" type="submit" />
+
+    </form>
+</div>
