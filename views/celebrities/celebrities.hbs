@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h2>Look at all these celebrities:</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        {{#each celebrities}}
+        <div class="col-md-4">
+            <div class="card text-center">
+                <img class="card-img-center" src="{{image}}" alt="" />
+                <div class="card-body ">
+                    <div class="card-title ">
+                        <h3>{{name}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-12">
+            <a href="/" class="btn btn-dark">Back home</a>
+        </div>
+    </div>
+</div>

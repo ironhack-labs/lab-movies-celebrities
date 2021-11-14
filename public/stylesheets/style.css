@@ -6,3 +6,14 @@ body {
 a {
   color: #00b7ff;
 }
+
+.card img {
+  height: 200px;
+  object-fit:cover;
+  align-items:center;
+}
+
+.card {
+  border: none;
+  padding: 20px;
+}

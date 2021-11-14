@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Create a new celebrity:</h2>
+        </div>
+
+        <div class="col-md-2">
+            <br>
+            <a href="/" class="btn btn-light">Back home</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <form action="/celebrities/create" method="POST" class="row">
+
+            <label for="name" class="form-group col-md-6"> Name:
+                <input type="text" name="name" class="form-control" placeholder="Juancar" />
+            </label>
+
+            <label for="occupation" class="form-group col-md-6">Occupation:
+                <input type="text" name="occupation" class="form-control" placeholder="Rey mago" />
+            </label>
+
+            <label for="catchPhrase" class="form-group col-md-12">Catch Phrase:
+                <textarea name="catchPhrase" class="form-control" rows="3"
+                    placeholder="Lo siento mucho, me he equivocado. No volverá a ocurrir."></textarea>
+            </label>
+
+            <label for="image" class="form-group col-md-6">Image:
+                <input type="text" name="image" class="form-control" placeholder="Paste your image URL">
+            </label>
+
+            <div class="col-md-6">
+                <p></p>
+                <button type="submit" class="btn btn-dark">Create Celebrity</button>
+            </div>
+
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
+        </form>
+    </div>
+</div>
+</div>

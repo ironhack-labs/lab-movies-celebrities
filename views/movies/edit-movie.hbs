@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Edit movie:</h2>
+        </div>
+
+        <div class="col-md-2">
+            <br>
+            <a href="/" class="btn btn-light">Back home</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <form action="/movies/{{movie._id}}" method="POST" class="row">
+
+            <label for="title" class="form-group col-md-6"> Title:
+                <input type="text" name="title" value="{{movie.title}}" class="form-control"
+                    placeholder="Amanece, que no es poco" />
+            </label><br>
+
+            <label for="genre" class="form-group col-md-6">Genre:
+                <input type="text" name="genre" value="{{movie.genre}}" class="form-control" placeholder="Comedy" />
+            </label><br>
+
+            <label for="plot" class="form-group col-md-12">Plot:
+                <textarea name="plot" value="{{movie.plot}}" class="form-control" rows="3"
+                    placeholder="Un joven ingeniero español que trabaja en la Universidad de Oklahoma regresa a España para disfrutar de un año sabático. Junto a su padre, llega a un remoto pueblo de la montaña que parece desierto, aunque en realidad todos los vecinos están en misa, como cada día del año."></textarea>
+            </label><br>
+
+            <label for="cast" class="form-group col-md-6">Cast:
+                <select multiple name="cast" class="form-control">
+                    {{#each movie.cast}}
+                    <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </label><br>
+
+            <label class="form-group col-md-6">Image:
+                <input type="text" name="image" value="{{movie.image}}" class="form-control"
+                    placeholder="Paste your image URL">
+            </label><br>
+
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-dark">Edit Movie</button>
+            </div>
+
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
+
+        </form>
+    </div>
+</div>

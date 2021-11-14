@@ -2,22 +2,29 @@ const mongoose = require('mongoose');
 const model = mongoose.model;
 const Schema = mongoose.Schema;
 
-const celebritySchema = new Schema({
 
-    name: {
+const movieSchema = new Schema({
+
+    title: {
         type: String,
         required: true
     },
 
-    occupation: {
+    genre: {
         type: String,
         required: true
     },
 
-    catchPhrase: {
+    plot: {
         type: String,
         required: true
     },
+
+    cast: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Celebrity'
+    }],
+
 
     image: {
         type: String,
@@ -25,4 +32,4 @@ const celebritySchema = new Schema({
     }
 })
 
-module.exports = model('Celebrity', celebritySchema);
+module.exports = model('Movie', movieSchema);

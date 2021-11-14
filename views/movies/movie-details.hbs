@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Movie details:</h2>
+        </div>
+
+        <div class="col-md-2">
+            <br>
+            <a href="/" class="btn btn-light">Back home</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="card">
+            <div class="row no-gutters ">
+                <div class="col-md-4 text-center">
+                    <img src="{{movie.image}}" class="card-img" style="height: 100%" alt="...">
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="card-title ">
+                            <h3>{{movie.title}}</h3>
+                        </div>
+
+                        <p class="card-text"><small class="text-muted">{{movie.genre}}</small></p>
+
+                        <p class="card-text">{{movie.plot}}</p>
+
+                        <p class="card-text"><strong>Cast:</strong></p>
+
+                        <ul>
+                            {{#each movie.cast}}
+                            <li>
+                                <div class="card-body">
+                                    <div>
+                                        <h5>{{this.name}}</h5>
+                                    </div>
+
+                                    <p class="card-text"><small class="text-muted">{{this.occupation}}</small></p>
+
+                                    <p class="card-text"><em><q>{{this.catchPhrase}}</q></em></p>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div>
+            <form action="/movies/{{movie._id}}/delete" method="POST" class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-danger">Delete Movie</button>
+                </div>
+            </form>
+            <div class="col-md-12">
+                <br>
+                <a href="/movies/{{movie._id}}/edit" class="btn btn-info">Edit Movie</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
