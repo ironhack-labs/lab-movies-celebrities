@@ -8,7 +8,7 @@
 
 <br>
 
-As a summary of out basic CRUD journey, we will work on creating the app for movies and celebrities.
+As a summary of our CRUD journey, we will work on creating the app for movies and celebrities.
 The goal of this exercise is to practice _CRUD_ on at least one of the models (building the full CRUD for the _movie model_ is mandatory) and _documents relationships_ (between the two models).
 So let's see what are some user stories related to the _celebrity_ model:
 
