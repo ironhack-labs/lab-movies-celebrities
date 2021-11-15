@@ -1,0 +1,18 @@
+<h2>PAGE HEADING</h2>
+
+<form>
+  <input>title</input >
+  <input>genre</input >
+  <input>plot</input>
+  <button>submit</button>
+</form>
+
+<ul>
+  {{#each allTheMovies}}
+
+    <a href="/movies/{{id}}">
+      <li>{{name}}{{occupation}}{catchPhrase}</li>
+    </a>
+
+  {{/each}}
+</ul>
