@@ -1,0 +1,25 @@
+<div>
+    <div>
+        <h6>{{comic.title}}</h6>
+        <p>{{comic.genre}}</p>
+        <p>{{comic.plot}}</p>
+        {{#each cast}}
+            <p>{{name}}</p>
+            <p>{{occupation}}</p>
+            <p>{{mainSuperPower}}</p>
+        {{/each}}
+    </div>
+
+    <div>
+        <form action="/comics/:id/delete" method="POST">
+
+    <label>
+        Delete the comic:
+        <input type="text" name="id" placeholder="Comic id">
+    </label>
+    </br>
+
+    <input type="submit" value="Delete the comic">
+    </form>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="new-char">
+  
+  
+  <div class="new-com-img-container">
+
+  </div>
+
+  <div class="new-com-img-container-02">
+
+  </div>
+
+
+  <div class="new-com-main">
+    <div class="new-com-txt">
+
+      <div class="new-char-title">
+        <h2>Add new Comics:</h2>
+      </div>
+
+      <div>
+        <form action="/comics/create" method="POST">
+
+          <div class="field-01">
+            <label class="label-01">Title</label>
+            </br>
+            <input class="form-box" type="text" name="name" placeholder="The last TA">
+          </div>
+
+          <div class="field-01">
+            <label class="label-01">Genre</label>
+            </br>
+            <input class="form-box" type="text" name="occupation" placeholder="Action">
+          </div>
+
+          <div class="field-01">
+            <label class="label-01">Plot</label>
+            </br>
+            <input class="plot-form-box" type="text" name="occupation" placeholder="The last TA has to fight against the evil Bootstrap...">
+          </div>
+
+          <div class="field-01">
+            <label class="label-01">characters
+            </br>
+            <select class="form-box" name="charactersId">
+                  {{#each allCharacters}}
+                      <option value={{id}}>{{name}}</option></label>
+                  {{/each}}
+          </div>
+
+
+          <input class="form-btn-01" type="submit" value="Create the comic">
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>

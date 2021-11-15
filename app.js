@@ -13,18 +13,28 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+
 const app = express();
+app.use(express.static('public/images'));
+
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 
 // default value for title local
-const projectName = 'lab-movies-celebrities';
+const projectName = 'Characters & Comics';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`; 
 
 // 👇 Start handling routes here
+
+const charactersRoutes = require("./routes/characters.routes");
+app.use("/characters", charactersRoutes);
+
+const comicsRoutes = require("./routes/comics.routes");
+app.use("/comics", comicsRoutes);
+
 const index = require('./routes/index');
 app.use('/', index);
 

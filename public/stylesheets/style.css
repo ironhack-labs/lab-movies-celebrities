@@ -1,8 +1,318 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+    padding: 0%;
+    margin: 0%;
 }
 
-a {
-  color: #00b7ff;
+body {
+    font-family: 'Poppins', sans-serif, Helvetica;
+    background-color: rgb(24, 25, 26);
 }
+
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-container {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0%;
+    z-index: -100;
+}
+
+.landing-bg {
+    height: 100%;
+    width: 100%;
+    background-image: url("/Spiderman_poster_CHRLY_DSIGN.jpg");
+    background-size: 100%;
+    background-position-y: -650px;
+    filter: blur(30px);
+    opacity: 0.5;
+
+}
+
+.main-landing-container {
+    width: 1120px;
+    height: 740px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(240, 240, 240);
+    border-radius: 35px;
+    margin-top: 100px;
+    box-shadow: rgba(50, 65, 90, 0.781) 0px 10px 100px 10px;
+    
+}
+
+.landing-img-container {
+    height: 740px;
+    width: 640px;
+       
+}
+
+.landing-img-container img {
+    height: 100%;
+    border-radius: 35px 0px 0px 35px; 
+}
+
+.landing-info-container {
+    padding: 80px 120px 80px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0px;
+}
+
+
+h1 {
+    color: rgb(45, 45, 51);
+    font-size: 70px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.landing-tag {
+    font-size: 18px;
+    color: rgb(105, 110, 117);
+    line-height: 30px;
+}
+
+.landing-txt {
+    width: 350px;
+    margin-bottom: 60px;
+}
+
+.landing-btn-01 {
+    padding: 20px 10px;
+    background-color: rgb(185, 8, 82);
+    color: rgb(238, 238, 238);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: 500;
+    
+}
+
+.landing-btn-01:hover {
+    background-color: rgb(143, 5, 62);
+    color: white;
+    transition: 0.6s;
+}
+
+.landing-btn-02 {
+    padding: 20px 10px;
+    background-color: rgb(207, 208, 219);
+    color: rgb(73, 73, 73);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 15px;
+    
+}
+
+.landing-btn-02:hover {
+    background-color: rgb(165, 166, 177);
+    color: rgb(227, 229, 236);
+    transition: 0.4s;
+}
+
+
+
+
+h2 {
+    color: rgb(45, 45, 51);
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    line-height: 64px;
+}
+
+.new-char-title {
+    width: 400px;
+}
+
+.new-char-main {
+    width: 540px;
+    height: 740px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 35px;
+    margin-top: 100px;
+    box-shadow: rgb(20, 20, 20) 0px 10px 60px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.new-char {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.new-char-txt {
+    padding: 70px 20px 40px 20px;
+}
+
+.field-01 {
+    margin-bottom: 16px;
+}
+
+.label-01 {
+    margin-bottom: 10px;
+}
+
+.form-box {
+    padding: 15px 80px 15px 15px;
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.form-btn-01 {
+    padding: 20px 60px;
+    background-color: rgb(185, 8, 82);
+    color: rgb(238, 238, 238);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: 700;
+    border: 0px;
+    font-size: 16px;
+    margin-top: 40px;
+    
+}
+
+.form-btn-01:hover {
+    background-color: rgb(122, 4, 54);
+    color: white;
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+
+.new-char-img-container {
+    width: 840px;
+    height: 740px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 35px;
+    margin-top: 100px;
+    box-shadow: rgb(17, 33, 54) 0px 10px 60px 0px;
+    margin-right: 40px;
+    background-image: url("/Wall-e_Poster_CHRLY_DSIGN.jpg");
+    background-size: 100%;
+    background-position-y: -320px;
+    background-repeat: no-repeat;
+}
+
+
+.new-com-txt {
+    padding: 20px 20px 20px 30px;
+}
+
+.new-com-main {
+    width: 460px;
+    height: 790px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 35px;
+    margin-top: 50px;
+    box-shadow: rgb(20, 20, 20) 0px 10px 60px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px;
+}
+
+
+.plot-form-box {
+    padding: 15px 15px 100px 15px;
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 365px;
+    margin-top: 10px;
+}
+
+
+.new-com-img-container {
+    width: 340px;
+    height: 830px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 35px;
+    margin-top: 50px;
+    box-shadow: rgb(23, 39, 37) 0px 10px 60px 0px;
+    margin-right: 40px;
+    background-image: url("/Pirates_album_cover_poster_oficial.jpg");
+    background-size: 180%;
+    background-position-y: 0px;
+    background-position-x: -140px;
+    background-repeat: no-repeat;
+}
+
+.new-com-img-container-02 {
+    width: 500px;
+    height: 830px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 35px;
+    margin-top: 50px;
+    box-shadow: rgb(17, 33, 54) 0px 10px 60px 0px;
+    margin-right: 40px;
+    background-image: url("/Excalibur_Poster_CHRLY_DSIGN_mk2.jpg");
+    background-size: 120%;
+    background-position-y: 0px;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+
+
+h6 {
+    color: rgb(177, 177, 185);
+    font-size: 200px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+     
+}
+
+h7 {
+    color: rgb(92, 25, 201);
+    font-size: 60px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h8 {
+    color: rgb(67, 67, 77);
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    line-height: 64px;
+    text-align: center;
+}
+
+
+.error {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 900px;
+}
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<h2>Update an existing Comic:</h2>
+
+<form action="/comics/{{id}}" method="POST">
+
+  <label>
+    Title
+    <input type="text" name="name" value="{{title}}">
+  </label>
+  </br>
+
+
+  <label>
+    Genre
+    <input type="text" name="occupation" value="{{genre}}">
+  </label>
+  </br>
+
+
+  <label>
+    Plot
+    <input type="text" name="occupation" value="{{plot}}">
+  </label>
+  </br>
+
+
+  <label>
+    characters
+    <select name="charactersId">
+        {{#each allCharacters}}
+            <option value={{id}}>{{name}}</option>
+        {{/each}}
+  </label>
+  </br>
+
+
+  <input type="submit" value="Update the comic">
+</form>
