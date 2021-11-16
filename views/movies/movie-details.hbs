@@ -1,0 +1,14 @@
+
+<h2>{{pickedMovie.title}}</h2>
+<p>{{pickedMovie.genre}}</p>
+<p>{{pickedMovie.plot}}</p>
+
+<ul>
+  {{#each pickedMovie.cast}}
+    <li> {{ this.name }} </li>
+  {{/each }}
+</ul>
+
+<form action="/movies/{{pickedMovie._id}}/delete" method="POST">
+<button type="submit">Delete Movie</button>
+</form>
