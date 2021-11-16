@@ -1,3 +1,17 @@
 <h2>
-    test movies
+   All Movies
 </h2>
+
+{{#each moviesList}}
+<div class="movies-page">
+    
+   <p>Title: <a href="/movies/{{this._id}}">{{this.title}}</a></p>
+     
+    
+    
+
+</div>
+    
+{{/each}}
+
+<a href="/movies/create">Add a New Movie</a>
