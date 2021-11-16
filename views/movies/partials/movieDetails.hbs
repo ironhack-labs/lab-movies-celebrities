@@ -1,0 +1,20 @@
+<div class="movie">
+
+    <span>{{ title }}</span>
+    <span class="genre">[ {{ genre }} ]</span>
+
+    <p class="cast">Cast</p>
+    <ul>
+        {{#each cast}}
+        <li> {{ name }} </li>
+        {{/each}}
+        
+    </ul>
+
+    <div class="options">
+        <a href="movies/{{_id}}">See details</a>
+        <a href="movies/edit/{{_id}}">Edit</a>
+        <a href="movies/delete/{{_id}}">Delete</a>
+    </div>
+
+</div>

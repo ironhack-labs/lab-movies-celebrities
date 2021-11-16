@@ -1,0 +1,20 @@
+<a href="/movies">Back</a>
+
+<div class="single-movie">
+
+    <span>{{ title }}</span>
+    <span class="genre">[ {{ genre }} ]</span>
+
+    <p class="cast">Cast</p>
+    <ul>
+        {{#each cast}}
+        <li> {{ name }} </li>
+        {{/each}}
+    </ul>
+
+    <div class="options">
+        <a href="/movies/edit/{{_id}}">Edit</a>
+        <a href="/movies/delete/{{_id}}">Delete</a>
+    </div>
+
+</div>

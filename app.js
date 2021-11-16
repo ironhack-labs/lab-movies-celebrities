@@ -13,20 +13,30 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+// app is an express server
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 
+// Config file hbs
+require("./config/hbs.js");
+
 // default value for title local
-const projectName = 'lab-movies-celebrities';
+const projectName = 'Lab movies and celebrities';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+app.locals.title = `${capitalized(projectName)}`;
 
 // 👇 Start handling routes here
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRoutes = require("./routes/celebrities")
+app.use('/celebrities', celebritiesRoutes);
+
+const moviesRoutes = require("./routes/movies")
+app.use('/movies', moviesRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);

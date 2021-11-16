@@ -1,0 +1,11 @@
+<a href="/">HOME</a>
+<a href="/movies/create">Create new movie</a>
+
+<div class="movies-list">
+
+    {{#each movies}}
+
+        {{>movieDetails this }}
+
+    {{/each}}
+</div>
