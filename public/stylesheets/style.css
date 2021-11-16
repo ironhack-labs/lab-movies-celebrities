@@ -6,3 +6,16 @@ body {
 a {
   color: #00b7ff;
 }
+
+
+
+.nav-bar {
+  background-color: black;
+  height: 40px;
+  padding: 10px;
+
+}
+
+.nav-bar a {
+  margin: 8px
+}
