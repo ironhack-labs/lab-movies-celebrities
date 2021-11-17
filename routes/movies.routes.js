@@ -47,10 +47,10 @@ router.post('/create', async (req, res) => {
     }
 })
 
+//:id is a placeholder, this route MUST go after /create routes otherwise when the browser goes to /movies/create it'll attemp to use the route with 
+//the :id placeholder instead of the intented route
 router.get('/:id', async (req, res) => {
     try {
-        console.log(req.params.id)
-        console.log(typeof req.params.id)
         const movie = await Movie.findById(req.params.id).populate('cast') //Populate the cast array inside the movie with the full celebrity data
         res.render('./movies/movieDetails.hbs', { movie })
     }
