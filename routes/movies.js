@@ -25,7 +25,7 @@ router.post("/movies/create", async (req, res) => {
         if(createdMovie) {
             res.render("./movies/movies");
         }else {
-            res.render("./movies/newMovie", {errMsg: "There is an error creating a new celebrity. Please try again"})
+            res.render("./movies/newMovie", {errMsg: "There is an error creating a new Movie. Please try again"})
         }
     }catch (err) {
         console.log(err)

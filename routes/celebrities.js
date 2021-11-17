@@ -11,7 +11,6 @@ router.get("/celebrities", async (req, res) => {
     }catch (err){
         console.log(err)
     }
-    
 });
 
 router.get("/celebrities/create", (req, res) => {
@@ -23,8 +22,9 @@ router.post("/celebrities/create", async (req, res) => {
     //console.log(req.body)
     try {
         const createdCelebrity = await Celebrity.create({name, occupation, catchPhrase})
+        const allCelebrities = await Celebrity.find({})
         if(createdCelebrity) {
-            res.render("./celebrities/celebrities");
+            res.render("./celebrities/celebrities", {allCelebrities});
         }else {
             res.render("./celebrities/newCelebrity", {errMsg: "There is an error creating a new celebrity. Please try again"})
         }
