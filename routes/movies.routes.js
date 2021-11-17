@@ -19,6 +19,15 @@ router.get('/', async (req, res)=>{
         console.log(chalk.bgRed(err))
     }
 })
+
+router.get('/:id', async (req, res)=>{
+    try{
+        const movie = await Movie.findById(req.params.id).populate('cast')
+        res.render('movies/movie-details', movie)
+    } catch(err){
+        console.log(chalk.bgRed(err))
+    }
+})
 router.post('/create', async (req, res)=>{
     try{
         const {title, genre, plot, cast} = req.body
