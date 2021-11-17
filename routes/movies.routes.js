@@ -21,14 +21,23 @@ router.post("/movies/create", async (req, res, next) => {
   }
 });
 
-router.get("/movies",async (req,res,next) =>{
+router.get("/movies", async (req, res, next) => {
   try {
-      const movies = await Movie.find({});
-      res.render("movies/movies", { movies });
-    } catch (err) {
-      console.log("err", err);
-    }
+    const movies = await Movie.find({});
+    res.render("movies/movies", { movies });
+  } catch (err) {
+    console.log("err", err);
+  }
+});
 
+router.get("/movies/:id", async (req, res, next) => {
+  try {
+    const movieDetails = await Movie.findById(req.params.id).populate("cast");
+    console.log(movieDetails)
+    res.render("movies/movie-details",movieDetails);
+  } catch (err) {
+    console.log("err", err);
+  }
 });
 
 module.exports = router;
