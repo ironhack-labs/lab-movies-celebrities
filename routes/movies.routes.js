@@ -16,7 +16,12 @@ router.get("/create", async (req, res, next) => {
 
 /* GET celebrities page */
 router.get("/", async (req, res, next) => {
-   res.render("movies/movies.hbs")
+   try{
+        const allMovies = await Movie.find();
+        res.render("movies/movies.hbs", {allMovies})
+    } catch(err){
+        console.log(err)
+    }
 });
 
 /* POST create celebrity page */
