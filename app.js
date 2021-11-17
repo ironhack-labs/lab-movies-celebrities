@@ -13,6 +13,17 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+//Helpers for hbs
+hbs.registerHelper('isIncluded', function(id, array, options) {
+    console.log("id", id)
+
+    console.log("array", array)
+    const stringsArray = array.map(x => x.toString());
+    const uniqueStrings  =  [...new Set(stringsArray)];
+    return stringsArray.includes(id) ? options.fn(this) : options.inverse(this);
+})
+
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares

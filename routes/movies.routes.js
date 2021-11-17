@@ -39,7 +39,7 @@ router.get("/:id/edit", async (req, res) => {
     try{
         const selectedMovie = await Movie.findById(req.params.id);
         const allCelebrities = await Celebrity.find();
-        res.render("movies/edit-movie.hbs", {selectedMovie, allCelebrities})
+        res.render("movies/edit-movie.hbs", {selectedMovie, allCelebrities, movieCast: selectedMovie.cast})
     } catch(err){
         console.log(err)
     }
