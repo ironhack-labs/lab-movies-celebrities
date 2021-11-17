@@ -3,8 +3,15 @@ const Celebrity = require('../models/Celebrity.model')
 
 /* GET celebrities page */
 
-router.get("/celebrities", (req, res) => {
-    res.render("./celebrities/celebrities");
+router.get("/celebrities", async (req, res) => {
+    try{
+        const allCelebrities = await Celebrity.find({})
+        res.render("./celebrities/celebrities", {allCelebrities});
+        console.log(allCelebrities)
+    }catch (err){
+        console.log(err)
+    }
+    
 });
 
 router.get("/celebrities/create", (req, res) => {
