@@ -10,8 +10,24 @@ const Celebrity = require('../models/Celebrity.model')
 
 //ROUTES
 router.get('/', async (req, res) => {
-    const movies = await Movie.find({})
-    res.render('./movies/movies.hbs', { movies })
+    try {
+        const movies = await Movie.find({})
+        res.render('./movies/movies.hbs', { movies })
+    }
+    catch (err) {
+        console.log('Error loading movies view:', err)
+    }
+
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        const movie = await Movie.findById(req.params.id).populate('cast') //Populate the cast array inside the movie with the full celebrity data
+        res.render('./movies/movieDetails.hbs', { movie })
+    }
+    catch (err) {
+        console.log('Error getting movie details:', err)
+    }
 })
 
 router.get('/create', async (req, res) => {

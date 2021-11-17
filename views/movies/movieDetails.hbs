@@ -1,0 +1,17 @@
+<h2>Details for {{movie.title}}:</h2>
+
+<p>Genre: {{movie.genre}}</p>
+
+{{!-- Only display non required fields if they don't have values --}}
+{{#if movie.plot}}
+<p>Plot: {{movie.plot}}</p>
+{{/if}}
+
+<p>Cast:</p>
+<ul>
+    {{#if movie.cast}}
+    {{#each movie.cast}}
+    <li>{{this.name}}</li>
+    {{/each}}
+    {{/if}}
+</ul>
