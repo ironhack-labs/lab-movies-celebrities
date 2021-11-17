@@ -8,11 +8,6 @@ router.get("/create", (req, res, next) => {
     res.render("celebrities/new-celebrity.hbs");
 });
 
-/* GET create celebtities page */
-router.get("/celebrities", (req, res, next) => {
-    res.render("celebrities/celebrities.hbs");
-});
-
 /* POST create celebrity page */
 router.post("/create", async (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body
