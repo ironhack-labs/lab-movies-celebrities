@@ -18,10 +18,8 @@
         </select>
 
     <button type="submit">Delete Celebrity</button>
-
-      {{#if errMsg}}
-  <h2>{{errMsg}}</h2>
-    {{/if}}
-
-
 </form>
+
+{{#if errMsg}}
+    <h2>{{errMsg}}</h2>
+{{/if}}
