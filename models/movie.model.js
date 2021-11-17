@@ -8,6 +8,6 @@ const movieSchema = new Schema({
 }, {timestamps: true}
 )
 
-const Movie = model('Celebrity', movieSchema)
+const Movie = model('Movie', movieSchema)
 
 module.exports = Movie
