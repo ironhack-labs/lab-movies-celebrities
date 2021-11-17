@@ -20,7 +20,7 @@ router.get("/celebrities/create", (req, res) => {
 
 router.post("/celebrities/create", async (req, res) => {
     const {name, occupation, catchPhrase} = req.body
-    console.log(req.body)
+    //console.log(req.body)
     try {
         const createdCelebrity = await Celebrity.create({name, occupation, catchPhrase})
         if(createdCelebrity) {
