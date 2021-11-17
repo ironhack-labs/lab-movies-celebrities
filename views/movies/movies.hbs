@@ -1,0 +1,17 @@
+<h1>This is the Movies</h1>
+
+<h2>Movie List</h2>
+
+{{#each listofMovies}}
+<p>{{this.title}}</p>
+<p>{{this.genre}}</p>
+<p>{{this.plot}}</p>
+
+<select name="{{this.cast}}" id="cast" multiple>
+  <option value="{{this.celebrities}}">{{this.name}}</option>
+  <option value="{{this.name}}">{{this.name}}</option>
+  <option value="{{this.name}}">{{this.name}}</option>
+  <option value="{{this.name}}">{{this.name}}</option>
+</select>
+
+{{/each}}
