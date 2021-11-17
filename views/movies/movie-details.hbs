@@ -4,13 +4,16 @@
     <li>Genre:{{genre}}</li>
     <li>Plot:{{plot}}</li>
     {{#each cast}}
-    <li>Name:{{this.name}}</li>
-    <li>Occupation:{{this.occupation}}</li>
-    <li>CatchPhrase:{{this.catchPhrase}}</li>
+    <ul>
+        <li>Name:{{this.name}}</li>
+        <li>Occupation:{{this.occupation}}</li>
+        <li>CatchPhrase:{{this.catchPhrase}}</li>
+    </ul>
     {{/each}}
 </ul>
 
 <form action="/movies/{{id}}/delete" method="POST">
 
-<button type="submit">Delte movie</button>
+<button type="submit">Delete movie</button>
 </form>
+<a href="/movies/{{id}}/edit">Edit movie</a>

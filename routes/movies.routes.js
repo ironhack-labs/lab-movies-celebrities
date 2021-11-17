@@ -28,6 +28,15 @@ router.get('/:id', async (req, res)=>{
         console.log(chalk.bgRed(err))
     }
 })
+router.get('/:id/edit', async (req, res)=>{
+    try{
+        const movie = await Movie.findById(req.params.id)
+        const celebrity = await Celebrity.find()
+        res.render('movies/edit-movie', {movie, celebrity})
+    } catch(err){
+        console.log(chalk.bgRed(err))
+    }
+})
 router.post('/create', async (req, res)=>{
     try{
         const {title, genre, plot, cast} = req.body
@@ -47,6 +56,17 @@ router.post('/:id/delete', async (req, res)=>{
     } catch(err){
         console.log(chalk.bgRed(err))
         res.render(`movies/${req.params.id}`)
+    }
+})
+
+router.post('/:id', async (req, res)=>{
+    try{
+        const {title, genre, plot, cast} = req.body
+        const updateMovie = await Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, cast})
+        console.log(updateMovie)
+        res.redirect(`${req.params.id}`)
+    } catch(err){
+        console.log(chalk.bgRed(err))
     }
 })
 module.exports = router;
