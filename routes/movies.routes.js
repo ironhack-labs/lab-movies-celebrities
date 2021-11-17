@@ -24,6 +24,16 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+// GET one movie
+router.get("/:id", async (req, res) => {
+    try {
+        const selectedMovie = await Movie.findById(req.params.id).populate('cast');
+        res.render("movies/movie-details.hbs", selectedMovie);
+    } catch(err) {
+        res.render("not-found.hbs", { errorMsg: "Movie not found" });
+    }
+});
+
 /* POST create celebrity page */
 router.post("/create", async (req, res, next) => {
     const {title, genre, plot, cast} = req.body
