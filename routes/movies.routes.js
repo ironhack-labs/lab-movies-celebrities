@@ -43,7 +43,7 @@ router.get('/create', async (req, res) => {
 router.post('/create', async (req, res) => {
     try {
         const { title, genre, plot, cast } = req.body
-        const newMovie = await Movie.create({ title, genre, plot, cast })
+        await Movie.create({ title, genre, plot, cast })
         // console.log(cast) //Cast is an array of actor IDs saved as String types
         // cast.forEach(async(actor) => { //Push each one inside the cast array
         //     console.log(actor)
@@ -54,6 +54,16 @@ router.post('/create', async (req, res) => {
     catch (err) {
         console.log('Error creating a new movie:', err)
         res.render('./movies/newMovie.hbs')
+    }
+})
+
+router.post('/:id/delete', async(req, res) => {
+    try{
+        await Movie.findByIdAndDelete(req.params.id)
+        res.redirect('/movies')
+    }
+    catch(err){
+        console.log('Error deleting movie:', err)
     }
 })
 
