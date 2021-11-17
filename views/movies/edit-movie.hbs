@@ -1,0 +1,20 @@
+<form method="POST" action="/movies/{{movie.id}}">
+<label>Title:</label>
+<input type="text" name="title" value="{{movie.title}}">
+<label>Genre:</label>
+<input type="text" name="genre" value="{{movie.genre}}">
+<label>Plot:</label>
+<input type="text" name="plot" value="{{movie.plot}}">
+<label>Cast:</label>
+<select name="cast" multiple>
+        {{#each celebritiesList}}
+        {{#isSelected id ../movieCast}}
+            <option value="{{id}}" selected>{{name}}</option>
+        {{else}}
+            <option value="{{id}}">{{name}}</option>
+
+        {{/isSelected}}
+        {{/each}}
+</select>
+<button type="submit">Update</button>
+</form>
