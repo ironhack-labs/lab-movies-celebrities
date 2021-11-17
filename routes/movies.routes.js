@@ -20,16 +20,6 @@ router.get('/', async (req, res) => {
 
 })
 
-router.get('/:id', async (req, res) => {
-    try {
-        const movie = await Movie.findById(req.params.id).populate('cast') //Populate the cast array inside the movie with the full celebrity data
-        res.render('./movies/movieDetails.hbs', { movie })
-    }
-    catch (err) {
-        console.log('Error getting movie details:', err)
-    }
-})
-
 router.get('/create', async (req, res) => {
     try {
         const celebrities = await Celebrity.find({})
@@ -54,6 +44,18 @@ router.post('/create', async (req, res) => {
     catch (err) {
         console.log('Error creating a new movie:', err)
         res.render('./movies/newMovie.hbs')
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        console.log(req.params.id)
+        console.log(typeof req.params.id)
+        const movie = await Movie.findById(req.params.id).populate('cast') //Populate the cast array inside the movie with the full celebrity data
+        res.render('./movies/movieDetails.hbs', { movie })
+    }
+    catch (err) {
+        console.log('Error getting movie details:', err)
     }
 })
 
