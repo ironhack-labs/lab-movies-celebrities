@@ -67,6 +67,34 @@ router.get("/movies/:movieId", (req, res, next) => {
     
   });
 
+  router.get("/movies/:movieId/edit", (req, res, next) => {
+    const movieId = req.params.movieId
+    Movie.findById(movieId)
+    .populate("cast") 
+    .then((foundMovie) => {
+      res.render("movies/edit-movie", { foundMovie });
+    })
+    .catch((err)=> {
+        console.log(err);
+    })
+    
+  });
+
+//   router.post("/movies/:movieId/edit", (req, res) => {
+//     const { title, genre, plot, cast } = req.body;
+
+//     Movie.create({ title, genre, plot, cast})
+//         .then((createdMovie) => {
+//             res.redirect("/movies")
+//         })
+//         .catch((err)=> {
+//             console.log(err);
+//             res.render("movies/new-movie.hbs")
+//         })
+// })
+
+
+
   
 
 module.exports = router;
