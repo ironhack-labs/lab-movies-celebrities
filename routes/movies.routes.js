@@ -55,4 +55,18 @@ router.get("/movies/:movieId", (req, res, next) => {
   });
 
 
+  router.post("/movies/:movieId/delete", (req, res, next) => {
+    const movieId = req.params.movieId
+    Movie.findByIdAndRemove(movieId)
+    .then((foundMovie) => {
+      res.redirect("/movies");
+    })
+    .catch((err)=> {
+        console.log(err);
+    })
+    
+  });
+
+  
+
 module.exports = router;
