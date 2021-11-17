@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+<form method="POST" action="/movies/create">
+  <label>Name:</label>
+  <input type="text" name="name" />
+  <label>Genre:</label>
+  <input type="text" name="genre" />
+  <label>Plot:</label>
+  <input type="text" name="plot" />
+  <br />
+  <label>Cast:</label>
+  <select name="cast" multiple>
+    {{#each data}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      
+    {{/each}}
+  </select>
+
+  <button type="submit">Create</button>
+</form>

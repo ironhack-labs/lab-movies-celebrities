@@ -1,0 +1,15 @@
+<div>
+
+  <h1>{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+
+  <h2>Title : {{data.name}}</h2>
+  <h3>Genre: {{data.genre}}</h3>
+  <h3>Plot: {{data.plot}}</h3>
+  <h3>Cast:</h3>
+  {{#each data.cast}}
+    <p>{{this.name}}</p>
+    <p>{{this.occupation}}</p>
+    <p>{{this.catchPhrase}}</p>
+  {{/each}}
+</div>
