@@ -7,8 +7,14 @@ const Celebrity = require('../models/Celebrity.model')
 
 
 //ROUTES
-router.get('/', (req, res) => {
-    res.render('./celebrities/celebrities.hbs') // ./ or no ./ => inside views
+router.get('/', async (req, res) => {
+    try {
+        const celebrities = await Celebrity.find({})
+        res.render('./celebrities/celebrities.hbs', { celebrities })
+    }
+    catch (err) {
+        console.log('Error retrieving all celebrities:', err)
+    }
 })
 
 router.get('/create', (req, res) => {
