@@ -39,4 +39,15 @@ router.get('/', async (req, res, next) => {
   };
 });
 
+// GET movie details
+router.get('/:id', async (req, res, next) => {
+  try {
+    const showMovieDetails = await Movie.findById(req.params.id).populate('cast');
+    // console.log(showMovieDetails)
+    res.render('./movies/movieDetails.hbs', showMovieDetails);
+  } catch (err) {
+    console.log('Error:', err)
+  }
+});
+
 module.exports = router;
