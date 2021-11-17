@@ -39,4 +39,14 @@ router.post('/create', async (req, res)=>{
         res.render('movies/new-movie')
     }
 })
+
+router.post('/:id/delete', async (req, res)=>{
+    try{
+        const deleteMovie = await Movie.findByIdAndRemove(req.params.id)
+        res.redirect('/movies')
+    } catch(err){
+        console.log(chalk.bgRed(err))
+        res.render(`movies/${req.params.id}`)
+    }
+})
 module.exports = router;
