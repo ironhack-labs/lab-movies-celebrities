@@ -17,4 +17,16 @@ router.post('/create', async (req, res, next) =>{
   };
 });
 
+// GET celebrities page
+router.get('/', async (req, res, next) => {
+  try {
+    const showCelebrities = await Celebrity.find();
+    res.render('./celebrities/celebrities.hbs', {
+      showCelebrities: showCelebrities,
+    });
+  } catch (err) {
+    console.log('Error:', err);
+  };
+});
+
 module.exports = router;
