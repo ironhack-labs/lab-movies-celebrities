@@ -4,7 +4,7 @@
 <h5>{{genre}}</h5>
 <p>{{plot}}</p>
 
-
+<h6>Cast:</h6>
     {{#each cast}}
     <ul>
     <li>{{this.name}}</li>
@@ -12,3 +12,13 @@
     <li>{{this.catchPhrase}}</li>
     </ul>
     {{/each}}
+<form action="/movies/{{this._id}}/delete" method="POST">
+    
+    <button type="submit">Delete</button>
+
+      {{#if errMsg}}
+  <h2>{{errMsg}}</h2>
+    {{/if}}
+
+
+</form>
