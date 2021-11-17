@@ -44,4 +44,17 @@ router.post("/movies/create", async (req, res) => {
 });
 
 
+//GET movies by its ID
+
+router.get("/movies/:id", async (req, res) => {
+    try{
+    const movie = await Movie.findById(req.params.id).populate('cast')
+    const cast = movie.cast
+    res.render("./movies/movieDetails", movie);
+    //console.log(user)
+    }catch (err) {
+        console.log(err)
+    }    
+  });
+
 module.exports = router;
