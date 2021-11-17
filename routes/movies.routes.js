@@ -34,6 +34,17 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// POST edit one movie
+router.get("/:id/edit", async (req, res) => {
+    try{
+        const selectedMovie = await Movie.findById(req.params.id);
+        const allCelebrities = await Celebrity.find();
+        res.render("movies/edit-movie.hbs", {selectedMovie, allCelebrities})
+    } catch(err){
+        console.log(err)
+    }
+});
+
 /* POST create celebrity page */
 router.post("/create", async (req, res, next) => {
     const {title, genre, plot, cast} = req.body
@@ -55,6 +66,19 @@ router.post("/:id/delete", async (req, res) => {
         res.render("not-found.hbs", { errorMsg: "Movie not deleted" });
     }
 });
+
+// POST edit one movie
+router.post("/:id", async (req, res) => {
+    console.log("edit")
+    const {title, genre, plot, cast} = req.body
+    try {
+        const editeddMovie = await Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, cast});
+        res.redirect(`/movies/${req.params.id}`)
+    } catch(err) {
+        res.render("not-found.hbs", { errorMsg: "Movie not deleted" });
+    }
+});
+
 
 
 module.exports = router;
