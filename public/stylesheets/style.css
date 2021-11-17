@@ -1,8 +1,43 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
-  color: #00b7ff;
+  color: #58b1cc;
+  margin-right: 30px;
+  font-size: 1.1rem;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+h2 {
+  margin-bottom: 50px;
+}
+p, li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+.movies-list, .celebrities-list {
+  border: 1px solid #a89090;
+  padding: 15px;
+  margin: 10px 0;
+}
+input {
+  padding: 8px;
+  border-radius: 10px;
+}
+select {
+  padding: 8px;
+  border-radius: 10px;
+}
+button {
+  padding: 8px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+button:hover {
+  background-color: #58b1cc;
+  color: white;
 }

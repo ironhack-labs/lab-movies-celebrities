@@ -1,15 +1,9 @@
 <h2>See all movies</h2>
 
 {{#each moviesList}}
-  <div style="border: 1px solid black; padding: 20px">
+  <div class="movies-list">
 
     <h3>{{this.title}}</h3>
-    <p>{{this.genre}}</p>
-    <p>{{this.plot}}</p>
-    <ul>
-    {{#each cast}}
-         <li>{{this.name}}</li>
-    {{/each}}
-    </ul>
+    <a href="/movies/{{this._id}}">See Details</a>
   </div>
 {{/each}}
