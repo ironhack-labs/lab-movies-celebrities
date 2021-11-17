@@ -21,4 +21,15 @@ router.post("/celebrities/create", async (req, res, next) => {
       }
 });
 
+
+router.get("/celebrities",async (req,res,next) =>{
+    try {
+        const celebrities = await Celebrity.find({});
+        res.render("celebrities/celebrities", { celebrities });
+      } catch (err) {
+        console.log("err", err);
+      }
+
+});
+
 module.exports = router;
