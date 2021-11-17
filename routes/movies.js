@@ -24,7 +24,7 @@ router.get("/movies/create", async (req, res) => {
     }
 })
 
-//POST route (when the form is filled )
+//POST create route (when the form is filled)
 router.post("/movies/create", async (req, res) => {
     const {title, genre, plot, cast} = req.body
     
@@ -44,14 +44,13 @@ router.post("/movies/create", async (req, res) => {
 router.get("/movies/:id", async (req, res) => {
     try{
     const movie = await Movie.findById(req.params.id).populate('cast')
-    res.render("./movies/movieDetails", movie);
+    res.render("./movies/movieDetails", movie)
     }catch (err) {
         console.log(err)
     }    
 })
 
 //POST movies for deleting by its ID
-
 router.post("/movies/:id/delete", async (req, res)=>{
     try{
         const deletedMovie = await Movie.findByIdAndDelete(req.params.id)
@@ -60,6 +59,28 @@ router.post("/movies/:id/delete", async (req, res)=>{
       console.log(err)
     } 
   })
-  
+
+//GET movies for editing
+router.get("/movies/:id/edit", async (req, res) => {
+    try{
+    const updatedMovie = await Movie.findById(req.params.id).populate("cast")
+    const castCelebrity = await Celebrity.find({})
+    res.render("./movies/editMovie", {movie: updatedMovie, castCelebrity: castCelebrity})
+    }catch (err) {
+        console.log(err)
+    }    
+})
+
+//POST movies for editing
+router.post("/movies/:id", async (req, res)=>{
+    try{
+        const updatedMovie = await Movie.findByIdAndUpdate(req.params.id, req.body)
+        console.log(updatedMovie)
+        res.redirect(`/movies/${updatedMovie.id}`)
+    }catch(err){
+      console.log(err)
+    } 
+  })
+
 
 module.exports = router;

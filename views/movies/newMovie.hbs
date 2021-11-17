@@ -2,7 +2,7 @@
 
 <form action="/movies/create" method="POST">
     <label>Title:</label>
-    <input type="text" name="title" />
+    <input type="text" name="title">
 
     <label>Genre:</label>
     <input type="text" name="genre" />
@@ -17,7 +17,7 @@
             {{/each}}
         </select>
 
-    <button type="submit">Create Celebrity</button>
+    <button type="submit">Delete Celebrity</button>
 
       {{#if errMsg}}
   <h2>{{errMsg}}</h2>

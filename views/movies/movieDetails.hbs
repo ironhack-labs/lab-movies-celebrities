@@ -13,12 +13,16 @@
     </ul>
     {{/each}}
 <form action="/movies/{{this._id}}/delete" method="POST">
-    
     <button type="submit">Delete</button>
-
-      {{#if errMsg}}
-  <h2>{{errMsg}}</h2>
-    {{/if}}
-
-
 </form>
+
+<form action="/movies/{{this._id}}/edit" method="GET">
+    
+    <button type="submit">Update</button>
+    
+</form>
+
+ {{#if errMsg}}
+    <h2>{{errMsg}}</h2>
+ {{/if}}
+
