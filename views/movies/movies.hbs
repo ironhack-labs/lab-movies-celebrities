@@ -6,12 +6,11 @@
 <p>{{this.title}}</p>
 <p>{{this.genre}}</p>
 <p>{{this.plot}}</p>
+{{/each}}
 
-<select name="{{this.cast}}" id="cast" multiple>
-  <option value="{{this.celebrities}}">{{this.name}}</option>
-  <option value="{{this.name}}">{{this.name}}</option>
-  <option value="{{this.name}}">{{this.name}}</option>
-  <option value="{{this.name}}">{{this.name}}</option>
+{{#each celebsList}}
+<select name="cast" id="cast" multiple>
+<option value="{{this.name}}">{{this.name}}</option>
 </select>
 
 {{/each}}
