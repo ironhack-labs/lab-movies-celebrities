@@ -41,11 +41,12 @@ router.post("/movies/create", (req, res) => {
         })
 })
 
-router.get("/:movieId", (req, res, next) => {
-    Movie.findById(req.params.movieId)
+router.get("/movies/:movieId", (req, res, next) => {
+    const movieId = req.params.movieId
+    Movie.findById(movieId)
     .populate("cast") 
     .then((foundMovie) => {
-      res.render("movies/movies-details", { foundMovie });
+      res.render("movies/movie-details", { foundMovie });
     })
     .catch((err)=> {
         console.log(err);
