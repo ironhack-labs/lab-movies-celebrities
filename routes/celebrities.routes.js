@@ -5,16 +5,21 @@ const Celebrity = require('../models/Celebrity.model.js')
 
 // all your routes here
 
-router.get("/", (req, res) => {
-    res.render("../views/celebrities/celebrities.hbs");
-  });
 
-//intento de iteraction 4 -------------------------------------------------------------------
-//   router.get("/", async (req, res) => {
-//     const celebrity = await Celebrity.findById(req.params.id).populate('name')
-//     const {name} = celebrity
-//     res.render("../views/celebrities/celebrities.hbs", {name});
-//   });
+//Ruta base a Celebrities
+// router.get("/", (req, res) => {
+//     res.render("../views/celebrities/celebrities.hbs");
+// });
+
+//Ruta a Celebrities para iteraction 4 -
+router.get("/", async (req,res) =>{
+  try {
+      const celebrities = await Celebrity.find({});
+    res.render("../views/celebrities/celebrities.hbs", {celebrities});
+  } catch (err) {
+    console.log("err", err);
+  }
+});
 
 
 
