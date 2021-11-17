@@ -11,7 +11,14 @@ router.get('/create', async (req, res)=>{
         console.log(chalk.bgRed(err))
     }
 })
-
+router.get('/', async (req, res)=>{
+    try{
+        const movies = await Movie.find()
+        res.render('movies/movies', {movies})
+    } catch(err){
+        console.log(chalk.bgRed(err))
+    }
+})
 router.post('/create', async (req, res)=>{
     try{
         const {title, genre, plot, cast} = req.body
