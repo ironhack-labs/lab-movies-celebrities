@@ -3,7 +3,17 @@ const Celebrity = require('../models/Celebrity.model')
 const Movie = require('../models/Movie.model')
 // all your routes here
 
-//GET route
+//GET routes
+router.get("/movies", async (req, res) => {
+    try{
+        const allMovies = await Movie.find({})
+        res.render("movies/movies", {allMovies});
+        console.log(allMovies)
+    }catch (err){
+        console.log(err)
+    }
+});
+
 router.get("/movies/create", async (req, res) => {
     try {
         const allCelebrities = await Celebrity.find({})
@@ -21,9 +31,10 @@ router.post("/movies/create", async (req, res) => {
     
     try {
         const createdMovie = await Movie.create({title, genre, plot, cast})
-        console.log(createdMovie)
+        const allMovies = await Movie.find({})
+        //console.log(createdMovie)
         if(createdMovie) {
-            res.render("./movies/movies");
+            res.render("./movies/movies", {allMovies});
         }else {
             res.render("./movies/newMovie", {errMsg: "There is an error creating a new Movie. Please try again"})
         }
