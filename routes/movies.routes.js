@@ -21,4 +21,14 @@ router.post("/movies/create", async (req, res, next) => {
   }
 });
 
+router.get("/movies",async (req,res,next) =>{
+  try {
+      const movies = await Movie.find({});
+      res.render("movies/movies", { movies });
+    } catch (err) {
+      console.log("err", err);
+    }
+
+});
+
 module.exports = router;
