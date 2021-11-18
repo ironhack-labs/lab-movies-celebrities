@@ -3,7 +3,6 @@ const router = require("express").Router();
 //Models
 const Celebrity = require('../models/Celebrity.model.js')
 
-// all your routes here
 
 
 //Ruta base a Celebrities
@@ -32,10 +31,10 @@ router.get("/create", (req, res) => {
 router.post("/create", async (req, res)=>{
 const {name, occupation, catchPhrase} = req.body;
 try{
-    const createdCelebrity = await Celebrity.create({name, occupation, catchPhrase})
-    res.render("./celebrities/celebrities.hbs", {justCreatedCelebrity: createdCelebrity.name})
+    await Celebrity.create(req.body)
+    res.redirect("./")
     }catch(err){
-    res.render("./celebrities/new-celebrity", { errorCreation: err})
+    res.render("./create", { errorCreation: err})
     }
 
 })
