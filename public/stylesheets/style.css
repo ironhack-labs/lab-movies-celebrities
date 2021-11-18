@@ -6,3 +6,28 @@ body {
 a {
   color: #00b7ff;
 }
+
+.submit-btn{
+  padding: 10px;
+  border-style: none;
+  border-radius: 15px;
+  background-color: darkblue;
+  color: white;
+  transition: 0.3s all ease;
+}
+
+.submit-btn:hover{
+  background-color: rgb(45, 45, 136);
+  border-radius: 30px;
+}
+
+a {
+  color: white;
+  transition: 0.3s all ease;
+}
+
+a:hover{
+  color:#FF5151 ;
+  text-decoration:none;
+ 
+}
