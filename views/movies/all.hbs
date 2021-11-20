@@ -1,0 +1,9 @@
+{{!-- views/movies/all.hbs --}}
+<h2>List of the Movies</h2>
+<a href="/">Go back Home</a>
+
+<ul>
+  {{#each movies}}
+    <li>{{title}},  genre: {{genre}}, plot: {{plot}}</li>
+  {{/each}}
+</ul>

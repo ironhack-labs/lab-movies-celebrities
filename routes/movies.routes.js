@@ -4,6 +4,20 @@ const router = express.Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model") // to get all the celebrities
 
+
+// GET - List of all celebrities
+router.get('/movies', async (req, res, next) => {
+  try {
+    const moviesData = await Movie.find();
+    //console.log(moviesData); // array, and handlebars need an object --> { moviesData }
+    res.render('movies/all', { movies: moviesData });
+  } catch(error) {
+    console.error('Error while creating the celebrity', error);
+    next(error)
+  }
+})
+
+
 // GET - Create a Movie
 router.get('/movies/create', async(req, res, next) => {
   try {
