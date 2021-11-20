@@ -37,7 +37,7 @@ router.post('/movies/create', async(req, res, next) => {
   try {
     //res.send(req.body);
     const {title, genre, plot, cast} = req.body;
-    const newMovie = Movie.create({title, genre, plot, cast});
+    const newMovie = await Movie.create({title, genre, plot, cast});
     res.redirect('/movies')
     
   } catch(error) {
@@ -46,5 +46,21 @@ router.post('/movies/create', async(req, res, next) => {
     next(error)
   }
 })
+
+// GET - Show details
+router.get('/movies/:movieId', async(req, res, next) => {
+  try {
+    const { movieId } = req.params;
+    const movie = await Movie.findById(movieId).populate('cast');
+    //console.log(movie);
+    res.render("movies/movie-details",  movie );
+  } catch(error) {
+    console.error('Error while sending movie to DB', error);
+    res.render('movies/all');
+    next(error)
+  }
+  
+})
+
 
 module.exports = router;

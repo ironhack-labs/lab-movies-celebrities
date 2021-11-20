@@ -4,6 +4,8 @@
 
 <ul>
   {{#each movies}}
-    <li>{{title}},  genre: {{genre}}, plot: {{plot}}</li>
+    <li>{{title}} 
+      <a href="/movies/{{_id}}">Read more</a>
+    </li>
   {{/each}}
 </ul>
