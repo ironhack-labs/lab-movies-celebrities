@@ -1,0 +1,17 @@
+<h2>Edit Movies</h2>
+
+<form action="/movies/{{movie._id}}/edit" method="POST">
+  <input type="text" name="title" placeholder="Title of the movie" value="{{movie.title}}" required>
+  <input type="text" name="genre"  placeholder="Genre" value="{{movie.genre}}">
+  <input type="text" name="plot" placeholder="Plot" value="{{movie.plot}}">
+  <select name="cast" id="" value="{{movie.cast.[0].name}}">
+    {{!-- <option disable selected value="{{actors.1._id}}"></option>  without selected any option /first option empty --}}
+    {{#each actors}}  {{!--All the celebrities from the Model "Celebrity" and collection: celebrities --}}
+     
+      {{!-- si tiene selected, pinto una option con selected!!! --}}
+      <option value="{{this._id}}">{{this.name}}</option>{{!--From the collection--> celebrities --}}
+    {{/each}}
+  </select>
+  
+  <button type="submit">Edit</button>
+</form>

@@ -76,6 +76,39 @@ router.post('/movies/:id/delete', async(req, res, next) => {
   }
 });
 
+// Show the form to Edit a Movie
+router.get('/movies/:id/edit', async (req, res, next) => {
+  // Iteration #4: Update the drone
+  try {
+    const {id} = req.params;
+    //res.send(id)
+    const movie = await Movie.findById(id).populate('cast');
+    const actors = await Celebrity.find();
+    res.render('movies/edit-movie', {movie, actors: actors});
 
+  } catch (error) {
+    console.log('Error while getting the movies from the DB: ', error);
+    // Call the error-middleware to display the error page to the user
+    next(error);
+  }
+});
+
+// Post - fill out the form with the information
+router.post('/movies/:id/edit', async (req, res, next) => {
+  
+  const { id } = req.params;
+  const { title, genre, plot, cast } = req.body;
+
+  console.log(title, genre, plot, cast);
+  //res.send(req.body)
+  const updateMovie = await Movie.findByIdAndUpdate(
+    id,
+    { title, genre, plot, cast },
+    { new: true }
+  );
+  console.log("updated", updateMovie);
+  res.redirect(`/movies/${id}`);
+  
+});
 
 module.exports = router;
