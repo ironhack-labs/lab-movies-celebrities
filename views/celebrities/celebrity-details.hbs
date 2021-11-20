@@ -1,0 +1,13 @@
+{{!-- celebrities/celebrity-details.hbs --}}
+<a href="/">Go back Home</a>
+<h2>Details for the Celebrity</h2>
+
+<div>
+    <h4>Name: {{name}}</h4>
+    <h4>Occupation: {{occupation}}</h4>
+    <h4>Catch Phrase: {{catchPhrase}}</h4>
+</div>
+
+<form action="/celebrities/{{_id}}/delete" method="POST">
+  <button type="submit">Delete</button>
+</form>

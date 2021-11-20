@@ -95,20 +95,25 @@ router.get('/movies/:id/edit', async (req, res, next) => {
 
 // Post - fill out the form with the information
 router.post('/movies/:id/edit', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { title, genre, plot, cast } = req.body;
   
-  const { id } = req.params;
-  const { title, genre, plot, cast } = req.body;
+    console.log(title, genre, plot, cast);
+    //res.send(req.body)
+    const updateMovie = await Movie.findByIdAndUpdate(
+      id,
+      { title, genre, plot, cast },
+      { new: true }
+    );
+    console.log("updated", updateMovie);
+    res.redirect(`/movies/${id}`);
 
-  console.log(title, genre, plot, cast);
-  //res.send(req.body)
-  const updateMovie = await Movie.findByIdAndUpdate(
-    id,
-    { title, genre, plot, cast },
-    { new: true }
-  );
-  console.log("updated", updateMovie);
-  res.redirect(`/movies/${id}`);
-  
+  } catch (error) {
+    console.log('Error while getting the movies from the DB: ', error);
+    // Call the error-middleware to display the error page to the user
+    next(error);
+  }
 });
 
 module.exports = router;
