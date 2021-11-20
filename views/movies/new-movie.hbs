@@ -1,0 +1,13 @@
+<h1>add a new Movie to the Database</h1>
+
+<form action="/movies/create" method="post">
+  <input type="text" name="title" />
+  <input type="text" name="genre" />
+  <input type="text" name="plot" />
+  {{#each allCelebs}}
+    <label for="{{name}}">{{name}}</label>
+    <input type="checkbox" name="cast" value="{{_id}}" id="{{name}}" />
+    <br />
+  {{/each}}
+  <button type="submit">Add Movie</button>
+</form>
