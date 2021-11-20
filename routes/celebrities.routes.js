@@ -8,8 +8,9 @@ const router = require("express").Router();
 //insert handles here
 
 //route to celebrities.hbs
-router.get("/", (req, res, next) => {
-  res.render("celebrities/celebrities", {});
+router.get("/", async (req, res, next) => {
+  const allCelebs = await Celebrity.find();
+  res.render("celebrities/celebrities", { allCelebs });
 });
 
 //route to new-celebrities.hbs
