@@ -17,7 +17,6 @@ router.get('/movies', async (req, res, next) => {
   }
 })
 
-
 // GET - Create a Movie
 router.get('/movies/create', async(req, res, next) => {
   try {
@@ -59,8 +58,24 @@ router.get('/movies/:movieId', async(req, res, next) => {
     res.render('movies/all');
     next(error)
   }
-  
 })
+
+
+// POST - Delete
+router.post('/movies/:id/delete', async(req, res, next) => {
+  try {
+    const { id } = req.params;
+    //res.send(id);
+    const movieDelele = await Movie.findByIdAndRemove(id);
+    res.redirect('/movies')
+  }
+  catch(error) {
+  console.error('Error deleting sending movie to DB', error);
+  res.render('/');
+  next(error)
+  }
+});
+
 
 
 module.exports = router;
