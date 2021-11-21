@@ -1,0 +1,14 @@
+<h2>This is the movies page</h2>
+
+{{#each foundedMovie}}
+
+  <div style="border: 1px solid black; padding: 20px">
+    <p>Title: {{this.title}}</p>
+    <p>Genre: {{this.genre}}</p>
+    <p>Plot: {{this.plot}}</p>
+    {{#each this.cast}}
+      <p>Cast: {{this.name}}</p>
+    {{/each}}
+  </div>
+
+{{/each}}
