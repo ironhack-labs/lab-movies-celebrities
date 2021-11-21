@@ -2,22 +2,23 @@
 <p>Genre: {{movieDetails.genre}}</p>
 <p>Plot: <em>"{{movieDetails.plot}}"</em></p>
 
-cast: 
+cast:
 <ul>
   {{#each movieDetails.cast}}
-   <li>
-   {{name}}
-   <p>
-   Occupation: {{occupation}} |
+    <li>
+      {{name}}
+      <p>
+        Occupation:
+        {{occupation}}
+        | Catch Phrase:
 
-       Catch Phrase: 
-       
- 
+        {{catchPhrase}}
 
-   {{catchPhrase}}
+      </p>
+    </li>
 
-   </p>
-  </li>
-      
-{{/each}}
-  </ul> 
+  {{/each}}
+</ul>
+
+<form action="/movies/{{movieDetails.id}}/delete" method="post">
+<button type="submit">Delete</button></form>
