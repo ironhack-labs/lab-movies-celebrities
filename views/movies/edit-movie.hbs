@@ -1,0 +1,28 @@
+<h1>Edit the Movie</h1>
+{{movieData.title}}
+
+<form action="/movies/{{movieData.id}}/edit" method="post">
+  <label for="title">title</label>
+  <input type="text" name="title" value="{{movieData.title}}" />
+  <label for="genre">genre</label>
+  <input type="text" name="genre" value="{{movieData.genre}}" />
+  <label for="plot">plot</label>
+  <input type="text" name="plot" value="{{movieData.plot}}" />
+
+
+{{!-- iterates through castArr to check if Cast Member is in Movie to add attribute checked to input tag --}}
+{{#each castArr}}
+<label for="cast">{{name}}</label>
+    <input type="checkbox" name="cast" value="{{_id}}" id="cast" {{#if isInMovie}}checked{{/if}} />
+    <br />
+  
+
+{{/each}}
+
+
+    <label for="cast"></label>
+    <input type="checkbox" name="cast" value="{{_id}}" id="cast" />
+    <br />
+  
+  <button type="submit">Update Movie</button>
+</form>
