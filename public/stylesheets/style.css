@@ -1,8 +1,58 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.btn {
+  color: #00b7ff;
+  margin-bottom: 30px;
+  display: block;
+  padding: 5px 10px;
+  border: solid 1px #ccc;
+  margin-top: 20px;
+}
+
+.celebrities-list,
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.celebrity,
+.movie {
+  width: 300px;
+  border: solid 1px #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.cast {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.genre {
+  color: grey;
+}
+
+form {
+  width: 400px;
+}
+form label {
+  width: 150px;
+}
+
+.options {
+  display: flex;
+  margin-top: 30px;
+}
+.options a {
+  margin-right: 30px;
 }
