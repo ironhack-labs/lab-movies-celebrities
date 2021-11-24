@@ -1,5 +1,6 @@
 {{!-- views/movie-details.hbs --}}
 <a href="/">Go back Home</a>
+
 <h2>Details for the Movie</h2>
 
 <div>
@@ -14,6 +15,7 @@
       {{/each}}
     </ul>
 </div>
+<a href="/movies/{{_id}}/edit">Edit</a>
 
 <form action="/movies/{{_id}}/delete" method="POST">
   <button type="submit">Delete</button>

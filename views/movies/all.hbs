@@ -1,10 +1,12 @@
 {{!-- views/movies/all.hbs --}}
-<h2>List of the Movies</h2>
 <a href="/">Go back Home</a>
+<h2>List of the Movies</h2>
 
 <ul>
   {{#each movies}}
     <li>{{title}}</li>
+    <p>Genre: {{genre}}</p>
+    <p>Plot:{{plot}}</p>
       <a href="/movies/{{_id}}">Read more</a>
       <a href="/movies/{{_id}}/edit">Edit</a>
   {{/each}}

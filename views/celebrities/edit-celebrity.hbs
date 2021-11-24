@@ -1,9 +1,13 @@
+<a href="/">Go back Home</a>
 <h2>Edit Celebrity</h2>
 
+
 <form action="/celebrities/{{_id}}/edit" method="POST">
-  <input type="text" name="name" placeholder="Name" value="{{name}}" required>
-  <input type="text" name="occupation"  placeholder="Occupation" value="{{occupation}}">
-  <input type="text" name="catchPhrase" placeholder="Catch phrase" value="{{catchPhrase}}">
-  
-  <button type="submit">Edit</button>
+  <label for='name'>Name:</label>
+  <input type="text" id="name" name="name" placeholder="Name" value="{{name}}" required>
+  <label for='occupation'>Occupation:</label>
+  <input type="text" id="occupation" name="occupation"  placeholder="Occupation" value="{{occupation}}">
+  <label for='catchPhrase'>Catch phrase:</label>
+  <input type="text" id="catchPhrase" name="catchPhrase" placeholder="Catch phrase" value="{{catchPhrase}}">
+  <button type="submit">Submit</button>
 </form>

@@ -1,13 +1,19 @@
+<a href="/">Go back Home</a>
+
 <h2>Create a Movie</h2>
 
 <form action="/movies/create" method="POST">
-  <input type="text" name="title" placeholder="Title of the movie" required>
-  <input type="text" name="genre"  placeholder="Genre">
-  <input type="text" name="plot" placeholder="Plot">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" placeholder="Title of the movie" required>
+  <label for="genre">Genre:</label>
+  <input type="text" id="genre" name="genre"  placeholder="Genre">
+  <label for="plot">Plot:</label>
+  <input type="text" id="plot" name="plot" placeholder="Plot">
+  <label for='cast'>Celebrities:</label>
   {{!-- <input type="text" name="cast"> --}}
-  <select name="cast" id="">
-    <option disable selected value=""></option>  {{!-- without selected any option /first option empty --}}
-    {{#each celebritiesArr}}  {{!--All the celebrities from the Model "Celebrity" and collection: celebrities --}}
+  <select name="cast" id="cast" multiple>
+    <option selected value=""></option>  without selected any option /first option empty
+    {{#each celebrities}}  {{!--All the celebrities from the Model "Celebrity" and collection: celebrities --}}
       <option value="{{this._id}}">{{this.name}}</option>{{!--From the collection--> celebrities --}}
     {{/each}}
   </select>
@@ -24,3 +30,4 @@
   plot: String,
   
   cast: [ {type: Schema.Types.ObjectId, ref: "Celebrity"}], --}}
+

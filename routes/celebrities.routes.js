@@ -1,25 +1,12 @@
 // > routes/celebrities.routes.js
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
+const router = require('express').Router();
 
 // require Model
 const Celebrity = require('../models/Celebrity.model');
 
-
-// GET - List of all celebrities
-router.get('/celebrities', async(req, res, next) => {
-  try {
-    const celebritiesData = await Celebrity.find();
-    console.log(celebritiesData)
-    // we have to send the object, and I put a key: { celebrities: arrayfromDB }
-    res.render('celebrities/all', {celebrities: celebritiesData})
-  } catch(error) {
-    console.error('Error while creating the celebrity', error);
-    next(error)
-  }
-})
-
-// GET - CREATE a Celebrity
+// GET - CREATE - Show form
 router.get('/celebrities/create', async(req, res, next) => {
   try {
     res.render('celebrities/new-celebrity');
@@ -30,7 +17,7 @@ router.get('/celebrities/create', async(req, res, next) => {
   }
 })
 
-// POST - CREATE a celebrity
+// POST - CREATE - create( req.body )
 // localhost:3000/celebrities/create
 router.post('/celebrities/create', async(req, res, next) => {
   try {
@@ -45,29 +32,13 @@ router.post('/celebrities/create', async(req, res, next) => {
   }
 });
 
-
-// GET - Show details
-router.get('/celebrities/:id', async(req, res, next) => {
-  try {
-    const { id } = req.params;
-    const celebrity = await Celebrity.findById(id);
-    //console.log(movie);
-    res.render("celebrities/celebrity-details",  celebrity );
-  } catch(error) {
-    console.error('Error while showing celebrity', error);
-    res.render('celebrities/all');
-    next(error)
-  }
-})
-
-
-// POST - Delete
+// POST - DELETE - findByIdAndRemove(id)
 router.post('/celebrities/:id/delete', async(req, res, next) => {
   try {
     const { id } = req.params;
     //res.send(id);
-    const celebrityDelele = await Celebrity.findByIdAndRemove(id);
-    res.redirect('/celebrities')
+    await Celebrity.findByIdAndRemove(id);
+    res.redirect('/celebrities');
   }
   catch(error) {
   console.error('Error deleting sending movie to DB', error);
@@ -76,11 +47,12 @@ router.post('/celebrities/:id/delete', async(req, res, next) => {
   }
 });
 
+// CRUD - UPDATE - findById(id)
 // Show the form to Edit a Movie
 router.get('/celebrities/:id/edit', async (req, res, next) => {
   // Iteration #4: Update the drone
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     //res.send(id)
     const celebrity = await Celebrity.findById(id);
     res.render('celebrities/edit-celebrity', celebrity );
@@ -92,6 +64,7 @@ router.get('/celebrities/:id/edit', async (req, res, next) => {
   }
 });
 
+// CRUD - UPDATE - findByIdAndUpdate(id, req.body, { new: true })
 // Post - fill out the form with the information
 router.post('/celebrities/:id/edit', async (req, res, next) => {
   
@@ -109,6 +82,35 @@ router.post('/celebrities/:id/edit', async (req, res, next) => {
   res.redirect(`/celebrities/${id}`);
   
 });
+
+// CRUD - READ - findById(id)
+// GET - Show details
+router.get('/celebrities/:id', async(req, res, next) => {
+  try {
+    const { id } = req.params;
+    const celebrity = await Celebrity.findById(id);
+    //console.log(movie);
+    res.render("celebrities/celebrity-details",  celebrity );
+  } catch(error) {
+    console.error('Error while showing celebrity', error);
+    res.render('celebrities/all');
+    next(error)
+  }
+})
+
+// CRUD - READ - find()
+// GET - List of all celebrities
+router.get('/celebrities', async(req, res, next) => {
+  try {
+    const celebrities = await Celebrity.find();// Array
+    //console.log(celebritiesData)
+    // we have to send the object, and I put a key: { celebrities: arrayfromDB }
+    res.render('celebrities/all', { celebrities })
+  } catch(error) {
+    console.error('Error while creating the celebrity', error);
+    next(error)
+  }
+})
 
 
 
