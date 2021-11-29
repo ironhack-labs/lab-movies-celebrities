@@ -37,4 +37,13 @@ router.post("/create", async (req, res, next) => {
     }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+      const selectedMovie = await Movie.findById(req.params.id).populate('cast');
+      res.render("movies/movie-details.hbs", selectedMovie);
+  } catch(err) {
+      res.render("not-found.hbs", { errorMsg: "Movie not found" });
+  }
+});
+
 module.exports = router;
