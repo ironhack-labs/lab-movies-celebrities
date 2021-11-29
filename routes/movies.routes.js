@@ -46,4 +46,14 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.post("/:id/delete", async (req, res) => {
+  try {
+      const deletedMovie = await Movie.findByIdAndRemove(req.params.id);
+      res.redirect("/movies")
+  } catch(err) {
+      res.render("not-found.hbs", { errorMsg: "Movie not deleted" });
+  }
+});
+
+
 module.exports = router;
