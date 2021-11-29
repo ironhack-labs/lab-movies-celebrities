@@ -9,16 +9,22 @@ const Movie = require("../models/Movie.model")
 
 router.get("/create", async (req, res, next) => {
     try {
-        const Celebrities = await Celebrity.find();
-        res.render("movies/new-movie.hbs", {Celebrities});
+        const allCelebrities = await Celebrity.find();
+        res.render("movies/new-movie.hbs", {allCelebrities});
     } catch(err){
         console.log(err)
     }
 });
 
 router.get("/", async (req, res, next) => {
-   res.render("movies/movies.hbs")
-});
+    try{
+      const allMovies = await Movie.find();
+      res.render("movies/movies.hbs", {allMovies})
+  } catch(err){
+      console.log(err)
+  }
+  });
+
 
 router.post("/create", async (req, res, next) => {
     const {title, genre, plot, cast} = req.body
