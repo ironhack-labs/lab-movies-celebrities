@@ -7,26 +7,32 @@ const Celebrity = require("../models/Celebrity.model.js")
 
 // all your routes here
 
-router.get("/celebrities", (req, res, next) => {
-  res.render("celebrities/celebrities");
-  });
 
-router.get("/celebrities/create", (req, res, next) => {
+router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrity");
   });
 
-router.post("/celebrities/create", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
+    try{
+      const celebrities = await Celebrity.find();
+      res.render("./celebrities/celebrities", { celebrities });
+    } catch (err) {
+      res.render("../movies/not-found", {error:err.message});
+      }
+    });
+
+router.post("/create", async (req, res, next) => {
   const {name, occupation, catchPhrase} = req.body; 
   try{
     const createdCelebrity = await Celebrity.create({name, occupation, catchPhrase})
-    res.render("./celebrities/celebrities",{justCreatedCelebrity:createdCelebrity.name})
-    // console.log (createdCelebrity)
+    res.redirect("/celebrities")
+    console.log (createdCelebrity)
 
   } catch(err){
-    res.render("./celebrities/new-celebrity", {error:err.message});
+    res.render("./movies/not-found", {error:err.message});
     }
   });
   
-  
+
 module.exports = router;
 
