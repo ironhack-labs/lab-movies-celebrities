@@ -66,7 +66,11 @@ router.post('/login', async (req, res, next) => {
       //******* SAVE THE USER IN THE SESSION ********//
       // when we introduce session, the following line gets replaced with what follows:
       //   res.render('auth/private', { user });
-      req.session.currentUser = user;
+
+      // we don't save the password in the session
+      const { password, ...currentUser } = user;
+      req.session.currentUser = currentUser;
+      // req.session.currentUser = user;
       res.redirect('/private');
     } else {
       res.redirect('/login?err=Incorrect password.');

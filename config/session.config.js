@@ -16,12 +16,17 @@ module.exports = (app) => {
   // use session
   app.use(
     session({
+      // the cookie is hashed with the SESS_SECRET
       secret: process.env.SESS_SECRET,
+      // resave in Mongo if anything changes in MongoDB
       resave: true,
       saveUninitialized: false,
       cookie: {
+        // restriction on the cookie where it can come from
         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+        // is the request coming from https?
         secure: process.env.NODE_ENV === 'production',
+        // client cannot access the cookie with JavaScript
         httpOnly: true,
         maxAge: 60000, // 60 * 1000 ms === 1 min
       },
