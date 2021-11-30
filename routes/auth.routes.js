@@ -27,7 +27,11 @@ router.post('/signup', async (req, res, next) => {
     const saltRounds = 10;
     const salt = await bcryptjs.genSalt(saltRounds);
     const hashedPassword = await bcryptjs.hash(password, salt);
-    const newUser = await User.create({ username, password: hashedPassword });
+    const { password: unusedvar, ...newUser } = await User.create({
+      username,
+      password: hashedPassword,
+    });
+    req.session.currentUser = newUser;
     res.redirect('/private');
     console.log(newUser);
   } catch (err) {
