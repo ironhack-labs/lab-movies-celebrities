@@ -1,0 +1,10 @@
+<h2>All celebrities</h2>
+<ul>
+    {{#each celebrities}}
+    <li>{{this.name}}</li>
+    {{/each}}
+</ul>
+
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}
