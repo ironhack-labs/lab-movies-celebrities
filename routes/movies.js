@@ -5,8 +5,7 @@ const Movie = require("../models/Movie.model");
 // all your routes here
 
 router.get("/", (req, res, next) => {
-    Movie.find({})
-        .populate('cast', 'name')
+    Movie.find()
         .then(movies => {
             console.log(movies)
             res.render('movies/movies', { movies });
@@ -44,5 +43,32 @@ router.post('/create', (req, res, next) => {
         res.render("error");
     });
 });
+
+
+router.get('/:id', (req, res, next) => {
+    const { id } = req.params;
+    Movie.findById(id)
+        .populate('cast')
+        .then(movie => {
+            console.log("movie", movie)
+            res.render('movies/movie-details', movie);
+        }).catch(error => {
+            console.log("Error", error);
+            res.render("error");
+        });
+
+});
+
+router.post('/:id/delete', (req, res, next) => {
+    const { id } = req.params;
+    Movie.findByIdAndRemove(id)
+        .then(() => {
+            res.redirect("movies");
+        }).catch(error => {
+            console.log("Error", error);
+            res.render("error");
+        });
+});
+
 
 module.exports = router;

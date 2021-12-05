@@ -1,0 +1,47 @@
+<h2>{{this.title}}</h2>
+
+<br>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">genre</th>
+        <th scope="col">plot</th>
+        <th scope="col">Cast</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+            {{this.title}}
+      </td>
+      <td>
+            {{this.genre}}
+      </td>
+      <td>
+            {{this.plot}}
+      </td>
+      <td>
+          <ul class="list-group">
+            {{#each cast}} 
+                <li class="list-group-item">Name: {{name}}</li> 
+                <li class="list-group-item">Occupation: {{occupation}}</li>
+                <li class="list-group-item">Catch phrase: {{catchPhrase}}</li>
+                <br>
+            {{/each}}
+        </ul>
+      </td>
+      <td>
+        <a type="button" class="btn btn-outline-primary" href="/drones/{{_id}}/edit">Edit movie</a>
+      </td>
+      <td>
+          <form action="/movies/{{this._id}}/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger"  >delete movie </button>
+          </form>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<a type="button" class="btn btn-outline-success" href="/drones/create">Add Movie</a>
