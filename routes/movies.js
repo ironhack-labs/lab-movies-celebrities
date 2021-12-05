@@ -3,6 +3,19 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 // all your routes here
+
+router.get("/", (req, res, next) => {
+    Movie.find({})
+        .populate('cast', 'name')
+        .then(movies => {
+            console.log(movies)
+            res.render('movies/movies', { movies });
+        }).catch(error => {
+            console.log("Error", error);
+            res.render("error");
+        });
+})
+
 router.get('/create', (req, res, next) => {
     Celebrity.find()
         .then(celebrities => {

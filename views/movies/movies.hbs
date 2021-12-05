@@ -1,0 +1,46 @@
+<h2>Movies</h2>
+<br>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col">genre</th>
+      <th scope="col">plot</th>
+      <th scope="col">Cast</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {{#each movies}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{title}}</td>
+      <td>{{genre}}</td>
+      <td>{{plot}}</td>
+      <td>
+        <select 
+                class="form-select" 
+                name="cast"
+                id= 'cast'
+                multiple aria-label="multiple select example" >
+                {{#each cast}}
+                    <option>{{name}}</option>
+                {{/each}}
+            </select>
+      </td>
+      <td>
+        <a type="button" class="btn btn-outline-primary" href="/drones/{{_id}}/edit">Edit movie</a>
+      </td>
+      <td>
+          <form action="/drones/{{_id}}/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger"  >delete movie </button>
+          </form>
+      </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+
+<a type="button" class="btn btn-outline-success" href="/drones/create">Add Movie</a>
