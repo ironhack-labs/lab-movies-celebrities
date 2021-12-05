@@ -1,6 +1,6 @@
 //  Add your code here
 
-const { Schema, Modelo } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 
 const CelebritySchema = new Schema({
