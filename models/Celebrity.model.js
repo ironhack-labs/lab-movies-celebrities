@@ -8,6 +8,6 @@ const CelebritySchema = new Schema({
     occupation: String,
     catchPhrase: String
 
-});
+}, { timestamps: true });
 
 module.exports = model('Celebrity', CelebritySchema);
