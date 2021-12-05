@@ -1,0 +1,33 @@
+<h2>Celebrities</h2>
+<br>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Occupation</th>
+      <th scope="col">Catch phrase</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each celebrities}}
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{name}}</td>
+      <td>{{occupation}}</td>
+      <td>{{catchPhrase}}</td>
+      <td>
+        <a type="button" class="btn btn-outline-primary" href="/drones/{{_id}}/edit">Edit drone</a>
+      </td>
+      <td>
+          <form action="/drones/{{_id}}/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger"  >delete drone </button>
+          </form>
+      </td>
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+
+<a type="button" class="btn btn-outline-success" href="/drones/create">Add drone</a>
