@@ -1,0 +1,37 @@
+
+<div class="container">
+    <h2>Edit a movie</h2>
+    <br>
+    <div class="row">
+        <div class ="col-4">
+            <form method ="POST" action ="/movies/{{this.movie._id}}/edit">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{this.movie.title}}">
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{this.movie.genre}}">
+                </div>
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Plot</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{this.movie.plot}}">
+                </div>
+                <label  class="mb-3" for="cast">Selected Cast:</label>
+                <select 
+                    class="form-select" 
+                    name="cast"
+                    id= 'cast'
+                    multiple aria-label="multiple select example" >
+                    {{#each this.celebrities}}
+                        <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <br>
+                <a type="button" class="btn btn-outline-danger" href="/">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update movie</button>
+            </form>
+        </div>
+    </div>
+</div>
+

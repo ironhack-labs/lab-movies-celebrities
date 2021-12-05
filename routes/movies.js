@@ -37,7 +37,7 @@ router.post('/create', (req, res, next) => {
         cast
     }).then(movie => {
         console.log("movie created", movie);
-        res.render('movies/movies');
+        res.redirect('/movies');
     }).catch(error => {
         console.log("Error", error);
         res.render("error");
@@ -63,12 +63,51 @@ router.post('/:id/delete', (req, res, next) => {
     const { id } = req.params;
     Movie.findByIdAndRemove(id)
         .then(() => {
-            res.redirect("movies");
+            res.redirect('/movies');
         }).catch(error => {
             console.log("Error", error);
             res.render("error");
         });
 });
 
+
+router.get('/:id/edit', (req, res, next) => {
+    const { id } = req.params;
+    Movie.findById(id)
+        .then(movie => {
+            Celebrity.find().then(celebrities => {
+                //console.log(`--- movie ${movie}---- celebrities ${celebrities}`);
+                console.log("*******************************")
+                const i = {... { movie }, ... { celebrities } };
+                console.log(i)
+                res.render('movies/edit-movie', i);
+            }).catch(error => {
+                console.log("Error", error);
+                res.render("error");
+            })
+        }).catch(error => {
+            console.log("Error", error);
+            res.render("error");
+        });
+});
+
+
+router.post('/:id/edit', (req, res, next) => {
+    const { id } = req.params;
+    const { title, genre, plot, cast } = req.body;
+    Movie.findByIdAndUpdate(id, {
+            title,
+            genre,
+            plot,
+            cast
+        }, { new: true })
+        .then(movie => {
+            console.log("actualizado", movie)
+            res.redirect('/movies');
+        }).catch(error => {
+            console.log("Error", error);
+            res.render("error");
+        });
+});
 
 module.exports = router;

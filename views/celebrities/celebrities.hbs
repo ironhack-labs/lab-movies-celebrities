@@ -17,11 +17,11 @@
       <td>{{occupation}}</td>
       <td>{{catchPhrase}}</td>
       <td>
-        <a type="button" class="btn btn-outline-primary" href="/drones/{{_id}}/edit">Edit drone</a>
+        <a type="button" class="btn btn-outline-primary" href="/celebrities/{{_id}}/edit">Edit celebrity</a>
       </td>
       <td>
-          <form action="/drones/{{_id}}/delete" method="POST">
-            <button type="submit" class="btn btn-outline-danger"  >delete drone </button>
+          <form action="/celebrities/{{_id}}/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger"  >delete celebrity </button>
           </form>
       </td>
     </tr>
@@ -30,4 +30,4 @@
   </tbody>
 </table>
 
-<a type="button" class="btn btn-outline-success" href="/drones/create">Add drone</a>
+<a type="button" class="btn btn-outline-success" href="/celebrities/create">Add Celebrity</a>
