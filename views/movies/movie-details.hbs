@@ -8,7 +8,7 @@
     <h4>Genre: {{genre}}</h4>
     <h4>Plot: {{plot}}</h4>
     <ul>
-      {{#each cast}}
+      {{#each cast}} {{!-- Array of objects --> [{name:"", occupation:"",  catchPharase:"" }, {}, {}] --}}
         <li>{{name}}</li>
         <li>{{occupation}}</li>
         <li>{{catchPhrase}}</li>

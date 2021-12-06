@@ -12,7 +12,7 @@ const Celebrity = require("../models/Celebrity.model") // to get all the celebri
 // GET - Create a Movie
 router.get('/movies/create', async (req, res, next) => {
   try {
-    const celebrities = await Celebrity.find().populate('cast'); // Array
+    const celebrities = await Celebrity.find(); // Array
     //console.log(celebritiesArr);// array
     // pass into {} --> to be an object --> { celebritiesArr }
     res.render('movies/new-movie', { celebrities } ); // passed celebrities Id as value, to select one
@@ -46,17 +46,23 @@ router.get('/movies/:id/edit', async (req, res, next) => {
   try {
     const {id} = req.params;
     //res.send(id)
-    const movie = await Movie.findById(id).populate('cast');
+    //const movie = await Movie.findById(id).populate('cast');
+    // If I populate, cast is array of objects
+    //.console.log(`CAST: ${movie.cast}`) // [{name, _id, ...}, {}, {}]
+
+    // If I don't populate cast, --> cast will be array of ids
+    const movie = await Movie.findById(id); // movie.cast --> array with ids
     const actors = await Celebrity.find();// find all, this returns an Array
-        // iterate over 'actors' and find the movie.cast.id
+    // iterate over 'actors' and find the movie.cast.id
+    // Need an array only with IDs to compare with each actor._id
+    // compare array of castIds with each actor._id, and add a property
+    //const castIds = movie.cast.map(member => member._id); // array with only ids
+
     actors.forEach(actor => {
       // movie.cast --> array with ._id
       //console.log(`ACTOR: ${actor}`)
-      //console.log(`CAST: ${movie.cast}`) // [{name, _id, ...}, {}, {}]
-      // Need an array only with IDs to compare with each actor._id
-      const castIds = movie.cast.map(member => member._id); // array with only ids
-      // compare array of castIds with each actor._id, and add a property
-      if(castIds.includes(actor._id)) {
+      // if(castIds.includes(actor._id)) {
+      if(movie.cast.includes(actor._id)) {
         actor.includedInCast = true; // add a property, then add 'selected' in options
       }
     });
@@ -84,8 +90,8 @@ router.post('/movies/:id/edit', async (req, res, next) => {
       { new: true }
     );
     //console.log("updated", updateMovie);
-    //res.redirect(`/movies/${id}`);
-    res.redirect('/movies');
+    res.redirect(`/movies/${id}`);
+    //res.redirect('/movies');
 
   } catch (error) {
     console.log('Error while getting the movies from the DB: ', error);
@@ -116,6 +122,7 @@ router.get('/movies/:movieId', async (req, res, next) => {
   try {
     const { movieId } = req.params;
     const movie = await Movie.findById(movieId).populate('cast');
+    // .populate('cast') --> Array of objects, so we can iterate to get: name, occupation and catchPhrase
     // findById(id) --> returns an object, we don't need brackets
     //console.log(movie);
     res.render("movies/movie-details",  movie );
@@ -127,7 +134,7 @@ router.get('/movies/:movieId', async (req, res, next) => {
 })
 
 // CRUD - READ - GET-> find()
-// GET - List of all celebrities
+// GET - List of all movies
 router.get('/movies', async (req, res, next) => {
   try {
     const movies = await Movie.find(); // Array
@@ -140,5 +147,6 @@ router.get('/movies', async (req, res, next) => {
 })
 
 module.exports = router;
+
 
 
