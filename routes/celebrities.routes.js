@@ -30,7 +30,7 @@ router.get("/", (req, res, next) => {
         })
         .catch(err => {
             console.log('Error',err);
-            res.send("Error al listar", err);
+            res.send("Error al listar celebrities", err);
         });
 });
 

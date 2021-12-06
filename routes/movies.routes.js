@@ -25,4 +25,15 @@ router.post("/create", (req, res, next) => {
         });
 });
 
+router.get("/", (req, res, next) => {
+    Movie.find()
+        .then(movies => {
+            res.render("movies/movies.hbs", { movies });
+        })
+        .catch(err => {
+            console.log('Error',err);
+            res.send("Error al listar movies", err);
+        });
+});
+
 module.exports = router;
