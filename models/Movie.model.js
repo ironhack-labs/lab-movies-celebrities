@@ -2,15 +2,12 @@ const {Schema, model} = require('mongoose');
 
 const movieSchema = new Schema(
     {
-    title:{
-        type: String,
-        required: true
-    },
+    title: String,
     genre: String,
     plot: String,
-    cast: [{ 
+    cast: [{
         type: Schema.Types.ObjectId,
-        ref: "Celebrity" 
+        ref: "Celebrity"
     }]
     }
 );
