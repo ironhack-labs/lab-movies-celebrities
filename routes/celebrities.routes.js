@@ -23,4 +23,16 @@ router.post("/create", (req, res, next) => {
         });
 });
 
+router.get("/", (req, res, next) => {
+    Celebrity.find()
+        .then(celebrities => {
+            res.render("celebrities/celebrities.hbs", { celebrities });
+        })
+        .catch(err => {
+            console.log('Error',err);
+            res.send("Error al listar", err);
+        });
+});
+
+
 module.exports = router;
