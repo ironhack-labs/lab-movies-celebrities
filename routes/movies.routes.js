@@ -19,7 +19,15 @@ router.get('/movies/create',(req,res,next)=>{
 
 //Hacer el POST en la URL para meter los datos a la DB
 
-
+router.post('/movies/create',(req,res,next)=>{
+    const {title,genre,plot} = req.body;
+    Movie.create({title,genre,plot})
+    .then((newMovie)=>{
+        console.log("NEW MOVIE HAS BEEN ADDED TO DB",newMovie)
+        res.redirect('/movies')
+    })
+    .catch(err=>console.log("ERROR EN POST MOVIES CREATE",err))
+})
 
 
 
