@@ -29,7 +29,15 @@ router.post('/movies/create',(req,res,next)=>{
     .catch(err=>console.log("ERROR EN POST MOVIES CREATE",err))
 })
 
-
+//Crear el GET para movies
+router.get('/movies',(req,res,next)=>{
+    Movie.find()
+    .then((allMoviesInDB)=>{
+        console.log('ALL MOVIES IN DB',allMoviesInDB)
+        res.render('movies/movies',{movies:allMoviesInDB})
+    })
+    .catch(err=>conole.log("ERROR EN READING ALL MOVIES FROM DB", err))
+})
 
 
 module.exports = router
