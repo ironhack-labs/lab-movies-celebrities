@@ -29,7 +29,6 @@ router.get('/movies', (req, res, next) => {
 // Read
 router.get('/movies/:movieId', (req, res, next) => {
     const { movieId } = req.params;
-    console.log(movieId);
 
     Movie.findById(movieId)
         .populate('cast')
@@ -70,8 +69,24 @@ router.get('/movies/:movieId/edit', (req, res, next) => {
         });
 });
 
-router.post('/movies/:movieId/edit', (req, res, next) => {
+router.post('/movies/:movieId/edit', async(req, res, next) => {
+    try {
+        const { movieId } = req.params;
+        const { title, genre, plot, cast } = req.body;
 
+        const theMovie = await Movie.findByIdAndUpdate(movieId, 
+            {
+                title, genre, plot, cast
+            },
+            {
+                new: true
+            }
+        );
+        res.redirect(`/movies/${theMovie._id}`);
+    } catch(err) {
+        console.log('Error while editing the movie: ', err);
+        next(err);
+    }
 });
 
 module.exports = router;
