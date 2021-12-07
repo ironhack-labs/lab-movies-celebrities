@@ -66,4 +66,18 @@ router.post('/movies/:id/delete',(req,res,next)=>{
     .catch(err=>console.log('ERROR EN DELETING MOVIES',err))
 })
 
+
+//GET URL PARA EDITAR
+router.get('/movies/:id/edit',(req,res,next)=>{
+    const {movieId} = req.params;
+    Movie.findById(movieId)
+    .then((allCelebritiesFromDB)=>{
+        Celebrity.find()
+    })
+    .then(()=>{
+        res.render('movies/edit-movie')
+    })
+})
+
+
 module.exports = router
