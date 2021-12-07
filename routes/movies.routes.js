@@ -20,10 +20,14 @@ router.get('/movies/create',(req,res,next)=>{
 //Hacer el POST en la URL para meter los datos a la DB
 
 router.post('/movies/create',(req,res,next)=>{
-    const {title,genre,plot} = req.body;
-    Movie.create({title,genre,plot})
+    const {title,genre,plot,author} = req.body;
+    console.log("REQ:BODY",req.body)
+    Movie.create({title,genre,plot,author})
     .then((newMovie)=>{
         console.log("NEW MOVIE HAS BEEN ADDED TO DB",newMovie)
+        return Movie.findByIdAndUpdate(newMovie._id,{$push:{cast:author}},{new:true})
+    })
+    .then(()=>{
         res.redirect('/movies')
     })
     .catch(err=>console.log("ERROR EN POST MOVIES CREATE",err))
@@ -39,5 +43,17 @@ router.get('/movies',(req,res,next)=>{
     .catch(err=>conole.log("ERROR EN READING ALL MOVIES FROM DB", err))
 })
 
+
+//Crear el GET para movies/:id
+
+router.get('/movies/:movieId',(req,res,next)=>{
+    const {movieId} = req.params;
+    Movie.findById(movieId)
+    .populate('cast')
+    .then((theMovie)=>{
+        console.log("MOVIE SELECTED",theMovie)
+        res.render('movies/movie-details',{movie:theMovie})
+    })
+})
 
 module.exports = router
