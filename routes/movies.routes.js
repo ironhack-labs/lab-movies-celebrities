@@ -56,4 +56,14 @@ router.get('/movies/:movieId',(req,res,next)=>{
     })
 })
 
+
+//Deleting movies
+router.post('/movies/:id/delete',(req,res,next)=>{
+    const movieId = req.params.id;
+    console.log("REQ.PARAMS!!!!!",movieId)
+    Movie.findByIdAndRemove(movieId)
+    .then(()=>res.redirect('/movies'))
+    .catch(err=>console.log('ERROR EN DELETING MOVIES',err))
+})
+
 module.exports = router

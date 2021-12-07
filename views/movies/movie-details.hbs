@@ -5,5 +5,10 @@
 {{#each movie.cast}}
 <p>Celebrity Name: {{name}}</p>
 <p>Celebrity Ocupation: {{occupation}}</p>
-<p>Celebrity Catch Phrase:{{this.catchPhrase}}</p>
+<p>Celebrity Catch Phrase:{{catchPhrase}}</p>
 {{/each}}
+</div>
+    <form action="/movies/{{movie._id}}/delete" method="POST">
+        <button>Delete This Movie</button>
+    </form>
+</div>
