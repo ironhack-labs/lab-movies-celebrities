@@ -6,16 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
   <body>
-    <div class="container">
+    <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="/">Home</a></li>
+                <li><a href="/celebrities/create">Add a celebrity</a></li>
+                <li><a href="/celebrities">All the celebrities</a></li>
+                <li><a href="/movies/create">Add a movie</a></li>
+                <li><a href="/movies">All the movies</a></li>
+            </ul>
+
+        </div>
+    </nav>
+    <div>
       {{{body}}}
     </div>
 
     <script src="/javascripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
   </body>
 
 </html>
