@@ -2,3 +2,8 @@
 <h3>Title:{{movie.title}}</h2>
 <p>Genre: {{movie.genre}}</p>
 <p>Plot:{{movie.plot}}</p>
+{{#each movie.cast}}
+<p>Celebrity Name: {{name}}</p>
+<p>Celebrity Ocupation: {{occupation}}</p>
+<p>Celebrity Catch Phrase:{{this.catchPhrase}}</p>
+{{/each}}
