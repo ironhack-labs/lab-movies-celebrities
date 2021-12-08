@@ -40,6 +40,18 @@ router.post('/movies/create', (req, res, next) => {
     })
 });
 
+router.get('/movies/:id', (req, res, next) => {
+    const {id} = req.params;
+
+    Movie.findById(id)
+        .populate('cast')
+        .then(movie => res.render('movies/movie-details', movie))
+        .catch(err => {
+            console.log(err)
+            res.send('Error')
+        })
+})
+
 
 
 

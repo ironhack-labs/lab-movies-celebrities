@@ -1,0 +1,19 @@
+<h2>{{title}}</h2>
+<p>Genre: <strong>{{genre}}</strong></p>
+<p>Plot: {{plot}}</p>
+
+<strong>Cast: </strong>
+<ul>
+    {{#each cast}}
+        <li>
+            <span>Artist: </span><strong>{{name}}</strong> 
+            <br>
+            <span>Occupation: {{occupation}}</span>
+            <p>
+                <i>{{catchPhrase}}</i>
+            </p>
+        </li>
+    {{/each}}
+</ul>
+
+<a href="/movies/">Back to movies</a>
