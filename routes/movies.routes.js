@@ -5,6 +5,8 @@ const router = express.Router();
 const Movie = require("../models/Movie.model");
 const Celeb = require("../models/Celebrity.model");
 
+
+//List
 router.get('/movies', (req, res, next) => {
     Movie.find()
     .then(movies =>{
@@ -16,6 +18,7 @@ router.get('/movies', (req, res, next) => {
     })
 });
 
+//Create
 router.get('/movies/create', (req, res, next) => {
     Celeb.find()
         .then(celebs => {
@@ -40,6 +43,7 @@ router.post('/movies/create', (req, res, next) => {
     })
 });
 
+//Details
 router.get('/movies/:id', (req, res, next) => {
     const {id} = req.params;
 
@@ -52,6 +56,13 @@ router.get('/movies/:id', (req, res, next) => {
         })
 })
 
+//Delete
+router.get('/movies/:id/delete', (req, res, next) => {
+    const {id} = req.params;
+    Movie.findByIdAndDelete(id)
+        .then(() => res.redirect('/movies'))
+        .catch(err => next(err));
+});
 
 
 
