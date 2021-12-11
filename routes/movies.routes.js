@@ -36,4 +36,18 @@ router.get("/", (req, res, next) => {
         });
 });
 
+router.get('/:id',(req,res,next)=>{
+    const { id } = req.params;
+    Movie.findById(id)
+        .populate('cast','name occupation catchPhrase')
+        .then(movie => {
+            console.log('Movie',movie);
+            res.render('movies/movie-details',{movie});
+        })
+        .catch(err => {
+            console.log('Error',err);
+            res.send("Error");
+        });
+});
+
 module.exports = router;
