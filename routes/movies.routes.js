@@ -36,6 +36,7 @@ router.get("/", (req, res, next) => {
         });
 });
 
+
 router.get('/:id',(req,res,next)=>{
     const { id } = req.params;
     Movie.findById(id)
@@ -43,6 +44,19 @@ router.get('/:id',(req,res,next)=>{
         .then(movie => {
             console.log('Movie',movie);
             res.render('movies/movie-details',{movie});
+        })
+        .catch(err => {
+            console.log('Error',err);
+            res.send("Error");
+        });
+});
+
+// DELETE
+router.post('/:id/delete',(req,res,next)=>{
+    const { id } = req.params;
+    Movie.findByIdAndRemove(id)
+        .then(movie => {
+            res.redirect('/movies');
         })
         .catch(err => {
             console.log('Error',err);
