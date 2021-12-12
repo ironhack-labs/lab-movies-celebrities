@@ -64,4 +64,31 @@ router.post('/:id/delete',(req,res,next)=>{
         });
 });
 
+router.get('/:id/edit',(req,res,next)=>{
+    const { id } = req.params;
+    Movie.findById(id)
+        .populate('cast','name occupation catchPhrase')
+        .then(movie => {
+            console.log('Movie',movie);
+            res.render('movies/edit-movie',{movie});
+        })
+        .catch(err => {
+            console.log('Error',err);
+            res.send("Error");
+        });
+});
+
+router.post('/:id/edit',(req,res,next)=>{
+    const { id } = req.params;
+    const { title, genre, plot, cast } = req.body;
+    Movie.findByIdAndUpdate(id,{title, genre, plot, cast})
+        .then(movie => {
+            res.redirect('/movies');
+        })
+        .catch(err => {
+            console.log('Error',err);
+            res.send("Error");
+        });
+});
+
 module.exports = router;
