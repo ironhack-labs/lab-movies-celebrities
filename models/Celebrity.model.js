@@ -1,5 +1,8 @@
 //  Add your code here
-const { Schema, model } = require("mongoose");
+const {
+  Schema,
+  model
+} = require("mongoose");
 
 const CelebritySchema = new Schema({
   name: String,
@@ -8,4 +11,4 @@ const CelebritySchema = new Schema({
 });
 
 
-module.exports = model('Celebrity', CelebritySchema); 
+module.exports = model('Celebrity', CelebritySchema);
