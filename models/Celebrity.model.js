@@ -7,9 +7,5 @@ const CelebritySchema = new Schema({
   catchPhrase: String,
 });
 
-const Celebrity = model("Celebrity", CelebritySchema);
 
-module.exports = Celebrity;
-
-
-
+module.exports = model('Celebrity', CelebritySchema); 
