@@ -1,7 +1,6 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
-const celebritiesRoute = require("express").Router();
+const router = require('express').Router();
 const { Mongoose } = require("mongoose");
-const { router } = require("../app");
 const Celebrity = require("../models/Celebrity.model")
 
 // all your routes here
@@ -25,7 +24,13 @@ router.post("/celebrities/create", async(req,res,render) =>{
         }
         
     }
-   
 })
 
-module.exports = celebritiesRoute;
+router.get("/celebrities", (req,res,next)=>{
+    Celebrity.find()
+    .then(celebritiesfromDB => res.render('celebrities/celebrities', {celebrities: celebritiesfromDB}))
+    .catch(error =>
+        next(error))
+})
+
+module.exports = router;

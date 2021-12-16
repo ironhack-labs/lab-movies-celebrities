@@ -6,10 +6,13 @@ const celebritySchema = new Schema(
         name: String,
         occupation: String,
         catchPhrase: String,
+    },
+    {
+        timestamps: true
     }
 
     
 )
 
-const Celebtrity = model("Celebrity", celebritySchema);
+const Celebtrity = model("Movie", celebritySchema);
 module.exports = Celebtrity;
