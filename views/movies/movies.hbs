@@ -1,0 +1,13 @@
+                         <a href="/" class="btn btn-primary btn-sm">Return</a> <br><br>
+
+
+<h1>MOVIES</h1>
+
+<div class="list-group">
+  {{#each movies}}
+  <a href="/movies/{{_id}}" class="list-group-item list-group-item-action">{{title}}</a>
+  {{/each}}
+</div>
+<br>
+   <a class="btn btn-primary btn-sm" href="movies/create" role="button">Add New Movie</a>
+

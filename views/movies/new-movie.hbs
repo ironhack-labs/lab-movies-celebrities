@@ -1,0 +1,19 @@
+<h2>Create a new Movie</h2>
+
+<form action="/movies/create" method="post">
+ 
+    <input type="text" class="form-control" name="title" placeholder="Title"><br>
+    <input type="text" class="form-control" name="genre" placeholder="Genre"><br>
+    <input type="text" class="form-control" name="plot" placeholder="Plot"><br>
+    {{#each celebrities}}
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="{{this._id}}" name="cast" >
+  <label class="form-check-label" for="defaultCheck1">
+    {{this.name}}
+  </label>
+</div>  {{/each}}
+<br>  
+  <button type="submit" value="Submit" class="btn btn-primary">Create</button>
+</form>
+<br>
+<p style="color:red">{{error}}</p>

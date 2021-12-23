@@ -1,0 +1,47 @@
+                         <a href="/movies" class="btn btn-primary btn-sm">Return</a> <br><br>
+
+
+<h2>MOVIE DETAILS</h2>
+<br>
+<div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-4 mb-3 text-center ">     
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-white bg-primary border-primary">
+                <h4 class="my-0 fw-normal">{{this.title}}</h4>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title pricing-card-title"> <small class="text-muted">Rated: {{this.genre}}</small></h2>                
+                <ul class="list-unstyled mt-3 mb-2">
+                  <li>Plot: {{this.plot}}</li>              
+                <div class="form-row align-items-center" style="flex-direction: column; ">                   
+                 </div>     
+              </div>
+            </div>
+          </div>        
+    </div>
+<div class="row row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-4 mb-3 text-center ">
+      {{#each cast}}
+        <div class="col">
+            <div style="width:300px;"class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-white bg-secondary border-primary">
+                <h4 class="my-0 fw-normal">{{this.name}}</h4>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title pricing-card-title"> <small class="text-muted">{{this.occupation}}</small></h2>                
+                <ul class="list-unstyled mt-3 mb-2">
+                  <li>Catch Phrase: {{this.catchPhrase}}</li>              
+                <div class="form-row align-items-center" style="flex-direction: column; ">                   
+                 </div>     
+              </div>
+            </div>
+          </div>
+      {{/each}}
+      
+    </div>
+
+    <form action="/movies/{{_id}}/delete" method="post">
+                    
+                        <button type="submit" value="Submit" class="btn btn-primary btn-sm">Delete</button>    
+                         <a href="/movies/{{_id}}/edit" class="btn btn-primary btn-sm">Edit</a> 
+                </form>
+                  

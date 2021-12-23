@@ -1,0 +1,11 @@
+<h2>Create a new Celebrity</h2>
+
+<form action="/celebrities/create" method="post">
+ 
+    <input type="text" class="form-control" name="name" placeholder="Name"><br>
+    <input type="text" class="form-control" name="occupation" placeholder="Occupation"><br>
+    <input type="text" class="form-control" name="catchPhrase" placeholder="Catch Phrase"><br>
+  <button type="submit" value="Submit" class="btn btn-primary">Create</button>
+</form>
+<br>
+<p style="color:red">{{error}}</p>
