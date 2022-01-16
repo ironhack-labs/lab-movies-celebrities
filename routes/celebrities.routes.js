@@ -17,4 +17,12 @@ router.post("/celebrities/create", async function (req, res, next) {
   }
 });
 
+router.get("/celebrities", (req, res, next) =>{
+CelebrityModel
+.find()
+.then((celebrity =>{ res.render("celebrities/celebrities", {celebrity})
+}))
+.catch(error => console.log(error))
+});
+
 module.exports = router;
