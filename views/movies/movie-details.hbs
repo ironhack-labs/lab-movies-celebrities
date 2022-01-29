@@ -1,0 +1,38 @@
+<h2>
+  {{movie.title}}
+</h2>
+
+<strong>
+  Genre
+</strong>
+<br />
+<p>{{movie.genre}}</p>
+<strong>
+  Plot
+</strong>
+<br />
+<p>{{movie.plot}}</p>
+
+<h4>
+  Starring:
+  <br />
+</h4>
+{{#each movie.cast as |person|}}
+  <p>
+    Actor:
+    {{person.name}}
+    <br />
+    Occupation:
+    {{person.occupation}}
+    <br />
+    Catch Phrase:
+    {{person.catchPhrase}}
+    <br />
+  </p>
+{{/each}}
+
+<form action="/movies/{{movie.id}}/delete" method="POST"><button
+    type="submit"
+  >Delete This Movie</button></form>
+
+<a href="/movies/{{movie.id}}/edit">EDIT</a>
