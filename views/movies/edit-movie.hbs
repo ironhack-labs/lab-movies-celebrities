@@ -1,0 +1,43 @@
+
+<section class="py-3 py-md-5">
+    <div class="container">
+        <div class="card mx-auto col-12 col-md-5 border-0">
+            <div class="card-body p-md-5">
+                <h2 class="text-center mb-4">Update Movie</h2>
+                <form action="/movies/{{movie._id}}/edit" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Title of movie" value="{{movie.title}}">
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre" value="{{movie.genre}}">
+                        <label for="genre">Genre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="plot" name="plot" placeholder="Plot" style="height: 100px" value="{{movie.plot}}">{{movie.plot}}</textarea>
+                        <label for="plot">Plot</label>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="cast">Works with selects</label>
+                        <select class="form-select" name="cast" id="cast" aria-label="cast label" multiple>
+                            {{#each selectedCelebs}}
+                                {{#if selected}}
+                                    <option value="{{_id}}" selected="selected">{{name}}</option>
+                                {{else}}
+                                    <option value="{{_id}}">{{name}}</option>
+                                {{/if}}
+                            {{/each}}
+                        </select>
+                        
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary flex-fill mb-3 w-100">Update</button>
+                        <a href="/movies/{{movie._id}}/edit" class="btn btn-light w-100">Clear</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>

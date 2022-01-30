@@ -1,0 +1,53 @@
+<section class="py-3 py-md-5 bg-white">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h2>Movies</h2>
+            </div>
+            <a href="/movies/create" class="btn btn-primary">New Movie</a>
+        </div>
+    </div>
+</section>
+<section class="py-3 py-md-4 bg-light">
+    <div class="container">
+        <div class="row">
+            {{#each movies}}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 mb-3">
+                        <div class="card-body p-0"> 
+                            <div class="d-flex justify-content-between align-items-start p-3">
+                                <div>
+                                    <a href="/movies/{{_id}}" class="text-dark text-decoration-none">
+                                        <h2 class="h4">{{title}}</h2>
+                                        <p class="text-muted mb-0">{{genre}}</p>
+                                    </a>
+                                </div>
+                                <div class="dropdown">
+                                    <button class="btn btn-sm border" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="/images/more-horizontal.png" width="21">
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="/movies/{{_id}}/edit">Edit</a></li>
+                                        <li>
+                                            <form action="/movies/{{_id}}/delete" method="post">
+                                                <button type="submit" class=" dropdown-item">Delete</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-1 p-3 border-top w-100">
+                                <h3 class="h6">cast</h3>
+                                {{#each cast}}
+                                    <span class="badge bg-light text-dark">{{name}}</span>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

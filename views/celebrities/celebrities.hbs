@@ -1,0 +1,44 @@
+<section class="py-3 py-md-5 bg-white">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h2>Celebreties</h2>
+            </div>
+            <a href="/celebrities/create" class="btn btn-primary">New Celebrity</a>
+        </div>
+    </div>
+</section>
+<section class="py-3 py-md-4 bg-light">
+    <div class="container">
+        <div class="row">
+            {{#each celebs}}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 mb-3">
+                        <div class="card-body p-4 d-flex justify-content-between align-items-start"> 
+                            <div>
+                                <blockquote class="blockquote">"{{catchPhrase}}"</blockquote>
+                                <a class="text-dark text-decoration-none">
+                                    <h2 class="h5 mb-1">{{name}}</h2>
+                                    <p class="text-muted mb-0">{{occupation}}</p>
+                                </a>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn btn-sm border" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="/images/more-horizontal.png" width="21">
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="/celebrities/{{_id}}/edit">Edit</a></li>
+                                    <li>
+                                        <form action="/celebrities/{{_id}}/delete" method="post">
+                                            <button type="submit" class=" dropdown-item">Delete</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

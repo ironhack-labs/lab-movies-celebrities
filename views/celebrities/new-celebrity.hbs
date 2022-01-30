@@ -1,0 +1,30 @@
+<section class="py-3 py-md-5">
+    <div class="container">
+        <div class="card mx-auto col-12 col-md-5 border-0">
+            <div class="card-body p-md-5">
+                <h2 class="text-center">New Celebrity</h2>
+                <p class="lead text-center mb-4">Create a new celebrity</p>
+                <form action="/celebrities/create" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Full name">
+                        <label for="name">Full name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Occupation">
+                        <label for="occupation">Occupation</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="occupation" name="catchPhrase" placeholder="Catch phrase">
+                        <label for="occupation">Catch phrase</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary flex-fill mb-3 w-100">Create</button>
+                        <a href="/celebrities/create" class="btn btn-light w-100">Clear</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>

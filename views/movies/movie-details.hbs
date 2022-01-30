@@ -1,0 +1,22 @@
+<section class="py-3 py-md-5 bg-white">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h1>{{title}}</h1>
+                <p>{{genre}}</p>
+            </div>
+            <a href="/movies/{{_id}}/edit" class="btn btn-outline-primary">Edit</a>
+        </div>
+    </div>
+</section>
+<section class="py-3 py-md-4 bg-light">
+    <div class="container">
+        <p>{{plot}}</p>
+        <h3>Cast</h3>
+        <ul>
+            {{#each cast}}
+            <li>{{name}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</section>
