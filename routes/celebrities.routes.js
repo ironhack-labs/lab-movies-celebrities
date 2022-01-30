@@ -10,8 +10,17 @@ router.get('/celebrities/create', (req, res, next) => {
 
 router.post('/celebrities/create', (req, res, next) => {
     Celebrity.create(req.body)
-        .then(()=> res.redirect('/celebrities'))
+        .then((celebrities)=> res.redirect('/celebrities'))
         .catch(()=> res.render('celebrities/new-celebrity'))
+});
+
+router.get('/celebrities', (req, res, next) => {
+    //const celebrities = req.query
+    Celebrity.find()
+        .then((celebrities) => {
+            res.render('celebrities/celebrities', { celebrities })
+        })
+        .catch((e) => next(e))
 })
 
 module.exports = router;
