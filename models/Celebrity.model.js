@@ -1,4 +1,9 @@
 //  Add your code here
+
+
+//Schema para el modelo de celebrities
+
+
 const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema({
