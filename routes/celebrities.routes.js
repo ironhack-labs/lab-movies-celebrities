@@ -28,5 +28,16 @@ router.post('/celebrities/create', (req, res, next) =>  {
 
 /************************* ALL CELEBRITIES *****************************/
 
+router.get('/celebrities', (req, res, next) =>  {
+
+    Celebrity.find()
+        .then( celebritiesFromDB => {
+            console.log(celebritiesFromDB);
+            res.render('celebrities/celebrities', {celebrities: celebritiesFromDB});
+        })
+        .catch(err => {
+            console.log('Something went wrong while getting celebrities from DB', err);
+        });
+});
 
 module.exports = router;
