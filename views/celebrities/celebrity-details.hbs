@@ -1,0 +1,15 @@
+<section id="celebrity-details-container">
+
+    <h2>Celebrity details</h2>
+    <div>
+        <div><b>Name:</b> {{dbCelebrity.name}}</div>
+        <div><b>Occupation:</b> {{dbCelebrity.occupation}}</div>
+        <div><b>Catch phrase:</b> {{dbCelebrity.catchPhrase}}</div>
+        <hr>
+    </div>
+    <a href="/Celebrities/{{dbCelebrity._id}}/edit">Edit</a>
+    <form action="/Celebrities/{{dbCelebrity._id}}/delete" method="post">
+        <button type="submit">Delete</button>
+    </form>
+    
+</section>

@@ -1,0 +1,20 @@
+<section id="edit-celebrity-container">
+    <h2>Edit celebrity</h2>
+    <form action="/celebrities/{{dbCelebrity._id}}/edit" method="post">
+        <label>
+            Name:
+            <input type="text" name="name" value="{{dbCelebrity.name}}">
+        </label>
+        <label>
+            Occupation:
+            <input type="text" name="occupation" value="{{dbCelebrity.occupation}}">
+        </label>
+        <label>
+            Catch phrase:
+            <input type="text" name="catchPhrase" value="{{dbCelebrity.catchPhrase}}">
+        </label>
+
+        <button type="submit">Update</button>
+    </form>
+
+</section>
