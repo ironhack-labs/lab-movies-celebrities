@@ -15,9 +15,8 @@ router.post('/celebrities/create', (req, res, next) =>  {
 
     Celebrity.create({name, occupation, catchPhrase})
         .then(dbCelebrities => {
-            
-            //console.log(dbCelebrities);
-            res.redirect('celebrities/celebrities');
+            console.log(dbCelebrities);
+            res.redirect('/celebrities');
         })
 
         .catch(err => {
