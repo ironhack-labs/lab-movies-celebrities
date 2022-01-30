@@ -8,7 +8,7 @@ const celebritySchema = new Schema ({
     },
     ocupation: {
         type: String,
-        default: Unknow,
+        required: true,
     },
     catchPhrase:{
         type: String,
@@ -16,6 +16,6 @@ const celebritySchema = new Schema ({
     }
 });
 
-const Celebrity = model('Celebrity', celebrityschema);
+const Celebrity = model('Celebrity', celebritySchema);
 
 module.exports = Celebrity;
