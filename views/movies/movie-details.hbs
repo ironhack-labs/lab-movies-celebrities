@@ -1,0 +1,21 @@
+<section id="movie-details-container">
+
+    <h2>Movie details</h2>
+    <div>
+        <div><b>Title:</b> {{dbMovie.title}}</div>
+        <div><b>Genre:</b> {{dbMovie.genre}}</div>
+        <div><b>Plot:</b> {{dbMovie.plot}}</div>
+        <br> <br>
+        <h4>Stars</h4>
+        <hr>
+        {{#each dbMovie.cast}}
+            <div id="cast-details">
+                <div><b>Name:</b> {{name}}</div>
+                <div><b>Occupation:</b> {{occupation}}</div>
+                <div><b>Catch phrase:</b> {{catchPhrase}}</div>
+            </div>
+            <hr>
+        {{/each}}
+    </div>
+    
+</section>

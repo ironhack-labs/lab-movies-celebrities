@@ -14,7 +14,7 @@ router.get('/movies/create', (req, res, next) =>  {
         })
         .catch(err => {
             res.render('celebrities/new-celebrity');
-            console.log('Something went wrong while displaying movie-create view', err);
+            console.log('Something went wrong while displaying movie-create view =>', err);
         });
     
 });
@@ -30,7 +30,7 @@ router.post('/movies/create', (req, res, next) =>  {
             res.redirect('/movies');
         })
         .catch(err => {
-            console.log('Something went wrong while creating new movie', err);
+            console.log('Something went wrong while creating new movie =>', err);
         });
 });
 
@@ -39,11 +39,28 @@ router.post('/movies/create', (req, res, next) =>  {
 router.get('/movies', (req, res, next) =>  {
     Movie.find()
         .then(dbMovies => {
-            console.log(dbMovies);
+            //console.log(dbMovies);
             res.render('movies/movies', {dbMovies});
         })
         .catch(err => {
-            console.log('Something went wrong while getting movies from DB', err);
+            console.log('Something went wrong while getting movies from DB =>', err);
+        });
+    
+});
+
+/************************* MOVIE DETAILS *****************************/
+
+router.get('/movies/:id', (req, res, next) =>  {
+    const movieId = req.params.id;
+    //console.log('This is the movie id =>',movieId);
+    Movie.findById(movieId)
+        .populate('cast')
+        .then(dbMovie => {
+            console.log(dbMovie);
+            res.render('movies/movie-details', {dbMovie});
+        })
+        .catch(err => {
+            console.log('Something went wrong while getting movie from DB =>', err);
         });
     
 });
