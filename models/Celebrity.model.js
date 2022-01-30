@@ -1,7 +1,7 @@
 //jshint esversion:8
 const { Schema, model } = require("mongoose");
 
-const CelebritySchema = new Schema(
+const celebritySchema = new Schema(
   {
     name: String,
     occupation: String,
@@ -12,6 +12,6 @@ const CelebritySchema = new Schema(
   }
 );
 
-const Celebrity = model("Celebrity", CelebritySchema);
+const Celebrity = model("Celebrity", celebritySchema);
 
 module.exports = Celebrity;
