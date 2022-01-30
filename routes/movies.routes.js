@@ -56,7 +56,7 @@ router.get('/movies/:id', (req, res, next) =>  {
     Movie.findById(movieId)
         .populate('cast')
         .then(dbMovie => {
-            console.log(dbMovie);
+            //console.log(dbMovie);
             res.render('movies/movie-details', {dbMovie});
         })
         .catch(err => {
@@ -64,4 +64,23 @@ router.get('/movies/:id', (req, res, next) =>  {
         });
     
 });
+
+/************************* MOVIE DELETE *****************************/
+
+
+router.post('/movies/:id/delete', (req, res, next) =>  {
+
+    const movieId = req.params.id;
+    console.log('This is the movie id =>',movieId);
+    Movie.findByIdAndRemove(movieId)
+        .then(() => {
+            console.log('Movie successfully deleted.');
+            res.redirect('/movies');
+        })
+        .catch(err => {
+            console.log('Something went wrong while deleting movie from DB =>', err);
+        });
+    
+});
+
 module.exports = router;

@@ -17,5 +17,8 @@
             <hr>
         {{/each}}
     </div>
+    <form action="/movies/{{dbMovie._id}}/delete" method="post">
+        <button type="submit">Delete</button>
+    </form>
     
 </section>
