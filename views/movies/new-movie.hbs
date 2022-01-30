@@ -1,0 +1,27 @@
+<section id="new-movie-container">
+    <h2>Create new movie</h2>
+    <form action="/movies/create" method="post">
+        <label>
+            Title:
+            <input type="text" name="title">
+        </label>
+        <label>
+            Genre:
+            <input type="text" name="genre">
+        </label>
+        <label>
+            Plot:
+            <input type="text" name="plot">
+        </label>
+        <label for="celebrity-select"> Select celebrity:
+            <select name="cast" multiple>
+                <option disable selected value=""></option>
+                {{#each dbCelebrities}}
+                    <option value="{{_id}}"> {{name}} </option>
+                {{/each}}
+            </select>
+        </label>
+        <button type="submit">Create</button>
+    </form>
+
+</section>
