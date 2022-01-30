@@ -1,0 +1,29 @@
+<section id="edit-movie-container">
+    <h2>Edit movie</h2>
+    <form action="/movies/{{dbMovie._id}}/edit" method="post">
+        <label>
+            Title:
+            <input type="text" name="title" value="{{dbMovie.title}}">
+        </label>
+        <label>
+            Genre:
+            <input type="text" name="genre" value="{{dbMovie.genre}}">
+        </label>
+        <label>
+            Plot:
+            <input type="text" name="plot" value="{{dbMovie.plot}}">
+        </label>
+        <label for="star-select"> Select star:
+            <select name="cast" multiple>
+                
+                {{#each dbCelebrities}}
+                    
+                    <option value="{{_id}}"> {{name}} </option>
+                    
+                {{/each}}
+            </select>
+        </label>
+        <button type="submit">Update</button>
+    </form>
+
+</section>

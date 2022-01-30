@@ -83,4 +83,47 @@ router.post('/movies/:id/delete', (req, res, next) =>  {
     
 });
 
+
+/************************* MOVIE UPDATE *****************************/
+
+
+router.get('/movies/:id/edit', (req, res, next) =>  {
+    const movieId = req.params.id;
+    //console.log('This is the movie id =>',movieId);
+    Movie.findById(movieId)
+        .populate('cast')
+        .then(dbMovie => {
+
+            Celebrity.find()
+            .then(dbCelebrities => {
+                //console.log(dbMovie, dbCelebrities);
+                res.render('movies/edit-movie', {dbMovie, dbCelebrities});
+            })
+            .catch(err => {
+                console.log('Something went wrong while getting celebrities from DB =>', err);
+            });
+            
+        })
+        .catch(err => {
+            console.log('Something went wrong while getting movie from DB =>', err);
+        });
+});
+
+router.post('/movies/:id/edit', (req, res, next) =>  {
+    
+    const {title, genre, plot, cast} = req.body;
+    const movieId = req.params.id;
+    
+    Movie.findByIdAndUpdate(movieId, {title, genre, plot, cast}, {new: true})
+        .then(updatedMovie => {
+            console.log('Movie successfully updated =>', updatedMovie);
+            res.redirect('/movies');
+        })
+        .catch(err => {
+            console.log('Something went wrong while updating movie =>', err);
+        });
+    
+});
+
+
 module.exports = router;

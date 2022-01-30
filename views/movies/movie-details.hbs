@@ -17,6 +17,7 @@
             <hr>
         {{/each}}
     </div>
+    <a href="/movies/{{dbMovie._id}}/edit">Edit</a>
     <form action="/movies/{{dbMovie._id}}/delete" method="post">
         <button type="submit">Delete</button>
     </form>

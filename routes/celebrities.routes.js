@@ -15,7 +15,7 @@ router.post('/celebrities/create', (req, res, next) =>  {
 
     Celebrity.create({name, occupation, catchPhrase})
         .then(dbCelebrities => {
-            console.log(dbCelebrities);
+            //console.log(dbCelebrities);
             res.redirect('/celebrities');
         })
 
@@ -31,7 +31,7 @@ router.get('/celebrities', (req, res, next) =>  {
 
     Celebrity.find()
         .then( celebritiesFromDB => {
-            console.log(celebritiesFromDB);
+            //console.log(celebritiesFromDB);
             res.render('celebrities/celebrities', {celebrities: celebritiesFromDB});
         })
         .catch(err => {
