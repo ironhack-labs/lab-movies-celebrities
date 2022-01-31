@@ -14,11 +14,25 @@ const movieSchema = new Schema({
 },
 
 {
-  timestamps: true
+  toJSON: {
+    virtuals: true,
+  },
+},
+
+{
+  timestamps: true,
 }
 
 
 );
+
+
+movieSchema.virtual("casting", {
+  
+  ref: "Celebrity", 
+  foreignField: "_id",
+  localField: "cast",
+});
 
 const Movie = model("Movie", movieSchema);
 
