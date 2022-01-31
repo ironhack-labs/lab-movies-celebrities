@@ -15,8 +15,9 @@ const movieSchema = new Schema({
     },
     cast: [ 
         { 
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Celebrity'
+            type: Schema.Types.ObjectId,
+            ref: 'Celebrity',
+            required: true
         }
     ]
 });
