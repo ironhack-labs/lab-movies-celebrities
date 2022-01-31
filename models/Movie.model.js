@@ -13,13 +13,11 @@ const movieSchema = new Schema({
         type: String,
         required: true
     },
-    cast: [ 
-        { 
-            type: Schema.Types.ObjectId,
-            ref: 'Celebrity',
-            required: true
-        }
-    ]
+    cast: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Celebrity',
+        required: true
+    }
 });
 
 const Movie = model('Movie', movieSchema);
