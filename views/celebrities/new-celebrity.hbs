@@ -3,26 +3,44 @@
 <h2>Create new celebrity</h2>
 
 <form action="/celebrities/new-celebrity" method="post">
-  <fieldset>
-    <label>
-      Name:
-    </label>
-    <input type="text" name="name" id="name" />
-  </fieldset>
 
-  <fieldset>
-    <label>
-      Occupation:
-    </label>
-    <input type="text" name="occupation" id="occupation" />
-  </fieldset>
+  <div class="mb-3">
+    <fieldset>
+      <label for="name" class="form-label">
+        Name:
+      </label>
+      <input type="text" name="name" id="name" class="form-control" />
+    </fieldset>
+  </div>
 
-  <fieldset>
-    <label>
-      Catch phrase:
-    </label>
-    <input type="text" name="catchPhrase" id="catchPhrase" />
-  </fieldset>
+  <div class="mb-3">
+    <fieldset>
+      <label for="occupation" class="form-label">
+        Occupation:
+      </label>
+      <input
+        type="text"
+        name="occupation"
+        id="occupation"
+        class="form-control"
+      />
+    </fieldset>
+  </div>
 
-  <button type="submit">Create celebrity</button>
+  <div class="mb-3">
+    <fieldset>
+      <label for="catchPhrase" class="form-label">
+        Catch phrase:
+      </label>
+      <input
+        type="text"
+        name="catchPhrase"
+        id="catchPhrase"
+        class="form-control"
+      />
+    </fieldset>
+  </div>
+
+  <button type="submit" class="btn btn-outline-success">Create celebrity</button>
+
 </form>

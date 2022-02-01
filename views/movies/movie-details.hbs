@@ -5,18 +5,25 @@
 <div>
   <h4>{{movieDetail.title}}</h4>
   <h5>{{movieDetail.genre}}</h5>
+
   <p>{{movieDetail.plot}}</p>
+
   <ul>
+
     {{#each movieDetail.cast}}
       <li>{{name}}</li>
     {{/each}}
+
   </ul>
 </div>
 
-<button> <a href="{{movieDetail._id}}/edit">Edit</a></button>
+<button class="btn btn-outline-warning">
+  <a href="{{movieDetail._id}}/edit">Edit</a></button>
 
 <form action="{{_id}}" method="post">
-  <button type="submit">
+
+  <button type="submit" class="btn btn-outline-danger">
     Delete
   </button>
+
 </form>

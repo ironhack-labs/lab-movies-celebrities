@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
@@ -49,7 +48,6 @@ router.get("/movies/:id", (req, res, next) => {
   Movie.findById(movieId)
     .populate("cast")
     .then((movieDetail) => {
-      console.log(movieDetail);
       res.render("movies/movie-details", { movieDetail });
     })
     .catch((error) => {
