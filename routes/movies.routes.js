@@ -70,7 +70,31 @@ router.post("/:movieId/delete", (req, res, next) => {
 });
 
 ///movies/:id/edit	GET	Show a form to edit a movie
+router.get("/:movieId/edit", (req, res, next) => {
+  let movieId = req.params.movieId;
+  console.log(movieId);
+  Movie.findById(movieId)
+    .populate("cast")
+    .then((movieDetail) => res.render("movies/edit-movie.hbs", movieDetail))
+    .catch((err) => {
+      console.log(`Err while getting a single movie from the  DB: ${err}`);
+      next(err);
+    });
+});
 
 ///movies/:id/edit	POST	Send the data from the form to this route to update the specific movie
+router.post("/:movieId/edit", (req, res, next) => {
+  let movieId = req.params.id;
+
+  const { name, propellers, maxSpeed } = req.body;
+  console.log(req.body);
+  Drone.findByIdAndUpdate(
+    droneId,
+    { name, propellers, maxSpeed },
+    { new: true }
+  )
+    .then((updatedDrone) => res.redirect(`/drones`))
+    .catch((error) => res.redirect("/drones/:id/edit"));
+});
 
 module.exports = router;
