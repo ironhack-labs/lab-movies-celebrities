@@ -1,0 +1,30 @@
+<h1>new movie.hbs</h1>
+
+<form action="/movies/create" method="POST">
+
+<div>
+    <label>title</label>
+    <input type="text" name="title" value="{{movie.title}}">
+</div>
+
+<div>
+    <label>genre</label>
+    <input type="text" name="genre" value="{{movie.genre}}">
+</div>
+<div>
+    <label>plot</label>
+    <input type="text" name="plot" value="{{movie.plot}}">
+</div>
+
+<div>
+    <label>cast</label>
+    <select name="cast" multiple>
+        {{#each celebrities}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+</div>
+
+<button type="submit">create a movie</button>
+</form>

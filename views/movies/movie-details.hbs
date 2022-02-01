@@ -1,0 +1,23 @@
+<p>Title :{{movie.title}}</p>
+<p>Genre :{{movie.genre}}</p>
+<p>Plot : {{movie.plot}}</p>
+<p>Cast:</p>
+<ul>
+  {{#if movie.cast}}  
+  {{#each movie.cast as |celebrity|}}
+    <li>
+      {{celebrity.name}}
+    </li>
+  {{/each}}
+  {{else}}
+  <p>There are no actors in this movie</p>
+  {{/if}}
+</ul>
+
+<form action="/movies/{{movie.id}}/delete" method="POST">
+<button type="submit">Delete movie</button>
+</form>
+
+<form action="/movies/{{movie.id}}/edit" method="POST">
+<button type="submit">Edit movie</button>
+</form>

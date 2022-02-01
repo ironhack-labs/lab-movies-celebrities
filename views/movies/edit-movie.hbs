@@ -1,0 +1,29 @@
+<p>edit-movie.hbs</p>
+
+<form action="/movies/{{xxx.id}}" method="POST">
+<div>
+    <label>title</label>
+    <input type="text" name="title" value="{{xxx.title}}">
+</div>
+
+<div>
+    <label>genre</label>
+    <input type="text" name="genre" value="{{xxx.genre}}">
+</div>
+<div>
+    <label>plot</label>
+    <input type="text" name="plot" value="{{xxx.plot}}">
+</div>
+
+<div>
+    <label>cast</label>
+    <select name="cast" multiple>
+        {{#each xxx.cast}}
+        <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+
+</div>
+
+<button type="submit">Edit movie</button>
+</form>
