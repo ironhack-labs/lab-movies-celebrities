@@ -1,0 +1,16 @@
+<h2>Movies</h2>
+<ol>{{#each movieList}}
+    <li>Title:
+      {{title}}
+      <a href="/movies/{{_id}}">Details</a>
+
+      {{!-- , Occupation:
+      {{occupation}}, Catch Phrase:
+      {{catchPhrase}}
+      <a href="/drones/{{_id}}/edit">Edit drone</a>
+      <form action="/drones/{{_id}}/delete" method="post">
+        <button type="submit" class="btn btn-danger">Delete drone</button>
+      </form> --}}
+    </li>
+  {{/each}}
+</ol>
