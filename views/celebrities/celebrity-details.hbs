@@ -1,11 +1,17 @@
-{{celebrity}}
 
 
+<div class="card mt-5" style="width: 18rem;">
+  <div class="card-header">
+    <h3><p>Name</p></h3>
+{{celebrity.name}}
 
+<h3><p>Occupation</p></h3>
+{{celebrity.occupation}}
 
+<h3><p>Catch Phrase</p></h3>
+{{celebrity.catchPhrase}}
 
-
-
+  </div>
 
 
 <form action="/celebrities/{{celebrity.id}}/delete" method="POST">

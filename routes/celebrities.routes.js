@@ -58,7 +58,7 @@ router.post("/:id/delete", (req, res, next) => {
         //console.log(`${deletedCelebrity} has been deleted`);
       })
       .catch((err) => console.log(err))
-      .then(() => { //al terminar de borrar redirigimos a /movies
+      .then(() => { //al terminar de borrar redirigimos a /celebrities
         res.redirect("/celebrities");
       });
   });
