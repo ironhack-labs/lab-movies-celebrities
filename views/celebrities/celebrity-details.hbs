@@ -1,0 +1,10 @@
+<div id="celebrity-details-div">
+    <h2>Celebrity Details</h2>
+    <p>Name: {{celebrity.name}}</p>
+    <p>Occupation: {{celebrity.occupation}}</p>
+    <p>Catch Phrase: {{celebrity.catchPhrase}}</p>
+    <a class="btn btn-primary" href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+    <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+        <button type="submit" class="btn btn-primary">Delete Celebrity</button>
+    </form>
+</div>

@@ -72,9 +72,7 @@ router.post('/movies/:id', (req, res, next) => {
         .then(() => {
             res.redirect(`/movies/${req.params.id}`);
         })
-        .catch(() => {
-            res.render(`movies/${req.params.id}/edit`);
-        })
+        .catch((e) => console.log(e))
 })
 
 module.exports = router;
