@@ -1,5 +1,5 @@
 //  Add your code here
-const { model, Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema(
   {
@@ -14,4 +14,4 @@ const celebritySchema = new Schema(
   { timestamp: true }
 );
 
-modules.export = model("Celebrity".celebritySchema);
+module.exports = model("Celebrity", celebritySchema);
