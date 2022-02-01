@@ -58,4 +58,15 @@ router.get("/:movieId", (req, res, next) => {
       next(err);
     });
 });
+
+//movies delete
+
+router.post("/:movieId/delete", (req, res, next) => {
+  // Iteration #5: Delete the drone
+  const { movieId } = req.params;
+
+  Movie.findByIdAndRemove(movieId)
+    .then(() => res.redirect("/movies/movies"))
+    .catch((error) => next(error));
+});
 module.exports = router;
