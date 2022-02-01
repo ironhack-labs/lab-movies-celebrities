@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+
+<ul>
+  {{#each celebrities}}
+    <li> {{ this.name }}
+
+      {{!-- uncomment after you create user details page --}}
+      {{!-- <a href="/users/{{this._id}}/posts">Read posts</a> --}}
+    </li>
+  {{/each}}
+</ul>
