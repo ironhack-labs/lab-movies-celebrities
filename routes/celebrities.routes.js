@@ -2,6 +2,8 @@ const router = require("express").Router();
 
 const Celebrity = require("../models/Celebrity.model");
 
+//CREATE NEW CELEBRITY
+
 router.get("/celebrities/create", (req, res, next) => {
   res.render("celebrities/new-celebrity");
 });
@@ -19,6 +21,15 @@ router.post("/celebrities/create", (req, res, next) => {
       next(error);
       res.redirect("/celebrities/create");
     });
+});
+
+//LIST ALL CELEBRITIES
+
+router.get("/celebrities", (req, res, next) => {
+  Celebrity.find().then((foundCelebs) => {
+    console.log(foundCelebs[0].name);
+    res.render("celebrities/celebrities", { celebs: foundCelebs });
+  });
 });
 
 module.exports = router;
