@@ -1,0 +1,18 @@
+<h2>Movie details</h2>
+
+ <div class="card" style="width: 18rem;">
+    <div class="card-body">
+    <h5 class="card-title">{{foundMovie.title}}</h5><br/>
+  <h6 class="card-subtitle mb-2 text-muted">{{foundMovie.genre}}</h6><br/>
+   <h6 class="card-subtitle mb-2 text-muted">{{foundMovie.plot}}</h6><br/>
+<h6 class="card-subtitle mb-2 text-muted">Cast:</h6>
+
+{{#each foundMovie.cast}}
+ <div>{{this.name}} <br/>
+{{this.occupation}} <br/>
+{{this.catchPhrase}}<br/>
+
+</div>
+ {{/each}}
+ </div>
+</div>
