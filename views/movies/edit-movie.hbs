@@ -1,18 +1,19 @@
 <h2>Edit Movie: {{this.title}}</h2>
 
-<form action="/movies/create" method="POST">
+<form action="/movies/{{movie._id}}/edit" method="POST">
 
-<input class="form-control" type="text" name="title" placeholder="Title of the movie" />
+<input class="form-control" type="text" name="title" placeholder="Title of the movie" value="{{movie.title}}" />
 
-<input class="form-control" type="text" name="genre" placeholder="Genre of the movie" />
+<input class="form-control" type="text" name="genre" placeholder="Genre of the movie" value="{{movie.genre}}" />
 
-<textarea class="form-control" name="plot" placeholder="Plot of the movie"></textarea>
+<textarea class="form-control" name="plot" placeholder="Plot of the movie">{{movie.plot}}</textarea>
 
-{{#each celebritiesForCast}}
-    <input class="form-control" type="checkbox" name="{{this._id}}" value="{{this.name}}">
-    <label for="{{this._id}}">{{this.name}}</label><br>
-{{/each}}
+<select class="form-control" name="cast" multiple>
+    {{#each movie.cast}}
+        <option value="{{this._id}}" selected>{{this.name}}</option>
+    {{/each}}
+</select>
 
-<button class="btn btn-success" type="submit">Create the movie</button>
+<button class="btn btn-success" type="submit">Modify the movie</button>
 
 </form>

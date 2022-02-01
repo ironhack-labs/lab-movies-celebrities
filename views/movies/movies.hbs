@@ -6,6 +6,8 @@
   {{#each movies}}
     <li>
         {{ this.title }}<br>
+        <a class="btn btn-info" href="/movies/{{_id}}">Details</a>
+        <a class="btn btn-warning" href="/movies/{{_id}}/edit">Edit</a>
         <form action="/movies/{{_id}}/delete" method="POST"> {{!-- add the form to handle the POST request to remove a specific book  --}}
             <button class="btn btn-danger">Delete</button>
         </form>

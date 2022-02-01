@@ -8,10 +8,10 @@
 
 <textarea class="form-control" name="plot" placeholder="Plot of the movie"></textarea>
 
-<select name="cast" multiple>
+<select class="form-control" name="cast" multiple>
     <option disable selected value=""></option>
-    {{#each celebrityFromDB}}
-    <option value="{{this.celebrities._id}}">{{this.celebrities.name}}</option>
+    {{#each celebrity}}
+    <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
 </select>
 

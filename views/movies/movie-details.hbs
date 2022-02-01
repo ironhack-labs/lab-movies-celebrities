@@ -1,13 +1,17 @@
-<h2>Movie details: {{this.title}}</h2>
-
-<h2>{{title}}</h2>
-<p>{{genre}}</p>
-<p>{{plot}}</p>
-
-{{#unless actors}}
-  <p>There are no actors in this movie.</p>
+{{#unless movie}}
+    <h3>There are no details for this movie.</h3>
 {{/unless}}
 
-{{#each actors}}
-  <p>{{this.author.name}}</p>
+<h2>{{movie.title}}</h2>
+<h4>Genre:</h4>
+<p>{{movie.genre}}</p>
+
+<h4>Cast:</h4>
+{{#each movie.cast}}
+<p>{{name}}</p>
 {{/each}}
+
+<h4>Plot:</h4>
+<p>{{movie.plot}}</p>
+
+<a class="btn btn-secondary" href="/movies">Back</a>
