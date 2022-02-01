@@ -30,4 +30,34 @@ router.get("/movies", (req, res) => {
       .catch((err) => console.log(`Error while getting movies from the database: ${err}`));
   });
 
+// GET route for displaying the movie details page:
+router.get('/movies/:movieId', (req, res, next) => {
+    const { movieId } = req.params;
+   
+    Movie.findById(movieId)
+      .populate('author comments') // <-- the same as .populate('author).populate('comments')
+      .populate({
+        // we are populating author in the previously populated comments
+        path: 'comments',
+        populate: {
+          path: 'author',
+          model: 'User'
+        }
+      })
+      .then(foundMovie => res.render('movies/details', foundMovie))
+      .catch(err => {
+        console.log(`Err while getting a single movie from the database: ${err}`);
+        next(err);
+      });
+  });
+
+// POST route to delete a movie from the database:
+router.post('/movies/:movieId/delete', (req, res, next) => {
+  const { movieId } = req.params;
+ 
+  Movie.findByIdAndDelete(movieId)
+    .then(() => res.redirect('/movies'))
+    .catch(error => next(error));
+});
+
 module.exports = router;

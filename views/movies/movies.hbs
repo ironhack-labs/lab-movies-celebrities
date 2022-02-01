@@ -4,6 +4,11 @@
 
 <ul>
   {{#each movies}}
-    <li>{{ this.title }}</li>
+    <li>
+        {{ this.title }}<br>
+        <form action="/movies/{{_id}}/delete" method="POST"> {{!-- add the form to handle the POST request to remove a specific book  --}}
+            <button class="btn btn-danger">Delete</button>
+        </form>
+    </li>
   {{/each}}
 </ul>

@@ -8,10 +8,12 @@
 
 <textarea class="form-control" name="plot" placeholder="Plot of the movie"></textarea>
 
-{{#each celebritiesForCast}}
-    <input class="form-control" type="checkbox" name="{{this._id}}" value="{{this.name}}">
-    <label for="{{this._id}}">{{this.name}}</label><br>
-{{/each}}
+<select name="cast" multiple>
+    <option disable selected value=""></option>
+    {{#each celebrityFromDB}}
+    <option value="{{this.celebrities._id}}">{{this.celebrities.name}}</option>
+    {{/each}}
+</select>
 
 <button class="btn btn-success" type="submit">Create the movie</button>
 
