@@ -76,8 +76,12 @@ router.get("/movies/:movieId/edit", (req, res, next) => {
   const { movieId: id } = req.params;
   Movie.findById(id)
     .then((foundMovie) => {
-      Celebrity.find({ _id: foundMovie.cast }).then((foundCelebs) => {
+      Celebrity.find().then((foundCelebs) => {
         res.render("movies/edit-movie", { foundMovie, foundCelebs });
+
+        // Celebrity.find({ _id: foundMovie.cast })
+        // .then((foundCelebs) => {
+        //   res.render("movies/edit-movie", { foundMovie, foundCelebs });
       });
     })
     .catch((error) => {
