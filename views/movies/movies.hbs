@@ -1,6 +1,6 @@
 <h2>List of Movies</h2>
 <div id="movies-list">
     {{#each movies as |movie| }}
-        <p>{{movie.title}}</p>
+        <a href="/movies/{{movie._id}}">{{movie.title}}</a>
     {{/each}}
 </div>
