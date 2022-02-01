@@ -1,20 +1,28 @@
+<a href="/">Go back</a>
+
 <h2>Create new celebrity</h2>
 
 <form action="/celebrities/new-celebrity" method="post">
-  <label>
-    Name:
-    <input type="text" name="name" />
-  </label>
+  <fieldset>
+    <label>
+      Name:
+    </label>
+    <input type="text" name="name" id="name" />
+  </fieldset>
 
-  <label>
-    Occupation:
-    <input type="text" name="occupation" />
-  </label>
+  <fieldset>
+    <label>
+      Occupation:
+    </label>
+    <input type="text" name="occupation" id="occupation" />
+  </fieldset>
 
-  <label>
-    Catch phrase:
-    <input type="text" name="catchPhrase" />
-  </label>
+  <fieldset>
+    <label>
+      Catch phrase:
+    </label>
+    <input type="text" name="catchPhrase" id="catchPhrase" />
+  </fieldset>
 
   <button type="submit">Create celebrity</button>
 </form>

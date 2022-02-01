@@ -6,6 +6,11 @@
   <h4>{{movieDetail.title}}</h4>
   <h5>{{movieDetail.genre}}</h5>
   <p>{{movieDetail.plot}}</p>
+  <ul>
+    {{#each movieDetail.cast}}
+      <li>{{name}}</li>
+    {{/each}}
+  </ul>
 </div>
 
 <button> <a href="{{movieDetail._id}}/edit">Edit</a></button>

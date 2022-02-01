@@ -47,7 +47,9 @@ router.get("/movies/:id", (req, res, next) => {
   let movieId = req.params.id;
 
   Movie.findById(movieId)
+    .populate("cast")
     .then((movieDetail) => {
+      console.log(movieDetail);
       res.render("movies/movie-details", { movieDetail });
     })
     .catch((error) => {
@@ -77,7 +79,13 @@ router.get("/movies/:id/edit", (req, res, next) => {
 
   Movie.findById(movieId)
     .then((editedMov) => {
-      res.render("movies/edit-movie", { editedMov });
+      Celebrity.find()
+        .then((allCelebs) => {
+          res.render("movies/edit-movie", { editedMov, allCelebs });
+        })
+        .catch((error) => {
+          console.log(`Theres an error here -> ${error}`);
+        });
     })
     .catch((error) => {
       console.log(`Error while editing the movie ${error}`);
