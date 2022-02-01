@@ -1,1 +1,25 @@
-<p>new movie</p>
+<h2>new movie</h2>
+
+<form action="/movies/create" method="POST">
+    <label> Title:
+        <input type="text" name="title" />
+    </label>
+    <br>
+    <label> Genre:
+        <input type="text" name="genre" />
+    </label>
+    <br>
+    <label> Plot:
+        <input type="text" name="plot" />
+    </label>
+    <br>
+    <label for="cast-select"> Cast:
+        <select name="cast">
+            <option disable selected value=""></option>
+            {{#each dbCelebrity}}
+            <option value="{{this._id}}"> {{this.name}} </option>
+            {{/each}}
+        </select>
+    </label>
+    <button type="submit"> Create Movie </button>
+</form>
