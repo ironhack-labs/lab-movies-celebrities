@@ -42,4 +42,32 @@ router.post("/movies/new-movie", (req, res, next) => {
     });
 });
 
+//Display Movie details
+router.get("/movies/:id", (req, res, next) => {
+  let movieId = req.params.id;
+
+  Movie.findById(movieId)
+    .then((movieDetail) => {
+      res.render("movies/movie-details", { movieDetail });
+    })
+    .catch((error) => {
+      console.log(`There was an error catching the movie details -> ${error}`);
+      next(error);
+    });
+});
+
+//Delete Movie
+router.post("/movies/:id", (req, res, next) => {
+  let deletedMovie = req.params.id;
+
+  Movie.findByIdAndRemove(deletedMovie)
+    .then((delMovie) => {
+      res.redirect("movies");
+    })
+    .catch((error) => {
+      console.log(`It seems that the movie is not deleted -> ${error}`);
+      next(error);
+    });
+});
+
 module.exports = router;

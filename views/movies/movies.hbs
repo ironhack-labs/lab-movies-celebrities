@@ -5,14 +5,7 @@
 {{#each allMovies}}
 
   <div>
-    <h4>{{this.title}}</h4>
-
-    {{#each cast}}
-      <h6>{{this}}</h6>
-    {{/each}}
-
-    <p>{{this.genre}}</p>
-    <p>{{this.plot}}</p>
+    <h4> <a href="{{_id}}"> {{this.title}}</a></h4>
   </div>
 
 {{/each}}

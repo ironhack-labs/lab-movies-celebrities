@@ -1,3 +1,5 @@
+<a href="./movies">Go back</a>
+
 <h2>Create new movie</h2>
 
 <form action="/movies/new-movie" method="post">
@@ -21,7 +23,7 @@
     <select name="name" multiple>
 
       {{#each celebs}}
-        <option value="{{this._id}}">{{this.name}}</option>
+        <option value="{{_id}}">{{this.name}}</option>
       {{/each}}
 
     </select>
