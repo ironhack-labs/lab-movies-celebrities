@@ -48,13 +48,13 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-#home-btns {
+.home-btns {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#home-btns a {
+#home-div a {
   margin: 30px 10px;
 }
 
@@ -132,4 +132,49 @@ label {
 
 #celebrities-list {
   top: 58.5%;
+}
+
+/* STYLING DETAILS PAGES */
+
+.details-div {
+  display: flex;
+  width: 50%;
+  border: 2px solid #0baf99;
+  padding: 30px;
+  color:rgb(53, 52, 52);
+  margin-bottom: 10px;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.details-div h3 {
+  text-decoration: underline #0baf99 3px;
+  color:rgb(53, 52, 52);
+  margin-bottom: 25px;
+}
+
+.details-div span {
+  font-style: italic;
+  font-size: 16px;
+}
+
+.movie-details-celebrity {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.movie-details-celebrity p, a {
+  margin: 0px 5px;
+}
+
+.movie-details-celebrity a {
+  color: #0baf99;
+}
+
+.movies-btns a, button {
+  margin-top: 20px;
 }

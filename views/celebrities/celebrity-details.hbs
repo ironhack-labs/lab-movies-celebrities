@@ -1,10 +1,14 @@
-<div id="celebrity-details-div">
+<div class="list-page-div">
     <h2>Celebrity Details</h2>
-    <p>Name: {{celebrity.name}}</p>
-    <p>Occupation: {{celebrity.occupation}}</p>
-    <p>Catch Phrase: {{celebrity.catchPhrase}}</p>
-    <a class="btn btn-primary" href="/celebrities/{{celebrity._id}}/edit">Edit</a>
-    <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
-        <button type="submit" class="btn btn-primary">Delete Celebrity</button>
-    </form>
+    <div id="celebrity-details-div" class="list-page-div details-div">
+        <p><span>Name:</span> {{celebrity.name}}</p>
+        <p><span>Ocupation:</span> {{celebrity.occupation}}</p>
+        <p><span>Catch Phrase:</span> {{celebrity.catchPhrase}}</p>
+        <div class="home-btns movies-btns">
+            <a class="btn btn-primary" href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+            <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+                <button type="submit" class="btn btn-primary">Delete Celebrity</button>
+            </form>
+        </div>
+    </div>
 </div>
