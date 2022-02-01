@@ -1,0 +1,21 @@
+<a href="/movies/movies">Go back</a>
+
+<h2>Edit Movie</h2>
+<form action="/movies/{{editedMov._id}}/edit" method="post">
+  <label>
+    Title:
+    <input type="text" name="title" value="{{editedMov.title}}" />
+  </label>
+
+  <label>
+    Genre:
+    <input type="text" name="genre" value="{{editedMov.genre}}" />
+  </label>
+
+  <label>
+    Plot:
+    <input type="text" name="plot" value="{{editedMov.plot}}" />
+  </label>
+
+  <button type="submit">Save changes</button>
+</form>

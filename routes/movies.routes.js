@@ -60,12 +60,43 @@ router.get("/movies/:id", (req, res, next) => {
 router.post("/movies/:id", (req, res, next) => {
   let deletedMovie = req.params.id;
 
-  Movie.findByIdAndRemove(deletedMovie)
+  Movie.findByIdAndDelete(deletedMovie)
     .then((delMovie) => {
       res.redirect("movies");
     })
     .catch((error) => {
       console.log(`It seems that the movie is not deleted -> ${error}`);
+      next(error);
+    });
+});
+
+//Edit Movie
+//Get
+router.get("/movies/:id/edit", (req, res, next) => {
+  let movieId = req.params.id;
+
+  Movie.findById(movieId)
+    .then((editedMov) => {
+      res.render("movies/edit-movie", { editedMov });
+    })
+    .catch((error) => {
+      console.log(`Error while editing the movie ${error}`);
+      next(error);
+    });
+});
+
+//Post
+router.post("/movies/:movieId/edit", (req, res, next) => {
+  const { title, genre, plot, cast } = req.body;
+  const { movieId } = req.params;
+
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, { new: true })
+    .then((updatedMov) => {
+      res.redirect("/movies/movies");
+    })
+    .catch((error) => {
+      console.log(`${error} -> some error editing the movie`);
+      res.redirect("movies/movie-details");
       next(error);
     });
 });
