@@ -14,7 +14,7 @@ router.post("/celebrities/create", (req, res, next) => {
   Celebrity.create({ name, occupation, catchPhrase })
     .then((newCeleb) => {
       console.log(`create new celebrity ${newCeleb.name}`);
-      res.render("celebrities");
+      res.redirect("/celebrities");
     })
     .catch((error) => {
       console.log(error);
@@ -27,7 +27,6 @@ router.post("/celebrities/create", (req, res, next) => {
 
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find().then((foundCelebs) => {
-    console.log(foundCelebs[0].name);
     res.render("celebrities/celebrities", { celebs: foundCelebs });
   });
 });
