@@ -84,17 +84,14 @@ router.get("/:movieId/edit", (req, res, next) => {
 
 ///movies/:id/edit	POST	Send the data from the form to this route to update the specific movie
 router.post("/:movieId/edit", (req, res, next) => {
-  let movieId = req.params.id;
+  let movieId = req.params.movieId;
+  console.log(req.params.movieId);
 
-  const { name, propellers, maxSpeed } = req.body;
-  console.log(req.body);
-  Drone.findByIdAndUpdate(
-    droneId,
-    { name, propellers, maxSpeed },
-    { new: true }
-  )
-    .then((updatedDrone) => res.redirect(`/drones`))
-    .catch((error) => res.redirect("/drones/:id/edit"));
+  let { title, genre, plot, cast } = req.body;
+  cast = [];
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, { new: true })
+    .then((updatedMovie) => res.redirect(`/movies/movies`))
+    .catch((error) => res.redirect("/:movieId/edit"));
 });
 
 module.exports = router;
