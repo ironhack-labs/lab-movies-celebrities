@@ -22,4 +22,11 @@ router.post("/celebrities/create", (req, res) => {
       .catch((err) => console.log(`Error while creating a new celebrity: ${err}`));
   });
 
+// GET all celebrities from the database:
+router.get("/celebrities", (req, res) => {
+    Celebrity.find()
+      .then((celebritiesFromDB) => res.render("celebrities/celebrities", { celebrities: celebritiesFromDB }))
+      .catch((err) => console.log(`Error while getting celebrities from the database: ${err}`));
+  });
+
 module.exports = router;
