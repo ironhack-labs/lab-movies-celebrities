@@ -4,14 +4,15 @@ const CelDb = require("../models/Celebrity.model");
 
 
 // ****************************************************************************************
-// GET   ROUTE:/celebrities/create    RENDER :celebrities/new-celebrity    HBS:new-celebrity.hbs
+// GET   ROUTE:/celebrities/create    RENDER :celebrities/new-celebrity    
 //  Show a form to create a celebrity
 // ****************************************************************************************
 
 router.get("/create", (req, res) => res.render("celebrities/new-celebrity"));
 
+
 // ****************************************************************************************
-// POST  ROUTE:/celebrities/create    REDIRECT: /celebrities   => HBS:celebrity.hbs
+// POST  ROUTE:/celebrities/create    REDIRECT: /celebrities  
 // to submit the form to create a user
 // ****************************************************************************************
 
@@ -25,12 +26,12 @@ router.post("/create", (req, res) => {
 
 
 // ****************************************************************************************
-// GET   ROUTE:/celebrities     RENDER: celebrities/celebrities  => HBS:celebrities.hbs
-// route to display all users from the DB
+// GET   ROUTE:/celebrities     RENDER: celebrities/celebrities  
+// display all celebrities 
 // ****************************************************************************************
 
 router.get("/", (req, res) => {
-    CelDb.find() // <-- .find() method gives us always an ARRAY back
+    CelDb.find() 
     .then((xxx) => {
         console.log("ALL CELEBRITIES",xxx)
         res.render("celebrities/celebrities", {xxx})

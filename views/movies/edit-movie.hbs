@@ -10,6 +10,7 @@
     <label>genre</label>
     <input type="text" name="genre" value="{{xxx.genre}}">
 </div>
+
 <div>
     <label>plot</label>
     <input type="text" name="plot" value="{{xxx.plot}}">
@@ -18,11 +19,10 @@
 <div>
     <label>cast</label>
     <select name="cast" multiple>
-        {{#each xxx.cast}}
+        {{#each cel}}
         <option value="{{this.id}}">{{this.name}}</option>
         {{/each}}
     </select>
-
 </div>
 
 <button type="submit">Edit movie</button>

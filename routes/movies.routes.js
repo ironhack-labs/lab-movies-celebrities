@@ -19,6 +19,7 @@ router.get("/create", (req,res,next) => {
     .catch((e) => next(e)); 
 })
 
+
 // ****************************************************************************************
 // POST   ROUTE:/movies/create     REDIRECT: /movies/movies.hbs    
 //  submit the form and go to movies page
@@ -32,7 +33,6 @@ router.post("/create", (req,res,next) => {
     .then(()=> res.redirect("/movies/movies"))
     .catch((e) => next(e)); 
 })
-
 
 
 // ****************************************************************************************
@@ -51,7 +51,7 @@ router.get("/movies", (req, res,next) => {
 
 // ****************************************************************************************
 // GET   ROUTE: "movie/:id"    RENDER :  movies/movie-details
-//  Show  movie detail
+//  Show  movie detail 
 // ****************************************************************************************
 router.get('/:id',(req, res,next)  => {
      const movieId = req.params.id
@@ -74,6 +74,7 @@ router.post("/:id/delete", (req,res,next)=> {
     .catch((e)=> next(e))
 })
 
+
 // ****************************************************************************************
 // POST   ROUTE:/movies/:id/edit   REDIRECT : /movies/movies
 //  show the form to edit  movie 
@@ -81,10 +82,10 @@ router.post("/:id/delete", (req,res,next)=> {
 router.post("/:id/edit", (req,res,next)=> {
     const movie = req.params.id
     MovDb.findById(movie)
-    .populate("cast")
     .then((xxx) => {
-        console.log(xxx)
-        res.render("movies/edit-movie", {xxx})
+        console.log("asdasdadsada",xxx)
+        CelDb.find()
+        .then((cel)=> res.render("movies/edit-movie", {xxx,cel}))
     })
     .catch((e)=> next(e))
 })
@@ -92,7 +93,7 @@ router.post("/:id/edit", (req,res,next)=> {
 
 // ****************************************************************************************
 // POST   ROUTE:/movies/:id   REDIRECT : /movies/:id
-//  update  movie 
+//  update  movie and go to the movie details page
 // ****************************************************************************************
 
 router.post("/:id", (req,res,next)=>{
@@ -102,5 +103,6 @@ router.post("/:id", (req,res,next)=>{
     .then(()=> res.redirect(`/movies/${modifiedMovie}`))
     .catch((e)=> next(e))
 })
+
 
 module.exports = router;
