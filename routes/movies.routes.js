@@ -23,4 +23,13 @@ router.post('/movies/create', (req, res, next) => {
       .catch((error) => res.render("movies/new-movie.hbs"));
 });
 
+//GET all movies and render the list
+router.get('/movies', (req, res, next) => {
+    Movie.find()
+    .then((allMovies) => {
+        //console.log('Retrieved movies from DB:', allMovies);
+        res.render('movies/movies.hbs', { movies : allMovies});
+    });
+});
+
 module.exports = router;

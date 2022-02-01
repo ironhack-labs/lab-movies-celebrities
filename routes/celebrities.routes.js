@@ -21,7 +21,7 @@ router.post('/celebrities/create', (req, res, next) => {
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((allCelebs) => {
-        console.log('Retrieced celebs from DB:', allCelebs);
+        //console.log('Retrieced celebs from DB:', allCelebs);
         res.render('celebrities/celebrities.hbs', { celebs : allCelebs});
     });
 });
