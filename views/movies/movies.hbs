@@ -1,6 +1,8 @@
-<h2>List of Movies</h2>
-<div id="movies-list">
-    {{#each movies as |movie| }}
-        <a href="/movies/{{movie._id}}">{{movie.title}}</a>
-    {{/each}}
+<div class="list-page-div">
+    <h2>List of Movies</h2>
+    <div id="movies-list" class="list-div">
+        {{#each movies as |movie| }}
+            <a href="/movies/{{movie._id}}">{{movie.title}}</a>
+        {{/each}}
+    </div>
 </div>

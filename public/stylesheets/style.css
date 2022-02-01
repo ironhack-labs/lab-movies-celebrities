@@ -2,6 +2,134 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+h1 {
+  font-size: 70px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #0baf99;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #38c4b1;
+}
+
+.navbar {
+  background-color: #0baf99 !important;
+}
+
+.nav-link {
+  font-size: 16px;
+  color: rgb(53, 52, 52) !important;
+}
+
+.nav-link:hover {
+  color: rgb(14, 13, 13) !important;
+}
+
+/* STYLING HOME */
+
+#home-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:50%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#home-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#home-btns a {
+  margin: 30px 10px;
+}
+
+#home-div p {
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
+}
+
+#home-div span {
+  text-decoration: underline #0baf99 5px;
+}
+
+/* STYLING FORMS */
+
+.form-page-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-div {
+  width: 50%;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+#new-movie-form {
+  top: 58.5%;
+}
+
+/* STYLING LIST PAGES */
+
+.list-page-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-div {
+  width: 50%;
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-div a {
+  border: 2px solid #0baf99;
+  padding: 20px;
+  width: 250px;
+  text-decoration: underline #0baf99 3px;
+  color:rgb(53, 52, 52);
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.list-div a:hover {
+  background-color: #0baf99;
+  text-decoration: underline rgb(53, 52, 52) 3px;
+}
+
+#celebrities-list {
+  top: 58.5%;
 }

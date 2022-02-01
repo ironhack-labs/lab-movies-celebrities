@@ -1,6 +1,8 @@
-<h2>List of Celebrities</h2>
-<div id="celebrities-list">
-    {{#each celebrities as |celebrity| }}
-        <a href="/celebrities/{{celebrity._id}}" >{{celebrity.name}}</p>
-    {{/each}}
+<div class="list-page-div">
+    <h2>List of Celebrities</h2>
+    <div id="celebrities-list" class="list-div">
+        {{#each celebrities as |celebrity| }}
+            <a href="/celebrities/{{celebrity._id}}" >{{celebrity.name}}</a>
+        {{/each}}
+    </div>
 </div>
