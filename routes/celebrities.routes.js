@@ -15,12 +15,23 @@ router.post("/create", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   //create an instance of the celebrities model
   Celebrity.create({ name, occupation, catchPhrase })
-    .then((celebrityCreated) => {
-      res.render("celebrities/celebrities", { celebrityCreated });
+    .then((celebrities) => {
+      res.render("celebrities/celebrities.hbs", { celebrities });
     })
     .catch((err) => {
       res.render("celebrities/new-celebrity.hbs");
 
+      next(err);
+    });
+});
+
+///celebrities	GET	Show all celebrities
+router.get("/celebrities", (req, res) => {
+  Celebrity.find()
+    .then((celebrities) => {
+      res.render("celebrities/celebrities.hbs", { celebrities });
+    })
+    .catch((err) => {
       next(err);
     });
 });
