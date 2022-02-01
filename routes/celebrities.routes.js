@@ -6,14 +6,14 @@ const Celebrity = require("../models/Celebrity.model");
 
 //GET route to display form to create a celebrity
 router.get('/celebrities/create', (req, res, next) => {
-    res.render('celebrities/new-celebrity.hbs');
+    res.render('celebrities/new-celebrity');
 });
 
 //POST get all info abou new celeb user submitted from the form. use this to create a new celeb in the database
 router.post('/celebrities/create', (req, res, next) => {
     const { name, occupation, catchPhrase } = req.body;
-    Celebrity.create({ name, occupation, catchPhrase })
-    .then(() => res.redirect('/celebrities'))
+    Celebrity.create({name, occupation, catchPhrase})
+    .then(celebs => res.redirect('/celebrities'))
     .catch((error) => res.render('celebrities/new-celebrity.hbs'));
 });
 
@@ -21,9 +21,12 @@ router.post('/celebrities/create', (req, res, next) => {
 router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((allCelebs) => {
-        //console.log('Retrieced celebs from DB:', allCelebs);
-        res.render('celebrities/celebrities.hbs', { celebs : allCelebs});
-    });
+        //console.log('Retrieved celebs from DB:', allCelebs);
+        res.render('celebrities/celebrities', { celebs : allCelebs});
+    })
+    .catch(err => {
+            console.log('Something went wrong while getting celebrities from DB', err);
+        });
 });
 
 // all your routes here

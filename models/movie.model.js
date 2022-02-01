@@ -5,7 +5,13 @@ const movieSchema = new Schema({
   title: String,
   genre: String,
   plot: String,
-  cast: Array
+  //cast is an array of 'celebrities' therefore ref is to celebrity model
+  cast: [{ type: Schema.Types.ObjectId, ref: "Celebrity" }],
+},
+{
+  timestamps: true
 });
 
-module.exports = model("Movie", movieSchema);
+const Movie = model("Movie", movieSchema);
+
+module.exports = Movie;
