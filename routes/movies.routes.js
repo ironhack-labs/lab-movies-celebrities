@@ -31,7 +31,6 @@ router.post("/movies/create", (req, res, next) => {
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .then((allMovies) => {
-      console.log(allMovies);
       res.render("movies/movies", { movies: allMovies });
     })
     .catch((error) => {
@@ -56,3 +55,17 @@ router.get("/movies/:movieId", (req, res, next) => {
 });
 
 module.exports = router;
+
+//DELETE MOVIE
+router.post("/movies/:movieId/delete", (req, res, next) => {
+  const { movieId } = req.params;
+  Movie.findByIdAndRemove(movieId)
+    .then(() => {
+      console.log("movie deleted");
+      res.redirect("/movies");
+    })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
+});

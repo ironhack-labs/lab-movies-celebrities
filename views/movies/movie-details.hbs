@@ -15,4 +15,8 @@
 </div>
  {{/each}}
  </div>
+
+ <form action="/movies/{{foundMovie.id}}/delete" method="post">
+ <button type="submit">Delete</button>
+ </form>
 </div>
