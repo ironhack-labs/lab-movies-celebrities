@@ -17,10 +17,14 @@ const movieSchema = new Schema({
 
   cast: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Celebrity",
     },
+    
+    { timestamps: true },
   ],
+
+  
 });
 
 movieSchema.virtual("celebrities", {

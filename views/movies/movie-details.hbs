@@ -13,7 +13,9 @@
 {{person.catchPhrase}}
  <br />
 
- <form action="/movies/{{ _id }}/delete" method="POST">
+ <a href="/movies/{{ movie._id }}/edit">Edit movie</a>
+
+ <form action="/movies/{{ movie._id }}/delete" method="POST">
  <button type="submit" class="btn btn-primary btn-sm">Delete movie</button>
  </form>
 
