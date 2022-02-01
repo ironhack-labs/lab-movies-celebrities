@@ -50,10 +50,7 @@ router.get("/movies", (req, res) => {
 //movies details
 router.get("/:movieId", (req, res, next) => {
   const movieId = req.params.movieId;
-  console.log(movieId);
-
   Movie.findById(movieId)
-
     .populate("cast")
     .then((movieDetail) => res.render("movies/movie-details.hbs", movieDetail))
     .catch((err) => {
