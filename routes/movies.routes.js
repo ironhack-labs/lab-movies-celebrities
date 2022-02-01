@@ -53,7 +53,7 @@ router.get('/movies/:id/edit', (req, res, next) => {
                 const {_id,name} = a; 
                 celeb = {_id,name};
                 celeb.selected = false;
-                movie.cast.forEach(b => celeb.selected = celeb.name === b.name ? true : celeb.selected);
+                movie.cast.forEach(b => celeb.selected = celeb._id.toString() === b._id.toString() ? true : celeb.selected);
                 return celeb;
             });
             res.render('movies/edit-movie',{movie,selectedCelebs})
