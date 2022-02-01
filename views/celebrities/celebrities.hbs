@@ -1,0 +1,10 @@
+<h2>Celebrities</h2>
+
+<ul class="list-group">
+
+{{#each celebrities as | celebrity |}}
+<a href="/celebrities/{{ _id }}"
+  <li class="list-group-item">{{ celebrity.name }}</li>
+{{/each}}
+
+</ul>

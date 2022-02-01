@@ -1,4 +1,4 @@
-const { Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema({
     name : {
@@ -12,7 +12,9 @@ const celebritySchema = new Schema({
 
     catchPhrase : {
         type : String,
-    }
+    },
+
+    
 });
 
 const Celebrity = model("Celebrity", celebritySchema);
