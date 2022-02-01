@@ -68,7 +68,7 @@ router.get("/:id", (req, res, next) => {
   router.post("/:id/delete", (req, res, next) => {
     Movie.findByIdAndDelete(req.params.id)
       .then((deletedMovie) => {
-        console.log(`${deletedMovie} has been deleted`);
+        //console.log(`${deletedMovie} has been deleted`);
       })
       .catch((err) => console.log(err))
       .then(() => { //al terminar de borrar redirigimos a /movies
