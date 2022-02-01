@@ -69,3 +69,33 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
       next(error);
     });
 });
+
+//EDIT MOVIE
+
+router.get("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId: id } = req.params;
+  Movie.findById(id)
+    .then((foundMovie) => {
+      Celebrity.find({ _id: foundMovie.cast }).then((foundCelebs) => {
+        res.render("movies/edit-movie", { foundMovie, foundCelebs });
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
+});
+
+router.post("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId: id } = req.params;
+  const { title, genre, plot, cast } = req.body;
+  console.log(title, genre, plot, cast);
+  Movie.findByIdAndUpdate(
+    { _id: id },
+    { title, genre, plot, cast },
+    { new: true }
+  ).then((updateMovie) => {
+    console.log(`movie has been updated`);
+    res.redirect(`/movies/${updateMovie.id}`);
+  });
+});

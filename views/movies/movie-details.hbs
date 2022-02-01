@@ -15,6 +15,7 @@
 </div>
  {{/each}}
  </div>
+  <a href="/movies/{{foundMovie.id}}/edit" class="card-link">Edit Details</a>
 
  <form action="/movies/{{foundMovie.id}}/delete" method="post">
  <button type="submit">Delete</button>
