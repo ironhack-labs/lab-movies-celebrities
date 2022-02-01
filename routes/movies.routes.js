@@ -77,5 +77,35 @@ router.get("/:id", (req, res, next) => {
   });
 
 
+  router.get("/:id/edit", (req, res, next) => {
+    Promise.all([
+      Movie.findById(req.params.id)
+      .populate("cast"),
+      Celebrity.find(),
+    ])
+    .then(([movie, celebrities]) => {
+      res.render("movies/edit-movie", {
+        movie,
+        celebrities,
+      });
+    });
+  });
+
+  
+  
+  router.post("/:id/edit", (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body)
+      .catch((err) => console.log(err))
+      .then((movie) => {
+       // console.log(`${movie} has been updated`);
+        res.redirect("/movies");
+      });
+  });
+
+
+
+
+
+
 
 module.exports = router;

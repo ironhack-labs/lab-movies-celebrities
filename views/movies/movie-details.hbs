@@ -34,6 +34,14 @@
   </ul>
 </div>
 
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
+<div class="btn-group mt-2" role="group" aria-label="First group">
 <form action="/movies/{{movie.id}}/delete" method="POST">
 <button class="btn btn-danger mt-3" type="submit">Delete This Movie</button></form>
+</div>
+
+
+<a class="btn btn-warning ml-5 mt-4" href="/movies/{{movie.id}}/edit">EDIT</a> 
+</div>
+</div>
