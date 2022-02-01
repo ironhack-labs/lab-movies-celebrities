@@ -49,6 +49,23 @@ router.get('/:id', (req, res, next) =>{
     .catch((err) => console.log(err));
 
 
-})
+});
+
+
+router.post("/:id/delete", (req, res, next) => {
+    Celebrity.findByIdAndDelete(req.params.id)
+      .then((deletedCelebrity) => {
+        //console.log(`${deletedCelebrity} has been deleted`);
+      })
+      .catch((err) => console.log(err))
+      .then(() => { //al terminar de borrar redirigimos a /movies
+        res.redirect("/celebrities");
+      });
+  });
+
+
+
+
+
 module.exports = router;
 
