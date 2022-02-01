@@ -52,4 +52,19 @@ router.get("/new-movie", (req, res, next) => {
   res.render("movies/new-movie");
 });
 
+
+// ruta para crear movie-details
+router.get("/:id", (req, res, next) => {
+    Movie.findById(req.params.id)
+      .populate("cast") // para integrar el casting a la hora de crear la ruta a details
+      .then((movie) => {
+        // console.log(movie);
+        res.render("movies/movie-details", { movie });
+      })
+      .catch((err) => console.log(err));
+  });
+
+
+
+
 module.exports = router;

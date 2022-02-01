@@ -1,8 +1,12 @@
 <h2>Movies List</h2>
 
-
+<ul class="list-group">
 {{#each movies as |movie|}}
   <div>
+       <li class="list-group-item mt-2">  
     {{movie.title}}
+    <a href="/movies/{{movie._id}}">Movie-details</a> </li>
   </div>
 {{/each}} 
+
+</ul>

@@ -3,24 +3,30 @@
 <form action="/movies/create" method="POST">
   <label for="title">Title</label>
   <br />
-  <input type="text" name="title" />
+  <input class="form-control" type="text" name="title" />
   <br />
   <label for="genre">Genre</label>
   <br />
-  <input type="text" name="genre" />
+  <input class="form-control" type="text" name="genre" />
   <br />
   <label for="plot">Plot</label>
   <br />
-  <input type="text" name="plot" />
+  <input class="form-control" type="text" name="plot" />
   <br />
    <label for="cast">Cast</label>
-  <select name="cast" multiple>
+
+
+        {{!-- {{METEMOS EL MULTIPLE PARA PODER ELEGIR VARIOS ACTORES}} --}}
+
+  <select name="cast"  class="form-control" multiple>
+
     {{#each celebrities as |celebrity|}}
       <option value="{{celebrity._id}}">
         {{celebrity.name}}
       </option>
     {{/each}}
+
   </select>
   <br />
-  <button type="submit">Add new Movie</button>
+  <button class="btn btn-primary" type="submit">Add new Movie</button>
 </form> 

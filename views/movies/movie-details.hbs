@@ -1,0 +1,35 @@
+
+
+
+
+
+{{!-- {{METEMOS EL CAST}} --}}
+
+
+<div class="card mt-5" style="width: 18rem;">
+  <div class="card-header">
+    <h3><p>TITLE</p></h3>
+{{movie.title}}
+
+<h3><p>PLOT</p></h3>
+{{movie.plot}}
+
+<h3><p>GENRE</p></h3>
+{{movie.genre}}
+
+  </div>
+  <ul class="list-group list-group-flush">
+      {{#each movie.cast as |casting|}}
+
+    <li class="list-group-item">Actor:
+    {{casting.name}}
+    <br /></li>
+    <li class="list-group-item"> Occupation:
+    {{casting.occupation}}
+    <br /></li>
+    <li class="list-group-item">Catch Phrase:
+    {{casting.catchPhrase}}
+    <br /></li>
+    {{/each}}
+  </ul>
+</div>

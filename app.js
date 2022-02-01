@@ -13,6 +13,8 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+hbs.registerPartials(__dirname + '/views/partials');
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
@@ -29,6 +31,8 @@ const index = require('./routes/index');
 app.use('/', index);
 const celebrities = require("./routes/celebrities.routes");
 const movies = require("./routes/movies.routes");
+
+//ahorramos redireccionar. en los routes
 app.use("/celebrities", celebrities);
 app.use("/movies", movies);
 

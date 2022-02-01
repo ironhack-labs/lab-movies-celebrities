@@ -14,7 +14,7 @@ const movieSchema = new Schema({
 },
 
 {
-  toJSON: {
+  toJSON: { //no es necesario cuando utilizamos [Schema.Types.ObjectId]
     virtuals: true,
   },
 },
