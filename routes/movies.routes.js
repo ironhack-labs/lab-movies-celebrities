@@ -25,7 +25,15 @@ router.post("/movies/create", (req, res, next) => {
 });
 
 router.get("/movies", (req, res, next) => {
-  res.render("movies/movies");
+  Movie.find()
+    .then((allMovies) => {
+      console.log(allMovies);
+      res.render("movies/movies", { movies: allMovies });
+    })
+    .catch((error) => {
+      console.log(error);
+      next(error);
+    });
 });
 
 module.exports = router;
