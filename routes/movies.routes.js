@@ -60,7 +60,6 @@ router.get("/:movieId", (req, res, next) => {
 });
 
 //movies delete
-
 router.post("/:movieId/delete", (req, res, next) => {
   // Iteration #5: Delete the drone
   const { movieId } = req.params;
@@ -69,4 +68,9 @@ router.post("/:movieId/delete", (req, res, next) => {
     .then(() => res.redirect("/movies/movies"))
     .catch((error) => next(error));
 });
+
+///movies/:id/edit	GET	Show a form to edit a movie
+
+///movies/:id/edit	POST	Send the data from the form to this route to update the specific movie
+
 module.exports = router;

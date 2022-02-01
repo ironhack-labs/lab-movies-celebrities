@@ -3,8 +3,9 @@
 <li>Title: {{this.title}}</li>
 <li>Genre: {{this.genre}}</li>
 <li>Plot: {{this.plot}}</li>
+Cast:
 {{#each this.cast}}
-<li>Cast: {{this}}</li>
+{{this.name}},
 {{/each}}
 <a href="/movies/{{_id}}/edit">Edit</a>
 <form action="/movies/{{_id}}/delete" method="POST">
