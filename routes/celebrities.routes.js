@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const Celebrity = require('../models/Celebrity.model')
 
+
 // all your routes here
 //celebrity get
 router.get('/celebrities/create', (req, res, next) => {
