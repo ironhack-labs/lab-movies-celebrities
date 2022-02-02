@@ -1,8 +1,100 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(250, 250, 250);
 }
 
-a {
-  color: #00b7ff;
+/* Homepage */
+
+#homepage-header {
+  height: 80px;
+  position: relative;
+}
+
+#homepage {
+  height: 90%;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.homepage-btn {
+  font-size: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 6px 6px 5px rgb(206, 206, 206);
+  margin: 15px;
+}
+
+.homepage-btn a {
+  color: black;
+}
+
+/* new celebrity page */
+#newceleb-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+#newceleb-btn {
+  margin: 10px 0px 30px 0px;
+  height: 32px;
+  font-size: 0.8rem;
+}
+#newceleb-btn a {
+  color: black;
+  text-decoration: none;
+}
+
+#newceleb-form {
+  margin-top: 50px;
+  font-size: 1.2rem;
+}
+
+/* Celebrities page */
+
+#celebrities-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.each-card {
+  margin-top: 50px;
+}
+
+/* Movie page */
+#moviepage-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 50px;
+}
+
+#moviepage-cards a {
+  color: black;
+  text-decoration: none;
+}
+
+#createmovies-btn {
+  height: 40px;
+  font-size: 1rem;
+}
+
+/* New movie page */
+#newmovie-form {
+  margin-top: 50px;
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#newmovie-btn {
+  margin-top: 50px;
 }

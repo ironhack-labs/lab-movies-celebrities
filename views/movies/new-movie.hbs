@@ -1,7 +1,17 @@
-<a href="./movies">Go back</a>
+  <section>
 
-<h2>Create new movie</h2>
+  <div>
+    <a href="/"><button id="newceleb-btn" class="btn btn-outline-info">
+        Go back
+      </button>
+    </a>
+  </div>
 
+ <div class="text-center">
+    <h2 class="fst-italic text-decoration-underline">Create new movie</h2>
+  </div>
+
+<div id="newmovie-form">
 <form action="/movies/new-movie" method="post">
 
   <div class="mb-3">
@@ -32,6 +42,8 @@
   </div>
 
 </div>
+
+<div class="text-center">
   <fieldset>
     <label>
       Cast:
@@ -41,6 +53,7 @@
         class="form-select"
         multiple
         aria-label="multiple select example"
+        style="width: 250px;"
       >
         {{#each celebs}}
           <option value="{{_id}}">{{this.name}}</option>
@@ -48,7 +61,15 @@
       </select>
     </label>
   </fieldset>
+  </div>
+
+</div>
 </div>
 
+<div class="text-center" id="newmovie-btn">
   <button type="submit" class="btn btn-outline-success">Create movie</button>
+  </div>
+
 </form>
+
+</section>

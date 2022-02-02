@@ -1,46 +1,61 @@
-<a href="/">Go back</a>
+<section id="newceleb-page">
 
-<h2>Create new celebrity</h2>
-
-<form action="/celebrities/new-celebrity" method="post">
-
-  <div class="mb-3">
-    <fieldset>
-      <label for="name" class="form-label">
-        Name:
-      </label>
-      <input type="text" name="name" id="name" class="form-control" />
-    </fieldset>
+  <div>
+    <a href="/"><button id="newceleb-btn" class="btn btn-outline-info">
+        Go back
+      </button>
+    </a>
   </div>
 
-  <div class="mb-3">
-    <fieldset>
-      <label for="occupation" class="form-label">
-        Occupation:
-      </label>
-      <input
-        type="text"
-        name="occupation"
-        id="occupation"
-        class="form-control"
-      />
-    </fieldset>
+  <div class="text-center">
+    <h2 class="fst-italic text-decoration-underline">Create new celebrity</h2>
   </div>
 
-  <div class="mb-3">
-    <fieldset>
-      <label for="catchPhrase" class="form-label">
-        Catch phrase:
-      </label>
-      <input
-        type="text"
-        name="catchPhrase"
-        id="catchPhrase"
-        class="form-control"
-      />
-    </fieldset>
+  <div id="newceleb-form">
+    <form action="/celebrities/new-celebrity" method="post">
+
+      <div class="mb-3">
+        <fieldset>
+          <label for="name" class="form-label">
+            Name:
+          </label>
+          <input type="text" name="name" id="name" class="form-control" />
+        </fieldset>
+      </div>
+
+      <div class="mb-3">
+        <fieldset>
+          <label for="occupation" class="form-label">
+            Occupation:
+          </label>
+          <input
+            type="text"
+            name="occupation"
+            id="occupation"
+            class="form-control"
+          />
+        </fieldset>
+      </div>
+
+      <div class="mb-3">
+        <fieldset>
+          <label for="catchPhrase" class="form-label">
+            Catch phrase:
+          </label>
+          <input
+            type="text"
+            name="catchPhrase"
+            id="catchPhrase"
+            class="form-control"
+          />
+        </fieldset>
+      </div>
+
+      <div class="text-end">
+        <button type="submit" class="btn btn-outline-success">Create celebrity</button>
+      </div>
+
+    </form>
   </div>
 
-  <button type="submit" class="btn btn-outline-success">Create celebrity</button>
-
-</form>
+</section>

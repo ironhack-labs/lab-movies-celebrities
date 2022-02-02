@@ -1,13 +1,28 @@
-<a href="/">Go back</a>
-
-<h2>Check all the stars</h2>
-
-{{#each celebs}}
+<section>
 
   <div>
-
-    <h4>{{this.name}}</h4>
-
+    <a href="/"><button id="newceleb-btn" class="btn btn-outline-info">
+        Go back
+      </button>
+    </a>
   </div>
 
-{{/each}}
+  <div class="text-center">
+    <h2 class="fst-italic text-decoration-underline">Check all the stars</h2>
+  </div>
+
+  <div id="celebrities-page" class="each-card">
+
+    {{#each celebs}}
+
+      <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">{{this.catchPhrase}}</p>
+        </div>
+      </div>
+
+    {{/each}}
+
+  </div>
+</section>

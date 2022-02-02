@@ -1,17 +1,42 @@
-<a href="/">Go back</a>
-
-<h2>Wow such movies must buy</h2>
-
-<a href="./new-movie">Create a new movie</a>
-
-{{#each allMovies}}
+<section>
 
   <div>
-
-    <h4>
-      <a href="{{_id}}"> {{this.title}}</a>
-    </h4>
-
+    <a href="/"><button id="newceleb-btn" class="btn btn-outline-info">
+        Go back
+      </button>
+    </a>
   </div>
 
-{{/each}}
+  <div class="text-center">
+    <h2 class="fst-italic text-decoration-underline">Movies</h2>
+  </div>
+
+  <div id="moviepage-cards">
+    {{#each allMovies}}
+
+      <div
+        class="card text-dark bg-light mb-3"
+        style="max-width: 18rem; width: 300px;"
+      >
+        <a href="{{_id}}">
+          <div class="card-header" style="height: 80px;">
+            <h4>{{this.title}} </h4></div>
+        </a>
+        <div class="card-body">
+          <h6 class="card-title">{{this.plot}}</h6>
+          <hr />
+          <p class="card-text">{{this.genre}}</p>
+        </div>
+      </div>
+
+    {{/each}}
+  </div>
+
+  <div class="text-center">
+    <a href="./new-movie">
+      <button id="createmovies-btn" class="btn btn-outline-success">
+        Create a new movie
+      </button></a>
+  </div>
+
+</section>
