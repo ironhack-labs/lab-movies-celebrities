@@ -1,34 +1,68 @@
-// ℹ️ Gets access to environment variables/settings
-// https://www.npmjs.com/package/dotenv
-require('dotenv/config');
-
-// ℹ️ Connects to the database
-require('./db');
-
-// Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
-const express = require('express');
-
-// Handles the handlebars
-// https://www.npmjs.com/package/hbs
-const hbs = require('hbs');
+require("dotenv").config();
+const express = require("express");
+const hbs = require("hbs");
+const createError = require("http-errors");
+const logger = require("morgan");
+const mongoose = require("mongoose");
+require("./config/db.config");
 
 const app = express();
 
-// ℹ️ This function is getting exported from the config folder. It runs most middlewares
-require('./config')(app);
+app.use(logger("dev"));
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
-// default value for title local
-const projectName = 'lab-movies-celebrities';
-const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
+// creates an absolute path pointing to a folder called "views"
+app.set("views", __dirname + "/views");
+app.set("view engine", "hbs");
+hbs.registerPartials(__dirname + "/views/partials");
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+const mainRouter = require("./config/routes/index");
+const celebRoutes = require("./config/routes/celebrities");
+const moviesRoutes = require("./config/routes/movies");
 
-// 👇 Start handling routes here
-const index = require('./routes/index');
-app.use('/', index);
+// Router
+app.use('/', mainRouter);
+app.use('/celebrities', celebRoutes);
+app.use('/movies', moviesRoutes);
 
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+// Default route, forward 404 to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// Error handler handler
+app.use(function (error, req, res, next) {
+  if (error instanceof mongoose.Error.ValidationError) {
+    error = createError(400, error);
+  } else if (error instanceof mongoose.Error.CastError) {
+    error = createError(404, "Resource not found");
+  } else if (error.message.includes("E11000")) {
+    error = createError(400, "Already exists");
+  } else if (!error.status) {
+    error = createError(500, error);
+  }
+
+  if (error.status >= 500) {
+    console.error(error);
+  }
+
+  const data = {};
+  data.status = error.status;
+  data.message = error.message;
+  data.errors = error.errors
+    ? Object.keys(error.errors).reduce(
+        (errors, key) => ({
+          ...errors,
+          [key]: error.errors[key].message || error.errors[key],
+        }),
+        {}
+      )
+    : undefined;
+
+  res.status(error.status).render("error", data);
+});
+
+app.locals.title = 'Express - Generated with IronGenerator';
 
 module.exports = app;

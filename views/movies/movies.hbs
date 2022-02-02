@@ -1,0 +1,19 @@
+<h1>Movies list</h1>
+<p>Check out our best movies!</p>
+
+<ul class="list-group">
+  {{#each movies as |movie|}}
+    <a href="/movies/{{movie._id}}">
+      <li class="list-group-item">
+      <h2>{{movie.title}}</h2>
+      {{#if movie.cast}}
+        {{#each movie.cast as |celebrity|}}
+          - {{celebrity.name}}
+        {{/each}}
+      {{else}}
+        <p>no hay cast</p>
+      {{/if}}
+     </li>
+    </a>
+  {{/each}}
+</ul>

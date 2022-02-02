@@ -1,21 +1,22 @@
 {
-  "name": "lab-movies-celebrities",
+  "name": "starter-code",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node ./bin/www",
+    "dev": "DEBUG=starter-code:* nodemon --inspect ./bin/www",
+    "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "hbs": "^4.1.1",
-    "mongoose": "^6.1.2",
-    "morgan": "^1.10.0",
-    "serve-favicon": "^2.5.0"
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "hbs": "^4.0.1",
+    "mongoose": "^5.2.10",
+    "morgan": "^1.9.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^1.12.1"
   }
 }

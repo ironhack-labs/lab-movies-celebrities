@@ -1,0 +1,8 @@
+<h1>Movie detail</h1>
+
+<h2>{{movie.title}}</h2>
+<h2>Cast:</h2>
+
+{{#each movie.cast as |celebrity|}}
+  {{celebrity.name}}
+{{/each}}
