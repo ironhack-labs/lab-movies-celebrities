@@ -18,6 +18,7 @@ router.post('/create', (req, res, next) => {
 
 router.get('/', (req, res, next) => {
     Movie.find()
+        .populate('cast')
         .then((movies) => {
             res.render('movies/movies', { movies })
         })
