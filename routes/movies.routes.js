@@ -34,4 +34,19 @@ router.get('/movies', (req, res, next) => {
 
 })
 
+router.get('/movies/:id', (req, res, next) => {
+    const { id } = req.params;
+  
+    Movie.findById(id)
+      .populate('cast') // <-- the same as .populate('author).populate('comments')
+      .then(moviesFound => {
+        console.log(moviesFound)  
+        res.render('/movies/movie-details', { movies: moviesFound})
+      })
+      .catch(err => {
+        console.log(`Err while getting a single post from the  DB: ${err}`);
+        next(err);
+      });
+  });
+
 module.exports = router;
