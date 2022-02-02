@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Movie details</h2>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p> {{movie.title}} · <em> {{movie.genre}}</em></p>
+      <p class="card-text"><small></small></p>
+      <footer class="blockquote-footer">
+        {{#each movie.cast as |celebrity|}}
+          <p>{{celebrity.name}} | {{celebrity.ocupation}}</p>
+          <p><small>"{{celebrity.catchPhrase}}"</small></p>
+          <br>
+        {{/each}}
+      </footer>
+    </blockquote>
+  </div>
+</div>

@@ -18,10 +18,20 @@ router.post('/create', (req, res, next) => {
 
 router.get('/', (req, res, next) => {
     Movie.find()
-        .populate('cast')
+        
         .then((movies) => {
             res.render('movies/movies', { movies })
         })
+        .catch((e) => next(e))
+})
+
+router.get('/:id', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .populate('cast')
+        .then((movie) => {
+            console.log(movie)
+            res.render('movies/movie-details', { movie })
+        }).catch((e) => next(e))
 })
 
 module.exports = router;

@@ -10,7 +10,7 @@
     <input class="form-control" type="text" name="plot">
     
     <label class="label-form mt-3">Cast</label>
-    <select class="form-control" name="cast">
+    <select class="form-control" name="cast" multiple>
         {{#each celebrities as |celebrity|}}
         <option value="{{celebrity._id}}" >{{celebrity.name}}</option>
         {{/each}}
