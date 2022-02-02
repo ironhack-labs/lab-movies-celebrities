@@ -11,4 +11,11 @@
   <p><b>Occupation: </b> {{this.occupation}} </p>
   <p><b>Catch Phrase: </b> {{this.catchPhrase}} </p>
 {{/each}}
+
+<a href='/movies/{{movie._id}}/edit'>Edit Movie Details</a>
+
+<form action="/movies/{{movie._id}}/delete" method="post">
+    <button type="submit">Delete Movie</button>
+</form>
+
 <hr>
