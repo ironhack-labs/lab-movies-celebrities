@@ -16,16 +16,16 @@ const movieSchema = new Schema({
   },
 
   cast: {
-    type: [Schema.Types.ObjectId],
+    type: [mongoose.SchemaTypes.ObjectId],
     ref: "Celebrity",
   },
 });
 
-movieSchema.virtual("celebrities", {
+/* movieSchema.virtual("celebrities", {
   ref: "Celebrity",
   localField: "cast",
   foreignField: "_id",
-});
+}); */
 
 const Movie = mongoose.model("Movie", movieSchema);
 

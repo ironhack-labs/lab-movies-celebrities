@@ -16,7 +16,9 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/create", (req, res, next) => {
+  console.log('entro')
   Celebrity.find().then((celebrities) => {
+    console.log('CELEBS: ', celebrities)
     res.render("movies/new-movie");
   });
 });
@@ -31,6 +33,7 @@ router.post("/create", (req, res, next) => {
       res.render("movies/new-movie");
     });
 });
+
 router.get("/:id", (req, res, next) => {
   const id = req.params.id;
   Movie.findById(id)

@@ -1,7 +1,7 @@
 <h2>New movie</h2>
 
-<form action="/movies/create" method="POST">
-  <div>
+<form action="/movies/create" method="GET">
+ {{!--  <div>
     <label for="title">Title<label>
   <input type="text" class="form-control" name="title" value="{{ movie.title }}"/>
    </div>
@@ -14,9 +14,9 @@
    <div>
      <label for="plot">Plot<label>
 <input type="text" name="plot" value="{{ movie.plot }}" />
-</div>
+</div> --}}
 
-   <div>
+{{!--    <div>
      
 <label for="title">Cast</label>
     <select multiple name="cast">
@@ -26,7 +26,7 @@
         </option>
       {{/each}}
     </select>
-   </div>
+   </div> --}}
 
 <button type="submit" class="btn btn-primary">Create movie</button>
  

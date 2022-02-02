@@ -14,44 +14,44 @@ router.get("/", (req, res, next) => {
       console.log("Oops", err);
     });
 });
+
 router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrity");
-
-  router.post("/create", (req, res, next) => {
-    Celebrity.create(req.body)
-      .then((celebrity) => {
-        console.log(`New celebrity created: ${celebrity}`, req.body);
-        res.redirect(
-          "/celebrities"
-        ); /* also --> res.status(302).redirect("/")) */
-      })
-      .catch((e) => {
-        res.render("/celebrities/new-celebrity");
-      });
-  });
 });
 
-  /*   las rutas parametrizables at the end!! */
+router.post("/create", (req, res, next) => {
+  Celebrity.create(req.body)
+    .then((celebrity) => {
+      console.log(`New celebrity created: ${celebrity}`, req.body);
+      res.redirect(
+        "/celebrities"
+      ); /* also --> res.status(302).redirect("/")) */
+    })
+    .catch((e) => {
+      res.render("/celebrities/new-celebrity");
+    });
+});
 
-  router.get("/:id", (req, res, next) => {
-    const id = req.params.id;
-    Celebrity.findById(id)
-      .then((celebrity) => {
-        res.render("celebrities/celebrity-details", { celebrity });
-      })
-      .catch((e) => {
-        console.error(e);
-      });
-  });
+/*   las rutas parametrizables at the end!! */
 
-  router.post("/:id/delete", (req, res, next) => {
-    const idToDelete = req.params.id;
-    Celebrity.findByIdAndDelete(idToDelete).then(() => {
-      res.redirect("/celebrities").catch((e) => {
-        console.error(e);
-      });
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  Celebrity.findById(id)
+    .then((celebrity) => {
+      res.render("celebrities/celebrity-details", { celebrity });
+    })
+    .catch((e) => {
+      console.error(e);
+    });
+});
+
+router.post("/:id/delete", (req, res, next) => {
+  const idToDelete = req.params.id;
+  Celebrity.findByIdAndDelete(idToDelete).then(() => {
+    res.redirect("/celebrities").catch((e) => {
+      console.error(e);
     });
   });
-
+});
 
 module.exports = router;
