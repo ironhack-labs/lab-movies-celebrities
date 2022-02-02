@@ -18,21 +18,13 @@ router.get("/", (req, res, next) => {
 
 // tenemos que volver a meter celebrities con direccion movies para que nos salgan en 
 // el scroll de casting.
-router.get("/create", (req, res, next) => {
+router.get("/new-movie", (req, res, next) => {
     Celebrity.find()
     .then((celebrities) => {
       // console.log(celebrities);
       res.render("movies/new-movie", { celebrities });
     });
   });
-
-
-
-
-// ruta donde creamos las movies GET
-router.get("/create", (req, res, next) => {
-  res.render("movies/new-movie", {});
-});
 
 
 // ruta donde creamos las movies POST
@@ -48,9 +40,6 @@ router.post("/create", (req, res, next) => {
     });
 });
 
-router.get("/new-movie", (req, res, next) => {
-  res.render("movies/new-movie");
-});
 
 
 // ruta para crear movie-details
