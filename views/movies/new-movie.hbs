@@ -9,11 +9,12 @@
     <input type="text" name="plot"/>
 </label>
 <label> Cast: 
-    <select name="movies" multiple>
-        {{#each actores}}
-        <option value="{{#}}">{{#}}</option>
+    <select name="cast" multiple>
+        {{#each celebrities}}
+        <option value="{{_id}}">{{name}}</option>
         {{/each}}
     </select>
+    
 </label>
 <button type="submit">Create movie</button>
 </form>
