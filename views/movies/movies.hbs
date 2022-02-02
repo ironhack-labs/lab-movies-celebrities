@@ -1,0 +1,20 @@
+<h2>Movies</h2>
+<div class="container">
+    {{#each movies }}
+        <div class="movie">
+            <hr>
+            <div class="movieDetail">Title: {{this.title}}</div>
+            <div class="movieDetail">Genre:{{this.genre}}</div>
+            <div class="movieDetail">Plot: {{this.plot}}</div>
+            <div class="movieDetail">Cast: 
+                {{#each this.cast}}
+                    {{this.name}}
+                    {{#unless @last}}
+                        ,
+                    {{/unless}}
+                {{/each}}
+            </div>
+             
+        </div>
+    {{/each}}
+</div>

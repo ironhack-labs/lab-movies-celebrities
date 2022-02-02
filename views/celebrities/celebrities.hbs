@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+<div class="container">
+    {{#each celebs }}
+        <div class="celeb ">
+            <hr>
+            <div class="celebDetail">Name: {{this.name}}</div>
+            <div class="celebDetail">Occupation:{{this.occupation}}</div>
+            <div class="celebDetail">Catch phrase: {{this.catchPhrase}}</div>
+        </div>
+    {{/each}}
+</div>
