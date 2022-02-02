@@ -29,6 +29,7 @@ router.get("/create", (req, res, next) => {
         res.render("/celebrities/new-celebrity");
       });
   });
+});
 
   /*   las rutas parametrizables at the end!! */
 
@@ -51,6 +52,6 @@ router.get("/create", (req, res, next) => {
       });
     });
   });
-});
+
 
 module.exports = router;
