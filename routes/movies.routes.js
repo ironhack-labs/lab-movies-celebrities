@@ -18,7 +18,7 @@ router.post('/movies/create', (req, res, next) => {
     Movie.create({title, genre, plot, cast})
         .then(dbCeleb => {
 
-            Celebrity.findByIdAndUpdate(cast, { $push: {celeb: dbCeleb.id} })
+           return Celebrity.findByIdAndUpdate(cast, { $push: {celeb: dbCeleb._id} })
         })
 
         .then (() => res.redirect('/movies'))
