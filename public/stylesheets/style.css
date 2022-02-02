@@ -98,3 +98,21 @@ body {
 #newmovie-btn {
   margin-top: 50px;
 }
+
+/* Edit movie page */
+#editmovie-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#cast-li {
+  text-align: left;
+}
+
+.editmovie-btn {
+  margin-top: 10px;
+}

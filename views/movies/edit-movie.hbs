@@ -1,69 +1,89 @@
-<a href="/movies/movies">Go back</a>
-
-<h2>Edit Movie</h2>
-
-<form action="/movies/{{editedMov._id}}/edit" method="post">
-
-  <div class="mb-3">
-    <fieldset>
-      <label for="title" class="form-label">Title:</label>
-      <input
-        type="text"
-        name="title"
-        id="title"
-        value="{{editedMov.title}}"
-        class="form-control"
-      />
-    </fieldset>
-  </div>
-
-  <div class="mb-3">
-    <fieldset>
-      <label for="genre" class="form-label">
-        Genre:
-      </label>
-      <input
-        type="text"
-        name="genre"
-        id="genre"
-        value="{{editedMov.genre}}"
-        class="form-control"
-      />
-    </fieldset>
-  </div>
-
-  <div class="mb-3">
-    <fieldset>
-      <label for="plot" class="form-label">
-        Plot:
-      </label>
-      <input
-        type="text"
-        name="plot"
-        id="plot"
-        value="{{editedMov.plot}}"
-        class="form-control"
-      />
-    </fieldset>
-  </div>
+<section>
 
   <div>
-    <fieldset>
-      <label for="cast">Cast </label>
-      <select
-        name="cast"
-        id="cast"
-        class="form-select"
-        multiple
-        aria-label="multiple select example"
+    <a href="/movies/movies"><button
+        id="newceleb-btn"
+        class="btn btn-outline-info"
       >
-        {{#each allCelebs}}
-          <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-      </select>
-    </fieldset>
+        Go back
+      </button>
+    </a>
   </div>
 
-  <button type="submit" class="btn btn-outline-success">Save changes</button>
+  <div class="text-center">
+    <h2 class="fst-italic text-decoration-underline">Edit movie</h2>
+  </div>
 
-</form>
+<div id="newmovie-form">
+  <form action="/movies/{{editedMov._id}}/edit" method="post">
+
+    <div class="mb-3">
+      <fieldset>
+        <label for="title" class="form-label">Title:</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value="{{editedMov.title}}"
+          class="form-control"
+        />
+      </fieldset>
+    </div>
+
+    <div class="mb-3">
+      <fieldset>
+        <label for="genre" class="form-label">
+          Genre:
+        </label>
+        <input
+          type="text"
+          name="genre"
+          id="genre"
+          value="{{editedMov.genre}}"
+          class="form-control"
+        />
+      </fieldset>
+    </div>
+
+    <div class="mb-3">
+      <fieldset>
+        <label for="plot" class="form-label">
+          Plot:
+        </label>
+        <input
+          type="text"
+          name="plot"
+          id="plot"
+          value="{{editedMov.plot}}"
+          class="form-control"
+        />
+      </fieldset>
+    </div>
+
+    <div class="text-center">
+      <fieldset>
+        <label for="cast">Cast
+        <select
+          name="cast"
+          id="cast"
+          class="form-select"
+          multiple
+          aria-label="multiple select example"
+          style="width: 250px; height: 200px;"
+        >
+          {{#each allCelebs}}
+            <option value="{{_id}}">{{name}}</option>
+          {{/each}}
+        </select>
+        </label>
+      </fieldset>
+    </div>
+</div>
+
+<div class="text-center" id="editmovie-btn">
+    <button type="submit" class="btn btn-outline-success">Save changes</button>
+</div>
+
+  </form>
+
+</section>

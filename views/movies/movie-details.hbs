@@ -1,29 +1,49 @@
-<a href="./movies">Go back</a>
+<section>
 
-<h2>Movie Details</h2>
+  <div>
+    <a href="/movies/movies"><button
+        id="newceleb-btn"
+        class="btn btn-outline-info"
+      >
+        Go back
+      </button>
+    </a>
+  </div>
 
-<div>
-  <h4>{{movieDetail.title}}</h4>
-  <h5>{{movieDetail.genre}}</h5>
+  <div class="text-center">
+    <h2 class="fst-italic text-decoration-underline">Movie details</h2>
+  </div>
 
-  <p>{{movieDetail.plot}}</p>
+  <div id="editmovie-page">
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+      <div class="card-header"><h1>{{movieDetail.title}}</h1></div>
+      <div class="card-body">
+        <h6 class="card-title">{{movieDetail.genre}}</h6>
+        <p class="card-text">{{movieDetail.plot}}</p>
+        <hr />
+        <ul id="cast-li">
+          {{#each movieDetail.cast}}
+            <li class="card-text">{{name}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
 
-  <ul>
+    <div class="text-start editmovie-btn">
+      <a href="{{movieDetail._id}}/edit"><button
+          class="btn btn-outline-warning"
+        >
+          Edit</button></a>
+    </div>
 
-    {{#each movieDetail.cast}}
-      <li>{{name}}</li>
-    {{/each}}
+    <div class="text-end editmovie-btn">
+      <form action="{{_id}}" method="post">
 
-  </ul>
-</div>
+        <button type="submit" class="btn btn-outline-danger">
+          Delete
+        </button>
+      </form>
+    </div>
+  </div>
 
-<button class="btn btn-outline-warning">
-  <a href="{{movieDetail._id}}/edit">Edit</a></button>
-
-<form action="{{_id}}" method="post">
-
-  <button type="submit" class="btn btn-outline-danger">
-    Delete
-  </button>
-
-</form>
+</section>
