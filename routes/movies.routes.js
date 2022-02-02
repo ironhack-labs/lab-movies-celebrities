@@ -3,6 +3,7 @@ const router = require("express").Router();
 
 const Movie = require('../models/Movie.model');
 const Celebrity = require("../models/Celebrity.model");
+const { db } = require("../models/Celebrity.model");
 // all your routes here
 
 /************************* CREATE MOVIE *****************************/
@@ -93,10 +94,28 @@ router.get('/movies/:id/edit', (req, res, next) =>  {
     Movie.findById(movieId)
         .populate('cast')
         .then(dbMovie => {
-
             Celebrity.find()
             .then(dbCelebrities => {
-                //console.log(dbMovie, dbCelebrities);
+                
+                let castIds = [];
+                dbMovie.cast.forEach(celeb => {
+                    //to use castId.id instead of castId._id makes the id a string instead of new ObjectId(f9nn46fgh54fghb5364fn)
+                    castIds.push(celeb.id);
+                });
+
+                dbCelebrities.forEach(celeb => {
+
+                    //console.log(castIds.includes(celeb.id));
+
+                    if (castIds.includes(celeb.id)) {
+                        celeb.isInCast = true;
+                    } else {
+                        celeb.isInCast = false;
+                    }
+
+                });
+                console.log(dbCelebrities[2].isInCast);
+
                 res.render('movies/edit-movie', {dbMovie, dbCelebrities});
             })
             .catch(err => {

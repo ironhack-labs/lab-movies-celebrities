@@ -18,7 +18,11 @@
                 
                 {{#each dbCelebrities}}
                     
-                    <option value="{{_id}}"> {{name}} </option>
+                    {{#if isInCast}}
+                        <option selected value="{{_id}}" > {{name}} </option>
+                    {{else}}
+                        <option value="{{_id}}"> {{name}} </option>
+                    {{/if}}
                     
                 {{/each}}
             </select>
