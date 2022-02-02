@@ -1,1 +1,19 @@
 <h2>hey! New film?</h2>
+<form action="/movies/create" method="POST">
+    <label class="label-form mt-3">Title</label>
+    <input class="form-control" type="text" name="title">
+
+    <label class="label-form mt-3">Genre</label>
+    <input class="form-control" type="text" name="genre">
+
+    <label class="label-form mt-3">Plot</label>
+    <input class="form-control" type="text" name="plot">
+    
+    <label class="label-form mt-3">Cast</label>
+    <select class="form-control" name="cast">
+        {{#each celebrities as |celebrity|}}
+        <option value="{{celebrity._id}}" >{{celebrity.name}}</option>
+        {{/each}}
+    </select>
+    <button class="btn btn-primary mt-4" type="submit">submit</button>
+</form>
