@@ -25,4 +25,13 @@ router.post('/movies/create', (req, res, next) => {
         .catch(error => console.log(error))
 })
 
+router.get('/movies', (req, res, next) => {
+    Movie.find()
+        .then(allMoviesFromDb => {
+            res.render('movies/movies.hbs', { movies: allMoviesFromDb})
+        })
+        .catch(error => console.log('Error in list:', error))
+
+})
+
 module.exports = router;
