@@ -1,0 +1,28 @@
+{{! views/movies/new-movie.hbs }}
+
+<h1>ADD A NEW MOVIE</h1>
+
+<form action="/movies/create" method="POST">
+  <input type="text" name="title" id="" placeholder="movie title" />
+  <br />
+  <input type="text" name="genre" id="" placeholder="movie genre" />
+  <br />
+  <input type="text" name="plot" id="" placeholder="movie plot" />
+  <br />
+
+  <label for="cast">Select the Cast</label>
+
+  {{! using the select and option tags we can render all celebrities from the allCelebrities array }}
+  {{! the 'multiple' attribute allows the user to select multiple celebrities for the cast }}
+  <select name="cast" id="cast" multiple>
+    {{#each allCelebrities}}
+      {{! what the user sees between the tags is the name of the celebritity, but what is transmitted in the body (value) is the _id }}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Save the movie</button>
+</form>
+
+<hr />
+<a href="/"><button>Back to Home</button></a>
