@@ -14,6 +14,7 @@
         {{/each}}
       </footer>
     </blockquote>
+    <a href="/movies/{{movie._id}}/edit">Edit Movie</a>
     <form action="/movies/{{movie.id}}/delete" method="POST">
       <button class="btn btn-danger" type="submit">Delete</button>
     </form>

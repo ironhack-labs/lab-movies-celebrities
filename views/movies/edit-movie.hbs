@@ -1,21 +1,19 @@
-<div class="card">
-  <div class="card-header">
-    <h2>Movie details</h2>
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p> {{movie.title}} · <em> {{movie.genre}}</em></p>
-      <p class="card-text"><small></small></p>
-      <footer class="blockquote-footer">
-        <h3>Cast</h3>
-        {{#each movie.cast as |celebrity|}}
-          <p>{{celebrity.name}} | {{celebrity.ocupation}}</p>
-          <p><small>"{{celebrity.catchPhrase}}"</small></p>
+<h2>Edit Movie</h2>
+<form action="/movies/{{movie.id}}" method="POST">
+    <label class="label-form mt-3">Title</label>
+    <input class="form-control" type="text" name="title" value="{{movie.title}}">
+
+    <label class="label-form mt-3">Genre</label>
+    <input class="form-control" type="text" name="genre" value="{{movie.genre}}">
+
+    <label class="label-form mt-3">Plot</label>
+    <input class="form-control" type="text" name="plot" value="{{movie.plot}}">
+    
+    <label class="label-form mt-3">Cast</label>
+    <select class="form-control" name="cast" multiple>
+        {{#each celebrities as |celebrity|}}
+        <option value="{{celebrity._id}}" >{{celebrity.name}}</option>
         {{/each}}
-      </footer>
-    </blockquote>
-    <form action="/movies/{{movie.id}}/delete" method="POST">
-      <button class="btn btn-danger" type="submit">Delete</button>
-    </form>
-  </div>
-</div>
+    </select>
+    <button class="btn btn-primary mt-4" type="submit">submit</button>
+</form>
