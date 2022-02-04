@@ -1,0 +1,11 @@
+<h2>Celebrities</h2>
+
+{{#each celebrities as |celebrity|}}
+
+    <h3><a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a></h3>
+    <p>Occupation: {{celebrity.occupation}}</p>
+    <p>Catch phrase: {{celebrity.catchPhrase}}</p>
+
+{{/each}}
+
+<button onclick="window.location.href='/celebrities/new'">Create new celeb</button>
