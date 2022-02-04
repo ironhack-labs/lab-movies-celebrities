@@ -7,12 +7,15 @@
       <p> {{movie.title}} · <em> {{movie.genre}}</em></p>
       <p class="card-text"><small></small></p>
       <footer class="blockquote-footer">
+        <h3>Cast</h3>
         {{#each movie.cast as |celebrity|}}
           <p>{{celebrity.name}} | {{celebrity.ocupation}}</p>
           <p><small>"{{celebrity.catchPhrase}}"</small></p>
-          <br>
         {{/each}}
       </footer>
     </blockquote>
+    <form action="/movies/{{movie.id}}/delete" method="POST">
+      <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
   </div>
 </div>

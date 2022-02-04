@@ -1,7 +1,8 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 const Movie = require('../models/Movie.model');
-const Celebrities = require('../models/Celebrity.model')
+const Celebrities = require('../models/Celebrity.model');
+const { findById } = require("../models/Movie.model");
 
 router.get('/create', (req, res, next) => {
    Celebrities.find()
@@ -29,9 +30,25 @@ router.get('/:id', (req, res, next) => {
     Movie.findById(req.params.id)
         .populate('cast')
         .then((movie) => {
-            console.log(movie)
             res.render('movies/movie-details', { movie })
         }).catch((e) => next(e))
+})
+
+router.post('/:id/delete', (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch((e)=> next(e))
+})
+
+router.post('/movies/:id/edit', (req, res, next)=> {
+    Movie.findById(req.params.id)
+    .populate('cast')
+    .then((movie) => {
+        res.render('movies/edit-movie', {movie})
+    })
+    .catch((e) => next(e))
 })
 
 module.exports = router;

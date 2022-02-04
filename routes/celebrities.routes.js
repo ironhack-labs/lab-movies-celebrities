@@ -23,4 +23,12 @@ router.get('/', (req, res, next) => {
         .catch((e) => next(e))
 })
 
+router.post('/:id/delete', (req, res, next) => {
+    Celebrity.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect('/celebrities')
+        })
+        .catch((e) => next(e))
+})
+
 module.exports = router;
