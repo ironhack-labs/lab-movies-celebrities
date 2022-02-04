@@ -1,13 +1,25 @@
-<h2>Add a new celebrity</h2>
+<h2>ADD A NEW CELEBRITY</h2>
+
 <form action="/celebrities/create" method="POST">
-  <label for="name">Name</label>
-  <input type="text" name="name" />
+  <input type="text" name="name" id="" placeholder="celebrity name" />
   <br />
-  <label for="occupation">Occupation</label>
-  <input type="text" name="occupation" />
+  <input
+    type="text"
+    name="occupation"
+    id=""
+    placeholder="celebrity occupation"
+  />
   <br />
-  <label for="catchPhrase">Catch Phrase</label>
-  <input type="text" name="catchPhrase" />
+  <input
+    type="text"
+    name="catchPhrase"
+    id=""
+    placeholder="celebrity catch phrase"
+  />
   <br />
-  <button type="submit">Add new celeb</button>
+
+  <button type="submit">Save the celebrity</button>
 </form>
+
+<hr />
+<a href="/"><button>Back to home</button></a>
