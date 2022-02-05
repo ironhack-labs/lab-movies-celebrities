@@ -1,0 +1,15 @@
+<a href="/">Home page</a><br>
+<a href="/movies/create">Create a new movie</a><br><br>
+
+<hr>
+{{#each moviesFromDB}}
+<div class="cont" style='display:flex; flex-direction:column'>
+    {{cast.[0].name}}:
+    <a href="/movies/{{_id}}">{{title}}</a>
+        <form action="/movies/{{_id}}/delete" method="post">
+        <button>DELETE</button>
+        </form>
+</div>
+<hr>
+<br>
+{{/each}}

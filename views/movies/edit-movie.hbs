@@ -1,0 +1,19 @@
+<h2>
+    HOLAAAAAAAAAAAAAA
+</h2>
+
+<form action="/movies/{{_id}}" method="post">
+    <input type="text" name="_id" value="{{_id}}"><br>
+    <input type="text" name="title" value="{{title}}"><br>
+    <input type="text" name="genre" value="{{genre}}"><br>  <br>
+    Cast: <br>
+    <select name="cast" multiple>
+        {{#each cast}}
+        <option value="{{_id}}" selected>{{name}}</option>
+        {{/each}}
+    </select>
+<br>
+    <button>EDIT</button>
+
+
+</form>

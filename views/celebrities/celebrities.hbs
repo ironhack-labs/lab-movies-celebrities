@@ -1,0 +1,10 @@
+<h2>Celebrities:</h2>
+<a href="/">Home page</a> <br>
+<a href="/celebrities/create">Create a new celebrity</a>
+{{#each allCelebsFromDB}}
+<hr>
+<p>{{name}}</p>
+
+With identifier: "{{id}}"" <hr>
+{{/each}}
+

@@ -1,0 +1,13 @@
+
+<a href="/movies">Go back</a>
+<form action="/movies/create" method="post"><br><hr>
+    Title:<input type="text" name='title'><br><hr>
+    Genre:<input type="text" name='genre'><br><hr>
+    Plot: <input type="text" name='plot'><br><hr>
+    Cast: <select name="cast" multiple>
+       {{#each celeb}}
+       <option value="{{_id}}">{{name}}</option>
+       {{/each}}
+    </select>
+    <button>Send</button>
+</form>
