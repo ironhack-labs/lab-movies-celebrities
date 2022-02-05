@@ -1,17 +1,25 @@
 <h2>Editando Película {{title}}</h2>
 
-<form action="/movies/movies/{{id}}/edit/" method="POST">
+<form action="/movies/movies/{{movie.id}}/edit/" method="POST">
     <label>
-        Titulo <input type="text" name="title" value="{{title}}">
+        Titulo <input type="text" name="title" value="{{movie.title}}">
     </label>
     <label>
-        Género <input type="text" name="genre" value="{{genre}}">
+        Género <input type="text" name="genre" value="{{movie.genre}}">
     </label>
     <label>
-        Argumento <input type="text" name="plot" value="{{plot}}">
+        Argumento <input type="text" name="plot" value="{{movie.plot}}">
     </label>
 
-    {{#each cast}}
+    <label for="actors" </label>
+        <select multiple name="cast">
+    
+            {{#each cast}}
+            <option value="{{_id}}">"{{name}}"</option>
+            {{/each}}
+    
+        </select>
+    {{!-- {{#each cast}}
     <hr>
     <label>
         Nombre del actor: <input type="text" name="name" value="{{name}}">
@@ -21,6 +29,6 @@
     <label class="secret">
         <input type="text" name="authorID" value="{{id}}">
     </label>
-    {{/each}}
+    {{/each}} --}}
     <hr>
     <input type="submit" value="Actualizar peli">
