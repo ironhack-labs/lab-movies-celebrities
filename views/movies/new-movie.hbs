@@ -1,0 +1,29 @@
+<h2>Crear registro película</h2>
+
+<form action="/peliculas/crear" method="post">
+
+    <label>Título
+        <input type="text" name="title">
+    </label>
+    <br>
+    <label>Género
+        <input type="text" name="genre">
+    </label>
+    <br>
+    <label>Trama
+        <input type="text" name="plot">
+    </label>
+    <br>
+    <label>Elenco
+        <input type="text" name="cast">
+        {{!-- <input type="text" name="cast" value="{{_id}}">
+        <select name="cast" id="{{name}} multiple">
+            <option value="{{name}}"></option>
+        </select> --}}
+    </label>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Crear registro">
+
+</form>
+
+<a class="btn btn-warning" href="/peliculas" role="button">Volver al listado</a>
