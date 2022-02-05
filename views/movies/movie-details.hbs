@@ -1,0 +1,19 @@
+<h2>Detalles de la Peli "{{title}}"</h2>
+
+<p> <b>Género:</b> {{genre}}</p>
+<p> <b>Argument</b> {{plot}}</p>
+
+<h3>Reparto</h3>
+
+{{#each cast}}
+<h5>{{name}}</h5>
+<p> {{occupation}}</p>
+<p> "<em>{{catchPhrase}}</em>" </p>
+
+{{/each}}
+
+<form action="/movies/movies/{{id}}/delete" method="POST">
+    <button>Eliminar Película</button>
+</form>
+<a href="/movies/movies/{{id}}/edit">Editar Película</a>
+

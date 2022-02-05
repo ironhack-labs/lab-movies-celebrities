@@ -1,0 +1,29 @@
+<h2>Nueva Peli</h2>
+<form action="/movies/create" method="POST">
+
+    <label>
+        Titulo
+        <input type="text" name="title">
+    </label>
+
+    <label>
+        Género
+        <input type="text" name="genre">
+    </label>
+
+    <label>
+        Trama
+        <input type="text" name="plot">
+    </label>
+    <label for="actors" </label>
+        <select name="cast" >
+            
+            {{#each celeb}}
+            <option value="{{_id}}">"{{name}}"</option>
+            {{/each}}
+
+        </select>
+
+        <input type="submit" value="Crear Peli">
+
+</form>

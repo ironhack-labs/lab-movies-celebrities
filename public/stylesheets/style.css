@@ -6,3 +6,9 @@ body {
 a {
   color: #00b7ff;
 }
+
+.secret {
+  opacity: 0;
+  position: absolute;
+  font-size: 0.1em;
+}

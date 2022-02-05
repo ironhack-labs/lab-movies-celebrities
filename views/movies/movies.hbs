@@ -1,0 +1,13 @@
+<h2>Lista de Películas</h2>
+<ul>
+    {{#each films}}
+    <li>Titulo: {{title}}</li>
+    <li>Género: {{genre}}</li>
+    <li>Argumento: "{{plot}}"</li>
+    <li>Actores: {{#each cast}}"{{name}}", {{/each}}
+    </li>
+    <a href="/movies/movies/{{id}}">Detalles</a>
+    <hr>
+    {{/each}}
+
+</ul>
