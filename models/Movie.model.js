@@ -4,15 +4,13 @@ const movieSchema = new Schema({
     title: { required: true, type: String },
     genre: { required: true, type: String },
     plot: { required: true, type: String },
-    cast: {
-        type: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Celebrity',
-        }]
-    },
+    cast: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Celebrity'
+    }],
 },
     { timestamps: true }
 )
 
-const Movie = model('Movie', movieSchema)
-module.exports = Movie
+
+module.exports = model('Movie', movieSchema)
