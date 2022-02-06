@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const Celebtrity = require('../models/Celebrity.model')
-
+const { redirect } = require('express/lib/response')
+const Movie = require('../models/Model.model')
 
 
 
