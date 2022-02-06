@@ -28,6 +28,40 @@ router.post('/create', (req,res)=>{
         })
 })
 
+router.get('/:id/', (req,res)=>{
+    Celebrities
+        .findById(req.params.id)
+        .then(foundCeleb=>res.render('./celebrities/celebrity-details', foundCeleb))
+        .catch(()=>res.render('not-found'))
+
+})
+
+router.get('/:id/edit', (req,res)=>{
+    Celebrities
+        .findById(req.params.id)
+        .then(foundCeleb=>res.render('./celebrities/edit-celebrity', foundCeleb))
+        .catch(()=>res.render('not-found'))
+
+})
+
+router.post('/:id/', (req,res)=>{
+        const { name, occupation, catchPhrase} = req.body
+        const { id } = req.params
+        Celebrities
+        .findByIdAndUpdate(id, { name, occupation, catchPhrase }, {new:true})
+        .then(()=>res.redirect('/celebrities'))
+        .catch(()=>res.render('not-found'))
+
+})
+
+router.post('/:id/delete', (req,res)=>{
+    const { id } = req.params
+    Celebrities
+    .findByIdAndDelete(id)
+    .then(()=>res.redirect('/celebrities'))
+    .catch(()=>res.render('not-found'))
+
+})
 
 
 module.exports = router;

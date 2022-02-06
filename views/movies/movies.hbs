@@ -1,15 +1,16 @@
-<a href="/">Home page</a><br>
-<a href="/movies/create">Create a new movie</a><br><br>
 
-<hr>
-{{#each moviesFromDB}}
-<div class="cont" style='display:flex; flex-direction:column'>
-    {{cast.[0].name}}:
-    <a href="/movies/{{_id}}">{{title}}</a>
-        <form action="/movies/{{_id}}/delete" method="post">
-        <button>DELETE</button>
-        </form>
-</div>
-<hr>
-<br>
-{{/each}}
+    {{#each moviesFromDB}}
+    <div class="cont" style='display:flex; flex-direction:row'>
+        <div class="theactor d-flex flex-column">
+            {{cast.[0].name}}:
+            <a href="/movies/{{_id}}">{{title}}</a>
+        </div>
+            <div class="deletemovie d-flex align-items-center">
+                <form action="/movies/{{_id}}/delete" method="post">
+                    <button class="btn btn-outline-danger">DELETE</button>
+                </form>
+            </div>
+    </div><br>
+    {{/each}}
+    <a href="/"><button class="btn btn-outline-primary">Home page</button></a><br>
+    <a href="/movies/create"><button class="btn btn-primary">Create a new movie</button></a><br><br>

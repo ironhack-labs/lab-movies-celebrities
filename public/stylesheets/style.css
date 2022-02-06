@@ -1,8 +1,136 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.entirebody {
+  height: 88vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 a {
   color: #00b7ff;
+}
+
+
+.presentationcard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding: 50px 0;
+  border-radius: 15px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.presentationcard img {
+  margin-bottom: 30px;
+}
+
+.navbar-brand img {
+  width: 125px;
+}
+
+.creatingCelebrity {
+  align-items: center;
+  text-align: center;
+  padding: 40px 170px;
+}
+
+.creatingCelebrity h2,
+.presentationcard h2 {
+  text-transform: uppercase;
+  color: blue;
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 700;
+  font-size: 2em;
+  letter-spacing: 2px;
+
+}
+
+.celebrityname {
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 5px 70px;
+  width: 98%;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  margin: 0;
+}
+
+.tac input {
+  text-align: center;
+  border-radius: 10px;
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.theactor {
+  margin-right: 100px;
+}
+
+.cont,
+.moviedetails p {
+  padding: 10px 75px;
+  border: 1px solid rgba(0, 0, 255, 0.2);
+  background-color: rgba(0, 0, 255, 0.04);
+  border-radius: 10px;
+}
+
+.multipleoptioncast {
+  height: 50px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+ol {
+  margin-left: -40px;
+}
+
+h5,
+.h5 {
+  color: #005070;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.celebDetails h5 {
+  margin: 20px 0 10px 0;
+}
+
+.celebDetails button {
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.h5 {
+  margin-top: 15px;
+  font-size: 1.3em;
+}
+
+.celebrityview {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.celebrityview button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 20px;
+  align-items: center;
+}
+
+.icon-bin:before {
+  content: "\e9ac";
 }

@@ -1,0 +1,12 @@
+<h2>Edit your celebrity</h2>
+<form action="/celebrities/{{_id}}" method="post" class="tac">
+    <input type="hidden" name="_id" value="{{_id}}"><br>
+    <label for="name" class="h5">Name:</label><br>
+    <input type="text" name="name" value="{{name}}"><br>
+    <label for="occupation" class="h5">Occupation:</label><br>
+    <input type="text" name="occupation" value="{{occupation}}"><br>
+    <label for="catchPhrase" class="h5">CatchPhrase:</label><br>
+    <input type="text" name="catchPhrase" value="{{catchPhrase}}"><br> <br>
+
+    <button class="btn btn-outline-primary">EDIT</button>
+</form>

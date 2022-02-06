@@ -1,10 +1,13 @@
-<h2>Celebrities:</h2>
-<a href="/">Home page</a> <br>
-<a href="/celebrities/create">Create a new celebrity</a>
+<h2>Celebrities:</h2> <br>
 {{#each allCelebsFromDB}}
-<hr>
-<p>{{name}}</p>
-
-With identifier: "{{id}}"" <hr>
+<div class="celebrityview">
+    <a href="/celebrities/{{_id}}">
+        <p class="celebrityname">{{name}}</p>
+    </a>
+    <form action="./celebrities/{{_id}}/delete" method="post">
+        <button class="btn btn-outline-danger"><span class="icon-bin"></span></button>
+    </form>
+</div>
 {{/each}}
-
+<a href="/celebrities/create"><button class="btn btn-primary">Create a new celebrity</button></a> <br>
+<a href="/"><button class="btn btn-outline-primary">Home page</button></a> <br>

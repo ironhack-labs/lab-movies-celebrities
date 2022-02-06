@@ -1,16 +1,17 @@
 
-<h4>Movie title: {{title}}</h4>
-<h5>Genre: {{genre}}</h5>
-<p>Plot: "{{plot}}"</p>
-<ul>
-    Cast:
-    {{#each cast}}
-    <li>
-    {{name}}
-    </li>
-    {{/each}}
+<div class="moviedetails">
+    <h5>Movie title: </h5><p>{{title}}</p>
+    <h5>Genre:</h5><p>{{genre}}</p>
+    <h5>Plot:</h5> <p>"{{plot}}"</p>
+    <ol >
+    <h5> Cast:</h5>
+        {{#each cast}}
+        <li>
+         {{name}}
+        </li>
+        {{/each}}
 
-</ul>
-
-<a href="/movies/{{_id}}/edit">Edit me</a> <br>
-<a href="/movies">Go back</a>
+    </ol>
+    <a href="/movies/{{_id}}/edit"><button class="btn btn-outline-primary">Edit me</button></a> <br>
+    <a href="/movies"><button class="btn btn-outline-info">Go back</button></a>
+</div>

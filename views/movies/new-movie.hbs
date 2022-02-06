@@ -1,13 +1,16 @@
 
-<a href="/movies">Go back</a>
-<form action="/movies/create" method="post"><br><hr>
-    Title:<input type="text" name='title'><br><hr>
-    Genre:<input type="text" name='genre'><br><hr>
-    Plot: <input type="text" name='plot'><br><hr>
-    Cast: <select name="cast" multiple>
-       {{#each celeb}}
-       <option value="{{_id}}">{{name}}</option>
-       {{/each}}
-    </select>
-    <button>Send</button>
-</form>
+    <h2>Create a new movie</h2>
+    <form action="/movies/create" method="post" class="tac"><br>
+        <label for="title">Title:</label><br><input type="text" name='title'><br>
+        <label for="genre">Genre:</label><br><input type="text" name='genre'><br>
+        <label for="plot">Plot: </label><br><input type="text" name='plot'><br>
+        <label for="cast">Cast: </label><br>
+        <select name="cast" multiple class="multipleoptioncast">
+        {{#each celeb}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+        </select><br>
+        <br>
+        <button class="btn btn-primary">Send</button><br><br>
+    </form>
+    <a href="/movies"><button class="btn btn-outline-primary">Go back</button></a>
