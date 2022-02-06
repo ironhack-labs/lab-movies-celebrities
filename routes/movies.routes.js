@@ -58,11 +58,43 @@ router.post('/:id/delete', (req, res) => {
     const { id } = req.params
 
     Movie
-        .findByIdAndDelete(id)
-        .then(() => res.redirect('movies/movies'))
+        .findByIdAndRemove(id)
+        .then(() => res.redirect('/movies'))
         .catch(err => console.log(err))
 })
 
-// NO CARGA LA PAGINA, STEP 3 IT 9
+// Edit movies
+
+router.get('/:id/edit', (req, res) => {
+
+    const { id } = req.params
+
+    Movie
+        .findById(id)
+        .then(movies => {
+            Celebrity
+                .find()
+                .then(celebrities => {
+                    res.render('movies/edit-movie', { celebrities, movies })
+                })
+                .catch(err => console.log(err))
+
+        })
+        .catch(err => console.log(err))
+})
+
+router.post('/:id/edit', (req, res) => {
+
+    const { id } = req.params
+    const { title, genre, plot, cast } = req.body
+
+    Movie
+        .findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+        .then(updatedMovie => res.redirect(`/movies/${updatedMovie.id}`))
+        .catch(err => console.log(err))
+})
+
+
+
 
 module.exports = router;

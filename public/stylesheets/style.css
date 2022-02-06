@@ -4,6 +4,14 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: rgb(166, 212, 250);
 }
 
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

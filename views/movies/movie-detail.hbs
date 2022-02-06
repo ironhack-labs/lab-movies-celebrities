@@ -12,6 +12,8 @@
     </li>
     {{/each}}
 </ul>
-<form action="/movies/:{{id}}/delete" method="POST">
+<button><a href="/movies">Back</a></button>
+<form action="/movies/{{id}}/delete" method="POST">
     <button>Delete this movie</button>
 </form>
+<button><a href="/movies/{{id}}/edit">Edit this movie</a></button>

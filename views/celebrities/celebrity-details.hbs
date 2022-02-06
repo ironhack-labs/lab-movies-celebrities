@@ -1,0 +1,12 @@
+<h2>Details:</h2>
+
+<h4>{{this.name}}</h4>
+<p>Occupation: {{this.occupation}}</p>
+<p>Catch Phrase: "{{this.catchPhrase}}"</p>
+
+
+<form action="/celebrities/{{id}}/delete" method="POST">
+    <button>Delete this celebrity</button>
+</form>
+<button><a href="/celebrities/{{id}}/edit">Edit this celebrity</a></button>
+<button><a href="/celebrities">Back</a></button>
