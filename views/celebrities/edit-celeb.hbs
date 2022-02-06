@@ -1,0 +1,10 @@
+<h2>Editor de famoso</h2>
+
+<form action="/celebrities/celebrities/{{celeb.id}}/edit/" method="POST">
+<label>
+    Nombre <input type="text" name="name" value="{{celeb.name}}" >
+    Ocupación <input type="text" name="occupation" value="{{celeb.occupation}}">
+    Frase Gancho <input type="text" name="catchPhrase" value="{{celeb.catchPhrase}}">
+</label>
+<input type="submit" value="Actualizar famoso">
+</form>

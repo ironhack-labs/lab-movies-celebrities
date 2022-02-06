@@ -1,0 +1,14 @@
+<h2>Detalles de {{celeb.name}}</h2>
+
+<p>Ocupación {{celeb.occupation}}</p>
+<p>Frase Gancho {{celeb.catchPhrase}}</p>
+
+<article>
+    <h4>Biografía:</h4>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, quibusdam maiores nostrum possimus enim rerum illo sed iure, aut deserunt dolor quam tenetur exercitationem sunt ex temporibus eius, vitae consequatur!</p>
+</article>
+
+<a href="/celebrities/celebrities/{{celeb.id}}/edit">editar</a>
+<form action="/celebrities/celebrities/{{celeb.id}}/delete" method="POST">
+    <button>Eliminar Actor</button>
+</form>
