@@ -1,0 +1,10 @@
+<h2> Celebrities</h2>
+
+<ul>
+ {{#each celebrities}}
+ <li>{{name}}</li>   
+</ul>
+
+<a href="/{{_id}}/edit"> Edit Celebrity</a>
+[<a href="/{{_id}}"> See details</a>]
+{{/each}}
