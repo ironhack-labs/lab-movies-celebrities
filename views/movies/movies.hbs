@@ -1,12 +1,14 @@
-<h1>Estas son las películas</h1>
+<h2>LISTADO DE PELÍCULAS</h2>
+<hr>
 
 <ul>
     {{#each movie}}
-    <li>{{title}}</li>
+    <li><h3>{{title}}</h3></li><a href="/peliculas/{{_id}}">Detalles</a><a href="/peliculas/{{_id}}/editar">Editar</a>
     {{/each}}
 </ul>
 
-<a href="/peliculas/crear">Realizar nuevo registro</a>
-<br>
 
-<a href="/">Inicio</a>
+<a class="btn btn-primary" href="/peliculas/crear" role="button">Registrar nueva</a>
+
+<a class="btn btn-warning" href="/" role="button">Volver a inicio</a>
+

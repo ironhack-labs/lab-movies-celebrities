@@ -1,18 +1,20 @@
-<h2>Crear dato de nueva celebridad</h2>
+<h2>REGISTRAR FAMOSO/A</h2>
+<hr>
 
 <form action="/celebridades/crear" method="post">
 
-    <label>Nombre
-        <input type="text" name="name">
-    </label>
-    <br>
-    <label>Ocupación
-        <input type="text" name="occupation">
-    </label>
-    <br>
-    <label>Frase
-        <input type="text" name="catchPhrase">
-    </label>
+<div class="form-floating mb-3">
+    <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Angelina Jolie">
+    <label for="floatingInput">Nombre</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" name="occupation" class="form-control" id="floatingInput" placeholder="Actress">
+    <label for="floatingInput">Ocupación</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" name="catchPhrase" class="form-control" id="floatingInput" placeholder="Arwwww">
+    <label for="floatingInput">Frase famosa</label>
+</div>
     <br>
     <input class="btn btn-primary" type="submit" value="Crear registro">
 
@@ -20,3 +22,4 @@
 
 
 <a class="btn btn-warning" href="/celebridades" role="button">Volver al listado</a>
+

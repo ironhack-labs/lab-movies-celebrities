@@ -1,12 +1,13 @@
-<h2>Estas son las celebridades</h2>
-
-<ul>
+<h2>LISTADO DE FAMOSOS/AS</h2>
+<hr>
+<div class="container">
+    <ul>
     {{#each celebrity}}
-    <li>{{name}}</li>
+    <li><h3>{{name}}</h3></li><a href="/celebridades/{{_id}}">Detalles</a><a href="/celebridades/{{_id}}/editar">Editar</a>
     {{/each}}
-</ul>
+    </ul>
+</div>
 
-<a href="/celebridades/crear">Registrar nueva celebridad</a>
-<br>
-<a href="/">Inicio</a>
+<a class="btn btn-primary" href="/celebridades/crear" role="button">Registrar nuevo</a>
+<a class="btn btn-warning" href="/" role="button">Volver a inicio</a>
 

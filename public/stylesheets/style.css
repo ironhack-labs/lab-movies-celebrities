@@ -1,8 +1,56 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  color: whitesmoke;
+}
+
+label {
+  color: black;
+}
+
+
+ a:link, a:visited, a:active {
+    text-decoration:none;
+    padding: 10px;
+    font-size: 1.2em;
 }
 
 a {
   color: #00b7ff;
 }
+
+.btn {
+  margin: 10px
+}
+
+.card-title, .card-text {
+  color: black
+}
+
+
+
+
+
+h1  {
+  font-size: 5em;
+  padding: 20px;
+  text-align: center;
+
+}
+
+h2 {
+  font-size: 3em;
+  padding: 20px
+
+}
+
+li {
+  margin-top: 30px;
+}
+
+
+
+

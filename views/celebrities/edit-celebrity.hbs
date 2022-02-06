@@ -1,0 +1,23 @@
+<h2>ACTUALIZAR: {{name}}</h2>
+<hr>
+
+<form action="/celebridades/{{_id}}/editar" method="post">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{name}}">
+        <label for="floatingInput">Nombre</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{occupation}}">
+        <label for="floatingInput">Ocupación</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" value="{{catchPhrase}}">
+        <label for="floatingInput">Frase famosa</label>
+    </div>
+    
+    <input class="btn btn-primary" type="submit" value="Actualizar">
+
+</form>
+
+<a class="btn btn-warning" href="/celebridades" role="button">Volver al listado</a>

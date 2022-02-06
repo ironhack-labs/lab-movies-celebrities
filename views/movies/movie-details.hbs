@@ -1,0 +1,25 @@
+<h2>{{title}}</h2>
+<hr>
+
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Género:</h6>
+        <p class="card-title">{{genre}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Trama:</h6>
+        <p class="card-text">{{plot}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Elenco:</h6>
+        {{#each cast}}
+        <p class="card-text">{{name}}</p>
+        <p class="card-text">Ocupación: {{occupation}}</p>
+        <p class="card-text">Frase famosa: "{{catchPhrase}}"</p>
+        {{/each}}
+
+        <form action="/peliculas/{{_id}}/eliminar" method="post" style="display: inline-block;">
+            <button class="btn btn-danger">Eliminar</button>
+        </form>
+
+    </div>
+</div>
+
+<a class="btn btn-warning" href="/peliculas" role="button">Volver al listado</a>
+<a class="btn btn-warning" href="/" role="button">Volver a inicio</a>

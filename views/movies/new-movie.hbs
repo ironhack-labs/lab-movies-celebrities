@@ -1,28 +1,32 @@
-<h2>Crear registro película</h2>
+<h2>REGISTRAR PELÍCULA</h2>
+<hr>
 
 <form action="/peliculas/crear" method="post">
 
-    <label>Título
-        <input type="text" name="title">
-    </label>
-    <br>
-    <label>Género
-        <input type="text" name="genre">
-    </label>
-    <br>
-    <label>Trama
-        <input type="text" name="plot">
-    </label>
-    <br>
-    <label>Elenco
-        {{!-- <input type="text" name="cast" value="{{_id}}"> --}}
-        <select name="cast" id="{{cast}} multiple">
-            <option value="{{_id}}"></option>
+    <div class="form-floating mb-3">
+        <input type="text" name="title" class="form-control" id="floatingInput" placeholder="Angelina Jolie">
+        <label for="floatingInput">Título</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" name="genre" class="form-control" id="floatingInput" placeholder="Actress">
+        <label for="floatingInput">Género</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" name="plot" class="form-control" id="floatingInput" placeholder="Die Brad! Die!">
+        <label for="floatingInput">Trama</label>
+    </div>
+    <div class="form-floating mb-3">
+        <select class="form-select" name="cast" aria-label="Default select example">
+            <option selected>Elenco</option>
+            {{#each CelebName}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
         </select>
-    </label>
-    <br>
+    </div>
+    </div>
     <input class="btn btn-primary" type="submit" value="Crear registro">
 
-</form>
+    </form>
+
 
 <a class="btn btn-warning" href="/peliculas" role="button">Volver al listado</a>

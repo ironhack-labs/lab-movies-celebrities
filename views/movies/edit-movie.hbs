@@ -1,0 +1,33 @@
+<h2>EDITAR: {{title}}</h2>
+<hr>
+
+<form action="/peliculas/{{_id}}/editar" method="post">
+
+    <label>Título
+        <input type="text" name="title" value="{{title}}">
+    </label>
+    <br>
+    <label>Género
+        <input type="text" name="genre" value="{{genre}}">
+    </label>
+    <br>
+    <label>Trama
+        <input type="text" name="plot" value="{{plot}}">
+    </label>
+    <br>
+    <label>Elenco
+        {{!-- {{#each MovDetails}}
+        <input type="text" name="cast" value="{{this.name}}">
+        {{/each}} --}}
+        <select name="cast" id="cast" multiple>
+            {{#each cast}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+    </label>
+    
+    <input class="btn btn-primary" type="submit" value="Actualizar">
+
+</form>
+
+<a class="btn btn-warning" href="/peliculas" role="button">Volver al listado</a>
+

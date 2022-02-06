@@ -1,0 +1,17 @@
+<h2>{{name}}</h2>
+<hr>
+
+<div class="card" style="width: 22rem;">
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Ocupación:</h6>
+        <p class="card-title">{{occupation}}</p>
+        <h6 class="card-subtitle mb-2 text-muted">Frase famosa:</h6>
+        <p class="card-text">"{{catchPhrase}}"</p>
+        <a class="btn btn-warning" href="/celebridades" role="button">Volver al listado</a>
+        <a class="btn btn-warning" href="/" role="button">Volver a inicio</a>
+    </div>
+</div>
+<form action="/celebridades/{{_id}}/eliminar" method="post" style="display: inline-block;">
+    <button class="btn btn-danger">Eliminar</button>
+</form>
+
