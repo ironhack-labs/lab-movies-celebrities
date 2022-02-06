@@ -16,7 +16,7 @@ router.post("/crear", (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get("/celebridades", (req, res, next) => {
+router.get("/", (req, res, next) => {
     Celebrity
         .find()
         .then(celebrities => res.render('celebrities/celebrities', { celebrities }))
