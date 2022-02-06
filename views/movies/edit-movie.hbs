@@ -1,0 +1,45 @@
+<div class="container">
+
+    <h2>Edit {{title}}</h2>
+    <p>Modify what you want about your movie</p>
+    <p>Use ctrl or command to select more than one character from cast</p>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+
+            <form class="form" action="/movies/{{id}}/edit" method="POST">
+                <label >
+                    Title
+                    <br>
+                    <input type="text" name="title" value="{{title}}">
+                </label>
+                <br>
+                <label >
+                    Genre
+                    <br>
+                    <input type="text" name="genre" value="{{genre}}">
+                </label>
+                <br>
+                <label >
+                    Plot
+                    <br>
+                    <input type="textarea" name="plot" size="50" value="{{plot}}">
+                </label>
+                <br>
+                <label>
+                    Cast
+                    <br>
+                    <select name="cast" multiple>
+                        {{#each cast}}
+                        <option value="{{this.id}}" selected>{{this.name}}</option>
+                        {{/each}}
+
+                    </select>
+                </label>
+                <hr>
+                <input class="btn btn-danger mb-3" type="submit" value="Add your movie">
+
+            </form>
+        </div>
+    </div>
+</div>

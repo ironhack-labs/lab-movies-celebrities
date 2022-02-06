@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Amazing characters for your movie</h2>
+    
+     <div class="d-grid gap-2 d-md-flex mb-5 pe-5 justify-content-end">
+        <button class="btn btn-outline-danger"><a href="/celebrities/create">Create your own celebrity</a></button>
+        <button class="btn btn-outline-danger"><a href="/movies">Check our movies</a></button>
+        <button class="btn btn-outline-danger"><a href="/">Go back</a></button>
+    </div>
+    <div class="row justify-content-evenly align-items-end">
+        {{#each newCelebrities}}
+        <div class="col-5">
+            <h3>{{name}}</h3>
+            <br>
+            <span> 
+                <img src="{{imageUrl}}" alt="Celebrity picture">
+            </span>
+            <br>
+            <div class="btn-group mb-5">
+                <button class="btn btn-danger"><a href="/celebrities/{{id}}">Details</a></button>
+                <button class="btn btn-danger"><a href="/celebrities/{{id}}/edit">Edit character</a></button>
+            </div>
+        </div>
+        
+        {{/each}}    
+    </div>
+</div>
+

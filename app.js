@@ -1,34 +1,26 @@
-// ℹ️ Gets access to environment variables/settings
-// https://www.npmjs.com/package/dotenv
-require('dotenv/config');
+require('dotenv/config')
+require('./db')
+const express = require('express')
+const hbs = require('hbs')
 
-// ℹ️ Connects to the database
-require('./db');
+const app = express()
 
-// Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
-const express = require('express');
+require('./config')(app)
 
-// Handles the handlebars
-// https://www.npmjs.com/package/hbs
-const hbs = require('hbs');
+app.locals.appTitle = `Celebrities n movies`
 
-const app = express();
+// index route
+const index = require('./routes/index')
+app.use('/', index)
 
-// ℹ️ This function is getting exported from the config folder. It runs most middlewares
-require('./config')(app);
+// celebrities route
+const celebritiesRoutes = require('./routes/celebrities.routes')
+app.use('/celebrities', celebritiesRoutes)
 
-// default value for title local
-const projectName = 'lab-movies-celebrities';
-const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
+// movies route
+const moviesRoutes = require('./routes/movies.routes')
+app.use('/movies', moviesRoutes)
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
-
-// 👇 Start handling routes here
-const index = require('./routes/index');
-app.use('/', index);
-
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+require('./error-handling')(app)
 
 module.exports = app;

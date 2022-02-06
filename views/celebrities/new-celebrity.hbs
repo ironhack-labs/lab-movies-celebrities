@@ -1,0 +1,32 @@
+<div class="container">
+    <div>
+        <h2>This is an amazing web where you can add the celebrities you most admire</h2>
+        <p>Please, fill in this form with the information about your fav celebrity</p>
+    </div>
+    <div class="row">
+        <hr>
+        <div class="col-6">
+            
+            <form class="form" action="/celebrities/create" method="POST">
+                <label>
+                    <h1>Celebry name</h1>
+                    <input type="text" name="name">
+                </label>
+                <label>
+                    <h1>Occupation</h1>   
+                    <input type="text" name="occupation">
+                </label>
+                <label>
+                    <h1>Catch phrase</h1>
+                    <input type="text" name="catchPhrase">
+                </label>
+                <label>
+                    <h1>Picture </h1>  
+                    <input type="text" name="imageUrl">
+                </label>
+                <hr>
+                <input class="btn btn-danger mb-3" type="submit" value="Add your celebrity">
+            </form>
+        </div>
+    </div>
+</div>

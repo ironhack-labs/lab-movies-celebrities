@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2>List of movies from MovieMagic</h2>
+    {{#each moviesFromDB}}
+    <h3>{{title}}</h3>
+    <p>{{genre}}</p>
+    <div class="d-grid gap-1 d-md-flex justify-content-start">
+        <button class="btn btn-danger"><a href="/movies/{{id}}">Details</a></button>
+        <button class="btn btn-danger"><a href="/movies/{{id}}/edit">Edit movie</a></button>
+    </div>
+    
+    <br>
+
+    {{/each}}
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-danger "><a href="/movies/create">Add your own movie</a></button>
+        <button class="btn btn-danger "><a href="/">Home page</a></button>
+    </div>
+   
+    
+</div>

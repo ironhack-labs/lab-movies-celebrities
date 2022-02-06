@@ -1,0 +1,36 @@
+<div class="container">
+
+    <h2>Edit {{name}}</h2>
+    <p>Modify what you want about your celebrity</p>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+
+            <form class="form" action="/celebrities/{{id}}/edit" method="POST">
+                <label>
+                    <h1>Celebry name</h1>
+                    <input type="text" name="name" value="{{name}}">
+                </label>
+                <br>
+                <label>
+                    <h1>Occupation</h1>
+                    <input type="text" name="occupation" value="{{occupation}}">
+                </label>
+                <br>
+                <label>
+                    <h1>Catch phrase</h1>
+                    <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+                </label>
+                <br>
+                <label>
+                    <h1>Picture</h1>
+                    <input type="text" name="imageUrl" value="{{imageUrl}}">
+                </label>
+                <hr>
+                <input class="btn btn-danger mb-3" type="submit" value="Change your character">
+
+            </form>
+        </div>
+
+    </div>
+</div>
