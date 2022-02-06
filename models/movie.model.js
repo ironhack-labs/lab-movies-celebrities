@@ -18,9 +18,9 @@ const movieSchema = new Schema (
        default: 'Unknown',
    },
    cast: {
-        type:[Schema.Types.ObjectId],
+        type:[Schema.Types.String],
         ref: 'Celebrity',
-        default: 'Unknown',
+      
     },
  },
    
