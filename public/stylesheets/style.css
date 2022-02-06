@@ -119,6 +119,7 @@ img {
 
 .movie-details-cast {
   display: flex;
+  flex-wrap: wrap;
   margin: 1rem 4rem;
   margin-bottom: 10rem;
 }
