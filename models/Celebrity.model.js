@@ -7,9 +7,13 @@ const celebritySchema = new Schema ({
     },
     occupation: {
         type: String,
-        required: true
+        required: true,
+        default: 'unknown'
     },
-    catchPhrase: String
+    catchPhrase: {
+        type: String,
+        required: true
+    } 
 },
     { timestamps: true }
 )
