@@ -9,26 +9,22 @@
 
             <form class="form" action="/movies/{{id}}/edit" method="POST">
                 <label >
-                    Title
-                    <br>
+                    <h1>Title</h1>
                     <input type="text" name="title" value="{{title}}">
                 </label>
                 <br>
                 <label >
-                    Genre
-                    <br>
+                    <h1>Genre</h1>
                     <input type="text" name="genre" value="{{genre}}">
                 </label>
                 <br>
                 <label >
-                    Plot
-                    <br>
+                    <h1>Plot</h1>
                     <input type="textarea" name="plot" size="50" value="{{plot}}">
                 </label>
                 <br>
                 <label>
-                    Cast
-                    <br>
+                    <h1>Cast</h1>
                     <select name="cast" multiple>
                         {{#each cast}}
                         <option value="{{this.id}}" selected>{{this.name}}</option>
