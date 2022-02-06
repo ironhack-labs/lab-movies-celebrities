@@ -1,0 +1,43 @@
+<h2>Edit {{movie.title}}</h2>
+
+<form action="/movies/{{movie._id}}/edit" method="POST">
+    <label>TITLE:
+        <input type="text" name="title" value="{{movie.title}}">
+    </label>
+    <br>
+
+    <label>GENRE:
+        <input type="text" name="genre" value="{{movie.genre}}">
+    </label>
+    <br>
+    <label>PLOT:
+        <input type="text" name="plot" value="{{movie.plot}}">
+    </label>
+
+    <br>
+
+    <label>CAST:
+
+        {{!-- yo sacaría los valores actuales a un campo aparte y ya. no se como evitar que el cast actual aparezca en
+        el segundo #each --}}
+
+        <select multiple name="cast">
+
+            {{!-- saca el cast actual marcado --}}
+            {{#each movie.cast}}
+            <option selected="selected" value={{_id}}>{{name}}</option>
+            {{/each}}
+
+            {{!-- saca todo el cas posible, incluido los actuales --}}
+            {{#each list}}
+            <option value={{_id}}>{{name}}</option>
+            {{/each}}
+        </select>
+    </label>
+
+    <br>
+    <br>
+    <button type="submit">EDIT ENTRY</button>
+</form>
+<br><br>
+<a href="/movies">back</a>

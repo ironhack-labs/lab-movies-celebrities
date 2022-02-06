@@ -1,0 +1,27 @@
+<h3>{{title}}</h3>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+<p>
+<h5>CAST</h5>
+<ul>
+    {{#each cast}}
+    <li>{{this.name}}</li>
+    {{/each}}
+
+</ul>
+<hr>
+
+<a href="/movies/{{_id}}/edit">EDIT</a>
+<br>
+<br>
+<form action="/movies/{{_id}}/details" method="post">
+    <button type="submit"> DELETE</button>
+</form>
+<br>
+
+<hr>
+
+<a href="/movies">back</a>
+<br>
+<a href="/">main page</a>
+</p>

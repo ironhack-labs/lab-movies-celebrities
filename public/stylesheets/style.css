@@ -4,5 +4,10 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #050b0e;
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
 }
