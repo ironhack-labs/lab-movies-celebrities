@@ -3,12 +3,12 @@ const { Schema, model } = require('mongoose')
 const celebSchema = new Schema(
     {
         name: String,
-        occupation: String,
+        occupation: Number,
         catchPhrase: String
     },
     {
-        timestamps= true
+        timestamps: true
     }
 )
 
-module.exports = model('Celebtrity', celebSchema)
+module.exports = model('Celebrity', celebSchema)
