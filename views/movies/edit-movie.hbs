@@ -1,20 +1,21 @@
 <h2>Editar película</h2>
 
-<form action="/movies/{{_id}}/edit" method="POST">Editar</a>
+<form action="/movies/{{_id}}/edit" method="POST">
 
     <label>
         Title
-        <input type="text" name="title" value="{{title}}>
+        <input type="text" name="title" value="{{title}}">
     </label>
 
     <label>
         Genre
-        <input type=" text" name="genre" value="{{genre}}">
+        <input type="text" name="genre" value="{{genre}}">
     </label>
 
     <label>
         Plot
-        <input type="text" name="plot" value="{{plot}}>
+        <input type="text" name="plot" value="{{plot}}">
     </label>
-    <button type=" submit">Crear nueva pelicula</button>
+
+    <button type="submit">Editar pelicula</button>
 </form>

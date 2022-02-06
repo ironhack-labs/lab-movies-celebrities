@@ -67,7 +67,7 @@ router.post('/movies/:id/edit', (req, res, next) => {
 
     Movies
         .findByIdAndUpdate(id, { title, genre, plot }, { new: true })
-        .then(updatedMovies => res.redirect(`/movies${updatedMovies._id}`))
+        .then(() => res.redirect('/movies'))
         .catch(err => console.log(err))
 
 });

@@ -1,12 +1,12 @@
 <h2>Nueva película</h2>
 <form action="/movies/create" method="POST">
-    <label>
-        <select name="cast" multiple>
-            {{#each cel}}
-            <option value="{{_id}}">{{name}}</option>
-            {{/each}}
-        </select>
-    </label>
+
+    {{!-- <select name="cast" multiple>
+        {{#each cel}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select> --}}
+
     <label>
         Title
         <input type="text" name="title">
