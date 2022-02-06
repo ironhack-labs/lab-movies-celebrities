@@ -1,0 +1,15 @@
+<div>
+    <h2>List of Celebrities</h2>
+
+    <ul>
+        {{#each celebs}}
+        <li>{{name}}
+            <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline-block;">
+                <button style="border: none;">Delete</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/">Go to Index</a>
+</div>

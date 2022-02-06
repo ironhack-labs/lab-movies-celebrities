@@ -1,0 +1,10 @@
+<div>
+    <h2>List of Movies</h2>
+    <ul>
+        {{#each movies}}
+        <li>{{title}} <a href="/movies/{{_id}}">See Movie</a></li>
+        {{/each}}
+    </ul>
+
+    <a href="/">Go to Index</a>
+</div>
