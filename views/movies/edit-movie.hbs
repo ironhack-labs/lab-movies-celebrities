@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Edit {{title}}</h2>
+    <hr>
+    <form action="/movies/{{_id}}/edit" method="POST">
+        <label>
+            <p>Title:</p>
+            <input type="text" name="title" value="{{title}}">
+        </label>
+        <br><br>
+        <label>
+            <p>Genre:</p>
+            <input type="text" name="genre" value="{{genre}}">
+        </label>
+        <br><br>
+        <label>
+            <p>Plot:</p>   
+            <input type="text" name="plot" value="{{plot}}">
+        </label>
+        <br><br>
+        <label>
+            <p>Cast:</p>
+            <select name="cast">
+                <option value="{{cast}}"></option>
+            </select>
+        </label>
+        <br><br>
+        <input type="submit" value="Edit the Movies">
+    </form>
+    <hr>
+    <a href="/movies">Go to see the movies</a>
+</div>

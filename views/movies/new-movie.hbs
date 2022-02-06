@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Create New Movies</h2>
+    <hr>
+    <form action="/movies/create" method="POST">
+        <label>
+            <p>Title:</p>
+            <input type="text" name="title">
+        </label>
+        <br><br>
+        <label>
+            <p>Genre:</p>
+            <input type="text" name="genre">
+        </label>
+        <br><br>
+        <label>
+            <p>Plot:</p>   
+            <input type="text" name="plot">
+        </label>
+        <br><br>
+        <label>
+            <p>Cast:</p>
+            <select name="cast">
+            {{#each cast}}
+                <option>{{name}}</option>
+            {{/each}}
+            </select>
+        </label>
+        <br><br>
+        <input type="submit" value="Create New Movies">
+    </form>
+    <hr>
+    <a href="/movies">Go to see the movies</a> <br><br>
+    <a href="/">Go to the Home</a>
+</div>
