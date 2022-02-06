@@ -1,21 +1,26 @@
-<h2>{{ movie.title }}</h2>
+<h2>{{movie.title}}</h2>
+<br />
+{{movie.genre}}
+<br />
+{{movie.plot}}
+<br />
+{{#if movie.cast}}
+  {{#each movie.cast as |celebrity|}}
     <br />
-{{ movie.genre }}
+    {{celebrity.name}}
     <br />
-{{ movie.plot }}
+    {{celebrity.occupation}}
     <br />
-{{#each movie.cast as |person|}}
+    {{celebrity.catchPhrase}}
     <br />
-{{person.name}}
-    <br />
-{{person.occupation}}
-    <br />
-{{person.catchPhrase}}
- <br />
+  {{/each}}
+{{/if}}
+<br />
 
- <a href="/movies/{{ movie._id }}/edit">Edit movie</a>
+<form action="/movies/{{movie._id}}/edit" method="POST">
+  <button type="submit" class="btn btn-primary btn-sm">Edit movie</button>
+</form>
 
- <form action="/movies/{{ movie._id }}/delete" method="POST">
- <button type="submit" class="btn btn-primary btn-sm">Delete movie</button>
- </form>
-
+<form action="/movies/{{movie._id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger">Delete movie</button>
+</form>

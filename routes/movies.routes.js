@@ -16,10 +16,9 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/create", (req, res, next) => {
-  console.log('entro')
+  console.log("entro");
   Celebrity.find().then((celebrities) => {
-    console.log('CELEBS: ', celebrities)
-    res.render("movies/new-movie");
+    res.render("movies/new-movie", { celebrities });
   });
 });
 
@@ -58,18 +57,16 @@ router.get("/:id/edit", (req, res, next) => {
 });
 
 router.post("/:id/edit", (req, res, next) => {
-  Movie.findByIdAndUpdate(req.params.id, req.body).then((movie) => {
-    res.redirect("/movies").catch((e) => {
-      console.error(e);
-    });
+  const id = req.params.id;
+  Movie.findByIdAndUpdate(id, req.body).then(() => {
+    res.redirect("/movies")
   });
 });
 
 router.post("/:id/delete", (req, res, next) => {
-  Movie.findByIdAndDelete(req.params.id).then(() => {
-    res.redirect("/movies").catch((e) => {
-      console.error(e);
-    });
+  const id = req.params.id;
+  Movie.findByIdAndDelete(id).then(() => {
+    res.redirect("/movies");
   });
 });
 

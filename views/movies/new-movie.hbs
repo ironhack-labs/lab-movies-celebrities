@@ -1,33 +1,57 @@
 <h2>New movie</h2>
 
-<form action="/movies/create" method="GET">
- {{!--  <div>
-    <label for="title">Title<label>
-  <input type="text" class="form-control" name="title" value="{{ movie.title }}"/>
-   </div>
+<form action="/movies/create" method="POST">
+    <div class="form-group">
+        <label for="exampleFormControlInput1" for="title">Title</label>
+        <input id="exampleFormControlInput1" type="text" class="form-control" name="title" value="{{ movie.title }}" />
+    </div>
 
-   <div>
-     <label for="genre">Genre<label>
-<input type="text" name="genre" value="{{ movie.genre }}" />
-   </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput2" for="genre">Genre</label>
+        <input id="exampleFormControlInput2" class="form-control" type="text" name="genre" value="{{ movie.genre }}" />
+    </div>
 
-   <div>
-     <label for="plot">Plot<label>
-<input type="text" name="plot" value="{{ movie.plot }}" />
-</div> --}}
+    <div class="form-group">
+        <label for="exampleFormControlInput3" for="plot">Plot</label>
+        <input id="exampleFormControlInput3" class="form-control" type="text" name="plot" value="{{ movie.plot }}" />
+    </div>
 
-{{!--    <div>
-     
-<label for="title">Cast</label>
-    <select multiple name="cast">
-      {{#each celebrities as |celebrity|}}
-        <option value="{{ celebrity._id }}">
-          {{ celebrity.name }}
-        </option>
-      {{/each}}
-    </select>
-   </div> --}}
+    <div class="form-group">
+        <label for="exampleFormControlInput4" for="title">Cast</label>
+        <select multiple class="form-control" id="exampleFormControlSelect4" name="cast">
+            {{#each celebrities as |celebrity|}}
+                <option value={{ celebrity._id }}>
+                    {{ celebrity.name }}
+                </option>
+            {{/each}}
+        </select>
+    </div>
 
-<button type="submit" class="btn btn-primary">Create movie</button>
- 
-</form> 
+    <button type="submit" class="btn btn-primary">Create movie</button>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
