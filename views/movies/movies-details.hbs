@@ -1,8 +1,8 @@
 <h2> Detalles de la Película </h2>
     
-    <p> {{movie.title}} </p>
-    <p> {{movie.genre}}</p>
-    <p> {{movie.plot}}</p>
+    <p> {{title}} </p>
+    <p> {{genre}}</p>
+    <p> {{.plot}}</p>
       
       {{#each movie.cast}}
        
@@ -12,4 +12,4 @@
       {{/each}}
 
 
- <form action="/movies/{{_id}}/delete" method="POST">
+ {{!-- <form action="/movies/{{_id}}/delete" method="POST"> --}}
