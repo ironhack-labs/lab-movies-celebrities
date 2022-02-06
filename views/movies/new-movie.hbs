@@ -1,0 +1,33 @@
+<h2>New movie</h2>
+<br /><br />
+
+<form action="/movies/create" method="POST">
+
+  <label for="title">Title</label>
+  <input type="text" name="title" />
+  <br /><br />
+
+  <label for="genre">Genre</label>
+  <input type="text" name="genre" />
+  <br /><br />
+
+  <label for="plot">Plot</label>
+  <input type="text" name="plot" />
+  <br /><br />
+
+  <label for="Cast">Choose</label>
+  <select name="Cast" id="Cast" multiple>
+    {{#each celebrities}}
+
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+
+  </select>
+  <br />
+  <button class="btn btn-outline-secondary">New movie</button>
+
+</form>
+
+{{! title, genre, plot, cast }}
+
+{{! select solo se pone una vez }}

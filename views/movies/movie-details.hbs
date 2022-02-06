@@ -1,0 +1,13 @@
+<h2>{{title}}</h2>
+
+<p><b>Genre: </b>{{genre}}</p>
+<p><b>Plot: </b>{{plot}}</p>
+
+{{#each celebrities}}
+  <p>Name: {{name}}</p>
+  <p>Occupation: {{occupation}}</p>
+  <p>CatchPhrase: {{catchPhrase}}</p>
+{{/each}}
+<a href="/movies/{{_id}}/delete" class="btn btn-danger">delete</a>
+<a href="/movies/{{_id}}/edit" class="btn btn-danger">edit</a>
+<a href="/movies" class="btn btn-outline-secondary">Back to movies</a>
