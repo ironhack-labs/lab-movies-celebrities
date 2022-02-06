@@ -1,27 +1,33 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const celebritySchema = new Schema (
+const movieSchema = new Schema (
  {
-   name: { 
+    title: { 
       type: String,
       required: true,
-      default: 'Anonymous',
+      default: 'Unknown',
    },
-   occupation: {
+   genre: {
        type: String,
        required: true,
        default: 'Unknown'
    },
-   catchPhrase: {
+   plot: {
        type: String,
        required: true,
        default: 'Unknown',
    },
+   cast: {
+        type:[Schema.Types.String],
+        ref: 'Celebrity',
+      
+    },
  },
    
  {
    timestamps: true
  }
 );
-const Celebrity = mongoose.model('Celebrity', celebritySchema)
-module.exports = Celebrity;
+const Movie = mongoose.model('Movie', movieSchema)
+module.exports = Movie;
+
