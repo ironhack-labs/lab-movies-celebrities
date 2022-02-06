@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { redirect } = require("express/lib/response");
-// const app = require('../app')
+
 
 const Celebrity = require('../models/Celebrity.model')
 
@@ -35,8 +35,6 @@ router.get('/', (req, res, next) => {
         .catch(err => console.log(err))
 
 })
-
-
 
 
 
