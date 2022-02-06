@@ -17,7 +17,11 @@ const moviesSchema = new Schema(
         cast: [{
             type: Schema.Types.ObjectId,
             ref: 'Celeb',
-        }]
+        }],
+        url: {
+            type: String,
+            required: true
+        }
     },
     {
         timestamps: true

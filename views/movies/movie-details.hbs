@@ -1,16 +1,23 @@
-<a href="/movies">Go back to the list</a>
-<a href="/movies/create">Create new movie</a>
-
 <h2>Movie details</h2>
-<p>Title: {{title}}</p>
-<p>Genre: {{genre}}</p>
-<p>Plot: {{plot}}</p>
-<br>
+
+<div class="celeb-detail-container">
+    <img src="{{url}}" alt="{{title}}">
+    <div class="celeb-detail-sidetext">
+        <p><span>Title:</span> {{title}}</p>
+        <p><span>Genre:</span> {{genre}}</p>
+        <p><span>Plot:</span> {{plot}}</p>
+    </div>
+    <hr>
+</div>
+<hr class="movie-det-hr">
 <h3>Cast:</h3>
-<hr>
-{{#each cast}}
-<p>Name: {{name}}</p>
-<p>Occupation: {{occupation}}</p>
-<p>Catchphrase: {{catchPhrase}}</p>
-<hr>
-{{/each}}
+<div class="movie-details-cast">
+    {{#each cast}}
+    <div class="card" style="width: 18rem;">
+        <img src="{{url}}" class="card-img-top" alt="{{title}}">
+        <div class="card-body">
+            <p class="card-text">{{name}}</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

@@ -9,10 +9,10 @@ router.get('/movies/create', (req, res) => {
         .catch(err => console.log(err))
 })
 router.post('/movies/create', (req, res) => {
-    const { title, genre, plot, cast } = req.body
+    const { title, genre, plot, cast, url } = req.body
 
     Movies
-        .create({ title, genre, plot, cast })
+        .create({ title, genre, plot, cast, url })
         .then(() => res.redirect('/movies'))
         .catch(err => console.log(err))
 })
@@ -55,17 +55,15 @@ router.get('/movies/:id/edit', (req, res) => {
                 .catch(err => console.log(err))
         })
         .catch(err => console.log(err))
-
 })
 router.post('/movies/:id/edit', (req, res) => {
     const { id } = req.params
-    const { title, genre, plot, cast } = req.body
+    const { title, genre, plot, cast, url } = req.body
 
     Movies
-        .findByIdAndUpdate(id, { title, genre, plot, cast })
+        .findByIdAndUpdate(id, { title, genre, plot, cast, url })
         .then(() => res.redirect('/movies'))
         .catch(err => console.log(err))
-
 })
 
 module.exports = router

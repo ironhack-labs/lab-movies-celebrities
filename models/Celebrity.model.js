@@ -13,6 +13,10 @@ const celebritieSchema = new Schema(
         catchPhrase: {
             type: String,
             required: true
+        },
+        url: {
+            type: String,
+            required: true
         }
     },
     {

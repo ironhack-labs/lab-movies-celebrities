@@ -1,29 +1,30 @@
-<a href="/movies">Go back to the list</a>
 <h2>Create new movie</h2>
-
-<form action="/movies/create" method="POST">
-    <label>
-        <select name="cast" multiple>
-            {{#each data}}
-            <option value="{{_id}}">{{name}}</option>
-            {{/each}}
-        </select>
-    </label>
-    <br>
-    <label>
-        Title:
-        <input type="text" name="title">
-    </label>
-    <br>
-    <label>
-        Genre:
-        <input type="text" name="genre">
-    </label>
-    <br>
-    <label>
-        Plot:
-        <input type="text" name="plot">
-    </label>
-    <br>
-    <button type="submit">Submit</button>
-</form>
+<div class="new-celeb-container">
+    <form action="/movies/create" method="POST">
+        <div class="mb-3">
+            <label>Title:</label>
+            <input type="text" name="title" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Genre:</label>
+            <input type="text" name="genre" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Plot:</label>
+            <input type="text" name="plot" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Image URL:</label>
+            <input type="text" name="url" class="form-control">
+        </div>
+        <label>
+            <select name="cast" multiple>
+                {{#each data}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <br><br>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</div>

@@ -1,8 +1,10 @@
-<a href="/celebrities">Go back to the list</a>
-<a href="/celebrities/create">Create new celebrity</a>
-
 <h2>Celebrity detail</h2>
 
-<p>Name: {{name}}</p>
-<p>Occupation: {{occupation}}</p>
-<p>Catchphrase: {{catchPhrase}}</p>
+<div class="celeb-detail-container">
+    <img src="{{url}}" alt="{{name}}">
+    <div class="celeb-detail-sidetext">
+        <p><span>Name:</span> {{name}}</p>
+        <p><span>Occupation:</span> {{occupation}}</p>
+        <p><span>Catchphrase:</span> {{catchPhrase}}</p>
+    </div>
+</div>
