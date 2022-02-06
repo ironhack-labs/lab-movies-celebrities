@@ -1,0 +1,5 @@
+- dudas  y explicaciones comentadas en el codigo
+-sigo sin entender bien cuales son las URL, y por lo tanto, como accder o linkar correctamente las acciones
+entre si, ahormaismo aunque comprendo el funcionamiento IGNORO como o donde indicarle bien 
+usando redirect y que, por supuesto, funcione. porfavor explicar
+-no tiene ningun sentido hacer el new-movies.hbs, no se usa o no entiendo como se usa 

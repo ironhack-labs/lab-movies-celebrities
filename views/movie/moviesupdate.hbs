@@ -1,0 +1,24 @@
+<h2>Update Movies</h2>
+<form action="/movie/{{id}}/edit" method="POST">
+    <label>
+       Title
+        <input type="text" name="title" value="{{title}}">
+    </label>
+    <br><br>
+    <label>
+        Genre
+        <input type="text" name="genre" value="{{genre}}">
+    </label>
+    <br><br>
+    <label>
+        Plot
+        <input type="number" name="plot" value="{{plot}}">
+    </label>
+    <br><br>
+    <label>
+        cast
+        <input type="number" name="cast" value="{{cast}}">
+    </label>
+    <br><br>
+    <button type="submit"> listo</button>
+</form>

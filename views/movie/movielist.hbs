@@ -1,0 +1,11 @@
+<h2>Movies</h2>
+<ul>
+    {{#each movies}}
+    <li>{{title}},{{genre}},{{plot}},{{cast}},{{id}}</li>
+    <form action="/movie/{{_id}}/delete" method="POST">
+        <button type="submit">AAAAAADios</button>
+    </form>
+    {{/each}}
+</ul>
+<br>
+<br>

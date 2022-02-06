@@ -1,15 +1,10 @@
 //  Add your code here
 const { Schema, model } = require('mongoose')
-
-const celebritySchema = new Schema(
+const celeSchema = new Schema(
     {
         name: String,
         ocupation: String,
         catchPhrase: String,
-    },
-    {
-        timestamps: true
     }
 );
-
-module.exports = model('Book', celebritySchema)
+module.exports = model('Cele', celeSchema)
