@@ -1,6 +1,9 @@
 <h2>Movies</h2>
 {{#each movies}}
 <h4><a href="/peliculas/detalles/{{_id}}">{{title}}</a></h4>
+<form action="/peliculas/{{_id}}/borrar" method="POST">
+            <button>Eliminar</button>
+        </form>
 {{/each}}
 
 <a href="/">Return to Home</a>
