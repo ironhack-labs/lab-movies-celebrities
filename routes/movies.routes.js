@@ -52,12 +52,25 @@ router.post("/movies/:id/delete", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+router.get("/movies/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+
+  Movie.findById(id)
+    .populate("cast")
+    .then((movie) => {
+      Celebrity.find()
+        .then((celebs) => res.render("movies/edit-movie", { movie, celebs }))
+        .catch((err) => console.log(err));
+    });
+});
 
 router.get("/movies/:id/edit", (req, res, next) => {
   const { id } = req.params;
-  Movie.findById(id).then((movie) => {
+  const { _id, title, genre, cast } = req.body;
+
+  Movie.findByIdAndUpdate(id).then((movie) => {
     Celebrity.find()
-      .then((celebs) => res.render("movies/edit-movie", { movie, celebs }))
+      .then(() => res.redirect("movies/:id", { _id, title, genre, cast }))
       .catch((err) => console.log(err));
   });
 });
