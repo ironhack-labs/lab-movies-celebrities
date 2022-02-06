@@ -1,0 +1,42 @@
+<div class="container form">
+    <h2>NUEVA PELÍCULA</h2>
+
+    <form action="/movies/create" method="POST">
+        <div class="mb-3">
+            <label class="form-label">¿Qué artistas 360 salen en la película?</label>
+            <select id="cast" class="form-select" name="cast" multiple>
+                {{#each celebrities}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Título de la película:</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Género:</label>
+            <input type="text" class="form-control" name="genre" list="genre">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Argumento:</label>
+            <input type="text" class="form-control" name="plot">
+        </div>
+        <button type="submit" class="btn" style="background-color: #f05811;">Crear película</button>
+    </form>
+
+    <datalist id="genre">
+        <option>drama</option>
+        <option>action</option>
+        <option>comedy</option>
+        <option>animation</option>
+        <option>biopic</option>
+        <option>horror</option>
+        <option>musical</option>
+        <option>romantic</option>
+        <option>science fiction</option>
+        <option>thriller</option>
+        <option>unknown</option>
+    </datalist>
+
+</div>

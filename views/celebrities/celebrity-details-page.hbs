@@ -1,0 +1,16 @@
+<div class="container details">
+    <div class="card">
+        <h5 class="card-header">Artista 360</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Profesión: {{occupation}}</p>
+            <p class="card-text">Frase célebre: {{catchPhrase}}</p>
+            <div class="details-buttons">
+                <a href="/celebrities/{{_id}}/edit" class="btn" style="background-color: #f05811;">Editar detalles</a>
+                <form action="/celebrities/{{_id}}/delete" method="POST">
+                    <button class="btn" style="background-color: #f05811;">Eliminar artista</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

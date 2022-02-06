@@ -1,0 +1,19 @@
+<section class="list">
+    <div class="container">
+        <h2>ARTISTAS 360</h2>
+
+        <ol class="list-group list-group-numbered">
+            {{#each celebrities}}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">
+                        <a href="/celebrities/{{_id}}">{{name}}</a>
+                    </div>
+                    {{catchPhrase}}
+                </div>
+                <span class="badge rounded-pill" style="background-color: #f05811;">{{occupation}}</span>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+</section>

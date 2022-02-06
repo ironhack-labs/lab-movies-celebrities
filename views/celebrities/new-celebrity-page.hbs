@@ -1,0 +1,34 @@
+<div class="container form">
+    <h2>NUEVA ESTRELLA DE PS MANAGEMENT</h2>
+
+    <form action="/celebrities/create" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Profesión:</label>
+            <input type="text" class="form-control" name="occupation" list="occupation">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Frase célebre:</label>
+            <input type="text" class="form-control" name="catchPhrase">
+        </div>
+        <button type="submit" class="btn" style="background-color: #f05811;">Añadir nuevo artista</button>
+    </form>
+
+    <datalist id="occupation">
+        <option>actor</option>
+        <option>actriz</option>
+        <option>cómico</option>
+        <option>cómica</option>
+        <option>modelo</option>
+        <option>cantante</option>
+        <option>mocatriz</option>
+        <option>influencer</option>
+        <option>drag</option>
+        <option>falsa gurú</option>
+        <option>desconocido</option>
+    </datalist>
+
+</div>

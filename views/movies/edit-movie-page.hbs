@@ -1,0 +1,46 @@
+<div class="container form">
+    <h2>¿QUIERES EDITAR {{movieToEdit.title}}?</h2>
+
+    <form action="/movies/{{movieToEdit._id}}/edit" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Nuevo título:</label>
+            <input type="text" class="form-control" name="title" value="{{movieToEdit.title}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Reparto:</label>
+            <select id="cast" class="form-select" name="cast" multiple>
+                {{#each celebs}}
+                {{#if movieToEdit.cast.[0]}}
+                <option selected value="{{_id}}">{{name}}</option>
+                {{else}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/if}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Género:</label>
+            <input type="text" class="form-control" name="genre" list="genre" value="{{movieToEdit.genre}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Argumento:</label>
+            <input type="text" class="form-control" name="plot" value="{{movieToEdit.plot}}">
+        </div>
+        <button type="submit" class="btn" style="background-color: #f05811;">Editar película</button>
+    </form>
+
+    <datalist id="genre">
+        <option>drama</option>
+        <option>action</option>
+        <option>comedy</option>
+        <option>animation</option>
+        <option>biopic</option>
+        <option>horror</option>
+        <option>musical</option>
+        <option>romantic</option>
+        <option>science fiction</option>
+        <option>thriller</option>
+        <option>unknown</option>
+    </datalist>
+
+</div>

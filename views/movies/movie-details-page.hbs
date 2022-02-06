@@ -1,0 +1,24 @@
+<div class="container details">
+    <div class="card">
+        <h5 class="card-header">Película PS</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-text">Reparto: {{occupation}}</h6>
+            {{#each cast}}
+            <p class="card-text">{{name}}</p>
+            <ul>
+                <li class="card-text">Profesión: {{occupation}}</li>
+                <li class="card-text">Profesión: {{catchPhrase}}</li>
+            </ul>
+            {{/each}}
+            <h6 class="card-text">Género: {{genre}}</h6>
+            <p class="card-text">{{plot}}</p>
+            <div class="details-buttons">
+                <a href="/movies/{{_id}}/edit" class="btn" style="background-color: #f05811;">Editar detalles</a>
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <button class="btn" style="background-color: #f05811;">Eliminar película</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
