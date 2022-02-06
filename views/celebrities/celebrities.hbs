@@ -1,0 +1,14 @@
+    <h2>Listado de famosos</h2>
+    <button>
+      <a href='/celebrities/create'>Nuevo famoso</a>
+    </button>
+
+   
+    {{#each celebs}}
+      
+        <p>Nombre: {{name}}</p>
+        <p>Profesión: {{occupation}}</p>
+       <p> Frase: {{catchPhrase}}</p>
+   
+    {{/each}}
+ 

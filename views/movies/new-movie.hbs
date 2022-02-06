@@ -1,0 +1,30 @@
+<h2>Nueva película</h2>
+<form action='/movies/create' method='post'>
+
+ <label>
+        <input type="text" placeholder="tittle" name="name">
+    </label>
+  
+    <label>
+        <input type="text" placeholder="genre" name="genero">
+    </label>
+
+     <label>
+        <input type="text" placeholder="plot" name="trama">
+    </label>
+ 
+   <label for='cast'> elige prota:</label>
+   <select name='cast' id='cast' multiple>  
+    {{#each celebs}}
+
+      <option value='{{_id}}'>{{name}}</option>
+
+    {{/each}}
+  </select>
+  <button>Nueva película</button>
+</form
+
+
+
+
+

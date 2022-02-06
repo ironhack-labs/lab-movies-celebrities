@@ -1,0 +1,18 @@
+
+    <h2>Listado de películas</h2>
+    <button>
+      <a href='/movies/create'>Nueva película</a>
+    </button>
+
+    {{#each movies}}
+      
+        <p>Título: {{title}}</p>
+        <p>Género: {{genre}}</p>
+        <p>Sinópsis: {{plot}}</p>
+        
+        <button>
+          <a href='/movies/details/{{_id}}'>Detalles</a>
+        </button>
+      
+    {{/each}}
+ 
