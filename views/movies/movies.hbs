@@ -1,0 +1,30 @@
+<main>
+  <section>
+    <h2>Listado de películas</h2>
+    <button>
+      <a href='/movies/create'>Nueva película</a>
+    </button>
+    <hr />
+    {{#each movies}}
+      <article>
+        <h3>Título: {{title}}</h3>
+        <p>Género: {{genre}}</p>
+        <p>Sinópsis: {{plot}}</p>
+        <button>
+          <a href='/movies/details/{{_id}}'>Detalles</a>
+        </button>
+        <button>
+          <a href='/movies/{{_id}}/edit'>Editar</a>
+        </button>
+        <form
+          action='/movies/{{_id}}/delete'
+          method='post'
+          style='display: inline-block;'
+        >
+          <button>Borrar</button>
+        </form>
+      </article>
+      <hr />
+    {{/each}}
+  </section>
+</main>

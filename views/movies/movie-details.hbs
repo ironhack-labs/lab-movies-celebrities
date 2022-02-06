@@ -1,0 +1,19 @@
+<main>
+  <section>
+
+    <article>
+
+      <h2>Película:{{movie.title}}</h2>
+      <p>Género: {{movie.genre}}</p>
+      <p>Sinopsis: {{movie.plot}}</p>
+      <hr />
+      {{#each movie.cast}}
+        <h3>Famosos</h3>
+        <p>Nombre: {{name}}</p>
+        <p>Profesión: {{occupation}}</p>
+        <p>Frase: {{catchPhrase}}</p>
+      {{/each}}
+
+    </article>
+  </section>
+</main>

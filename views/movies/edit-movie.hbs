@@ -1,0 +1,31 @@
+<main>
+  <h2>Editar la película: {{movie.title}}</h2>
+  <form action='/movies/{{movie._id}}/edit' method='post'>
+    <label for='title'>Título</label>
+    <input type='text' name='title' value='{{movie.title}}' />
+    <label for='genre'>Género</label>
+    <input type='text' name='genre' value='{{movie.genre}}' />
+    <label for='plot'>Trama</label>
+    <input type='text' name='plot' value='{{movie.plot}}' />
+
+    <label for='cast'>Famosos:</label>
+    <select name='cast' id='cast' multiple>
+      {{#each movie.cast}}
+        {{#each celebrities}}
+          {{#equals movie.cast._id celebrities.0._id}}
+            <option value='{{_id}}' selected>{{name}}</option>
+          {{else}}
+            <option value='{{_id}}'>{{name}}</option>
+
+          {{/equals}}
+
+        {{/each}}
+      {{/each}}
+      {{#each movie.cast}}
+        <option value='{{_id}}'>{{name}}</option>
+
+      {{/each}}
+    </select>
+    <button>Actualizar película</button>
+  </form>
+</main>

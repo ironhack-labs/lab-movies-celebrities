@@ -1,0 +1,32 @@
+<main>
+  <section>
+    <h2>Listado de famosos</h2>
+    <button>
+      <a href='/celebrities/create'>Nuevo famoso</a>
+    </button>
+
+    <hr />
+    {{#each celebs}}
+      <article>
+        <h4>Nombre: {{name}}</h4>
+        <p>Profesión: {{occupation}}</p>
+        Frase:<q> {{catchPhrase}}</q>
+        <br /><br />
+        <button>
+          <a href='/celebrities/details/{{_id}}'>Detalles</a>
+        </button>
+        <button>
+          <a href='/celebrities/{{_id}}/edit'>Editar</a>
+        </button>
+        <form
+          action='/celebrities/{{_id}}/delete'
+          method='post'
+          style='display:inline-block;'
+        >
+          <button>Borrar</button>
+        </form>
+      </article>
+      <hr />
+    {{/each}}
+  </section>
+</main>

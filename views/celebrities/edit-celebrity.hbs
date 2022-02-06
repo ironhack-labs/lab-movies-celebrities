@@ -1,0 +1,13 @@
+<main>
+
+  <h2>{{name}}</h2>
+  <form action='/celebrities/{{id}}/edit' method='post'>
+    <label for='name'>Nombre</label>
+    <input type='text' name='name' value='{{name}}' />
+    <label for='occupation'>Profesión</label>
+    <input type='text' name='occupation' value='{{occupation}}' />
+    <label for='catchPhrase'>Frase</label>
+    <input type='text' name='catchPhrase' value='{{catchPhrase}}' />
+    <button>Actualizar película</button>
+  </form>
+</main>
