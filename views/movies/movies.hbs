@@ -1,0 +1,15 @@
+<h2>Nueva película</h2>
+<a href="/movies/create">Create new movie</a>
+{{#each movies}}
+
+{{!-- <p>{{genre}}</p>
+<p>{{plot}}</p> --}}
+<h2><a href="/movies/{{_id}}">{{title}}</a></h2>
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button type="submit">DELETE</button>
+</form>
+<a href="/movies/{{_id}}/edit">EDIT</a>
+
+{{!-- <a href="/movie/{{_id}}/movie-details">detalles</a> --}}
+
+{{/each}}
