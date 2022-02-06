@@ -46,12 +46,12 @@ router.post('/movies/:id/delete', (req, res) => {
 router.get('/movies/:id/edit', (req, res) => {
     const { id } = req.params
 
-    Celeb
-        .find()
-        .then(celebrities => {
-            Movies
-                .findById(id)
-                .then(movies => res.render('movies/edit-movie', { celebs: celebrities, movie: movies }))
+    Movies
+        .findById(id)
+        .then(movie => {
+            Celeb
+                .find()
+                .then(celebs => res.render('movies/edit-movie', { movie, celebs }))
                 .catch(err => console.log(err))
         })
         .catch(err => console.log(err))
