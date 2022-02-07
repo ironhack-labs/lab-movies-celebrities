@@ -1,0 +1,20 @@
+<div class="d-flex flex-column align-items-center justify-content-center pb-3">
+    <h1 class="text-center pt-5 pb-2 fw-bolder">MOVIES</h1>
+    <a href="/movies/create" class="btn btn-primary p-2 fw-bolder" role="button">Add a new movies</a>
+</div>
+<div class="row justify-content-center  px-3 pt-4">
+    {{#each movies}}
+    <div class="col-md-4">
+        <div class="card px-2 border-0" style="width: 18rem;">
+            <img src="https://media.istockphoto.com/photos/cinema-objects-picture-id184151977" class="card-img-top"
+                alt="..." />
+            <div class="card-body">
+                <h5 class="card-title"><strong>Title:</strong> {{title}}</h5>
+                <a href="/movies/{{id}}" class="btn btn-primary d-flex flex-column justify-content-center"
+                    role="button">See
+                    more</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

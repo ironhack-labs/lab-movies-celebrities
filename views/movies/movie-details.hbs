@@ -1,0 +1,26 @@
+<div class="d-flex flex-column align-items-center justify-content-center pb-2">
+    <h1 class="text-center pt-2 fw-bolder">Movie</h1>
+</div>
+<div class="d-flex flex-row justify-content-center px-5">
+    <div class="card px-2 border-0" style="width: 500px;">
+        <img src="https://media.istockphoto.com/photos/cinema-objects-picture-id184151977"
+            class="card-img-top img-fluid d-flex mx-auto" style="height: 175px;width:350px" alt="..." />
+        <div class="card-body">
+            <h5 class="card-title"><u><strong>Title: </strong></u> {{title}}</h5>
+            <h5 class="card-title"><u><strong>Genre: <strong></u> {{genre}}</h5>
+            <h5 class="card-title"><u><strong>Plot: <strong></u> {{plot}}</h5>
+            <h5 class="card-title"><u><strong>cast: <strong></u></h5>
+            {{#each cast}}
+            <p>{{name}}, {{occupation}} - "{{catchPhrase}}"</p>
+            {{/each}}
+            <div class="d-flex flex-column">
+                <a href="/movies/{{id}}/edit" class="btn btn-primary p-1 mt-1" role="button">Edit</a>
+                <a>
+                    <form action="/movies/{{id}}/delete" method="POST" class="d-flex flex-column pt-1">
+                        <button class="btn btn-danger pt-1">Delete</button>
+                    </form>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container d-felx flex-row align-items-center">
+    <h2 class="text-center fw-bolder pt-5">Add a new movie</h2>
+
+    <form action="/movies/create" method="POST" class="d-flex flex-row justify-content-center pt-3">
+        <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+            <label for="title" class="fw-bolder">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" />
+        </div>
+        <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+            <label for="genre" class="fw-bolder">Genre:</label>
+            <input type="text" class="form-control" id="genre" name="genre" />
+        </div>
+        <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+            <label for="plot" class="fw-bolder">Plot:</label>
+            <input type="text" class="form-control" id="plot" name="plot" />
+
+        </div>
+        <div class="col-3 d-inline-flex flex-row px-3 align-items-center">
+            <label for="celebrities">Choose a celebrity:</label>
+            <select name="cast" multiple>
+                {{#each celebrities}}
+                <option value={{_id}} style="width: 200px;">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+
+    </form>
+</div>
