@@ -1,0 +1,13 @@
+<h1>Movies</h1>
+
+<ul>
+    {{#each allMovies}}
+    <li class="list"><a href="/movies/{{_id}}">{{title}}</a></li>
+    {{/each}}
+</ul>
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <a class="btn btn-primary btn-color" href="/movies/create">Create a movie</a>
+    </div>
+</div>

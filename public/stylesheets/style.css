@@ -1,8 +1,138 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('./../images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.navbar{
+  padding: 20px 50px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navlink{
+  color: #4a5e70;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+}
+
+.logo {
+  font-family: 'Rozha', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
 }
 
 a {
-  color: #00b7ff;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+.title{
+  text-align: center;
+  margin: 100px;
+}
+
+.home-p{
+  padding: 0px;
+  font-size: 6rem;
+  margin-top: 25%;
+  font-family: 'Rozha One', serif;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.home-p h3{
+  margin: 0px;
+  padding: 0px;
+}
+
+.btn-color{
+  position: fixed;
+  bottom: 75px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+  border: 0px;
+  padding: 10px 30px;
+  border-radius: 25px;
+}
+
+.btn-color:hover{
+  background-color: rgba(255, 255, 255, 1);
+  color: #fc2a88;
+}
+
+h1, h2{
+  font-family: 'Rozha One', serif;
+  font-size: 5rem;
+  text-align: center;
+  margin: 50px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+ul{
+  padding: 0px;
+}
+
+.list{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  list-style: none;
+  text-align: center;
+  color: white;
+}
+
+.list-detail{
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  list-style:none;
+  text-align: center;
+  color: white;
+}
+
+hr{
+  color: white;
+  width: 300px;
+  margin: 20px auto;
+}
+
+form p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+input, select{
+  border-radius: 25px;
+  border: 0px;
+  padding: 10px 20px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 10px 20px;
+}
+
+.delete{
+  margin: 60px -55px;
+  width: auto;
+}
+
+option{
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.detail-p{
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0px;
+  margin-bottom: 10px;
 }

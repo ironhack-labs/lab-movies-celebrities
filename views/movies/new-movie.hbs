@@ -1,0 +1,32 @@
+<h2>Create a new movie</h2>
+<div class="row justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+        <form action="/movies/create" method="POST">
+            <label class="d-flex justify-content-between align-items-center">
+                <p>Title</p>
+                <input type="text" name="title">
+            </label>
+            <label class="d-flex justify-content-between align-items-center">
+                <p>Genre</p>
+                <input type="text" name="genre">
+            </label>
+            <label class="d-flex justify-content-between align-items-center">
+                <p>Plot</p>
+                <input type="text" name="plot">
+            </label>
+            <label class="d-flex justify-content-between align-items-center">
+                <p>Cast</p>
+                <select name="cast" multiple>
+                    {{#each allCelebs}}
+                    <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <input class="btn btn-primary btn-color" type="submit" value="Create Movie">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

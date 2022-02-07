@@ -1,0 +1,28 @@
+<h2>{{title}}</h2>
+<p class="detail-p">Genre: {{genre}}</p>
+<p class="detail-p">Plot: {{plot}}</p>
+<p class="detail-p">Cast:</p>
+<ul>
+    {{#each cast}}
+    <li class="list-detail">
+        <p>Name: {{name}}</p>
+        <p>Occupation: {{occupation}}</p>
+        <p>Catch phrase: {{catchPhrase}}</p>
+    </li>
+    <hr>
+    {{/each}}
+</ul>
+
+<div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <label>
+                <input class="btn btn-color delete" type="submit" value="Delete">
+            </label>
+        </form>
+    </div>
+
+    <div class="col-12 d-flex justify-content-center">
+        <a class="btn btn-color edit" href="/movies/{{_id}}/edit">Edit</a>
+    </div>
+</div>
