@@ -3,12 +3,10 @@ const router = require("express").Router();
 //Require models
 const Celebrity = require("../models/Celebrity.model");
 
-
 const Movie = require('../models/Movie.model');
 
-//Movie routes
 
-//MOVIE CREATE
+//1.Movie Create
 
 //GET
 
@@ -35,6 +33,8 @@ router.post('/movies/create', (req, res) => {
 
 });
 
+//2.Movie List
+
 //GET
 router.get('/movies', (req, res) => {
 
@@ -46,7 +46,10 @@ router.get('/movies', (req, res) => {
 
 });
 
-//MOVIE DETAILS
+//3.Movie Details
+
+//GET
+
 router.get('/movies/:_id', (req, res) => {
 
     const { _id } = req.params
@@ -62,7 +65,9 @@ router.get('/movies/:_id', (req, res) => {
 
 })
 
-//DELETE MOVIES
+//4.Delete Movies
+
+//Post
 
 router.post('/movies/:_id/delete', (req, res) => {
 
@@ -76,8 +81,9 @@ router.post('/movies/:_id/delete', (req, res) => {
 
 
 
+//5.Edit Movies
 
-//EDIT MOVIES
+//GET
 
 router.get('/movies/:_id/edit', (req, res) => {
 
@@ -96,6 +102,8 @@ router.get('/movies/:_id/edit', (req, res) => {
     //     .catch(err => console.log(err))
 
 })
+
+//POST
 
 router.post('/movies/:_id/edit', (req, res) => {
 

@@ -3,7 +3,7 @@ const router = require("express").Router();
 //Require model
 const Celebrity = require('../models/Celebrity.model');
 
-//Celebrity routes
+//1.Celebrity create
 
 //GET
 
@@ -27,7 +27,10 @@ router.post('/celebrities/create', (req, res) => {
 
 });
 
-//GET
+//2.Celebrity list
+
+//GET 
+
 router.get('/celebrities', (req, res) => {
 
     Celebrity
@@ -38,7 +41,7 @@ router.get('/celebrities', (req, res) => {
 
 });
 
-//Delete
+//3.Delete
 
 router.post('/celebrities/:id/delete', (req, res, next) => {
     // Iteration #5: Delete the celebrity
