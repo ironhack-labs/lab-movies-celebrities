@@ -1,0 +1,22 @@
+<div class="new-celeb-container">
+    <h2>Edit celebrity</h2>
+    <form action="/celebrities/{{_id}}/edit" method="POST">
+        <div class="mb-3">
+            <label>Name:</label>
+            <input type="text" name="name" value="{{name}}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Occupation:</label>
+            <input type="text" name="occupation" value="{{occupation}}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Catchphrase:</label>
+            <input type="text" name="catchPhrase" value="{{catchPhrase}}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Image URL:</label>
+            <input type="text" name="url" value="{{url}}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</div>

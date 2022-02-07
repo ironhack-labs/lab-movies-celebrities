@@ -1,0 +1,18 @@
+<h2>List of celebrities</h2>
+
+<div class="celeb-container">
+    {{#each celebs}}
+    <div class="card" style="width: 18rem;">
+        <a href="/celebrities/{{_id}}"><img src="{{url}}" class="card-img-top" alt="{{name}}"></a>
+        <div class="card-body">
+            <a class="card-title celeb-title" href="/celebrities/{{_id}}">{{name}}</a>
+        </div>
+        <div class="card-body car-links">
+            <form action="/celebrities/{{_id}}/delete" method="POST">
+                <button class="btn btn-outline-secondary" type="submit">DELETE</button>
+            </form>
+            <a href="/celebrities/{{_id}}/edit" class="btn btn-outline-secondary">EDIT</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

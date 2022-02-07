@@ -1,0 +1,17 @@
+<h2>Movies list</h2>
+<div class="celeb-container">
+    {{#each movies}}
+    <div class="card" style="width: 18rem;">
+        <a href="/movies/{{_id}}"><img src="{{url}}" class="card-img-top" alt="{{title}}"></a>
+        <div class="card-body">
+            <a class="card-title celeb-title" href="/movies/{{_id}}">{{title}}</a>
+        </div>
+        <div class="card-body car-links">
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <button class="btn btn-outline-secondary" type="submit">DELETE</button>
+            </form>
+            <a href="/movies/{{_id}}/edit" class="btn btn-outline-secondary">EDIT</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
