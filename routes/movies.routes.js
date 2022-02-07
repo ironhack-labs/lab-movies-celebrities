@@ -61,11 +61,16 @@ router.post("/:id/delete",(req,res,next)=>{
 router.get("/:id/edit",(req,res,next)=>{
     const { id } = req.params
     console.log(id)
-    Movie.findById(id)  
-    // .then(()=>{return Celebrity.find()})
-    .then(movie => res.render('movies/movie-edit', movie))
-    
-        .catch(err => console.log(err))    
+  
+    Movie
+       .findById(id)  
+       .then(movie => {
+            Celebrity
+                .find()
+                .then(cast => res.render('movies/movie-edit', { movie, cast }))
+                .catch(err => console.log(err))
+        })
+  
 })
 router.post("/:id/edit", (req, res, next)=>{
     const { id } = req.params
