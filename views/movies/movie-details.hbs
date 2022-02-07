@@ -1,0 +1,19 @@
+<h2>{{title}}</h2>
+
+<ul>
+  <li>{{genre}}</li>
+  <li>{{plot}}</li>
+
+  <li>{{cast.0.name}}</li>
+  <li>{{cast.0.occupation}}</li>
+  <li>{{cast.0.catchPhrase}}</li>
+
+</ul>
+<br /><br />
+<form action="/peliculas/detalles/{{_id}}/eliminar" method="POST">
+  <button>Eliminar pelicula</button>
+</form>
+<br /><br />
+<a href="/peliculas/detalles/{{_id}}/editar">Editar pelicula</a>
+
+{{! falta iteracion sobre varios actores }}

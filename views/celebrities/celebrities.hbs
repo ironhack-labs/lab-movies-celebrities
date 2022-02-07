@@ -1,0 +1,14 @@
+<h2>Listado de actores</h2>
+<hr /><br />
+
+{{#each celebrities}}
+  <ul>
+    <a href="/actores/detalles/{{_id}}">
+      <li>{{name}}</li>
+    </a>
+    <br />
+  </ul>
+
+{{/each}}
+
+<a href="/">Volver a la pagina principal</a>

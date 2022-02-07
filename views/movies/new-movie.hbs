@@ -1,0 +1,31 @@
+<h2>Crea tus nuevas peliculas</h2>
+
+<form action="/peliculas/crear" method="POST">
+
+  <label>
+    Titulo
+    <input type="text" name="title" />
+  </label>
+  <br /><br />
+  <label>
+    Genero
+    <input type="text" name="genre" />
+  </label>
+  <br /><br />
+  <label>
+    Sinopsis
+    <input type="text" name="plot" />
+  </label>
+  <br /><br />
+  <label>
+    Actores
+    <select name="cast">
+      {{#each actor}}
+        <option value={{_id}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+  <br /><br />
+
+  <button>Guardar pelicula</button>
+</form>

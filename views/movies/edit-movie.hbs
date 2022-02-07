@@ -1,0 +1,35 @@
+<h2>Editar {{movie.title}}</h2>
+
+<hr />
+<br />
+<form action="/peliculas/detalles/{{movie._id}}/editar" method="POST">
+
+  <label>
+    Titulo
+    <input type="text" name="title" value="{{movie.title}}" />
+  </label>
+  <br />
+  <label>
+    Genero
+    <input type="text" name="genre" value="{{movie.genre}}" />
+  </label>
+  <br />
+  <label>
+    Sinopsis
+    <input type="text" name="plot" value="{{movie.plot}}" />
+  </label>
+  <br />
+  <label>
+    Actores
+    <select name="cast">
+      {{#each actor}}
+        <option value={{_id}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <br /><br />
+
+  <input type="submit" value="Guardar cambios" />
+
+</form>
