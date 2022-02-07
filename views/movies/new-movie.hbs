@@ -1,0 +1,29 @@
+<h2>nueva peli</h2>
+
+<a href="/">inicio</a>
+<form action="/movies/create" method="POST">
+<label>
+    Título
+    <input type="text" name="title">
+</label>
+<label>
+    Género
+    <input type="text" name="genre">
+</label>
+<label>
+    Trama
+    <input type="text" name="plot">
+</label>
+<label for="cast">
+actores
+<select multiple name="cast" id="cast">
+{{#each cast}}
+<option value="{{id}}">{{name}}</option>
+{{/each}}
+</select>
+</label>
+
+<input type="submit" value="añadir película">
+
+
+</form>
