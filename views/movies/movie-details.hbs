@@ -1,13 +1,16 @@
-<h1>Movie details:</h1>
+<a href="/movies">Back to all movies</a>
+<br /><br />
+<p>Movie details</p>
 
 <section class="movie-details">
   <h2>{{this.title}}</h2>
   <p>Genre: {{this.genre}}</p>
   <p>Plot: {{this.plot}}</p>
-  <p>Cast: {{this.cast}}</p>
+  <p>Cast: {{this.cast.name}}</p>
+<hr>
 
-  <a href="/movies">Back to all movies</a>
-
+ <button><a href="/movies/{{this._id}}/edit">Edit</a></button> 
+<br /><br />
   <form action="/movies/{{this._id}}/delete" method="POST">
     <button>
       Delete movie

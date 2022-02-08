@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
+const Celebrity = require("../models/Celebrity.model");
 
 //==== Create route to /movies
 router.get("/", (req, res, next) => {
   Movie.find()
+  .populate("cast")
     .then((movieFromDB) => {
       res.render("movies/movies-list", { movie: movieFromDB });
     })
@@ -12,23 +14,19 @@ router.get("/", (req, res, next) => {
 
 //===== Create GET-route for /movies/new-movie
 router.get("/new-movie", (req, res, next) => {
-  Movie.find()
-    .then((movieDetails) => {
-      res.render("movies/new-movie", { movie: movieDetails });
+  Celebrity.find()
+    .then((celebrityDetails) => {
+      res.render("movies/new-movie", { celebrity: celebrityDetails });
     })
     .catch((err) => {
-      console.log("Error getting movie details from DB...", err);
+      console.log("Error getting celeb details from DB...", err);
     });
 });
 
-// ===== Create POST-route for movies/new-movie submit page
+// ===== Create POST-route for movies/new-movie
 router.post("/new-movie", (req, res, next) => {
-  const { title, genre, plot, cast } = req.body;
+  const { title, genre, cast, plot } = req.body;
   const movieDetails = req.body;
-
-  //   const movieDetails = {
-  //       //const castArr = req.body.cast.split(",");
-  //   }
 
   Movie.create(movieDetails)
     .then(() => {
@@ -39,11 +37,12 @@ router.post("/new-movie", (req, res, next) => {
     });
 });
 
-//==== Create route to movie details
+//==== Create route for /movies/movieId
 router.get("/:movieId", (req, res, next) => {
   const movieId = req.params.movieId;
 
   Movie.findById(movieId)
+    .populate("cast")
     .then((movieDetails) => {
       res.render("movies/movie-details", movieDetails);
     })
@@ -52,7 +51,35 @@ router.get("/:movieId", (req, res, next) => {
     });
 });
 
-//====== Create route for movie delete page
+//=== Create GET-route for /movies/movieId/edit
+router.get("/:movieId/edit", (req, res, next) => {
+  const movieId = req.params.movieId;
+
+  Movie.findById(movieId)
+    .then((movieDetails) => {
+      res.render("movies/edit-movie", movieDetails);
+    })
+    .catch((err) => {
+      console.log("Error getting movie details from DB...", err);
+    });
+});
+
+// ===== Create POST-route for /movies/movieId/edit
+router.post("/:movieId/edit", (req, res, next) => {
+  const movieId = req.params.movieId;
+  const { title, genre, cast, plot } = req.body;
+  const newMovieDetails = req.body;
+
+  Movie.findByIdAndUpdate(movieId, newMovieDetails)
+    .then(() => {
+      res.redirect(`/movies/${movieId}`);
+    })
+    .catch((err) => {
+      console.log("Error updating movie details", err);
+    });
+});
+
+//====== Create route for /movies/movieId/delete
 router.post("/:movieId/delete", (req, res, next) => {
   const movieId = req.params.movieId;
 

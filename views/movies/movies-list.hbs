@@ -1,25 +1,16 @@
-<a href="/">Back</a>
-<br>
+<a href="/">Back to home</a>
+<br /><br />
 
-
-<h2>Movies in our DB:</h2>
+<h2>Movies in our Database</h2>
+<hr>
 
 {{#each movie}}
-
   <section class="movie-summary">
-    <h2>Title: {{this.title}}</h2>
-    <h4>Genre: {{this.genre}}</h4>
-    <h4>Plot: {{this.plot}}</h4>
-
-    <ul>
-      {{#each this.cast}}
-        <li>{{this}}</li>
-      {{/each}}
-    </ul>
+    <h3>{{this.title}}</h3>
+    <p>Genre: {{this.genre}}</p>
+    <p>Cast: {{this.cast.name}}</p>
+    <p>Plot: {{this.plot}}</p>
   </section>
-
-  <a href="/movies/{{this._id}}">See more details</a>
-
+  <a href="/movies/{{this._id}}">More details</a>
   <hr />
-
 {{/each}}

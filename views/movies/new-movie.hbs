@@ -17,6 +17,14 @@
     <textarea name="plot" cols="30" rows="4"> </textarea>
   </label>
 
+  <label>
+    Cast:
+    <select name="cast">
+      {{#each celebrity}}
+        <option value={{this._id}}>{{this.name}}</option>
+      {{/each}}
+    </select>
+  </label>
 
   <button type="submit">Add movie</button>
 </form>

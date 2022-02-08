@@ -1,0 +1,28 @@
+<a href="/movies/{{this._id}}">Back to movie details</a>
+<br /><br />
+<h2>Edit movie: {{title}}</h2>
+
+<form action="/movies/{{_id}}/edit" method="post">
+
+  <label>
+    Title:
+    <input type="text" name="title" value="{{title}}" />
+  </label>
+
+  <label>
+    Genre:
+    <input type="text" name="genre" value="{{genre}}" />
+  </label>
+
+  <label>
+    Plot:
+    <textarea name="plot" value="{{plot}}" cols="30" rows="4"> </textarea>
+  </label>
+
+  <label>
+    Cast:
+    <input type="text" name="cast" value="{{cast}}" />
+  </label>
+
+  <button type="submit">Edit movie</button>
+</form>
