@@ -2,11 +2,11 @@ const router = require("express").Router();
 const Celebs = require("../models/Celebrity.model");
 //const Movie = require("../models/Author.model");
 
-router.get("/celebrities/create", (req, res, next) => {
+router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrities");
 });
 
-router.post("/celebrities/create", (req, res, next) => {
+router.post("/create", (req, res, next) => {
   const celebDetails = {
     name: req.body.name,
     occupation: req.body.occupation,
@@ -15,12 +15,12 @@ router.post("/celebrities/create", (req, res, next) => {
 
   Celebs.create(celebDetails)
     .then((celeb) => {
-      res.redirect("/");
+      res.redirect("celebrities/celebrities-list");
     })
     .catch((err) => res.render("celebrities/new-celebrities"));
 });
 
-router.get("/celebrities/celebrities-list", (req, res, next) => {
+router.get("/celebrities-list", (req, res, next) => {
   Celebs.find()
     .then((celebsArr) => {
       res.render("celebrities/celebrities-list", { celebs: celebsArr });
