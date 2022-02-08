@@ -1,11 +1,11 @@
 const { Schema, model, Mongoose } = require('mongoose');
  
 
-const CelebritySchema = new Schema(
+const celebritySchema = new Schema(
   {
-    Name: String,
-    Occupation: String,
-    CatchPhrase: String 
+    name: String,
+    occupation: String,
+    catchPhrase: String 
   },
   {
     timestamps: true
@@ -13,4 +13,4 @@ const CelebritySchema = new Schema(
 );
 
  
-module.exports = model('Celebrity', celebrityschema);
+module.exports = model('Celebrity', celebritySchema);
