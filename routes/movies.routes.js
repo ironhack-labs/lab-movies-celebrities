@@ -2,6 +2,13 @@ const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebs = require("../models/Celebrity.model");
 
+router.get("/movies/movies", (req, res, next) => {
+    Movie.find()
+    .then((movieArr) => {
+      res.render("movies/movies", { movies: movieArr });
+    })
+});
+
 router.get("/movies/create", (req, res, next) => {
   Celebs.find()
     .then((celebArr) => {
