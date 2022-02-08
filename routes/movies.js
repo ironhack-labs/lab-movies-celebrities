@@ -20,15 +20,16 @@ router.post("/create", (req, res, next)=>{
         title: req.body.title,
         genre: req.body.genre,
         plot: req.body.plot,
-        cast: req.body.cast
+        cast: req.body.cast,
     }
     
     console.log(req.body)
 
     Movie.create(movieDetails)
-    .then(celebrity =>{
+    .then(function(){
         res.redirect("/movies")
     })
+    
 })
 
 
