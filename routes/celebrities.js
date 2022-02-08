@@ -5,7 +5,7 @@ const Celebrity = require("../models/Celebrity.model");
 router.get("/", (req, res, next) => {
   Celebrity.find()
     .then((celebFromDB) => {
-      res.render("celebrities/celebrities-list", { celebrities: celebFromDB });
+      res.render("celebrities/celebrities-list", { celebrity: celebFromDB });
     })
     .catch();
 });
@@ -23,7 +23,7 @@ router.get("/new-celebrity", (req, res, next) => {
 
 // ===== Create POST-route for celeb/new-celebrity submit page
 router.post("/new-celebrity", (req, res, next) => {
-  const { name, occupation, catchPhrase } = req.body;
+  const { name, occupation, catchphrase } = req.body;
   const celebrityDetails = req.body;
 
   Celebrity.create(celebrityDetails)
@@ -34,5 +34,7 @@ router.post("/new-celebrity", (req, res, next) => {
       console.log("Error creating new celeb..", err);
     });
 });
+
+
 
 module.exports = router;

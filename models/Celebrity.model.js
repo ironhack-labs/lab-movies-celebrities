@@ -7,7 +7,7 @@ const celebritySchema = new Schema(
       type: String,
       enum: ["actor", "singer", "comedian", "unknown"],
     },
-    catchPhrase: String,
+    catchphrase: String,
   },
 
   {
