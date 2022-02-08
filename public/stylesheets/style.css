@@ -116,3 +116,23 @@ body {
 .editmovie-btn {
   margin-top: 10px;
 }
+
+/* Login page */
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: 50px;
+}
+
+/* Sign-up page */
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: 50px;
+}

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
+const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard");
 
 //For displaying list of movies
 router.get("/movies/movies", (req, res, next) => {

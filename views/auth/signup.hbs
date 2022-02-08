@@ -1,0 +1,43 @@
+<section>
+
+<div id="signup-form">
+
+  <form action="/sign-up" method="post" >
+    <div class="mb-3">
+      <fieldset>
+        <label for="username" id="username" class="form-label">Username</label>
+        <input
+          {{!-- required --}}
+          type="text"
+          class="form-control"
+          name="username"
+          aria-describedby="emailHelp"
+        />
+      </fieldset>
+    </div>
+
+    <div class="mb-3">
+        <fieldset>
+      <label for="password" id="password" class="form-label">Password</label>
+      <input
+        {{!-- required --}}
+        type="password"
+        class="form-control"
+        name="password"
+        placeholder="enter password here..."
+      />
+    </div>
+    </fieldset>
+
+    {{#if errorMessage}}
+        <div id="emailHelp" class="form-text">{{errorMessage}}</div>
+    {{/if}}
+
+<div class="text-center">
+    <button type="submit" class="btn btn-outline-success">Sign up</button>
+    </div>
+
+  </form>
+  </div>
+
+</section>
