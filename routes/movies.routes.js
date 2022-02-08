@@ -43,6 +43,16 @@ router.get("/:movieId/details", (req, res) => {
     .catch((err) => {
         console.log("Error getting movie details from DB: ", err);
     });
-})
+});
+
+router.post("/:movieId/delete", (req, res) => {
+    Movie.findByIdAndDelete(req.params.movieId)
+    .then(() => {
+        res.redirect("/movies");
+    })
+    .catch((err) => {
+        console.log("Error deleting movie from db: ", err);
+    });
+});
 
 module.exports = router;
