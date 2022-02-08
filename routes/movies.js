@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { findById } = require("../models/Celebrity.model");
 const Celebrity = require("../models/Celebrity.model")
 const Movie = require("../models/Movie.model")
 
@@ -32,9 +33,50 @@ router.post("/create", (req, res, next)=>{
     
 })
 
-
 router.get("/new-movie", (req,res) => {
     res.render("movies/new-movie")
 })
 
+router.get("/:movieId", (req,res) => {
+    Movie.findById(req.params.movieId)
+    .then(function(data){
+        console.log(data)
+        res.render("movies/movie-details", {movie: data})
+    })
+})
+
+router.get("/:movieId/edit", (req, res, next)=>{
+    Movie.findById(req.params.bookId)
+    .then(movieDetails =>{
+
+        res.render("movies/edit-movie", {movies: movieDetails})
+    })
+})
+
+router.post("/:movieId/edit", (req,res,next)=>{
+
+    const movieId = req.params.movieId
+    const newDetails = {
+
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast
+    }
+
+    Movie.findByIdAndUpdate(movieId, newDetails)
+    .then( () => {
+      res.redirect(`/movies/${movieId}`);
+    })
+    .catch( err => {
+      console.log("Error updating book...", err);
+    });
+});
+
+router.post("/:movieId/delete", (req,res,next)=>{
+    Movie.findByIdAndDelete(req.params.movieId)
+    .then(()=>{
+        res.redirect("/movies")      
+    })
+});
 module.exports = router;

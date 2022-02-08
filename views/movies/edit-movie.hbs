@@ -1,0 +1,21 @@
+<h2>Edit the movie: {{movies.title}}</h2>
+
+<form action="/movies/{{movies._id}}/edit" method="post">
+  <label> Title:
+    <input type="text" name="title" value="{{movies.title}}" />
+  </label>
+
+  <label> Genre:
+    <input type="text" name="genre" value="{{book.author}}" />
+  </label>
+
+  <label> Plot:
+    <textarea name="plot" cols="30" rows="4">{{book.description}}</textarea>
+  </label>
+
+  {{!-- <label> Rate:
+    <input type="number" name="rating" min="1" max="10" value="{{book.rating}}" />
+  </label> --}}
+
+  <button type="submit">Save changes</button>
+</form>
