@@ -1,0 +1,17 @@
+{{#if otherCast}}
+<h2>You can only include cast members who are listed as celebrities</h2>
+<h2>Add your unlisted cast member as a celebrity in this list</h2>
+{{/if}}
+<h2>Add a new celebrity</h2>
+<form action="/celebrities/create" method="post">
+    <input type="text" placeholder="Name" name="name" value="">
+    <input type="text" placeholder="Occupation" name="occupation" value=""> 
+    <input type="text" placeholder="Catch phrase" name="catchPhrase" value="">
+    <h2> Do you wish to add another celebrity?</h2>
+    <input type="radio" name="addAnother" id="yes" value="true">
+    <label for="yes">Yes</label>
+    <input type="radio" id="false"
+     name="addAnother" value="false">
+    <label for="false">No</label>
+    <button type="submit">Submit</button>
+</form>

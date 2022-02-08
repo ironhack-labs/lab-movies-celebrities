@@ -1,0 +1,31 @@
+<h5>Title:</h5>
+<h6>{{title}}</h6>
+<br>
+<h5>Genre:</h5>
+<h6>{{genre}}</h6>
+<br>
+<h5>Plot:</h5>
+<h6>{{plot}}</h6>
+<br>
+<h5>Cast:</h5>
+<ul>
+    {{#each cast}}
+    <p>Name: {{this.name}}</p>
+    <p>Occupation: {{this.occupation}}</p>
+    <p>Catch phrase: {{this.catchPhrase}}</p>
+    <br>
+    {{/each}}
+</ul>
+<br>
+<a href="/movies/{{_id}}/delete">Delete this movie</a>
+<div></div>
+<br>
+<a href="/movies/{{_id}}/edit">Edit this movie</a>
+<div></div>
+<br>
+<a href="/movies">Go back</a>
+
+
+
+
+

@@ -1,0 +1,36 @@
+<h2>Add a new movie</h2>
+<form action="/movies/create" method="post">
+    <input type="text" placeholder="Title" name="title" value="">
+    <input type="text" placeholder="Genre" name="genre" value=""> 
+    <input type="text" placeholder="Plot" name="plot" value="">
+    <select name="cast" id="select-cast-menu" multiple onchange="checkSelection(this);">
+        {{#each celebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+            <option id="other-option" value="other">Other</option>
+            {{!-- <input type="text" name="other" id="other-input" placeholder="Enter additional cast members separated by comma's"> --}}
+    </select>
+    <button type="submit">Submit</button>
+</form>
+
+<div id="if-other">
+    <h3>Only celebebrities can be stated in the cast list. You can add new celebrities <a href="/celebrities/create">here</a>
+    </h3>
+</div>
+ 
+<script type="text/javascript">
+const divElement = document.getElementById("if-other");
+const button = document.querySelector("button");
+divElement.style.display='none';
+function checkSelection(selectElement){
+if (divElement.style.display === "inline-block") {
+    divElement.style.display = "none";
+} 
+const selectedOptions = Array.from(selectElement).filter(option => option.selected).map(option => option.value);
+console.log("options: ", selectedOptions);
+ if(selectedOptions.indexOf('other') !== -1) {
+    button.setAttribute("disabled", true);
+   divElement.style.display='inline-block';
+ }
+}
+</script> 
