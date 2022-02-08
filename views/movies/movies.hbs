@@ -1,0 +1,10 @@
+<h1>Movies in our DB:</h1>
+
+
+ <label> Movie:
+    <select name="movie">
+      {{#each movies}}
+        {{this.title}}
+      {{/each}}
+    </select>
+  </label>   
