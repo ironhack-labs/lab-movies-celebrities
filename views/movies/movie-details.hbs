@@ -1,0 +1,20 @@
+
+<section class="movie-summary">
+            <h4>Title:<br /> {{movie.title}}</h4>
+            <p>Genre: <br />{{movie.genre}} </p> 
+            <p>Plot: <br />{{movie.plot}} </p> 
+            <p>Cast:<br/> {{movie.cast}} </p>
+            {{!-- not working but a try to get the phrases and occ --}}
+            {{!-- {{#each celebrities}}
+            {{#if this.cast.includes(this.name) }}
+            <p>{{this.name}}</p>
+            <p>{{this.occupation}}</p>
+            <p>{{this.catchPhrase}}</p>
+            {{/if}}
+            {{/each}} --}}
+</section>
+<p></p>
+<form action="/movies/{{_id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+<a href="/">Home</a>
