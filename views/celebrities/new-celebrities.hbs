@@ -1,0 +1,25 @@
+<h2>New Celeb</h2>
+
+<form action="/celebrities/create" method="post">
+  <label> Name:
+    <input type="text" name="name" />
+  </label>
+
+   {{!-- <label> Author:
+    <select name="author">
+      {{#each author}}
+      <option value="{{this.id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </label> --}}
+
+  <label> Occupation:
+    <input type="text" name="occupation"/>
+  </label>
+  
+  <label> Catch Phrase:
+    <input type="text" name="catchPhrase"/>
+  </label>
+
+  <button type="submit"> Submit </button>
+</form>
