@@ -3,7 +3,13 @@ const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
 router.get("/", (req, res) => {
-    res.render("movies/movies");
+    Movie.find()
+    .then((allMoviesInDB) => {
+        res.render("movies/movies", {movies: allMoviesInDB});
+    })
+    .catch((err) => {
+        console.log("Error getting Movies from DB: ", err);
+    });
 });
 
 router.get("/create", (req, res) => {
