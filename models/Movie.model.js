@@ -4,7 +4,10 @@ const movieSchema = new Schema(
     {
         title: String,
         genre: String,
-        plot: String,
+        plot: {
+            type: String,
+            trim: true
+        },
         cast: Array(
             {
                 type: Schema.Types.ObjectId, 
