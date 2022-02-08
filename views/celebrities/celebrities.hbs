@@ -1,0 +1,17 @@
+<h1>Our Celebrities</h1>
+
+{{#each allCelebritiesArr}}
+  <section class="celebs-list">
+    <h2>{{this.name}}</h2>
+
+    <p>
+      Occupation:
+      {{this.occupation}}
+      <br />
+      Catch Phrase:
+      {{this.catchPhrase}}
+
+    </p>
+  </section>
+
+{{/each}}
