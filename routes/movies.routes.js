@@ -26,12 +26,59 @@ router.post("/create", (req, res, next) => {
     plot: req.body.plot,
     cast: req.body.cast,
   };
-  console.log(req.body)
+  console.log(req.body);
   Movie.create(movie)
     .then((movie) => {
       res.redirect("/");
     })
     .catch((err) => console.log("Error", err));
+});
+
+router.get("/:movieId", (req, res, next) => {
+  Movie.findById(req.params.movieId)
+    .populate("cast")
+    .then((movie) => {
+      res.render("movies/movie-details", movie);
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
+});
+
+router.post("/:movieId/delete", (req, res, next) => {
+  Movie.findByIdAndDelete(req.params.movieId)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
+});
+
+router.get("/:movieId/edit", (req, res, next) => {
+  Movie.findById(req.params.movieId)
+    .populate("cast")
+    .then((movieToEdit) => {
+      res.render("movies/edit-movie", movieToEdit);
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
+});
+
+router.post("/:movieId/edit", (req, res, next) => {
+  const { movieId } = req.params;
+  const movie = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+    cast: req.body.cast,
+  };
+  Movie.findByIdAndUpdate(movieId, movie)
+    .then(() => res.redirect(`/movies/${movieId}`))
+    .catch((err) => {
+      console.log("error", err);
+    });
 });
 
 module.exports = router;
