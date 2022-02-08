@@ -3,10 +3,9 @@ const Movie = require("../models/Movie.model");
 const Celebs = require("../models/Celebrity.model");
 
 router.get("/movies/movies", (req, res, next) => {
-    Movie.find()
-    .then((movieArr) => {
-      res.render("movies/movies", { movies: movieArr });
-    })
+  Movie.find().then((movieArr) => {
+    res.render("movies/movies", { movies: movieArr });
+  });
 });
 
 router.get("/movies/create", (req, res, next) => {
@@ -30,6 +29,17 @@ router.post("/movies/create", (req, res, next) => {
       res.redirect("/");
     })
     .catch((err) => res.render("movies/new-movie"));
+});
+
+router.get("/movies/:movieId", (req, res, next) => {
+  Movie.findById(req.params.movieId)
+    .populate("cast")
+    .then((movieId) => {
+      res.render("movies/movie-details", { movieId });
+    })
+    .catch((err) => {
+      console.log("error movie id", err);
+    });
 });
 
 module.exports = router;

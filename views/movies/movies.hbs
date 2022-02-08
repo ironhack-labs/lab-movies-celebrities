@@ -1,11 +1,12 @@
 <h2>Movies</h2>
 
-  <section class="movies-summary">
-      {{#each movies}}
-        <p>
-            Title:
-            {{this.title}}
-        </p>
-    {{/each}}
+<section class="movies-summary">
+  {{#each movies}}
+    <p>
+      Title:
+      {{this.title}}
+    </p>
+    <a href="/movies/{{this._id}}">See details</a>
+  {{/each}}
 </section>
 <a href="/">Back</a>
