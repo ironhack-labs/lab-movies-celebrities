@@ -46,7 +46,7 @@ router.get("/:movieId", (req,res) => {
 })
 
 router.get("/:movieId/edit", (req, res, next)=>{
-    Movie.findById(req.params.bookId)
+    Movie.findById(req.params.movieId)
     .then(movieDetails =>{
 
         res.render("movies/edit-movie", {movies: movieDetails})
@@ -69,7 +69,7 @@ router.post("/:movieId/edit", (req,res,next)=>{
       res.redirect(`/movies/${movieId}`);
     })
     .catch( err => {
-      console.log("Error updating book...", err);
+      console.log("Error updating a movie...", err);
     });
 });
 

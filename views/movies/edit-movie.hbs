@@ -6,16 +6,16 @@
   </label>
 
   <label> Genre:
-    <input type="text" name="genre" value="{{book.author}}" />
+    <input type="text" name="genre" value="{{movies.genre}}" />
   </label>
 
   <label> Plot:
-    <textarea name="plot" cols="30" rows="4">{{book.description}}</textarea>
+    <textarea name="plot" cols="30" rows="4">{{movies.plot}}</textarea>
   </label>
 
   {{!-- <label> Rate:
     <input type="number" name="rating" min="1" max="10" value="{{book.rating}}" />
   </label> --}}
 
-  <button type="submit">Save changes</button>
+  <input type="submit" value="Submit">
 </form>
