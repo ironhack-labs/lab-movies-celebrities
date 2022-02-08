@@ -45,4 +45,41 @@ router.get("/movies/:id", (req, res, next) => {
         .catch();
 });
 
+router.post("/movies/:id/delete", (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+        .then(() => {
+            res.redirect("/movies");
+        })
+        .catch(err => {
+            console.log("Error deleting movie...", err);
+        });
+
+});
+
+router.get('/movies/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .then(movieToEdit => {
+            res.render("movies/edit-movie", { movie: movieToEdit });
+        })
+        .catch(error => next(error));
+});
+
+router.post('/movies/:id/edit', (req, res, next) => {
+    const movieId = req.params.id;
+
+    const newDetails = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast,
+    }
+    Book.findByIdAndUpdate(movieId, newDetails)
+        .then(() => {
+            res.redirect(`/movies/${movieId}`);
+        })
+        .catch(err => {
+            console.log("Error updating movie...", err);
+        });
+});
+
 module.exports = router;
