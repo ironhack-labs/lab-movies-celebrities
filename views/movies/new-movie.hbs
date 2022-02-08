@@ -1,0 +1,11 @@
+<form action="/movies/create" method="post">
+<input type="text" name="title" placeholder="title">
+<input type="text" name="genre" placeholder="genre">
+<input type="text" name="plot" placeholder="plot">
+<select name="cast" id="cast" multiple>
+     {{#each results}}
+     <option value="{{this._id}}">{{this.name}}</option>
+     {{/each}}
+</select>
+<button type="submit">add movie</button>
+</form>
