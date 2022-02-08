@@ -2,7 +2,13 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
 router.get("/", (req, res) => {
-    res.render("celebrities/celebrities")
+    Celebrity.find()
+    .then((allCelebsInDB) => {
+        res.render("celebrities/celebrities", {celebrities: allCelebsInDB});
+    })
+    .catch((err) => {
+        console.log("Error getting celebrities from DB: ", err);
+    })
 });
 
 router.get("/create", (req, res) => {
