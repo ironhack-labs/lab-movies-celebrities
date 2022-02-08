@@ -3,13 +3,13 @@
 <a href="/">Home</a> | <br />
 <a href="/movies/create">create movie</a> 
 
-
-
 {{#each movie}}
 <h4>{{title}}</h4>
-<p>Genre: {{genre}} </P> <br />
-<p>plot: {{plot}} </P> <br />
+<p>Genre: {{genre}} </p> <br />
+<p>plot: {{plot}} </p> <br />
 {{#each cast }}
-<p>Cast: {{this}} </P> <br />
+<p>Cast: {{this}} </p> <br />
 {{/each}}
+<a href="/movies/{{this._id}}">Movie details</a> <br />
 {{/each}}
+

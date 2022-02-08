@@ -16,6 +16,7 @@ router.get("/create", (req, res, next) => {
     res.render("movies/new-movie")
     Celebrity.find()
     .then( (celebritiesFromDB) => {
+        console.log(celebritiesFromDB)
       res.render("movies/new-movie", {celebrity: celebritiesFromDB});
     })
     .catch((err) => console.log("Error", err));
@@ -37,6 +38,30 @@ router.post("/create", (req, res, next) => {
         console.log("Error failed to create new celebrity", err);
       });
 })
+
+
+router.get("/:movieId", (req, res, next) => {
+    
+    Movie.findById(req.params.movieId)
+      .then( (movieDetails) => {
+        res.render("movies/movie-details", movieDetails);
+      })
+      .catch( err => {
+        console.log("Error getting movie details from DB", err);
+      });
+  });
+
+  router.post("/:movieId/delete", (req, res, next) => {
+
+    Movie.findByIdAndDelete(req.params.movieId)
+    .then( () => {
+      res.redirect(`/movies`);
+      
+    })
+    .catch( err => {
+      console.log("Error deleting movie...", err);
+    });
+  })
 
 
 module.exports = router;

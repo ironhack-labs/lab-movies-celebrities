@@ -1,0 +1,11 @@
+<h1> movies in our database</h1>
+<a href="/">back</a>
+{{ movies}}
+<section class="movie-summary">
+<h2>{{this.title}}</h2>
+
+<form action="/movies/{{this._id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
+
+</section>

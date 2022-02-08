@@ -16,18 +16,13 @@
  </label>
  
   <label> Cast:
-     <select name="celebrity" multiple>
+     <select name="celebrity">
     {{#each celebrity}}
-      <option value="{{_id}}">{{name}}</option>
+      <option value="{{_id}}" >{{name}}</option>
     {{/each}}
      </select>
   </label>
 
-<ul> Cast:
-    {{#each cast}}
-    <li>{{this}}</li>
-    {{/each}}
-</ul>
   <button type="submit"> Create </button>
   
 </form>
