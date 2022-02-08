@@ -1,5 +1,6 @@
 <h2>All Movies</h2>
 {{#each movies}}
-    <h4>{{this.title}}</h4>
+    <a href="/movies/{{this._id}}/details">{{this.title}}</a>
+    <br>
 {{/each}}
 <a href="/movies/create">Add new Movie Here</a>

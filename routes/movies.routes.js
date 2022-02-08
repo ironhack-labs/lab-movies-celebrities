@@ -35,4 +35,14 @@ router.post("/create", (req, res) => {
     })
 });
 
+router.get("/:movieId/details", (req, res) => {
+    Movie.findById(req.params.movieId).populate("cast")
+    .then((movieFromDB) => {
+        res.render("movies/movie-details", {movie: movieFromDB});
+    })
+    .catch((err) => {
+        console.log("Error getting movie details from DB: ", err);
+    });
+})
+
 module.exports = router;
