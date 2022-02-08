@@ -1,0 +1,17 @@
+<h1>Movie details:</h1>
+
+<section class="movie-details">
+  <h2>{{this.title}}</h2>
+  <p>Genre: {{this.genre}}</p>
+  <p>Plot: {{this.plot}}</p>
+  <p>Cast: {{this.cast}}</p>
+
+  <a href="/movies">Back to all movies</a>
+
+  <form action="/movies/{{this._id}}/delete" method="POST">
+    <button>
+      Delete movie
+    </button>
+  </form>
+
+</section>
