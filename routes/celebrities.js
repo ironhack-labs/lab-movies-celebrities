@@ -4,14 +4,22 @@ const Celebrity = require("../models/Celebrity.model");
 const router = require("express").Router();
 
 /* GET celebrities */
-router.get("/", (req, res, next) => {
-  res.render("celebrities/celebrities");
+router.get("/", async (req, res, next) => {
+  const allCelebrities = await Celebrity.find({});
+//   console.log(allCelebrities);
+  try {
+    await res.render("celebrities/celebrities", {
+      data: allCelebrities,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 /* GET new celebrity */
 router.get("/new-celebrity", async (req, res, next) => {
   try {
-    res.render("celebrities/new-celebrity");
+    await res.render("celebrities/new-celebrity");
   } catch (error) {
     console.log(error);
   }
@@ -28,8 +36,8 @@ router.post("/new-celebrity", async (req, res, next) => {
       occupation: occupation,
       catchPhrase: catchPhrase,
     });
-    console.log(newCelebrity);
-    return res.redirect("/");
+    // console.log(newCelebrity);
+    return res.redirect("/celebrities");
   } catch (error) {
     console.log(error);
   }
