@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose');
 
 const celebritySchema = mongoose.Schema({

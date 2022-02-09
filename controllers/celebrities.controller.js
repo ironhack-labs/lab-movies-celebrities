@@ -4,7 +4,9 @@ exports.getCelebrities = async (req, res) => {
     try {
         const foundCelebs = await Celebrity.find({});
         console.log(foundCelebs);
-        res.render('celebrities/list')
+        res.render('celebrities/list', {
+            celebrities: foundCelebs
+        })
     } catch (error) {
         console.log(error);
     }
@@ -15,14 +17,15 @@ exports.create = (req, res) => {
 }
 
 exports.createForm = async (req, res) => {
+
     const { name, occupation, catchPhrase } = req.body
-    console.log(name, occupation, catchPhrase);
+
     try {
         await Celebrity.create({ name, occupation, catchPhrase });
         return res.redirect('/celebrities');
     } catch (error) {
         console.log(error);
-        return res.redirect('celebrities/new-celebrity');
+        return
     }
-    
+
 }
