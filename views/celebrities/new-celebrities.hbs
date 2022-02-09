@@ -1,11 +1,14 @@
-<h2>New Celeb</h2>
+<section class="celeb-edit">
+  <h2>New Celeb</h2>
 
-<form action="/celebrities/create" method="post">
-  <label> Name:
-    <input type="text" name="name" />
-  </label>
+  <form action="/celebrities/create" method="post">
+    <fieldset class="form-edit">
+      <label>
+        Name:
+        <input type="text" name="name" />
+      </label>
 
-   {{!-- <label> Author:
+      {{!-- <label> Author:
     <select name="author">
       {{#each author}}
       <option value="{{this.id}}">{{this.name}}</option>
@@ -13,15 +16,19 @@
     </select>
   </label> --}}
 
-  <label> Occupation:
-    <input type="text" name="occupation"/>
-  </label>
-  
-  <label> Catch Phrase:
-    <input type="text" name="catchPhrase"/>
-  </label>
+      <label>
+        Occupation:
+        <input type="text" name="occupation" />
+      </label>
 
-  <button type="submit"> Submit </button>
-</form>
+      <label>
+        Catch Phrase:
+        <input type="text" name="catchPhrase" />
+      </label>
+    </fieldset>
 
-<a href="/">back</a>
+    <button type="submit" class="button"> Submit </button>
+  </form>
+
+  <a href="/">Back</a>
+</section>

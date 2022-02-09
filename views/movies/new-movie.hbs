@@ -1,30 +1,32 @@
-<h2>Create a movie</h2>
+<section class="new-movie">
 
-<form action="/movies/create" method="post">
-  <label>
-    Title:
-    <input type="text" name="title" />
-  </label>
-  <label>
-    Genre:
-    <input name="genre" />
-  </label>
+  <h2>Create a movie</h2>
 
-  <label>
-    Plot:
-    <input type="text" name="plot" />
-  </label>
+  <form action="/movies/create" method="post">
+    <label>
+      Title:
+      <input type="text" name="title" />
+    </label>
+    <label>
+      Genre:
+      <input name="genre" />
+    </label>
 
-  <label>
-    Cast:
-    <select name="cast" multiple>
-      {{#each celebs}}
-        <option value="{{this.id}}">{{this.name}}</option>
-      {{/each}}
-    </select>
-  </label>
+    <label>
+      Plot:
+      <input type="text" name="plot" />
+    </label>
 
-  <button type="submit"> Create </button>
-</form>
+    <label>
+      Cast:
+      <select name="cast" multiple>
+        {{#each celebs}}
+          <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </label>
 
-<a href="/">back</a>
+    <button type="submit"> Create </button>
+  </form>
+
+  <a href="/">Back</a></section>

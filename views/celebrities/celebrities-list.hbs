@@ -1,12 +1,13 @@
-<h2>Celebrities</h2>
-{{#each celebs}}
-  <section class="celebs-summary">
+<section class="celebrities">
+  <h2>Celebrities</h2>
+  <div class="celebs-list">
+    {{#each celebs}}
+      <p>
+        Name:
+        {{this.name}}
+      </p>
 
-    <p>
-      Name:
-      {{this.name}}
-    </p>
-
-  </section>
-{{/each}}
-<a href="/">Back</a>
+    {{/each}}
+  </div>
+  <a href="/">Back</a>
+</section>

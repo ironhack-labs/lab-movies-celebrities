@@ -1,30 +1,33 @@
-<h2>Edit a movie</h2>
+<section class="movie-edit">
 
-<form action="/movies/{{detailsFlat.0._id}}/edit" method="post">
-  <label>
-    Title:
-    <input type="text" name="title" value="{{detailsFlat.0.title}}" />
-  </label>
-  <label>
-    Genre:
-    <input name="genre" value="{{detailsFlat.0.genre}}"/>
-  </label>
+  <h2>Edit a movie</h2>
 
-  <label>
-    Plot:
-    <input type="text" name="plot" value="{{detailsFlat.0.plot}}"/>
-  </label>
+  <form action="/movies/{{detailsFlat.0._id}}/edit" method="post">
+    <fieldset class="form-edit">
+      <label>
+        Title:
+        <input type="text" name="title" value="{{detailsFlat.0.title}}" />
+      </label>
+      <label>
+        Genre:
+        <input name="genre" value="{{detailsFlat.0.genre}}" />
+      </label>
 
-  <label>
-    Cast:
-    <select name="cast" multiple>
-      {{#each detailsFlat}}
-        <option value="{{this.cast._id}}">{{this.name}}</option>
-      {{/each}}
-    </select>
-  </label>
+      <label>
+        Plot:
+        <input type="text" name="plot" value="{{detailsFlat.0.plot}}" />
+      </label>
 
-  <button type="submit"> Create </button>
-</form>
+      <label>
+        Cast:
+        <select name="cast" multiple>
+          {{#each detailsFlat}}
+            <option value="{{this.cast._id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </label>
+    </fieldset>
+    <button type="submit"> Create </button>
+  </form>
 
-<a href="/">back</a>
+  <a href="/">Back</a></section>

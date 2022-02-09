@@ -1,18 +1,18 @@
-<h2>Movie Details</h2>
-
-
 <section class="movie-details">
+  <h2>Movie Details</h2>
+
+<div class="movie-details">
   <h2>{{movieId.title}}</h2>
   <p>
-    Genre:
-    {{movieId.genre}}<br />
-    Plot:
-    {{movieId.plot}}<br />
-    Cast:<br/>
+    <i>Genre:</i>
+    '{{movieId.genre}}'<br />
+     <i>Plot:</i>
+    '{{movieId.plot}}'<br />
+     <i>Cast:</i><br/>
     {{#each movieId.cast}}
-    Name: {{this.name}}<br/>
-    Occupation: {{this.occupation}} <br/>
-    Catch Phrase: {{this.catchPhrase}} <br/>
+    Name - '{{this.name}}'<br/>
+    Occupation - '{{this.occupation}}' <br/>
+    Catch Phrase - '{{this.catchPhrase}}' <br/>
     {{/each}}
     
  <p>
@@ -20,7 +20,7 @@
             <button>Delete</button>
         </form>
     </p>
-</section>
+</div>
 
 <a href="/movies/movies">Back</a> 
-<a href="/movies/{{movieId._id}}/edit">Edit Movie</a>
+<a href="/movies/{{movieId._id}}/edit">Edit Movie</a></section>

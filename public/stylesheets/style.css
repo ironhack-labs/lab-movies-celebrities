@@ -1,8 +1,71 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body,
+html {
+  height: 100%;
+  width: 100%;
+
+  font-size: 20px;
+  font-family: "Poiret One", cursive;
+}
+
+.main,
+.celeb-edit,
+.celebrities,
+.new-movie,
+.movies-list,
+.movie-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 100px;
 }
 
 a {
   color: #00b7ff;
+}
+
+button {
+  background-color: white;
+  border-radius: 22px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  color: #7a7a7a;
+  padding: 14px 24px;
+  text-decoration: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style: cambodian;
+}
+
+li {
+}
+
+.form-edit label {
+  margin-right: 30px;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.celebs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 500px;
 }
