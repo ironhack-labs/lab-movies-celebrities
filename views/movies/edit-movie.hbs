@@ -13,8 +13,11 @@
 
     <label for="cast"></label>
     <select name="cast" multiple>
-        {{#each allStars}}
+        {{#each starsNotInCast}}
             <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+        {{#each movie.cast}}
+            <option value="{{this.name}}" selected>{{this.name}}</option>
         {{/each}}
     </select>
 

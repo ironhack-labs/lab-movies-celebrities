@@ -56,11 +56,13 @@ router.post("/:movieId/delete", (req, res) => {
 });
 
 router.get("/:movieId/edit", (req, res) => {
-    Movie.findById(req.params.movieId)
+    Movie.findById(req.params.movieId).populate("cast")
     .then((movieFromDB) => {
-        Celebrity.find()
-        .then((starsFromDB) => {
-            res.render("movies/edit-movie", {movie: movieFromDB, allStars: starsFromDB});
+        Celebrity.find({"_id": {"$not": {"$in": movieFromDB.cast.map(star => star._id)}}})
+        .then((notInCast) => {
+            console.log("not in cast: ", notInCast);
+            console.log("in cast:", movieFromDB.cast);
+            res.render("movies/edit-movie", {movie: movieFromDB, starsNotInCast: notInCast});
         })
         .catch((err) => {
             console.log("Error getting all celebrities from db: ", err);
