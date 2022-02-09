@@ -1,8 +1,14 @@
-<h2>Movies List</h2>
+<div class="h2 mt-4">
+    <h2>Movies List</h2>
+</div>
 
-{{#each movies}}
-    <section class="movies-list">
-        <p>{{this.title}}</p>
-        <a href="/movies/{{id}}">Details</a>
-    </section>
-{{/each}}
+<div class="container">
+    <div class="row p-3">
+        {{#each movies}}
+        <div class="col-sm-4 m-2 p-2 border border-primary">
+            <p>{{this.title}}</p>
+            <a class="btn btn-primary" href="/movies/{{id}}" role="button">Details</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

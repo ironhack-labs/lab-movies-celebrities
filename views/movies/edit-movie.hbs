@@ -1,25 +1,36 @@
-<h2>Edit the movie: {{movie.title}}</h2>
+<div class="container">
+    <h2>Edit the movie: {{movie.title}}</h2>
 
-<form action="/movies/{{id}}/edit" method="post">
-    <label> Title:
-        <input type="text" name="title" value="{{movie.title}}" />
-    </label>
+    <form action="/movies/{{movie.id}}/edit" method="post">
 
-    <label> Genre:
-        <input type="text" name="genre" value="{{movie.genre}}" />
-    </label>
+        <p>
+            <label> Title:
+                <input type="text" name="title" value="{{movie.title}}" />
+            </label>
+        </p>
 
-    <label> Plot:
-        <textarea name="plot" cols="30" rows="4">{{movie.plot}}</textarea>
-    </label>
+        <p>
+            <label> Genre:
+                <input type="text" name="genre" value="{{movie.genre}}" />
+            </label>
+        </p>
 
-    <label> Cast:
-        <select name="cast">
-            {{#each celebritiesArr}}
-            <option value={{this._id}}>{{this.name}}</option>
-            {{/each}}
-        </select>
-    </label>
+        <p>
+            <label> Plot:
+                <textarea name="plot" cols="30" rows="4">{{movie.plot}}</textarea>
+            </label>
+        </p>
 
-    <button>Save changes</button>
+        <p>
+            <label> Cast:
+                <select name="cast">
+                    {{#each celebArr}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+        </p>
+
+</div>
+<button class="btn btn-primary m-2">Save Changes</button>
 </form>

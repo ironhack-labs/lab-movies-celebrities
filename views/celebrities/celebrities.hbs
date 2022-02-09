@@ -1,7 +1,13 @@
-<h2>Celebrities List</h2>
+<div class="h2 mt-4">
+    <h2>Celebrities List</h2>
+</div>
 
-{{#each celebrities}}
-    <section class="celebrity-list">
-        <p>{{this.name}}</p>
-    </section>
-{{/each}}
+<div class="container">
+    <div class="row pt-2">
+        {{#each celebrities}}
+        <div class="col-sm-4 m-2 p-2 border border-primary">
+            <p>{{this.name}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>

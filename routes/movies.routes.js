@@ -3,14 +3,21 @@ const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
 
-router.get("/movies/create", (req, res, next) => {
-    res.render("movies/new-movie");
+router.get("/movies", (req, res, next) => {
+    Movie.find()
+        .populate("cast")
+        .then(moviesFromDB => {
+            res.render("movies/movies", { movies: moviesFromDB });
+        })
+        .catch(err => {
+            console.log('Error getting movies from DB...', err)
+        });
 });
 
 router.get("/movies/create", (req, res, next) => {
     Celebrity.find()
-        .then(celebrity => {
-            res.render("movies/new-movie", { celebritiesArr: celebrity });
+        .then(celebrities => {
+            res.render("movies/new-movie", { celebArr: celebrities });
         })
         .catch(err => {
             console.log('Error getting celebrities from DB...', err);
@@ -25,16 +32,6 @@ router.post('/movies/create', (req, res, next) => {
             console.log('Error creating new movie...', err);
         })
 })
-
-router.get("/movies", (req, res, next) => {
-    Movie.find()
-        .then(moviesFromDB => {
-            res.render("movies/movies", { movies: moviesFromDB });
-        })
-        .catch(err => {
-            console.log('Error getting movies from DB...', err)
-        });
-});
 
 router.get("/movies/:id", (req, res, next) => {
     Movie.findById(req.params.id)
@@ -73,7 +70,7 @@ router.post('/movies/:id/edit', (req, res, next) => {
         plot: req.body.plot,
         cast: req.body.cast,
     }
-    Book.findByIdAndUpdate(movieId, newDetails)
+    Movie.findByIdAndUpdate(movieId, newDetails)
         .then(() => {
             res.redirect(`/movies/${movieId}`);
         })

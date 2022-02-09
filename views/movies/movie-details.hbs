@@ -1,32 +1,25 @@
-<section class="movie-details">
+<div class="container mt-5">
     <h2>{{title}}</h2>
     <p>
         <strong>Genre: </strong> {{genre}} <br />
     </p>
     <p>
         <strong>Plot:</strong>
-        {{plot}}
+        <p>{{plot}}</p>
     </p>
     <p>
-        <strong>Cast:</strong> <br />
-        {{#each celebrities}}
-        {{celebrities.name}} <br />
-        {{celebrities.occupation}} <br />
-        {{celebrities.catchPhrase}} <br />
+        <strong>Cast:</strong>
+    <p>
+        {{#each cast}}
+        {{this.name}}
         {{/each}}
     </p>
-
-</section>
-
-<p>
-    <a href="/movies/{{id}}/edit">Edit</a>
-</p>
-
-
-<p>
-<form action="/movies/{{id}}/delete" method="POST">
-    <button>Delete</button>
-</form>
-</p>
-
-<a href="/movies">Back</a>
+    </p>
+</div>
+<div class="btn-toolbar">
+    <a class="btn btn-primary m-2" href="/movies/{{id}}/edit" role="button">Edit</a>
+    <form action="/movies/{{id}}/delete" method="POST">
+        <button type="submit" class="btn btn-primary m-2">Delete</button>
+    </form>
+    <a class="btn btn-primary m-2" href="/movies" role="button">Back</a>
+</div>
