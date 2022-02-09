@@ -1,0 +1,15 @@
+<h2>Create Movie</h2>
+<form action="/movies/create" method="post">
+    <label>Title:</label><input type="text" name="title"></input><br>
+    <label>Genre:</label><input type="text" name="genre"></input><br>
+    <label>Plot:</label><input type="text" name="plot"></input><br>
+    <label>Cast:</label>
+    <select name="cast" id="cast" multiple>
+        {{#each celebritiesArr}}
+            <option value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+    </select><br><br>
+    <input type="submit"></input>
+</form>
+<br><br>
+<a href="javascript:history.back();">goback</a>

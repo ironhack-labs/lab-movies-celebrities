@@ -1,3 +1,5 @@
+const { registerAsyncHelper } = require("hbs");
+
 const router = require("express").Router();
 
 /* GET home page */

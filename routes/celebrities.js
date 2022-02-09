@@ -1,11 +1,11 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 
-const Celebrities = require("../models/Celebrities.model");
+const Celebrities = require("../models/Celebrity.model");
 
 router.get("/", (req, res, next) => {
-  Book.find()
-    .populate("author")
+  Celebrities.find()
+    //.populate("author")
     .then( celebritiesFromDB => {
       res.render("celebrities/celebrities-list", {celebrities: celebritiesFromDB});
     })
@@ -14,40 +14,49 @@ router.get("/", (req, res, next) => {
     })
 });
 
-
 router.get("/create", (req, res, next) => {
-  Author.find()
+  Celebrities.find()
     .then(celebrities => {
-      res.render("celebrities/celebrities-create", {celebritiesArr: celebrities});
+      res.render("celebrities/celebrity-new", {celebritiesArr: celebrities});
     })
     .catch(err => {
       console.log('Error getting celebrities from DB...', err);
     })
 });
 
-
 router.post('/create', (req, res, next) => {
-
+console.log("post celebrity");
   const celebrityDetails = {
-    title: req.body.title,
-    author: req.body.author,
-    description: req.body.description,
-    rating: req.body.rating,
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchphrase,
   }
 
-  Book.create(bookDetails)
-    .then( book => {
+  Celebrities.create(celebrityDetails)
+    .then( celebrity => {
       res.redirect("/celebrities");
     })
     .catch( err => {
-      console.log('Error creating new book...', err);
+      console.log('Error creating new celebrity...', err);
+      res.redirect("celebrities/celebrity-new");
     })
 })
 
+router.get("/:celebrityId/delete", (req, res, next) => {
+  console.log("delete");
+  Celebrities.findByIdAndDelete(req.params.celebrityId)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch(err => {
+      console.log("Error deleting celebrity...", err);
+    });
+
+});
 
 router.get("/:celebrityId", (req, res, next) => {
-  Book.findById(req.params.celebrityId)
-    .populate("author")
+  Celebrities.findById(req.params.celebrityId)
+    //.populate("author")
     .then( celebrity => {
       res.render("celebrities/celebrity-details", celebrity);
     })
@@ -56,7 +65,7 @@ router.get("/:celebrityId", (req, res, next) => {
 
 
 router.get("/:celebrityId/edit", (req, res, next) => {
-  Book.findById(req.params.celebrityId)
+  Celebrities.findById(req.params.celebrityId)
     .then( (celebrityDetails) => {
       res.render("celebrities/celebrity-edit", celebrityDetails);
     })
@@ -75,9 +84,9 @@ router.post("/:celebrityId/edit", (req, res, next) => {
     rating: req.body.rating,
   }
 
-  Book.findByIdAndUpdate(bookId, newDetails)
+  Celebrities.findByIdAndUpdate(celebrityId, newDetails)
     .then( () => {
-      res.redirect(`/celebrities/${bookId}`);
+      res.redirect(`/celebrities/${celebrityId}`);
     })
     .catch( err => {
       console.log("Error updating celebrity...", err);
@@ -85,15 +94,6 @@ router.post("/:celebrityId/edit", (req, res, next) => {
 });
 
 
-router.post("/:celebrityId/delete", (req, res, next) => {
-  Book.findByIdAndDelete(req.params.celebrityId)
-    .then(() => {
-      res.redirect("/celebrities");
-    })
-    .catch(err => {
-      console.log("Error deleting celebrity...", err);
-    });
 
-});
 
 module.exports = router;

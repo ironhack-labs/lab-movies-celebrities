@@ -6,3 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
+
+button {
+  width: 200px;
+  height:50px;
+}
+
+.cast{
+  width: 300px;
+}

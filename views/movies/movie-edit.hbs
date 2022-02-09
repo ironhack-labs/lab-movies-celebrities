@@ -1,0 +1,15 @@
+<h2>Movie editing</h2>
+<form action="/movies/edit">
+    <label>Name:</label><input type="text" name="name">{{movieDetails.name}}</input><br>
+    <label>Genre:</label><input type="text" name="genre">{{movieDetails.genre}}</input><br>
+    <label>Plot:</label><input type="text" name="plot">{{movieDetails.plot}}</input><br>
+    <label>Cast:</label>
+    <select name="cast" id="cast" multiple>
+        {{#each celebrities}}
+            <option value="{{this.value}}">{{this.name}}</option>
+        {{/each}}
+    </select><br>
+    <input type="submit"></input>
+</form>
+<br><br>
+<a href="javascript:history.back();">goback</a>
