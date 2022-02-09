@@ -55,4 +55,29 @@ router.post("/:movieId/delete", (req, res) => {
     });
 });
 
+router.get("/:movieId/edit", (req, res) => {
+    Movie.findById(req.params.movieId).populate("cast")
+    .then((movieFromDB) => {
+        res.render("movies/edit-movie", {movie: movieFromDB});
+    })
+    .catch((err) => {
+        console.log("Error editing movie from db: ", err);
+    });
+});
+
+router.post("/:movieId/edit", (req, res) => {
+    const {title, genre, plot, cast: castNames} = req.body;
+    Movie.find({"name": {"$in": castNames}})
+    .then((castArray) => {
+        const cast = castArray.map(star => star._id);
+        return Movie.findByIdAndUpdate(req.params.movieId, {title, genre, plot, cast});
+    })
+    .then(() => {
+        res.redirect("/movies");
+    })
+    .catch((err) => {
+        console.log("Error updating movie: ", err);
+    });
+});
+
 module.exports = router;
