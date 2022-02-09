@@ -56,9 +56,15 @@ router.post("/:movieId/delete", (req, res) => {
 });
 
 router.get("/:movieId/edit", (req, res) => {
-    Movie.findById(req.params.movieId).populate("cast")
+    Movie.findById(req.params.movieId)
     .then((movieFromDB) => {
-        res.render("movies/edit-movie", {movie: movieFromDB});
+        Celebrity.find()
+        .then((starsFromDB) => {
+            res.render("movies/edit-movie", {movie: movieFromDB, allStars: starsFromDB});
+        })
+        .catch((err) => {
+            console.log("Error getting all celebrities from db: ", err);
+        });
     })
     .catch((err) => {
         console.log("Error editing movie from db: ", err);
@@ -67,13 +73,13 @@ router.get("/:movieId/edit", (req, res) => {
 
 router.post("/:movieId/edit", (req, res) => {
     const {title, genre, plot, cast: castNames} = req.body;
-    Movie.find({"name": {"$in": castNames}})
+    Celebrity.find({"name": {"$in": castNames}})
     .then((castArray) => {
         const cast = castArray.map(star => star._id);
         return Movie.findByIdAndUpdate(req.params.movieId, {title, genre, plot, cast});
     })
     .then(() => {
-        res.redirect("/movies");
+        res.redirect("/movies/"+req.params.movieId+"/details");
     })
     .catch((err) => {
         console.log("Error updating movie: ", err);

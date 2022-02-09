@@ -13,11 +13,11 @@
 
     <label for="cast"></label>
     <select name="cast" multiple>
-        {{#each celebrities}}
+        {{#each allStars}}
             <option value="{{this.name}}">{{this.name}}</option>
         {{/each}}
     </select>
-    
+
     <button type="submit">Edit</button>
 
 </form>
