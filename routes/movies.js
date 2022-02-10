@@ -5,17 +5,20 @@ const router = require("express").Router();
 
 /* GET home page */
 router.get("/", async (req, res, next) => {
+  const allMovies = await Movie.find({});
   try {
-    await res.render("movies/movies");
+    await res.render("movies/movies", {
+      data: allMovies,
+    });
   } catch (error) {
     console.log(error);
   }
 });
 
 /* GET movie details */
-router.get("/movie-details", (req, res, next) => {
-  res.render("movies/movie-details");
-});
+// router.get("/movie-details", (req, res, next) => {
+//   res.render("movies/movie-details");
+// });
 
 /* GET edit movie */
 router.get("/edit-movie", (req, res, next) => {
@@ -44,6 +47,21 @@ router.post("/new-movie", async (req, res, next) => {
     });
     // console.log(newMovie);
     return res.redirect("/movies");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* GET movie details */
+router.get("/:id", async (req, res, next) => {
+//   console.log(req.params);
+  const { id } = req.params;
+  const foundMovie = await Movie.findById(id);
+  console.log(foundMovie);
+  try {
+    await res.render("movies/movie-details", {
+      data: foundMovie,
+    });
   } catch (error) {
     console.log(error);
   }

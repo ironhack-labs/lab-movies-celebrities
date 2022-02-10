@@ -1,1 +1,28 @@
-<h1>Movie Details</h1>
+<h2>
+  Movie Details
+</h2>
+
+{{#with data}}
+  <hr />
+  <h3>
+    Title:
+    {{title}}
+  </h3>
+  <h3>
+    Genre:
+    {{genre}}
+  </h3>
+  <h3>
+    Plot:
+    {{plot}}
+  </h3>
+  <h3>
+    Cast:
+    {{cast}}
+  </h3>
+  <hr />
+{{/with}}
+
+<a href="/movies">
+  Back to Movies
+</a>
