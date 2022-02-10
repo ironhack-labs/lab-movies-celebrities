@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const moviesController = require('./../controllers/moviesCtrl')
+const routeGuard = require('./../middlewares/routeGuard');
 
 //list movies
 router.get('/', moviesController.getMovies)
@@ -9,18 +10,18 @@ router.get('/', moviesController.getMovies)
 router.get('/:movieID/view', moviesController.viewMovie)
 
 //create movie
-router.get('/create', moviesController.newMovie)
+router.get('/create', routeGuard.privateAreas, moviesController.newMovie)
 //create movie
-router.post('/create', moviesController.newMovieForm)
+router.post('/create', routeGuard.privateAreas, moviesController.newMovieForm)
 
 
 //edit movie
-router.get('/:movieID/edit', moviesController.editMovie)
+router.get('/:movieID/edit', routeGuard.privateAreas, moviesController.editMovie)
 //edit movie
-router.post('/:movieID/edit', moviesController.editMovieForm)
+router.post('/:movieID/edit', routeGuard.privateAreas, moviesController.editMovieForm)
 
 //delete movie
-router.post('/:movieID/delete', moviesController.deleteMovie)
+router.post('/:movieID/delete', routeGuard.privateAreas, moviesController.deleteMovie)
 
 //exportacion
 module.exports = router

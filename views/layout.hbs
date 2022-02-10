@@ -31,9 +31,25 @@
           	<a href="/movies" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800"> 
 			  🎞️ Movies 
 			</a>
-            <a href="/celebrities" class="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800">
-				✨ Celebrities
+      <a href="/celebrities" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800"> 
+			  ✨ Celebrities 
 			</a>
+
+      {{#if currentUser}}
+        <a href="/" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800"> 
+			  🖖 Howdy, {{ currentUser.username }} 
+			</a>
+            <a href="/auth/logout" class="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800">
+				🚪 Log Out
+			</a>
+      {{else}}
+        <a href="/auth/signin" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800"> 
+			  🔑 Sign In 
+			</a>
+            <a href="/auth/signup" class="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-slate-900 hover:bg-rose-800">
+				🌟 Sign Up
+			</a>
+      {{/if}}
         </div>
       </div>
     </div>	
