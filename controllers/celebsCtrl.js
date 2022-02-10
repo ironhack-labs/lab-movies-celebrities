@@ -1,4 +1,4 @@
-const Celeb = require('../models/Celebrity.model')
+const Celeb = require('../models/Celebrity')
 //C: crear celebridad
 exports.newCeleb = async (req, res) => {
     res.render('celebrities/new-celebrity')

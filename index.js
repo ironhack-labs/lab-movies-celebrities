@@ -18,9 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 
 //ruteos
 app.use((req, res, next) => {
-    console.log(req.session.currentUser)
+    //console.log(req.session.currentUser)
     res.locals.currentUser = req.session.currentUser //guarda en local 
-    console.log(res.locals);
+    //console.log(res.locals);
     next()
 })
 app.use('/', require('./routes/index'))

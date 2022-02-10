@@ -4,7 +4,10 @@ const movieSchema = mongoose.Schema({
     title: String,
     genre: String,
     plot: String,
-    cast: [ String ]
+    cast: [{
+        type: mongoose.Schema.Types.ObjectID,
+        ref: "Celebrity"
+    }]
 })
 const Movie = mongoose.model("Movie", movieSchema)
 module.exports = Movie;

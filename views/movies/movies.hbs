@@ -34,7 +34,12 @@
                       <h3 class="mt-1 text-rose-500 text-lg font-medium">{{ title }}</h3>
                       <dl class="mt-1 flex-grow flex flex-col justify-between">
                           <dt class="sr-only">Title</dt>
-                          <dd class="text-gray-300 text-md">{{ cast }}</dd>
+                          <dd class="text-gray-300 text-md">
+                            {{#each cast}}
+                            <p>{{name}}</p>
+                            {{/each}}
+
+                          </dd>
                           <dt class="sr-only">Plot</dt>
                           <dd class="text-gray-500 text-sm">{{ plot }}</dd>
                           <dt class="sr-only">Genre</dt>
@@ -81,7 +86,13 @@
                       <h3 class="mt-1 text-rose-500 text-lg font-medium">{{ title }}</h3>
                       <dl class="mt-1 flex-grow flex flex-col justify-between">
                           <dt class="sr-only">Title</dt>
-                          <dd class="text-gray-300 text-md">{{ cast }}</dd>
+                          <dd class="text-gray-300 text-md">
+
+                            {{#each cast }}
+                            <p>{{name}}</p>
+                            {{/each}}
+
+                            </dd>
                           <dt class="sr-only">Plot</dt>
                           <dd class="text-gray-500 text-sm">{{ plot }}</dd>
                           <dt class="sr-only">Genre</dt>

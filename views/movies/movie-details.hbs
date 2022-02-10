@@ -17,7 +17,11 @@
                 <span class="block text-white">{{movie.plot}}</span>
               </h1>
               <h1 class="mb-5 text-xl font-ligth tracking-tight sm:text-xl lg:text-xl">
-                <span class="block text-rose-600">{{movie.cast}}</span>
+                <span class="block text-rose-600">
+                  {{#each movie.cast}}
+                    <span>{{name}},</span>
+                  {{/each}}
+                  </span>
               </h1>
               <h1 class="mb-5 text-3xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
                 

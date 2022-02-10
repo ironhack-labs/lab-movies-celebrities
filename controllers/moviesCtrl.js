@@ -1,7 +1,10 @@
-const Movie = require('../models/Movie.model')
-//C: crear pelicula
+const Movie = require('../models/Movie')
+const Celeb = require('../models/Celebrity')
+//C: crear pelicula 
 exports.newMovie = async (req, res) => {
-    res.render('movies/new-movie')
+    const celebrities = await Celeb.find({});
+
+    res.render('movies/new-movie',{ celebs: celebrities})
 }
 exports.newMovieForm = async (req, res) => {
     const { title, genre, plot, cast } = req.body;
@@ -16,7 +19,7 @@ exports.newMovieForm = async (req, res) => {
 //R: Leer peliculas
 exports.getMovies = async (req,res) => {
     try {
-        const foundMovies = await Movie.find({});
+        const foundMovies = await Movie.find({}).populate('cast');
         res.render('movies/movies', { data: foundMovies })
     } catch (error) {
         console.log(error);
@@ -25,15 +28,16 @@ exports.getMovies = async (req,res) => {
 // detalles de una pelicula
 exports.viewMovie = async (req, res) => {
     const { movieID } = req.params;
-    const getOneMovie = await Movie.findById(movieID);
+    const getOneMovie = await Movie.findById(movieID).populate('cast');
     res.render('movies/movie-details', { movie: getOneMovie });
 }
 
 //U: editar peliculas
 exports.editMovie = async (req, res) => {
     const { movieID } = req.params;
+    const celebrities = await Celeb.find({});
     const getOneMovie = await Movie.findById(movieID);
-    res.render('movies/edit-movie', { movie: getOneMovie });
+    res.render('movies/edit-movie', { movie: getOneMovie, celebs: celebrities });
 }
 
 exports.editMovieForm = async (req, res) => {

@@ -61,17 +61,12 @@
                         </div>
                     </div>
                     <div class="mb-5">
-                        <label for="cast" class="block text-md font-medium text-rose-500">Cast</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <!-- Heroicon name: solid/mail -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                            </svg>
-                            </div>
-                            <input type="text" name="cast" id="cast" value="{{movie.cast}}" 
-                            class="focus:ring-rose-500 focus:border-rose-500 block w-full h-10 pl-10 text-md border-gray-300 rounded-md" placeholder="Add Cast">
-                        </div>
+                        <label for="cast" class="block text-md font-medium text-rose-500">Cast (use ctrl or command for multiple select)</label>
+                        <select id="cast" name="cast" multiple class="mt-1 block w-full h-15 pl-3 pr-10 py-2 text-md border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            {{#each celebs}}
+                              <option value={{_id}}>{{name}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                     <button type="submit" class="inline-flex my-5 items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Update movie</button>
