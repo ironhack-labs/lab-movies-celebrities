@@ -1,0 +1,27 @@
+<h2>Add a new movie</h2>
+
+<form action="/movies/create" method="POST">
+  
+  <div>
+  <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+  <div class="mt-1">
+    <input type="text" name="title" id="title" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Sharknado">
+  </div>
+</div>
+
+<div>
+  <label for="genre" class="block text-sm font-medium text-gray-700">Genre</label>
+  <div class="mt-1">
+    <input type="text" name="genre" id="genre" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Action">
+  </div>
+</div>
+
+<div>
+  <label for="plot" class="block text-sm font-medium text-gray-700">Plot</label>
+  <div class="mt-1">
+    <input type="text" name="plot" id="plot" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Literally a Sharknado">
+  </div>
+</div>
+ 
+  <button type="submit"> Add </button>
+</form>

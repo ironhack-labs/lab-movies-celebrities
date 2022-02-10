@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const movieSchema = mongoose.Schema({
+    
     title:{
         type: String,
         required: true
@@ -11,7 +12,7 @@ const movieSchema = mongoose.Schema({
     },
     plot:{
         type: String,
-        
+        required: true
     },
     cast:{
         type: [String]
