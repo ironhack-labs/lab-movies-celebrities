@@ -56,8 +56,8 @@ exports.deleteMovies = async(req, res) => {
 exports.getMoviesOne = async (req, res) => {
 
     try {
-        const {id} = req.params.id
-        const foundMovies = await Movies.findOne({title: id})
+        const {id} = req.params
+        const foundMovies = await Movies.findById(id)
         console.log(foundMovies)
     
         res.render("movies/single-movies",{
