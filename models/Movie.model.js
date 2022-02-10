@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
 const movieSchema = mongoose.Schema({
-    _id: {
-        type: String
-    },
+    // _id: {
+    //     type: String
+    // },
     title:{
         type: String,
         required: true

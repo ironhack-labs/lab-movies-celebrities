@@ -28,10 +28,12 @@ exports.createMovieForm = async (req, res) => {
 
     const { title, genre, plot } = req.body
     
+    console.log(title, genre, plot)
+
     try {
         
-        const NewMovie = await Movie.create({ title, genre, plot })
-        console.log(NewMovie)
+        const newMovie = await Movie.create({ title, genre, plot })
+        console.log(newMovie)
         return res.redirect("/movies")
         
 
@@ -45,11 +47,10 @@ exports.createMovieForm = async (req, res) => {
 exports.getMovieDetails = async (req, res) => {
 
     const { movieID } = req.params
-    console.log(movieID)
+
     const getSingleMovie = await Movie.findById(movieID)
-    console.log(getSingleMovie)
+
     res.render("movies/movie-details", { 
         movie: getSingleMovie 
-
     });
 }
