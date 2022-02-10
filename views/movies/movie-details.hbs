@@ -20,6 +20,12 @@
     Cast:
     {{cast}}
   </h3>
+  <form action="/movies/{{_id}}/edit" method="post">
+    <button type="submit">Edit</button>
+  </form>
+  <form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
   <hr />
 {{/with}}
 

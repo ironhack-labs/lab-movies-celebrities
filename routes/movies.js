@@ -15,11 +15,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-/* GET movie details */
-// router.get("/movie-details", (req, res, next) => {
-//   res.render("movies/movie-details");
-// });
-
 /* GET edit movie */
 router.get("/edit-movie", (req, res, next) => {
   res.render("movies/edit-movie");
@@ -66,5 +61,18 @@ router.get("/:id", async (req, res, next) => {
     console.log(error);
   }
 });
+
+/* POST movie details - delete movie */
+router.post("/:id/delete", async (req, res, next) => {
+  //   console.log(req.params);
+    const { id } = req.params;
+    const deletedMovie = await Movie.findByIdAndDelete(id);
+    console.log(deletedMovie);
+    try {
+      await res.redirect("/movies")
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
 module.exports = router;
