@@ -8,8 +8,12 @@ router.get('/create', movieCtrl.createMovies);
 
 router.post('/create', movieCtrl.createMoviesForm);
 
-router.get('/:id', movieCtrl.editMovie);
+router.get('/:id', movieCtrl.getMovie);
 
-router.post('/:id', movieCtrl.editMovieForm);
+router.get('/:id/edit', movieCtrl.editMovie);
+
+router.post('/:id/edit', movieCtrl.editMovieForm);
+
+router.post('/:id/delete', movieCtrl.deleteMovie)
 
 module.exports = router;

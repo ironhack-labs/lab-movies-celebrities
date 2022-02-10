@@ -32,10 +32,16 @@ exports.createMoviesForm = async (req, res) => {
     }
 }
 
-exports.editMovie = async (req, res) => {
+exports.getMovie = async (req, res) => {
     const { id } = req.params;
     const foundMovie = await Movie.findById(id);
     res.render('movies/movie-detail', {movie: foundMovie});
+}
+
+exports.editMovie = async (req, res) => {
+    const { id } = req.params;
+    const foundMovie = await Movie.findById(id);
+    res.render('movies/edit-movie', { movie: foundMovie })
 }
 
 exports.editMovieForm = async (req, res) => {
@@ -47,5 +53,11 @@ exports.editMovieForm = async (req, res) => {
         { new: true }
     )
     console.log(updateMovie);
+    return res.redirect('/movies')
+}
+
+exports.deleteMovie = async (req, res) => {
+    const { id } = req.params;
+    await Movie.findByIdAndDelete(id);
     return res.redirect('/movies')
 }
