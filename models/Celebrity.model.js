@@ -14,8 +14,10 @@ const celebritySchema = mongoose.Schema({
     catchPhrase:{
         type: String,
         required: true
-    }
+    },
 })
 
 const Celebrity = mongoose.model("Celebrity", celebritySchema)
 module.exports = Celebrity
+
+
