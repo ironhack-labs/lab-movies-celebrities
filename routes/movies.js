@@ -7,7 +7,7 @@ const router = require("express").Router();
 router.get("/", async (req, res, next) => {
   const allMovies = await Movie.find({});
   try {
-    await res.render("movies/movies", {
+    return res.render("movies/movies", {
       data: allMovies,
     });
   } catch (error) {
@@ -15,15 +15,10 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-/* GET edit movie */
-router.get("/edit-movie", (req, res, next) => {
-  res.render("movies/edit-movie");
-});
-
 /* GET new movie */
-router.get("/new-movie", async (req, res, next) => {
+router.get("/new-movie", (req, res, next) => {
   try {
-    res.render("movies/new-movie");
+    return res.render("movies/new-movie");
   } catch (error) {
     console.log(error);
   }
@@ -31,10 +26,10 @@ router.get("/new-movie", async (req, res, next) => {
 
 /* POST new movie */
 router.post("/new-movie", async (req, res, next) => {
+  console.log(req.body);
+  const { title, genre, plot } = req.body;
+  // console.log(`title:${title},genre:${genre},plot:${plot}`)
   try {
-    console.log(req.body);
-    const { title, genre, plot } = req.body;
-    // console.log(`title:${title},genre:${genre},plot:${plot}`)
     const newMovie = await Movie.create({
       title: title,
       genre: genre,
@@ -49,12 +44,12 @@ router.post("/new-movie", async (req, res, next) => {
 
 /* GET movie details */
 router.get("/:id", async (req, res, next) => {
-//   console.log(req.params);
+  //   console.log(req.params);
   const { id } = req.params;
-  const foundMovie = await Movie.findById(id);
-  console.log(foundMovie);
   try {
-    await res.render("movies/movie-details", {
+    const foundMovie = await Movie.findById(id);
+    console.log(foundMovie);
+    return res.render("movies/movie-details", {
       data: foundMovie,
     });
   } catch (error) {
@@ -65,14 +60,46 @@ router.get("/:id", async (req, res, next) => {
 /* POST movie details - delete movie */
 router.post("/:id/delete", async (req, res, next) => {
   //   console.log(req.params);
-    const { id } = req.params;
+  const { id } = req.params;
+  try {
     const deletedMovie = await Movie.findByIdAndDelete(id);
     console.log(deletedMovie);
-    try {
-      await res.redirect("/movies")
-    } catch (error) {
-      console.log(error);
-    }
-  });
+    return res.redirect("/movies");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* GET edit movie */
+router.get("/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const foundMovie = await Movie.findById(id);
+    console.log(foundMovie);
+    await res.render("movies/edit-movie", {
+      data: foundMovie,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+/* POST edit movie */
+router.post("/:id/edit", async (req, res, next) => {
+  //   console.log(req.params);
+  const { id } = req.params;
+  const { title, genre, plot } = req.body;
+  try {
+    const editedMovie = await Movie.findByIdAndUpdate(
+      id,
+      { title, genre, plot },
+      { new: true }
+    );
+    console.log(editedMovie);
+    return res.redirect("/movies");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;
