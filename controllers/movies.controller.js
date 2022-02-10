@@ -31,3 +31,21 @@ exports.createMoviesForm = async (req, res) => {
         return
     }
 }
+
+exports.editMovie = async (req, res) => {
+    const { id } = req.params;
+    const foundMovie = await Movie.findById(id);
+    res.render('movies/movie-detail', {movie: foundMovie});
+}
+
+exports.editMovieForm = async (req, res) => {
+    const { id } = req.params;
+    const { title, genre, plot } = req.body;
+    const updateMovie = await Movie.findByIdAndUpdate(
+        id,
+        { title, genre, plot },
+        { new: true }
+    )
+    console.log(updateMovie);
+    return res.redirect('/movies')
+}
