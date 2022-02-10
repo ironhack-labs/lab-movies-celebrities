@@ -9,11 +9,11 @@
 <p>Genre: {{genre}} </p>
 <p>Plot: {{plot}}</p>
 
-<ul> Cast:
-        {{#each cast}}
-         <li>{{this}}</li> 
-        {{/each}}
-</ul>
+Cast:
+{{#each cast}}
+<li>{{this.name}}</li> 
+{{/each}}
+
 
 <a href="/movies/{{this._id}}">More details</a>
 

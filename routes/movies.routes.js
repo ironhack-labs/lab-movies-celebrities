@@ -5,6 +5,7 @@ const Movie = require("../models/Movie.model");
 
 router.get("/", (req, res, next) => {
   Movie.find()
+  .populate("cast")
     .then((moviesFromDB) => {
       res.render("movies/movies", { movie: moviesFromDB });
     })
@@ -26,10 +27,9 @@ router.post("/create", (req, res, next) => {
     plot: req.body.plot,
     cast: req.body.cast,
   };
-  console.log(req.body);
   Movie.create(movie)
     .then((movie) => {
-      res.redirect("/");
+      res.redirect("/movies");
     })
     .catch((err) => console.log("Error", err));
 });
@@ -38,6 +38,7 @@ router.get("/:movieId", (req, res, next) => {
   Movie.findById(req.params.movieId)
     .populate("cast")
     .then((movie) => {
+        console.log(movie)
       res.render("movies/movie-details", movie);
     })
     .catch((err) => {
@@ -55,9 +56,9 @@ router.post("/:movieId/delete", (req, res, next) => {
     });
 });
 
+
 router.get("/:movieId/edit", (req, res, next) => {
   Movie.findById(req.params.movieId)
-    .populate("cast")
     .then((movieToEdit) => {
       res.render("movies/edit-movie", movieToEdit);
     })
@@ -68,6 +69,7 @@ router.get("/:movieId/edit", (req, res, next) => {
 
 router.post("/:movieId/edit", (req, res, next) => {
   const { movieId } = req.params;
+  const {cast} = req.params
   const movie = {
     title: req.body.title,
     genre: req.body.genre,

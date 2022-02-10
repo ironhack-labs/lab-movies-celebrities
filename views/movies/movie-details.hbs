@@ -2,12 +2,13 @@
 
     <section class="movie-summary">
         <h2>{{title}}</h2>
-        <p>
-            Genre: {{genre}} <br>
-            plot: {{plot}} <br>
-            cast: {{cast}} <br><br>
-            
-        </p>
+        Genre: {{genre}} <br>
+        Plot: {{plot}} <br>
+        Cast:
+        {{#each cast}}
+        <li>{{this.name}}</li> 
+        {{/each}}
+
     </section>
 
     <form action="/movies/{{this._id}}/delete" method="POST">
