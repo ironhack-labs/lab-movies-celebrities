@@ -1,1 +1,14 @@
-<h1>Esta es la pagina celebrities</h1>
+<h2>Celebrities page</h2>
+
+<a href="/celebrities/create">Create celebrities</a>
+
+	{{#each data }}
+		<div>
+			<h3>Name: {{name}}</h3>
+			<h3>Occupation: {{occupation}}</h3>
+			<h3>Catch phrase: {{catchPhrase}}</h3>
+
+			
+
+		</div>
+	{{/each}}

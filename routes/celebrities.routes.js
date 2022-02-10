@@ -7,15 +7,13 @@ const celebritiesController		= require("./../controllers/celebritiesController")
 
 
 // homepage celebrities 
-router.get("/",celebritiesController.celebs)
+router.get("/",celebritiesController.getCelebs)
 
-// get celebrities
-router.get("/create",celebritiesController.getCelebs)
+// create celebrities
+router.get("/create",celebritiesController.createCelebs)
 
 // post form
-router.post("/create",celebritiesController.createCelebs)
-
-
+router.post("/create",celebritiesController.createCelebsForm)
 
 
 

@@ -2,11 +2,15 @@
 const mongoose		= require("mongoose")
 const Celebrity			= require("./../models/Celebrity.model")
 
-exports.getCelebs = (req, res) =>{
+
+// create celebrities (render)
+exports.createCelebs = (req, res) =>{
     res.render('celebrities/new-celebrity')
 }
 
-exports.createCelebs =async (req, res) =>{
+
+// post form celebrities (form)
+exports.createCelebsForm =async (req, res) =>{
  console.log(req.body)
     const {name, occupation, catchPhrase} = req.body
     try {
@@ -18,6 +22,21 @@ exports.createCelebs =async (req, res) =>{
 	}
 }
 
-exports.celebs = (req, res) => {
-    res.render("celebrities/celebrities")
-}
+
+// get celebrities
+exports.getCelebs = async (req, res) => {
+
+    try {
+	
+		const foundCeleb = await Celebrity.find({})
+
+		res.render("celebrities/celebrities", {
+			data: foundCeleb
+		})
+
+	} catch (error) {
+		
+		console.log(error)
+
+	}
+}	
