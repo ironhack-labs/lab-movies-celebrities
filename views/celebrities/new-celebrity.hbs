@@ -1,1 +1,69 @@
-<h1>crear celebridad</h1>
+
+<div class="bg-rose-800">
+  <br>
+  <main>
+    <div>
+      <!-- Hero card -->
+      <div class="relative">
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-rose-800"></div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden bg-slate-900">
+            <div class="relative px-4 py-6 sm:px-6 sm:py-6 lg:py-6 lg:px-8">
+              <h1 class="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                <span class="block text-white">Add celebrity </span>
+              </h1>
+              <p class="mt-6 max-w-lg mx-auto text-center text-xl text-rose-500 sm:max-w-3xl">
+                  Please insert the celebrity info here.
+              </p>
+              <form action="/celebrities/create" method="post">
+                  <div class="max-w-lg mx-auto">
+                    <div class="mb-5">
+                        <label for="name" class="block text-md font-medium text-rose-500">Name</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <!-- Heroicon name: solid/mail -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2zm1-4V5h-1v2h1zM5 5v2H4V5h1zm0 4H4v2h1V9zm-1 4h1v2H4v-2z" clip-rule="evenodd" />
+                            </svg>
+                            </div>
+                            <input type="text" name="name" id="name" 
+                            class="focus:ring-rose-500 focus:border-rose-500 block w-full h-10 pl-10 text-md border-gray-300 rounded-md" placeholder="Daniel Day Lewis">
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="occupation" class="block text-md font-medium text-rose-500">Occupation</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <!-- Heroicon name: solid/mail -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2zm1-4V5h-1v2h1zM5 5v2H4V5h1zm0 4H4v2h1V9zm-1 4h1v2H4v-2z" clip-rule="evenodd" />
+                            </svg>
+                            </div>
+                            <input type="text" name="occupation" id="occupation" 
+                            class="focus:ring-rose-500 focus:border-rose-500 block w-full h-10 pl-10 text-md border-gray-300 rounded-md" placeholder="Actor">
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="catchPhrase" class="block text-md font-medium text-rose-600">Catch phrase</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <!-- Heroicon name: solid/mail -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                            </svg>
+                            </div>
+                            <textarea type="text" name="catchPhrase" id="catchPhrase" rows="2"
+                            class="focus:ring-rose-500 focus:border-rose-500 block w-full pl-10 text-md border-gray-300 rounded-md" 
+                            placeholder="A famous catch phrase that has been said"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="inline-flex my-5 items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Add celebrity</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+</div>

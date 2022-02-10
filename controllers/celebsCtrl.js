@@ -6,8 +6,9 @@ exports.newCeleb = async (req, res) => {
 exports.newCelebForm = async (req, res) => {
     const { name, occupation, catchPhrase } = req.body;
     try {
-        await Celeb.create({ name, occupation, catchPhrase })
-        res.redirect('celebrities/celebrities')
+        const cl = await Celeb.create({ name, occupation, catchPhrase })
+        console.log(cl);
+        res.redirect('/celebrities')
     } catch (error) {   
         console.log(error);
     }

@@ -6,7 +6,8 @@ exports.newMovie = async (req, res) => {
 exports.newMovieForm = async (req, res) => {
     const { title, genre, plot, cast } = req.body;
     try {
-        await Movie.create({ title, genre, plot, cast })
+        const mv = await Movie.create({ title, genre, plot, cast })
+        console.log(mv);
         res.redirect('/movies')
     } catch (error) {
         console.log(error);
