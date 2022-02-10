@@ -1,0 +1,11 @@
+<h1>List of movies</h1>
+<hr>
+<a href="/movies/create">Add one!</a>
+
+{{#each movies}}
+    <div>
+        <h2>{{ title }}</h2>
+        <p>{{ genre }}</p>
+        <p>{{ plot }}</p>
+    </div>
+{{/each}}

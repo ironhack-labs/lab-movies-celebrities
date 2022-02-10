@@ -1,2 +1,12 @@
-<h1>Add Movie!!!</h1>
+<h1>Add a Movie!!!</h1>
 <hr>
+
+<form action="/movies/create" method="POST">
+    <label> Title: </label>
+    <input type="text" name="title" />
+    <label> Genre: </label>
+    <input type="text" name="genre" />
+    <label> Plot: </label>
+    <input type="text" name="plot" />
+    <button type="submit">Create!</button>
+</form>
