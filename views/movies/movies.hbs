@@ -1,0 +1,19 @@
+<h1>Ironhack Movies</h1>
+<h2>Movies Titles</h2>
+
+
+        {{#each dataM }}
+
+                <div class= "col-4">
+                    <div class ="card">
+                        <div class="card-body">
+                            <h3>{{title}}</h3>
+                            <a href ="/movies/{{_id}}">Ver Detalles</a>
+                            <form action="/movies/{{_id}}/delete" method="POST">
+                                <button>Delete</button>			
+                            </form> 
+                        </div>
+                    </div>
+                </div>  
+
+        {{/each}}

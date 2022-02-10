@@ -1,0 +1,20 @@
+<h1>Editar Movies - {{dataM.title}}</h1>
+
+<form action="/movies/{{dataM._id}}/edit" method="POST">
+
+	<label>Title</label>	
+	<input type="text" name="title" value="{{dataM.title}}" />
+
+	<label>Genre</label>	
+	<input type="text" name="genre" value="{{dataM.genre}}" />
+
+	<label>Plot</label>	
+	<input type="text" name="plot" value="{{dataM.plot}}" />
+
+	<label>cast</label>	
+	<input type="number" name="cast" value="{{dataM.cast}}" />
+
+
+	<button type="submit">Guardar cambios</button>
+
+</form>
