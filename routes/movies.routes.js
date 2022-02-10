@@ -11,6 +11,8 @@ router.get("/create", movieController.createMovie);
 
 router.post("/create", movieController.createMovieForm);
 
+router.get("/:movieID", movieController.getMovieDetails);
+
 
 
 module.exports = router;

@@ -41,3 +41,13 @@ exports.createMovieForm = async (req, res) => {
     }
 };
 
+
+exports.getMovieDetails = async (req, res) => {
+
+    const { movieID } = req.params;
+
+    const getSingleMovie = await Movie.findById(movieID)
+
+    res.render('movies/movie-details', { movie: getSingleMovie });
+
+}
