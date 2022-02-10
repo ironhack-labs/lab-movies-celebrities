@@ -76,7 +76,7 @@ router.get("/:id/edit", async (req, res, next) => {
   try {
     const foundMovie = await Movie.findById(id);
     console.log(foundMovie);
-    await res.render("movies/edit-movie", {
+    return res.render("movies/edit-movie", {
       data: foundMovie,
     });
   } catch (error) {

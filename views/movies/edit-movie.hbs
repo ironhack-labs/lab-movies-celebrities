@@ -1,7 +1,7 @@
 <h2>Edit Movie</h2>
 
 {{#with data}}
-  <form action="" method="post">
+  <form action="/movies/{{_id}}/edit" method="post">
     <label for="title">Title:</label>
     <input type="text" name="title" id="title" value="{{title}}" />
     <label for="genre">Genre:</label>
