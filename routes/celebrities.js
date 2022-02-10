@@ -6,6 +6,8 @@ const celebsController = require('./../controllers/celebsCtrl')
 //list celebs
 router.get('/', celebsController.getCelebs)
 
+//view celeb
+router.get('/:celebID/view', celebsController.viewCeleb)
 
 //create celeb
 router.get('/create', celebsController.newCeleb)
@@ -14,12 +16,12 @@ router.post('/create', celebsController.newCelebForm)
 
 
 //edit celeb
-router.get('/:id/edit', celebsController.editCeleb)
+router.get('/:celebID/edit', celebsController.editCeleb)
 //edit celeb
-router.post('/:id/edit', celebsController.editCelebForm)
+router.post('/:celebID/edit', celebsController.editCelebForm)
 
 //delete celeb
-router.get('/:id/delete', celebsController.deleteCeleb)
+router.post('/:celebID/delete', celebsController.deleteCeleb)
 
 //exportacion
 module.exports = router

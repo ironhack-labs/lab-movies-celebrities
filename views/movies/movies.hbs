@@ -1,1 +1,80 @@
-<h1>liste de peliculas</h1>
+<div class="bg-rose-800">
+  <br>
+  <main>
+    <div>
+      <!-- Hero card -->
+      <div class="relative">
+        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-rose-800"></div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div class="relative shadow-xl sm:rounded-2xl sm:overflow-hidden bg-slate-900">
+            <div class="relative px-4 py-6 sm:px-6 sm:py-6 lg:py-6 lg:px-8">
+              <h1 class="text-center text-4xl font-extrabold sm:text-5xl lg:text-6xl">
+                <span class="block text-white tracking-tight">🎞️ Movies </span>
+                <span>
+                    <a href="/movies/create"
+                    class="inline-flex justify-center my-5 items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Add movie</a> 
+                </span>
+              </h1>
+              <p class="mt-2 mb-6 max-w-lg mx-auto text-center text-xl text-rose-500 sm:max-w-3xl">
+                  The list of top movies is here.
+              </p>
+              
+              
+              <!-- This example requires Tailwind CSS v2.0+ -->
+            <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {{#each data}}
+                <li class="col-span-1 flex flex-col text-center bg-slate-800 rounded-lg shadow divide-y divide-slate-900">
+                    <div class="flex-1 flex flex-col p-8">
+                    {{!-- <img class="w-32 h-32 flex-shrink-0 mx-auto rounded-full" src="https://cdn-icons-png.flaticon.com/512/3873/3873995.png" alt=""> --}}
+                    <h3 class="mt-1 text-rose-500 text-lg font-medium">{{ title }}</h3>
+                    <dl class="mt-1 flex-grow flex flex-col justify-between">
+                        <dt class="sr-only">Title</dt>
+                        <dd class="text-gray-300 text-md">{{ cast }}</dd>
+                        <dt class="sr-only">Plot</dt>
+                        <dd class="text-gray-500 text-sm">{{ plot }}</dd>
+                        <dt class="sr-only">Genre</dt>
+                        <dd class="mt-3">
+                        <span class="px-2 py-1 text-rose-800 text-xs font-medium bg-rose-300 rounded-full">{{ genre }}</span>
+                        </dd>
+                    </dl>
+                    </div>
+                    <div>
+                    <div class="-mt-px flex divide-x divide-slate-900">
+                        <div class="w-0 flex-1 flex">
+                        <a href="/movies/{{_id}}/view" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-blue-600 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                            <!-- Heroicon name: solid/mail -->
+                            <span>👀</span>
+                            <span class="ml-1">Details</span>
+                        </a>
+                        </div>
+                        <div class="w-0 flex-1 flex">
+                        <a href="/movies/{{_id}}/edit" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-green-600 font-medium border border-transparent rounded-bl-lg hover:text-gray-500">
+                            <!-- Heroicon name: solid/mail -->
+                           <span>🖋️</span>
+                           <span class="ml-1">Edit</span>
+                        </a>
+                        </div>
+                        <div class="-ml-px w-0 flex-1 flex">
+                            <form action="/movies/{{_id}}/delete" method="post">
+                            <button class="relative w-0 ml-9 flex-1 inline-flex items-center justify-center py-4 text-sm text-rose-600 font-medium border border-transparent rounded-br-lg hover:text-gray-500">
+                                <!-- Heroicon name: solid/phone -->
+                                <span>❌</span>
+                            <span class="ml-1">Delete</span>
+                        </button>
+                            </form>
+                        
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                {{/each}}
+                <!-- More people... -->
+            </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+</div>

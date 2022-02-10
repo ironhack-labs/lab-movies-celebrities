@@ -41,7 +41,7 @@ exports.editMovieForm = async (req, res) => {
     const { title, genre, plot, cast } = req.body;
     try {
         await Movie.findByIdAndUpdate(movieID, { title, genre, plot, cast}, {new: true});
-        return res.redirect('movies/movies')
+        return res.redirect('/movies')
     } catch (error) {
         console.log(error);
     }
@@ -50,5 +50,5 @@ exports.editMovieForm = async (req, res) => {
 exports.deleteMovie = async (req, res) => {
     const { movieID } = req.params;
     await Movie.findByIdAndDelete(movieID);
-    res.render('movies/movies')
+    res.redirect('/movies')
 }

@@ -51,6 +51,7 @@ exports.editCelebForm = async (req, res) => {
 //D: eliminar celebridad
 exports.deleteCeleb = async (req, res) => {
     const { celebID } = req.params;
+    console.log(celebID)
     await Celeb.findByIdAndDelete(celebID);
     res.redirect('/celebrities')
 }
