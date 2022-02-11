@@ -1,18 +1,23 @@
-<h1>Editar Movies - {{dataM.title}}</h1>
+<h1>Editar Movies - {{foundMovies.title}}</h1>
 
-<form action="/movies/{{dataM._id}}/edit" method="POST">
+<form action="/movies/{{foundMovies._id}}/edit" method="POST">
 
 	<label>Title</label>	
-	<input type="text" name="title" value="{{dataM.title}}" />
+	<input type="text" name="title" value="{{foundMovies.title}}" />
 
 	<label>Genre</label>	
-	<input type="text" name="genre" value="{{dataM.genre}}" />
+	<input type="text" name="genre" value="{{foundMovies.genre}}" />
 
 	<label>Plot</label>	
-	<input type="text" name="plot" value="{{dataM.plot}}" />
+	<input type="text" name="plot" value="{{foundMovies.plot}}" />
 
-	<label>cast</label>	
-	<input type="number" name="cast" value="{{dataM.cast}}" />
+	<label>Elenco</label>
+	<select name="cast" multiple>
+
+		{{#each allCelebrities}}
+			<option selected value={{_id}}>{{name}}</option>
+		{{/each}}
+	</select>
 
 
 	<button type="submit">Guardar cambios</button>

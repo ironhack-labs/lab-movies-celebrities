@@ -8,6 +8,14 @@
                     <div class ="card">
                         <div class="card-body">
                             <h3>{{title}}</h3>
+                            	<h3>Elenco</h3>
+	                            <ul>	
+                                    {{#each cast}}
+                                    <li>
+                                        <p>{{name}}</p>
+                                    </li>
+                                    {{/each}}
+	                            </ul>
                             <a href ="/movies/{{_id}}">Ver Detalles</a>
                             <form action="/movies/{{_id}}/delete" method="POST">
                                 <button>Delete</button>			

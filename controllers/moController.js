@@ -1,10 +1,12 @@
 const Movies = require("../models/Movie.model")
+const { findOneAndRemove, findByIdAndUpdate } = require("../models/Movie.model")
+const Cele = require("../models/Celebrity.model")
 
 exports.getMovies = async (req, res) => {
 
 	try {
 	
-		const foundMovies = await Movies.find({})
+		const foundMovies = await Movies.find({}).populate("cast")
 		
 		res.render("movies/movies", {
 			dataM: foundMovies
@@ -21,7 +23,12 @@ exports.getMovies = async (req, res) => {
 
 exports.createMovies = async (req, res) => {
 
-	return res.render("movies/new-movie")
+	const allCelebrities = await Cele.find({})
+    
+    
+    res.render("movies/new-movie", {
+        celebrities: allCelebrities
+    })
 
 }
 
@@ -57,7 +64,7 @@ exports.getMoviesOne = async (req, res) => {
 
     try {
         const {id} = req.params
-        const foundMovies = await Movies.findById(id)
+        const foundMovies = await Movies.findById(id).populate("cast")
         console.log(foundMovies)
     
         res.render("movies/single-movies",{
@@ -77,8 +84,12 @@ exports.getMoviesOne = async (req, res) => {
 exports.editMovies = async(req, res) => {
     const {id}=req.params
     const foundMovies = await Movies.findById(id)
+    const allCelebrities = await Cele.find()
 
-    res.render("movies/edit-movie", {dataM:foundMovies})
+    res.render("movies/edit-movie", {
+        foundMovies,
+        allCelebrities
+    })
 
 }
 
@@ -89,12 +100,12 @@ exports.editMoviesForm = async(req, res) => {
     //DATOS DEL FORMULARIO NUEVOS CON LOS CUALES VOY A ACTUALIZAR
     const { title, genre, plot, cast  } = req.body
     //actualizar base de datos
-    const updateMovies = await Movies.findByIdAndUpdate(
+    await Movies.findByIdAndUpdate(
         id,{ title, genre, plot, cast  },
         {new:true}
     )
 
     // REDIRECCIONAR A LA PAGINA INDIVIDUAL DEL LIBRO
-        return res.redirect(`/movies/${updateMovies._id}`)
+        return res.redirect(`/movies/${id}`)
 
 }
