@@ -73,4 +73,43 @@ router.post('/movies/:id/delete', ( req , res , next ) => {
         });
 });
 
+router.get('/movies/:id/edit', ( req , res , next ) => {
+    Movie.findById(req.params.id)
+        .then( resFromDBMovie => {
+            console.log("Movie retrieved for editing", resFromDBMovie);
+            Celebrity.find()
+                    .then((resFromDBCelebrity) => {
+                        console.log(`Celebrities retrieved for the update form`, resFromDBCelebrity);
+                        let err = "hidden";
+                        if(req.query.error==="true"){
+                            err = "";
+                        }
+                        res.render('movies/edit-movie', { error: err, movie: resFromDBMovie, celebrities: resFromDBCelebrity } );
+                    })
+                    .catch(err => {
+                        console.log(`Error while retrieving the Celebrities to the update form`, err);
+                        res.redirect(`/movies/edit?error=true`);
+                    });
+            
+        })
+        .catch(err => {
+            console.log(`Error while retrieving the Movie for the update form`, err);
+            res.redirect(`/movies?error=true`);
+        });
+});
+
+router.post('/movies/:id/edit', ( req , res , next ) => {
+    const { title, genre, plot , cast } = req.body;
+    Movie.findByIdAndUpdate(req.params.id,{ title, genre, plot , cast })
+        .then( resFromDB => {
+            console.log("Movie edited", resFromDB);
+            res.redirect('/movies');
+        })
+        .catch(err => {
+            console.log(`Error while updating the Movie with id ${req.params.id}`, err);
+            res.redirect(`/movies/${req.params.id}/edit?error=true`);
+        });
+});
+
+
 module.exports = router;
