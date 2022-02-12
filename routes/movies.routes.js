@@ -30,7 +30,6 @@ router.get('/movies/create', (req , res , next) => {
                 console.log("Error while retrieving the celebirites to the Movie form ", err);
                 res.redirect('/movies');
             });
-    
 });
 
 router.post('/movies/create', (req , res , next) => {
@@ -45,4 +44,17 @@ router.post('/movies/create', (req , res , next) => {
             res.redirect('/movies/create?error=true');
         });
 });
+
+router.get('/movies/:id', (req , res , next) => {
+    Movie.findById(req.params.id)
+        .populate('cast')
+        .then( resFromDB => {
+            console.log("Movie details retrieved", resFromDB);
+            res.render('movies/movie-details', { movie: resFromDB });
+        })
+        .catch(err => {
+            console.log(`Error while retrieving the details of the Movie wit id ${req.params.id}`, err);
+        });
+});
+
 module.exports = router;
