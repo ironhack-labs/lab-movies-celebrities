@@ -3,31 +3,31 @@ const router = require("express").Router();
 const Celebrity = require('../models/Celebrity.model');
 
 // all your routes here
-router.get('/celebrities', (res, req, next) => {
+router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
             .then(resFromDB => {
                 console.log("Celebrities retrieved", resFromDB);
-                req.render('celebrities/celebrities', { celebrities: resFromDB } );
+                res.render('celebrities/celebrities', { celebrities: resFromDB } );
             })
             .catch(err => {
                 console.log("Error while finding the Celebrites", err);
             });
 });
 
-router.get('/celebrities/create', (res , req , next) => {
-    req.render('celebrities/new-celebrity');
+router.get('/celebrities/create', (req , res , next) => {
+    res.render('celebrities/new-celebrity');
 });
 
-router.post('/celebrities/create', (res , req , next) => {
+router.post('/celebrities/create', (req , res , next) => {
     const { name, occupation, catchPhrase } = res.body;
     Celebrity.create({ name, occupation, catchPhrase })
         .then( resFromDB => {
             console.log("Celebrity created", resFromDB);
-            req.redirect('/celebrities');
+            res.redirect('/celebrities');
         })
         .catch(err => {
             console.log("Error while creating a new Celebrity", err);
-            req.redirect('/celebrities/new-celebrity?error=true');
+            res.redirect('/celebrities/create?error=true');
         });
 });
 
