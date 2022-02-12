@@ -9,7 +9,11 @@ router.get('/movies', (req , res , next) => {
             .populate('cast')
             .then(resFromDB => {
                 console.log("Movies retrieved", resFromDB);
-                res.render('movies/movies', { movies: resFromDB } );
+                let err = "hidden";
+                if(req.query.error==="true"){
+                    err = "";
+                }
+                res.render('movies/movies', { error: err, movies: resFromDB } );
             })
             .catch(err => {
                 console.log("Error while finding the Movies", err);
@@ -54,6 +58,18 @@ router.get('/movies/:id', (req , res , next) => {
         })
         .catch(err => {
             console.log(`Error while retrieving the details of the Movie wit id ${req.params.id}`, err);
+        });
+});
+
+router.post('/movies/:id/delete', ( req , res , next ) => {
+    Movie.findByIdAndDelete(req.params.id)
+        .then( resFromDB => {
+            console.log("Movie deleted", resFromDB);
+            res.redirect('/movies');
+        })
+        .catch(err => {
+            console.log(`Error while deleting the Movie with id ${req.params.id}`, err);
+            res.redirect('/movies?error=true');
         });
 });
 
