@@ -1,0 +1,14 @@
+<h2>Movies</h2>
+
+<ul>
+   {{#each movies as | movie}}
+   <li>
+       <h4>{{movie.title}}</h4>
+       <a href="/movies/{{movies._id}}">Movie Details</a>
+   </li>
+   {{/each}}
+   </ul>
+</ul>
+
+
+<button onclick="window.location.href=`/movies/new`">Create Movie</button>

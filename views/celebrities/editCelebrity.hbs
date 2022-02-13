@@ -1,0 +1,13 @@
+<h2>Edit Celebrity's Profile</h2>
+
+<form action="/celebrities/{{celebrity._id}}/edit" method="POST">
+<label for="title">Name</label>
+<input type="text" name="title" id="title" value="{{celebrity.name}}">
+<br>
+
+<label for="genre">Ocuppation</label>
+<input type="text" name="genre" id="genre" value="{{celebrity.name}}">
+<br>
+
+<button type="submit">Edit</button>
+</form>
