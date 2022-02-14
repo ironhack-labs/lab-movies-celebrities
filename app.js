@@ -13,6 +13,11 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+hbs.registerHelper('compareIds', (id, arrIds) => {
+    console.log("RegisterHelperInfo", id, arrIds);
+    return arrIds.includes(id);
+});
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares

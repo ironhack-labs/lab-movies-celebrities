@@ -11,9 +11,13 @@
         <label for="cast">Cast:</label>
     <select name="cast" multiple>
         {{#each celebrities}}
-            {{#each movie.cast}}
+        {{#with this}}
+            {{#if (compareIds _id ../movie.cast)}}
+                <option value="{{_id}}" selected>{{name}}</option>
+            {{else}}
                 <option value="{{_id}}">{{name}}</option>
-            {{/each}}
+            {{/if}}
+        {{/with}}
         {{/each}}
     </select>
     <input type="submit" value="Update">

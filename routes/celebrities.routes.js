@@ -19,7 +19,7 @@ router.get('/celebrities/create', (req , res , next) => {
 });
 
 router.post('/celebrities/create', (req , res , next) => {
-    const { name, occupation, catchPhrase } = res.body;
+    const { name, occupation, catchPhrase } = req.body;
     Celebrity.create({ name, occupation, catchPhrase })
         .then( resFromDB => {
             console.log("Celebrity created", resFromDB);
