@@ -28,12 +28,17 @@ router.get('/', async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-})
+});
 
 
-
-
-
-
+router.get('/:id', async (req, res) => {
+    try {
+        const {id} = req.params;
+        const theMovie = await Movie.findById(id).populate('cast');
+        res.render('movies/movie-details', {movie: theMovie});
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 module.exports = router;
