@@ -50,4 +50,26 @@ router.post('/:id/delete', async (req, res) => {
     }
 });
 
+router.get('/:id/edit', async (req, res) => {
+    try {
+        const {id} = req.params;
+        const selectedMovie = await Movie.findById(id).populate('cast');
+        const celebs = await Celebrity.find()
+        res.render('movies/edit-movie', {movie: selectedMovie, celeb: celebs})
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+router.post('/:id/edit', async (req, res) => {
+    try {
+        const {title, genre, plot, cast} = req.body;
+        const {id} = req.params;
+        const updatedMovie = await Movie.findByIdAndUpdate(id, {title, genre, plot, cast});
+        res.redirect('/movies')
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 module.exports = router;
