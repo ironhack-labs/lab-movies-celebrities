@@ -1,0 +1,13 @@
+<h2>Details of the Movie</h2>
+<div>title : {{movieDetails.title}}</div>
+<div>genre : {{movieDetails.genre}}</div>
+<div>plot : {{movieDetails.plot}}</div>
+<span>cast : </span>
+{{#each movieDetails.cast}}
+<span>{{this.name}}</span>
+{{/each}}
+
+
+<form action="/movies/{{movieDetails._id}}/delete" method="post">
+  <button type="submit">Delete</button>
+</form>
