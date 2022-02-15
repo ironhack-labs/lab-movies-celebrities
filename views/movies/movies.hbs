@@ -1,0 +1,15 @@
+<div class="container">
+
+<h1>Movies List</h1>
+<a class="create-btn" href="/movies/create">Create new movie +</a>
+
+<div class="movies-list">
+    {{#each movies}}
+        <div class="movie">
+            <h2>{{this.title}}</h2>
+            <a class="btn" href="/movies/{{this._id}}">Details</a>
+        </div>
+    {{/each}}
+</div>
+
+</div>

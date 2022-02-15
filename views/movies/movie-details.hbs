@@ -1,0 +1,29 @@
+<div class="container">
+
+    <h1>Movie Details</h1>
+
+    <div class="movie-details">
+        <h2>{{movie.title}}</h2>
+        <p>Genre: {{movie.genre}}</p>
+        <p>Plot: {{movie.plot}}</p>
+
+        <h4>Cast:</h4>
+    
+        {{#each movie.cast}}
+
+            <p>{{this.name}}: {{this.occupation}}, <span class="catch-phrase">"{{this.catchPhrase}}"</span></p>
+
+        {{/each}}
+
+        <div class="btn-group">
+            <div>
+                <a class="edit-btn" href="/movies/{{movie._id}}/edit">Edit Movie</a>
+            </div>
+            <form action="/movies/{{movie._id}}/delete" method="post">
+                <button class="delete-btn" type="submit">Delete</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>

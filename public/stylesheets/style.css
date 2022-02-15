@@ -1,8 +1,323 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+/* Global Styles */
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00b7ff;
+
+body {
+  font-family:monospace;
+  font-size: 10px;
+  background-color: whitesmoke;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin-top: 30px;
+}
+
+.btn {
+
+padding: 10px 30px;
+border-radius: 20px;
+background-color: black;
+border: solid 3px black;
+color: white;
+font-size: 1.5em;
+
+}
+
+.btn:hover {
+
+  background-color: #EEF272;
+  border: solid 3px black;
+  font-weight: bold;
+
+  
+  }
+
+  footer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  footer h3 {
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 2em;
+
+  }
+
+
+/* Font Styles */
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+
+}
+
+
+
+h2 {
+  font-size: 3em;
+  border-bottom: 3px solid black;
+  padding-bottom: 7px;
+  margin-bottom: 20px
+
+}
+
+p {
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+/* Nav Styles */
+
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  width: 60vw;
+}
+
+nav li {
+  margin: 20px;
+  padding-top:10px;
+}
+
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  padding-bottom: 5px;
+}
+
+nav a:hover {
+  border-bottom: solid 2px white;
+  color: white;
+  font-size: 1.5em;
+  text-decoration:none;
+}
+
+
+/* Form Styles */
+
+form {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+
+}
+
+label {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+input, select {
+
+  margin-bottom: 10px;
+  width: 450px;
+  border: 3px solid black;
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+form button {
+
+  padding: 10px 30px;
+  margin-top: 20px;
+  font-size: 1.5em;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border: solid 3px black;
+
+}
+
+form button:hover {
+
+  background-color: #EEF272;
+  border: solid 3px black;
+  color: black;
+  font-weight: bold;
+}
+
+/* Home Page Styles */
+
+#home h1 {
+  width: 60vw;
+}
+
+#home {
+  height: 65vh;
+}
+
+
+/* Celebrity List Styles */
+
+.celebrities {
+
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: solid 3px black;
+  padding: 40px;
+  margin-top: 50px;
+
+
+}
+
+/* Movie List Styles */
+
+.movies-list {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+
+}
+
+.movie {
+
+  border: solid 3px black;
+  padding: 40px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+
+
+}
+
+.create-btn {
+  border:none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 3px solid black;
+  padding: 3px 2px;
+  font-size: 1.5em;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.create-btn:hover {
+
+  background-color: transparent;
+  border:none;
+  color: fuchsia;
+  border-bottom: solid 3px fuchsia;
+  text-decoration:none;
+  font-size: 1.5em;
+  
+}
+
+/* Movie Details Styles */
+
+.movie-details {
+
+  border: solid 3px black;
+  padding: 40px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+span {
+  font-style: oblique;
+  background-color: yellow;
+}
+
+.edit-btn  {
+  padding: 10px 30px;
+  border-radius: 20px;
+  background-color: black;
+  border: solid 3px black;
+  color: white;
+  font-size: 1.5em;
+  margin-right: 20px;
+  
+  }
+  
+  .edit-btn:hover {
+  
+    background-color: #EEF272;
+    border: 3px solid black;
+    font-weight: bold;
+    text-decoration: none;
+    color:black;
+    
+    }
+
+
+.btn-group {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 30px;
+padding-top: 40px;
+border-top: 3px solid black;
+
+}
+
+.btn-group form {
+  margin-top: 0;
+}
+
+.btn-group form button {
+  margin-top: 0;
+}
+
+.delete-btn {
+  border:none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  border-bottom: 3px solid black;
+  padding: 3px 2px;
+}
+
+.delete-btn:hover {
+
+  background-color: transparent;
+  border:none;
+  color: red;
+  border-bottom: solid 3px red;
+}
+
+
+
+
