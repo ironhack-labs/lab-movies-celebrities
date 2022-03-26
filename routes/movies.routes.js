@@ -1,5 +1,6 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router()
+const res = require("express/lib/response")
 const Celebrity = require("../models/Celebrity.model")
 const Movie = require("../models/Movie.model")
 
@@ -52,6 +53,38 @@ router.get("/:id", (req, res) => {
 router.post("/:id/delete", (req, res) => {
   Movie.findByIdAndDelete(req.params.id)
     .then(() => res.redirect("/movies"))
+    .catch((err) => console.log(err))
+})
+
+router.post("/:id/edit", (req, res) => {
+  const { title, genre, plot, cast } = req.body
+
+  Movie.findByIdAndUpdate(
+    req.params.id,
+    { title, genre, plot, cast },
+    { new: true }
+  )
+    .then((updatedMovie) => res.redirect(`/movies/${req.params.id}`))
+    .catch((err) => console.log(err))
+})
+
+router.get("/:id/edit", (req, res) => {
+  Movie.findById(req.params.id)
+    .populate("cast")
+    .then((editMovie) => {
+      Celebrity.find()
+        .then((allCelebrities) => {
+          allCelebrities.forEach((celeb) => {
+            editMovie.cast.forEach((castMember) => {
+              if (celeb._id.equals(castMember._id)) {
+                celeb.isInCast = true
+              }
+            })
+          })
+          res.render("movies/edit-movie.hbs", { editMovie, allCelebrities })
+        })
+        .catch((err) => console.log(err))
+    })
     .catch((err) => console.log(err))
 })
 
