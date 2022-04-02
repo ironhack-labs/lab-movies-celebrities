@@ -26,7 +26,7 @@ router.post("/movies/create", (req, res, next) => {
   });
 });
 
-//get route to get list 
+//get route to movie list 
 router.get("/movies", (req, res, next) => {
   Movie.find()
   .then((allMovies) => {
