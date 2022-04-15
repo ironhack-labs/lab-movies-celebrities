@@ -1,0 +1,19 @@
+<ul>
+
+    {{#each movies}}
+
+    <li>
+        {{title}} <ul>{{#each cast}} <li>{{name}}</li>{{/each}}
+
+            <a href="/movies/{{id}}">SEE DITEILS</a>
+            <a href="/movies/{{id}}/edit">EDITAR</a>
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">ELIMINAR</button>
+            </form>
+
+        </ul>
+    </li>
+
+    {{/each}}
+
+</ul>
