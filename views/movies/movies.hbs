@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h2>Listado movies</h2>
+
+    <hr>
+
+    <ul>
+        {{#each movies}}
+        <li class="book-row">
+            <a href="/movies/{{_id}}">{{title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver al inicio</a>
+
+    <a href="/movies/create" class="btn btn-dark">Crear una pelicula</a>
+
+</div>
