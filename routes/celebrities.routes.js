@@ -1,6 +1,8 @@
 
 const router = require("express").Router()
+
 const Celebrity = require('./../models/Celebrity.model')
+
 
 
 // ---------> CELEBRITIES CREATION <---------
@@ -19,6 +21,8 @@ router.post('/create', (req, res) => {
         })
         .catch(err => console.log(err))
 })
+
+
 
 // ---------> CELEBRITIES READING <---------
 router.get('/', (req, res) => {

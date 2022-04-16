@@ -1,0 +1,19 @@
+<h2>MOVIE DETAILS</h2>
+
+<h3>{{title}}</h3>
+<h3>{{genre}}</h3>
+<h3>{{plot}}</h3>
+
+<hr>
+{{#each cast}}
+<h3>About the author: {{name}}</h3>
+<h3>{{occupation}}</h3>
+<h3>{{catchPhrase}}</h3>
+
+{{/each}}
+
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button class="btn btn-sm btn-warning" type="submit">DELETE</button>
+</form>
+    <button class="btn btn-sm btn-warning" type="submit"><a href="/movies/{{_id}}/edit">EDIT</a></button>
+

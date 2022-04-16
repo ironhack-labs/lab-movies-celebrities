@@ -12,7 +12,7 @@ router.use('/celebrities', require('./celebrities.routes'))
 
 
 // // ---------> MOVIES ROUTES <---------
-// router.use('/movies', require('./movies.routes'))
+router.use('/movies', require('./movies.routes'))
 
 
 module.exports = router

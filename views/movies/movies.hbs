@@ -1,0 +1,9 @@
+<h1>AQUI SALDRÁN TODAS LAS MOVIES</h1>
+
+<ul>
+    {{#each allMovies}}
+    <li>
+        {{title}} | <a href="/movies/{{id}}">See more</a>
+    </li>
+    {{/each}}
+</ul>
