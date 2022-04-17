@@ -1,0 +1,32 @@
+<h2>DETALLES DE LA PELICULA</h2>
+<p>{{title}}</p>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+{{#each cast}}
+    <p>{{name}}</p>
+    <p>{{ocupation}}</p>
+    <p>{{catchPhrase}}</p>
+{{/each}}
+
+<hr>
+<a href="/movies">Volver a peliculas</a>
+<hr>
+<div class="container">
+
+            <form action="/movies/{{id}}/delete" method="POST">
+
+                <button type="submit" class="btn btn-dark">Eliminar película</button>
+
+            </form>
+
+
+            <hr>
+
+
+        </div>
+    </div>
+
+<a href="/">Inicio</a>
+</div>
+
+
