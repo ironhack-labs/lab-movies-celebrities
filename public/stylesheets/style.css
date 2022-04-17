@@ -1,8 +1,111 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.container-home {
+  background-image: url(/images/giffondo2.webp);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.buttons-home {
+  display: flex;
+  margin: 30px;
+}
+
+.btn.btn-light {
+  margin: 5px 5px;
+  padding: 10px 10px;
+}
+
+.navbar {
+  padding: 30px;
+}
+
+.container {
+  background-color: rgb (200, 198, 191);
+}
+
+.container-celebrities {
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-movies {
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.buttons {
+  display: flex;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
 a {
-  color: #00b7ff;
+  color: black;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.container-movies-details {
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  margin-right: 20px;
+}
+
+.container-movies-new {
+margin: 50px;
+justify-content: center;
+align-items: center;
+}
+
+.container-movies-edit {
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-celebrities-new {
+  margin: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-celebrity-details {
+margin: 50px;
+justify-content: center;
+align-items: center;
+}
+
+footer {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  font-size: 1em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }

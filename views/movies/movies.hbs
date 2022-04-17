@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container-movies">
+
+        <h1>LIST OF MOVIES</h1>
+
+        <div>
+            {{#each newMovie}}
+            <div class="movies">
+                <hr>
+                <a href="/movies/{{id}}">
+                    {{title}}
+                </a>
+
+            </div>
+            <div class="buttons">
+                <div>
+                    <a href="movies/{{id}}/edit" class="btn btn-sm btn-dark">EDIT</a>
+                </div>
+                <div>
+                    <form action="movies/{{id}}/delete" method="POST">
+                        <button class="btn btn-sm btn-dark" type="submit">DELETE</button>
+                    </form>
+                </div>
+            </div>
+
+
+            {{/each}}
+
+            <hr>
+
+            <a href="/celebrities/celebrities" class="btn btn-dark">LIST OF
+                CHARACTERS</a>
+
+            <a href="/" class="btn btn-dark">HOME</a>
+
+        </div>
+    </div>
