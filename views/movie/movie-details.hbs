@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Título: {{movie.title}}</h2>
+            <p>Género: {{movie.genre}}</p>
+            <p>Argumento: {{movie.plot}}</p>
+            <p>Reparto</p>
+            {{#each movie.cast}}
+            <ul>
+                <li>{{name}}</li>
+                <li>{{occupation}}</li>
+                <li>{{catchPhrase}}</li>
+                <hr>
+            </ul>
+            
+            {{/each}}
+            <form action="/movies/detalles/{{movie.id}}/delete" method="POST">
+                <button class="btn btn-primary" type="submit">Eliminar</button>
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>

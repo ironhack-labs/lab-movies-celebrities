@@ -1,8 +1,104 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/movie-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.container {
+  margin-top: 8%;
+  width: 100%;
+  color: white;
+  background-color: rgba(33, 3, 3, 0.907);
+  border-radius: 30px 30px;
+  text-align: center;
+  align-items: center;
 }
 
 a {
-  color: #00b7ff;
+  color: white;
+}
+
+.listado-pelis {
+  font-size: 1.5em;
+  background-color: white;
+  border-radius: 30px 30px;
+  margin-top: 100px;
+  margin-left: 30%;
+  align-items: center;
+  text-align: center;
+  width: 30%;
+}
+
+.listado-pelis ul li {
+  display: flex;
+  list-style: none;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: black;
+}
+
+.movie-title {
+  text-transform: uppercase;
+}
+
+
+
+.listado-pelis ul a {
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.btn-info {
+  margin-top: -45px;
+}
+
+.nav {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav a {
+  background-color: black;
+}
+
+.nav-item {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.init-div {
+  margin-left: 30%;
+  margin-top: 10%;
+  color: white;
+  align-items: center;
+  text-align: center;
+  width: 700px;
+  height: 400px;
+  background-color: rgba(11, 1, 1, 0.912);
+  border-radius: 30px 30px;
+
+}
+
+.init-div h1 {
+  font-family: Impact,
+    Haettenschweiler,
+    'Arial Narrow Bold',
+    sans-serif;
+  font-weight: bold;
+  font-size: 4em;
+}
+
+.init-div p {
+  font-size: 2em;
+  font-family: sans-serif;
+}
+
+.init-div ul {
+  font-size: 1.5em;
+  align-items: initial;
 }

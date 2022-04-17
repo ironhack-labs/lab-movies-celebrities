@@ -1,0 +1,12 @@
+<div class="listado-pelis">
+    <h2>LISTADO DE PELÍCULAS AÑADIDAS:</h2>
+    {{#each movies}}
+    <ul>
+        <li class="movie-title">{{title}}</li>
+        <button type="button" class="btn btn-info"><a href="movies/detalles/{{id}}">Details</a>
+        </button>
+        <button type="button" class="btn btn-info"><a href="/movies/{{id}}/edit">Editar</a>
+        </button>
+    </ul>
+    {{/each}}
+</div>
