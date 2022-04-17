@@ -1,24 +1,29 @@
-<div class="container">
+<div class="listGeneral">
+    <div class="container">
 
-    <h2>All movies</h2>
+        <h2>All movies</h2>
 
-    <hr>
+        <hr>
 
-    <ul>
-        {{#each movies}}
-        <li>
-            <p>{{title}}</p>
-            <a href="/movies/{{id}}">Details</a>
-            <a href="/movies/{{id}}/edit">Edit</a>
-            <form action="/movies/{{_id}}/delete" method="POST">
-                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
-            </form>
-        </li>
-        {{/each}}
-    </ul>
+        <ul>
+            {{#each movies}}
+            <li>
+                <div class="btnRow">
+                    <p>{{title}}</p>
+                    <a href="/movies/{{id}}" class=" btn btn-dark btn-square-md">Details</a>
+                    <a href="/movies/{{id}}/edit" class="btn btn-dark btn-square-md">Edit</a>
+                    <form action="/movies/{{_id}}/delete" method="POST">
+                        <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+                    </form>
+                </div>
 
-    <hr>
+            </li>
+            {{/each}}
+        </ul>
 
-    <a href="/" class="btn btn-dark">Back to home</a>
+        <hr>
 
+        <a href="/" class="btn btn-dark">Back to home</a>
+
+    </div>
 </div>

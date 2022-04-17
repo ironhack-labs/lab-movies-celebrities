@@ -1,8 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<a href="/celebrities">See all celebrities</a>
-<a href="/celebrities/create">Add new celebrity</a>
+{{!-- <h1>{{title}}</h1>
+<p>Welcome to {{title}}</p> --}}
+<div class="mainBg">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-3 d-flex justify-content-center">
+                {{!-- <button type="button" class="btn btn-primary btn-square-md">Button</button> --}}
+                <a href="/celebrities" class=" mainBtn btn btn-dark btn-square-md">See all celebrities</a>
+            </div>
+            <div class="col-md-3 d-flex justify-content-center">
+                <a href="/celebrities/create" class="mainBtn btn btn-dark btn-square-md">Add new celebrity</a>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-3 d-flex justify-content-center">
+                <a href="/movies" class="mainBtn btn btn-dark btn-square-md">See all movies</a>
+            </div>
+            <div class="col-md-3 d-flex justify-content-center">
+                <a href="/movies/create" class="mainBtn btn btn-dark btn-square-md">Add new movie</a>
+            </div>
+        </div>
 
-<a href="/movies">See all movies</a>
-<a href="/movies/create">Add new movie</a>
+    </div>
 
+</div>
