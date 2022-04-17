@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@100;300;400&display=swap');
+
+
+body {
+    font-family: 'Montserrat';
+    background-image: url('../images/57480-cine.jpg');
+    background-size: cover;
+    color: whitesmoke;
+}
+
+.nav a {
+    color: whitesmoke;
+    font-size: 1.5em;
+}
+
+
+
+h1 {
+    font-family: 'Montserrat Subrayada';
+    font-size: 4.3em;
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+}
+
+.mainTitle {
+    padding: 230px 0;
+    text-align: center;
+    color: rgb(24, 24, 24);
+
+}
+
+
+footer {
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    padding: 4px;
+    font-size: .7em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* Celebrities */
+
+
+
+
+.celebrities-table {
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 100px;
+    font-size: 1.5em;
+    margin-bottom: 100px;
+}
+
+.celebrities-table-info {
+    font-size: .8em;
+}
+
+
+/* New celebrity */
+
+.newCelHeading {
+
+    margin: 100px 0 40px;
+    padding: 20px;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.newCelHeading h3 {
+    margin: 20px 0;
+}
+
+/* movies */
+
+
+.moviesList {
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.moviesListTable {
+    list-style: none;
+}
+
+.moviesList .row {
+    margin-bottom: 30px;
+}
+
+.moviesList h4 {
+    font-family: 'Montserrat subrayada';
+    font-size: 1.5em;
+}
+
+.plot {
+    padding-right: 80px;
+}
+
+
+/* add movie */
+
+.newMovie {
+    background-color: whitesmoke;
+    color: black;
+    margin-top: 50px;
+    padding: 60px;
+}
+
+.plotInput {
+    width: 450px;
+    margin-bottom: 40px;
+}

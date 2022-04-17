@@ -1,19 +1,67 @@
-<ul>
-
+<div class="moviesList">
     {{#each movies}}
+    <div class="row">
+        <div class="col-5">
+            <ul class="moviesListTable">
+                <li>
+                    <h4>{{title}}</h4>
+                    <ul> Starring: {{#each cast}} || {{name}}
+                        {{/each}}
+                </li>
 
-    <li>
-        {{title}} <ul>{{#each cast}} <li>{{name}}</li>{{/each}}
+            </ul>
 
-            <a href="/movies/{{id}}">SEE DITEILS</a>
-            <a href="/movies/{{id}}/edit">EDITAR</a>
-            <form action="/movies/{{id}}/delete" method="POST">
-                <button class="btn btn-sm btn-warning" type="submit">ELIMINAR</button>
-            </form>
+        </div>
 
-        </ul>
-    </li>
+        <div class="col-7 plot">
+            <p>{{plot}}</p>
 
+            <div class="row">
+
+                <div class="col-6">
+                    <a href="/movies/{{id}}" class="btn btn-dark">SEE DITEILS</a>
+                    <a href="/movies/{{id}}/edit" class="btn btn-dark">EDITAR</a>
+                </div>
+                <div class="col-6">
+                    <form action="/movies/{{id}}/delete" method="POST">
+                        <button class="btn btn-dark " type="submit">ELIMINAR</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
     {{/each}}
 
+</div>
+
+
+
+
+{{!--
+{{#each movies}}
+<div class="row">
+
+    <div class="col-4">
+
+    </div>
+    <div class="col-7">
+
+    </div>
+
+
+    </ul>
+
+</div>
+{{/each}}
+
 </ul>
+
+
+
+
+
+</div> --}}

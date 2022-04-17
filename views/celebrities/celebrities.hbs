@@ -1,13 +1,26 @@
-holaaaaaaa
+<table class="table celebrities-table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Ocuppation</th>
+            <th scope="col">Catch Phrase</th>
+        </tr>
+    </thead>
+    <tbody class="celebrities-table-info">
+        {{#each celebrities}}
+        <tr>
+            <td>
+                <strong>{{name}}</strong>
+            </td>
+            <td>{{ocuppation}}</td>
+            <td>{{catchPhrase}}</td>
+            <td>
+                <form action="/celebrities/{{id}}/delete" method="POST">
+                    <button class="btn btn-sm " type="submit">ELIMINAR</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
 
-<ul>
-
-    {{#each celebrities}}
-
-    <li>
-        {{name}}
-    </li>
-
-    {{/each}}
-
-</ul>
+    </tbody>
+</table>

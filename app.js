@@ -20,7 +20,7 @@ require('./config')(app);
 
 // default value for title local
 
-app.locals.title = `Celebrities and movies WEB`;
+app.locals.title = `Celebrities and movies from Web Development`;
 
 // 👇 Start handling routes here
 const index = require('./routes/index');

@@ -1,11 +1,29 @@
-<h2>HEYYY OU MAMMM</h2>
+<div class="moviesList">
 
-<ul>
+    <div class="row">
+        <div class="col-5">
+            <ul class="moviesListTable">
+                <li>
+                    <h4>{{title}}</h4>
+                    <ul> Starring: {{#each cast}} || {{name}}
+                        {{/each}}
+                </li>
 
-    <li>{{title}}
-        {{#each cast}}
-    <li>{{name}}</li>{{/each}}
-    </li>
+            </ul>
+
+        </div>
+
+        <div class="col-7 plot">
+            <p>{{plot}}</p>
 
 
-</ul>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+</div>
