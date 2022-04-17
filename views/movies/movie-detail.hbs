@@ -1,0 +1,33 @@
+<div class="container">
+
+    <h1>Detalles de {{title}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Detalles</h3>
+            <p><strong>Sinopsis:</strong> {{genre}}</p>
+            <p><strong>Puntuación:</strong> {{plot}}</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Autores/as</h3>
+            {{#each cast}}
+            <p>{{name}} </p>
+            <p>{{occupation}} </p>
+            <p>({{catchPhrase}})</p>
+            {{/each}}
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/movies/movies" class="btn btn-dark">Volver al listado</a>
+
+</div>
+
+<hr>
+
+<a href="/" class="btn btn-dark">Volver al incio</a>
+
+</div>

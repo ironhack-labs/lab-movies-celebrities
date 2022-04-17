@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        {{#each movies}}
+
+        <div class="card col-6" style="width: 18rem;">
+
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item">
+                    <p>{{title}}</p>
+                </li>
+                <li class="list-group-item">
+                    <p>{{genre}}</p>
+                </li>
+                <li class="list-group-item ">
+                    <p>{{plot}}</p>
+
+                </li>
+                {{#each cast}}
+                <p>{{name}} </p>
+                {{/each}}
+                <a href="/movies/{{id}}" class="btn btn-sm btn-dark">Detail</a>
+
+                <a href="/movies/{{id}}/edit" class="btn btn-sm btn-dark">Editar</a>
+
+
+
+
+                <form action="/movies/{{id}}/delete" method="POST">
+                    <button class="btn btn-sm " type="submit">Eliminar</button>
+            </ul>
+
+        </div>
+        {{/each}}
+
+
+    </div>
+</div>
+
+
+<hr>
+
+<a href="/" class="btn btn-dark">Volver al incio</a>
+
+</div>

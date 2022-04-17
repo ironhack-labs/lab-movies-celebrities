@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Celebrities</h2>
+    <div class="row">
+        {{#each celebrities}}
+
+
+        <div class="card col-6" style="width: 18rem;">
+
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item">
+                    <p>{{name}}</p>
+                </li>
+                <li class="list-group-item">
+                    <p>{{occupation}}</p>
+                </li>
+                <li class="list-group-item ">
+                    <p>{{catchPhrase}}</p>
+
+                </li>
+                <a href="/celebrities/{{id}}" class="btn btn-sm btn-dark">Detail</a>
+                <form action="/celebrities/{{id}}/delete" method="POST">
+                    <button class="btn btn-sm " type="submit">Eliminar</button>
+            </ul>
+
+        </div>
+        {{/each}}
+
+
+    </div>
+</div>
