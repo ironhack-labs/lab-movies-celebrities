@@ -1,19 +1,22 @@
 <div class="container">
 
-    <h2>Listado celebrities</h2>
+    <h2>Listado famosos</h2>
 
     <hr>
 
     <ul>
         {{#each celebrities}}
         <li class="book-row">
-            {{name}}
+            <a href="/celebrities/{{id}}">{{name}}</a>
         </li>
         {{/each}}
     </ul>
 
     <hr>
 
-    <a href="/" class="btn btn-dark">Volver al incio</a>
+    <a href="/celebrities/create" class="btn btn-dark">Crear un personaje</a>
+
+
+    <a href="/" class="btn btn-dark">Volver al inicio</a>
 
 </div>

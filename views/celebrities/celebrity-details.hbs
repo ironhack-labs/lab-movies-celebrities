@@ -1,0 +1,29 @@
+<div class="container">
+
+    <h2>Detalles de {{name}}</h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">Profesión: {{occupation}}</p>
+                    <p class="card-text">Frase: {{catchPhrase}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <form action="/celebrities/{{id}}/delete" method="POST">
+        <button class="btn btn-sm btn-warning" type="submit">Eliminar</button>
+    </form>
+
+    <a href="/celebrities/{{id}}/edit" class="btn btn-dark">Editar famoso</a>
+
+    <a href="/celebrities" class="btn btn-dark">Volver a la lista</a>
+
+</div>

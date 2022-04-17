@@ -34,6 +34,52 @@ router.post('/create', (req, res) => {
         })
 })
 
+router.get('/:id', (req, res) => {
+
+    const { id } = req.params
+
+    Celebritie
+        .findById(id)
+        .then(detCeleb => {
+            res.render('celebrities/celebrity-details', detCeleb)
+        })
+        .catch(err => console.log(err))
+})
+
+router.get('/:id/edit', (req, res) => {
+
+    const { id } = req.params
+
+    Celebritie
+        .findById(id)
+        .then(editCeleb => {
+            res.render("celebrities/edit-celebrity.hbs", editCeleb)
+        })
+        .catch(err => console.log(err))
+})
+
+router.post('/:id/edit', (req, res) => {
+    const { id } = req.params
+    const { name, occupation, catchPhrase} = req.body
+
+    Celebritie
+        .findByIdAndUpdate(id, { name, occupation, catchPhrase }, { new: true })
+        .then(() => res.redirect("/celebrities"))
+        .catch(err => console.log(err))
+})
+
+router.post('/:id/delete', (req, res) => {
+
+    const { id } = req.params
+
+    Celebritie
+        .findByIdAndDelete(id)
+        .then(() => {
+            res.redirect('/celebrities')
+        })
+        .catch(err => console.log(err))
+})
+
 
 
 module.exports = router;

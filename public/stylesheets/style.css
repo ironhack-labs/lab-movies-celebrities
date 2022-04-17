@@ -1,8 +1,15 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.img-index {
+  background-image: url(/images/wp5716115.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.index-btn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 600px;
+}
+#indexceleb {
+  margin-right: 20px;
 }
 
-a {
-  color: #00b7ff;
-}
