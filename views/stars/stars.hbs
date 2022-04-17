@@ -1,0 +1,25 @@
+<div class="container-list">
+
+    <h2>Stars</h2>
+
+    <hr>
+
+    <ul>
+        {{#each stars}}
+        <li class="star-list">
+            <h4>{{name}}</h4>
+            <p>Occupation: {{occupation}}</p>
+            <p>Catch Phrase: {{catchPhrase}}</p>
+            {{!-- <a href="/drones/{{_id}}/edit" class="btn btn-sm btn-dark">Edit</a>
+            <form action="/drones/{{_id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form> --}}
+        </li>
+        {{/each}}
+    </ul>
+
+
+
+    <a href="/" class="btn btn-dark">Back to Home page</a>
+
+</div>
