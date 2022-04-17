@@ -6,3 +6,52 @@ body {
 a {
   color: #00b7ff;
 }
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+}
+
+body {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.container {
+  margin-left: 0px;
+}
+
+.homeButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200px;
+  padding-bottom: 260px;
+}
+
+.homeBtn {
+  margin: 50px;
+}
+
+.homeBtn a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  margin-top: 20px;
+}
+
+.editing-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.editing-btns .btn {
+  margin-left: 20px;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+
+    <h2>{{title}} details:</h2>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Genre:</strong> {{genre}}</p>
+            <p><strong>Plot:</strong> {{plot}}</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Cast:</h3>
+
+            {{#each cast}}
+            {{name}} |
+            {{occupation}} |
+            ("{{catchPhrase}}")|
+            {{/each}}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="editing-btns">
+        <a href="/movies/{{id}}/edit" class="btn btn-sm btn-dark">Editar</a>
+
+        <form action="/movies/{{id}}/delete" method="POST">
+            <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+        </form>
+
+        <a href="/movies" class="btn btn-dark">Back to movies</a>
+
+    </div>
+
+</div>
