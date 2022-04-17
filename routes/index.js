@@ -5,4 +5,10 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-module.exports = router;
+// Routes
+router.use("/celebrities", require("./celebrities.routes"));
+router.use('/movies', require('./movies.routes'));
+
+
+module.exports = router
+

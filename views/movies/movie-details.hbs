@@ -1,0 +1,44 @@
+<div class="container">
+
+    <h2>Movie details</h2>
+
+    <hr>
+
+    <ul>
+        {{#each movies}}
+        <li class="movie-row">
+            {{title}}
+        </li>
+        <li class="movie-row">
+            {{genre}}
+        </li>
+        <li class="movie-row">
+            {{plot}}
+        </li>
+        <li class="movie-row">
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Delete movie</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+
+    <ul>
+        {{#each celebrity}}
+        <li class="movie-row">
+            {{name}}
+        </li>
+        <li class="movie-row">
+            {{occupation}}
+        </li>
+        <li class="movie-row">
+            {{catchPhrase}}
+        </li>
+        {{/each}}
+    </ul>
+
+    <hr>
+
+    <a href="/movies/movies{{id}}" class="btn btn-dark">Movie list</a>
+
+</div>
