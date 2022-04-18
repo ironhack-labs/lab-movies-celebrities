@@ -1,0 +1,17 @@
+<div class="container new-Movie">
+    <h2 class="film">Película</h2>
+    <hr>
+    <h3>{{title}}</h3>
+    <hr>
+    <h4>{{genre}}</h4>
+    <p>{{plot}}</p>
+    {{#each cast}}
+    <p><strong>{{name}}</strong>: Soy <strong>{{occupation}}</strong> y mi lema es <strong>{{catchPhrase}}</strong> </p>
+    {{/each}}
+    <form action="/movies/{{id}}/delete" method="POST">
+
+        <button type="submit" class="btn btn-outline-warning">DELETE</button>
+
+    </form>
+    <a class="btn btn-outline-info" href="/movies/{{id}}/edit"> EDIT</a>
+</div>

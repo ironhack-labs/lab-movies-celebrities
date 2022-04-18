@@ -1,0 +1,11 @@
+<div class="container celebrities">
+    <h2>Films</h2>
+    <ul>
+        {{#each newMovie}}
+        <li>
+            <a class="nameMovie" href="/movies/{{_id}}">{{title}}</a>
+            <hr>
+        </li>
+        {{/each}}
+    </ul>
+</div>
