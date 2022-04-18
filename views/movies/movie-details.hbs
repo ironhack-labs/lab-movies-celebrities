@@ -1,19 +1,65 @@
-<h2>MOVIE DETAILS</h2>
+<ul class="nav">
+    <a class="navbar-brand" href="/">M</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Celebrities</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/celebrities">our celebs</a></li>
+            <li><a class="dropdown-item" href="/celebrities/create">add a new celeb</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Movies</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/movies">all movies</a></li>
+            <li><a class="dropdown-item" href="/movies/create">add a new movie</a></li>
+        </ul>
+    </li>
+</ul>
 
-<h3>{{title}}</h3>
-<h3>{{genre}}</h3>
-<h3>{{plot}}</h3>
+<div class="container movie-detaials">
+    <div class="row">
 
-<hr>
-{{#each cast}}
-<h3>About the author: {{name}}</h3>
-<h3>{{occupation}}</h3>
-<h3>{{catchPhrase}}</h3>
+        <div class="col-md-1 deco"></div>
+        <div class="col-md-10">
 
-{{/each}}
+            <h2>{{title}}</h2>
+            <h6>{{genre}}</h6>
+            <hr>
 
-<form action="/movies/{{_id}}/delete" method="POST">
-    <button class="btn btn-sm btn-warning" type="submit">DELETE</button>
-</form>
-    <button class="btn btn-sm btn-warning" type="submit"><a href="/movies/{{_id}}/edit">EDIT</a></button>
+            <h6><strong>Plot</strong></h6>
+            <h6>{{plot}}</h6>
 
+            <hr>
+            <h6><strong>Cast</strong></h6>
+            <div class="allCast row">
+                {{#each cast}}
+                <div class="eachCast col-md-2">
+                    {{!-- <div class="normal"> --}}
+                        <h6><strong>{{name}}</strong></h6>
+                        <p><i>{{occupation}}</i></p>
+                    {{!-- </div> --}}
+                    {{!-- <div class="whenHover"> --}}
+                        <h6>"{{catchPhrase}}"</h6>
+                    {{!-- </div> --}}
+
+                </div>
+                {{/each}}
+            </div>
+            <div class="multiple-buttons">
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <button class="btn btn-sm btn-warning" type="submit">delete</button>
+                </form>
+                <button class="btn btn-sm btn-warning" type="submit"><a href="/movies/{{_id}}/edit">edit</a></button>
+            </div>
+        </div>
+        <button class="btn btn-sm btn-warning return-btn"><a href="/movies">return</a></button>
+    </div>
+
+
+</div>

@@ -17,7 +17,7 @@ router.post('/create', (req, res) => {
     Celebrity
         .create(req.body)
         .then(() => {
-            res.redirect('/')
+            res.redirect('/celebrities')
         })
         .catch(err => console.log(err))
 })

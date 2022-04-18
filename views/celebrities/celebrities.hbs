@@ -1,13 +1,56 @@
-<h2>ALL CELEBRITIES REPRESENTED</h2>
-
-<hr>
-
-
-<ul>
-    {{#each allCelebrities}}
-    <li>
-        {{name}}
+<ul class="nav">
+    <a class="navbar-brand" href="/">M</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Celebrities</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/celebrities">our celebs</a></li>
+            <li><a class="dropdown-item" href="/celebrities/create">add a new celeb</a></li>
+        </ul>
     </li>
-    {{/each}}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Movies</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/movies">all movies</a></li>
+            <li><a class="dropdown-item" href="/movies/create">add a new movie</a></li>
+        </ul>
+    </li>
 </ul>
 
+<div class="container celebrities">
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <h2>celebrities</h2>
+
+            <hr>
+
+
+            <div class="allCelebs row">
+                {{#each allCelebrities}}
+                <div class="eachCeleb col-md-4">
+                    {{name}}
+                </div>
+
+                {{/each}}
+            </div>
+            <div class="bottom-button">
+                <button type="button" class="btn btn-outline-secondary"><a href="/celebrities/create">add a new
+                        celebrity</a></button>
+            </div>
+
+        </div>
+        <div class="col md-6 video-celebs">
+            <iframe width="100%" height="315"
+                src="https://www.youtube.com/embed/xBasQG_6p40?controls=0&amp;start=23&autoplay=1&mute=1&modestbranding=1"></iframe>
+        </div>
+    </div>
+
+</div>

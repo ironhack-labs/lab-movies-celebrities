@@ -1,33 +1,67 @@
-<h2>MOVIE EDITION</h2>
+<ul class="nav">
+    <a class="navbar-brand" href="/">M</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Celebrities</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/celebrities">our celebs</a></li>
+            <li><a class="dropdown-item" href="/celebrities/create">add a new celeb</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Movies</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/movies">all movies</a></li>
+            <li><a class="dropdown-item" href="/movies/create">add a new movie</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="container edit-movie">
+
+    <h2>movie edition</h2>
+    <hr>
 
 
-<form action="/movies/{{necessaryInfo.[0].id}}/edit" method="POST">
+    <form action="/movies/{{necessaryInfo.[0].id}}/edit" method="POST">
 
-    <div class="row">
-        <div class="col">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="XXXXX" name="title" value="{{necessaryInfo.[0].title}}">
+        <div class="row">
+            <div class="col">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="XXXXX" name="title"
+                    value="{{necessaryInfo.[0].title}}">
+            </div>
+            <div class="col">
+                <label for="genre" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="genre" placeholder="XXXXXX" name="genre"
+                    value="{{necessaryInfo.[0].genre}}">
+            </div>
+            <div>
+                <label for="plot" class="form-label">Plot</label>
+                <input type="text" class="form-control" id="plot" placeholder="XXXXXX" name="plot"
+                    value="{{necessaryInfo.[0].plot}}">
+            </div>
+            <div>
+                <label for="cast" class="form-label">Cast <span>*Keep CTRL pressed to select multiple</span></label>
+                <select class="form-select" name="cast" id="cast" multiple>
+
+
+                    {{#each necessaryInfo.[1]}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+
+            </div>
+            <button type="submit" class="btn btn-primary">save changes</button>
+            <button class="btn btn-primary"> <a href="/movies/{{necessaryInfo.[0].id}}">cancel</a></button>
+
         </div>
-        <div class="col">
-            <label for="genre" class="form-label">Genre</label>
-            <input type="text" class="form-control" id="genre" placeholder="XXXXXX" name="genre" value="{{necessaryInfo.[0].genre}}">
-        </div>
-        <div>
-            <label for="plot" class="form-label">Plot</label>
-            <input type="text" class="form-control" id="plot" placeholder="XXXXXX" name="plot" value="{{necessaryInfo.[0].plot}}">
-        </div>
-        <div>
-            <label for="cast" class="form-label">CAST</label>
-            <select name="cast" id="cast" multiple>
 
+    </form>
 
-                {{#each necessaryInfo.[1]}}
-                <option value="{{id}}">{{name}}</option>
-                {{/each}}
-            </select>
-
-        </div>
-        <button type="submit" class="btn btn-primary">EDIT</button>
-    </div>
-
-</form>
+</div>

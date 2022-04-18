@@ -22,7 +22,7 @@ router.post('/create', (req, res) => {
     Movie
         .create(req.body)
         .then(() => {
-            res.redirect('/')
+            res.redirect('/movies')
         })
         .catch(err => console.log(err))
 })

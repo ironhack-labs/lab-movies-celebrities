@@ -1,22 +1,52 @@
-<h1>NEW CELEBRITY</h1>
+<ul class="nav">
+    <a class="navbar-brand" href="/">M</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Celebrities</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/celebrities">our celebs</a></li>
+            <li><a class="dropdown-item" href="/celebrities/create">add a new celeb</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Movies</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/movies">all movies</a></li>
+            <li><a class="dropdown-item" href="/movies/create">add a new movie</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="container new-celeb">
+    <h2>new celebrity</h2>
+    <hr>
 
 
-<form action="/celebrities/create" method="POST">
+    <form action="/celebrities/create" method="POST">
 
-    <div class="row">
-        <div class="col">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="XXXXX" name="name">
+        <div class="row">
+            <div class="col">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Scarlet Johansson" name="name">
+            </div>
+            <div class="col">
+                <label for="occupation" class="form-label">Occupation</label>
+                <input type="text" class="form-control" id="occupation" placeholder="Actress" name="occupation">
+            </div>
+            <div>
+                <label for="catchPhrase" class="form-label">Catch phrase</label>
+                <input type="text" class="form-control" id="catchPhrase" placeholder="whatever" name="catchPhrase">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">add</button>
+                <button class="btn btn-primary"><a href="/celebrities">cancel</a></button>
+            </div>
         </div>
-        <div class="col">
-            <label for="occupation" class="form-label">Occupation</label>
-            <input type="text" class="form-control" id="occupation" placeholder="XXXXXX" name="occupation">
-        </div>
-        <div>
-            <label for="catchPhrase" class="form-label">Catch phrase</label>
-            <input type="text" class="form-control" id="catchPhrase"  placeholder="XXXXXX" name="catchPhrase">
-        </div>
-        <button type="submit" class="btn btn-primary">CREATE</button>
-    </div>
 
-</form>
+    </form>
+</div>

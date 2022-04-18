@@ -1,33 +1,67 @@
-<h1>NEW MOVIE</h1>
+<ul class="nav">
+    <a class="navbar-brand" href="/">M</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Celebrities</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/celebrities">our celebs</a></li>
+            <li><a class="dropdown-item" href="/celebrities/create">add a new celeb</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            aria-expanded="false">Movies</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/movies">all movies</a></li>
+            <li><a class="dropdown-item" href="/movies/create">add a new movie</a></li>
+        </ul>
+    </li>
+</ul>
+
+<div class="container new-movie">
+
+    <h2>new movie</h2>
+    <hr>
 
 
-<form action="/movies/create" method="POST">
+    <form action="/movies/create" method="POST">
 
-    <div class="row">
-        <div class="col">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="XXXXX" name="title">
+        <div class="row">
+            <div class="col">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="XXXXX" name="title">
+            </div>
+            <div class="col">
+                <label for="genre" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="genre" placeholder="XXXXXX" name="genre">
+            </div>
+            <div>
+                <label for="plot" class="form-label">Plot</label>
+                <input type="text" class="form-control" id="plot" placeholder="XXXXXX" name="plot">
+            </div>
+            <div>
+
+                <label for="cast" class="form-label">Cast <span>*Keep CTRL pressed to select multiple</span></label>
+                <select class="form-select" name="cast" id="cast" multiple>
+
+
+                    {{#each celebrity}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+
+
+
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">add</button>
+                <button class="btn btn-primary"><a href="/movies">cancel</a></button>
+            </div>
         </div>
-        <div class="col">
-            <label for="genre" class="form-label">Genre</label>
-            <input type="text" class="form-control" id="genre" placeholder="XXXXXX" name="genre">
-        </div>
-        <div>
-            <label for="plot" class="form-label">Plot</label>
-            <input type="text" class="form-control" id="plot" placeholder="XXXXXX" name="plot">
-        </div>
-        <div>
-            <label for="cast" class="form-label">CAST</label>
-            <select name="cast" id="cast" multiple>
 
-
-                {{#each celebrity}}
-                <option value="{{id}}">{{name}}</option>
-                {{/each}}
-            </select>
-
-        </div>
-        <button type="submit" class="btn btn-primary">CREATE</button>
-    </div>
-
-</form>
+    </form>
+</div>

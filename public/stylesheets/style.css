@@ -1,4 +1,253 @@
+body {
+  font-family: 'MuseoModerno', cursive;
+}
 
-a {
-  color: #00b7ff;
+img {
+  width: 100%;
+}
+
+h2 {
+  margin-top: 75px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+
+/* ---------- NAV BAR ---------- */
+.nav {
+  background-image: url('/images/mesh-gradient.jpg');
+  background-size: cover;
+  padding: 5px 0px;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+  margin-left: 30px;
+}
+
+.nav-link {
+  color: white;
+}
+
+a:hover {
+  color: #679289
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: #679289
+}
+
+.dropdown-item {
+  color: #679289
+}
+
+/* ---------- HOME PAGE ---------- */
+.big-intro {
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  font-family: 'MuseoModerno', cursive;
+  width: 50%;
+  margin-left: 150px;
+  padding-top: 175px;
+}
+
+.home-page {
+  background-image: url('/images/mesh-gradient.jpg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.home-page h6 {
+  color: white;
+  font-family: 'MuseoModerno', cursive;
+  margin-left: 150px;
+}
+
+.home-page .btn {
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 150px;
+}
+
+.home-page div {
+  margin-left: 150px;
+}
+
+.home-page .btn a {
+  color: white;
+  font-family: 'MuseoModerno', cursive;
+  text-decoration: none;
+
+}
+
+/* ---------- CELEBRITIES ---------- */
+.allCelebs {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.eachCeleb {
+  border: 1px solid #0f3975;
+  border-radius: 15px;
+  padding: 5px 30px;
+  margin: 10px;
+}
+
+.celebrities .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.celebrities .btn {
+  background-color: #114834;
+  border-radius: 30px;
+  padding: 10px 50px;
+  width: 300px;
+  margin-top: 100px;
+}
+
+.bottom-button {
+  display: flex;
+  justify-content: center;
+}
+
+.video-celebs {
+  margin-top: 130px;
+}
+
+
+/* ---------- NEW CELEBRITY ----------*/
+.new-celeb .row div {
+  margin-top: 10px;
+}
+
+.new-celeb .btn {
+  background-color: #114834;
+  border: #114834;
+  border-radius: 30px;
+  padding: 10px 30px;
+  width: 200px;
+  margin-top: 70px;
+  margin-right: 20px;
+}
+
+.new-celeb .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+
+/* ---------- NEW MOVIE ---------- */
+.new-movie .btn {
+  background-color: #114834;
+  border: #114834;
+  border-radius: 30px;
+  padding: 10px 30px;
+  width: 200px;
+  margin-top: 70px;
+  margin-right: 20px;
+}
+
+.new-movie .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+span {
+  color: grey;
+  font-size: 0.7rem;
+  margin-left: 20px;
+  font-style: italic;
+}
+
+.new-movie .row div {
+  margin-top: 10px;
+}
+
+
+/* ---------- EDIT MOVIE ---------- */
+.edit-movie .row div {
+  margin-top: 10px;
+}
+
+.edit-movie .btn {
+  background-color: #114834;
+  border: #114834;
+  border-radius: 30px;
+  padding: 10px 30px;
+  width: 200px;
+  margin-top: 70px;
+  margin-right: 20px;
+}
+
+.edit-movie .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+
+
+/* ---------- MOVIE DETAILS ---------- */
+.deco {
+  margin-top: 75px;
+  background-image: url('/images/mesh-gradient.jpg');
+}
+
+.allCast {
+  display: flex;
+  justify-content: center;
+}
+
+.eachCast {
+  border: 1px solid #114834;
+  border-radius: 20px;
+  width: 150px;
+  /* height: 100px; */
+  padding: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.movie-detaials .btn {
+  background-color: #114834;
+  border: #114834;
+  border-radius: 30px;
+  padding: 10px 30px;
+  width: 200px;
+  margin-top: 70px;
+  margin-right: 20px;
+  color: white
+}
+
+.movie-detaials .btn a {
+  color: white;
+  text-decoration: none;
+}
+
+.multiple-buttons {
+  display: flex;
+}
+
+.whenHover {
+  display: none;
+}
+
+.normal:hover {
+  display: none;
+}
+
+.whenHover:hover {
+  display: inline-block;
+}
+
+.eachCast:hover {
+  background-color: grey;
+}
+
+.return-btn {
+  background-color: red;
 }
