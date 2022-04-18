@@ -1,8 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+footer {
+  background-color: #212429;
+  color: white;
+  text-align: center;
+  font-size: .7em;
+  padding: 5px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
-a {
-  color: #00b7ff;
+.navbar {
+  margin-bottom: 50px;
+}
+
+body {
+  background-image: url("https://www.infobae.com/new-resizer/-66DmZm3_PTbvvuKzd0UexUJh5c=/992x558/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/04/08151605/call-my-agent.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  color: aliceblue;
 }
