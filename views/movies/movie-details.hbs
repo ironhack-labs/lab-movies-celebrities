@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>More info</h2>
+    {{#each movies}}
+    <h3>"{{title}}"</h3>
+    <h5>{{genre}}</h5>
+    <p>{{plot}}</p>
+    {{/each}}
+    {{!-- <form action="/movies/{{id}}/delete" method="POST">
+        <button type="sumbit" class="btn btn-secondary">Delete</button>
+    </form> --}}
+</div>
