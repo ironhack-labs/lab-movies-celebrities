@@ -6,3 +6,32 @@ body {
 a {
   color: #00b7ff;
 }
+
+button {
+  margin: 10px 0;
+
+}
+
+.new-movie {
+
+  margin: 10px 0;
+}
+
+select {
+  padding: 10px;
+  margin-left: 0;
+}
+
+button {
+  background-color: red;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  border: none;
+}
+
+.btn-create {
+
+  background-color: rgb(3, 105, 221);
+
+}
