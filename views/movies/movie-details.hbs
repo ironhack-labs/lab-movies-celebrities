@@ -1,0 +1,38 @@
+<div class="container ctnPadding">
+
+    <article>
+
+        <h3>
+            {{tittle}},
+        </h3>
+        <p>
+
+            {{genre}},
+
+        </p>
+
+        <p>
+            {{plot}},
+
+        </p>
+
+    </article>
+
+    {{#each cast}}
+
+        <h5>
+            {{name}}
+        </h5>
+
+    {{/each}}
+
+    <div>
+        <form action="/movies/{{id}}/delete" method="POST">
+            <button class="btn btn-sm btn-dark" type="submit">Eliminar</button>
+        </form>
+
+        <a href="/movies/{{id}}/edit">Editar</a>
+
+    </div>
+
+</div>

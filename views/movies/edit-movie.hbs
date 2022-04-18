@@ -1,0 +1,75 @@
+<h2>editing</h2>
+
+
+
+<div class="container ctnPadding">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>NEW MOVIE</h1>
+
+            <hr />
+
+            <form action="/movies/{{movie.id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="tittle" class="form-label">title</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="tittle"
+                        name="tittle"
+                        value={{movie.tittle}}
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">genre</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="genre"
+                        name="genre"
+                        value={{movie.genre}}
+                        
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">plot</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="plot"
+                        name="plot"
+                        value={{movie.plot}}
+                        
+                    />
+                </div>
+
+                <div></div>
+
+
+                <div class="mb-3">
+
+                    <label for="cast" class="form-label">cast</label>
+
+                    <select name="cast" class="form-select" multiple>
+                        {{#each celebrity}}
+                            <option value="{{id}}" >{{name}}</option>
+                        {{/each}}
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn btn-dark">edit movie</button>
+
+            </form>
+
+            <hr />
+
+        </div>
+    </div>
+
+</div>
+

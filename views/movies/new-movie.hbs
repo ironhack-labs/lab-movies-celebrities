@@ -1,0 +1,63 @@
+<div class="container ctnPadding">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>NEW MOVIE</h1>
+
+            <hr />
+
+            <form action="/movies/create" method="POST">
+
+                <div class="mb-3">
+                    <label for="tittle" class="form-label">tittle</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="tittle"
+                        name="tittle"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">genre</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="genre"
+                        name="genre"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">plot</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="plot"
+                        name="plot"
+                    />
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="cast" class="form-label">cast</label>
+
+                    <select name="cast" class="form-select" multiple>
+                        {{#each celebrity}}
+                            <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn btn-dark">New Movie</button>
+
+            </form>
+
+            <hr />
+
+        </div>
+    </div>
+
+</div>

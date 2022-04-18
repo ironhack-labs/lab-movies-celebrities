@@ -1,8 +1,20 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+    color: #000000;
+}
+
+.background {
+    padding: 0px 0px;
+    height: 100%;
+    background-image: url(/images/FONDO.png);
+}
+
+.btnIndex {
+    font-size: 30;
+}
+.ctnPadding {
+    padding-top: 30px;
 }
