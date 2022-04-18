@@ -1,0 +1,30 @@
+<div class="container box-movies justify-content-center">
+
+    <h1>Movie Details</h1><br>
+    <hr>
+
+    <div class="movie-details">
+
+        <p><strong>Title: </strong>{{movieID.title}}</p>
+        <p><strong>Genre: </strong> {{movieID.genre}}</p>
+        <p><strong>Plot: </strong>{{movieID.plot}}</p>
+        <hr>
+
+        <h4><strong> CAST </strong></h4>
+        <br>
+
+        {{#each movieID.cast}}
+        <p><strong>Name: </strong>{{this.name}}</p> <br>
+        <p><strong>Occupation: </strong>{{this.occupation}}</p> <br>
+        <p><strong>Catch Phrase: </strong>{{this.catchPhrase}}</p> <br>
+        <hr>
+
+        {{/each}}
+        <a href="/movies/{{movieID.id}}/edit" class="btn btn-dark">Edit</a><br><br>
+        <form action="/movies/{{movieID.id}}/delete" method="POST">
+            <button class="btn btn-sm btn-light" type="submit">Delete</button>
+        </form>
+        <br>
+    </div>
+
+</div>

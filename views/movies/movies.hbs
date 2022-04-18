@@ -1,0 +1,17 @@
+<div class="container box-movies justify-content-center">
+    <h2>MOVIES</h2>
+    <hr>
+
+    {{#each movies}}
+    <p><strong>TITLE: </strong> {{title}}</p>
+    <p><strong>GENRE: </strong>{{genre}}</p>
+    <p><strong>PLOT: </strong>{{plot}}</p>
+    {{!-- <p>Cast: {{celebrity.name}}</p> --}}
+    <br>
+    <a href="/movies/{{id}}" class="btn btn-light">Movie details</a>
+    <hr>
+    {{/each}}
+
+    <a href="/movies/create" class="btn btn-dark">Add a new movie</a>
+
+</div>
