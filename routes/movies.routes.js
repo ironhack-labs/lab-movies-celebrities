@@ -2,7 +2,8 @@ const router = require("express").Router();
 
 const Movie = require('./../models/Movies.model')
 
-const Celebrity = require('./../models/Celebrity.model')
+const Celebrity = require('./../models/Celebrity.model');
+const { findById } = require("./../models/Movies.model");
 
 router.get('/movies/create', (req,res) => {
     
@@ -40,6 +41,7 @@ router.get('/movies', (req, res)=> {
 
             res.render('movies/movies', {film})
         })
+        .catch(err => res.send('error en movies.routes.js(get)',err))
 })
 
 
@@ -55,6 +57,7 @@ router.get('/movies/:id', (req,res) => {
             res.render('movies/movie-details', details )
 
         })
+        .catch(err => console.log(err))
 
 })
 
@@ -68,7 +71,17 @@ router.post('/movies/:id/delete', (req, res) => {
 
             res.redirect('/movies')
         })
+        .catch(err => console.log(err))
 
+})
+
+router.get('/movies/:id/edit',(req,res)=> {
+
+    const { id } = req.params
+
+    Movie
+        .findById(id)
+    
 })
 
 module.exports = router;
