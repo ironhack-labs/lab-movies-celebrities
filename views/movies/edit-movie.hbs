@@ -1,0 +1,46 @@
+<div class="col-12  mt-5 bg-light bg-secondary h-75 w-50 p-3">
+    <div class="row">
+        <div class="col-12 mt-4 text-center ">
+            <h2>Edit Movies</h2>
+            <hr>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="row">
+                <form action="/movies/{{newMovie.id}}/edit" method="POST">
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="title" name="name" value="{{newMovie.title}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="genre" class="form-label">Occupation</label>
+                        <input type="text" class="form-control" id="occupation" name="occupation"
+                            value="{{newMovie.genre}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="plot" class="form-label">CatchPhrase</label>
+                        <input type="text" class="form-control" id="catchPhrase" name="catchPhrase"
+                            value="{{newMovie.plot}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="celebrities" class="form-label">Celebritie</label>
+                        <select class="form-select" aria-label="Default select example" name="celebrities">
+                            <option selected>Open this select menu</option>
+
+                            {{#each newCelebritie}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+
+                        </select>
+                    </div>
+
+                    <div class="col 12 text-center mt-5">
+                        <button type="submit" class="btn btn-dark">Edit a new movies </button>
+                        <a href="/movies" class="btn btn-dark">Back to movies</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

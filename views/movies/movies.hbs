@@ -1,0 +1,44 @@
+<div class="col mt-5 mb-5">
+    <div class="text-center display-3">List Movies</div>
+</div>
+<div class="col-12">
+    <div class="row">
+
+        {{#each movie}}
+        <div class="col-12 bg-dark bg-gradient p-4">
+            <div class="row">
+                <a href="/movies/{{id}}" class="w-50 text-center m-0 m-auto mb-5 p-3">
+                    {{title}} <i class="bi bi-eye-fill mx-3"></i>
+                </a>
+                <div class="col-12 mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-6 text-center p-3">
+                            <a href="/movies/{{id}}/edit" class="bg-primary p-3">Edit <i
+                                    class="bi bi-pencil-square mx-3"></i></a>
+                        </div>
+                        <div class="col-6 text-center">
+                            <form action="/movies/{{id}}/delete" method="POST">
+                                <button class="btn-sm btn-warning p-3 text-white" type="submit">Remove <i
+                                        class="bi bi-eraser-fill mx-3"></i></button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+        <div class="col-12 mt-5">
+            <div class="row">
+                <div class="col-6 text-end p-3">
+                    <a href="/" class="bg-info p-4">Back to menu</a>
+                </div>
+                <div class="col-6 text-start p-3">
+                    <a href="/movies/create" class="bg-success p-3">New Movie <i
+                            class="bi bi-plus-circle-fill mx-3"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

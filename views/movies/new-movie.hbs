@@ -1,0 +1,38 @@
+<div class="col-12  mt-5 bg-light bg-secondary h-75 w-50 p-3">
+    <div class="row">
+        <div class="col-12 mt-4 text-center ">
+            <h2>New Movie</h2>
+            <hr>
+        </div>
+        <form action="/movies/create" method="POST">
+            <div class="col-12 mt-5">
+                <div class="row">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="genre" class="form-label">Genre</label>
+                        <input type="text" class="form-control" id="genre" name="genre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="plot" class="form-label">Plot</label>
+                        <input type="text" class="form-control" id="plot" name="plot">
+                    </div>
+                    <div class="mb-3">
+                        <label for="celebrities" class="form-label">Celebritie</label>
+                        <select class="form-select" aria-label="Default select example" name="celebrities">
+                            <option selected>Open this select menu</option>
+                            {{#each celebritie}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="col 12 text-center mt-5">
+                        <button type="submit" class="btn btn-dark">Create a new movie </button>
+                        <a href="/movies" class="btn btn-dark">Back to movies</a>
+                    </div>
+
+        </form>
+    </div>
+</div>

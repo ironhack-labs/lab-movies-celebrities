@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
 }
 
 a {
-  color: #00b7ff;
+  color: white;
+  text-decoration: none;
+  border: 2px solid black;
+  background-color: black;
+}
+
+a:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  transition: color .2s linear, text-shadow .2s linear;
+
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  transition: color .2s linear,
+    text-shadow .2s linear;
+
 }
