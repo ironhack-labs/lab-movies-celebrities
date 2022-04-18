@@ -1,0 +1,48 @@
+<div class="container">
+
+    <h1>Movies Details</h1>
+
+    <hr>
+
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <details>
+                <summary>{{title}}</summary>
+                <br>
+                <p><strong>Genre:</strong> {{genre}}</p>
+                <p><strong>Plot:</strong> {{plot}}</p>
+            </details>
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form>
+            <a href="/movies/{{id}}/edit" class="btn btn-sm btn-dark">Edit</a>
+
+
+
+        </div>
+        <div class="col-md-6">
+            {{#each cast}}
+            <details>
+
+                <summary>{{name}} </summary>
+                <br>
+                <p><strong>Occupation:</strong> {{occupation}}</p>
+                <p><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+
+                {{/each}}
+
+            </details>
+
+        </div>
+    </div>
+
+    <hr>
+    <a href="/movies/" class="btn btn-outline-danger">Movies List</a>
+    <a href="/" class="btn btn-outline-info">Volver al inicio</a>
+
+
+</div>
