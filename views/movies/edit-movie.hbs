@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-6">
+
+
+            <h2>Update your Movie</h2>
+
+            <form action="/movies/{{id}}" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" value="{{title}}">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Genre</label>
+                    <input type="text" class="form-control" name="genre" value="{{genre}}">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Plot</label>
+                    <input type="text" class="form-control" name="plot" value="{{plot}}">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Celebrity</label>
+                    <select name="cast" class="form-select" size="1" multiple>
+                        {{#each celebrities}}
+                        <option value="{{_id}}">{{name}}</option value="{{cast}}">
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

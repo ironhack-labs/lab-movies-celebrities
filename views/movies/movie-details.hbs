@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-6">
+
+            <h2>{{title}}</h2>
+
+            <hr>
+
+            <p class="features"><strong>Genre:</strong> {{genre}}</p>
+            <p class="features"><strong>Plot:</strong> {{plot}}</p>
+            <p class="celebrities">Celebrities:</p>
+            <ul>
+                {{#each cast}}
+                <li>{{name}}</li>
+                <ul>
+                    <li>{{ocupation}}</li>
+                    <li>{{catchPhrase}}</li>
+                </ul>
+
+                {{/each}}
+            </ul>
+
+            <a class="editButton" href="/movies/{{_id}}/edit">Edit</a>
+
+        </div>
+
+    </div>
+
+
+</div>
