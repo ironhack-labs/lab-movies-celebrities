@@ -1,0 +1,26 @@
+<div class="container">
+
+    <h2>Movies List</h2>
+
+    <hr>
+
+    <div class="row">
+
+        {{#each movies}}
+
+        <div class="col-6">
+
+            <a class="movie" href="/movies/{{id}}">{{title}}</a>
+
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+
+</div>

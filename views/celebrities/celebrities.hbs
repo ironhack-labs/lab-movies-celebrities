@@ -1,0 +1,29 @@
+<div class="container">
+
+    <div class="row">
+
+        {{#each celebrities}}
+
+        <div class="col-6">
+
+            <h2>{{name}}</h2>
+
+            <p class="features"><strong>Ocupation</strong> {{ocupation}}</p>
+            <p class="features"><strong>CatchPhrase</strong> {{catchPhrase}}</p>
+
+            <a class="editButton" href="/celebrities/{{_id}}/edit">Edit</a>
+
+            <hr>
+
+            <form action="/celebrities/{{id}}/delete" method="POST">
+                <button class="btn btn-sm btn-warning" type="submit">Delete</button>
+            </form>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+
+</div>
