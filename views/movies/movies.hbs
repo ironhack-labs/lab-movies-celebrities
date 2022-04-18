@@ -1,0 +1,15 @@
+<div class="container">
+
+    <h2>Movies</h2>
+
+    <ul>
+        {{#each movies}}
+        <li class="celebrity-row">
+            <a href="/movies/{{id}}">{{title}} ({{genre}})</a>
+        </li>
+        {{/each}}
+
+    </ul>
+
+    <a href="/" class="btn btn-dark">Home</a>
+</div>

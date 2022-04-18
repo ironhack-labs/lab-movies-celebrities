@@ -1,0 +1,15 @@
+<div class="container">
+
+    <h2>celebrities</h2>
+
+    <hr>
+    <ul>
+        {{#each celebrities}}
+        <li class="celebrity-row">
+            <a href="/celebrities/{{id}}">{{name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/" class="btn btn-dark">Home</a>
+</div>
