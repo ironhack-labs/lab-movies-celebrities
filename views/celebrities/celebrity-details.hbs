@@ -1,0 +1,28 @@
+<div class="col">
+<div class="row">
+
+</div>
+{{#with celeb}}
+<div class="row">
+    
+<div class="card movie-info">
+  <img class="card-img-top" id="celeb-img" src="/images/cinema-star.svg" alt="Movie Camera">
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
+    </div>
+    <div class="card-header">
+        Catchphrase
+    </div>
+    <div class="card-body">
+        <p class="card-text">"{{catchPhrase}}"</p>
+    </div>
+    <div class="card-body">
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+       <button type="submit" class="btn btn-danger">Delete</button>
+         <a href="/celebrities/{{_id}}/edit" class="btn btn-info">Edit</a>
+    </form>
+    </div>
+</div>
+{{/with}}
+</div>

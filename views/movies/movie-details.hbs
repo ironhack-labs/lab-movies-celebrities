@@ -1,0 +1,40 @@
+<div class="col">
+<div class="row">
+
+</div>
+{{#with movie}}
+<div class="row">
+    
+<div class="card movie-info">
+  <img class="card-img-top" id="movie-img" src="/images/clapperboard-film-sq.svg" alt="Movie Camera">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+    <p class="card-text">{{plot}}</p>
+
+    </div>
+    <div class="card-header">
+        Cast
+    </div>    
+  <ul class="list-group list-group-flush">
+    {{#each cast}}
+        <li class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+            {{name}}
+    <span class="badge "><small>{{occupation}}</small></span>
+
+        </div>
+        <small class="text-muted">"{{catchPhrase}}"</small>            
+        
+        </li> 
+    {{/each}}      
+  </ul>
+    <div class="card-body">
+    <form action="/movies/{{_id}}/delete" method="POST">
+       <button type="submit" class="btn btn-danger">Delete</button>
+         <a href="/movies/{{_id}}/edit" class="btn btn-info">Edit</a>
+    </form>
+    </div>
+</div>
+{{/with}}
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col">
+    <h2>Update Celebrity</h2>
+    {{#with celeb}}
+    <form action="/celebrities/{{_id}}" method="POST">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+    </div>
+    <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input type="text" class="form-control" name="occupation" id="occupation" value="{{occupation}}">
+    </div>
+    <div class="form-group">
+    <label for="catchphrase">Catchphrase</label>
+    <textarea class="form-control" id="catchphrase" name="catchPhrase" rows="2">{{catchPhrase}}</textarea>
+    </div>
+        <button type="submit" class="btn btn-info mb-2">Save</button>
+    </form>
+    {{/with}}
+    </div>
+</div>

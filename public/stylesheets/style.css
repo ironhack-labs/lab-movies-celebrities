@@ -6,3 +6,26 @@ body {
 a {
   color: #00b7ff;
 }
+
+#main-image {
+  height: 8rem;
+}
+
+.movie-info {
+  width: 18rem;
+}
+
+#celeb-img, #movie-img{
+  width: 18rem;
+}
+
+/* .list-group-item:hover {
+  z-index: 2;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.list-group-item:hover > a{
+  color: white;
+} */
