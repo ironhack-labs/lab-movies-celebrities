@@ -1,0 +1,36 @@
+<h2>Change Movie Page</h2>
+
+<div id="edit-movie">
+
+  <form action="/movies/{{movie.id}}" method="POST">
+
+    <label> Title:
+      <input type="text" name="title" value="{{movie.title}}" /> 
+    </label>
+
+    <label> Genre:
+      <select id="genre-selection" name="genre">
+        <option value="none" selected disabled hidden>{{movie.genre}}</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comdey</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Drama">Drama</option>
+      </select>
+    </label>
+
+    <label> Plot:
+      <input type="text" name="plot" value="{{movie.title}}" /> 
+    </label>
+
+    <label> Cast:
+      <select id="cast-selection" name="cast" multiple>
+        {{#each celebrity}}
+        <option value={{id}}>{{name}}</option>
+        {{/each}}
+      </select>
+    </label>
+
+      <button type="submit"> Edit </button>
+
+  </form>
+</div>

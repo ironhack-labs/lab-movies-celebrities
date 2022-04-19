@@ -4,6 +4,11 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #0400ff;
+  font-size: 24px;
 }
 
+#cast-selection {
+  position: relative;
+  top: 50px;
+}
