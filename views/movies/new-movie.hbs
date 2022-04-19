@@ -19,11 +19,13 @@
   </label>
 
   <label> Cast:
-    <select id="cast-selection" name="cast">
+    <br>
+    {{!-- <select id="cast-selection" name="cast" multiple> --}}
       {{#each celebrity}}
+      <input type="radio">
       <option value={{id}}>{{name}}</option>
       {{/each}}
-    </select>
+    {{!-- </select> --}}
   </label>
 
     <button type="submit"> Create </button>
