@@ -3,7 +3,6 @@ document.addEventListener(
   () => {
 
     const curPage = window.location.pathname;
-    console.log(curPage);
     if(curPage.substring(1,12) == 'celebrities'){
       document.querySelector("#nav-celeb").classList.toggle('active');
     }else if(curPage.substring(1,7) == 'movies'){

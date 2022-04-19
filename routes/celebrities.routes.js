@@ -50,7 +50,7 @@ router.get("/celebrities/:id/edit", async (req,res,next) => {
 });
 
 router.post("/celebrities/:id", async (req,res,next) => {
-    const {name, occupation, catchPhrase} = req.body    
+    const {name, occupation, catchPhrase} = req.body 
     const id = req.params.id;
     try{
         const updateCeleb = await Celebrity.findByIdAndUpdate(id,{name,occupation,catchPhrase});
@@ -64,6 +64,7 @@ router.get("/celebrities/:id", async (req,res,next) => {
     const id = req.params.id;
     try{
         const celebDetails = await Celebrity.findById( id );
+        celebDetails.occupationLength = Math.max(0,(12-celebDetails.occupation.length));
         res.render("celebrities/celebrity-details", { celeb : celebDetails });
     }catch(err){
         console.log('Failed to load movie list ',err);

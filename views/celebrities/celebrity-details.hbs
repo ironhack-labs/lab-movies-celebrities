@@ -4,9 +4,14 @@
 </div>
 {{#with celeb}}
 <div class="row">
-    
 <div class="card movie-info">
-  <img class="card-img-top" id="celeb-img" src="/images/cinema-star.svg" alt="Movie Camera">
+  <div class="card-img-top d-flex align-items-center justify-content-center" id="celeb-img">
+      {{#if occupationLength}}
+        <span class="occupation"> {{occupation}} </span>
+      {{else}}
+        <span class="occupation"> Director </span>
+      {{/if}}
+  </div>
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
