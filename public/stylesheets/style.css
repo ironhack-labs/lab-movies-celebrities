@@ -32,8 +32,8 @@ a {
 #celeb-img > span {
   /* font-size: 1.3rem; */
   font-size: 1.7rem;
-  /* font-family: 'Oswald', sans-serif; */
-  font-family: 'BenchNine', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  /* font-family: 'BenchNine', sans-serif; */
 }
 
 .occupation {
@@ -47,7 +47,7 @@ a {
 }
 
 .card {
-  border-radius: 1rem;
+  border-radius: 1.2rem;
 }
 
 /* .list-group-item:hover {

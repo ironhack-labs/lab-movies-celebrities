@@ -13,14 +13,14 @@
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="#">Movies Celebrities</a>
+  <a class="navbar-brand" href="/">Movies Celebrities</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item" id="nav-home">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item" id="nav-celeb">
         <a class="nav-link" href="/celebrities">Celebrities List</a>
@@ -28,13 +28,13 @@
       <li class="nav-item" id="nav-movie">
         <a class="nav-link" href="/movies">Movies List</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" id="nav-drop">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Create New
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/celebrities/create">New Celebrity</a>
-          <a class="dropdown-item" href="/movies/create">New Movie</a>
+          <a class="dropdown-item" id="nav-drop-celeb" href="/celebrities/create">New Celebrity</a>
+          <a class="dropdown-item" id="nav-drop-movie" href="/movies/create">New Movie</a>
 
         </div>
       </li>
