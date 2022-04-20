@@ -13,9 +13,11 @@ router.post('/celebrities/create', (req, res) => {
 
     .then(() => {
       res.render('celebrities/new-celebrity');
-      res.redirect('/celebrities');
     })
-    .catch((error) => next(error));
+    .catch((error) => {
+      res.redirect('/celebrities');
+      next(error);
+    });
 });
 
 router.get('/celebrities', (req, res) => {
