@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=BenchNine&display=swap');
 
 body {
@@ -19,9 +17,6 @@ a {
   width: 18rem;
 }
 
-/* #celeb-img, #movie-img{
-  width: 18rem;
-} */
 #celeb-img {
   width: 18rem;
   height: 18rem;
@@ -30,10 +25,8 @@ a {
 }
 
 #celeb-img > span {
-  /* font-size: 1.3rem; */
   font-size: 1.7rem;
-  font-family: 'Oswald', sans-serif;
-  /* font-family: 'BenchNine', sans-serif; */
+  font-family: 'BenchNine', sans-serif;
 }
 
 .occupation {
@@ -49,14 +42,3 @@ a {
 .card {
   border-radius: 1.2rem;
 }
-
-/* .list-group-item:hover {
-  z-index: 2;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.list-group-item:hover > a{
-  color: white;
-} */
