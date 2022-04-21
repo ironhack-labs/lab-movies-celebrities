@@ -1,7 +1,9 @@
 <h2>Create Celebrity</h2>
 
+{{!-- ALSO A DIV Wrapped each input will help clean it up a bit --}}
+
 <form action="/celebrities/create" method="POST">
-  <label> Name:
+  <label> Name:                                           {{!-- <-- See walkthrough of this lab - different way to specify labels  --}}
     <input type="text" name="name" /> 
   </label>
 
@@ -18,5 +20,5 @@
     <input type="text" name="catchPhrase" /> 
   </label>
   
-    <button type="submit"> Create </button>
+    <button type="submit">Create</button>
 </form>

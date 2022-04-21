@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Movie = require('../models/Movie.model');
 const Celebrity = require('../models/Celebrity.model');
+const { options } = require("./celebrities");
 
 // ************ //
 // ROUTES BELOW 
@@ -38,7 +39,7 @@ router.post('/movies/:movieId', (req, res, next ) => {
   const { title, genre, plot, cast } = req.body
   const movieId = req.params.movieId
 
-  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast } )
+  Movie.findByIdAndUpdate(movieId,{ title, genre, plot, cast } )
     .then(() => {
       console.log('Movie updated successfully')
       res.redirect('/movies/' +movieId)

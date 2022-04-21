@@ -1,31 +1,39 @@
 <h2>Create Movie Entry</h2>
 <div id="movie-creation">
-  <form action="/movie/create" method="POST">
-    <label> Title:
-      <input type="text" name="title" /> 
-    </label>
+  <form action="/movie/create" method="POST"> 
 
-    <label> Genre:
-      <select id="genre-selection" name="genre">
-        <option value="Action">Action</option>
-        <option value="Comedy">Comdey</option>
-        <option value="Thriller">Thriller</option>
-        <option value="Drama">Drama</option>
-      </select>
-    </label>
+    <div>
+      <label for="myTitle">Title:</label>  {{!-- <-- this "for" associated with the "input" - when you click the label title, it will place your cursor in the input field  --}}
+      <input id="myTitle" type="text" name="title" /> 
+    </div>
 
-    <label> Plot:
-      <input type="text" name="plot" /> 
-    </label>
+    <div>
+      <label id="genre-selection">Genre:</label>
+        <select id="genre-selection" name="genre">
+          <option value="Action">Action</option>
+          <option value="Comedy">Comdey</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Drama">Drama</option>
+        </select>
+    </div>
 
-    <label> Cast:
-      <select id="cast-selection" name="cast" multiple>
-        {{#each celebrity}}
-        <option value={{id}}>{{name}}</option>
-        {{/each}}
-      </select>
-    </label>
+    <div>
+      <label id="myPlot">Plot:</label>
+      <input id="myPlot" type="text" name="plot" /> 
+    </div>
+      
+    <div>
+      <label id="cast-selection"> Cast:</label>
+        <select id="cast-selection" name="cast" multiple>
+          {{#each celebrity}}
+          <option value={{id}}>{{name}}</option>
+          {{/each}}
+        </select>
+    </div>
 
+    <div>
       <button type="submit"> Create </button>
+    </div>
+
   </form>
 </div>

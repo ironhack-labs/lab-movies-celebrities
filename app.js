@@ -34,7 +34,7 @@ app.use('/', index);
 // WE REQUIRE THE ADDITIONAL ROUTES WE CREATED
 // ********************************************* //
 
-const celebritiesRoute = require("./routes/celebrities");
+const celebritiesRoute = require("./routes/celebrities"); // <-- PROB BETTER OFF BEING MORE SPECIFIC - 'Router' instead of 'Route'..
 app.use("/", celebritiesRoute);
 
 const moviesRoute = require("./routes/movies");
