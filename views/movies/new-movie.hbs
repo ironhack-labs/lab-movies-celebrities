@@ -1,23 +1,28 @@
 <h2>MOVIES</h2>
 
+{{! form gets submitted in the body }}
 <form action='/movies/create' method='POST'>
-  <label for='name'>
+  {{! automatically puts ur start typing in the field if we click label it will auto focus us in and the label for has to match teh id }}
+  <label for='myTitle'>
     Title:
-    <input type='text' name='title' />
+    {{!  name = title name of parameter when we submit form }}
+    <input id='myTitle' type='text' name='title' />
   </label>
-  <label for='occupation'>
+  <label for='myGenre'>
     Genre:
-    <input type='text' name='genre' />
+    <input id='myGenre' type='text' name='genre' />
   </label>
-  <label for='catchPhrase'>
+  <label for='myPlot'>
     Plot:
-    <input type='text' name='plot' />
+    <input id='myPlot' type='text' name='plot' />
   </label>
-  <label for='cast-select'>
+  <label for='myCast'>
     Cast:
-    <select name='cast' multiple>
+    {{! key would be cast and value would be value }}
+    <select name='cast' multiple id='myCast'>
 
-      {{#each celeb}}
+      {{#each celebsArray}}
+        {{! we dont need this if we are already inside the object and looping through so we can do _id and _name }}
         <option value='{{this._id}}'> {{this.name}} </option>
       {{/each}}
     </select>

@@ -1,17 +1,23 @@
 <h2>CELEBRITY</h2>
 
 <form action='/celebrities/create' method='POST'>
-  <label for='name'>
+
+  {{!  if we dont wrap divs around these they go left to right, otherwise if we put divs then we go top to bottom }}
+  <label for='celebName'>
     Celebrity:
-    <input type='text' name='name' />
+    {{!  name is whats being sent to the body as a key value attribute  key is name and value is whatever is typed in the input}}
+    <input id='celebName' type='text' name='name' />
   </label>
-  <label for='occupation'>
+
+  <label for='celebOccupation'>
     Occupation:
-    <input type='text' name='occupation' />
+    <input id='celebOccupation' type='text' name='occupation' />
   </label>
-  <label for='catchPhrase'>
+
+  <label for='celebCatchPhrase'>
     Catchphrase:
-    <input type='text' name='catchPhrase' />
+    <input id='celebCatchPhrase' type='text' name='catchPhrase' />
   </label>
+
   <button type='submit'>Submit</button>
 </form>

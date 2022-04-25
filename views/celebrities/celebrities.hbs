@@ -1,7 +1,38 @@
 <h2>CELEBRITIES</h2>
 
-{{#each celebs}}
-  <div>
-    <h3>{{name}}</h3>
-  </div>
-{{/each}}
+
+  {{#each celebs}}
+  <div class='celebsList'></div>
+    <div>
+      <div>
+
+        <h4>Name</h4>
+        <h3>{{name}}</h3>
+      </div>
+      <div>
+
+        <h4>Occupation</h4>
+          <p>{{occupation}}</p>
+      </div>
+      <div>
+
+        <h4>catchPhrase</h4>
+         <p>{{catchPhrase}}</p>
+      </div>
+
+    
+     
+    </div>
+
+    </div>
+  {{/each}}
+
+
+<style>
+
+  p{ margin-top:0; margin-bottom:0; margin-right:2rem; } h4{ margin-bottom:0;
+  margin-right:2rem; }.celebsList div { display:flex; } .celebsList{
+    margin-bottom:2rem;
+  }}
+
+</style>

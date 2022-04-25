@@ -4,17 +4,19 @@ const Celebrity = require('../models/Celebrity.model');
 const router = require('express').Router();
 
 router.get('/movies/create', (req, res, next) => {
+  // this returns a promise, and inside of it its the data.
   Celebrity.find()
     // handlebars only takes objects when doing renders  you cant just give handler bars an array, have to give an array within an object
-    .then((celeb) => {
-      console.log(celeb);
-      res.render('movies/new-movie.hbs', { celeb });
+    .then((celebsArray) => {
+      //  we have to convert it into an object
+      res.render('movies/new-movie.hbs', { celebsArray });
     })
     .catch((error) => console.log(error));
 });
 router.post('/movies/create', (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
   Movie.create({ title, genre, plot, cast })
+
     .then(() => res.redirect('/movies'))
     .catch((error) => {
       console.log(error);
@@ -24,9 +26,9 @@ router.post('/movies/create', (req, res, next) => {
 
 router.get('/movies', (req, res, next) => {
   Movie.find()
-    .then((moviedB) => {
-      console.log('retrieved data', { moviedB });
-      res.render('movies/movies.hbs', { moviedB });
+    .then((moviesArray) => {
+      // console.log(moviesArray);
+      res.render('movies/movies.hbs', { moviesArray });
     })
     .catch((err) => {
       console.log(err);
@@ -58,20 +60,33 @@ router.post('/movies/:movieId/delete', (req, res, next) => {
     });
 });
 
-router.get('/movies/movieId/edit', (req, res, next) => {
+router.get('/movies/:movieId/edit', (req, res, next) => {
   const { movieId } = req.params;
-  Movie.findById(movieId).then((editMovie) => {
-    res
-      .render('movies/edit-movie', { editMovie })
-      .catch((error) => next(error));
-  });
-  Celebrity.find()
-    .then((celebdB) => {
-      res.render('/movies/edit-movie', { celebdB });
+  Movie.findById(movieId)
+    .populate('cast')
+    .then((editMovie) => {
+      res.render('movies/edit-movie', editMovie);
     })
     .catch((err) => {
       console.log(err);
-      next(error);
     });
+  // Celebrity.find()
+  //   .then((celebdB) => {
+  //     res.render('/movies/edit-movie', { celebdB });
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     next(error);
+  //   });
+});
+
+router.post('/movies/:id/edit', (req, res, next) => {
+  // post request so it'll be in body
+  const { title, genre, plot, cast } = req.body;
+
+  const movieId = req.params.id;
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast })
+    .then(() => res.redirect(`/movies/${movieId}`))
+    .catch((err) => console.log(err));
 });
 module.exports = router;
