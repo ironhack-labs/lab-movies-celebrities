@@ -6,20 +6,12 @@ const Celeb = require("../models/Celebrity.model");
 // all your routes here
 
 
+// Add new celebs - Show a form to create a celebrity
 router.get("/celebrities/create", (req, res, next) => {
-
-    Celeb.create()
-        .then((celebsArr) => {
-            console.log(celebsArr);
-            res.render("celebrities/new-celebrity", {celebs: celebsArr});
-        })
-        .catch(err => {
-            console.log("error getting celebs from DB", err)
-            next(err);
+        res.render("celebrities/new-celebrity");
         });
-
-});
-
+      
+// Add new celebs - send data to this route to create celeb + save to DB
 router.post("/celebrities/create", (req, res, next) => {
 
     const newCeleb = {
@@ -41,6 +33,7 @@ router.post("/celebrities/create", (req, res, next) => {
 });
 
 
+// List all celebs
 router.get("/celebrities", (req, res, next) => {
     Celeb.find()
     .then((celebsArr) => {
