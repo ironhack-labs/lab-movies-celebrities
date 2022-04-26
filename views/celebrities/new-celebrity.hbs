@@ -1,32 +1,36 @@
+<form action="/celebrities/create" method="POST">
+  <div class="row">
+    <div class="col">
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="name"
+        aria-label="name"
+      />
+    </div>
+    <div class="col">
+      <input
+        name="occupation"
+        type="text"
+        class="form-control"
+        placeholder="occupation"
+        aria-label="occupation"
+      />
+    </div>
+  </div>
+  <br>
 
-
-<form action="/celebrities/create" method="post">
-
-  <label>
-    name:
-
-    <input type="text" name="name"  />
-
-  </label>
-
-  <label>
-   occupation:
-
-    <input type="text" name="occupation"  />
-
-  </label>
-
- <label>
-   catchPhrase:
-
-    <input type="text" name="catchPhrase"  />
-
-  </label>
-
-
-  <button>Save changes</button>
+  <div class="form-floating">
+    <textarea
+      name="catchPhrase"
+      class="form-control"
+      placeholder="Leave a catch Phrase here"
+      id="floatingTextarea"
+    ></textarea>
+    <label for="floatingTextarea">catch Phrase</label>
+  </div>
+  <br />
+  <button >Save changes</button>
 
 </form>
-
-
-

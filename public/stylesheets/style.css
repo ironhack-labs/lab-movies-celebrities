@@ -1,8 +1,69 @@
 body {
+  background-color: gray;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
+  color: goldenrod;
+  text-align: center;
+  border: 2px solid goldenrod;
+  border-radius:5px;
+  padding: 8px 20px;
+}
+
+a:hover{
+  background-color: goldenrod;
+  color: white;
+}
+
+.home-page{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.celebrity-stuff{
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-stuff{
+  display: flex;
+  flex-direction: column;
+}
+
+.celebrity-list{
+  margin:10px 0;
+}
+
+.list-title{
+  font-size: 3em;
+  text-align: center;
+  color: white;
+}
+
+.back-to-home-btn{
+display: flex;
+justify-content: flex-end;
+}
+
+button{
+  color: goldenrod;
+  text-align: center;
+  background-color: gray;
+  border: 2px solid goldenrod;
+  border-radius:5px;
+  padding: 8px 20px;
+}
+
+button:hover{
+  background-color: goldenrod;
+  color: white;
+}
+
+.movie-list{
+  margin:10px 0;
 }

@@ -1,39 +1,44 @@
 <form action="/movies/create" method="POST">
+  <div class="row">
+    <div class="col">
+      <input
+        name="title"
+        type="text"
+        class="form-control"
+        placeholder="Movie title"
+        aria-label="Movie title"
+      />
+    </div>
+    <div class="col">
+      <input
+        name="genre"
+        type="text"
+        class="form-control"
+        placeholder="Genre"
+        aria-label="Genre"
+      />
+    </div>
+    <div class="col">
+      <input
+        name="plot"
+        type="text"
+        class="form-control"
+        placeholder="Plot"
+        aria-label="Plot"
+      />
+    </div>
+  </div>
+  <br>
 
-  <label>
-    title:
-
-    <input type="text" name="title" />
-
-  </label>
-
-  <label>
-    genre:
-
-    <input type="text" name="genre" />
-
-  </label>
-
-  <label>
-    plot:
-
-    <input type="text" name="plot" />
-
-  </label>
   <div>
-    <select
-      name="cast"
-      class="form-select"
-      aria-label="Default select example"
-    >
-      <option selected>select author</option>
+    <select name="cast" class="form-select" aria-label="Default select example">
+      <option selected>select cast</option>
       {{#each celebrities}}
         <option name="cast" value="{{this._id}}">{{this.name}}</option>
       {{/each}}
     </select>
   </div>
-
+<br>
   <button>Save changes</button>
 
 </form>
-

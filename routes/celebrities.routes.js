@@ -5,14 +5,9 @@ const Celebrity = require('../models/Celebrity.model');
 //celebrity list
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
-    .then((celebsArr) => {
-
-      console.log(celebsArr)
-
-      res.render("celebrities/celebrities", { celebrities: celebsArr });
-    })
+    .then((celebsArr) => res.render("celebrities/celebrities", { celebrities: celebsArr }))
     .catch(err => {
-      console.log("error getting celebrities from DB", err)
+      console.log(err)
       next(err);
     });
 });
@@ -20,11 +15,8 @@ router.get("/celebrities", (req, res, next) => {
 
 
 
-
-
 //create celebrities
 router.get("/celebrities/create", (req, res, next) => {
-
  res.render("celebrities/new-celebrity")
 });
 
@@ -38,11 +30,9 @@ router.post("/celebrities/create", (req, res, next) => {
     catchPhrase:req.body.catchPhrase
   }
   Celebrity.create(newCelebrities)
-  .then((createdCelebrity)=>{
-    res.redirect("/celebrities");
-  })
+  .then(()=>res.redirect("/celebrities"))
   .catch(err => {
-    console.log("error getting celebrities from DB", err)
+    console.log(err)
     next(err);
   });
  })

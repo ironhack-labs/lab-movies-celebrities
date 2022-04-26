@@ -1,4 +1,4 @@
-<h3>{{movie.title}}</h3>
+{{!-- <h3>{{movie.title}}</h3>
 <h5>genre:</h5>
 <h5>{{movie.genre}}</h5>
 <h5> plot:</h5>
@@ -12,4 +12,30 @@
 <a href="/movies">back to movies</a>
 <form action="/movies/{{movie._id}}/delete" method="POST">
 <button type="submit">Delete</button>
-</form>
+</form> --}}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h3 class="card-title">{{movie.title}}</h3>
+          <h6 class="card-subtitle mb-2 text-muted">{{movie.genre}}</h6>
+          <p class="card-text">{{movie.plot}}</p>
+          <p class="card-text">{{movie.cast.0.name}}</p>
+          <form action="/movies/{{movie._id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <a href="/movies" class="card-link">back to movies</a>
+    </div>
+  </div>
+</div>
+

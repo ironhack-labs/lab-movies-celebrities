@@ -7,30 +7,21 @@ const Celebrity = require('../models/Celebrity.model');
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .populate("cast")
-    .then((moviesArr) => {
-
-      console.log(moviesArr)
-
-      res.render("movies/movies", { movies: moviesArr });
-    })
+    .then((moviesArr) => res.render("movies/movies", { movies: moviesArr }))
     .catch(err => {
-      console.log("error getting movies from DB", err)
+      console.log(err)
       next(err);
     });
 });
 
 
 
-
-
 //create movies
 router.get("/movies/create", (req, res, next) => {
   Celebrity.find()
-    .then((celebsArr) => {
-      res.render("movies/new-movie", { celebrities: celebsArr })
-    })
+    .then((celebsArr) =>res.render("movies/new-movie", { celebrities: celebsArr }))
     .catch(err => {
-      console.log("error getting celebrities from DB", err)
+      console.log(err)
       next(err);
     });
 
@@ -46,14 +37,11 @@ router.post("/movies/create", (req, res, next) => {
     cast: req.body.cast,
     plot: req.body.plot
   }
-  Movie.create(newMovies)
 
-    .then((createdMovies) => {
-      console.log(createdMovies);
-      res.redirect("/movies");
-    })
+  Movie.create(newMovies)
+    .then(() => res.redirect("/movies"))
     .catch(err => {
-      console.log("error getting movies from DB", err)
+      console.log(err)
       next(err);
     });
 });
@@ -62,15 +50,12 @@ router.post("/movies/create", (req, res, next) => {
 //create movie Details
 router.get("/movies/:movieId", (req, res, next) => {
 
-  const id = req.params.movieId
+  const id = req.params.movieId;
   Movie.findById(id)
     .populate("cast")
-    .then((movieDetail) => {
-      console.log(movieDetail, movieDetail.cast);
-      res.render("movies/movie-details", { movie: movieDetail })
-    })
+    .then((movieDetail) => res.render("movies/movie-details", { movie: movieDetail }))
     .catch(err => {
-      console.log("error getting celebrities from DB", err)
+      console.log(err)
       next(err);
     });
 
@@ -82,7 +67,6 @@ router.get("/movies/:movieId", (req, res, next) => {
 
 router.post('/movies/:movieId/delete', (req, res, next) => {
   const { movieId } = req.params;
-
 
   Movie.findByIdAndDelete(movieId)
     .then(() => res.redirect(`/movies`))
@@ -99,9 +83,7 @@ router.get('/movies/:movieId/edit', (req, res, next) => {
 
   Movie.findById(movieId)
     .populate("cast")
-    .then(movieToEdit => {
-      res.render('movies/edit-movie.hbs', { movie: movieToEdit });
-    })
+    .then(movieToEdit => res.render('movies/edit-movie.hbs', { movie: movieToEdit }))
     .catch(error => next(error));
 });
 

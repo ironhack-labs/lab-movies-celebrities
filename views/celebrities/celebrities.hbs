@@ -1,13 +1,25 @@
-<h2>List of All Celebrities</h2>
+<h2 class="list-title">List of All Celebrities</h2>
 
-
-{{#each celebrities}}
-<h3>{{this.name}}</h3>
-<h5>Occupation:</h5>
-<h5>{{this.occupation}}</h5>
-<h5>Catch Phrase:</h5>
-<p>{{this.catchPhrase}}</p>
-<hr>
-{{/each}}
-
+<div class="container">
+  <div class="row">
+    {{#each celebrities}}
+    <div class="col-lg-3 col-md-6 celebrity-list">
+    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h3 class="card-title">{{this.name}}</h3>
+    <h6 class="card-subtitle mb-2 text-muted">{{this.occupation}}</h6>
+    <p class="card-text">{{this.catchPhrase}}</p>
+    {{!-- <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> --}}
+  </div>
+</div>
+    </div>
+    {{/each}}
+   
+  </div>
+   <div class="row back-to-home-btn">
+ <div class="col-lg-2">
 <a href="/">back to homepage</a>
+    </div>
+   </div>
+</div>
