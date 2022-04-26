@@ -8,7 +8,12 @@ const movieSchema = new Schema(
         title: String,
         genre: String,
         plot: String,
-        cast: [ObjectId]
+        cast: [
+            {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Celebrity"
+            }
+        ]
     }
 )
 

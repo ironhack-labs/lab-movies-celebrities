@@ -4,6 +4,14 @@ const Celebrity = require('../models/Celebrity.model');
 
 // all your routes here
 
+router.get("/celebrities", (req,res,next) => {
+    Celebrity.find()
+        .then((celebArr) => {
+            res.render("celebrities/celebrities",{celebrities: celebArr})
+        })
+        .catch(err => console.log("we couldnt show the celebs", err))
+})
+
 router.get("/celebrities/create", (req,res,next) => {
      Celebrity.create()
     .then((celebArr) => {
@@ -31,13 +39,7 @@ router.post("/celebrities/create", (req,res,next) => {
     })
 
 
-router.get("/celebrities", (req,res,next) => {
-    Celebrity.find()
-        .then((celebArr) => {
-            res.render("celebrities/celebrities",{celebrities: celebArr})
-        })
-        .catch(err => console.log("we couldnt show the celebs", err))
-})
+
 
 
 module.exports = router;
