@@ -1,6 +1,7 @@
 <h2>Celebrity List</h2>
 {{#each celebrities}}
 <h4>{{this.name}}</h4>
+<a href="/celebrities/{{this.id}}/edit">Edit</a>
 <a href="/celebrities/{{this.id}}/delete">Delete</a>
 {{/each}}
 

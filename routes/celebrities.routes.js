@@ -38,11 +38,40 @@ router.get("/celebrities", (req, res, next) => {
     });
 });
 
+//edit a celebrity - render the form
+router.get("/celebrities/:id/edit", (req, res) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrityToEdit) => {
+      res.render("celebrities/edit-celebrity", celebrityToEdit);
+    })
+    .catch((err) => console.log("Error editing celebrity", err));
+});
+
+//edit a celebrity - process the form
+router.post("/celebrities/:id/edit", (req, res) => {
+  const id = req.params.id
+  const updatedCelebrity = {
+    name: req.body.name,
+    occupation: req.body.occupation,
+    catchPhrase: req.body.catchPhrase,
+  };
+  Celebrity.findByIdAndUpdate(id, updatedCelebrity)
+    .then(() => {
+      console.log("Updated details are", updatedCelebrity)
+      res.redirect("/celebrities");
+    })
+    .catch((err) =>
+      console.log("There was an error updating the celebrity", err)
+    );
+});
+
 //delete a celebrity
 router.get("/celebrities/:id/delete", (req, res) => {
-  Celebrity.findByIdAndRemove(req.params.id).then(() => {
-    res.redirect("/celebrities");
-  });
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((err) => console.log("The was an error deleting a celebrity", err));
 });
 
 module.exports = router;
