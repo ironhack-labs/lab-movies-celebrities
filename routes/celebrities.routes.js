@@ -49,7 +49,7 @@ router.get("/celebrities/:id/edit", (req, res) => {
 
 //edit a celebrity - process the form
 router.post("/celebrities/:id/edit", (req, res) => {
-  const id = req.params.id
+  const id = req.params.id;
   const updatedCelebrity = {
     name: req.body.name,
     occupation: req.body.occupation,
@@ -57,7 +57,7 @@ router.post("/celebrities/:id/edit", (req, res) => {
   };
   Celebrity.findByIdAndUpdate(id, updatedCelebrity)
     .then(() => {
-      console.log("Updated details are", updatedCelebrity)
+      console.log("Updated details are", updatedCelebrity);
       res.redirect("/celebrities");
     })
     .catch((err) =>
