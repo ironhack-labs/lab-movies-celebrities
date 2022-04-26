@@ -20,14 +20,28 @@ router.post('/celebrities/create', (req, res, next) => {
     Celebrity.create(newCelebrity)
         .then(newCelebrity=>{
             console.log("new celebrity created into the DB as:", newCelebrity.name)
-            res.redirect("/celebrities/celebrities")
+            res.render("celebrities/celebrities-list")
         })
         .catch(err=>{
             ("Something went wrong creating the newCelebrity into the DB",err)
-            res.redirect("/celebrities/new-celebrity")
+            res.redirect("celebrities/new-celebrity")
             next(err);
         })
   });
+
+// GET route to retrieve and display all the celebrities
+router.get("/celebrities", (req, res, next)=>{
+    Celebrity.find()
+    .then((celebritiesList)=>{
+        console.log(celebritiesList);
+        res.render("celebrities/celebrities-list", {celebrities: celebritiesList})
+    })
+    .catch(err=>{
+        ("Something went wrong query celebritiesList from the DB",err)
+        next(err);
+    })
+})
+
 
 
 
