@@ -20,11 +20,11 @@ router.post('/celebrities/create', (req, res, next) => {
     Celebrity.create(newCelebrity)
         .then(newCelebrity=>{
             console.log("new celebrity created into the DB as:", newCelebrity.name)
-            res.render("celebrities/celebrities-list")
+            res.redirect("/celebrities")
         })
         .catch(err=>{
             ("Something went wrong creating the newCelebrity into the DB",err)
-            res.redirect("celebrities/new-celebrity")
+            res.render("celebrities/new-celebrity")
             next(err);
         })
   });
