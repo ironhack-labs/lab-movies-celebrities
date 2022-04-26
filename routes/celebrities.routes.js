@@ -28,6 +28,8 @@ router.get("/celebrities/create", (req, res, next) => {
  res.render("celebrities/new-celebrity")
 });
 
+
+//create celebrities 
 router.post("/celebrities/create", (req, res, next) => {
 
   const newCelebrities={

@@ -1,0 +1,52 @@
+<form action="/movies/{{movie._id}}/edit" method="POST">
+<div class="row">
+    <div class="col">
+      <input
+      name="title" 
+      value="{{movie.title}}"
+        type="text"
+        class="form-control"
+        placeholder="Movie title"
+        aria-label="title"
+        required
+      />
+    </div>
+    <div class="col">
+      <input
+      name="genre" 
+      value="{{movie.genre}}"
+        type="text"
+        class="form-control"
+        placeholder="genre"
+        aria-label="genre"
+      />
+    </div>
+  </div>
+ 
+  <div class="form-floating description">
+    <textarea
+    name="plot"
+      class="form-control"
+      placeholder="Leave a description here"
+      id="floatingTextarea"
+    >{{movie.plot}}</textarea>
+    <label for="floatingTextarea">plot</label>
+  </div>
+
+   <div>
+    <select
+      name="cast"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option selected>select cast</option>
+      {{#each movie.cast}}
+        <option name="cast" value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <br>
+  <button class="create-btn" type="submit">Submit!</button>
+
+</form>
