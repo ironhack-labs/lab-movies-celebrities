@@ -3,11 +3,9 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
-
-
 // all your routes here
 
-//display all movies 
+//display all movies
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .then((allMovies) => {
@@ -17,17 +15,6 @@ router.get("/movies", (req, res, next) => {
       console.log("error displaying movies", err).next(err);
     });
 });
-
-//display movie Details
-router.get("/movies/:id", (req, res) => {
-Movie.findById(req.params.id)
-.populate("cast")
-.then((movieDetails) => {
-res.render("movies/movie-details", movieDetails);
-})
-.catch((err) => {console.log("error getting movie details", err)})
-})
-
 
 //add new movie - render form
 router.get("/movies/create", (req, res) => {
@@ -42,7 +29,7 @@ router.post("/movies/create", (req, res) => {
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
-    cast: req.body.cast
+    cast: req.body.cast,
   };
 
   Movie.create(newMovie)
@@ -55,12 +42,57 @@ router.post("/movies/create", (req, res) => {
     });
 });
 
+//display movie Details
+router.get("/movies/:id", (req, res) => {
+  Movie.findById(req.params.id)
+    .populate("cast")
+    .then((movieDetails) => {
+      res.render("movies/movie-details", movieDetails);
+    })
+    .catch((err) => {
+      console.log("error getting movie details", err);
+    });
+});
+
+//edit movie - render form
+router.get("/movies/:id/edit", (req, res) => {
+  console.log("user clicked to edit movie");
+  const id = req.params.id;
+  let movieToEdit;
+  Movie.findById(id)
+    .then((movieDetails) => {
+      movieToEdit = movieDetails;
+      return Celebrity.find();
+    })
+    .then((celebritiesArray) => {
+      res.render("movies/edit-movie", {
+        movie: movieToEdit,
+        celebrities: celebritiesArray,
+      });
+    })
+    .catch((err) => console.log("Error rendering movie edit form", err));
+});
+
+//edit movie - process form
+router.post("/movies/:id/edit", (req, res) => {
+  const updatedMovie = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+    cast: req.body.cast,
+  };
+  Movie.findByIdAndUpdate(req.params.id)
+    .then((movieDetails) => {
+      res.redirect("movie-details");
+    })
+    .catch((err) => console.log("There was an error updating the movie", err));
+});
+
 //delete a movie
 router.post("/movies/:id/delete", (req, res) => {
-  Movie.findByIdAndRemove(req.params.id)
-  .then(() => {
-    res.redirect("/movies")
-  })
-})
+  Movie.findByIdAndRemove(req.params.id).then(() => {
+    res.redirect("/movies");
+  });
+});
 
 module.exports = router;
