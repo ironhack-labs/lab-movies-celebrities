@@ -38,4 +38,11 @@ router.get("/celebrities", (req, res, next) => {
     });
 });
 
+//delete a celebrity
+router.get("/celebrities/:id/delete", (req, res) => {
+  Celebrity.findByIdAndRemove(req.params.id).then(() => {
+    res.redirect("/celebrities");
+  });
+});
+
 module.exports = router;
