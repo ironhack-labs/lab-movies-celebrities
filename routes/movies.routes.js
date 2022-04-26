@@ -14,6 +14,8 @@ router.get('/movies/create', (req, res) => {
     })
     .catch(err=>{
         console.log("Error get celebritiesArr from DB",err)
+        res.redirect("/movies/create")
+
         next(err);
     })
 });
@@ -35,6 +37,7 @@ router.post("/movies/create", (req, res, next)=>{
     })
     .catch(err=>{
         console.log("Error creating movie in the DB",err)
+        res.redirect("/movies/create")
         next(err);
     })
 })
@@ -54,6 +57,34 @@ router.get("/movies", (req, res, next)=>{
         })
 })
 
+//See movies details routes
+router.get("/movies/:moviesId", (req, res, next) => {
+    const id = req.params.moviesId;
+
+    Movie.findById(id)
+        .populate("cast")
+        .then((movieDetails) => {
+            console.log(movieDetails);
+            res.render("movies/movie-details", {movie: movieDetails});
+        })
+        .catch(err => {
+            console.log("error getting details of movie from DB", err)
+            next(err);
+        });
+})
+
+// DELETE.
+router.post("/:moviesId/delete", (req, res, next) => {
+    const id = req.params.bookId;
+    Movie.findByIdAndRemove(id)
+        .then(response => {
+            res.redirect("/movies");
+        })
+        .catch(err => {
+            console.log("error deleting movie from DB", err);
+            next(err);
+        });
+});
 
 
 
