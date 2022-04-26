@@ -21,7 +21,7 @@ router.post("/celebrities/create", (req,res,next) => {
         catchPhrase: req.body.catchPhrase
     }
     Celebrity.create(newCeleb)
-        .then((celebOfDB) => {
+        .then(() => {
          res.redirect("/celebrities")
         })
         .catch(eer => {
@@ -29,6 +29,16 @@ router.post("/celebrities/create", (req,res,next) => {
                         res.render("celebrities/new-celebrity")})
         .next()
     })
+
+
+router.get("/celebrities", (req,res,next) => {
+    Celebrity.find()
+        .then((celebArr) => {
+            res.render("celebrities/celebrities",{celebrities: celebArr})
+        })
+        .catch(err => console.log("we couldnt show the celebs", err))
+})
+
 
 module.exports = router;
 
