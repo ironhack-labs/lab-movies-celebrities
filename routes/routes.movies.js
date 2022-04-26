@@ -7,6 +7,7 @@ const Movies = require("../models/movie.model");
 
 router.get("/movies", (req,res,next) =>{
     Movies.find()
+       // .populate("cast")
         .then((moviesArr) => {
             res.render("movies/movies", {movies: moviesArr})
         })

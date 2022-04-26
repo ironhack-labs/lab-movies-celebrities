@@ -1,0 +1,11 @@
+<h2>List of movies</h2>
+
+{{#each movies}}
+<ul>
+    <li>Name: {{this.title}}</li>
+    <li>Occupation: {{this.genre}}</li>
+    <li>Plot: {{this.plot}}</li>
+    <li>Cast: {{this.cast.name}}</li>
+
+</ul>
+{{/each}}
