@@ -35,9 +35,9 @@ router.post("/celebrities/create", (req, res, next) => {
 
 // List all celebs
 router.get("/celebrities", (req, res, next) => {
-    Celeb.find()
+    Celeb.find()        // empty () - get everything, entire arr
     .then((celebsArr) => {
-        res.render("celebrities/celebrities.hbs", {celebs: celebsArr})
+        res.render("celebrities/celebrities", {celebs: celebsArr})
     })
     .catch(err => {
         console.log("error getting celebs from DB", err)
