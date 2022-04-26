@@ -1,14 +1,18 @@
-<form action="/celebrities/{{this.id}}/edit" method="post">
 
+<form class="display-block"  action="/celebrities/{{this.id}}/edit" method="post">
   <label> Name:
+    <br>
     <input type="text" name="name" value="{{this.name}}">
   </label>
+  <br>
   <label> Occupation:
+    <br>
     <input type="text" name="occupation" value="{{this.occupation}}">
   </label>
+  <br>
   <label> Catchphrase:
+    <br>
     <input type="text" name="catchPhrase" value="{{this.catchPhrase}}">
-  </label>
-  <button>Submit</button>
-
+  </label> <br>
+  <button class="button">Submit</button>
 </form>

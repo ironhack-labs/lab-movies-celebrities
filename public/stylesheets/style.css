@@ -1,8 +1,73 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../images/sala-cinema.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
   color: #00b7ff;
+}
+
+.display-block {
+  background-color: #ffffffbe;
+  text-align: center;
+  height: fit-content;
+  height: 250px;
+}
+
+#celebrities-list, #movies-list, #movies-details {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+#landing-page h1{
+  padding-top: 25px;
+}
+
+#separator {
+  width: 30vw;
+  height: 10px;
+  background-color: black;
+  margin-bottom: 25px;
+}
+
+#cast {
+  border: 1px solid black;
+  font-size: 1.2em;
+}
+
+#edit-movie {
+  height: fit-content;
+}
+
+.button {
+  background-color: white;
+  border: 2px solid black;
+  padding: 15px;
+  color: black;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+input {
+  border: 1px solid black;
+  width: 300px;
+  height: 50px;
+  font-size: 1.2em;
+}
+
+label {
+  font-size: 1.2em;
+}
+
+#create-celebrity, #create-movie {
+  padding-top: 25px;
+  height: 345px;
+  height: fit-content;
 }

@@ -1,9 +1,16 @@
-<h2>Movies List</h2>
+
+
+<section id="movies-list" class="display-block">
+  <h2>Movies List</h2>
+    <div id="separator"></div>
 {{#each movies}}
   <h4>{{this.title}}</h4>
-  <a href="/movies/{{this.id}}">More Details</a>
+  <a class="button" href="/movies/{{this.id}}">More Details</a>
+    <div id="separator"></div>
 {{/each}}
 <br />
 <br />
 <br />
-<a href="/">Back</a>
+<br>
+<a class="button" href="/">Back</a>
+</section>

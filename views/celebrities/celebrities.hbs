@@ -1,8 +1,15 @@
-<h2>Celebrity List</h2>
+
+<section id="celebrities-list" class="display-block">
+  
+<h2 >Celebrity List</h2>
+  <div id="separator"></div>
 {{#each celebrities}}
   <h4>{{this.name}}</h4>
-  <a href="/celebrities/{{this.id}}/edit">Edit</a>
-  <a href="/celebrities/{{this.id}}/delete">Delete</a>
+  <a class="button" href="/celebrities/{{this.id}}/edit">Edit</a>
+  <a class="button" href="/celebrities/{{this.id}}/delete">Delete</a>
+  <div id="separator"></div>
 {{/each}}
+<br><br>
+<a class="button" href="/">Back</a>
 
-<a href="/">Back</a>
+</section>

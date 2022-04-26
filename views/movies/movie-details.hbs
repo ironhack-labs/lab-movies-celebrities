@@ -1,19 +1,22 @@
-<h2>{{title}}</h2>
-<h3>{{genre}}</h3>
-<p>{{plot}}</p>
-{{#each cast}}
-<h5>Name: {{this.name}}</h5>
-<h5>Occupation: {{this.occupation}}</h5>
-<h5>Catchphrase: {{this.catchPhrase}}</h5>
-{{/each}}
+<section id="movies-details" class="display-block">
+  <h2>{{title}}</h2>
+  <h3>{{genre}}</h3>
+  <p>{{plot}}</p>
+  {{#each cast}}
+    <h5>Name: {{this.name}}</h5>
+    <h5>Occupation: {{this.occupation}}</h5>
+    <h5>Catchphrase: {{this.catchPhrase}}</h5>
+    <hr>
+  {{/each}}
 
-<form action="/movies/{{id}}/edit" method="GET">
-    <button type="submit">Edit</button>
-</form>
+  <form action="/movies/{{id}}/edit" method="GET">
+    <button class="button" type="submit">Edit</button>
+  </form>
 
+  <form action="/movies/{{id}}/delete" method="POST">
+    <button class="button" type="submit">Delete</button>
+  </form>
 
-<form action="/movies/{{id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-</form>
+  <a class="button" href="/movies">Back</a>
 
-<a href="/movies">Back</a>
+</section>
