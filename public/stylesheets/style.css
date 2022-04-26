@@ -6,3 +6,31 @@ body {
 a {
   color: #00b7ff;
 }
+
+h1 {
+  color: 15px;
+}
+
+form {
+  display: block;
+  margin: 1rem auto;
+}
+
+.author-summary,
+.book-summary {
+  background-color: #ddd;
+  border: 1px solid #333;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+}
+
+.box {
+  background-color: #eee;
+  border: 1px solid #666;
+  margin: 1rem auto;
+  padding: 1rem;
+}

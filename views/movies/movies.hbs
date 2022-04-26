@@ -1,0 +1,9 @@
+<h1>List of Movies in our Database:</h1>
+
+<ul>
+  {{#each movies}}
+  <li>
+    <a href="/movies/{{this._id}}"> {{this.title }} </a>
+  </li>
+  {{/each}}
+</ul>
