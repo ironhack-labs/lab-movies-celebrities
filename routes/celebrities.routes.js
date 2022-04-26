@@ -41,4 +41,16 @@ router.post("/celebrities/create", (req, res, next) => {
 });
 
 
+router.get("/celebrities", (req, res, next) => {
+    Celeb.find()
+    .then((celebsArr) => {
+        res.render("celebrities/celebrities.hbs", {celebs: celebsArr})
+    })
+    .catch(err => {
+        console.log("error getting celebs from DB", err)
+        next(err);
+    });
+})
+
+
 module.exports = router;
