@@ -81,9 +81,10 @@ router.post("/movies/:id/edit", (req, res) => {
     plot: req.body.plot,
     cast: req.body.cast,
   };
-  Movie.findByIdAndUpdate(req.params.id)
-    .then((movieDetails) => {
-      res.redirect("movie-details");
+  Movie.findByIdAndUpdate(req.params.id, updatedMovie)
+    .then((updatedMovie) => {
+      console.log("The following movie has been updated", updatedMovie);
+      res.redirect("/movies");
     })
     .catch((err) => console.log("There was an error updating the movie", err));
 });
