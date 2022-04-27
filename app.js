@@ -28,7 +28,30 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebritiesRoutes = require("./routes/celebrities.routes")
+app.use("/",celebritiesRoutes)
+
+const moviesRoutes = require("./routes/movies.routes")
+app.use("/", moviesRoutes)
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
+
+//helper handlebars
+hbs.registerHelper('ifEqual', function (a, b, options) {
+    if(a == b){
+        return true//options.fn(this)
+    } else {
+        return false //options.inverse(this) 
+    }
+});
+
+hbs.registerHelper('includes', function (arr, elem) {
+    if(arr.indexOf(elem) != -1){
+        return true
+    } else{
+        return false 
+    }
+});
 
 module.exports = app;
