@@ -1,0 +1,37 @@
+<h2>Actualizar pelicula</h2>
+
+<form action="/movies/{{pelicula.id}}/edit" method="POST">
+       <label>
+            Title:
+            <input type="text" name="title" value="{{pelicula.title}}"> 
+        </label>
+        <label>
+            Genre:
+            <input type="text" name="genre" value="{{pelicula.genre}}"> 
+        </label>
+        <label>
+            Plot:
+            <input type="text" name="plot" value="{{pelicula.plot}}"> 
+        </label>
+        <select name="cast" multiple>
+            {{#each actoresReales}}
+                    {{#if existe}}
+                        <option value="{{celebridad.id}}" selected>{{celebridad.name}}</option>
+                        {{else}}
+                        <option value="{{celebridad.id}}">{{celebridad.name}}</option>
+                    {{/if}}
+            {{/each}}
+        </select>
+        Guardados
+        {{#each pelicula.cast}}
+            <p>{{name}}</p>
+        {{/each}}
+    <button type="submit">crear nueva pelicula</button>
+</form>
+
+<!--
+    CHECKLIST - update
+    1.- Ruta GET que regrese el FORM rellenado con la informacion actual
+    2.- Ruta POST para recibir la nueva informacion y actualizarla
+    
+-->
