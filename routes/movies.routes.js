@@ -75,14 +75,14 @@ router.post('/movies/new', (req, res, next) => {
 });
 
 
-// MOVIES LIST 
+// MOVIES Details 
 
 router.get('/movies/:movieId', (req, res, next ) => {
     const id = req.params.movieId;
   
     Movie.findById(id)
       .populate("cast")
-      .then(foundMovie => {
+      .then(moviesArr => {
         console.log(moviesArr)
         res.render('movies/movie-details', {foundMovie: moviesArr})
       })
