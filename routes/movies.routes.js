@@ -92,6 +92,15 @@ router.get('/movies/:movieId', (req, res, next ) => {
   });
   
 
+
+
+
+//EDIT MOVIES
+
+//router.get
+//router.post
+
+
 // DELETE
 
 router.post('/movies/:movieId/delete', (req, res, next) => {
