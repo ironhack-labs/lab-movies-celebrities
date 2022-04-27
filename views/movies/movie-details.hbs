@@ -22,7 +22,9 @@
           <h3 class="card-title">{{movie.title}}</h3>
           <h6 class="card-subtitle mb-2 text-muted">{{movie.genre}}</h6>
           <p class="card-text">{{movie.plot}}</p>
-          <p class="card-text">{{movie.cast.0.name}}</p>
+          {{#each movie.cast}}
+          <p class="card-text">{{this.name}}</p>
+          {{/each}}
           <form action="/movies/{{movie._id}}/delete" method="POST">
             <button type="submit">Delete</button>
           </form>
