@@ -1,0 +1,40 @@
+<h2>Create a Movie</h2>
+
+<form action="/movies/create" method="POST">
+
+  <label> Title:
+    <input type="text" name="title" required />
+  </label>
+
+  <label> Genre:
+   <input type="text" name="genre" />
+  </label>
+
+   <label> Plot:
+      <textarea name="plot" cols="30" rows="2"> </textarea>
+  </label>
+
+  <label> Celebrity:
+    <select name="celebrity">
+      {{#each celebrities}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <button type="submit"> Create Movie</button>
+</form>
+
+{{!-- <br>
+    <input type="radio" name="author" value="6267e6577f5366bbec3b8340"> Suzanne <br>
+    <input type="radio" name="author" value="6267e6577f5366bbec3b8341"> Rowlin <br>
+    <input type="radio" name="author" value="6267e6577f5366bbec3b8342"> Harper <br>
+<br>
+
+
+    <select name="author">
+      <option value="6267e6577f5366bbec3b8340">pizza</option>
+      <option value="6267e6577f5366bbec3b8341">salad</option>
+      <option value="6267e6577f5366bbec3b8342">etc</option>
+    </select> --}}
+

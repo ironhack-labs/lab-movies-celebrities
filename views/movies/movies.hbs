@@ -1,0 +1,13 @@
+<h1>List of Movies in our Database:</h1>
+
+{{!-- I am iterationg over an array of objects --}}
+
+{{#each movies}}
+    <section class="movie-list">
+        <h2>{{title}}</h2>
+        <h4> with famous: {{celebrity.name}}</h4>
+        <a href="/movies/{{id}}">More details</a>
+    </section>
+    <hr>
+    <br>
+{{/each}}

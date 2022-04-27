@@ -1,0 +1,29 @@
+<h2>{{title}}</h1>
+<hr>
+<p>Title: {{title}}</p>
+<p>Genre: {{genre}}</p>
+<p>Plot: {{plot}}</p>
+
+<p>Celebrity name: {{celebrity.name}}</p>
+
+<p>Celebrity occupation: {{celebrity.occupation}}</p>
+
+<p>Celebrity catchphrase: {{celebrity.catchphrase}}</p>
+
+{{!-- {{#each celebrity}}
+    <section class="celebrities-list">
+        <h2>{{this.celebrity.name}}</h2>
+        <h4>{{this.celebrity.occupation}}</h4>
+        <h4>{{this.celebrity.catchphrase}}</h4>
+    </section>
+{{/each}} --}}
+
+<hr>
+<a href="/movies/{{_id}}/edit">Edit</a>
+
+<form action="/movies/{{_id}}/delete" method="POST">
+  <button type="submit">Delete Movie</button>
+</form>
+
+<hr>
+<a href="/movies">Back to Movies page</a>

@@ -1,0 +1,11 @@
+<h2>List of Celebrities in our Database:</h1>
+
+{{!-- I am iterationg over an array of objects --}}
+
+{{#each celebrities}}
+    <section class="celebrity-name">
+        <h4>{{this.name}}</h4>
+    </section>
+    <hr>
+    <br>
+{{/each}}
