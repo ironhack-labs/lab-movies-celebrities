@@ -1,0 +1,13 @@
+<form action="/movies/create" method="POST">
+
+    <select name="cast" class="form-select" aria-label="Default select example">
+      <option selected>select cast</option>
+      {{#each celebrities}}
+        <option name="cast" value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+<br>
+  <button>Save changes</button>
+
+</form>
