@@ -16,14 +16,19 @@ router.post('/create', async (req, res, next) => {
             catchPhrase
         });
         res.redirect('/celebrities');
-    }catch (error) {
+    } catch (error) {
 		next(error);
         res.render('celebrities/new-celebrity');
 	}
 })
 
-router.get('/', (req, res, next) => {
-    res.render('celebrities/celebrities');
+router.get('/', async (req, res, next) => {
+    try {
+        const celebrities = await Celebrity.find();
+        res.render('celebrities/celebrities', { celebrities });
+    } catch(error) {
+		next(error);
+	}
 })
 
 module.exports = router;
