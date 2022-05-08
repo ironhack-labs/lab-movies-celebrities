@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Celebrity = require('../models/Celebrity.model');
+const Movie = require("../models/Movie.model");
 
 // all your routes here
 
@@ -21,6 +22,7 @@ router.post('/create', async (req, res, next) => {
         res.render('celebrities/new-celebrity');
 	}
 })
+
 
 router.get('/', async (req, res, next) => {
     try {

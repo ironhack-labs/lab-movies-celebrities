@@ -23,6 +23,16 @@ router.post('/create', async (req, res, next) => {
 	}
 })
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const movie = await Movie.findById(id);
+        res.render('movies/movie-details', movie);
+    } catch(error) {
+		next(error);
+	}
+})
+
 router.get('/', async (req, res, next) => {
     try {
         const movies = await Movie.find();
