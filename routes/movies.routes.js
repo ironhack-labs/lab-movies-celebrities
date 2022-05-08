@@ -10,7 +10,7 @@ router.get('/create', (req, res, next) => { //!ROUTE
 router.post('/create', async (req, res, next) => {
     try {
         const { title, genre, plot, cast} = req.body;
-        await Celebrity.create({
+        await Movie.create({
             title,
             genre,
             plot,
