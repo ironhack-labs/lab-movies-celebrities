@@ -23,6 +23,17 @@ router.post('/create', async (req, res, next) => {
 	}
 })
 
+router.post('/:id/delete', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Movie.findByIdAndDelete(id);
+
+        res.redirect('/movies');
+    }catch(error) {
+        next(error);
+    }
+})
+
 router.get('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
