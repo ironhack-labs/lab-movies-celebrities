@@ -23,6 +23,36 @@ router.post('/create', async (req, res, next) => {
 	}
 })
 
+router.get('/:id/edit', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const movie = await Movie.findById(id);
+        res.render('movies/edit-movie', movie);
+    }catch(error) {
+        next(error);
+    }
+})
+
+router.post('/:id/edit', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { title, genre, plot, cast} = req.body;
+        await Movie.findByIdAndUpdate(id, 
+            {
+            title,
+            genre,
+            plot,
+            cast
+            },
+            {
+            new: true
+            }); 
+            res.redirect('/movies');
+    }catch(error) {
+        next(error);
+    }
+})
+
 router.post('/:id/delete', async (req, res, next) => {
     try {
         const { id } = req.params;
