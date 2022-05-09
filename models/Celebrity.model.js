@@ -6,7 +6,7 @@ const celebritySchema = new Schema({
         type: String,
         required: true
     },
-    occuppation: {
+    occupation: {
         type: String
         
     },
@@ -16,6 +16,6 @@ const celebritySchema = new Schema({
     }
 });
 
-const Celebrity = model('Celebrity',celebritySchema);
+const Celebrity = model('Celebrity', celebritySchema);
 
 module.exports = Celebrity;

@@ -1,0 +1,16 @@
+<h2> Welcome to our network of celebrities </h2>
+<hr>
+<h2>List of Celebrities</h2>
+<br>
+
+    {{#each celebrities}}
+        <div>
+            <div>{{this.name}}</div>
+            <div>{{this.occupation}}</div>
+            <div>{{this.catchPhrase}}</div>
+            <hr>
+        </div>
+    {{/each}}
+
+<a href="/" class="btn btn-dark">Home</a>
+<a href="/celebrities/create" class="btn btn-dark">Create a celebritity</a>
