@@ -2,7 +2,7 @@
 const mongooose = require ("mongoose")
 const { default: mongoose } = require("mongoose")
 
-const movieSchema = new mongoose.Schema ({
+const celebritiesSchema = new mongoose.Schema ({
 
     name:{
         type: String,
@@ -11,10 +11,11 @@ const movieSchema = new mongoose.Schema ({
         type: String,
     },
     catchPhrase:{
-        type: String,
+        type: String
     }
 
 })
 
-const CelebritiesModel = mongoose.model("movies",movieSchema)
+const CelebritiesModel = mongoose.model("celebreties",celebritiesSchema)
 module.exports = CelebritiesModel
+

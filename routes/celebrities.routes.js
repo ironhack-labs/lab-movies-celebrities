@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const CelebritiesModel = require ("../models/Celebrity.model")
+const CelebritiesModel = require ("../models/Celebrity.model.js")
 //1. crear una ruta get
 
 router.get ("/create", (req, res, next) =>{
