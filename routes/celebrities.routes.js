@@ -3,6 +3,15 @@ const Celebrity = require("../models/Celebrity.model");
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 
+router.get("/celebrities", async (req, res, next) => {
+  try {
+    const celebrities = await Celebrity.find();
+    res.render("celebrities/celebrities", { celebrities });
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrity");
 });
@@ -15,16 +24,7 @@ router.post("/create", async (req, res, next) => {
       occupation,
       catchPhrase,
     });
-    res.redirect("/celebrities");
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get("/celebrities", async (req, res, next) => {
-  try {
-    const celebrities = await Celebrity.find();
-    res.render("celebrities/celebrities", { celebrities });
+    res.redirect("/celebrities/celebrities");
   } catch (error) {
     next(error);
   }

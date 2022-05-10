@@ -1,0 +1,33 @@
+<div class="container">
+<h1>{{title}}</h1>
+<hr>
+<div class="row">
+  <div class="col-8">
+    <h3>Details</h3>
+    <p> Genre: {{genre}}</p>
+    <p>Plot: {{plot}}</p>
+  </div>
+<ul>
+    {{#each cast}}
+        <li>
+            <h2>{{name}}</h2>
+            <strong>{{occupation}}</strong>
+            <p>{{catchPhrase}}</p>
+        </li>
+    {{/each}}
+</ul>
+</div>
+
+<a href="/movies/{{id}}/edit"><button>Update Movie</button></a>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<form action="/movies/{{id}}/delete" method="POST">
+    <button type="submit">Delete Movie</button>
+</form>
+
+<hr>
+<a href="/movies">Go back to list</a>
+</div>

@@ -6,5 +6,5 @@ router.get("/", (req, res, next) => {
 });
 
 router.use("/celebrities", require("./celebrities.routes")); //TODO check the route
-
+router.use("/movies", require("./movies.routes"));
 module.exports = router;
