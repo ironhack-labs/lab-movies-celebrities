@@ -6,5 +6,6 @@ router.get("/", (req, res, next) => {
 });
 
 router.use('/celebrities', require('./celebrities.routes.js'));
+router.use('/movies', require('./movies.routes.js'));
 
 module.exports = router;

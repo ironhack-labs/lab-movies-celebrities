@@ -1,15 +1,24 @@
-<h2>Create Celebrity</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>Create Celebrity</h2>
+            <hr>
+            <form action="/celebrities/create" method="POST">
+                <div class="mb-3"></div>
+                    <label for="name" class="form-label">Celebrity Name</label>
+                    <input required type="text" class="form-control" id="name" name="name">
 
-<form action="/celebrities/create" method="POST">
-    <label for="name">Celebrity Name</label>
-    <input required type="text" id="name" name="name">
+                <label for="occupation" class="form-label">Occupation</label>
+                <input required type="text" class="form-control" id="occupation" name="occupation">
 
-   <label for="occupation">Occupation</label>
-   <input required type="text" id="occupation" name="occupation">
+                <label for="catchPhrase" class="form-label">Catch Phrase</label>
+                <input required type="text" class="form-control" id="catchPhrase" name="catchPhrase">
 
-   <label for="catchPhrase">Catch Phrase</label>
-   <input required type="text" id="catchPhrase" name="catchPhrase">
-
-   <button type="submit"> Create New Celebrity</button>
-
-</form>
+                <button type="submit" class="btn btn-dark"> Create New Celebrity</button>
+                <a href="/" class="btn btn-dark">Go back</a>
+                </div>
+            </form>
+           <hr>
+        </div>
+    </div>
+</div>

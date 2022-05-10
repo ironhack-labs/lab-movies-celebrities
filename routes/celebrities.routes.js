@@ -34,7 +34,4 @@ router.post('/create', async(req,res,next) => {
         next(error);
     }
 });
-
-
-
 module.exports = router;
