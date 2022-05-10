@@ -26,7 +26,7 @@ router.get("/movies", (req, res) => {
       .catch((err) => console.log(err));
   });
 
-  router.get('/movies/:id', (req, res, next) => {
+router.get('/movies/:id', (req, res, next) => {
     const { id } = req.params;
     Movie.findById(id)
     .populate("cast") 
@@ -37,6 +37,25 @@ router.get("/movies", (req, res) => {
     .catch((err)=> console.log(err))
 })
 
+
+router.post("/movies/:id/delete", (req, res, next)=>{
+    const { id } = req.params;
+    Movie.findByIdAndRemove(id)
+    .then(()=>{
+        res.redirect("/movies")
+    })
+    .catch((err)=> console.log(err))
+})
+
+
+//nao consegui acabar
+router.get("/movies/:id/edit", (req,res,next)=>{
+    const { id } = req.params;
+    Movie.findById(id)
+    Celebrity.find()
+
+    .then((movies)=> res.render("movies/edit-movie", movies))
+})
 
 
 
