@@ -2,7 +2,7 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
-const async = require("hbs/lib/async");
+
 
 
 // all your routes here
@@ -48,9 +48,9 @@ router.get("/:id", async (req, res, next) => {
     const { id } = req.params;
     const movieDetails = await Movie.findById(id);
     const celebrityDetails = await Celebrity.find();
-    // console.log(celebrityDetails)
-    // console.log(movieDetails)
-    res.render("movies/movie-details", movieDetails);
+    console.log(celebrityDetails)
+    //console.log(movieDetails)
+    res.render("movies/movie-details", {movieDetails, celebrityDetails});
   } catch (error) {
     next(error);
   }
@@ -60,9 +60,8 @@ router.get("/:id", async (req, res, next) => {
 router.get("/:id/edit", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const moviesCast = await Movie.findById(id).populate('Celebrity');
-    // const editCelebrities = await Celebrity.find();
-    res.render("/movies/edit-movie", { moviesCast });
+    const moviesCast = await Movie.findById(id);
+    res.render("movies/edit-movie", { moviesCast });
   } catch (error) {
     next(error);
   }
@@ -72,7 +71,6 @@ router.post("/:id/edit", async (req, res, next)=>{
   try {
     const { id } = req.params;
     const { title, genre, plot, cast } = req.body;
-    console.log("estos son mi req.body:", title, genre, plot, cast);
     await Movie.findByIdAndUpdate(id,{title, genre, plot, cast},{new: true});
     res.redirect('/movies/:id');
    
