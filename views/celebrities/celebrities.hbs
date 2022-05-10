@@ -1,7 +1,25 @@
-<h2>Existing Celebrities</h2>
+<head>
+  <link rel="stylesheet" href="stylesheets/lists.css" />
+</head>
 
-<ul>
-  {{#each celebrities}}
-    <li><a href="/celebrities/{{_id}}">{{name}}</a></li>
-  {{/each}}
-</ul>
+<nav class="nav-bar">
+  <a class="celebrity-new-link nav-links" href="/celebrities/create">Add new
+    Celebrity</a>
+  <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+  <a class="home-link nav-links" href="/">Go back</a>
+</nav>
+<main>
+
+  <h2>Existing Celebrities</h2>
+
+  <section class="list">
+
+    <ul>
+      {{#each celebrities}}
+        <li><a href="/celebrities/{{_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+
+  </section>
+
+</main>

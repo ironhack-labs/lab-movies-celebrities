@@ -1,0 +1,31 @@
+ul {
+  list-style-type: none;
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+  margin-top: 2.5rem;
+}
+
+ul a {
+  color: white;
+}
+
+ul a:hover {
+  color: rgba(158, 136, 55);
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+main {
+  margin-top: 1rem;
+  background-color: rgba(158, 136, 55, 0.824);
+  padding: 5rem 20rem 35rem 5rem;
+  display: flex;
+  flex-direction: column;
+}

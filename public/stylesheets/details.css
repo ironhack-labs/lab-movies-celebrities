@@ -1,0 +1,55 @@
+h2 {
+  font-size: 3rem;
+  -webkit-text-stroke: 0.1rem rgba(158, 136, 55, 0.824);
+}
+
+h4 {
+  font-size: 1.8rem;
+  font-weight: 200;
+}
+
+p,
+h5 {
+  font-size: 1.3rem;
+}
+
+li {
+  font-size: 1.3rem;
+}
+
+.name {
+  list-style-type: "⭐ ";
+}
+
+span {
+  font-weight: 600;
+}
+
+main {
+  height: 80vh;
+  padding: 3rem 4rem 0 3rem;
+  margin-top: 1rem;
+  background-color: rgba(158, 136, 55, 0.824);
+  display: flex;
+  flex-direction: column;
+  /*   align-items: center; */
+  gap: 8%;
+}
+
+.celebrity-main {
+  display: flex;
+  gap: 15%;
+}
+
+.buttons {
+  display: flex;
+}
+
+.button {
+  color: rgba(158, 136, 55, 0.824);
+  background-color: white;
+  border: 0.1rem solid rgba(158, 136, 55, 0.824);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

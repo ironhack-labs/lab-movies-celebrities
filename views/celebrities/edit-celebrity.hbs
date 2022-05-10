@@ -1,20 +1,42 @@
-<h2>{{celebrity.title}}</h2>
+<head>
+  <link rel="stylesheet" href="/stylesheets/forms.css" />
+</head>
 
-<form action="/celebrities/{{celebrity._id}}/edit" method="post">
+<nav class="nav-bar">
+  <a class="home-link nav-links" href="/">Homepage</a>
+  <a
+    class="celebrity-details-link nav-links"
+    href="/celebrities/{{celebrity._id}}"
+  >Celebrity details</a>
+  <a class="celebrities-list-link nav-links" href="/celebrities">List of
+    Celebrities</a>
+  <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+</nav>
 
-  <label for="title">Name of the celebrity:</label>
-  <input type="text" name="title" id="title" value="{{celebrity.name}}" />
+<main>
+  <h2>{{celebrity.title}}</h2>
 
-  <label for="occupation">Occupation of the celebrity:</label>
-  <input type="text" name="genre" id="genre" value="{{celebrity.occupation}}" />
+  <form action="/celebrities/{{celebrity._id}}/edit" method="post">
 
-  <label for="catchPhrase">Catch phrase of the celebrity:</label>
-  <input
-    type="text"
-    name="catchPhrase"
-    id="catchPhrase"
-    value="{{celebrity.catchPhrase}}"
-  />
+    <label for="title">Name of the celebrity:</label>
+    <input type="text" name="title" id="title" value="{{celebrity.name}}" />
 
-  <button type="submit">Update Movie</button>
-</form>
+    <label for="occupation">Occupation of the celebrity:</label>
+    <input
+      type="text"
+      name="genre"
+      id="genre"
+      value="{{celebrity.occupation}}"
+    />
+
+    <label for="catchPhrase">Catch phrase of the celebrity:</label>
+    <input
+      type="text"
+      name="catchPhrase"
+      id="catchPhrase"
+      value="{{celebrity.catchPhrase}}"
+    />
+
+    <button class="button" type="submit">Update Celebrity</button>
+  </form>
+</main>

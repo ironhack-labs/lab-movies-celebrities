@@ -1,7 +1,17 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<head>
+  <link rel="stylesheet" href="stylesheets/index.css" />
+</head>
+<main>
+  <nav class="nav-bar">
+    <a class="celebrities-list-link nav-links" href="/celebrities">List of
+      Celebrities</a>
+    <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+  </nav>
+  <section class="welcome">
+    <h1>Welcome to the Celebrity's World</h1>
+    <h3>You are now VIP</h3>
+  </section>
+</main>
 
-<a href="/celebrities">List of Celebrities</a>
-<a href="/movies">List of Movies</a>
-<a href="/celebrities/create">Add new Celebrity</a>
-<a href="/movies/create">Add new Movie</a>
+{{! <a href="/celebrities/create">Add new Celebrity</a>
+<a href="/movies/create">Add new Movie</a> }}

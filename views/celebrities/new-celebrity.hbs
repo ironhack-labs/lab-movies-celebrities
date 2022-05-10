@@ -1,15 +1,27 @@
-<h2>Add a new celebrity</h2>
+<head>
+  <link rel="stylesheet" href="/stylesheets/forms.css" />
+</head>
 
-<form action="/celebrities/create" method="post">
+<nav class="nav-bar">
+  <a class="home-link nav-links" href="/">Homepage</a>
+  <a class="celebrities-list-link nav-links" href="/celebrities">List of
+    Celebrities</a>
+  <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+</nav>
+<main>
+  <h2>Add a new celebrity</h2>
 
-  <label for="name">Name of the Celebrity:</label>
-  <input type="text" name="name" id="name" />
+  <form action="/celebrities/create" method="post">
 
-  <label for="occupation">Occupation of the Celebrity:</label>
-  <input type="text" name="occupation" id="occupation" />
+    <label for="name">Name of the Celebrity:</label>
+    <input type="text" name="name" id="name" />
 
-  <label for="catchPhrase">Catch phrase of the Celebrity:</label>
-  <input type="text" name="catchPhrase" id="catchPhrase" />
+    <label for="occupation">Occupation of the Celebrity:</label>
+    <input type="text" name="occupation" id="occupation" />
 
-  <button type="submit">Add Celebrity</button>
-</form>
+    <label for="catchPhrase">Catch phrase of the Celebrity:</label>
+    <input type="text" name="catchPhrase" id="catchPhrase" />
+
+    <button class="button" type="submit">Add Celebrity</button>
+  </form>
+</main>

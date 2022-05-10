@@ -1,12 +1,27 @@
-<h2>{{celebrity.name}}</h2>
+<head>
+  <link rel="stylesheet" href="/stylesheets/details.css" />
+</head>
 
-<h4>Occupation: {{celebrity.occupation}}</h4>
-<p>Catch phrase: {{celebrity.catchPhrase}}</p>
+<nav class="nav-bar">
+  <a class="home-link nav-links" href="/">Homepage</a>
+  <a class="celebrities-list-link nav-links" href="/celebrities">List of
+    Celebrities</a>
+  <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+</nav>
 
-<form action="/celebrities/{{celebrity._id}}/delete" method="post">
-  <button type="submit">Delete Celebrity</button>
-</form>
+<main class="celebrity-main">
+  <h2>{{celebrity.name}}</h2>
 
-<form action="/celebrities/{{celebrity._id}}/edit" method="get">
-  <button type="submit">Edit Celebrity</button>
-</form>
+  <h4><span>Occupation:</span> {{celebrity.occupation}}</h4>
+  <h4><span>Catch phrase:</span> {{celebrity.catchPhrase}}</h4>
+
+  <section class="buttons">
+    <form action="/celebrities/{{celebrity._id}}/delete" method="post">
+      <button class="button" type="submit">Delete Celebrity</button>
+    </form>
+
+    <form action="/celebrities/{{celebrity._id}}/edit" method="get">
+      <button class="button" type="submit">Edit Celebrity</button>
+    </form>
+  </section>
+</main>

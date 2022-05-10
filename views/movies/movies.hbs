@@ -1,8 +1,22 @@
-<h2>Existing movies</h2>
+<head>
+  <link rel="stylesheet" href="stylesheets/lists.css" />
+</head>
 
-<ul>
-  {{#each movies}}
-    <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
-  {{/each}}
-</ul>
+<nav class="nav-bar">
+  <a class="movie-new-link nav-links" href="/movies/create">Add new Movie</a>
+  <a class="celebrities-list-link nav-links" href="/celebrities">List of
+    Celebrities</a>
+  <a class="home-link nav-links" href="/">Go back</a>
+</nav>
 
+<main>
+  <h2>Existing movies</h2>
+
+  <section class="list">
+    <ul>
+      {{#each movies}}
+        <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+      {{/each}}
+    </ul>
+  </section>
+</main>

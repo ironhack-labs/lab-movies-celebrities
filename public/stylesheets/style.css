@@ -1,8 +1,48 @@
 body {
   padding: 50px;
+  height: 100vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 
 a {
-  color: #00b7ff;
+  color: rgba(158, 136, 55);
+}
+
+a:hover {
+  color: white;
+  background-color: rgba(158, 136, 55);
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  letter-spacing: 1rem;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.nav-links {
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.831);
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: 0.1rem solid rgba(158, 136, 55, 0.824);
 }

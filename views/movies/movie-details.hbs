@@ -1,22 +1,39 @@
-<h2>{{movies.title}}</h2>
+<head>
+  <link rel="stylesheet" href="/stylesheets/details.css" />
+</head>
 
-<h4>Genre: {{movies.genre}}</h4>
-<p>Plot: {{movies.plot}}</p>
+<nav class="nav-bar">
+  <a class="home-link nav-links" href="/">Homepage</a>
+  <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+  <a class="celebrities-list-link nav-links" href="/celebrities">List of
+    Celebrities</a>
+</nav>
 
-<ul>
-  {{#each movies.cast}}
-    <li>{{this.name}}</li>
-    <ul>
-      <li>{{this.occupation}}</li>
-      <li>{{this.catchPhrase}}</li>
-    </ul>
-  {{/each}}
-</ul>
+<main>
 
-<form action="/movies/{{movies._id}}/delete" method="post">
-  <button type="submit">Delete Movie</button>
-</form>
+  <h2>{{movies.title}}</h2>
 
-<form action="/movies/{{movies._id}}/edit" method="get">
-  <button type="submit">Edit Movie</button>
-</form>
+  <h4>Genre: {{movies.genre}}</h4>
+  <p>Plot: {{movies.plot}}</p>
+
+  <h5>Cast:</h5>
+  <ul>
+    {{#each movies.cast}}
+      <li class="name"> {{this.name}}</li>
+      <ul>
+        <li>{{this.occupation}}</li>
+        <li>{{this.catchPhrase}}</li>
+      </ul>
+    {{/each}}
+  </ul>
+
+  <section class="buttons">
+    <form action="/movies/{{movies._id}}/delete" method="post">
+      <button class="button" type="submit">Delete Movie</button>
+    </form>
+
+    <form action="/movies/{{movies._id}}/edit" method="get">
+      <button class="button" type="submit">Edit Movie</button>
+    </form>
+  </section>
+</main>
