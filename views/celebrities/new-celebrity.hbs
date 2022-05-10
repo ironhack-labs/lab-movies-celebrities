@@ -1,27 +1,32 @@
-<h2>New Celebrity</h2>
+<h2>Add Celebrity</h2>
 
+<form action="/create" method="POST">
 
+  <div class="input-group mb-3">
+    <span for="name" class="input-group-text" id="inputGroup-sizing-default">Name:</span>
+    <input name="name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
 
-<div id="create-celebrity">
-<form action="/celebrities/create" method="POST">
-  
-  <div class="mb-3">
-    <label for="name" class="form-label">Name:</label>
-    <input type="text" name="name" class="form-control" id="exampleInputPassword1"
-">
+  <div class="input-group mb-3">
+    <span for="occupation" class="input-group-text" id="inputGroup-sizing-default">Occupation:</span>
+    <input name="occupation" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
   </div>
-   <div class="mb-3">
-    <label for="occupation" class="form-label">Occupation:</label>
-    <input type="text" name="occupation" class="form-control" id="exampleInputPassword1"
-formulario1">
+
+  <div class="input-group mb-3">
+    <span for="catchPhrase" class="input-group-text" id="inputGroup-sizing-default">Catch Phrase</span>
+    <input name="catchPhrase" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
   </div>
-  <div class="mb-3">
-    <label for="catchPhase" class="form-label">CatchPhase:</label>
-    <input type="text" name="catchPhase" class="form-control" id="exampleInputPassword1"
-">
-  </div>
-  <button type="submit" class="btn btn-primary">Add Celebrity</button>
+
+  <select name="name" multiple="true">
+
+    {{#each allCelebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+
+  </select>
+
+  <button type="submit" class="btn btn-success">Add Celebrity</button>
+
 </form>
-</div>
 
 

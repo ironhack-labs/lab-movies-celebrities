@@ -1,7 +1,7 @@
-const mongooose = require ("mongoose")
-const { default: mongoose } = require("mongoose")
+const mongoose = require ("mongoose")
+// const { default: mongoose } = require("mongoose")
 
-const movieSchema = new mongoose.Schema ({
+const movieSchema = new mongoose.Schema({
 
     title:{
         type: String,
@@ -19,5 +19,5 @@ const movieSchema = new mongoose.Schema ({
 })
 
 
-const MovieModel = mongoose.model("movies",movieSchema)
+const MovieModel = mongoose.model("movies", movieSchema)
 module.exports = MovieModel

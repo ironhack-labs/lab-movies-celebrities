@@ -1,21 +1,21 @@
 //  Add your code here
-const mongooose = require ("mongoose")
-const { default: mongoose } = require("mongoose")
+const mongoose = require ("mongoose")
+//const { default: mongoose } = require("mongoose")//
 
 const celebritiesSchema = new mongoose.Schema ({
 
-    name:{
+    name: {
         type: String,
     },
-    occupation:{
+    occupation: {
         type: String,
     },
-    catchPhrase:{
+    catchPhrase: {
         type: String
     }
 
 })
 
-const CelebritiesModel = mongoose.model("celebreties",celebritiesSchema)
-module.exports = CelebritiesModel
+const CelebrityModel = mongoose.model("celebrities", celebritiesSchema);
+module.exports = CelebrityModel;
 

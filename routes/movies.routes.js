@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const MovieModel = require ("../models/Movie.model")
+
+
+
 //1. crear una ruta get
 
 router.get ("/create", (req, res, next) =>{
@@ -9,10 +12,9 @@ router.get ("/create", (req, res, next) =>{
 })
 
 
-// 2.crear una ruta post
+// 2.crear una ruta post movies/create
 router.post("/create", (req, res, next) => {
  
-    console.log ("probando ruta")
     console.log (req.body)
 
     const { title, genre, plot, cast } = req.body
@@ -25,7 +27,7 @@ router.post("/create", (req, res, next) => {
     })
     
     .then((response) => {
-    res.redirect ("/movies")
+    res.redirect ("/movies/movie")
     })
     .catch((err) =>{
         next (err)
@@ -49,5 +51,26 @@ router.get ("/movies", (req, res, next) =>{
     })
 })
 
+
+// 4- Crear ruta dinámico
+
+router.get("/:id/details", (req, res, next) => {
+    const { id } = req.params;
+  
+    
+    BookModel.findById(id).populate("movie")
+      .then((movies) => {
+        
+  
+        console.log(movies)
+        
+        res.render("movies/movie-details.hbs", {
+          movies,
+        });
+      })
+      .catch((err) => {
+        next(err);
+      });
+  });
 
 module.exports = router;

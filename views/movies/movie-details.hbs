@@ -1,0 +1,18 @@
+<h2>Movie Datails</h2>
+<div>
+  <h2>{{movie.title}}</h2>
+  <h4>{{movie.genre}}</h4>
+  <p>{{movie.plot}}</p>
+  {{#each movies.movie}}
+    <p>{{this.}} de {{this.country}}</p>
+  {{/each}}
+
+  <a href="/books/{{book._id}}/edit">
+    <button class="btn btn-warning">Actualizar</button>
+  </a>
+
+  <form action="/books/{{book._id}}/delete" method="POST">
+    <button class="btn btn-danger">Borrar</button>
+  </form>
+
+</div>
