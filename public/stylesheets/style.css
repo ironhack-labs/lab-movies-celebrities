@@ -1,8 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Babylonica&family=Bellefair&family=Dangrek&family=Montserrat:ital,wght@1,100&display=swap");
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
+li,
 a {
-  color: #00b7ff;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  color: #edf0f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+  background-color: #556883;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+input {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #556883;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+button {
+  background-color: #556883; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.div-movie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  gap: 4rem;
+  flex-basis: 300px;
+  margin: 5px;
+}
+
+.movie-div {
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 300px;
+}
+
+.title-p {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.div-a-href {
+  display: flex;
+  justify-content: center;
+  background-color: #556883;
 }
