@@ -1,20 +1,22 @@
-//  Add your code here
 const mongooose = require ("mongoose")
 const { default: mongoose } = require("mongoose")
 
-const movieSchema = new mongoose.Schema ({
+const celebritiesSchema = new mongoose.Schema ({
 
-    name:{
+    title:{
         type: String,
     },
-    occupation:{
+    genre:{
         type: String,
     },
-    catchPhrase:{
+    plot:{
         type: String,
+    },
+    cast:{
+        enum:[String] 
     }
 
 })
 
-const CelebritiesModel = mongoose.model("movies",movieSchema)
+const CelebritiesModel = mongoose.model("celebreties",celebritiesSchema)
 module.exports = CelebritiesModel

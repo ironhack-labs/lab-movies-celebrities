@@ -1,0 +1,23 @@
+<h2>World Celebrities</h2>
+
+{{#each listArtistas}}
+
+<div id="container">
+
+<div class="card text-white bg-dark mb-3" style="width: 18rem; ">
+  
+  <div class="card-body ">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">Occupation: {{this.occupation}}</p>
+    <p class="card-text">CatchPhrase: {{this.catchPhrase}}</p>
+    <div class="d-flex flex-row">
+{{!-- <button class="btn btn-outline-success edit-btn"><a href="/drones/{{this._id}}/edit">Edit</a></button> --}}
+
+{{!-- <form action="/drones/{{this._id}}/delete" method="POST">
+<button type="submit" class="btn btn-outline-danger delete-btn">Delete</button> --}}
+</form>
+  </div>
+</div>
+</div>
+
+{{/each}}
