@@ -3,14 +3,13 @@
 <h2>List of Celebrities</h2>
 <br>
 
-    {{#each celebrities}}
-        <div>
-            <div>{{this.name}}</div>
-            <div>{{this.occupation}}</div>
-            <div>{{this.catchPhrase}}</div>
+    {{#each allCelebrities}}
+        <div class="row">
+            <div class="col-3"><p>{{this.name}}</p></div>
+           <div class="col-3"><a href="/celebrities/{{this._id}}"  class="btn btn-light"> See details</a></div> 
             <hr>
         </div>
     {{/each}}
-
+<hr>
 <a href="/" class="btn btn-dark">Home</a>
 <a href="/celebrities/create" class="btn btn-dark">Create a celebritity</a>

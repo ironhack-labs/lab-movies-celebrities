@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>List of movies</h2>
+  <hr>
+  <br>
+  
+
+  {{#each allMovies}}
+  <div class="row">
+    <div class="col-6"><p>{{title}}</p></div>
+    <div class="col-3"><a href="/movies/{{this._id}}"  class="btn btn-light">See details</a></div>
+  <hr>
+  </div>
+  </br>
+  {{/each}}
+  
+  <hr>
+</div>
+
+<a href="/" class="btn btn-dark">Home</a>
+<a href="/movies/new-movie" class="btn btn-dark">Create a movie</a>
