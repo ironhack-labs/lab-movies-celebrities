@@ -18,7 +18,7 @@
     <label for="cast" class="form-label">Cast</label>
     <select class="form-control" id="cast" name="cast" multiple>
         {{#each celebrities}}
-    <option value="celebrity">{{this.name}}</option>
+    <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
     </select>
   </div>

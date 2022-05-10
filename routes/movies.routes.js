@@ -1,10 +1,16 @@
 const router = require("express").Router();
 const Movie = require('../models/Movie.model');
+const Celebrity = require('../models/Celebrity.model');
 
 // all your routes here
 
-router.get('/create', (req, res, next) => { //!ROUTE
-    res.render('movies/new-movie'); //!VIEW
+router.get('/create', async (req, res, next) => { //!ROUTE
+    try {
+    const celebrities = Celebrity.find(); //?pass all the celebrities from database
+    res.render('movies/new-movie', { celebrities }); //!VIEW  
+    }catch(error) {
+        next(error);
+    }
 })
 
 router.post('/create', async (req, res, next) => {
@@ -14,9 +20,9 @@ router.post('/create', async (req, res, next) => {
             title,
             genre,
             plot,
-            cast //?pass all the celebrities from database
+            cast 
         });
-        res.redirect('/movies'); //!ROUTE
+        res.redirect('/'); //!ROUTE
     } catch (error) {
 		next(error);
         res.render('movies/new-movie'); //!VIEW
@@ -26,7 +32,8 @@ router.post('/create', async (req, res, next) => {
 router.get('/:id/edit', async (req, res, next) => {
     try {
         const { id } = req.params;
-        const movie = await Movie.findById(id);
+        const movie = await Movie.findById(id)
+        .populate('cast');
         res.render('movies/edit-movie', movie);
     }catch(error) {
         next(error);
@@ -67,7 +74,8 @@ router.post('/:id/delete', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
-        const movie = await Movie.findById(id);
+        const movie = await Movie.findById(id)
+        .populate('cast');
         res.render('movies/movie-details', movie);
     } catch(error) {
 		next(error);
@@ -76,7 +84,8 @@ router.get('/:id', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
     try {
-        const movies = await Movie.find();
+        const movies = await Movie.find()
+        .populate('cast');
         res.render('movies/movies', { movies }); //!VIEW
     } catch(error) {
 		next(error);
