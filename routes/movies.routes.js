@@ -6,7 +6,7 @@ const Celebrity = require('../models/Celebrity.model');
 
 router.get('/create', async (req, res, next) => { //!ROUTE
     try {
-    const celebrities = Celebrity.find(); //?pass all the celebrities from database
+    const celebrities = await Celebrity.find(); //*pass all the celebrities from database
     res.render('movies/new-movie', { celebrities }); //!VIEW  
     }catch(error) {
         next(error);
@@ -76,7 +76,8 @@ router.get('/:id', async (req, res, next) => {
         const { id } = req.params;
         const movie = await Movie.findById(id)
         .populate('cast');
-        res.render('movies/movie-details', movie);
+        console.log(cast);
+        res.render('movies/movie-details', { movie });
     } catch(error) {
 		next(error);
 	}
