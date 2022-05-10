@@ -1,0 +1,17 @@
+<h2>Movie Details</h2>
+
+
+<form action="/movies/create" method="post">
+  <label for="title">Title: {{movies.title}}</label>
+  
+  <label for="genre">Genre: {{movies.genre}} </label>
+  
+  <label for="plot">Plot: {{movies.plot}}</label>
+  
+  <label for="plot">Cast:</label>
+  <select name="cast">
+    {{#each celebs}}
+      <option value="{{movies.id}}">{{celebs.name}} {{celebs.occupation}} {{celebs.catchPhrase}}</option>
+    {{/each}}
+  </select>
+</form>
