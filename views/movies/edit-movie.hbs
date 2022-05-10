@@ -1,0 +1,22 @@
+<h2>Edit</h2>
+{{#each cast}}
+  <form action="/movies/{{_id}}" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="{{name}}" />
+    <label for="occupation">Occupation</label>
+    <input
+      type="text"
+      name="occupation"
+      id="occupation"
+      value="{{occupation}}"
+    />
+    <label for="catchPhrase">Catch Phrase</label>
+    <input
+      type="text"
+      name="catchPhrase"
+      id="catchPhrase"
+      value="{{catchPhrase}}"
+    />
+    <button type="submit">Update</button>
+  </form>
+{{/each}}
