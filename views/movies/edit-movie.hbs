@@ -1,4 +1,5 @@
 <div class="container">
+   {{#with moviesCast}}
   <h2>Edit {{title}}</h2>
   <form action="/movies/{{_id}}" method="post">
     <div class="mb-3">
@@ -32,8 +33,7 @@
       />
     </div>
 
-    div
-
+{{/with}}
     <div class="mb-3">
       <label for="cast" class="form-label">Cast:</label>
       <select name="cast" id="cast">

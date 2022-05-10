@@ -1,21 +1,18 @@
 <div class="container">
   <h2>Movie Details</h2>
   <div class="movie-container">
-    {{#each movieDetails}}
+    {{#with movieDetails}}
     <h3>{{title}}</h3>
     <p>{{genre}}</p>
     <p>{{plot}}</p>
-    {{/each}}
-  </div>
-  <div class="cast">
-    {{#each celebrityDetails}}
   
-  {{!-- //how do you list only the correct actor getting it from the id listed on cast  --}}
-    
+  <div class="cast">
+    {{#each cast}}   
       <p>{{name}}</p>
       <p>{{occupation}}</p>
       <p>{{catchPhrase}}</p>
     {{/each}}
+  </div>
     <div class="row">
       <div class="col-2">
         <a href="/movies/{{id}}/edit" class="btn btn-dark" > Edit   </a>
@@ -30,6 +27,7 @@
        <a href="/movies" class="btn btn-dark">Go back</a>
       </div>
     </div>
+    {{/with}}
 
-  </div>
+</div>
 </div>

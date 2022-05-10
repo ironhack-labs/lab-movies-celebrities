@@ -46,11 +46,11 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const movieDetails = await Movie.findById(id);
-    const celebrityDetails = await Celebrity.find();
-    console.log(celebrityDetails)
-    //console.log(movieDetails)
-    res.render("movies/movie-details", {movieDetails, celebrityDetails});
+    const movieDetails = await Movie.findById(id).populate('cast');
+    // const celebrityDetails = await Celebrity.find();
+    // console.log(celebrityDetails)
+    console.log(movieDetails)
+    res.render("movies/movie-details", {movieDetails });
   } catch (error) {
     next(error);
   }
