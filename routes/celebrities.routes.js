@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { redirect } = require("express/lib/response");
 const CelebrityModel = require ("../models/Celebrity.model.js")
 
 
@@ -22,7 +23,7 @@ router.get ("/create", (req, res, next) =>{
 
 router.post("/create", (req, res, next) => {
  
-   
+    console.log("probando ruta")
     console.log (req.body)
 
     const { name, occupation, catchPhrase } = req.body
@@ -35,7 +36,7 @@ router.post("/create", (req, res, next) => {
     
     .then((response) => {
 
-        res.redirect("celebrities/celebretis-list.hbs");
+        res.redirect("/celebrities");
     })
     .catch((err) => {
         next(err)
@@ -46,13 +47,13 @@ router.post("/create", (req, res, next) => {
 
 //3. crear ruta get para listar
 
-router.get("/celebrities", (req, res, next) => {
+router.get("/", (req, res, next) => {
 
     CelebrityModel.find()
-    .then((allCelebreties) => {
-  
-      res.render("celebrities/celebretis-list.hbs", {
-        allCelebreties
+    .then((allCelebrities) => {
+  console.log("hola")
+      res.render("celebrities/celebrities-list.hbs", {
+        allCelebrities
       })
   
     })

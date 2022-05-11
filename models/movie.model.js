@@ -12,9 +12,8 @@ const movieSchema = new mongoose.Schema({
     plot:{
         type: String,
     },
-    cast:{
-        enum:[String] 
-    }
+    cast:[{  type: mongoose.Schema.Types.ObjectId,ref: 'Celebrity' }]
+    
 
 })
 

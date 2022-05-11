@@ -27,7 +27,7 @@ router.post("/create", (req, res, next) => {
     })
     
     .then((response) => {
-    res.redirect ("/movies/movie")
+    res.redirect ("/movies")
     })
     .catch((err) =>{
         next (err)
@@ -38,7 +38,7 @@ router.post("/create", (req, res, next) => {
 
 //3. crear ruta get para listar
 
-router.get ("/movies", (req, res, next) =>{
+router.get ("/", (req, res, next) =>{
     MovieModel.find()
     .then ((peliculas) =>{
 
@@ -51,21 +51,77 @@ router.get ("/movies", (req, res, next) =>{
     })
 })
 
+//edit
 
-// 4- Crear ruta dinámico
+router.get("/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const movie = await MovieModel.findById(id)
 
-router.get("/:id/details", (req, res, next) => {
+    
+
+    res.render("movies/edit-movie.hbs", {
+      movie,
+    })
+  } catch(err) {
+    next(err)
+  }
+});
+
+router.post("/:id/edit", (req, res, next) => {
+
+  const { title,genre,plot } = req.body;
+  const { id } = req.params;
+  
+  MovieModel.findByIdAndUpdate(id, {
+    title,
+    genre,
+    plot,
+  })
+    .then((movie) => {
+      
+      res.redirect(`/movies/${movie._id}`);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
+
+
+//delete
+
+router.post("/:id/delete", async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    
+    await MovieModel.findByIdAndDelete(id);
+
+   
+    res.redirect("/movies");
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+
+
+// Crear ruta dinámico
+
+router.get("/:id", (req, res, next) => {
     const { id } = req.params;
   
     
-    BookModel.findById(id).populate("movie")
-      .then((movies) => {
+    MovieModel.findById(id)
+      .then((movie) => {
         
   
-        console.log(movies)
+        console.log(movie)
         
         res.render("movies/movie-details.hbs", {
-          movies,
+          movie,
         });
       })
       .catch((err) => {
@@ -73,4 +129,10 @@ router.get("/:id/details", (req, res, next) => {
       });
   });
 
+
+
+
+
+
 module.exports = router;
+
