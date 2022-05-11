@@ -4,6 +4,8 @@ body {
   background-image: url("/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 li,
@@ -18,7 +20,7 @@ a {
   margin: 0;
   padding: 0;
   font-size: 14px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 header {
@@ -67,6 +69,10 @@ input {
   box-sizing: border-box;
 }
 
+input[type="string"] {
+  font-size: 24px;
+}
+
 label {
   font-size: 30px;
   font-weight: bold;
@@ -74,7 +80,7 @@ label {
 }
 
 button {
-  background-color: #556883; 
+  background-color: #556883;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -86,13 +92,8 @@ button {
 
 .div-movie {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
-  gap: 4rem;
-  flex-basis: 300px;
-  margin: 5px;
+  gap: 1rem;
 }
 
 .movie-div {
@@ -110,4 +111,41 @@ button {
   display: flex;
   justify-content: center;
   background-color: #556883;
+}
+
+.div-celebs {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.p-celeb-name {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+.div-each-celeb {
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 300px;
+}
+
+.movies-details {
+  color: white;
+  background-color: #556883;
+  text-align: center;
+  font-size: 20px;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.movie-detail-button {
+  background-color: #556883;
+  display: flex;
+  gap: 2rem;
+  max-width: 500px;
+  border: 5px solid #edf0f1;
 }

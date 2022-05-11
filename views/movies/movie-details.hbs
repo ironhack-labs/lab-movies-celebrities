@@ -1,16 +1,18 @@
 <h2>Details</h2>
-<div>
+<div class="movies-details">
 <p>{{title}}</p>
 <p>{{genre}}</p>
 {{#each cast}}
-  <div>
+  <div class="movie-detail">
     <p><i>{{name}}</i></p>
     <p><i>{{occupation}}</i></p>
     <p><i>{{catchPhrase}}</i></p>
   </div>
 {{/each}}
 </div>
+<div class="movie-detail-button">
 <form action='/movies/{{_id}}/delete' method='post'>
   <button type='submit'>Delete the Movie</button>
+  <a href="/movies/{{id}}/edit">Edit the Movie</a>
 </form>
-<a href="/movies/{{id}}/edit">Edit the Movie</a>
+</div>
