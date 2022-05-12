@@ -1,11 +1,39 @@
 <h2>Movies List</h2>
-{{#each movies}}
-   <a href="/movies/{{this._id}}">{{this.title}}</a>
-   <p> Genre : {{this.genre}}</p>
-   <p> Plot  : {{this.plot}}</p> 
-   {{#each this.cast}}
-        <p>{{this.name}}</p>
-   {{/each}}  
-
-   <a href="/movies/{{this._id}}/edit">Edit Movie</a> 
- {{/each}}
+  <table id="movieslist">
+        <thead>
+        <tr>
+          <th>Movie title</th>
+          <th>Genre</th>
+          <th>Plot</th> 
+          <th>Cast</th> 
+          <th>Action</th>           
+        </tr>       
+      </thead>
+      <tbody>
+        <br>
+        {{#each movies}}
+        <tr>
+            <td class="title">
+               <a href="/movies/{{this._id}}">{{this.title}}</a>
+            </td>
+            <td class="genre">
+                <span>{{this.genre}}</span>
+            </td>
+            <td class="plot">
+                <span>{{this.plot}}</span>
+            </td>
+             {{#each this.cast}}
+               <td class="cast">
+                   {{this.name}}               
+               </td>
+             {{/each}}  
+            <td class="action">
+               <a href="/movies/{{this._id}}/edit" class="btn btn-edit">Edit</a> 
+              <!--  <button class="btn btn-edit">Edit</button> -->             
+            </td>
+             
+        </tr>       
+        {{/each}}
+      </tbody>
+    </table> 
+   

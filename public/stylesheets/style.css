@@ -1,10 +1,20 @@
 body {
  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 a {
   color: #00b7ff;
 }
 
+.movies-celebrities {
+  display: flex;
+  padding-left: 0px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50em;
+  border-color: chartreuse;
+  border-width: 50px;
+  }
 .celebrity-row {
   display : flex;
   padding : 10px;
@@ -12,7 +22,63 @@ a {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid black;
+  color: aquamarine;
 }
 h1 {
   color: 15px;
+}
+
+h,
+td, th, button {
+  padding: 0.75em 1em;
+}
+
+table#celebritylist {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table#celebritylist td,th,
+table input {
+  border: 1px solid #b32c2c; 
+}
+
+table#movieslist {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table#movieslist td,th,
+table input {
+  border: 1px solid #b32c2c;
+ 
+}
+
+table thead {
+  border: 1px solid #a73223;
+  
+}
+th {
+  background-color: lightgray;
+}
+img {
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  border: 0;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.btn-edit {
+  color: #fff;
+  background-color: blue;
+}
+
+button {
+  font: inherit;
+  color:inherit;
+
 }

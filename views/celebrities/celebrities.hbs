@@ -1,13 +1,36 @@
-<div class="container">
-    <h2>Celebrities List</h2>     
-    {{#each celebrities}}
-        <div class="celebrity-row">
-            {{this.name}}
-           
-            {{this.occupation}}
-            
-            {{this.catchPhrase}}
-            <hr>
-        </div>   
-    {{/each}}
-</div>
+  <h2>Celebrities List</h2>    
+    <table id="celebritylist">
+        <thead>
+        <tr>
+          <th>Celibrity Name</th>
+          <th>Occupation</th>
+          <th>Catch Phrase</th>  
+          <th>Action</th>   
+          <th>Action</th>   
+        </tr>
+       
+      </thead>
+      <tbody>
+        <br>
+        {{#each celebrities}}
+        <tr>
+            <td class="name">
+                <span>{{this.name}}</span>
+            </td>
+            <td class="occupation">
+                <span>{{this.occupation}}</span>
+            </td>
+            <td class="catchPhrase">
+                <span>{{this.catchPhrase}}</span>
+            </td>
+            <td class="action">
+                <button class="btn btn-edit">Edit</button>              
+            </td>
+             <td class="action">
+                <button class="btn btn-edit">Delete</button>              
+            </td>
+
+        </tr>       
+        {{/each}}
+      </tbody>
+    </table>    
