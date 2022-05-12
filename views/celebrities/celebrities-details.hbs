@@ -5,5 +5,16 @@
 <p>Occupation: {{occupation}}</h3>
 <hr>
 <p>Catch Phrase: {{catchPhrase}}</p>
-
+<div class="row">
+<div class="col-1">
 <a href="/" class="btn btn-dark">Home</a>
+</div>
+<div class="col-1">
+<a href="/celebrities/{{id}}/edit" class="btn btn-dark">Edit</a>
+</div>
+<div class="col-1">
+  <form action="/celebrities/{{id}}/delete" method="post">
+    <button type="submit" class="btn btn-dark">Delete</button>
+  </form>
+</div>
+</div>

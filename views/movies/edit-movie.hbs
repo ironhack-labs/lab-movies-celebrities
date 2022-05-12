@@ -1,7 +1,7 @@
 <div class="container">
    {{#with moviesCast}}
   <h2>Edit {{title}}</h2>
-  <form action="/movies/{{_id}}" method="post">
+  <form action="/movies/{{_id}}/edit" method="post">
     <div class="mb-3">
       <label for="title" class="form-label">Title:</label>
       <input
@@ -37,10 +37,15 @@
     <div class="mb-3">
       <label for="cast" class="form-label">Cast:</label>
       <select name="cast" id="cast">
-        {{#each moviesCast}}
-          <option value="{{id}}">{{this.name}}</option>
+        {{#each allCelebrities}}
+          <option value="{{id}}">{{name}}</option>
         {{/each}}
       </select>
     </div>
+    <button type="submit" class="btn btn-dark">Update movie</button>
+     <a href="/" class="btn btn-dark">Go back</a>
+    </form>
+    <hr>
+
   </form>
 </div>

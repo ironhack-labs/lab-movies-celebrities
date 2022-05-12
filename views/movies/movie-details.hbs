@@ -3,14 +3,27 @@
   <div class="movie-container">
     {{#with movieDetails}}
     <h3>{{title}}</h3>
-    <p>{{genre}}</p>
-    <p>{{plot}}</p>
+   <ul>
+     <li><p>Genre: {{genre}}</p></li>
+     <li><p>Plot: {{plot}}</p></li>
+   </ul>
+    
+    
   
   <div class="cast">
-    {{#each cast}}   
-      <p>{{name}}</p>
-      <p>{{occupation}}</p>
-      <p>{{catchPhrase}}</p>
+    {{#each cast}}  
+    <h3>Movie Cast</h3>
+    <ul>
+      <li>
+      <p>Name: {{name}}</p>
+      </li>
+      <li>
+      <p>Occupation: {{occupation}}</p>
+      </li>
+      <li>
+      <p> CatchPhrase: {{catchPhrase}}</p>
+      </li>
+    </ul>
     {{/each}}
   </div>
     <div class="row">
