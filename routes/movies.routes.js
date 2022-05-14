@@ -32,9 +32,19 @@ router.post('/create', async (req, res, next) => {
 router.get('/:id/edit', async (req, res, next) => {
     try {
         const { id } = req.params;
-        const movie = await Movie.findById(id)
-        .populate('cast');
-        res.render('movies/edit-movie', movie);
+        const movie = await Movie.findById(id);
+        const celebrities = await Celebrity.find();
+        movie.cast = movie.cast.map(id => {
+            return id.toString()
+        });
+
+        celebrities.map(celebrity => {
+            if(movie.cast.includes(celebrity._id.toString())) {
+                celebrity.selected = true;
+            }
+            return celebrity;
+        })
+        res.render('movies/edit-movie', {movie: movie, celebrities: celebrities});
     }catch(error) {
         next(error);
     }
