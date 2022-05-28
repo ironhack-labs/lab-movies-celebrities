@@ -95,6 +95,7 @@ a:hover {
   border-radius: 15px;
   padding: 5px 30px;
   margin: 10px;
+  width: auto;
 }
 
 .celebrities .btn a {
@@ -199,17 +200,16 @@ span {
 
 .allCast {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .eachCast {
   border: 1px solid #114834;
   border-radius: 20px;
-  width: 150px;
+  width: 250px;
   /* height: 100px; */
   padding: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .movie-detaials .btn {

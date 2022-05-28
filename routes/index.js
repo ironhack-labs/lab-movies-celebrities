@@ -9,8 +9,6 @@ router.get("/", (req, res, next) => {
 router.use('/celebrities', require('./celebrities.routes'))
 
 
-
-
 // // ---------> MOVIES ROUTES <---------
 router.use('/movies', require('./movies.routes'))
 

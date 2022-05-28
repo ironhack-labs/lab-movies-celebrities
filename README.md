@@ -4,6 +4,10 @@
 
 <br><br>
 
+## See the final result [here](https://clarapardo-ironhack.github.io/lab-movies-celebrities/)
+
+<br><br>
+
 ## Introduction
 
 <br>

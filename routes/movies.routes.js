@@ -38,7 +38,6 @@ router.get('/', (req, res) => {
             res.render('movies/movies', { allMovies })
         })
         .catch(err => console.log(err))
-
 })
 
 router.get('/:id', (req, res) => {
@@ -51,7 +50,6 @@ router.get('/:id', (req, res) => {
             res.render('movies/movie-details', selectedMovie)
         })
         .catch(err => console.log(err))
-
 })
 
 
@@ -66,7 +64,6 @@ router.post('/:id/delete', (req, res) => {
             res.redirect('/movies')
         })
         .catch(err => console.log(err))
-
 })
 
 
@@ -82,23 +79,12 @@ router.get('/:id/edit', (req, res) => {
             Celebrity
                 .find()
                 .then(allCelebs => {
-                    console.log(allCelebs)
                     const necessaryInfo = [selectedMovie, allCelebs]
 
                     res.render('movies/edit-movie', { necessaryInfo })
                 })
                 .catch(err => console.log(err))
         })
-
-
-        // .then(selectedMovie => {
-        //     const necessaryInfo = [selectedMovie, Celebrity.find()]
-        //     console.log(necessaryInfo[1])
-        //     return necessaryInfo
-        // })
-        // .then(necessaryInfo => {
-        //     res.render('movies/edit-movie', { necessaryInfo })
-        // })
         .catch(err => console.log(err))
 
 })

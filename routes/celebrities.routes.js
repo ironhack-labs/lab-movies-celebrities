@@ -30,11 +30,9 @@ router.get('/', (req, res) => {
     Celebrity
         .find()
         .then(allCelebrities => {
-            console.log({ allCelebrities })
             res.render('celebrities/celebrities', { allCelebrities })
         })
         .catch(err => console.log(err))
-
 })
 
 module.exports = router
