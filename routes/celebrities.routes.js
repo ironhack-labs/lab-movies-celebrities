@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Celebrity = require('../models/Celebrity.model');
 
-// ---create---
+//---create---
 router.get('/celebrities/create', (req, res, next) => {
   res.render('../views/celebrities/new-celebrity.hbs')
 })
@@ -11,8 +11,8 @@ router.post('/celebrities/create',(req, res, next) => {
   Celebrity.create(allInfo)
     .then(() => res.redirect('/celebrities'))
     .catch(err => {console.log('Error while creating: ',err)
-      next()
-    })
+    next()
+  })
 })
 //---read---
 router.get('/celebrities',(req, res, next) =>{
@@ -21,11 +21,8 @@ router.get('/celebrities',(req, res, next) =>{
       res.render('../views/celebrities/celebrities.hbs',{celebrities})
     })
     .catch(err => {console.log('Error while rendering: ', err)
-      next()
-    })
+    next()
+  })
 })
 
-
-
-
-module.exports = router
+module.exports = router;

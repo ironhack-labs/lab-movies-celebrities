@@ -7,4 +7,4 @@ const MovieSchema = new Schema({
   cast:[{type:Schema.Types.ObjectId, ref:'Celebrity'}]
 },{timestamps: true})
 
-module.exports = model('Movie', MovieSchema)
+module.exports = model('Movie', MovieSchema);
