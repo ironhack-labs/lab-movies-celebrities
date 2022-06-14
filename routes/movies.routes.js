@@ -1,0 +1,46 @@
+const router = require("express").Router();
+
+const Celebrity = require("../models/Celebrity.model");
+const Movie = require("../models/Movie.model");
+
+// all your routes here
+router.get("/movies/create", (req, res, next) => {
+  Celebrity.find()
+    .then((celeb) => {
+      res.render("movies/new-movie", { celeb });
+    })
+    .catch((err) => next(err));
+});
+
+router.post("/movies/create", (req, res, next) => {
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.create({ title, genre, plot, cast })
+    .then(() => res.redirect("/movies"))
+    .catch(() => res.render("/movies/new-movie"));
+});
+
+router.get("/movies", (req, res, next) => {
+  Movie.find()
+    .then((movie) => res.render("movies/movies", { movie }))
+    .catch((err) => console.log(err));
+});
+
+router.get("/movies/:id", (req, res, next) => {
+  const {id} = req.params;
+
+  Movie.findById(id)
+  .populate("cast")
+  .then((movie) => res.render("movies/movie-details", movie))
+  .catch((err) => console.log(err));
+});
+
+router.post("/movies/:id/delete", (req, res, next) => {
+  const {id} = req.params;
+
+  Movie.findByIdAndRemove(id)
+  .then(() => res.redirect("/movies"))
+  .catch((err) => console.log(err));
+});
+
+module.exports = router;
