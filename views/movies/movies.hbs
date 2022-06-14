@@ -1,0 +1,10 @@
+<h2>Movies</h2>
+ 
+{{#each movies}}
+    {{!-- <p>{{this.title}}</p> --}}
+    <a href='/movies/{{this._id}}'>{{this.title}}</a>
+{{else}}
+    <p>No movies</p>
+{{/each}}
+
+<a href="/">Go Back</a>

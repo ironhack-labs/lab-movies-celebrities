@@ -1,0 +1,9 @@
+<h2>{{movie.title}}</h2>
+<hr>
+<p>Genre: {{movie.genre}}</p>
+<p>Plot: {{movie.plot}}</p>
+<hr>
+<form action="/movies/{{this._id}}/delete" method="POST">
+    <button>Delete</button>
+</form>
+<a href="/movies">Back</a>
