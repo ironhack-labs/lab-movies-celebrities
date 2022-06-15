@@ -1,23 +1,30 @@
-<h2>Edit the Movie: {{movieData.name}}</h2>
+<h2 class="title has-text-centered m-5">Edit the Movie: {{movieData.name}}</h2>
 
 <form action="/movies/{{movieData._id}}/edit" method="POST">
-  <label>Name:
-    <input type="text" name="name" value="{{movieData.name}}">
+  <label class="subtitle">Name:
+    <input class="input is-info mb-5" type="text" name="name" value="{{movieData.name}}">
   </label>
-  <label>Genre:
-    <input type="text" name="genre" value="{{movieData.genre}}">
+  <label class="subtitle">Genre:
+    <input class="input is-info mb-5" type="text" name="genre" value="{{movieData.genre}}">
   </label>
-  <label>Plot:
-    <textarea name="plot" cols="35" rows="10"> {{movieData.plot}} </textarea>
-  </label>
-
-  <label for="cast">
-    <select name="cast" id="cast">
-    {{#each celebData}}
-      <option value="{{_id}}"> {{name}} </option>
-    {{/each}}
-  </select>
+  <label class="subtitle">Plot:
+    <textarea class="textarea is-info mb-5" name="plot" cols="35" rows="10"> {{movieData.plot}} </textarea>
   </label>
 
-  <button type="submit">Save</button>
+  <label class="subtitle" for="cast">Select Celebrities
+    <div>
+      <select class="select is-info is-large" name="cast" id="cast">
+      {{#each celebData}}
+        <option value="{{_id}}"> {{name}} </option>
+      {{/each}}
+      </select>
+    </div>
+  </label>
+
+  <div class="columns is-centered mt-5">
+    <div class="column is-full has-text-centered">
+      <button class="button is-success is-focused is-large" type="submit">Save</button>
+    </div>
+  </div>
+
 </form>

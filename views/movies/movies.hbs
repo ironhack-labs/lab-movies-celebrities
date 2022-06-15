@@ -1,8 +1,12 @@
-<h2>List of Movies</h2>
+<h2 class="title has-text-centered m-5">List of Movies</h2>
 
-<ul>
-  {{#each movies}}
-    <li> {{name}} </li>
-    <a href="/movies/{{_id}}">See details</a>
-  {{/each}}
-</ul>
+<section class="section">
+  <div class="columns is-vcentered is-multiline">
+    {{#each movies}}
+      <div class="column is-full">
+        <h1 class="subtitle mt-5 mb-1"> {{name}} </h1>
+        <a class="button is-info is-small is-focused mr-5" href="/movies/{{_id}}">See details</a>
+      </div>
+    {{/each}}
+  </div>
+</section>

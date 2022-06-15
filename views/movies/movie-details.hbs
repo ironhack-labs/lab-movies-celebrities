@@ -1,20 +1,28 @@
+<h2 class="title has-text-centered m-5">Movie details</h2>
+<div class="section">
+  <div class="box container">
+    <h1 class="subtitle has-text-weight-bold">Name: {{name}}</h1>
+    <h3 class="is-size-5 mb-2 has-text-weight-bold">Genre: {{genre}}</h3>
+    <p class="is-size-6 mb-2 has-text-weight-bold">Plot: {{plot}}</p>
 
-<div>
-  <h1>{{name}}</h1>
-  <p>{{genre}}</p>
-  <p>{{plot}}</p>
+    <ul>
+      <h1 class="has-text-centered mt-6 subtitle">Cast</h1>
+      {{#each cast}}
+        <h1 class="is-size-5 has-text-primary">Name : {{this.name}}</h1> 
+        <h3 class="is-size-6 mb-1 mt-1 has-text-black-ter">Occupation : {{this.occupation}}</h3> 
+        <p class="is-size-6 mb-1 mt-1 has-text-grey">Catchphrase:{{this.catchPhrase}}</p>
+      {{/each }}
+    </ul>
 
-  <ul>
-    {{#each cast}}
-      <li>{{this.name}} {{this.occupation}} {{this.catchPhrase}}</li>
-      
-    {{/each }}
-  </ul>
+  </div>
 </div>
 
 
-<form action="/movies/{{_id}}/delete" method="POST">
-  <button>Delete</button>
-</form>
-
-<a href="/movies/{{_id}}/edit">Edit</a>
+<div class="columns is-centered">
+  <div class="column is-half has-text-centered is-flex is-justify-content-center">
+    <form action="/movies/{{_id}}/delete" method="POST">
+      <button class="button mr-5 is-large is-danger is-focused">Delete</button>
+    </form>
+    <a class="button ml-5 is-large is-warning is-focused" href="/movies/{{_id}}/edit">Edit</a>
+  </div>
+</div>

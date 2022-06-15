@@ -1,11 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1 class="title has-text-centered mt-5 has-text-grey-darker" >{{title}}</h1>
+<p class="subtitle has-text-centered mt-5 has-text-grey">Welcome to {{title}}</p>
 
 
-<a href="/celebrities/create">Create a new Celebrity</a>
-<br>
-<a href="/celebrities">All the Celebrites</a>
-<br>
-<a href="/movies/create">Create a new Movie</a>
-<br>
-<a href="/movies">All the Movies</a>
+{{!-- <a class="button m-4 is-link is-large" href="/celebrities/create">Create a new Celebrity</a>
+<a class="button m-4 is-link is-large" href="/celebrities">All the Celebrites</a>
+<a class="button m-4 is-link is-large" href="/movies/create">Create a new Movie</a>
+<a class="button m-4 is-link is-large" href="/movies">All the Movies</a> --}}
+
+<div class="section">
+  <div class="columns is-multiline">
+      <div class="column is-full">
+        <a class="button is-link is-large" href="/celebrities/create">Create a new Celebrity</a>
+      </div>
+      <div class="column is-full">
+        <a class="button is-link is-large" href="/celebrities">All the Celebrites</a>
+      </div>
+      <div class="column is-full">
+        <a class="button is-link is-large" href="/movies/create">Create a new Movie</a>
+      </div>
+      <div class="column is-full">
+        <a class="button is-link is-large" href="/movies">All the Movies</a>
+      </div>
+  </div>
+</div>

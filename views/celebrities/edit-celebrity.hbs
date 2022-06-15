@@ -1,17 +1,22 @@
-<h1>Edit Celebrity</h1>
+<h2 class="title has-text-centered m-5">Edit Celebrity</h2>
 
 <form action="/celebrities/{{celebrity._id}}/edit" method="POST">
-  <label>Name:
-    <input type="text" name="name" value="{{celebrity.name}}">
+  <label class="subtitle">Name:
+    <input class="input is-info mb-5" type="text" name="name" value="{{celebrity.name}}">
   </label>
 
-  <label>Occupation:
-    <input type="text" name="occupation" value="{{celebrity.occupation}}">
+  <label class="subtitle">Occupation:
+    <input class="input is-info mb-5" type="text" name="occupation" value="{{celebrity.occupation}}">
   </label>
 
-  <label>CatchPhrase:
-    <textarea name="catchPhrase" cols="30" rows="7">{{celebrity.catchPhrase}}</textarea>
+  <label class="subtitle">CatchPhrase:
+    <textarea class="textarea is-info mb-5" name="catchPhrase" cols="30" rows="7">{{celebrity.catchPhrase}}</textarea>
   </label>
 
-  <button type="submit">Edit</button>
+  <div class="colmuns is-centered">
+    <div class="column is-full has-text-centered">
+      <button class="button is-warning is-focused is-large" type="submit">Edit</button>
+    </div>
+  </div>
+
 </form>

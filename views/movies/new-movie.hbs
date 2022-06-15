@@ -1,28 +1,27 @@
-<h1>Add a Movie</h1>
+<h2 class="title has-text-centered m-5" >Add a New Mobie</h2>
 
 <form action="/movies/create" method="POST">
-  <label>Name:
-    <input type="text" name="name">
+  <label class="subtitle">Name:
+    <input class="input is-info mb-5" type="text" name="name">
   </label>
 
-  <label>Genre:
-    <input type="text" name="genre">
+  <label class="subtitle">Genre:
+    <input class="input is-info mb-5" type="text" name="genre">
   </label>
 
-  <label>Plot:
-    <textarea name="plot" cols="35" rows="10"></textarea>
+  <label class="subtitle">Plot:
+    <textarea class="textarea is-info mb-5" name="plot" cols="35" rows="10"></textarea>
   </label>
 
-  <label>Cast:
-    <select multiple name="cast" class="input">
-      {{#each celebrityInfo}}
-        <ul>
-          <li><option value="{{_id}}"> {{name}} </option></li>
-        </ul>
-      {{/each}}
-    </select>
+  <label class="subtitle">Cast:
+    <div>
+      <select class="select is-info is-large" multiple name="cast" class="input">
+        {{#each celebrityInfo}}
+          <option value="{{_id}}"> {{name}} </option>
+        {{/each}}
+      </select>
+    </div>
   </label>
 
-  <button type="submit">Add!</button>
+  <button class="button is-large is-success mt-6" type="submit">Add!</button>
 </form>
-

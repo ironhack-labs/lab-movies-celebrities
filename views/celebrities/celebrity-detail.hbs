@@ -1,7 +1,17 @@
-<h1>Celebrity details</h1>
-{{celebrity.name}}
-{{celebrity.occupation}}
-{{celebrity.catchPhrase}}
+<h2 class="title has-text-centered m-5">Celebrity details</h2>
 
-<a href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+<div class="section">
+  <div class=" box container">
+    <h1 class="subtitle">{{celebrity.name}}</h1>
+    <h3 class="is-size-5 mb-3">{{celebrity.occupation}}</h3>
+    <p class="is-size-6">{{celebrity.catchPhrase}}</p>
+  </div>
+</div>
+
+<div class="columns is-centered">
+  <div class="column is-half has-text-centered">
+    <a class="button is-warning is-focused is-large" href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+  </div>
+</div>
+
 
