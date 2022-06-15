@@ -34,7 +34,7 @@ router.get('/movies/:movieId',(req, res, next) =>{
   Movie.findById(movieId)
     .populate('cast')
     .then(theMovie => {
-      res.render('../views/movies/movie-details.hbs',{movie: theMovie})
+      res.render('../views/movies/movie-details.hbs',theMovie)
     })
     .catch(err => {
       console.log('Error while rendering details:',err)
@@ -54,16 +54,27 @@ router.post('/movies/:id/delete',(req, res, next) =>{
 
 router.get('/movies/:id/edit',(req, res, next) =>{
   const {id} = req.params
-  const {...allInfo} = req.body
   Movie.findById(id)
-    .then(toEdit => {
-      console.log(allInfo)
-      res.render('../views/movies/edit-movie.hbs', toEdit)
+    .then(movieData => {Celebrity.find()
+        .then(celebData => {
+          res.render('../views/movies/edit-movie.hbs', {movieData, celebData})
+        })
+        .catch(error => {
+          console.log('Error while editing',error)
+          next()
+        })
     })
-    .catch(error => {
-      console.log('Error while editing:',error)
-      next()
+})
+
+router.post('/movies/:id/edit',(req, res, next) => {
+  const {id} = req.params
+  const {name, genre, plot, cast} = req.body
+
+  Movie.findByIdAndUpdate(id, {name, genre, plot, cast})
+    .then(() => {
+      res.redirect(`/movies/${id}`)
     })
+    .catch(error => {console.log(error)})
 })
 
 

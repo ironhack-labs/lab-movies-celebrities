@@ -1,1 +1,23 @@
-<h1>Hola</h1>
+<h2>Edit the Movie: {{movieData.name}}</h2>
+
+<form action="/movies/{{movieData._id}}/edit" method="POST">
+  <label>Name:
+    <input type="text" name="name" value="{{movieData.name}}">
+  </label>
+  <label>Genre:
+    <input type="text" name="genre" value="{{movieData.genre}}">
+  </label>
+  <label>Plot:
+    <textarea name="plot" cols="35" rows="10"> {{movieData.plot}} </textarea>
+  </label>
+
+  <label for="cast">
+    <select name="cast" id="cast">
+    {{#each celebData}}
+      <option value="{{_id}}"> {{name}} </option>
+    {{/each}}
+  </select>
+  </label>
+
+  <button type="submit">Save</button>
+</form>
