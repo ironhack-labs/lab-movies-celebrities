@@ -32,8 +32,9 @@ router.get('/movies',(req, res, next)=>{
 router.get('/movies/:movieId',(req, res, next) =>{
   const {movieId} = req.params
   Movie.findById(movieId)
+    .populate('cast')
     .then(theMovie => {
-      res.render('../views/movies/movie-details.hbs',theMovie)
+      res.render('../views/movies/movie-details.hbs',{movie: theMovie})
     })
     .catch(err => {
       console.log('Error while rendering details:',err)
@@ -53,16 +54,19 @@ router.post('/movies/:id/delete',(req, res, next) =>{
 
 router.get('/movies/:id/edit',(req, res, next) =>{
   const {id} = req.params
+  const {...allInfo} = req.body
   Movie.findById(id)
     .then(toEdit => {
-      console.log(toEdit)
-    res.render('../views/movies/edit-movie.hbs', toEdit)
+      console.log(allInfo)
+      res.render('../views/movies/edit-movie.hbs', toEdit)
     })
     .catch(error => {
       console.log('Error while editing:',error)
       next()
     })
 })
+
+
 
 module.exports = router;
 

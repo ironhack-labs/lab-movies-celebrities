@@ -1,11 +1,13 @@
 
 <div>
-  <h1>{{name}}</h1>
-  <p>{{genre}}</p>
-  <p>{{plot}}</p>
+  <h1>{{movie.name}}</h1>
+  <p>{{movie.genre}}</p>
+  <p>{{movie.plot}}</p>
 
   <ul>
-    <li> {{cast}} </li>
+    {{#each movie.cast}}
+      <li>{{this.name}}</li>
+    {{/each }}
   </ul>
 </div>
 
