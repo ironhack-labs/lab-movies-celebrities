@@ -10,13 +10,15 @@
   </label>
 
   <label>Plot:
-    <input type="text" name="plot">
+    <textarea name="plot" cols="30" rows="7"></textarea>
   </label>
 
   <label>Cast:
-    <select name="cast" class="input">
+    <select multiple name="cast" class="input">
       {{#each celebrityInfo}}
-        <option value="{{_id}}"> {{name}} </option>
+        <ul>
+          <li><option value="{{_id}}"> {{name}} </option></li>
+        </ul>
       {{/each}}
     </select>
   </label>

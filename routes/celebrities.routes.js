@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const Celebrity = require('../models/Celebrity.model');
 
-//---create---
+
 router.get('/celebrities/create', (req, res, next) => {
   res.render('../views/celebrities/new-celebrity.hbs')
 })
-//---create---
+
 router.post('/celebrities/create',(req, res, next) => {
   const {...allInfo} = req.body
   Celebrity.create(allInfo)
@@ -14,7 +14,7 @@ router.post('/celebrities/create',(req, res, next) => {
     next()
   })
 })
-//---read---
+
 router.get('/celebrities',(req, res, next) =>{
   Celebrity.find()
     .then(celebrities =>{
