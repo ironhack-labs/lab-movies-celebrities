@@ -1,0 +1,23 @@
+<h2>Edit movie</h2>
+
+<form action="/movie/{{_id}}/edit" method="post">
+  <label>Title</label>
+  <input type="text" name="ntitle" placeholder="Title" value="{{title}}" />
+
+  <label>Genre</label>
+  <input type="text" name="genre" placeholder="Action" Value="{{genre}}" />
+
+  <label>Plot</label>
+  <input type="text" name="plot" placeholder="Plot"  value="{{plot}}"/>
+
+   <label>Name</label>
+  <input type="text" name="name" placeholder="Name" value="{{name}}"/>
+
+  <label>Occupation</label>
+  <input type="text" name="occupation" placeholder="comedian" value="{{occupation}}" />
+
+  <label>Catch Phrase</label>
+   <input type="text" name="catchPhrase" placeholder="The phrase" value="{{catchPhrase}}"/>
+
+  <button type="submit">Submit</button>
+</form>
