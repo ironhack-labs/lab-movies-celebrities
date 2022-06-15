@@ -4,5 +4,11 @@
 <ul>
   {{#each celebrities}}
     <li> {{name}} </li>
+    <a href="/celebrities/{{_id}}">Details</a> 
+    
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+  <button>Delete</button>
+</form>
+
   {{/each}}
 </ul>
