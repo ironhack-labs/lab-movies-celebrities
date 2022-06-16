@@ -1,13 +1,19 @@
-<h1>Celebrities</h1>
+<nav class="navbar is-fixed-top has-background-black">
+<h1 class="is-size-1">Celebrities</h1>
+</nav>
 
 {{#each celebrities}}
 <br><br><br>
-    <h4>{{name}}</h4>
-    <span>{{occupation}}</span> <br>
-    <span>{{catchPhrase}}</span>
+    <h4 class="is-size-3">{{name}}</h4>
+    <span class="is-size-5">{{occupation}}</span> <br>
+    <span class="is-size-5">{{catchPhrase}}</span>
 <br><br><br>
 {{/each}}
 
 <br>
-<a href="/celebrities/create"><button>Create a New Celebrity</button></a>
-<a href="/"><button>Home</button></a>
+<nav class="navbar is-fixed-bottom has-background-black is-right">
+<div class="buttons has-addons is-right">
+<a href="/celebrities/create"><button class="button is-focused is-dark">Create a New Celebrity</button></a>
+<a href="/"><button class="button is-focused is-dark ">Home</button></a>
+</nav>
+</div>

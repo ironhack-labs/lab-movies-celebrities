@@ -6,3 +6,18 @@ body {
 a {
   color: #00b7ff;
 }
+
+#btnIndex {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+  width: 1000px;
+  height: 200px;
+}
+
+#header {
+  position: fixed;
+  background-color: black;
+}
