@@ -1,0 +1,16 @@
+<h2> All celebrities</h2>
+
+<ul>
+{{#each celebrities}}
+<br>
+<li> {{name}}</li>
+{{!-- <a href="/update/{{id}}">Update usuario</a> --}}
+<a href="/celebrities/delete/{{id}}">Delete</a>
+<br>
+{{/each}}
+</ul>
+<br>
+
+
+<a href="/">Home</a>
+
