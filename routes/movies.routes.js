@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
+const Celebrity = require('../models/Celebrity.model');
 
 router.get('/movies',(req,res,next)=>{
     Movie.find()
@@ -13,7 +14,7 @@ router.get('/movies',(req,res,next)=>{
 })
 
 router.get('/movies/create',(req,res,next)=>{
-    res.render('movies/new-movie')
+  res.render('movies/new-movie')
 })
 
 router.post("/movies/create",(req,res,next)=>{
@@ -55,18 +56,32 @@ router.get('/movies/:_id', (req, res, next) => {
       })
   });
   
-  /* router.post('/movies/:_id', (req, res, next) => {
+
+  router.get('/movies/edit-movie/:_id',(req,res,next)=>{
+  const {_id} = req.params
+  Movie.findById(_id)
+  .then(movieE => { 
+    Celebrity.find()
+    .then(celebrities => res.render('movies/edit-movie', {movieE , celebrities}) )
+    .catch(error => {
+      console.log('Error',error)
+      next(error);
+    })
+  })
+  })
+
+  router.post('/movies/edit-movie/:_id', (req, res, next) => {
     const {_id} = req.params
-    const {name,propellers,maxSpeed} = req.body
-    Drone.findByIdAndUpdate(_id,{name,propellers,maxSpeed},{new:true}) 
-      .then(updatedDrone=>{
-          console.log("el nuevo Dron",updatedDrone)
-          res.redirect("/drones")
+    const {title,genre,plot,cast} = req.body
+    Movie.findByIdAndUpdate(_id,{title,genre,plot,cast},{new:true}) 
+      .then(updatedMovie=>{
+          console.log("el nuevo mov",updatedMovie)
+          res.redirect("/movies")
       })
       .catch(error=>{
           console.log("el error",error)
           next()
       })
-  }); */
+  });
 
 module.exports = router;
