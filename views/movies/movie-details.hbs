@@ -1,0 +1,31 @@
+<h2> Movie detail</h2>
+<a href="/">Home</a>
+
+<ul>
+    <br />
+    <li> <h6>Movie Title:</h6> {{title}}</li>
+    <br />
+    <li> <h6>Movie Genre:</h6>  {{genre}}</li>
+    <br />
+    <li> <h6>The plot:</h6>  {{plot}}</li>
+    <br />
+    {{#each _cast}}
+      <li><h6>Cast: </h6> {{this.name}}</li>
+      <br>
+      whose occupation is {{this.occupation}}
+      <br>
+      and also vastly known because of:" {{this.catchPhrase}}"
+    {{/each}}
+
+
+
+ 
+
+
+<form action="/movies/movies/{{_id}}/delete" method="POST">
+      <button>Delete movie</button>
+    </form>
+
+
+</ul>
+<br />

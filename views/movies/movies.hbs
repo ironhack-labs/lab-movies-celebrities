@@ -1,18 +1,13 @@
 <h2> All movies</h2>
-
-<ul>
-{{#each movies}}
-<br>
-<li> {{title}}</li>
-<li> {{genre}}</li>
-<li> {{plot}}</li>
-<li> {{_cast}}</li>
-{{!-- <a href="/update/{{id}}">Update usuario</a> --}}
-{{!-- <a href="/celebrities/delete/{{id}}">Delete</a> --}}
-<br>
-{{/each}}
-</ul>
-<br>
-
-
 <a href="/">Home</a>
+<ul>
+  {{#each movies}}
+    <br />
+    <li> <h6>Movie Title:</h6> {{title}}</li>
+<a href="/movies/movies/{{id}}">Detalle de película</a>
+    <br />
+    <p>------------------------------------------------</p>
+  {{/each}}
+</ul>
+<br />
+

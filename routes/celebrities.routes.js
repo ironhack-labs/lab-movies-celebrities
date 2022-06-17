@@ -27,6 +27,7 @@ router.post("/create", (req, res, next) => {
 //Read celebrities
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
+  .populate('moviePlayed')
     .then((celebrities) => {
       console.log("found these celebrities", celebrities);
       res.render("celebrities/celebrities", {celebrities});

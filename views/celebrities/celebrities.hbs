@@ -3,13 +3,23 @@
 <ul>
 {{#each celebrities}}
 <br>
-<li> {{name}}</li>
-<li> {{occupation}}</li>
-<li> {{catchPhrase}}</li>
-<li> {{moviePlayed}}</li>
+<li> <h6>Who?</h6>{{name}}</li>
+<br>
+<li> <h6>What he/she does?</h6>{{occupation}}</li>
+<br>
+<li> <h6>Any catchy phrase?</h6>{{catchPhrase}}</li>
+<br>
+
+
+ {{#each moviePlayed}}
+      <li><h6>Movie played: </h6> {{this.title}}</li>
+    {{/each}}
+<br>
 {{!-- <a href="/update/{{id}}">Update usuario</a> --}}
 <a href="/celebrities/delete/{{id}}">Delete</a>
 <br>
+
+<p>----------------------------------------------------------------</p>
 {{/each}}
 </ul>
 <br>
