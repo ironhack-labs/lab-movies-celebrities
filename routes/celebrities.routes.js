@@ -16,7 +16,7 @@ router.post("/create", (req, res, next) => {
   Celebrity.create(celebrity)
     .then((celebrity) => {
       console.log("create success", celebrity);
-      res.render("index");
+      res.redirect("/celebrities/celebrities")
     })
     .catch((err) => {
       console.log("error creating celebrity", err);

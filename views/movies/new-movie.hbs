@@ -11,8 +11,21 @@
     <label>Plot</label>
     <input  name="plot" placeholder="Plot of your movie">
 
-    <label>Cast</label>
-    <input  name="_cast" placeholder="Cast of your movie">
+<label for="cast">Choose the cast</label>
+
+<select name="_cast" id="cast">
+
+    {{#each celebrities}}
+        <option value="{{this._id}}"> {{this.name}} </option>
+      {{/each}}
+  
+
+</select>
+
+
+
+
+
 
 
     <button type="submit">Create</button>

@@ -5,10 +5,10 @@ const celebritySchema = new Schema({
   name: String,
   occupation: String,
   catchPhrase: String,
-moviePlayed: {
+moviePlayed: [{
     type:Schema.Types.ObjectId,
     ref:"Movies"
-}
+}]
 });
 
 module.exports = model("Celebrity", celebritySchema);
