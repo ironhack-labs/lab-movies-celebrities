@@ -19,8 +19,6 @@ router.post("/create", (req, res, next) => {
   const movies = req.body; // con el req.body necesitas pasarlo así.
   Movies.create(movies)
     .then((movie) => {
-
-
       Celebrity.findById(movie._cast[0])
         .then((actor) => {
           /*         console.log("si lo ubica",actor)
@@ -51,7 +49,7 @@ router.get("/movies", (req, res) => {
   Movies.find()
     .populate("_cast")
     .then((movies) => {
-      console.log("all the movies", movies);
+      //console.log("all the movies", movies);
       res.render("movies/movies", { movies: movies });
     })
     .catch((err) => {
@@ -62,7 +60,7 @@ router.get("/movies", (req, res) => {
 
 //movie detail
 
-router.get("/movies/:id", (req, res,next) => {
+router.get("/movies/:id", (req, res, next) => {
   const { id } = req.params;
   Movies.findById(id)
     .populate("_cast")
@@ -78,15 +76,74 @@ router.get("/movies/:id", (req, res,next) => {
 
 //movie detele:
 
-router.post('/movies/:id/delete',(req, res,next) => {
+router.post("/movies/:id/delete", (req, res, next) => {
   const { id } = req.params;
   Movies.findByIdAndDelete(id)
-  .then(() => {
-    console.log("movie deleted successfully")
-res.redirect("/movies/movies")
-  })
-.catch((err) => {console.log("error deleting movies", err);
-next();})
-})
+    .then(() => {
+      console.log("movie deleted successfully");
+      res.redirect("/movies/movies");
+    })
+    .catch((err) => {
+      console.log("error deleting movies", err);
+      next();
+    });
+});
+
+//movie editing
+
+//get route
+
+router.get("/movies/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+
+  Movies.findById(id)
+    .populate("_cast")
+    .then((movie) => {
+      //console.log("details of the movie for editing", movie);
+
+      Celebrity.find()
+        .then((celebrities) => {
+          //console.log("las celebridades: ", celebrities);
+          res.render("movies/edit-movie", {
+            data: { movie: movie, celebrities: celebrities },
+          });
+        })
+        .catch((err) => {
+          console.log("error editing movie", err);
+          next();
+        });
+    })
+    .catch((err) => {
+      console.log("error editing movie", err);
+      next();
+    });
+});
+
+//post route
+
+router.post("/movies/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+  
+
+  const { title, genre, plot, _cast } = req.body;
+
+  Movies.findByIdAndUpdate(id, { title, genre, plot }, { new: true })
+  .then((updatedMovie) => {
+      Celebrity.findById(_cast)
+        .then((actor) => {
+          
+actor.moviePlayed.push(updatedMovie._id);
+          actor.save();
+
+          res.redirect("/movies/movies");
+          console.log("actor, :", actor);
+        })
+
+        .catch((err) => {
+          console.log("error updating movie", err);
+          next();
+        });
+  });
+});
 
 module.exports = router;
