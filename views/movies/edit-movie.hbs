@@ -1,0 +1,24 @@
+<a href="/"><button>Go back</button></a>
+<h2>Edit Movie "{{movie.title}}"</h2>
+
+<form action="/movies/{{id}}/edit" method="post">
+  <label>Title:</label>
+  <input type="text" name="title" value="{{movie.title}}" placeholder="title" />
+  <label>Genre:</label>
+  <input type="text" name="genre" value="{{movie.genre}}" placeholder="genre" />
+  <label>Plot:</label>
+  <input
+    type="text"
+    name="plot"
+    value="{{movie.plot}}"
+    placeholder="write the movie's m plot"
+  />
+  <label for="cast">Cast:</label>
+  <select id="cast" name="cast" multiple>
+    {{#each movie.cast}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+  <br />
+  <button type="submit">Update movie{{movie.title}}</button>
+</form>

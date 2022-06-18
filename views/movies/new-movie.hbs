@@ -1,0 +1,18 @@
+<a href="/"><button>Go back</button></a>
+<h2>Create Movie</h2>
+<form action="/movies/create" method="post">
+  <label>Title:</label>
+  <input type="text" name="title" placeholder="title" />
+  <label>Genre:</label>
+  <input type="text" name="genre" placeholder="genre" />
+  <label>Plot:</label>
+  <input type="text" name="plot" placeholder="write the movie's m plot" />
+  <label for="cast">Cast:</label>
+  <select id="cast" name="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Create movie</button>
+</form>
