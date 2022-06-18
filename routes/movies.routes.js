@@ -49,7 +49,7 @@ router.get("/movies", (req, res) => {
   Movies.find()
     .populate("_cast")
     .then((movies) => {
-      //console.log("all the movies", movies);
+      console.log("all the movies", movies);
       res.render("movies/movies", { movies: movies });
     })
     .catch((err) => {
@@ -123,27 +123,34 @@ router.get("/movies/:id/edit", (req, res, next) => {
 
 router.post("/movies/:id/edit", (req, res, next) => {
   const { id } = req.params;
-  
 
   const { title, genre, plot, _cast } = req.body;
 
-  Movies.findByIdAndUpdate(id, { title, genre, plot }, { new: true })
-  .then((updatedMovie) => {
+  Movies.findByIdAndUpdate(id, { title, genre, plot }, { new: true }).then(
+    (updatedMovie) => {
+      updatedMovie._cast.push(_cast);
+      updatedMovie.save();
+
       Celebrity.findById(_cast)
         .then((actor) => {
-          
-actor.moviePlayed.push(updatedMovie._id);
-          actor.save();
+          console.log("la info-->", actor.moviePlayed[0], updatedMovie._id); //son lo mismo
 
-          res.redirect("/movies/movies");
-          console.log("actor, :", actor);
+          if (actor.moviePlayed[0] === updatedMovie._id) { //no se porque no funciona
+            return res.send("no se puede agregar al actor esta película");
+          } else if (actor.moviePlayed[0] !== updatedMovie._id) {
+            actor.moviePlayed.push(updatedMovie._id);
+            actor.save();
+            res.redirect("/movies/movies");
+            console.log("actor, :", actor);
+          }
         })
 
         .catch((err) => {
           console.log("error updating movie", err);
           next();
         });
-  });
+    }
+  );
 });
 
 module.exports = router;

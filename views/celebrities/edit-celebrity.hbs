@@ -1,0 +1,39 @@
+<h2> Edit Movie</h2>
+
+<form action="/celebrities/celebrity/edit/{{id}}" method="post">
+  <ul>
+
+    <label>Name:</label>
+    <input
+      name="name"
+     
+      value="{{name}}"
+    />
+    <label>Occupation:</label>
+    <input
+      name="occupation"
+      
+      value=" {{occupation}}"
+    />
+    <label>Catch phrase:</label>
+    <input name="catchPhrase"  value="{{catchPhrase}}" />
+    <br />
+
+
+    <label for="movie">Choose the Movie</label>
+    <select name="moviePlayed" id="movie">
+
+
+      {{#each moviePlayed}}
+        <option value="{{this._id}}"> {{this.title}} </option>
+      {{/each}}
+
+
+
+    </select>
+
+    <button type="submit">Enviar</button>
+
+  </ul>
+
+</form>

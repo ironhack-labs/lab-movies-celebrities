@@ -1,0 +1,24 @@
+<h2> Celebrity detail</h2>
+<a href="/">Home</a>
+
+<ul>
+    <br />
+<li> <h6>who?</h6>{{name}}</li>
+    <br>
+<li> <h6>What he/she does?</h6>{{occupation}}</li>
+<br>
+<li> <h6>Any catchy phrase?</h6>{{catchPhrase}}</li>
+<br>
+
+<h6>Movie played: </h6> 
+ {{#each moviePlayed}}
+     <p> {{this.title}}</p>
+    {{/each}}
+
+
+<a href="/celebrities/edit/{{id}}">Edit</a>
+<a href="/celebrities/delete/{{id}}">Delete</a>
+
+
+</ul>
+<br />
