@@ -6,7 +6,7 @@ const celebritySchema = new Schema({
     occupation:
     {
         type:String,
-        enum:['actor','producer','writer','director', 'actress', 'musician', 'other'],
+        enum:['actor','producer','writer','director', 'actress', 'singer', 'musician', 'other'],
         default:'unknown'
     },
     catchPhrase:String
