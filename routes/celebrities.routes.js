@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
-router.get('/celebrities',(req,res,next)=>{
+router.get('/user/celebrities',(req,res,next)=>{
     Celebrity.find()
     .then((celebrities)=>{
         res.render('celebrities/celebrities',{celebrities});

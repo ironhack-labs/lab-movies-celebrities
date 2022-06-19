@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require('../models/Celebrity.model');
 
-router.get('/movies',(req,res,next)=>{
+router.get('/user/movies',(req,res,next)=>{
     Movie.find()
     .then((movies)=>{
         res.render('movies/movies',{movies});
