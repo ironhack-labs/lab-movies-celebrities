@@ -4,9 +4,8 @@
 
     {{#each movies}}
     <li>Title:   {{title}}</li>
-    <li>Genre:   {{genre}}</li>
-    <li>Plot:   {{plot}}</li>
-    <li>Cast:   {{#each cast}}{{name}} {{/each}}</li>
+    <a href="/movies/movies/{{id}}">Movie's Details</a>
+    
     <br><br>
     {{/each}}
 

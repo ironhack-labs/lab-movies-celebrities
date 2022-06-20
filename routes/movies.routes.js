@@ -44,7 +44,19 @@ router.get("/movies", (req, res, next) => {
         })
 })
 
-    
+router.get("/movies/:id", (req, res, next) => {
+    const {id} = req.params;
+    Movie.findById(id)
+        .populate("_cast")
+        .then(movie => {
+            console.log("Movie's details: ", movie);
+            res.render("movies/movies-details", {movie});
+        })
+        .catch(err => {
+            console.log("Error tho show movie's details ", err);
+            next();
+        })
+})
     
     
     

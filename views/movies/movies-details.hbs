@@ -1,0 +1,15 @@
+<h2>Movie's Details</h2>
+
+<ul>
+
+    {{#each movies}}
+    <li>Title:   {{title}}</li>
+    <li>Genre:   {{genre}}</li>
+    <li>Plot:   {{plot}}</li>
+    <li>Cast:   {{#each cast}}{{name}} {{/each}}</li>
+    <br><br>
+    {{/each}}
+
+</ul>
+
+<a href="/">Back Home</a>
