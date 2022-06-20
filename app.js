@@ -18,6 +18,8 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 
+require('./config/session.config')(app)
+
 // default value for title local
 const projectName = 'lab-movies-celebrities';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
@@ -33,6 +35,9 @@ app.use('/',celebRoutes);
 
 const moviesRoutes = require('./routes/movies.routes')
 app.use('/', moviesRoutes);
+
+const signRoutes = require('./routes/signup.routes');
+app.use('/auth', signRoutes)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
