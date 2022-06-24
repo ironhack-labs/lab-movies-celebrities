@@ -46,9 +46,10 @@ router.get("/celebrities", (req, res, next) => {
 router.get("/celebrities/:id", (req, res, next) => {
     const {id} = req.params;
     Celebrity.findById(id)
+
         .then(celebrity => {
             console.log("Celebrity's details: ", celebrity);
-            res.render("celebrities/celebrities-details", {celebrity});
+            res.render("celebrities/celebrity-details", {celebrity});
         })
         .catch(err => {
             console.log("Error to show celebrity's details ", err);

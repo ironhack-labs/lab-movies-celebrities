@@ -2,14 +2,14 @@
 
 <ul>
 
-    {{#each movies}}
-    <li>Title:   {{title}}</li>
-    <li>Genre:   {{genre}}</li>
-    <li>Plot:   {{plot}}</li>
-    <li>Cast:   {{#each cast}}{{name}} {{/each}}</li>
+  
+    <li>Title:   {{movie.title}}</li>
+    <li>Genre:   {{movie.genre}}</li>
+    <li>Plot:   {{movie.plot}}</li>
+    <li>Cast:   {{#each cast}}{{cast.value}} {{/each}}</li>
     <br><br>
-    {{/each}}
+
 
 </ul>
-
+{{!-- <form action="/"></form> --}}
 <a href="/">Back Home</a>
