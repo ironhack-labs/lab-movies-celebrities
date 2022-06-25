@@ -30,16 +30,17 @@ router.post('/create', (req, res) => {
         })
         .then(movieID => {
             //We create a filter to get all the cast members
-            const filterParam = {
-                $or: []
+            if (req.body.cast.length > 0) {
+                const filterParam = {
+                    $or: []
+                }
+                req.body.cast.forEach(castID => {
+                    filterParam.$or.push({ _id: castID });
+                });
+
+                //we update the cast members with the id of the movie
+                return Celebrity.updateMany(filterParam, { $push: { movies: movieID } })
             }
-            req.body.cast.forEach(castID => {
-                filterParam.$or.push({ _id: castID });
-            });
-
-            //we update the cast members with the id of the movie
-            return Celebrity.updateMany(filterParam, { $push: { movies: movieID } })
-
 
             //OLD WAY a lot of calls to mongo
             //
@@ -69,7 +70,7 @@ router.post('/:id/delete', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Movie.findById(req.params.id)
-        .populate('cast', { _id: 0 })
+        .populate('cast')
         .then(data => res.render('movies/movie-details', data))
         .catch(err => console.log("Error loading the movie ", err));
 });

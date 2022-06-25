@@ -1,1 +1,12 @@
 <h1>Celebrities Detail</h1>
+<h2>{{name}}</h2>
+<p>{{occupation}}</p>
+<p>{{catchPhrase}}</p>
+{{#each movies}}
+<p><a href="/movies/{{id}}">Details</a> {{title}}</p>
+{{/each}}
+
+<form action="/celebrities/{{id}}/delete" method="post">
+    <a href="/celebrities/{{id}}/edit">Edit</a>
+    <button type="submit">Delete</button>
+</form>
