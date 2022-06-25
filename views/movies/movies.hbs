@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="fondo">
+
+
+
+        <h2>Lista de peliculas</h2>
+
+        <hr>
+
+        {{#each movies}}
+
+        <article>
+
+            <h4>Titulo: {{tittle}}</h4>
+            <h4>Genero: {{genre}}</h4>
+            <h4>Trama: {{plot}}</h4>
+            <a href="/movies/{{id}}" class="btn btn-info btn-sm">Ver detalle</a>
+
+            <hr>
+
+        </article>
+
+        {{/each}}
+    </div>
+
+</div>

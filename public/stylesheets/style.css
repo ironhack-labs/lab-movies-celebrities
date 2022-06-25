@@ -1,8 +1,19 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
 a {
   color: #00b7ff;
+}
+
+
+.center {
+  text-align: center;
+  background-image: url(../images/moustros.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100hv;
+
+}
+
+nav a{
+  color:antiquewhite;
 }
