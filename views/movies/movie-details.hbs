@@ -1,0 +1,20 @@
+<h2>Detalles de la pelicula</h2>
+<div class="details">
+
+    <ul class="list-group">
+        <li class="list-group-item"> Titulo:{{#each movies}}{{title}} {{/each}}</li>
+        <li class="list-group-item"> Género:{{#each movies}} {{genre}} {{/each}}</li>
+        <li class="list-group-item"> Plot: {{#each movies}} {{plot}} {{/each}}</li>
+        <li class="list-group-item"> Reparto:{{#each movies}} {{cast}} {{/each}}</li>
+
+    </ul>
+
+
+
+    {{#each celebrity}}
+    <p>{{name}}</p>
+    <p>{{occupation}}</p>
+
+    {{/each}}
+
+</div>

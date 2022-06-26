@@ -1,8 +1,142 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("./../images/film-wallpaper.jpg");
+  background-repeat: no-repeat;
+  object-fit: cover;
+
 }
+
+
 
 a {
   color: #00b7ff;
+}
+
+.index h1 {
+  font-family: sans-serif;
+  font-size: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: #b000ff;
+
+}
+
+.index p {
+  font-size: 20px;
+  font-family: sans-serif;
+  display: inline;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-size: 100px;
+  margin-left: 28%;
+  border-radius: 0.2rem;
+
+
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 80px;
+
+}
+
+.formulario {
+  margin-left: 35%;
+  margin-top: 40px;
+}
+
+.formulario input {
+
+  border-radius: 0.5ex;
+  background-color: black;
+  color: white
+}
+
+#input {
+  margin-top: 15px;
+  margin-left: 150px;
+
+}
+
+.input-one {
+  padding-right: 110px;
+  background-color: black;
+  color: white
+}
+
+.input-two {
+  padding-right: 82px;
+  background-color: black;
+  color: white
+}
+
+.input-three {
+  padding-right: 46px;
+}
+
+.input-four {
+  padding-right: 80px;
+}
+
+.input-five {
+  width: 160px;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-size: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+
+.input-buton {
+  display: flex;
+  justify-content: center;
+  margin-right: 400px;
+
+}
+
+.list p {
+  margin-top: 40px;
+  font-size: 30px;
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.butons-movie {
+
+  justify-content: center;
+
+}
+
+.first {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.second {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.third {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+
+
+.details {
+  font-size: 30px;
+  margin-right: 20px;
 }

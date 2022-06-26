@@ -1,0 +1,43 @@
+<h2> Editar pelicula {{#each movie}} {{title}} {{/each}}</h2>
+
+
+
+
+<form action=/movies/{{movie.id}}/edit class="formulario" method="POST">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Pelicula a modificar:</span>
+
+        <input type:"text" placeholder=" Introduzca titulo" name="title" id="title" value="{{title}}">
+
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">¿Género para cambiar?:</span>
+        <input type:"text" class="input-five" placeholder="Género" name="genre" id="genre" value="{{genre}}">
+
+    </div>
+    <div class=" input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"> Plot: </span>
+        <input class="input-one" type:"text" placeholder="Introduzca Plot" name="plot" id="plot" value="{{plot}}">
+
+    </div>
+    <div class=" input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"> Reparto:
+        </span>
+        <input class="input-two" type:"text" placeholder="Reparto" name="cast" id="cast" value="{{cast}}">
+
+        <div class="input-buton" id="input">
+            <input class="btn btn-success" type="submit" value="Enviar">
+        </div>
+</form>
+
+
+<!-- <form action='/movies/{{movie.id}}/edit' method="POST">
+    Titulo de la pelicula a modificar: <input type:"text" placeholder="" name="title" id="title" value="{{title}}">
+    ¿Género para cambiar?: <input type:"text" placeholder="" name="genre" id="genre" value="{{genre}}">
+    Plot a modificar: <input type:"text" placeholder="" name="plot" id="plot" value="{{plot}}">
+    Reparto a modificar: <input type:"text" placeholder="" name="cast" id="cast" value="{{cast}}">
+    <input type="submit" value="Enviar">
+
+
+
+</form>

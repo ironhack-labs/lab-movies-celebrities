@@ -1,0 +1,18 @@
+<h2>Lista de Peliculas</h2>
+<div class="list">
+    {{#each movies}}
+    <p>{{title}}</p>
+    <span class="butons-movie">
+        <div class="first">
+            <a class="btn btn-light" href="/movies/{{id}}"> Detalles de la película</a>
+        </div>
+        <div class="second">
+            <a class="btn btn-secondary" href="movies/{{id}}/edit">Editar pelicula</a>
+        </div>
+        <div class="third">
+            <a class="btn btn-danger" href="/movies/{{id}}/delete"> Borrar pelicula</a>
+        </div>
+    </span>
+
+    {{/each}}
+</div>
