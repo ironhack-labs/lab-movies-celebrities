@@ -1,0 +1,12 @@
+<h2>{{title}}</h2>
+<p>{{plot}}</p>
+<p>{{genre}}</p>
+<ul>
+    {{#each cast}}
+    <li>{{name}}</li>
+    {{/each}}
+</ul>
+<a href="/movies/{{id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+<form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+    <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+</form>

@@ -1,0 +1,25 @@
+<div class="container mt-5">
+
+    <h2>Movies</h2>
+    <div class="row">
+        {{#each moviesData}}
+        <div class="col-md-4">
+
+            <div class="card border-dark drone-card">
+
+                <div class="card-body">
+                    <p class="card-title"><strong>{{title}}</strong></p>
+
+                    <a href="/movies/{{id}}">Details</a>
+                    <a href="/movies/{{id}}/edit" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+                        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
+
+</div>
