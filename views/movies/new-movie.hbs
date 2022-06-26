@@ -1,46 +1,43 @@
-<div class="container">
+<div class="new-movie">
 
-    <div class="row justify-content-center">
+    <h2 class="celebrities-title">New movie</h2>
 
-        <div class="col-md-6">
+    <hr>
 
-            <h1>Crear películas</h1>
-
-            <hr>
-
-            <form action="/movies/create" method="POST">
-                <div class="mb-3">
-                    <label for="title" class="form-label"></label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Título">
-                </div>
-
-                <div class="mb-3">
-                    <label for="genre" class="form-label"></label>
-                    <input type="text" class="form-control" id="genre" name="genre" placeholder="Género">
-                </div>
-
-                <div class="mb-3">
-                    <label for="plot" class="form-label"></label>
-                    <input type="text" class="form-control" id="plot" name="plot" placeholder="Trama">
-                </div>
-
-                <div class="mb-3">
-                    <label for="cast" class="form-label">Celebrity</label>
-                    <br>
-                    <select name="cast" class="form-select" multiple>
-                        {{#each celebrity}}
-                        <option value="{{id}}">{{name}}</option>
-                        {{/each }}
-                    </select>
-                </div>
-
-
-
-                <button type="submit" class="btn btn-dark">Crear Película</button>
-            </form>
-
+    <form action="/movies/create" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label"></label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
-    </div>
+
+        <div class="mb-3">
+            <label for="genre" class="form-label"></label>
+            <input type="text" class="form-control" id="genre" name="genre" placeholder="genre">
+        </div>
+
+        <div class="mb-3">
+            <label for="plot" class="form-label"></label>
+            <input type="text" class="form-control" id="plot" name="plot" placeholder="plot">
+        </div>
+
+        <div class="mb-3">
+            <label for="cast" class="form-label">Celebrity</label>
+            <br>
+            <select name="cast" class="form-select" multiple>
+                {{#each celebrity}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each }}
+            </select>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-cm">Create movie</button>
+        <a href="/movies" class="btn btn-dark btn-sm">Return to movies list</a>
+    </form>
+
+
+
 
 
 </div>

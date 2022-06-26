@@ -1,40 +1,31 @@
 <div class="movie-class">
-    <h2>Detalles de la película {{title}}</h2>
-
-
+    <h2>Movie details</h2>
 
     <div class="movie">
-        <h5>{{title}}</h5>
-        <h5>{{genre}}</h5>
-        <p>{{plot}}</p>
+        <h3>Title <br>{{title}}</h3>
+        <h4>Genre <br>{{genre}}</h4>
+        <h5>Plot <br>{{plot}}</h5>
     </div>
 
+    <h2 class="celebrities-title">Celebrities</h2>
+    {{#each cast}}
 
+    <a href="/celebrities">
 
-    <div class="col-md-6">
-        Personajes
-        {{#each cast}}
-        <article>
-            <a href="/celebrities">
+        <br>{{name}}
+        <p>Occupation--{{occupation}}</p>
+        <p>Goal--{{catchPhrase}}</p>
 
-                {{name}} {{occupation}} {{catchPhrase}}
-        </article>
         {{/each}}
 
-    </div>
 
-    <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
-        <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
-    </form>
+        <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-delete btn-sm">
+        </form>
+        <hr>
+        <div class="btn-return">
+            <a href="/movies" class="btn btn-dark">Return to list</a>
+            <a href="/" class="btn btn-home">Return to home</a>
 
-
-
-    <hr>
-
-
-
-
-    <div class="btn-return">
-        <a href="/movies" class="btn btn-dark">Volver al listado</a>
-    </div>
+        </div>
 </div>

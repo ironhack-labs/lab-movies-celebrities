@@ -1,40 +1,21 @@
-<div class="container">
-
-    <hr>
-    <h2>Listado de películas</h2>
-
+<div class="celebrities">
+    <h2 class="celebrities-title">List of movies</h2>
     <hr>
 
     {{#each movie }}
 
-    <article class="peliculas">
+    <a href="/celebrities">
+        <div class="movies-list">
+            <h3>Title {{title}} </h3>
+            <h4>Genr {{genre}}</h4>
+            <h5>Trama <br>{{plot}} </h5>
+        </div>
+    </a>
+    <hr>
 
-        <a href="/celebrities">
-
-            <h5>Título {{title}} </h5>
-
-            <h5>Género {{genre}}</h5>
-
-            <h5>Trama {{plot}} </h5>
-
-        </a>
-
-
-
-
-        <a href="/movies/{{id}}" class="btn btn-dark btn-sm">Mostrar detalles de la película</a>
-
-        <a href="/movies/{{id}}/edit" class="btn btn-dark btn-sm">Editar película</a>
-
-
-
-
-
-
-
-
-    </article>
-
+    <a href="/movies/{{id}}" class="btn btn-show btn-sm">Show movie details</a>
+    <a href="/movies/{{id}}/edit" class="btn-secondary btn-sm">Edit movie</a>
+    <a href="/" class="btn btn-dark btn-sm">Return to home</a>
     {{/each}}
 
 </div>
