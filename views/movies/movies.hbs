@@ -1,0 +1,13 @@
+<div class="container">
+
+    <h2>Movies</h2>
+    <hr>
+
+    <ul>
+        {{#each moviesData}}
+        <li>
+            {{title}} <a href="/movies/{{id}}">See more</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

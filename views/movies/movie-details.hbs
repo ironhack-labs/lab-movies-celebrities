@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Available drones</h2>
+    <hr>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+            <p class="card-text">{{plot}}</p>
+            {{#each cast}}
+            <div>
+                <h5>{{name}}</h5>
+                <h6>{{occupation}}</h6>
+                <p>{{catchPhrase}}</p>
+            </div>
+            {{/each }}
+            <div>
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <button class="btn btn-sm btn-warning" type="submit">DELETE</button>
+                </form>
+                <button class="btn btn-sm btn-warning" type="submit"><a href="/movies/{{_id}}/edit">EDIT</a></button>
+            </div>
+        </div>
+    </div>
+</div>
