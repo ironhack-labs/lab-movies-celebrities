@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../images/famosos1.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {
   color: #00b7ff;
+}
+
+h1 {
+  font-style: normal;
+
 }
