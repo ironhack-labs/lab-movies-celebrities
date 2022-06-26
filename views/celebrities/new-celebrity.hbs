@@ -1,0 +1,67 @@
+<nav class="navbar main-nav navbar-expand-lg navbar-light bg-light mb-5">
+    <a href="/"><img src="/images/Imdb-Logo-2012.png" alt="imdb" class="imdb-logo"></a>
+    <a class="navbar-brand" href="/"><b>GodTierList</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/celebrities/create">Crea tu celebrity</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/celebrities">Lista de celebrities</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/movies/create">Añade tu película</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/movies">Lista de películas</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container create-form">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1 class="create-main-title">Añade una nueva celebrity a la página</h1>
+
+            <hr>
+
+            <form action="/celebrities/create" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label"><i>Nombre</i></label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="occupation" class="form-label"><i>Trabajo</i></label>
+                    <input type="text" class="form-control" id="occupation" name="occupation">
+                </div>
+
+                <div class="mb-4">
+                    <label for="catchPhrase" class="form-label"><i>Catch Phrase</i></label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+
+
+                <button type="submit" class="btn btn-light submit-link">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,48 @@
+<nav class="navbar main-nav navbar-expand-lg navbar-light bg-light mb-5">
+    <a href="/"><img src="/images/Imdb-Logo-2012.png" alt="imdb" class="imdb-logo"></a>
+    <a class="navbar-brand drones-nav" href="/"><b>GodTierList</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/celebrities/create">Crea tu celebrity</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/celebrities">Lista de celebrities</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/movies/create">Añade tu película</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/movies">Lista de películas</a>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="col-6">
+            <h1>Detalles de los Filmes</h1>
+            <h2>{{title}}</h2>
+            <p><b>Género:</b> {{genre}}</p>
+            <p><b>Trama:</b> <i>{{plot}}</i></p>
+
+            <h1>Actor: {{cast.[0].name}}</h1>
+            <p><b>Trabajo:</b> {{cast.[0].occupation}}</p>
+            <p><b>Catch Phrase:</b> <i>{{cast.[0].catchPhrase}}</i></p>
+
+        </div>
+    </div>
+
+</div>

@@ -1,8 +1,93 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+img {
+  width: 100%;
+  border: 2px solid white;
 }
 
-a {
-  color: #00b7ff;
+body {
+  font-family: sans-serif;
+  background-color: black;
+  color: white;
+}
+
+hr {
+  border-top: 1px solid white;
+}
+
+.home-page {
+  /* position: relative; */
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.home-page::before {
+  content: '';
+  background: url('/images/wp1853800.jpg');
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  opacity: 0.3;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 4em;
+
+}
+
+.home-content {
+  margin-top: 390px;
+}
+
+.mainlink {
+  margin-left: 10px;
+  width: 180px;
+  height: 50px;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-link {
+  display: block;
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  width: 180px;
+  height: 50px;
+}
+
+.imdb-logo {
+  width: 50px;
+}
+
+.create-form {
+  margin-top: 40px;
+}
+
+.create-main-title {
+  font-size: 3.5em;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.movie-title {
+  color: white;
+}
+
+a:hover {
+  color: indianred;
+  text-decoration: none;
 }

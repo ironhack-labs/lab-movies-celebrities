@@ -1,0 +1,80 @@
+<nav class="navbar main-nav navbar-expand-lg navbar-light bg-light">
+    <a href="/"><img src="/images/Imdb-Logo-2012.png" alt="imdb" class="imdb-logo"></a>
+    <a class="navbar-brand drones-nav" href="/"><b>GodTierList</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/celebrities/create">Crea tu celebrity</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/celebrities">Lista de celebrities</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/movies/create">Añade tu película</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/movies">Lista de películas</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container create-form">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1 class="create-main-title">Añade una nueva película a la página</h1>
+
+            <hr>
+
+            <form action="/movies/create" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label"><i>Título</i></label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label"><i>Género</i></label>
+                    <input type="text" class="form-control" id="genre" name="genre">
+                </div>
+
+                <div class="mb-4">
+                    <label for="plot" class="form-label"><i>Trama</i></label>
+                    <input type="text" class="form-control" id="plot" name="plot">
+                </div>
+
+                <div class="mb-4">
+
+                    <label for="cast" class="form-label"><i>Equipo</i></label>
+                    <br>
+                    <select class="form-select  form-select-lg mb-3" multiple aria-label="Default select example"
+                        id="cast" name="cast">
+                        {{#each celeb}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-light submit-link">Enviar</button>
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
