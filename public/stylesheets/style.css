@@ -1,25 +1,24 @@
 body {
 
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: url(../images/background.jpg) no-repeat center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
 
 /* background image */
-
-.header {
-  background: url(../images/descarga.jpg) no-repeat center;
-  background-size: cover;
-  min-height: 100vh;
-}
-
 .header .navbar {
-  background-color: rgb(162, 176, 188) !important;
+  background-color: #a2b0bc !important;
   opacity: 0.84;
 }
 
 /* index page */
 
 .text-index {
+
   font-size: 20px;
   font-weight: bold;
   color: #d8d0cf;
@@ -30,6 +29,19 @@ body {
   right: 20%;
   margin-left: 30px;
 
+}
+
+.text-two {
+
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 18px 30px;
+  position: fixed;
+  bottom: 30%;
+  left: 40%;
+  margin-left: 30px;
 }
 
 /* btn-create-person */
@@ -48,7 +60,7 @@ body {
   bottom: 70%;
   right: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 8px 15px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 2px 5px rgba(197, 67, 67, 0.908);
   z-index: 99;
 }
 
@@ -68,7 +80,7 @@ body {
   bottom: 60%;
   right: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 8px 15px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 5px 10px rgba(197, 67, 67, 0.908);
   z-index: 99;
 
 }
@@ -88,7 +100,7 @@ body {
   bottom: 40%;
   right: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 8px 15px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 5px 10px rgba(197, 67, 67, 0.908);
   z-index: 99;
 }
 
@@ -107,7 +119,7 @@ body {
   bottom: 30%;
   right: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 8px 15px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 5px 10px rgba(197, 67, 67, 0.908);
   z-index: 99;
 
 }
@@ -129,7 +141,7 @@ body {
   bottom: 25%;
   right: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 2px 5px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 5px 10px rgba(197, 67, 67, 0.908);
   z-index: 99;
 }
 
@@ -150,7 +162,7 @@ body {
   bottom: 38%;
   right: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 2px 5px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 5px 10px rgba(197, 67, 67, 0.908);
   z-index: 99;
 }
 
@@ -167,7 +179,7 @@ body {
   bottom: 50%;
   left: 100px;
   transition: all 300ms ease 0ms;
-  box-shadow: 0px 4px 15px rgba(197, 67, 67, 0.908);
+  box-shadow: 0px 5px 10px rgba(197, 67, 67, 0.908);
   z-index: 99;
 }
 
@@ -182,9 +194,10 @@ body {
 .celebrities {
 
   color: #ffffff;
-  position: fixed;
+  position: absolute;
   top: 5px;
   left: 100px;
+  bottom: 5%;
 
 }
 
@@ -214,7 +227,8 @@ body {
 }
 
 a {
-  color: rgb(20, 20, 20);
+  color: #fffefe;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .new-movie {
@@ -344,7 +358,6 @@ a {
   background-color: #0a2c42;
   color: #ffffff;
   text-align: left;
-  padding: 5px;
   font-size: .9em;
   position: fixed;
   bottom: 0;
