@@ -1,0 +1,22 @@
+<div class="moviesbg">
+    <h2 class="white">Celebrities in this film:</h2>
+
+    <article class="container">
+        <article class="row">
+
+            {{#each cast}}
+            <div class="card celeb" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ocupation}}</h6>
+                    <p class="card-text">{{catchPhrase}} </p>
+                </div>
+            </div>
+            {{/each}}
+        </article>
+        <br>
+        <a href="/movies" class="btn btn-dark">Back</a>
+    </article>
+
+
+</div>

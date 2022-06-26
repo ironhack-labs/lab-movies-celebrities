@@ -1,0 +1,33 @@
+<div class="moviesbg">
+    <h1 class="white">Movies</h1>
+    <hr>
+    <article>
+        <table class="table">
+            <tbody>
+                {{#each movies}}
+                <tr>
+                    <td><a href="/movies/{{id}}" class="link-light">{{title}}</a></td>
+                    {{!-- No sabía hacerlo de otra forma :) --}}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="/movies/{{id}}/edit" class="btn btn-warning ">EDIT</a></td>
+                    <td>
+                        <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+                            <input type="submit" value="DELETE" class="btn btn-danger btn-sm">
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </article>
+    <a href="/movies/createMovie" class="btn btn-dark">Create a movie</a>
+    <a href="/" class="btn btn-dark">Back</a>
+</div>

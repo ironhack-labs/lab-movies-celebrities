@@ -1,8 +1,48 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
 a {
   color: #00b7ff;
+}
+
+.main {
+  background-image: url('./../images/inception.jpg');
+  background-size: 100%;
+  height: 100vh;
+}
+
+.btext {
+  color: black;
+  padding-left: 50%;
+  justify-content: right;
+}
+
+.celeb {
+  margin-right: 40px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.moviesbg {
+  background-image: url('./../images/wallee.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.white {
+  color: aliceblue;
+}
+
+.celebbg {
+  background-image: url('./../images/cine.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.center {
+  justify-content: center;
 }

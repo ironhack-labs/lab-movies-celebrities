@@ -1,0 +1,23 @@
+<div class="celebbg">
+    <h1 class="white">Celebrities</h1>
+    <hr>
+    <article class="container">
+        <article class="row">
+            {{#each celebrities}}
+            <div class="card celeb" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ocupation}}</h6>
+                    <p class="card-text">{{catchPhrase}} </p>
+                </div>
+            </div>
+
+
+            {{/each}}
+        </article>
+        <br>
+        <a href="/celebrities/create" class="btn btn-dark">Create a new celebrity</a>
+        <a href="/" class="btn btn-dark"> Back</a>
+
+    </article>
+</div>
