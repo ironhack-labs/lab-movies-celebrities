@@ -1,27 +1,27 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h2>Create a new movie</h2>
+            <h2>Edit movie</h2>
             <hr>
-            <form action="/movies/create" method="POST">
+            <form action="/movies/{{movie.id}}/edit" method="POST">
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titulo</label>
+                    <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="genre" class="form-label">Género</label>
+                    <label for="genre" class="form-label">Genre</label>
                     <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="plot" class="form-label">Trama</label>
+                    <label for="plot" class="form-label">Plot</label>
                     <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="cast" class="form-label">Elenco</label>
+                    <label for="cast" class="form-label">Cast</label>
                     <select name="cast" class="form-select" multiple="multiple" aria-label="Disabled select example">
                         {{#each celebData}}
                         <option value="{{id}}">{{name}}</option>
@@ -29,7 +29,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-dark">Crear Pelicula</button>
+                <button type="submit" class="btn btn-dark">Edit Movie</button>
 
             </form>
 
