@@ -1,0 +1,35 @@
+
+<div class="container">
+
+    <h1>LIST OF MOVIES</h1>
+
+    <hr>
+
+    <hr>
+    <hr>
+
+    <a href="/movies/create" class="movies-link">Create New Film</a>
+
+    <hr>
+    <hr>
+
+
+    {{#each movies}}
+
+    <article>
+
+        <a href="/movies/{{id}}">{{title}}</a>
+
+        {{!-- <a href="/movies/{{id}}" class="btn btn-warning btn-sm">editar</a> --}}
+
+        <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+            <button type="submit" class="btn btn-info">delete</button>
+        </form>
+
+        <hr>
+
+    </article>
+
+    {{/each}}
+
+</div>

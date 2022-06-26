@@ -4,5 +4,37 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: #7adbe2;
+}
+
+img {
+  width: 100%;
+}
+
+.index {
+  margin-top: 50px;
+  background-image: url('/images/IronHall.jpg');
+  opacity: 0.7;
+  background-size: cover;
+  height: 100vh;
+  background-color: red;
+}
+
+.titular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 500px;
+  -webkit-text-stroke: 1px rgb(0, 208, 255);
+  font-family: arial;
+  color: rgb(25, 88, 91);
+
+}
+
+/* celebrties */
+
+/* movies */
+
+.movies-link {
+  font-size: 150%;
 }
