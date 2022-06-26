@@ -88,7 +88,7 @@ router.post('/movies/:id/edit', (req, res) => {
 
     Movie
         .findByIdAndUpdate(id, { title, genre, plot })
-
+        // .find(Celebrity, console.log("---------", Celebrity))
         .then(res.redirect('/movies'))
         .catch(err => console.log(err))
 })

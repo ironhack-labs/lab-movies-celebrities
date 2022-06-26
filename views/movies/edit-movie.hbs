@@ -7,15 +7,9 @@
 
         <div class="col-md-6">
 
-            <h1>{{title}}</h1>
-
-            <h5>Nombre {{name}} </h5>
-
-            <h5>Ocupación {{occupation}}</h5>
-
-            <h5>Slogan {{catchPhrase}} </h5>
-
+            <h1>Vas a editar {{title}}</h1>
             <hr>
+
 
 
             <form action="/movies/{{id}}/edit" method="POST">
@@ -23,17 +17,19 @@
                 <div class="mb-3">
 
                     <label for="title"></label>
-                    <input type="text" class="form-control" id="title" placeholder="Título" name="{{title}}">
+                    <input type="text" class="form-control" id="title" placeholder="Título" name="title"
+                        value="{{title}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="genre"></label>
-                    <input type="text" class="form-control" id="genre" placeholder="Género" name="{{genre}}">
+                    <input type="text" class="form-control" id="genre" placeholder="Género" name="genre"
+                        value="{{genre}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="plot"></label>
-                    <input type="text" class="form-control" id="plot" placeholder="Trama" name="{{plot}}">
+                    <input type="text" class="form-control" id="plot" placeholder="Trama" name="plot" value="{{plot}}">
                 </div>
 
 
