@@ -1,33 +1,42 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <hr>
-    <h2>Listado de personajes</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-    <hr>
-
-    {{#each allCelebrities }}
-
-    <article>
-
-        <a href="/celebrities">
-
-            <h5>Nombre {{name}} </h5>
-
-            <h5>Ocupación {{occupation}}</h5>
-
-            <h5>Slogan {{catchPhrase}} </h5>
-        </a>
-
-        <a href="/celebrities/create" class="btn btn-dark btn-sm">Crear personaje nuevo</a>
-
-        <a href="/" class="btn btn-dark btn-sm">Volver</a>
-
-
+<body>
+    <div class="celebrities">
+        <h2 class="celebrities-title">List of characters</h2>
         <hr>
 
+        {{#each allCelebrities }}
 
-    </article>
+        <article>
 
-    {{/each}}
+            <a href="/celebrities">
+                <div class="text-celebrities">
+                    <h5>Nombre {{name}} </h5>
+                    <h5>Ocupación {{occupation}}</h5>
+                    <h5>Slogan {{catchPhrase}} </h5>
+                </div>
+            </a>
 
-</div>
+
+            <a href="/celebrities/create" class="btn-secondary btn-sm">Create celebrity</a>
+
+            <a href="/" class="btn btn-dark btn-sm">Return home</a>
+
+            <hr>
+
+        </article>
+        {{/each}}
+
+
+    </div>
+</body>
+
+</html>
