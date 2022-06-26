@@ -1,29 +1,40 @@
-<div class="container">
-    <h1>Detalles de {{title}}</h1>
+<div class="movie-class">
+    <h2>Detalles de la película {{title}}</h2>
 
-    <hr>
 
-    <div class="row">
-        <div class="col-md-6">
-            <p>{{title}}</p>
 
-        </div>
-        <div class="col-md-6">
-            Películas
-            {{#each movieData}}
-            <article>
-                {{!-- <img src="{{pictureUrl}}" alt="{{name}}" style="width: 100%"> --}}
-                <h1>{{title}}</h1>
-                {{!-- {{lastName}}
-                ({{nationality}}) --}}
-            </article>
-            {{/each}}
-
-        </div>
+    <div class="movie">
+        <h5>{{title}}</h5>
+        <h5>{{genre}}</h5>
+        <p>{{plot}}</p>
     </div>
 
 
+
+    <div class="col-md-6">
+        Personajes
+        {{#each cast}}
+        <article>
+            <a href="/celebrities">
+
+                {{name}} {{occupation}} {{catchPhrase}}
+        </article>
+        {{/each}}
+
+    </div>
+
+    <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+        <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+    </form>
+
+
+
     <hr>
 
-    <a href="/movies" class="btn btn-dark">Volver al listado</a>
+
+
+
+    <div class="btn-return">
+        <a href="/movies" class="btn btn-dark">Volver al listado</a>
+    </div>
 </div>

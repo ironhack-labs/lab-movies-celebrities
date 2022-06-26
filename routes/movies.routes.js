@@ -14,6 +14,7 @@ router.get('/movies/create/', (req, res) => {
 
 });
 
+//CREATE MOVIE
 router.post('/movies/create', (req, res) => {
 
 
@@ -25,7 +26,7 @@ router.post('/movies/create', (req, res) => {
         .catch(err => console.log(err))
 })
 
-
+//LIST MOVIE
 router.get('/movies', (req, res) => {
 
 
@@ -39,6 +40,7 @@ router.get('/movies', (req, res) => {
 })
 
 
+//DETAIL MOVIE BY ID
 router.get('/movies/:id', (req, res) => {
 
     const { id } = req.params
@@ -46,10 +48,52 @@ router.get('/movies/:id', (req, res) => {
     Movie
         .findById(id)
         .populate('cast')
-        .then(movieData => {
-            res.render('movies/movie-details', movieData)
+        .then(movie => {
+
+            res.render('movies/movie-details', movie)
         })
         .catch(err => console.log(err))
+
 })
+
+
+//DELETE MOVIE
+router.post('/movies/:id/delete', (req, res) => {
+
+    const { id } = req.params
+
+    Movie
+        .findByIdAndRemove(id)
+        .then(() => res.redirect(`/movies`))
+        .catch(err => console.log(err))
+})
+
+//EDIT MOVIE
+router.get('/movies/:id/edit', (req, res) => {
+
+    const { id } = req.params
+
+    Movie
+        .findById(id)
+        .then(editMovie => res.render('movies/edit-movie', editMovie))
+        .catch(err => console.log(err))
+
+})
+
+
+router.post('/movies/:id/edit', (req, res) => {
+
+    const { title, genre, plot } = req.body
+    const { id } = req.params
+
+    Movie
+        .findByIdAndUpdate(id, { title, genre, plot })
+
+        .then(res.redirect('/movies'))
+        .catch(err => console.log(err))
+})
+
+
+
 
 module.exports = router

@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Celebrity = require('./../models/Celebrity.model.js')
 
+
+//CREATE CELEBRITY
 router.get('/celebrities/create', (req, res) => {
 
     res.render('celebrities/new-celebrity');
@@ -17,6 +19,8 @@ router.post('/celebrities/create', (req, res) => {
         .then(() => res.redirect('/celebrities/create'))
         .catch(err => console.log(err))
 })
+
+//ALL CELEBRITIES
 
 router.get('/celebrities', (req, res) => {
 
