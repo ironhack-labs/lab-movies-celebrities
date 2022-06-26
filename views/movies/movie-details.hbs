@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+            <p class="card-text">{{plot}}</p>
+            <p class="card-text">Cast members:</p>
+            <ul>
+                {{#each cast}}
+                <li>{{name}}</li>
+                {{/each}}
+            </ul>
+            <form action="/movies/{{id}}/delete" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+            </form>
+        </div>
+    </div>
+</div>

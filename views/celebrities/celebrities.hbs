@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Our celebrities</h2>
+    <hr>
+
+    <div class="row">
+        {{#each celebrities}}
+        <div class="col-3 mb-5 mt-5">
+            <article>
+                <div class="card" style="width: 16rem; height: 12rem;">
+                    <div class="card-body">
+                        <h5>{{name}}</h5>
+                        <p>Occupation: {{occupation}}</p>
+                        <p>{{catchPhrase}}</p>
+                        {{!-- <div class="card-buttons">
+                            <a href="/drones/{{id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="/drones/{{id}}/delete" method="POST" style="display: inline-block">
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            </form>
+                        </div> --}}
+                    </div>
+            </article>
+
+        </div>
+        {{/each}}
+    </div>
+
+</div>

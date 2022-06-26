@@ -1,8 +1,29 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.index-background {
+  margin: 0;
+  height: 100vh;
+  background-image: url('./../images/agents.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-a {
-  color: #00b7ff;
+.index-content {
+  text-align: center;
+}
+
+.index-content>h1 {
+  padding: 125px 0 0 0;
+  margin: 0 0 50px 0;
+}
+
+.index-content>p {
+  margin: 50px 0 50px 0;
+}
+
+h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+hr {
+  width: 60%;
 }
