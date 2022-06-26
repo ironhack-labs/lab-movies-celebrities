@@ -1,0 +1,40 @@
+<div class="container">
+
+    <hr>
+    <h2>Listado de personajes</h2>
+
+    <hr>
+
+    {{#each movie }}
+
+    <article>
+
+        <a href="/celebrities">
+
+            <h5>Título {{title}} </h5>
+
+            <h5>Género {{genre}}</h5>
+
+            <h5>Trama {{plot}} </h5>
+
+            <h5> {{cast}} </h5>
+
+        </a>
+
+
+
+        <a href="/movies/movie-details" class="btn btn-dark btn-sm">Mostrar detalles de la película</a>
+
+
+        <form action="/movies/{{id}}/delete" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+        </form>
+
+        <hr>
+
+
+    </article>
+
+    {{/each}}
+
+</div>

@@ -1,8 +1,16 @@
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background-image: url(../images/background.jpg); */
+
 }
 
-a {
-  color: #00b7ff;
+.btn-person {
+  margin-left: 500px;
+  margin-top: 300px;
+}
+
+.btn-list {
+  margin-left: 500px;
+  margin-top: 10px;
 }

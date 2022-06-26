@@ -1,0 +1,37 @@
+<div class="container">
+
+    <hr>
+    <h2>Listado de personajes</h2>
+
+    <hr>
+
+    {{#each allCelebrities }}
+
+    <article>
+
+        <a href="/celebrities">
+
+            <h5>Nombre {{name}} </h5>
+
+            <h5>Ocupación {{occupation}}</h5>
+
+            <h5>Slogan {{catchPhrase}} </h5>
+        </a>
+
+        <a href="/celebrities/create" class="btn btn-dark btn-sm">Crear personaje nuevo</a>
+
+        <a href="/" class="btn btn-dark btn-sm">Volver</a>
+        {{!-- <a href="/drones/{{id}}/edit" class="btn btn-info btn-sm">Actualizar drone</a> --}}
+
+        {{!-- <form action="/drones/{{id}}/delete" method="POST" style="display: inline-block">
+            <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+        </form> --}}
+
+        <hr>
+
+
+    </article>
+
+    {{/each}}
+
+</div>

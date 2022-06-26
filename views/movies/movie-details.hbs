@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Detalles de {{title}}</h1>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p>{{title}}</p>
+
+        </div>
+        <div class="col-md-6">
+            Películas
+            {{#each movieData}}
+            <article>
+                {{!-- <img src="{{pictureUrl}}" alt="{{name}}" style="width: 100%"> --}}
+                <h1>{{title}}</h1>
+                {{!-- {{lastName}}
+                ({{nationality}}) --}}
+            </article>
+            {{/each}}
+
+        </div>
+    </div>
+
+
+    <hr>
+
+    <a href="/movies" class="btn btn-dark">Volver al listado</a>
+</div>
