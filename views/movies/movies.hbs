@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="mb-5">Movies list</h1>
+    <div class="row">
+        <div class="col-4">
+            <ul>
+                {{#each movies}}
+                <li>
+                    <p><strong>Title: </strong>{{title}}</p>
+                    <p><strong>Cast: </strong></br>
+                        {{#each cast}}
+                        {{name}}</br>
+                        {{/each}}
+
+                    <p><a href="/movies/{{this.id}}">See more</a></p></br>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-6">
+            <a href="/movies/create" class="btn btn-outline-dark mb-5">Create new movie</a>
+        </div>
+    </div>
+</div>

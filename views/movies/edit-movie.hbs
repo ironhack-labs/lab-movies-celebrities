@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="mb-5">Edit movie</h2>
+
+    <form action="/movies/{{movie.id}}/edit" method="POST">
+        <div class="mb-5">
+            <label for="title" class="form-label"><strong>Title</strong></label>
+            <input type="text" class="form-control mb-3" name="title" value="{{movie.title}}">
+            <label for="genre" class="form-label"><strong>Genre</strong></label>
+            <input type="text" class="form-control mb-3" name="genre" value="{{movie.genre}}">
+            <label for="plot" class="form-label"><strong>Plot</strong></label>
+            <input type="text" class="form-control mb-3" name="plot" value="{{movie.plot}}">
+
+            <label for="cast"><strong>Select the cast</strong></label>
+            <select name="cast" class="form-select" multiple>
+                {{#each celebrities}}
+                
+                <option selected value="{{this.id}}">{{this.name}}</option>
+                
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-warning mb-5">Edit</button>
+    </form>
+
+    <a href="/movies" class="btn btn-outline-dark">Back</a>
+</div>

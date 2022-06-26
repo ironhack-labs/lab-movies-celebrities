@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="mb-5">{{title}}</h1>
+
+    <p><strong>Genre: </strong>{{genre}}</p>
+    <p><strong>Plot: </strong>{{plot}}</p>
+    <p class="mb-5"><strong>Cast: </strong></br>{{#each cast}}
+        {{name}}</br>
+        <strong>Occupation: </strong>{{occupation}}</br>
+        <strong>Catch phrase: </strong>{{catchPhrase}}</br></br>
+        {{/each}}
+    </p>
+    <div class="row">
+        <div class="col-1 btn-edit">
+            <a href="/movies/{{id}}/edit" class="btn btn-warning mb-5">Edit</a>
+        </div>
+        
+        <div class="col-1">
+            <form action="/movies/{{id}}/delete" method="POST" class="mb-5">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </div>
+    </div>
+</div>

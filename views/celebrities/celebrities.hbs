@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="mb-5">Celebrities list</h1>
+
+    <div class="row">
+        <div class="col">
+            <ul>
+                {{#each celebrities}}
+                <li>
+                    <p><strong>Name: </strong>{{name}}</p>
+                    <p><strong>Occupation: </strong>{{occupation}}</p>
+                    <p><strong>Catch phrase: </strong>{{catchPhrase}}</p>
+                </li></br>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col">
+            <a href="/celebrities/create" class="btn btn-outline-dark">Create new celebrity</a>
+        </div>
+    </div>
+</div>
