@@ -1,11 +1,24 @@
-<h2>List of movies</h2>
-<ul>
-    {{#each data}}
-    <li>
-        <h5>
-            {{title}}
-        </h5>
-        <a href="/movies/{{id}}">Details</a>
-    </li>
-    {{/each}}
-</ul>
+<div class="container">
+    <h2 class="listText">Movies</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Plot</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{title}}</td>
+                <td>{{genre}}</td>
+                <td>{{plot}}</td>
+                <td><a href="/movies/{{id}}" class="btn btn-primary list-btn">Details</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/movies/create" class="btn btn-success list-btn">Add</a>
+</div>

@@ -1,12 +1,24 @@
-<h3>List of celebs</h3>
-<ul>
-    {{#each data}}
-    <li>
-        <p><a href="/celebrities/{{id}}/details">Details</a>
-            | Name: {{name}}
-            | Occupation: {{occupation}}
-            | Catch Phrase:{{catchPhrase}}</p>
-    </li>
-
-    {{/each}}
-</ul>
+<div class="container">
+    <h2 class="listText">Celebs</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Occupation</th>
+                <th scope="col">Catch phrase</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{occupation}}</td>
+                <td>{{catchPhrase}}</td>
+                <td><a href="/celebrities/{{id}}/details" class="btn btn-primary list-btn">Details</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/celebrities/create" class="btn btn-success list-btn">Add</a>
+</div>

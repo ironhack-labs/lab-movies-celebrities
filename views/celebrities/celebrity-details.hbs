@@ -1,12 +1,34 @@
-<h1>Celebrities Detail</h1>
-<h2>{{name}}</h2>
-<p>{{occupation}}</p>
-<p>{{catchPhrase}}</p>
-{{#each movies}}
-<p><a href="/movies/{{id}}">Details</a> {{title}}</p>
-{{/each}}
+<div class="container">
+    <h1 class="listText">Celebrity:</h1>
+    <h1 class="listText">{{name}}</h1>
+    <ul>
+        <h3><b>Occupation: </b>{{occupation}}</h3>
+        <h3><b>Catch Phrase: </b>{{catchPhrase}}</h3>
+        <h3><b>Movies:</b></h3>
 
-<form action="/celebrities/{{id}}/delete" method="post">
-    <a href="/celebrities/{{id}}/edit">Edit</a>
-    <button type="submit">Delete</button>
-</form>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Plot</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each movies}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{genre}}</td>
+                    <td>{{plot}}</td>
+                    <td><a href="/movies/{{id}}" class="btn btn-primary list-btn">Details</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <form action="/celebrities/{{id}}/delete" method="post">
+            <a href="/celebrities/{{id}}/edit" class="btn btn-warning">Edit</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </ul>
+</div>

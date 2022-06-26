@@ -1,21 +1,33 @@
-<h2>{{title}}</h2>
-<ul>
-    <p>Genre: {{genre}}</p>
-    <p>Plot: {{plot}}</p>
-    <h3>Cast:</h3>
-    {{#each cast}}
-    <li>
-        <p>
-            <a href="/celebrities/{{id}}/details">Details</a>
-            {{name}}
-            {{occupation}}
-            {{catchPhrase}}
-        </p>
-    </li>
-    {{/each}}
+<div class="container">
+    <h1 class="listText">Movie: {{title}}</h1>
+    <ul>
+        <h3><b>Genre: </b>{{genre}}</h3>
+        <h3><b>Plot: </b>{{plot}}</h3>
+        <h3><b>Cast:</b></h3>
 
-    <form action="/movies/{{id}}/delete" method="post">
-        <a href="/movies/{{id}}/edit">Edit</a>
-        <button type="submit">Delete</button>
-    </form>
-</ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Occupation</th>
+                    <th scope="col">Catch phrase</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each cast}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{occupation}}</td>
+                    <td>{{catchPhrase}}</td>
+                    <td><a href="/celebrities/{{id}}/details" class="btn btn-primary list-btn">Details</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <form action="/movies/{{id}}/delete" method="post">
+            <a href="/movies/{{id}}/edit" class="btn btn-warning">Edit</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </ul>
+</div>

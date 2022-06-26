@@ -1,0 +1,24 @@
+.hero {
+    background-image: url("./../images/hollywood.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.listText {
+    text-align: center;
+}
+
+.list-btn {
+    float: right;
+}

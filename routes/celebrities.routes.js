@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id/details', (req, res) => {
     Celebrity.findById(req.params.id)
-        .populate('movies', 'title')
+        .populate('movies', { cast: 0 })
         .then(celeb => {
             res.render('celebrities/celebrity-details', celeb);
         })

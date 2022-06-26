@@ -6,7 +6,7 @@ const Movie = require('./../models/Movie.model');
 router.get('/', (req, res) => {
 
     Movie.find()
-        .select({ title: 1 })
+        .select({ cast: 0 })
         .then(data => res.render('movies/movies', { data }))
         .catch(err => console.log("error loading the movies ", err))
 
@@ -61,9 +61,9 @@ router.post('/:id/delete', (req, res) => {
     const movieID = req.params.id;
 
     const removeCastMovie = Celebrity.updateMany({ movies: movieID }, { $pull: { movies: movieID } });
-    const deleteMovie = Movie.findOneAndDelete(req.params.id);
+    const deleteMovie = Movie.findByIdAndDelete(movieID);
 
-    Promise.all([removeCastMovie, deleteMovie])
+    Promise.all([deleteMovie, removeCastMovie])
         .then(res.redirect('/movies'))
         .catch(err => console.log("error deleting the movie", err));
 });

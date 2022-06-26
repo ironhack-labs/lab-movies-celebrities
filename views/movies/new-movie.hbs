@@ -1,21 +1,28 @@
-<h2>Add a new Movie</h2>
+<div class="container">
+    <h2>Register a new Movie</h2>
 
-<form action="/movies/create" method="post">
-    <label for="title">Title:</label><br>
-    <input type="text" id="title" name="title"><br>
-
-    <label for="genre">Genre:</label><br>
-    <input type="text" id="genre" name="genre"><br>
-
-    <label for="plot">Plot:</label><br>
-    <input type="text" id="plot" name="plot"><br>
-
-    <br>
-    <select name="cast" id="cast" multiple>
-        {{#each data}}
-        <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select>
-    <br>
-    <button type="submit">ADD</button>
-</form>
+    <form action="/movies/create" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Movie Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+            <div class="form-text">This cannot be an empty field.</div>
+        </div>
+        <div class="mb-3">
+            <label for="genre" class="form-label">Genre of the Movie</label>
+            <input type="text" class="form-control" id="genre" name="genre">
+        </div>
+        <div class="mb-3">
+            <label for="plot" class="form-label">Plot of the Movie</label>
+            <input type="text" class="form-control" id="plot" name="plot">
+        </div>
+        <div class="mb-3">
+            <label for="cast" class="form-label">Cast</label>
+            <select multiple class="form-select" aria-label="Default select example" name="cast" id="cast">
+                {{#each data}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

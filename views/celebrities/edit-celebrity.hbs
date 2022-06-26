@@ -1,15 +1,20 @@
-<h2>Add a new Celebrity</h2>
+<div class="container">
+    <h2>Edit Celebrity</h2>
 
-<form action="/celebrities/{{id}}/edit" method="post">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" value="{{name}}"><br>
-
-    <label for="occupation">Occupation:</label><br>
-    <input type="text" id="occupation" name="occupation" value="{{occupation}}"><br>
-
-    <label for="catchPhrase">Catch Phrase:</label><br>
-    <input type="text" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}"><br>
-
-    <br>
-    <button type="submit">ADD</button>
-</form>
+    <form action="/celebrities/{{id}}/edit" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name of the Celebrity</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+            <div class="form-text">This cannot be an empty field.</div>
+        </div>
+        <div class="mb-3">
+            <label for="occupation" class="form-label">Occupation of the Celebrity</label>
+            <input type="text" class="form-control" id="occupation" name="occupation" value="{{occupation}}">
+        </div>
+        <div class="mb-3">
+            <label for="catchPhrase" class="form-label">Catch Phrase</label>
+            <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
