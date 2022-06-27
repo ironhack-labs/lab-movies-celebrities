@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
 
 //delete
 
-router.get('/:id/delete', (req, res) => {
+router.post('/:id/delete', (req, res) => {
     const { id } = req.params
 
     Movie
