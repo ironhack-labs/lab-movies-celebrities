@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <p>Movie title: {{title}}</p>
+            <p>Movie genre: {{genre}}</p>
+            <p>Movie plot: {{plot}}</p>
+            <p>Movie cast:
+                {{#each cast}}
+            <ul>
+                <li>Name: {{name}}</li>
+                <li>Occupation: {{occupation}}</li>
+                <li>Catchphrase: {{catchPhrase}}</li>
+            </ul>
+            {{/each}}
+            <form action="/movies/{{id}}/edit" method="GET"><button class="btn btn-warning" type="submit">edit</button>
+            </form>
+            <form action="/movies/{{id}}/delete" method="POST"><button class="btn btn-danger"
+                    type="submit">delete</button></form>
+        </div>
+    </div>
+</div>

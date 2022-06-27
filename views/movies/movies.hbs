@@ -1,0 +1,7 @@
+<div class="container">
+    <h1>List of movies</h1>
+    {{#each movie}}
+    <p>Title: {{title}}</p>
+    <a href="/movies/movie-details/{{id}}">Details</a>
+    {{/each}}
+</div>
