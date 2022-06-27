@@ -11,5 +11,10 @@
 
 
 </ul>
-{{!-- <form action="/"></form> --}}
+<form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete "{{movie.title}}"" movie</button>
+</form><br><br>
+
+  <a href="/movies/{{_id}}/edit">Edit</a>
+
 <a href="/">Back Home</a>
