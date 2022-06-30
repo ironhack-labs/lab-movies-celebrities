@@ -36,7 +36,8 @@ router.get('/celebrities', (req, res, next) => {
     Celebrity.find()
     .then((allCelebritiesFromDB) => {
         // console.log(allCelebritiesFromDB)
-        res.render('celebrities/celebrities.hbs'), {celebrities : allCelebritiesFromDB}})
+        res.render('celebrities/celebrities.hbs', {celebrities : allCelebritiesFromDB})
+    })
     .catch(err=>next(err))
 })
 

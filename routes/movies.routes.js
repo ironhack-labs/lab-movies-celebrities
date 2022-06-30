@@ -32,7 +32,8 @@ router.get('/movies', (req, res, next) => {
     Movie.find()
     .then((allMoviesFromDB) => {
         // console.log(allMoviesFromDB)
-        res.render('movies/movies.hbs'), {movies : allMoviesFromDB}})
+        res.render('movies/movies.hbs', {movies : allMoviesFromDB})
+      })
     .catch(err=>next(err))
 })
 
