@@ -9,9 +9,9 @@
     <input name="plot" value="{{movieE.plot}}">
     <label>Cast</label>
    
-    <select name="cast" id="cast">
+    <select multiple name="cast" id="cast">
          {{#each celebrities}}
-        <option value="{{id}}">{{name}}</option>
+        <option value="{{_id}}">{{name}}</option>
         {{/each}}
     </select>
     

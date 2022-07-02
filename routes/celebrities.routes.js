@@ -28,4 +28,26 @@ router.post("/celebrities/create",(req,res,next)=>{
     })
 })
 
+router.get('/celebrity-edit/:id',(req,res,next)=>{
+    const {id} = req.params;
+    Celebrity.findById(id)
+    .then(celebrity => {
+        res.render('celebrities/edit-celebrity',celebrity);
+    })
+})
+
+router.post('/celebrity-edit/:id',(req,res,next)=>{
+    const {id} = req.params;
+    const {name,occupation,catchPhrase} = req.body;
+    Celebrity.findByIdAndUpdate(id,{name,occupation,catchPhrase},{new:true})
+    .then(celebrityUpdated=>{
+        console.log('nueva info: ',celebrityUpdated);
+        res.redirect('/user/celebrities')
+    })
+    .catch(error=> {
+        console.log("error",error)
+        next()
+    })
+})
+
 module.exports = router;

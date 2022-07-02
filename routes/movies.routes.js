@@ -32,6 +32,7 @@ router.post("/movies/create",(req,res,next)=>{
 router.get('/movies/:_id', (req, res, next) => {
     const {_id} = req.params
     Movie.findById(_id)
+    .populate('cast')
     .then(movie => {
       res.render('movies/movie-details',movie)
     })
@@ -76,7 +77,7 @@ router.get('/movies/:_id', (req, res, next) => {
     Movie.findByIdAndUpdate(_id,{title,genre,plot,cast},{new:true}) 
       .then(updatedMovie=>{
           console.log("el nuevo mov",updatedMovie)
-          res.redirect("/movies")
+          res.redirect("/user/movies")
       })
       .catch(error=>{
           console.log("el error",error)

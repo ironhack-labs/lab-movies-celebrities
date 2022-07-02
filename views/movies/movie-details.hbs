@@ -2,8 +2,14 @@
     <h4>{{title}}</h4><br><br><br>
     <span>{{genre}}</span> <br><br>
     <span>{{plot}}</span> <br><br>
-    <b><span>{{cast}}</span></b>
-<br><br><br>
+     <ul>
+      <h1 class="has-text-centered mt-6 subtitle">Cast</h1>
+      {{#each cast}}
+        <h1 class="is-size-5 has-text-primary">Name : {{this.name}}</h1> 
+        <h3 class="is-size-6 mb-1 mt-1 has-text-black-ter">Occupation : {{this.occupation}}</h3> 
+        <p class="is-size-6 mb-1 mt-1 has-text-grey">Catchphrase:{{this.catchPhrase}}</p>
+      {{/each }}
+    </ul>
 
 
 <br>
