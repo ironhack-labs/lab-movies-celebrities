@@ -6,15 +6,15 @@
     <li>Title:   {{movie.title}}</li>
     <li>Genre:   {{movie.genre}}</li>
     <li>Plot:   {{movie.plot}}</li>
-    <li>Cast:   {{#each cast}}{{cast.value}} {{/each}}</li>
+    <li>Cast:   {{movie.cast}}</li>
     <br><br>
 
 
 </ul>
-<form action="/movies/{{_id}}/delete" method="post">
-    <button type="submit">Delete "{{movie.title}}"" movie</button>
+<form action="/delete/{{movie._id}}" method="POST"">
+    <button >Delete</button>
 </form><br><br>
 
-  <a href="/movies/{{_id}}/edit">Edit</a>
+<a href="/movies/{{movie._id}}/edit">Edit movie</a><br><br>
 
 <a href="/">Back Home</a>

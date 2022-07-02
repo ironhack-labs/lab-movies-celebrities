@@ -1,7 +1,7 @@
-<h2>Edit the Movie: {{movieData.name}}</h2>
+<h2>Edit the Movie: {{movieData.title}}</h2>
 <form action="/movies/{{movieData._id}}/edit" method="POST">
   <label>Name:
-    <input  type="text" name="name" value="{{movieData.name}}">
+    <input  type="text" name="name" value="{{movieData.title}}">
   </label>
   <label>Genre:
     <input  type="text" name="genre" value="{{movieData.genre}}">
@@ -9,9 +9,9 @@
   <label>Plot:
     <textareaname="plot" cols="35" rows="10"> {{movieData.plot}} </textarea>
   </label>
-  <labelfor="cast">Select Celebrities
+  <label for="cast">Select Celebrities
     <div>
-      <selectname="cast" id="cast">
+      <select name="cast" id="cast">
       {{#each celebData}}
         <option value="{{_id}}"> {{name}} </option>
       {{/each}}
