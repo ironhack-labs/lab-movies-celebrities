@@ -2,12 +2,12 @@ const router = require("express").Router();
 const Movie = require("../models/Movies.models")
 
 
-router.get("/moviess/create", (req, res) => {
+router.get("/movies/create", (req, res) => {
     res.render('movies/new-movie')
 })
 
 router.post('/movies/create', (req, res) => {
-   const {name, occupation, catchPhrase} = req.body
+   const {title, } = req.body
    Movie
     .create({name, occupation, catchPhrase})
     .then(movie => res.redirect('/movies'))
