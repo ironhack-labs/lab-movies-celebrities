@@ -7,17 +7,25 @@ const Celebrity = require('../models/Celebrity.model.js')
 // In the routes file (routes/celebrities.routes.js) create the following GET route: /celebrities/create
 // In that route we have to render the celebrities/new-celebrity view
 router.get('/celebrities/create', (req, res, next) =>{
-res.render('celebrities/new-celebrity');
+    res.render('celebrities/new-celebrity');
 });
+
+// Use find() method on the Celebrity model to retrieve all the celebrities
+router.get('/celebrities', (req, res, next) =>{
+    Celebrity.find()
+    .then((celebritiesAll) =>{
+        res.render('celebrities/celebrities.hbs', {celebritiesAll})
+    })
+    .catch((err) =>{
+        console.log("error getting celebrities from DB", err)
+        next(err);
+    })
+})
+
 
 // Create the /celebrities/create POST route in routes/celebrities.routes.js.
 router.post('/celebrities/create', (req, res, next) => {
     console.log(req.body);
-    // const newCeleb ={
-    //     name: req.body.name,
-    //     occupation: req.body.occupation,
-    //     catchPhrase: req.body.catchPhrase
-    // }
 
 const {name, occupation, catchPhrase} = req.body
 
