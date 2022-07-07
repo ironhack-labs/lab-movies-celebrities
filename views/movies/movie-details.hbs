@@ -1,0 +1,16 @@
+<p> This is the movie {{aMovie.title}}.</p>
+
+    <p>It is a {{aMovie.genre}} film. </p> 
+    <p>Here is the plot: {{aMovie.plot}}.</p>
+
+{{#each aMovie.cast}}
+
+    <p>The following actors star in this film: {{name}}.</p>
+
+    {{/each}}
+
+
+ <a href="/movies/{{aMovie._id}}/edit">Edit this movie</a> 
+  <form action='/movies/{{aMovie._id}}/delete' method="POST">
+      <button>Delete this movie</button>
+    </form>

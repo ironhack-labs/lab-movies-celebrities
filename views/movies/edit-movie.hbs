@@ -1,0 +1,44 @@
+{{! //update movie
+router.get('/movies/:movieId', (req, res, next) => {
+Movie.findById(req.params.movieId)
+.populate('cast')
+.then((aMovie) => {
+console.log('a new movie', aMovie);
+res.render('movies/movie-details.hbs', {aMovie})
+}).catch((err) => {
+    console.log(err)
+    next(err)
+})
+}) }}
+
+{{! views/books/books-edit.hbs }}
+
+<h2>Edit the movie {{aMovie.title}}</h2>
+
+<form action="/movies/{{aMovie._id}}/edit" method="post">
+  <label>
+    Title:
+    <input type="text" name="title" value="{{aMovie.title}}" />
+  </label>
+
+  <label>
+    Genre:
+    <input type="text" name="genre" value="{{aMovie.genre}}" />
+  </label>
+
+  <label>
+    Plot:
+    <textarea name="plot" cols="30" rows="4">{{aMovie.plot}}</textarea>
+  </label>
+
+{{!-- below is not showing up on form --}}
+  <label>
+    Cast:
+    <select name="cast" id="cast" multiple>
+      {{#each celebArray}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </label>
+  <button>Save changes</button>
+</form>
