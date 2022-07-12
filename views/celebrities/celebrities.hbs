@@ -1,1 +1,14 @@
 I'm views/celebrities/celebrities.hbs XXX
+
+<h2>all our celebrities</h2>
+<ul>
+{{#each CelebritiesFromDB}}
+    <li>
+        {{name}}
+    </li>
+{{/each}}
+</ul>
+
+<a href="/">back Home</a>
+
+
