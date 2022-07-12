@@ -1,2 +1,5 @@
-
-
+<h2>Movies</h2>
+{{#each moviesFromDB}}
+<p>{{title}}</p>
+<a href="/movies/{{id}}">Details</a>
+{{/each}}

@@ -11,9 +11,11 @@ router.post("/celebrities/create", (req, res) => {
     Celebrity.create({name, occupation, catchPhrase})
     .then((celebrity) => {
         console.log("A new celebrity has been added to the DB: " + celebrity)
+        res.redirect("/celebrities")
     })
     .catch((error) => {
         console.log("An error occurred while creating a new celebrity: " + error);
+        next(error);
     })
 })
 
@@ -23,11 +25,10 @@ router.get("/celebrities", (req, res) => {
     const data = {
         celebs: dataFromDB
     }
-    console.log(data)
     res.render("celebrities/celebrities", data)
  })
  .then(() => {
-    console.log("Celebrities created!")
+    console.log("Displaying celebrities...")
  })
  .catch( (err) => {
     console.log("An error occured listing the Celebrities from DB" + err)
