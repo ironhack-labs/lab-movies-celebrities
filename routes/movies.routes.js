@@ -16,12 +16,17 @@ router.post('/movies/create', async (req, res) => {
   }
   try {
     await Movie.create(newMovie)
-    res.redirect('/')
+    res.redirect('/movies')
   } catch (e) {
     console.log(e)
     const error = new Error('There has been a problem. Please try again.')
     res.render('movies/new-movie', { error: error.message })
   }
+})
+
+router.get('/movies', async (req, res) => {
+  const moviesArr = await Movie.find().populate()
+  res.render('movies/movies', { moviesArr })
 })
 
 module.exports = router
