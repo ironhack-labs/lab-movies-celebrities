@@ -1,0 +1,31 @@
+<h2>Edit Movie</h2>
+
+<form action="/movies/create" method="POST">
+    <label>Title:
+        <input name="title" type="string" value="{{result.title}}">
+    </label>
+    <label>Genre:
+        <input name="genre" type="string" value="{{result.genre}}">
+    </label>
+    <label>Plot:
+        <input name="plot" type="string" value="{{result.plot}}">
+    </label>
+    <label>Cast:
+        <select name="cast" multiple>
+
+        {{#each result.cast}}
+
+            <option value="{{this._id}}" selected>{{this.name}}</option>
+
+            {{!-- {{#if celebrity}}
+                <option value="{{this._id}}" selected>{{this.name}}</option>
+            {{else}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/if}} --}}
+        {{/each}}
+
+        </select>
+    </label>
+
+    <button type="submit">Create</button>
+</form>
