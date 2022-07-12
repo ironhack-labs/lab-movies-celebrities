@@ -1,7 +1,9 @@
 <ul class='centered-list'>
   {{#each moviesArr}}
     <li>
-      <h2>{{title}}</h2>
+      <h2>
+        <a href='/movies/{{id}}'>{{title}}</a>
+      </h2>
     </li>
   {{/each}}
   <li class='back-link'><a href='/'>&lt;&lt; Home</a></li>

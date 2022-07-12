@@ -1,0 +1,18 @@
+<h2>Movie Details</h2>
+<div>
+  <p><strong>Title:</strong> {{title}}</p>
+  <p><strong>Genre:</strong> {{genre}}</p>
+  <p><strong>Plot:</strong> {{plot}}</p>
+  <ul style='list-style: circle;'>
+    <p style='margin-bottom: 0.5rem;'><strong>Cast:</strong></p>
+    {{#each cast}}
+      <li>{{name}}:
+        <ul style='list-style: disc; margin: 0.3rem 0 0.8rem'>
+          <li style='margin-bottom: 0.3rem;'>Occupation: {{occupation}}</li>
+          <li>Catch phrase: {{catchPhrase}}</li>
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+  <a class='back-link' href='/movies'>&lt;&lt; Back</a>
+</div>

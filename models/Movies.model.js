@@ -6,7 +6,7 @@ const movieSchema = {
   plot: String,
   cast: {
     type: [Schema.Types.ObjectId],
-    model: 'Celebrities',
+    ref: 'celebrity',
   },
 }
 

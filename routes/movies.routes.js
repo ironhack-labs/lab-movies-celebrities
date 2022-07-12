@@ -25,8 +25,22 @@ router.post('/movies/create', async (req, res) => {
 })
 
 router.get('/movies', async (req, res) => {
-  const moviesArr = await Movie.find().populate()
-  res.render('movies/movies', { moviesArr })
+  try {
+    const moviesArr = await Movie.find()
+    res.render('movies/movies', { moviesArr })
+  } catch (e) {
+    console.log('something went wrong...', e)
+  }
+})
+
+router.get('/movies/:movieId', async (req, res) => {
+  try {
+    const mov = await Movie.findById(req.params.movieId).populate('cast')
+    console.log(mov.cast)
+    res.render('movies/movie-detail', mov)
+  } catch (e) {
+    console.log('something went wrong...', e)
+  }
 })
 
 module.exports = router
