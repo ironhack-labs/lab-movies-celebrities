@@ -1,6 +1,11 @@
 <h2>List of movies</h2>
 
-{{#each result}}
-<a href=movies/{{this._id}}>{{this.title}}</a>
-{{/each}}
+<ul>
+    {{#each result}}
+    <li><a href=movies/{{this._id}}>{{this.title}}</a></li>
+    {{/each}}
+</ul>
 
+<form action="/">
+    <button>Back to homepage</button>
+</form>

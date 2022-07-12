@@ -1,13 +1,25 @@
 <h2>Details of the movie</h2>
 
-{{#each moviesArr}}
-<p>Title: {{this.title}}</p>
-<p>Genre: {{this.genre}}</p>
-<p>Plot: {{this.plot}}</p>
+<h4>Movie</h4>
+<p>Title: {{moviesArr.title}}</p>
+<p>Genre: {{moviesArr.genre}}</p>
+<p>Plot: {{moviesArr.plot}}</p>
 
-<h3>Cast:</h3>
-<p>Name: {{this.cast.name}}</p>
-<p>Occupation: {{this.cast.occupation}}</p>
-<p>Catch phrase: {{this.cast.catchPhrase}}</p>
+<h4>Cast:</h4>
 
+{{#each moviesArr.cast}}
+<p>Name: {{this.name}}</p>
+<p>Occupation: {{this.occupation}}</p>
+<p>Catch phrase: {{this.catchPhrase}}</p>
+<br>
 {{/each}}
+
+<form action="/movies/{{moviesArr._id}}/delete" method="POST">
+    <button>Delete</button>
+</form>
+
+<br>
+
+<form action="/movies/{{moviesArr._id}}/edit">
+    <button>Edit</button>
+</form>
