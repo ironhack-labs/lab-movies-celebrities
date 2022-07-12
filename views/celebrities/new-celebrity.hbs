@@ -1,0 +1,23 @@
+<h2>Create a celebrity</h2>
+<form id='new-celeb' action='/celebrities/create' method='post'>
+  <label>
+    Name:
+    <input type='text' name='name' />
+  </label>
+  <label>Ocupation:
+    <select name='occupation'>
+      <option value='Actor/Actress'>Actor/Actress</option>
+      <option value='Singer'>Singer</option>
+      <option value='Comedian'>Comedian</option>
+      <option value='unknown'>Unknown</option>
+    </select>
+  </label>
+  <label>Catch Phrase:
+    <input type='text' name='catchPhrase' />
+  </label>
+  {{#if error}}
+    <p class='errorMessage'>{{error}}</p>
+  {{/if}}
+  <button class='button'>Submit</button>
+  <a class='back-link' href='/'>&lt;&lt; Home</a>
+</form>

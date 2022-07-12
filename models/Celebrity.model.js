@@ -4,7 +4,7 @@ const CelebritySchema = {
   name: String,
   occupation: {
     type: String,
-    enum: ['actor/actress', 'singer', 'comedian', 'unknown'],
+    enum: ['Actor/Actress', 'Singer', 'Comedian', 'unknown'],
   },
   catchPhrase: String,
 }

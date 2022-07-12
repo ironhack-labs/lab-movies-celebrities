@@ -1,8 +1,64 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  width: 100%;
+}
+
+a button {
+  width: 100%;
+  text-decoration: none;
+}
+
+button {
+  padding: 0.3rem 0.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.8rem;
+}
+
+#new-celeb {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
+}
+
+.button {
+  align-self: center;
+}
+
+.errorMessage {
+  color: red;
+  align-self: center;
+}
+
+#btns-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.8rem;
+}
+
+.column-groups {
+  margin-top: 5rem;
+  display: flex;
+  column-gap: 5rem;
+}
+
+.centered-list {
+  text-align: center;
+}
+
+.back-link {
+  margin-top: 3rem;
 }
