@@ -1,0 +1,21 @@
+<h2>Hello List Page</h2>
+
+{{#each celebritiesFromDB}}
+  <section>
+    <h2>{{this.name}}</h2>
+    <p>
+      Occupation:
+      {{this.occupation}}
+      <br />
+      Catch Phrase:
+      {{this.catchPhrase}}
+      <br />
+      <a href="/celebrities/{{this._id}}">More details</a>
+      |
+      <a href="/celebrities/{{this._id}}/edit">Edit</a>
+    </p>
+    <form action="/celebrities/{{this._id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+  </section>
+{{/each}}

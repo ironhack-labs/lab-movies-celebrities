@@ -1,0 +1,17 @@
+<section>
+  <h2>{{this.title}}</h2>
+  <p>
+    Genre:
+    {{this.genre}}
+    <br />
+    Plot:
+    {{this.plot}}
+    <br />
+    Cast:
+    {{#each moviesFromDB}}
+      {{this.cast}}
+    {{/each}}
+  </p>
+</section>
+
+<a href="/movies">Back</a>
