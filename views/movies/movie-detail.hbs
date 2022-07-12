@@ -14,5 +14,10 @@
       </li>
     {{/each}}
   </ul>
-  <a class='back-link' href='/movies'>&lt;&lt; Back</a>
+  <div id='footer-btns'>
+    <a class='back-link' href='/movies' style='margin: 0;'>&lt;&lt; Back</a>
+    <form action='/movie/{{id}}/delete' method='post'>
+      <button class='delete' id='mov-delete' name={{id}}>Delete</button>
+    </form>
+  </div>
 </div>

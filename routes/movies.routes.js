@@ -29,17 +29,25 @@ router.get('/movies', async (req, res) => {
     const moviesArr = await Movie.find()
     res.render('movies/movies', { moviesArr })
   } catch (e) {
-    console.log('something went wrong...', e)
+    console.log('something went wrong getting the movies list...', e)
+  }
+})
+
+router.post('/movie/:id/delete', async (req, res) => {
+  try {
+    await Movie.findByIdAndDelete(req.params.id)
+    res.redirect('/movies')
+  } catch (e) {
+    console.log('something went wrong deleting the movie...', e)
   }
 })
 
 router.get('/movies/:movieId', async (req, res) => {
   try {
     const mov = await Movie.findById(req.params.movieId).populate('cast')
-    console.log(mov.cast)
     res.render('movies/movie-detail', mov)
   } catch (e) {
-    console.log('something went wrong...', e)
+    console.log('something went wrong trying to see the movie details page...', e)
   }
 })
 

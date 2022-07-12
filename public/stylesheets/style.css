@@ -67,3 +67,14 @@ ul {
   text-align: center;
   padding: 0.3rem;
 }
+
+#footer-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete {
+  color: red;
+  border-color: red;
+}

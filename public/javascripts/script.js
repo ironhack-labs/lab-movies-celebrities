@@ -1,7 +1,14 @@
 document.addEventListener(
-  "DOMContentLoaded",
+  'DOMContentLoaded',
   () => {
-    console.log("IronGenerator JS imported successfully!");
+    console.log('IronGenerator JS imported successfully!')
   },
   false
-);
+)
+
+document.getElementById('mov-delete').addEventListener('click', (ev) => {
+  const resp = window.confirm('are you sure?')
+  if (!resp) {
+    ev.preventDefault()
+  }
+})
