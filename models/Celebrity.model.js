@@ -9,6 +9,6 @@ const CelebritySchema = {
   catchPhrase: String,
 }
 
-const Celebrity = model('Celebrity', CelebritySchema)
+const Celebrity = model('celebrity', CelebritySchema)
 
 module.exports = Celebrity
