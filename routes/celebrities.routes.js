@@ -1,16 +1,28 @@
-// starter code in both routes/celebrities.routes.js and routes/movies.routes.js
-const router = require("express").Router();
+const router    = require("express").Router();
+const Celebrity = require("../models/Celebrity.model");
 
-// all your routes here
 
-// CREATE: Render form
 router.get("/celebrities/create", (req, res) => {
     res.render("celebrities/new-celebrity"); 
 })
   
-// CREATE: Process form
+
 router.post("/celebrities/create", (req, res) => {
-    res.send("i am the post to create a new celbrity")
+    const celebrityDetails = {
+        name: req.body.name,
+        occupation: req.body.occupation,
+        catchPhrase: req.body.catchPhrase,
+      };
+
+      Celebrity.create(celebrityDetails)
+      .then( () => {
+        res.redirect("/"); //before Iteration4 'List Cel's' just go to "/"
+        console.log("a new ceb is born!! -->\n" + celebrityDetails.name + "\n");
+      })
+      .catch( (error) => {
+        console.log("Error creating new Celebrity in DB", error);
+        next(error);
+      })
   })
 
 module.exports = router;
