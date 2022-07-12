@@ -1,1 +1,21 @@
 i'm views/movies/edit-movie.hbs XXX
+
+<h2>Edit the movie {{oneMovie.title}}</h2>
+
+<form action="/movies/{{oneMovie._id}}/edit" method="post">
+  <label>Title:<input type="text" name="title" value="{{oneMovie.title}}"/></label>
+  <label>Genre:<input type="text" name="genre" value="{{oneMovie.genre}}"/></label>
+  <label>Plot: <textarea name="plot" cols="30" rows="4">{{oneMovie.plot}}</textarea>
+  </label>
+
+{{!-- below is not showing up on form --}}
+  <label>
+      Cast:
+      <select name="cast" id="cast" multiple>
+          {{#each celebArray}}
+              <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+      </select>
+  </label>
+  <button>Save changes</button>
+</form> 

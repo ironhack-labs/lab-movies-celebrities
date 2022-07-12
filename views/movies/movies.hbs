@@ -1,1 +1,12 @@
 i'm views/movies/movies.hbs XXX
+
+<h2>List of Movies</h2>
+
+<ul>
+    {{#each movieArr}}
+        <li>{{this.title}}</li>
+        <a href="/movies/{{this._id}}">See Details</a>
+    {{/each}} 
+</ul>
+
+<a href="/">back to Home</a>

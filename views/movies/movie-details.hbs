@@ -1,1 +1,22 @@
 i'm views/movies/movie-details.hbs XXX
+
+<h2>{{oneMovie.title}}</h2>
+<ul>
+    <li>Genre: {{oneMovie.genre}}</li>
+    <li>Plot:  {{oneMovie.plot }}</li>
+    <li>
+        <ul> Cast:
+            {{#each oneMovie.cast}}
+                <li>
+                    {{this.name}}
+                </li>
+            {{/each}}
+        </ul>
+    </li>
+</ul>
+
+<a href="/">back to Home</a>
+<a href="/movies/{{oneMovie._id}}/edit">Edit this movie</a> 
+    <form action='/movies/{{oneMovie._id}}/delete' method="POST">
+        <button>Delete</button>
+    </form>
