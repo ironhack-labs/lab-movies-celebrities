@@ -51,4 +51,31 @@ router.get('/movies/:movieId', async (req, res) => {
   }
 })
 
+router.get('/movies/:movieId/edit', async (req, res) => {
+  try {
+    const mov = await Movie.findById(req.params.movieId).populate('cast')
+    const celebs = await Celebrity.find()
+    res.render('movies/edit-movie', { mov, celebs })
+  } catch (e) {
+    console.log('something went wrong trying to get the edit movie page...', e)
+  }
+})
+
+router.post('/movies/:movieId/edit', async (req, res) => {
+  const newData = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+    cast: req.body.cast,
+  }
+  try {
+    await Movie.findByIdAndUpdate(req.params.movieId, newData)
+    res.redirect('/movies')
+  } catch (e) {
+    console.log('something went wrong updating the movie...', e)
+    const error = new Error('There has been a problem. Please try again.')
+    res.render('movies/new-movie', { error: error.message })
+  }
+})
+
 module.exports = router
