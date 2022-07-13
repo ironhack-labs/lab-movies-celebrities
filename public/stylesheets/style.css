@@ -6,3 +6,8 @@ body {
 a {
   color: #00b7ff;
 }
+
+#home-btn{
+  font-weight: bold;
+  margin: 2em 0;
+}

@@ -1,0 +1,12 @@
+<h2>Movies List</h2>
+
+<div id="movie-div">
+{{#each moviesArr}}
+<p>Movie: {{this.title}}</p>
+<a class="more-info "href="/movies/{{this._id}}">More info</a>
+{{/each}}
+</div>
+
+<div id="home-btn">
+<a href="/">Home</a>
+</div>
