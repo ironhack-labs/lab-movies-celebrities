@@ -9,8 +9,8 @@
       {{this.plot}}
       <br />
       Cast:
-      {{#each moviesFromDB}}
-        {{this.cast}}
+      {{#each this.cast}}
+        {{this.name}}
       {{/each}}
       <br />
       <a href="/movies/{{this._id}}">More details</a>
