@@ -6,3 +6,11 @@ body {
 a {
   color: #00b7ff;
 }
+
+form {
+  margin-top: 4rem;
+}
+
+form > label {
+  display: block;
+}
