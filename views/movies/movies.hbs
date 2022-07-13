@@ -1,2 +1,12 @@
+<h1>The Movie Database</h1>
 
+{{#each movies}}
+<h4><a href="/movies/{{this._id}}">{{this.title}}</a></h4>
+<p>{{this.genre}}</p>
+<p>{{this.plot}}</p>
+{{#each movies.cast}}
+<p>{{this.name}}</p>
+{{/each}}
+{{!-- no clue why it is not displaying the name --}}
+{{/each}}
 
