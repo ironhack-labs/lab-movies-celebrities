@@ -1,8 +1,35 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.5vw "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.navbar {
+  background-color: #000000;
+  margin-bottom: 20px;
+  
+}
+
+.navbar a{
+  margin: 3.5vw;
+  color: white;
+  border-right: #00b7ff;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+.box {
+  border: solid black;
+  border-radius: 2vw;
+  margin: 5%;
+  padding: 5%;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  background-color: white;
+  margin: 5px;
 }

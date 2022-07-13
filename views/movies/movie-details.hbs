@@ -1,14 +1,19 @@
 <section class="movie-details">
     <h2>{{title}}</h2>
+  <div class = "box">
     <p>
-        Genre: {{genre}} <br />
-        Plot: {{plot}} <br />
-        Cast: 
-        <ul>
+      Genre:
+      {{genre}}
+      <br />
+      Plot:
+      {{plot}}
+      <br />
+      Cast:
+      <ul>
         {{#each cast}}
-            <li>{{name}}</li>
+          <li>{{name}}</li>
         {{/each}}
-        </ul>
-
+      </ul>
     </p>
+  </div>
 </section>
