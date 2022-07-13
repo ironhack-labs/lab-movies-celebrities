@@ -1,14 +1,20 @@
 <h2>List of movies</h2>
 
 {{#each moviesDetails}}
+  <section>
     <p>Title: {{title}}</p>
     <p>Genre: {{genre}}</p>
     <p>Plot: {{plot}}</p>
     <p>Cast: </p>
     {{#each cast}}
-    <ul>
+      <ul>
         <li>{{name}}</li>
-    </ul>
+      </ul>
     {{/each}}
-    <a href="/movies/{{_id}}">More details</a>
+    <button> <a href="/movies/{{_id}}">More details</a></button>
+    <button> <a href="/movies/{{_id}}/edit">Edit</a></button>
+    <form action="/movies/{{_id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+  </section>
 {{/each}}
