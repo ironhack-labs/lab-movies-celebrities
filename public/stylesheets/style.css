@@ -1,6 +1,9 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: whitesmoke;
+  background-image: url(https://images.alphacoders.com/723/723903.jpg);
+  background-size: cover;
 }
 
 a {

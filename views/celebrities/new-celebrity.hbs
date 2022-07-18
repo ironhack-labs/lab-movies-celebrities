@@ -1,0 +1,11 @@
+<div class="container"> 
+
+</div>
+
+<h2> Agregar nueva celebridad </h2>
+<form action="/celebrities/create" method="post"> 
+    <input type="text"  placeholder="Name" name="name" required value="{{name}}">
+    <input type="text"  placeholder="occupation" name="occupation" required value="{{occupation}}">
+    <input type="text"  placeholder="catchPhrase" name="catchPhrase" required value="{{catchPhrase}}">
+    <button type="submit" class="btn btn-primary"> Add celebrity </button>
+</form>
