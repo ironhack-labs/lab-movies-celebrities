@@ -6,3 +6,11 @@ body {
 a {
   color: #00b7ff;
 }
+h1 {
+  text-align: center;
+}
+.movies{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

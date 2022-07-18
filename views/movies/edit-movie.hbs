@@ -1,0 +1,20 @@
+
+<h1>Edit</h1>
+
+<form action="/movies/{{movie._id}}/edit" method="post">
+
+    <input type="text" placeholder="Title" name="title" value="{{movie.title}}" />
+    <input type="text" placeholder="Genre" name="genre" value="{{movie.genre}}" />
+    <textarea name="plot" placeholder="Plot" cols="30" rows="4">{{movie.plot}}</textarea>
+
+  
+  <div class="row">
+    <label>Cast:</label>
+    <select name="cast" id="cast" multiple>
+      {{#each cast}}
+        <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
+</div>
+  <button class="btn btn-warning mt-3" type="submit">Submit</button>
+</form> 

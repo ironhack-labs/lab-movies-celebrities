@@ -1,10 +1,12 @@
-<div>
-    <ul>
-        {{#each movie}}
-         <li>Title: {{title}}</li>
-         <li>Genre: {{genre}}</li>
-         <li>Plot: {{plot}}</li>
-         <li>Cast: {{cast}}</li>
-        {{/each}}
-    </ul>
+<h1>MOVIES</h1>
+<div class="movies">
+    
+    {{#each movies}}
+        <div class="card" style="min-width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <a href="/movies/{{_id}}" class="card-link">Details</a>
+        </div>
+        </div>
+    {{/each}}
 </div>
