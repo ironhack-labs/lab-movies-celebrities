@@ -1,0 +1,40 @@
+<h2>Details</h2>
+
+<div>
+
+	<div>
+		<h3>title:</h3>
+		<p>{{this.title}}</p>
+	</div>
+	<div>
+		<h3>genre:</h3>
+		<p>{{this.genre}}</p>
+	</div>
+	<div>
+		<h3>plot:</h3>
+		<p>{{this.plot}}</p>
+	</div>
+	{{#each this.cast}}
+		<div>
+			<h3>name:</h3>
+			<p>{{this.name}}</p>
+		</div>
+		<div>
+			<h3>occupation:</h3>
+			<p>{{this.occupation}}</p>
+		</div>
+		<div>
+			<h3>catch phrase:</h3>
+			<p>{{this.catchPhrase}}</p>
+		</div>
+	{{/each}}
+</div>
+
+<form action="/movies/{{this._id}}/delete" method="POST">
+	<button type="submit">delete</button>
+</form>
+<form action="/movies/{{this._id}}/edit" method="POST">
+	<button type="submit">edit</button>
+</form>
+
+<a href="/movies">back</a>
