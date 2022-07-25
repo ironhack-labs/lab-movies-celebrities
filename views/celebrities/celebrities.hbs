@@ -1,0 +1,39 @@
+<h2>Celebrities List</h2>
+
+  {{#each celebs}}
+  <div class="celebsList">
+    <div>
+      <h4>Name: </h4>
+      <h4>{{this.name}}</h4>
+    </div>
+    <div>
+      <p>Occupation: </p>
+      <p>{{this.occupation}}</p>
+    </div>
+    <div>
+      <p>Catch Phrase</p>
+      <p>{{this.catchPhrase}}</p>
+    </div>
+  </div>
+  {{/each}}
+
+<style>
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+  h4 {
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+  h2 {
+    margin-bottom: 4rem;
+  }
+  .celebsList {
+    margin-bottom: 2rem;
+  }
+  .celebsList div {
+    display: flex;
+  }
+</style>
