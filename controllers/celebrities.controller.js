@@ -11,7 +11,7 @@ module.exports.celebrieties = (req, res, next) => {
 //create a new celebrity
 
 module.exports.createCelebrity = (req, res, next) => {
-    res.render("celebrieties/create-form");
+    res.render("celebrieties/new-celebrity");
   };
 
 module.exports.doCreate = (req, res, next) => {
@@ -29,7 +29,7 @@ module.exports.editCelebrity = (req, res, next) => {
 
     Celebrity.findByIdAndUpdate(id)
       .then((updatedCelebrity) => {
-        res.render("celebrieties/create-form", { updatedCelebrity, isEdit: true });
+        res.render("celebrieties/new-celebrity", { updatedCelebrity, isEdit: true });
       })
       .catch(next);
   };
@@ -54,4 +54,4 @@ module.exports.delete = (req, res, next) => {
         res.redirect("/celebrieties");
       })
       .catch(next);
-  }
+  }; 
