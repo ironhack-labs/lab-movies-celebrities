@@ -1,8 +1,24 @@
 body {
-  padding: 50px;
+  margin: 0px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ 
 }
 
 a {
   color: #00b7ff;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  /* no scrolling bar */
+}
+
+.home{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 100px;
+  letter-spacing: 2px;
 }
