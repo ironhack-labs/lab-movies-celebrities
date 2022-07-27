@@ -2,22 +2,22 @@ const Celebrity = require("../models/Celebrity.model");
 
 //read - find all celebrieties
 
-module.exports.celebrieties = (req, res, next) => {
-    Celebrity.find().then((celebrieties) => {
-      res.render("celebrieties/celebrieties", { celebrieties });
+module.exports.celebrities = (req, res, next) => {
+    Celebrity.find().then((celebrities) => {
+      res.render("celebrities/celebrities", { celebrities });
     });
   };
 
 //create a new celebrity
 
 module.exports.createCelebrity = (req, res, next) => {
-    res.render("celebrieties/new-celebrity");
+    res.render("celebrities/new-celebrity");
   };
 
 module.exports.doCreate = (req, res, next) => {
     Celebrity.create(req.body)
       .then((createdCelebrity) => {
-        res.redirect("/celebrieties");
+        res.redirect("/celebrities");
       })
       .catch(next);
   };
@@ -29,7 +29,7 @@ module.exports.editCelebrity = (req, res, next) => {
 
     Celebrity.findByIdAndUpdate(id)
       .then((updatedCelebrity) => {
-        res.render("celebrieties/new-celebrity", { updatedCelebrity, isEdit: true });
+        res.render("celebrities/new-celebrity", { updatedCelebrity, isEdit: true });
       })
       .catch(next);
   };
@@ -39,7 +39,7 @@ module.exports.editCelebrity = (req, res, next) => {
 
     Celebrity.findByIdAndUpdate(id, req.body, { new: true })
       .then((updatedCelebrity,) => {
-        res.redirect("/celebrieties");
+        res.redirect("/celebrities");
       })
       .catch(next);
   };
@@ -51,7 +51,7 @@ module.exports.delete = (req, res, next) => {
 
     Celebrity.findByIdAndDelete(id)
       .then((deletedCelebrity) => {
-        res.redirect("/celebrieties");
+        res.redirect("/celebrities");
       })
       .catch(next);
   }; 

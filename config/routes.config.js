@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const miscController = require("../controllers/misc.controller");
-const celController = require("../controllers/celebrities.controller");
+const celebritiesController = require("../controllers/celebrities.controller");
 const movieController = require("../controllers/movies.controller");
 
 
 router.get("/", miscController.home);
 
-// Celebrieties
-router.get("/celebrities", celebritiesController.Celebrity);
+// Celebrities
+router.get("/celebrities", celebritiesController.celebrities);
 
 //create new
 router.get("/celebrities/create", celebritiesController.createCelebrity);
@@ -22,18 +22,18 @@ router.post("/celebrities/:id/delete", celebritiesController.delete);
 
 //-------------------------------------------------------------------------
 
-// Movies
-router.get("/movies", movieController.Movie);
+// // Movies
+// router.get("/movies", movieController.Movie);
 
-//create new
-router.get("/movies/create", movieController.createMovie);
-router.post("/movies/create", movieController.doCreate);
+// //create new
+// router.get("/movies/create", movieController.createMovie);
+// router.post("/movies/create", movieController.doCreate);
 
-//edit
-router.get("/movies/:id/edit", movieController.editMovie);
-router.post("/movies/:id/edit", movieController.doEdit);
+// //edit
+// router.get("/movies/:id/edit", movieController.editMovie);
+// router.post("/movies/:id/edit", movieController.doEdit);
 
-//delete
-router.post("/movies/:id/delete",movieController.delete);
+// //delete
+// router.post("/movies/:id/delete",movieController.delete);
 
 module.exports = router;
