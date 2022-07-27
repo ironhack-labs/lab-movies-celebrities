@@ -1,34 +1,41 @@
-// ℹ️ Gets access to environment variables/settings
-// https://www.npmjs.com/package/dotenv
-require('dotenv/config');
+require("dotenv").config();
 
-// ℹ️ Connects to the database
-require('./db');
+// Require Express/morgan and hbs
+const express = require("express");
+const logger = require("morgan");
+const hbs = require("hbs");
 
-// Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
-const express = require('express');
+//require database
+require("./config/db.config");
 
-// Handles the handlebars
-// https://www.npmjs.com/package/hbs
-const hbs = require('hbs');
-
+// Express server handling requests and responses
 const app = express();
 
-// ℹ️ This function is getting exported from the config folder. It runs most middlewares
-require('./config')(app);
+// Make everything inside of public/ available
+app.use(express.static("public"));
 
-// default value for title local
-const projectName = 'lab-movies-celebrities';
-const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
+app.use(express.urlencoded({ extended: false }));
+app.use(logger("dev"));
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+// creates an absolute path pointing to a folder called "views"
+app.set("views", __dirname + "/views");
+// tell our Express app that HBS will be in charge of rendering the HTML
+app.set("view engine", "hbs");
 
-// 👇 Start handling routes here
-const index = require('./routes/index');
-app.use('/', index);
+// register the partials
+hbs.registerPartials(__dirname + "/views/partials");
 
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+// Routes
+const routes = require("./config/routes.config.js");
+app.use(routes);
 
-module.exports = app;
+app.use((err, req, res, next) => {
+  res.render("error", { err });
+});
+
+// Sets the PORT for our app to have access to it. If no env has been set, we hard code it to 3000
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port http://localhost:${PORT}`);
+});
