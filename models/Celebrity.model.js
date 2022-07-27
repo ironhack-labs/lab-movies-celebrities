@@ -1,7 +1,7 @@
 //  Add your code here
 const mongoose = require('mongoose');
 
-const celebrity = new mongoose.Schema({
+const CelebritySchema = new mongoose.Schema({
     name:{
         type: String,
     },
@@ -16,3 +16,6 @@ const celebrity = new mongoose.Schema({
 const Celebrity = mongoose.model('Celebrity', CelebritySchema);
 
 module.exports = Celebrity;
+
+
+

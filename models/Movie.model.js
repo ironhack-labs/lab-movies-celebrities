@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const movie = new mongoose.Schema({
+const MovieSchema = new mongoose.Schema({
     title:{
         type: String,
     },
@@ -11,9 +11,10 @@ const movie = new mongoose.Schema({
         type: String,  
     },
     cast:{
-       type: Schema.Types.ObjectId, ref: "Celebrity"
-    }
-})
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: "Celebrity",
+      },
+    });
 
 const Movie = mongoose.model('Movie', MovieSchema);
 
