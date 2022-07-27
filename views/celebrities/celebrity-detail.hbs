@@ -1,0 +1,11 @@
+<div>
+    <h2>{{celebrity.name}}</h2>
+    <span>{{celebrity.occupation}}</span>
+    <p>{{celebrity.catchPhrase}}</p>
+
+    <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+        <button type="submit">DELETE</button>
+    </form>
+
+    <a href="/celebrities/{{celebrity.id}}/edit">EDIT</a>
+</div>
