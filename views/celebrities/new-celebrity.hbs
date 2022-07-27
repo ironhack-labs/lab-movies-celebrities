@@ -1,0 +1,39 @@
+{{#if isEdit}}
+  <h1 class="mt-2">Edit celebrity</h1>
+  {{!-- <form action="/authors/{{author.id}}" method="POST"> --}}
+{{else}}
+  <h1 class="mt-2">New celibrity</h1>
+  {{!-- <form action="/authors" method="POST"> --}}
+{{/if}}
+
+<form action="/celebrities{{#if isEdit}}/{{celebrities.id}}{{/if}}" method="POST">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input value="{{celebrities.name}}" type="text" class="form-control" id="name" name="name" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="occupation" class="form-label" >Occupations</label>
+    <select value="{{celebrities.occupation}}" type="text" class="custom-select" id="occupation" name="occupation" required>
+                <option selected>Choose...</option>
+                <option value="actress">actress</option>
+                <option value="actor">actor</option>
+                <option value="singer">singer</option>
+                <option value="comedian">comedian</option>
+                <option value="unknown">unknown</option>
+            </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="catchPrhase" class="form-label">Catch Phrase</label>
+    <input value="{{celebrities.catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase" >
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">Known For</label>
+    <input value="{{celebrities.knownFor}}" type="text" class="form-control" id="knownFor" name="knownFor" required>
+  </div>
+
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

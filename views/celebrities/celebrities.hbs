@@ -1,0 +1,10 @@
+<h1>Celebrities!!</h1>
+
+{{#each celebrities as |celebrity|}}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{celebrity.name}}</h5>
+      <p class="card-text">{{celebrity.knownFor}}</p>
+    </div>
+ </div>
+{{/each}}
