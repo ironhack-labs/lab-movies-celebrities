@@ -1,13 +1,15 @@
-<h2>CELEBRITIES' LIST</h2>
-
-<div>
-    {{#each celebrities as |celebrity|}}
-        <div>
-            <a href="celebrities/{{celebrity.id}}"><h3>{{celebrity.name}}</h3></a>
+<div class="celebs">
+    <h2 id="celebs-title">CELEBRITIES' LIST</h2>
+    <div class="celebs-text">
+        <div id="celeb-names">
+            {{#each celebrities as |celebrity|}}
+                <div>
+                    <a href="celebrities/{{celebrity.id}}" class="celebs-text"><p>{{celebrity.name}}</p></a>
+                </div>
+            {{/each}}
         </div>
-    {{/each}}
-</div>
-
-<div>
-    <a href="/celebrities/create">CREATE A NEW CELEB</a>
+        <div id="div-create-btn">
+            <a href="/celebrities/create" class="create-celeb-btn">CREATE A NEW CELEB</a>
+        </div>
+    </div>
 </div>

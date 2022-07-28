@@ -56,3 +56,66 @@ html, body {
     box-shadow: 20px 15px 55px black;
     color: black;
 }
+
+.celebs {
+    margin: 10px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#celebs-title, #movies-title {
+    margin: 40px;
+    font-size: 60px;
+    color: #900c3f;
+}
+
+.celebs-text  {
+    font-size: 22px;
+    color: #900c3f;
+    text-decoration: none;
+}
+
+.celebs-text  p {
+    margin: 10px 20px;
+}
+
+#celeb-names, #movie-names  {
+    width: 80vw;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+
+#celeb-names:hover {
+    width: 80vw;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+
+#div-create-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.create-celeb-btn {
+    text-decoration: none;
+    background-color: #900C3F;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin-top: 50px;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.create-celeb-btn:hover {
+    background-color: #C70039;
+    box-shadow: 3px 3px 10px black; 
+}

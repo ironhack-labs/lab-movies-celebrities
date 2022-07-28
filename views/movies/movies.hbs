@@ -1,11 +1,14 @@
-<h2>MOVIES' LIST</h2>
+<div class="celebs">
+    <h2 id="movies-title">MOVIES' LIST</h2>
+    <div class="celebs-text">
+        <div id="movie-names">
+            {{#each movies as |movie|}}
+                <a href="/movies/{{_id}}" class="celebs-text"><p>{{movie.title}}</p></a>
+            {{/each}}
+        </div>
 
-<div>
-    {{#each movies as |movie|}}
-        <a href="/movies/{{_id}}"><h3>{{movie.title}}</h3></a>
-    {{/each}}
-</div>
-
-<div>
-    <a href="/movies/create">CREATE A NEW MOVIE</a>
+        <div id="div-create-btn">
+            <a href="/movies/create" class="create-celeb-btn">CREATE A NEW MOVIE</a>
+        </div>
+    </div>
 </div>
