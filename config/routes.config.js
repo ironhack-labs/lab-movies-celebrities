@@ -29,12 +29,15 @@ router.post("/celebrities/:id/delete", celebritiesController.delete);
 //show the movies
 router.get("/movies", movieController.Movie);
 
-//create new
+//create new movies
  router.get("/movies/create", movieController.create);
  router.post("/movies/create", movieController.doCreate);
 
- //get details
+ //get details of movie
  router.get("/movies/:id",movieController.details);
+
+ //delete movie
+router.post("/movies/:id/delete", movieController.delete);
 
 
 module.exports = router; 

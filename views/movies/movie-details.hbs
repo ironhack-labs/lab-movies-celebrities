@@ -12,5 +12,10 @@
             {{/each}}
             </ul>
      </div>
+     </div>
+       <form action="/movies/{{movie.id}}/delete" method="POST">
+        <button class="btn btn-danger" type="submit">Delete</button>
+       </form>
+    </div>
 </div>
 

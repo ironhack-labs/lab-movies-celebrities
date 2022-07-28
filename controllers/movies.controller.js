@@ -38,6 +38,16 @@ module.exports.details = (req, res, next) => {
   .catch((err) => next(err));
 };
 
+//delete movie
+module.exports.delete = (req, res, next) => {
+  const { id } = req.params;
+
+  Movie.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch(next);
+}; 
 
 
   
