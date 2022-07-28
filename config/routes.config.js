@@ -7,6 +7,8 @@ const movieController = require("../controllers/movies.controller");
 router.get("/", miscController.home);
 
 // Celebrities
+
+//show the celebrities
 router.get("/celebrities", celebritiesController.celebrities);
 
 //create new
@@ -23,6 +25,8 @@ router.post("/celebrities/:id/delete", celebritiesController.delete);
 //-------------------------------------------------------------------------
 
 // Movies
+
+//show the movies
 router.get("/movies", movieController.Movie);
 
 //create new
