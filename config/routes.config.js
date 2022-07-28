@@ -33,7 +33,8 @@ router.get("/movies", movieController.Movie);
  router.get("/movies/create", movieController.create);
  router.post("/movies/create", movieController.doCreate);
 
-
+ //get details
+ router.get("/movies/:id",movieController.details);
 
 
 module.exports = router; 

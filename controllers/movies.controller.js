@@ -1,6 +1,7 @@
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
 
+//show the movies
 module.exports.Movie = (req, res, next) => {
     Movie.find().then((movies) => {
       res.render("movies/movies", { movies });
@@ -9,7 +10,6 @@ module.exports.Movie = (req, res, next) => {
   }
 
 //create a new Movie
-
 module.exports.create = (req, res, next) => {
   Celebrity.find()
     .then((celebrities) => {
@@ -27,6 +27,16 @@ module.exports.doCreate = (req, res, next) => {
 };
 
 
+//detail of movie
+module.exports.details = (req, res, next) => {
+  const { id } = req.params;
+  Movie.findById(id)
+  .populate("cast")
+  .then((movie) => {
+    res.render("movies/movie-details", { movie });
+  })
+  .catch((err) => next(err));
+};
 
 
 
