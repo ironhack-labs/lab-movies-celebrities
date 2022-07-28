@@ -2,10 +2,12 @@
 <h2>Edit  your celebrity</h2>
 
 {{else}}
-<h2>Create a new drone</h2>
+<h2>Create a new celebrity</h2>
 {{/if}}
 
-<form action="/celebrities/{{#if isEdit}}{{updatedCelebrity.id}}/edit{{else}}create{{/if}}" method="POST">
+
+<div class="create">
+ <form action="/celebrities/{{#if isEdit}}{{updatedCelebrity.id}}/edit{{else}}create{{/if}}" method="POST">
 
 	<label for="name">Name:</label>
 	<input type="text" id="name" name="name" value="{{updatedCelebrity.name}}" required />
@@ -16,5 +18,6 @@
 	<label for="catchPhrase">Catch Phrase:</label>
 	<input type="text" id="catchPhrase" name="catchPhrase" value="{{updatedCelebrity.catchPhrase}}" required/>
 
-	<button type="submit">Submit</button>
-</form>
+	<button class="btn btn-primary" type="submit">Submit</button>
+ </form>
+</div>

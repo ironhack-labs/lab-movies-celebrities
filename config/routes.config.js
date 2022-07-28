@@ -22,18 +22,14 @@ router.post("/celebrities/:id/delete", celebritiesController.delete);
 
 //-------------------------------------------------------------------------
 
-// // Movies
-// router.get("/movies", movieController.Movie);
+// Movies
+router.get("/movies", movieController.Movie);
 
-// //create new
-// router.get("/movies/create", movieController.createMovie);
-// router.post("/movies/create", movieController.doCreate);
+//create new
+ router.get("/movies/create", movieController.create);
+ router.post("/movies/create", movieController.doCreate);
 
-// //edit
-// router.get("/movies/:id/edit", movieController.editMovie);
-// router.post("/movies/:id/edit", movieController.doEdit);
 
-// //delete
-// router.post("/movies/:id/delete",movieController.delete);
 
-module.exports = router;
+
+module.exports = router; 

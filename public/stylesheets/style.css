@@ -2,6 +2,13 @@ body {
   margin: 0px;
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('../images/m.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  width: auto;
+  display: flex;
+  justify-content: center;
  
 }
 
@@ -14,11 +21,20 @@ body::-webkit-scrollbar {
   /* no scrolling bar */
 }
 
-.home{
+.home {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 40px;
   letter-spacing: 2px;
+}
+
+.create {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 100px;
+
 }
