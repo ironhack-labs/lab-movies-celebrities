@@ -1,0 +1,21 @@
+
+<h1 class="mt-2">Add New Celebrity</h1>
+
+<form action="/celebrities" method="POST">
+  <div class="mb-3">
+    <label for="celebrityName" class="form-label">Celebrity Name</label>
+    <input value="{{celebrity.name}}" type="text" class="form-control" id="celebrityName" name="name" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="occupation" class="form-label">Occupation</label>
+    <input value="{{celebrity.occupation}}" type="text" class="form-control" id="occupation" name="occupation" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="catchPhrase" class="form-label">Catch Phrase</label>
+    <input value="{{celebrity.catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

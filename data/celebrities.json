@@ -1,0 +1,18 @@
+
+[
+    {
+        "name": "Benito Juarez", 
+        "occupation": "President", 
+        "catchPhrase": "Entre los individuos como entre las naciones el respeto al derecho ajeno es la paz" 
+    },
+    { 
+        "name": "Jack Nicholson", 
+        "occupation": "Actor", 
+        "catchPhrase": "Here I come"
+    },
+    {
+        "name": "Orlando Bloom", 
+        "occupation": "Actor", 
+        "catchPhrase": "I will kill you pirate"
+    }
+]

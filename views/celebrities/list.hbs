@@ -1,0 +1,18 @@
+<h2>Celebrities</h2>
+
+<div class="row">
+{{#each celebrities as |celebrity|}}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{celebrity.name}}</h5>
+                <p class="card-text">Occupation: {{celebrity.occupation}}</p>
+                <p class="card-text">CatchPhrase: {{celebrity.catchPhrase}}</p>
+                <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{{/each}}
+</div>
