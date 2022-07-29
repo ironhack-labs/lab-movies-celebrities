@@ -1,20 +1,34 @@
+<h2>Movie detail</h2>
+
 <div>
-    <h2>{{movie.title}}</h2>
-    <h3>{{movie.genre}}</h3>
-    <p>{{movie.plot}}</p>
+    <table class="table">
+     <tr>
+      <th scope="row">Title</th>
+      <td>{{movie.title}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Genre</th>
+      <td>{{movie.genre}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Plot</th>
+      <td colspan="2">{{movie.plot}}</td>
+    </tr>
+     <tr>
+      <th scope="row">Movie cast</th>
+      <td colspan="2">{{#each movie.cast as |celebrity|}}
+                <span>{{celebrity.name}}</span> | <span>{{celebrity.occupation}}</span> | <span>"{{celebrity.catchPhrase}}"</span>
+            {{/each}}</td>
+    </tr>
+  </tbody>
+</table>
+    
+ </div>
     <div>
-        <h5>Movie cast:</h5>
-        <ul>
-            {{#each movie.cast as |member|}}
-                <li>{{member.name}}</li>
-            {{/each}}
-        </ul>
-    </div>
-    <div>
-        <form action="/movies/delete/{{movie._id}}" method="POST">
+        <form action="/movies/{{movie._id}}/delete" method="POST">
             <button type="submit">Delete</button>
         </form>
-        <form action="/movies/edit/{{movie._id}}" method="GET">
+        <form action="/movies/{{movie._id}}/edit" method="GET">
             <button type="submit">Edit info</button>
         </form>
     </div>

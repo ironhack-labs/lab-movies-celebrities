@@ -15,6 +15,9 @@ router.post("/celebrities", celebritiesController.doCreate);
 
 router.get("/celebrities/:id", celebritiesController.details)
 
+router.get("/celebrities/:id/edit", celebritiesController.edit);
+router.post("/celebrities/:id/edit", celebritiesController.doEdit);
+
 router.post("/celebrities/:id/delete", celebritiesController.delete)
 
 
@@ -30,8 +33,8 @@ router.get("/movies/:id", moviesController.details)
 
 router.post("/movies/:id/delete", moviesController.delete)
 
-router.get("/movies/edit/:id", moviesController.edit);
-router.post("/movies/edit/:id", moviesController.doEdit);
+router.get("/movies/:id/edit", moviesController.edit);
+router.post("/movies/:id/edit", moviesController.doEdit);
 
 
 module.exports = router;

@@ -1,10 +1,17 @@
-{{#each celebrities as | celebrity|}}
+<h2>Celebrity details</h2>
+
 
    <h1>{{celebrity.name}}</h1>
    <h3>{{celebrity.knownFor}}</h3>
    <h3>{{celebrity.catchPhrase}}</h3>
    <h3>{{celebrity.occupation}}</h3>
 
-
-{{/each}}
+<div>
+        <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+       <form action="/celebrities/{{celebrity._id}}/edit" method="GET">
+            <button type="submit">Edit info</button>
+        </form>
+    </div>
 

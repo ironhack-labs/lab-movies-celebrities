@@ -1,8 +1,7 @@
+ <h1 class="mt-2">Edit celibrity</h1>
 
-  <h1 class="mt-2">New celibrity</h1>
-  
-<form action="/celebrities{{#if isEdit}}/{{celebrities.id}}{{/if}}" method="POST">
-  <div class="mb-3">
+ <form action="/celebrities/{{celebrity.id}}/edit" method="POST"></form>
+ <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input value="{{celebrities.name}}" type="text" class="form-control" id="name" name="name" required>
   </div>

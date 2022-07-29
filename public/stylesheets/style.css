@@ -6,3 +6,19 @@ body {
 a {
   color: #00b7ff;
 }
+
+.blackground {
+  margin-left: -600px;
+  position: absolute;
+  width: 75%;
+}
+
+.title {
+  margin-top: 10px;
+  color: rgb(216, 70, 70);
+  display: flex;
+  position: relative;
+  padding-top: 230px;
+  margin-left: -200px;
+  text-decoration: underline;
+}

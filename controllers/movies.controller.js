@@ -32,11 +32,11 @@ module.exports.doCreate = (req, res, next) => {
 //details
 module.exports.details = (req, res, next) => {
   const { id } = req.params;
-
+  
   Movie.findById(id)
     .populate("cast")
     .then((movie) => {
-      res.render("movie/movie-details", { movie });
+      res.render("movies/movie-details", { movie });
     })
     .catch((err) => next(err));
 };
