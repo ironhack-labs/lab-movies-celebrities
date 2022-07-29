@@ -20,7 +20,7 @@ module.exports.doCreate = (req, res, next) => {
     Celebrity.create(req.body)
     .then ((createdCelebrity) => {
         console.log('💃 celebrity creada')
-        res.redirect("/celebrities/celebrities")
+        res.redirect("/celebrities")
     })
     .catch ((err) => next (err))
 }
@@ -43,7 +43,7 @@ module.exports.edit = (req, res, next) => {
 
     Celebrity.findById(id)
        .then((celebrity) => {
-          res.render("celebrities/edit-celebrity", { celebrity });
+          res.render("celebrities/edit-celebrity", {celebrity, isEdit: true})
         })
       .catch((err) => console.error(err));
   };
@@ -51,8 +51,9 @@ module.exports.edit = (req, res, next) => {
     const { id } = req.params;
   
     Celebrity.findByIdAndUpdate(id, req.body, { new: true })
-      .then((celebrity) => {
-        res.redirect(`/celebrities/celebrities`), {celebrity};
+      .then((updatedCelebrity) => {
+        console.log("💃👍 celebrity updated")
+        res.redirect("/celebrities")
       })
       .catch((err) => console.error(err));
   };

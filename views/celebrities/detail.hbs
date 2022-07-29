@@ -7,10 +7,10 @@
    <h3>{{celebrity.occupation}}</h3>
 
 <div>
-        <form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+        <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
             <button type="submit">Delete</button>
         </form>
-       <form action="/celebrities/{{celebrity._id}}/edit" method="GET">
+       <form action="/celebrities/{{celebrity.id}}/edit" method="GET">
             <button type="submit">Edit info</button>
         </form>
     </div>
