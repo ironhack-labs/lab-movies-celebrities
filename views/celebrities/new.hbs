@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5">Add new Celebrity</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form action="/celebrities" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Celebrity Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation">
+                </div>
+                <div class="mb-3">
+                    <label for="catchPhrase" class="form-label">Catch Phrase</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+                <button class="btn btn-sm btn-dark me-md-2" type="submit">Add celebrity</button>
+            </form>
+        </div>
+    </div>
+</div>

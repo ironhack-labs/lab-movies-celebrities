@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5">The <span class="fw-bold">{{movie.name}} </span>Details</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Title: {{movie.title}}</h5>
+                    <p class="card-text">Genre: {{movie.genre}}</p>
+                    <p class="card-text">Plot: {{movie.plot}}</p>
+                    <p class="card-text">Cast: {{movie.cast.name}}</p>
+                    <a href="/movies/{{movie.id}}/edit" class="btn btn-sm btn-success me-md-2">Edit movie</a>
+                    <a href="/movies/" class="btn btn-sm btn-primary me-md-2">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

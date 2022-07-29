@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5">The <span class="fw-bold">{{celebrity.name}} </span>Details</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Name: {{celebrity.name}}</h5>
+                    <p class="card-text">Occupation: {{celebrity.occupation}}</p>
+                    <p class="card-text">Catch Phrase: {{celebrity.catchPhrase}}</p>
+                    <a href="/celebrities/{{celebrity.id}}/edit" class="btn btn-sm btn-success me-md-2">Edit celebrity</a>
+                    <a href="/celebrities/" class="btn btn-sm btn-primary me-md-2">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

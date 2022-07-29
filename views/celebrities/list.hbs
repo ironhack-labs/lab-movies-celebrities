@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5">Celebrity List</h1>
+    </div>
+        {{#each celebrities as |celebirty|}}
+        <div class="card mb-5">
+            <div class="card-header">
+                {{celebirty.occupation}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{celebirty.name}}</h5>
+                <p class="card-text">{{celebirty.catchPhrase}}</p>
+                <div class="d-flex">
+                    <a href="/celebrities/{{celebirty.id}}" class="btn btn-sm btn-primary me-md-2">View Details</a>
+                    <form action="/celebrities/{{celebirty.id}}/delete" method="POST">      
+                        <button class="btn btn-sm btn-danger " type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+

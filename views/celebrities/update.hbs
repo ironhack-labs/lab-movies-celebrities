@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5">Edit <span class="fw-bold">{{celebrity.name}} </span>menu</h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form action="/celebrities/{{celebrity.id}}" method="POST">
+                <div class="mb-3">
+                    <label for="celebrity" class="form-label">Name</label>
+                    <input value="{{celebrity.name}}" type="text" class="form-control" id="celebrity" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <input value="{{celebrity.occupation}}" type="text" class="form-control" id="occupation" name="occupation" required>
+                </div>
+                <div class="mb-3">
+                    <label for="catchPhrase" class="form-label">Catch Phrase</label>
+                    <input value="{{celebrity.catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase" required>
+                </div>
+                <button class="btn btn-sm btn-dark me-md-2" type="submit">Edit celebrity</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5">Movies List</h1>
+    </div>
+        {{#each movies as |movie|}}
+        <div class="card mb-5">
+            <div class="card-header">
+                {{movie.genre}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{movie.title}}</h5>
+                <p class="card-text">{{movie.plot}}</p>
+                <p class="card-text">{{movie.cast.name}}</p>
+                <div class="d-flex">
+                    <a href="/movies/{{movie.id}}" class="btn btn-sm btn-primary me-md-2">View Details</a>
+                    <form action="/movies/{{movie.id}}/delete" method="POST">      
+                        <button class="btn btn-sm btn-danger " type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
