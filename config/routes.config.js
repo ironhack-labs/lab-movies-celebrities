@@ -36,8 +36,11 @@ router.get("/movies", movieController.Movie);
  //get details of movie
  router.get("/movies/:id",movieController.details);
 
- //delete movie
+ //delete a movie
 router.post("/movies/:id/delete", movieController.delete);
 
+//edit a movie
+//router.get("/movies/:id/edit", movieController.edit);
+//router.post("/movies/:id/edit", movieController.doEdit);
 
 module.exports = router; 

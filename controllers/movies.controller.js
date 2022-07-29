@@ -49,6 +49,9 @@ module.exports.delete = (req, res, next) => {
     .catch(next);
 }; 
 
+//edit a movie
 
-  
+
+
+
 

@@ -1,23 +1,31 @@
 {{#if isEdit}}
-<h2>Edit  your celebrity</h2>
+<h2 class="create-cel">EDIT CELEBRITY</h2>
 
 {{else}}
-<h2>Create a new celebrity</h2>
+<h2 class="create-cel">CREATE A CELEBRITY</h2>
 {{/if}}
 
 
-<div class="create">
- <form action="/celebrities/{{#if isEdit}}{{updatedCelebrity.id}}/edit{{else}}create{{/if}}" method="POST">
 
-	<label for="name">Name:</label>
-	<input type="text" id="name" name="name" value="{{updatedCelebrity.name}}" required />
-	
-	<label for="occupation">Occupation:</label>
-	<input type="text" id="occupation" name="occupation" value="{{updatedCelebrity.occupation}}" required />
 
-	<label for="catchPhrase">Catch Phrase:</label>
-	<input type="text" id="catchPhrase" name="catchPhrase" value="{{updatedCelebrity.catchPhrase}}" required/>
+<div class="form">
+<form action="/celebrities/{{#if isEdit}}{{updatedCelebrity.id}}/edit{{else}}create{{/if}}" method="POST">
+  
+  <div class="form-info" >
+    <label for="name" >Name:</label>
+    <input type="text" id="name" name="name"  value="{{updatedCelebrity.name}}" required />
+  </div>
 
-	<button class="btn btn-primary" type="submit">Submit</button>
- </form>
+   <div class="form-info" >
+    <label for="occupation" >Occupation:</label>
+    <input type="text" id="occupation" name="occupation"  value="{{updatedCelebrity.occupation}}" required />
+  </div>
+
+  <div class="form-info">
+    <label for="catchPhrase" >Catch Phrase:</label>
+    <input type="text" id="catchPhrase" name="catchPhrase"  value="{{updatedCelebrity.catchPhrase}}" required />
+  </div>
+
+  <button class='form-btn' type="submit">Submit</button>
+</form>
 </div>

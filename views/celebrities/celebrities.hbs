@@ -1,18 +1,20 @@
-<h1>celebrities</h1>
+<h1 class="create-cel">CELEBRITIES LIST</h1>
+
 
 {{#each celebrities as |celebrity|}}
-    <div>
-        <div class="info">
-       <h3>Name:{{this.name}}</h1>
-       <p>Occupation: {{this.occupation}}</p>
-       <small>CatchPhrase {{this.catchPhrase}}</small>
-       <a href="/celebrities/{{this.id}}/edit">Edit info</a>
+    <div class="card text-bg-light mb-3" style="width: 18rem;">
+      <div class="card-body">
+       <h3>{{this.name}}</h1>
+       <hr>
+       <p class="p-1"> {{this.occupation}}</p>
+       <p class="p-2">{{this.catchPhrase}}</p>
+       <a class="edit" href="/celebrities/{{this.id}}/edit">Edit</a>
        </div>
        <form action="/celebrities/{{this.id}}/delete" method="POST">
-        <button class="btn btn-danger" type="submit">Delete</button>
+        <button  class="delete" type="submit">Delete</button>
        </form>
     </div>
 {{/each}}
-<a class="btn btn-primary" href="/celebrities/create">Create a new celebrity</a>
+<a href="/celebrities/create" class="form-btn">Create a new celebrity</a>
 
 

@@ -1,9 +1,9 @@
-<h1>movies</h1>
+<h1 class="create-cel">LIST OF MOVIES</h1>
 
 {{#each movies as |movie|}}
-    <div>
+    <div class="list-movies">
       <a href="/movies/{{_id}}" class="celebs-text"><p>{{movie.title}}</p></a>
     </div>
 {{/each}}
-<a class="btn btn-primary" href="/movies/create">Create a new movie</a>
+<a class="form-btn" href="/movies/create">Create a new movie</a>
 

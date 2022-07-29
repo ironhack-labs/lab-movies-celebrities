@@ -1,21 +1,24 @@
-<h1>Movie details</h2>
+<h1  class="create-cel">MOVIE DETAILS</h2>
 
-<div>
-    <h2>{{movie.title}}</h2>
-    <h3>{{movie.genre}}</h3>
-    <p>{{movie.plot}}</p>
-     <div>
-        <h4>Movie cast:</h4>
-            <ul>
-                 {{#each movie.cast as |member|}}
-                <li>{{member.name}}</li>
-            {{/each}}
-            </ul>
-     </div>
-     </div>
-       <form action="/movies/{{movie.id}}/delete" method="POST">
-        <button class="btn btn-danger" type="submit">Delete</button>
-       </form>
+
+
+<div class="card text-bg-light mb-3" style="width: 18rem;">
+    <div class="card-body">
+        <h3>{{movie.title}}</h3>
+        <hr>
+        <p class="p-1">{{movie.genre}}</p>
+        <p class="p-2">{{movie.plot}}</p>
+            <div class="cast">
+               <ul>
+                  {{#each movie.cast as |member|}} 
+                     <li>{{member.name}}</li>
+                      {{/each}} 
+                </ul>
+            </div>
+            <div>
+                <form action="/movies/{{movie.id}}/delete" method="POST">
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+            </div>
     </div>
 </div>
-
