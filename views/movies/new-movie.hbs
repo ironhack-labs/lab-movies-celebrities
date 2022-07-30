@@ -1,0 +1,24 @@
+<h2>Create a movie:</h2>
+<form action='/movies/create' method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title: </label>
+        <input value="{{movie.title}}" type="text" class="form-control" id="title" name="title" required>
+    </div><br>
+
+     <div class="mb-3">
+        <label for="genre" class="form-label">Genre: </label>
+        <input value="{{movie.genre}}" type="text" class="form-control" id="genre" name="genre" required>
+    </div><br>
+
+     <div class="mb-3">
+        <label for="plot" class="form-label">Plot: </label>
+        <input value="{{movie.plot}}" type="text" class="form-control" id="plot" name="plot" required>
+    </div><br>
+
+    <div class="mb-3">
+        <label for="cast" class="form-label">Cast: </label>
+        <input value="{{movie.cast}}" type="text" class="form-control" id="cast" name="cast">
+    </div><br>
+
+    <button type="submit" class="btn btn-primary">Submit</button><br>
+</form>
