@@ -33,6 +33,7 @@ router.get('/movies', (req, res, next) => {
 
 router.get('/movies/:id', (req, res, next) => {
     const {id} = req.params;
+
     Movie.findById(id)
     .populate('cast')
     .then((movieDetails) => {
@@ -40,6 +41,16 @@ router.get('/movies/:id', (req, res, next) => {
         console.log({movieDetails})
     })
     .catch(err => next(err))
+})
+
+router.post('/movies/:id/delete', (req, res, next) => {
+    const {id} = req.params;
+
+    Movie.findByIdAndRemove(id)
+    .then(() => {
+        res.redirect('/movies')
+    })
+    .catch((err) => next(err))
 })
 
 

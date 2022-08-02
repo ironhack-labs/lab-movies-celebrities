@@ -14,3 +14,7 @@
         <hr>
         {{/each}}
     </ul>
+
+    <form action="/movies/{{movieDetails._id}}/delete" method="post">
+        <button type="submit">Delete Movie</button>
+    </form>
