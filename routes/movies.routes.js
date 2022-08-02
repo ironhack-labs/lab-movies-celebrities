@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Movies = require('./models/movies.model')
-const Celebrities = require('./models/celebrities.model')
+const Movies = require('/models/movies.model')
+const Celebrities = require('/models/celebrities.model')
 // all your routes here
 router.get('/movies/create', (req, res, next) => {
     Celebrities.find()
@@ -23,12 +23,13 @@ router.get('/movies/create', (req, res, next) => {
   });
 
 
-  router.get('/Movies', (req, res, next) => {
+  router.get('/movies', (req, res, next) => {
     Movies.find()
-      .then((allMovies) => res.render('Movies/Movies', { Movies: allMovies }))
+      .then((allMovies) => res.render('movies/movies', { movies: allMovies }))
       .catch((err) => {
         console.log('Error while creating the Movie');
         next(err);
       });
   });
+
 module.exports = router;

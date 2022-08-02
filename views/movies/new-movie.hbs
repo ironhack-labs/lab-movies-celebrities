@@ -10,10 +10,15 @@
 
     <label for='plot'>Plot</label>
     <input type="text" name="plot">
-
-    <label for='cast'>Cast</label>
-    <input type="text" name="cast">
    
+   <label for="cast">Cast</label>
+   <select name="cast" id="cast" select="multiple">
+   {{#each celebrities as |celebrity|}}
+   <option value="{{celebrity._id}}">{{celebrity.name}}
+
+   </option>
+   {{/each}}
+   </select>
 
     <button type='submit'>New Movie</button>
 </form>
