@@ -31,6 +31,17 @@ router.get('/movies', (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.get('/movies/:id', (req, res, next) => {
+    const {id} = req.params;
+    Movie.findById(id)
+    .populate('cast')
+    .then((movieDetails) => {
+        res.render('movies/movie-details', {movieDetails})
+        console.log({movieDetails})
+    })
+    .catch(err => next(err))
+})
+
 
 
 
