@@ -39,23 +39,22 @@ module.exports.details = (req, res, next) =>{
 
 //edit
 module.exports.edit = (req, res, next) => {
-    const { id } = req.params;
+    const  {id } = req.params;
 
     Celebrity.findById(id)
        .then((celebrity) => {
-          res.render("celebrities/edit-celebrity", {celebrity, isEdit: true})
+          res.render("celebrities/new-celebrity", {celebrity, isEdit: true})
         })
-      .catch((err) => console.error(err));
-  };
+    };
   module.exports.doEdit = (req, res, next) => {
-    const { id } = req.params;
+    const  {id}  = req.params;
   
     Celebrity.findByIdAndUpdate(id, req.body, { new: true })
-      .then((updatedCelebrity) => {
+      .then((celebrity) => {
         console.log("💃👍 celebrity updated")
-        res.redirect("/celebrities")
+        res.redirect(`/celebrities/${celebrity.id}`)
       })
-      .catch((err) => console.error(err));
+     
   };
 
 

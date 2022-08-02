@@ -8,9 +8,10 @@ a {
 }
 
 .blackground {
-  margin-left: -600px;
+  margin-left: -350px;
   position: absolute;
-  width: 75%;
+  width: 80%;
+  
 }
 
 .title {
@@ -21,4 +22,12 @@ a {
   padding-top: 230px;
   margin-left: -200px;
   text-decoration: underline;
+}
+
+.btn-edit-delete{
+  border-radius: 7px;
+  color: white;
+  background-color: rgb(96, 90, 90);
+  padding: 3px 10px 3px 10px;
+  margin-left: 10px; 
 }

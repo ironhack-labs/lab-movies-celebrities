@@ -4,6 +4,7 @@ const Celebrity = require("../models/Celebrity.model");
 //listar películas
 module.exports.list = (req, res, next) => {
   Movie.find()
+    .populate("cast")
     .then((movies) => {
       res.render("movies/movies", { movies });
     })
@@ -32,10 +33,11 @@ module.exports.doCreate = (req, res, next) => {
 //details
 module.exports.details = (req, res, next) => {
   const { id } = req.params;
-  
+
   Movie.findById(id)
     .populate("cast")
     .then((movie) => {
+      console.log(movie)
       res.render("movies/movie-details", { movie });
     })
     .catch((err) => next(err));
@@ -58,7 +60,7 @@ module.exports.doEdit = (req, res, next) => {
 
   Movie.findByIdAndUpdate(id, req.body, { new: true })
     .then((movie) => {
-      res.redirect(`/movies/${movie.id}`);
+      res.redirect(`/movies/${movie.id}`, {id});
     })
     .catch((err) => next(err));
 };

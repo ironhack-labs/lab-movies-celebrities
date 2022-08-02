@@ -12,11 +12,9 @@ const movieSchema = new mongoose.Schema({
         type: String,
     },
     cast: {
-        type:[String, mongoose.Schema.Types.ObjectId],
-        ref: 'Celebrity',
-        
+        type:[mongoose.Schema.Types.ObjectId],
+        ref: 'Celebrities',  
     }
-
 })
 
 const Movies = mongoose.model('Movies', movieSchema)

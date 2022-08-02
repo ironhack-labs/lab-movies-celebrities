@@ -17,7 +17,6 @@ const celebritiesSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Known for is required']
     }
-
 })
 
 const Celebrities = mongoose.model('Celebrities', celebritiesSchema)

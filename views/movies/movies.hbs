@@ -4,7 +4,9 @@
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">{{movie.title}}</h5>
-      <h5 class="card-title">{{movie.cast}}</h5>
+  {{#each movie.cast as |celeb|}}
+      <h5 class="card-title">{{celeb.name}}</h5>
+{{/each}}
       <a href="/movies/{{movie.id}}">See details</a>
     </div>
  </div>

@@ -6,12 +6,10 @@
    <h3>{{celebrity.catchPhrase}}</h3>
    <h3>{{celebrity.occupation}}</h3>
 
-<div>
+    <div class="row">
         <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
-            <button type="submit">Delete</button>
+          <button class="btn-edit-delete"  type="submit">Delete</button>
         </form>
-       <form action="/celebrities/{{celebrity.id}}/edit" method="GET">
-            <button type="submit">Edit info</button>
         </form>
+        <a href="/celebrities/{{celebrity.id}}/edit" class="btn-edit-delete">Edit info</a>
     </div>
-

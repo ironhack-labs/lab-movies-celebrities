@@ -1,5 +1,9 @@
 
-  <h1 class="mt-2">New celibrity</h1>
+  {{#if isEdit}}
+  <h1 class="mt-2">Edit celibrity</h1>
+  {{else}}
+  <h1>New celebrity</h1>
+  {{/if}}
   
 <form action="/celebrities{{#if isEdit}}/{{celebrities.id}}{{/if}}" method="POST">
   <div class="mb-3">

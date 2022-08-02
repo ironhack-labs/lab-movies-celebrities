@@ -23,13 +23,10 @@
   </tbody>
 </table>
     
- </div>
-    <div>
+    <div class="row">
         <form action="/movies/{{movie._id}}/delete" method="POST">
-            <button type="submit">Delete</button>
+          <button class="btn-edit-delete"  type="submit">Delete</button>
         </form>
-        <form action="/movies/{{movie._id}}/edit" method="GET">
-            <button type="submit">Edit info</button>
         </form>
+        <a href="/movies/{{movie._id}}/edit" class="btn-edit-delete">Edit info</a>
     </div>
-</div>

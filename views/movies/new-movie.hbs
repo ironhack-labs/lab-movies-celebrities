@@ -6,12 +6,14 @@
     <input value="{{movies.title}}" type="text" class="form-control" id="title" name="title" required>
   </div>
   <div class="mb-3">
-    <label for="cast" class="form-label">Cast</label>
-    <select name="cast" multiple>
-        {{#each celebrities as |celebrity|}}
-            <option value="{{celebrity._id}}">{{celebrity.name}}</option>
-        {{/each}} 
-    </select>
+   <label for="cast" class="form-label" >Select Celebrity</label>
+    
+    <select value="{{#each celebrities as |celebrity|}}" name="cast" class="form-control" multiple required>
+            <option value="{{celebrity.id}}">{{celebrity.name}}</option>
+            {{/each}} 
+    </select>   
+    <span>*If you do not find the celebrity, please add celebrity as new <a href="/celebrities/create">New Celebrity</a></span>         
+    
   </div>
 
   <div class="mb-3">
