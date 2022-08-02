@@ -1,0 +1,19 @@
+<h2>Create a movie</h2>
+
+<form action='/movies/create' method='post'>
+
+  <label for='title'>Title</label>
+  <input type='text' name='title' id='title' />
+
+  <label for='author'>Author</label>
+  <input type='text' name='author' id='author' />
+
+  <label for='description'>Description</label>
+  <textarea name='description' id='description' cols='30' rows='4'></textarea>
+
+  <label for='rating'>Rating</label>
+  <input type='number' name='rating' id='rating' min='0' max='10' />
+
+  <button type='submit'>Create</button>
+
+</form>

@@ -1,0 +1,26 @@
+<nav class="nav-bar">
+  <a class="home-link nav-links" href="/">Homepage</a>
+  <a class="movies-list-link nav-links" href="/movies">List of Movies</a>
+  <a class="celebrities-list-link nav-links" href="/celebrities">List of Celebrities</a>
+  
+<section>
+    <h3>{{title}}</h3>
+    <p>
+        Genre: {{genre}} <br><br>
+        Plot: {{plot}} <br><br>
+        Cast:
+        <ul>
+            {{#each this.cast}}
+            <li>                
+                {{this.name}}                
+            </li>
+            {{/each}}
+        </ul>        
+    </p>
+</section>
+
+<a href="/movies">Back</a>
+
+
+
+
