@@ -1,0 +1,11 @@
+<h1>Celebrities</h1>
+
+{{#each celebrities}}
+  <div>
+    <h3>{{this.name}}</h3>
+    <p>Occupation: {{this.occupation}}</p>
+    <p>Catch Phrase: {{this.catchPhrase}}</p>
+    <a href='/celebrities/{{this._id}}'>See details</a>
+    <a href='/celebrities/{{this._id}}/edit'>Edit Celeb</a>
+  </div>
+{{/each}}
