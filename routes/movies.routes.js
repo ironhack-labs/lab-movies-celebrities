@@ -4,12 +4,18 @@ const Celebrity = require("../models/Celebrity.model");
 
 const router = require("express").Router();
 
+const mongoose = require("mongoose");
+
 // all your routes here
 
 // interaction 6
 
 router.get("/movies/create", (req, res, next) => {
-  res.render("movies/new-movie");
+  Celebrity.find()
+    .then((allCelebs) => {
+      res.render("movies/new-movie", { allCelebs });
+    })
+    .catch((err) => next(err));
 });
 
 router.post("/movies/create", (req, res, next) => {
@@ -27,7 +33,8 @@ router.post("/movies/create", (req, res, next) => {
 
 router.get("/movies", (req, res, next) => {
   Movies.find()
-    .then((listMovies) => res.render("movies/movies", { movies: listMovies }))
+    .populate("cast")
+    .then((allMovies) => res.render("movies/movies", { allMovies }))
     .catch((err) => {
       console.log("Movie not found");
     });

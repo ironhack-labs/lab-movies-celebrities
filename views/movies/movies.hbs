@@ -1,10 +1,15 @@
 <h2>Movie List</h2>
 <hr />
-<ul>
 
-  {{#each movies}}
-    <li>{{title}}</li>
-    <a href="/movies/{{this.id}}">See Details</a>
+{{#each allMovies}}
+  <h1>{{this.title}}</h1>
+  <p>Genre: {{this.genre}}</p>
+  <p>Plot: {{this.plot}}</p>
+  <p>Cast: </p>
+  {{#each this.cats}}
+    <ul>
+      <li>{{this.name}}</li>
+    </ul>
   {{/each}}
-
-</ul>
+  <a href="/movies/{{this.id}}">See Details</a>
+{{/each}}

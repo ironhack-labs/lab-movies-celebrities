@@ -12,9 +12,10 @@
   <hr />
   <select name="cast" id="cast" multiple>
 
-    {{#each listCelebrities}}
+    {{#each allCelebs}}
       <option value="{{this._id}}">{{this.name}}</option>
 
     {{/each}}
   </select>
+  <button type="submit">Submit</button>
 </form>

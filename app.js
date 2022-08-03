@@ -17,7 +17,6 @@ const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
-
 // default value for title local
 const projectName = "lab-movies-celebrities";
 const capitalized = (string) =>

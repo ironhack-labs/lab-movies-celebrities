@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
+const mongoose = require("mongoose");
 
 // all your routes here
 
@@ -13,10 +14,7 @@ router.post("/celebrities/create", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
 
   Celebrity.create({ name, occupation, catchPhrase })
-    .then((createdCelebrity) => {
-      console.log(`${createdCelebrity.name} was created`);
-      res.redirect("/celebrities");
-    })
+    .then(() => res.redirect("/celebrities"))
     .catch((err) => {
       res.render("/celebrities/new-celebrity");
       next(err);
@@ -26,12 +24,8 @@ router.post("/celebrities/create", (req, res, next) => {
 
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
-    .then((listCelebrities) =>
-      res.render("celebrities/celebrities", { celebrities: listCelebrities })
-    )
-    .catch((err) => {
-      console.log("Celebrity not found");
-    });
+    .then((allCelebs) => res.render("celebrities/celebrities", { allCelebs }))
+    .catch((err) => next(err));
 });
 
 module.exports = router;
