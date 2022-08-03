@@ -2,8 +2,14 @@
 const {Schema, model} = require("mongoose");
 
 const celebritySchema = new Schema ({
-    name: String,
-    occupation: String,
+    name: {
+        type: String,
+        required: true
+    },
+    occupation: {
+        type: String,
+        required: true
+    },
     catchPhrase: {
         type: String,
         required: true
