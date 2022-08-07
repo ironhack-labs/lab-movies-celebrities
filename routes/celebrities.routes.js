@@ -44,4 +44,12 @@ router.get("/:id", (req, res) => {
     );
 });
 
+// DELETE A CELEBRITY
+router.post("/:id/delete", (req, res) => {
+  celebrityModel
+    .findByIdAndRemove(req.params.id)
+    .then(() => res.redirect("/celebrities"))
+    .catch((err) => console.log("Catched an Error", err));
+});
+
 module.exports = router;
