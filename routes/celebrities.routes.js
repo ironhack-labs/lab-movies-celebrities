@@ -52,4 +52,29 @@ router.post("/:id/delete", (req, res) => {
     .catch((err) => console.log("Catched an Error", err));
 });
 
+// UPDATE A CELEBRITY
+router.get("/:id/edit", (req, res) => {
+  celebrityModel
+    .findById(req.params.id)
+    .then((selectedCeleb) => {
+      const { _id, name, occupation, catchPhrase } = selectedCeleb;
+      res.render("celebrities/edit-celebrity", {
+        _id,
+        name,
+        occupation,
+        catchPhrase,
+      });
+    })
+    .catch((err) => console.log("Nope, not today", err));
+});
+
+router.post("/:id/edit", (req, res) => {
+  console.log(req.body);
+  const { name, occupation, catchPhrase } = req.body;
+  celebrityModel
+    .findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase })
+    .then(() => res.redirect(`/celebrities/${req.params.id}`))
+    .catch((err) => console.log("NO UPDATE", err));
+});
+
 module.exports = router;
