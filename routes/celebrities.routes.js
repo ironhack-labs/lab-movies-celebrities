@@ -26,4 +26,22 @@ router.post("/create", (req, res) => {
     });
 });
 
+// DETAILS PAGE
+router.get("/:id", (req, res) => {
+  celebrityModel
+    .findById(req.params.id)
+    .then((selectedCeleb) => {
+      const { _id, name, occupation, catchPhrase } = selectedCeleb;
+      res.render("celebrities/celebrity-details", {
+        _id,
+        name,
+        occupation,
+        catchPhrase,
+      });
+    })
+    .catch((err) =>
+      console.log("Displaying the celebrity details failed, sorry.", err)
+    );
+});
+
 module.exports = router;
