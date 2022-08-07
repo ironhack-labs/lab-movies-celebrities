@@ -39,12 +39,20 @@ router.get("/:id", (req, res) => {
     .populate("cast")
     .then((selectedMovie) => {
       console.log(selectedMovie);
-      const { title, genre, plot, cast } = selectedMovie;
-      res.render("movies/movie-details", { title, genre, plot, cast });
+      const { _id, title, genre, plot, cast } = selectedMovie;
+      res.render("movies/movie-details", { _id, title, genre, plot, cast });
     })
     .catch((err) =>
       console.log("Displaying the movie details failed, sorry.", err)
     );
+});
+
+// DELETE A MOVIE
+router.post("/:id/delete", (req, res) => {
+  movieModel
+    .findByIdAndRemove(req.params.id)
+    .then(() => res.redirect("/movies"))
+    .catch((err) => console.log("Catched an Error", err));
 });
 
 module.exports = router;
