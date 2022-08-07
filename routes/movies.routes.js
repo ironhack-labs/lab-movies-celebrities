@@ -2,7 +2,7 @@ const router = require("express").Router();
 const movieModel = require("../models/Movie.model");
 const celebrityModel = require("../models/Celebrity.model");
 
-// all your routes here
+// ADD MOVIES
 router.get("/create", (req, res) => {
   celebrityModel
     .find()
@@ -18,6 +18,19 @@ router.post("/create", (req, res) => {
     .create(req.body)
     .then(() => res.redirect("/movies"))
     .catch((err) => console.log("Oh, adding a movie did not work.", err));
+});
+
+//LIST ALL MOVIES OF THE DB
+router.get("/", (req, res) => {
+  movieModel
+    .find()
+    .then((allMovies) => {
+      console.log(allMovies);
+      res.render("movies/movies", { allMovies });
+    })
+    .catch((err) =>
+      console.log("Well, that's probably not what you expected, huh?", err)
+    );
 });
 
 module.exports = router;
