@@ -1,4 +1,4 @@
-const Schema = require("mongoose").Schema;
+const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema({
   name: String,
@@ -6,6 +6,6 @@ const celebritySchema = new Schema({
   catchPhrase: String,
 });
 
-const Celebrity = mongoose.model("Celebrity", celebritySchema);
+const Celebrity = model("Celebrity", celebritySchema);
 
 module.exports = Celebrity;
