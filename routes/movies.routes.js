@@ -25,11 +25,25 @@ router.get("/", (req, res) => {
   movieModel
     .find()
     .then((allMovies) => {
-      console.log(allMovies);
       res.render("movies/movies", { allMovies });
     })
     .catch((err) =>
       console.log("Well, that's probably not what you expected, huh?", err)
+    );
+});
+
+// DETAILS PAGE
+router.get("/:id", (req, res) => {
+  movieModel
+    .findById(req.params.id)
+    .populate("cast")
+    .then((selectedMovie) => {
+      console.log(selectedMovie);
+      const { title, genre, plot, cast } = selectedMovie;
+      res.render("movies/movie-details", { title, genre, plot, cast });
+    })
+    .catch((err) =>
+      console.log("Displaying the movie details failed, sorry.", err)
     );
 });
 
