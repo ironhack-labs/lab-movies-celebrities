@@ -38,7 +38,7 @@ router.get("/:id", (req, res) => {
     .findById(req.params.id)
     .populate("cast")
     .then((selectedMovie) => {
-      console.log(selectedMovie);
+      //   console.log(selectedMovie);
       const { _id, title, genre, plot, cast } = selectedMovie;
       res.render("movies/movie-details", { _id, title, genre, plot, cast });
     })
@@ -53,6 +53,39 @@ router.post("/:id/delete", (req, res) => {
     .findByIdAndRemove(req.params.id)
     .then(() => res.redirect("/movies"))
     .catch((err) => console.log("Catched an Error", err));
+});
+
+// UPDATE A MOVIE
+router.get("/:id/edit", (req, res) => {
+  movieModel
+    .findById(req.params.id)
+    .populate("cast")
+    .then((selectedMovie) => {
+      const { _id, title, genre, plot, cast } = selectedMovie;
+      celebrityModel
+        .find()
+        .then((celebArr) => {
+          console.log(selectedMovie);
+          res.render("movies/edit-movie", {
+            _id,
+            title,
+            genre,
+            plot,
+            cast,
+            celebArr,
+          });
+        })
+        .catch((err) => console.log("Nope, not today", err));
+    });
+});
+
+router.post("/:id/edit", (req, res) => {
+  console.log(req.body);
+  const { title, genre, plot, cast } = req.body;
+  movieModel
+    .findByIdAndUpdate(req.params.id, { title, genre, plot, cast })
+    .then(() => res.redirect(`/movies/${req.params.id}`))
+    .catch((err) => console.log("NO UPDATE", err));
 });
 
 module.exports = router;
