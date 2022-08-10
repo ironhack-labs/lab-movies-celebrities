@@ -3,9 +3,9 @@ const Movies = require("../models/Movie.model")
 const router = require("express").Router();
 
 router.get('/movies', (req,res,next)=>{
-    Movie.find()
-    .then(movies => {
-        res.render('../views/movies/movies.hbs',{movies})
+    Movies.find()
+    .then(movie => {
+        res.render('../views/movies/movies.hbs',{movie})
     })
     .catch(err=>console.log(err))
 })
