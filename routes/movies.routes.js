@@ -17,8 +17,18 @@ router.get('/movies/create', (req,res,next)=>{
     })
 })
 
-router.post('/movies/create', (req,res,next)=>{
+router.post('/movies/create', (req,res)=>{
     const {title, genre, plot, cast} = req.body;
+    console.log(title)
+    console.log(genre)
+    console.log(plot)
+    console.log(cast)
+    Celebrity.findById(cast)
+    .then(check => console.log(check))
+    .catch(err => {
+        console.log(err)
+        res.redirect('/movies/create')
+    })
     Movies.create({
         title,
         genre,
@@ -30,6 +40,15 @@ router.post('/movies/create', (req,res,next)=>{
         console.log(err)
         res.redirect('/movies/create')
     })
+
 })
 
+router.get('/movies/:id', (req, res)=>{
+    Movies.findById(req.params.id)
+        .populate('cast')
+        .then(movie=>{    
+            res.render('../views/movies/movie-details.hbs', {movie})
+        })
+        .catch(err => console.log(err))
+})
 module.exports = router;
