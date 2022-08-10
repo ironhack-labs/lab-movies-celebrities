@@ -1,4 +1,5 @@
 const Celebrity = require("../models/Celebrity.model");
+const Movie = require("../models/Movie.model");
 const Movies = require("../models/Movie.model")
 const router = require("express").Router();
 
@@ -56,5 +57,26 @@ router.post('/movies/:id/delete', (req, res)=>{
     Movies.findByIdAndRemove(req.params.id)
     .then(()=> res.redirect('/movies'))
     .catch(err=> console.log(err))
+})
+
+router.get('/movies/:id/edit', (req,res)=>{
+    Movie.findById(req.params.id)
+    .then(movie=>{
+        Celebrity.find()
+        .then(celebrities=>{
+            res.render('../views/movies/edit-movie.hbs', {movie, celebrities})
+        })
+        .catch(err=>console.log(err))
+    })
+    .catch(err=>console.log(err))
+})
+
+router.post('/movies/:id', (req,res)=>{
+    const { title, genre, plot, cast } = req.body
+    Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, cast})
+    .then(movie=>{
+        res.render(`../views/movies/movie-details.hbs`, {movie})
+    })
+    .catch(err=>console.log(err))
 })
 module.exports = router;

@@ -10,7 +10,10 @@
 <p>Catchphrase: {{catchPhrase}}</p>
 {{/each}}
 
-
+<h4>Want to edit this movie?</h4>
+<form action='/movies/{{movie.id}}/edit' method="GET">
+    <button type="Submit">Edit Movie</button>
+</form>
 <h4>Want to delete this movie?</h4>
 <form action='/movies/{{movie.id}}/delete' method="POST">
     <button type="Submit">Delete Movie</button>
