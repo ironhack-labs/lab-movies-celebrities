@@ -2,20 +2,20 @@
 <form action="/movies/{{_id}}/edit" method="POST">
     <div>
         <label>title</label>
-        <input type="text" name="title" value="{{title}}">
+        <input type="text" name="title" value="{{movie.title}}">
     </div>
     <div>
         <label>genre</label>
-        <input type="text" name="genre" value="{{genre}}">
+        <input type="text" name="genre" value="{{movie.genre}}">
     </div>
     <div>
         <label>plot</label>
-        <input type="text" name="plot" value="{{plot}}">
+        <input type="text" name="plot" value="{{movie.plot}}">
     </div>
     <div>
         <label>cast</label>
         <select multiple>
-            {{#each celeb}}
+            {{#each celebrities}}
             <option value="{{_id}}">{{name}}</option>
             {{/each}}
         </select>

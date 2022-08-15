@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 
 const celebSchema = new Schema({
     
-    name: {type: String},
-    occupation: {type: String},
-    catchphrase: {type: String}
+    name: String,
+    occupation: String,
+    catchphrase: String,
 
   });
 
-  const celeb = mongoose.model('celeb', celebSchema);
+  const Celebrity = mongoose.model('Celebrity', celebSchema);
 
-  module.exports = celeb;
+  module.exports = Celebrity;

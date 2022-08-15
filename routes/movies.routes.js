@@ -1,23 +1,29 @@
 const router = require("express").Router();
+const Celebrity = require('../models/Celebrity.model');
 const Movie = require('../models/Movie.model');
-const celeb = require('../models/Celebrity.model');
+
 
 // all your routes here
-router.get('/create',(req,res) =>
-    res.render('new-movie')
-);
+
+
+// router.get('/create',(req,res) =>{
+//     res.render('new-movie')
+// });
+
+router.get('/create',(req,res) =>{
+
+  Celebrity.find()
+    .then(celeb => 
+      res.render('new-movie', {celeb}))
+    .catch(Err => {
+      return console.log('error', Err);
+    })
+});
 
 router.post('/create',(req,res) => {
     const {title, genre, plot, cast} =req.body;
     Movie.create({title, genre, plot, cast})
     .then(()=>res.redirect('/movies'))
-    .catch(Err => console.log('error', Err))
-});
-
-router.get('/create',(req,res) =>{
-    celeb.find()
-    .then((celeb) => 
-    res.render('new-movie', {celeb}))
     .catch(Err => console.log('error', Err))
 });
 
@@ -46,26 +52,24 @@ router.post('/:id/delete', (req, res) => {
   });
 
   router.get('/:id/edit', (req, res) => {
+    let celebrities;
+  Celebrity.find()
+  .then((data) => (celebrities = data));
 
     Movie.findById(req.params.id)
       .then(movie => {
-        res.render('edit-movie', movie)
+        res.render('edit-movie', {movie, celebrities})
       })
       .catch(err => console.log(err))
   });
 
   router.post('/:id/edit', (req, res) => {
-    const { title, genre, plot, cast } = req.body
-    Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast })
+    const { title, genre, plot, cast } = req.body;
+    Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast },{new: true})
     .then(() => res.redirect('/movies'))
     .catch(Err => console.log('error', Err))
   });
 
-  router.get('/:id/edit',(req,res) =>{
-    celeb.find()
-    .then(celeb =>
-    res.render('edit-movie', {celeb}))
-    .catch(Err => console.log('error', Err))
-});
+ 
 
 module.exports = router;
