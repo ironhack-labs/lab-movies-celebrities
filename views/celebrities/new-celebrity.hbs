@@ -5,32 +5,32 @@
   <h1>New celebrity</h1>
   {{/if}}
   
-<form action="/celebrities{{#if isEdit}}/{{celebrities.id}}{{/if}}" method="POST">
+<form action="/celebrities{{#if isEdit}}/{{celebrity.id}}/edit{{/if}}" method="POST">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
-    <input value="{{celebrities.name}}" type="text" class="form-control" id="name" name="name" required>
+    <input value="{{celebrity.name}}" type="text" class="form-control" id="name" name="name" required>
   </div>
 
   <div class="mb-3">
     <label for="occupation" class="form-label" >Occupations</label>
-    <select value="{{celebrities.occupation}}" type="text" class="custom-select" id="occupation" name="occupation" required>
-                <option selected>Choose...</option>
-                <option value="actress">actress</option>
-                <option value="actor">actor</option>
-                <option value="singer">singer</option>
-                <option value="comedian">comedian</option>
-                <option value="unknown">unknown</option>
-            </select>
+    <select value="{{celebrity.occupation}}" class="custom-select" id="occupation" name="occupation" required>
+        <option selected>Choose...</option>
+        <option value="actress">actress</option>
+        <option value="actor">actor</option>
+        <option value="singer">singer</option>
+        <option value="comedian">comedian</option>
+        <option value="unknown">unknown</option>
+    </select>
   </div>
 
   <div class="mb-3">
     <label for="catchPrhase" class="form-label">Catch Phrase</label>
-    <input value="{{celebrities.catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase" >
+    <input value="{{celebrity.catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase" >
   </div>
 
   <div class="mb-3">
     <label for="country" class="form-label">Known For</label>
-    <input value="{{celebrities.knownFor}}" type="text" class="form-control" id="knownFor" name="knownFor" required>
+    <input value="{{celebrity.knownFor}}" type="text" class="form-control" id="knownFor" name="knownFor" required>
   </div>
 
   

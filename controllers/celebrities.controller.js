@@ -46,7 +46,9 @@ module.exports.edit = (req, res, next) => {
           res.render("celebrities/new-celebrity", {celebrity, isEdit: true})
         })
     };
+
   module.exports.doEdit = (req, res, next) => {
+    console.log('entro por aqui');
     const  {id}  = req.params;
   
     Celebrity.findByIdAndUpdate(id, req.body, { new: true })
