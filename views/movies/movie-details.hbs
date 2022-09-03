@@ -1,0 +1,34 @@
+<h2>Movie details!</h2>
+
+
+
+
+<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header">movie</div>
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <p class="card-text">Genre: {{genre}}</p>
+    <p class="card-text">Argument: {{plot}}</p>
+    {{#each cast}}
+    <p class="card-text">Cast: {{name}}</p>
+    <ul>
+        <li>Occupation: {{occupation}}</li>
+        <li>Typical phrase: {{catchPhrase}}</li>
+    </ul>
+    {{/each}}
+    <div class="d-flex">
+      <form action="/movies/{{_id}}/edit" method="get">
+      <button class="btn btn-primary mb-3 me-3" type="submit">UPDATE</button>
+      </form>
+      <form action="/movies/{{_id}}/delete" method="post">
+      <button class="btn btn-danger" type="submit">DELETE</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

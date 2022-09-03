@@ -1,8 +1,90 @@
 body {
-  padding: 50px;
+  padding: 0 ;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+}
+
+.bg{
+  background-image: url("../images/bg2.jpg");
+  background-size: cover;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.flex a{
+  padding-right: 15px;
+  margin-right: 15px;
+}
+
+h2{
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+
+#lista {
+  counter-reset: li; 
+  list-style: none; 
+  *list-style: decimal; 
+  font: 15px 'trebuchet MS', 'lucida sans';
+  padding: 0;
+  margin-bottom: 4em;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#lista ol {
+  margin: 0 0 0 2em; 
+}
+
+#lista li{
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  *padding: .4em;
+  margin: .9em 0;
+  background: #ddd;
+  color: #444;
+  text-decoration: none;
+  border-radius: .3em;
+  transition: all .3s ease-out;   
+  width: 20%;
+}
+
+#lista li a{
+  text-decoration: none;
+  color: #444;
+}
+
+#lista li:hover{
+  background: #eee;
+}
+
+#lista li:hover:before{
+  transform: rotate(360deg);  
+}
+
+#lista li:before{
+  content: counter(li);
+  counter-increment: li;
+  position: absolute; 
+  left: -1.3em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: #87ceeb;
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: .3em solid #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  transition: all .3s ease-out;
 }
