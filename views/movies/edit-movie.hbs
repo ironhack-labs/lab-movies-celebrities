@@ -1,14 +1,49 @@
 <h2>Edit the movie!</h2>
 
-<P>Esto es el 'movie.title'-->{{movie.title}}</P>
+
+
+<form action="/movies/{{movie._id}}" method="post">
+  <div class="mb-3">
+    <label for="" class="form-label">Title:</label>
+    <input type="text" name="title" value="{{movie.title}}" class="form-control w-25">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Genre:</label>
+    <input type="text" name="genre" value="{{movie.genre}}" class="form-control w-25">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Argument:</label>
+    <input type="text" name="plot" value="{{movie.plot}}" class="form-control w-25">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Current Cast members:
+        <ul>
+            {{#each movie.cast}}
+        <li>{{name}}</li>
+            {{/each}}
+        </ul>
+    </label>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">New Cast:</label>
+    <select class="form-select w-25" name="cast" size="3" multiple aria-label="multiple select example">
+        {{#each celebrities}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Update!</button>
+</form>
+
+{{!-- <P>Esto es el 'movie.title'-->{{movie.title}}</P>
 
 <p>lo de abajo es 'el each de celebritis con el name</p>
 {{#each celebrities}}
 <p>{{name}}</p>
-{{/each}}
+{{/each}} --}}
 
 
-<form action="/movies/{{movie._id}}" method="post">
+{{!-- <form action="/movies/{{movie._id}}" method="post">
 <label for="">Title: </label>
 <input type="text" name="title" value="{{movie.title}}">
 <br><label for="">Genre: </label>
@@ -29,4 +64,4 @@
 {{/each}}
 </select>
 <br><button type="submit">Update!</button>
-</form>
+</form> --}}

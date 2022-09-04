@@ -43,7 +43,7 @@ router.get("/movies/:idMovie/edit", (req, res, next) => {
 
 
 router.post("/movies/create", (req, res, next) =>{
-    const { title, genre, plot, cast } = req.body
+    const { title, genre, plot, cast } = req.body  // necesito aprender esto!!!!!!!
     MovieModel.create( { title, genre, plot, cast } )
     .then(() => res.redirect("/movies"))
     .catch(() => res.render("movies/new-movie"))
