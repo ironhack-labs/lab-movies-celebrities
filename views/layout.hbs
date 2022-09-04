@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/images/film.ico" />
+  <title>{{title}}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-  <body>
-    <div class="container">
-      {{{body}}}
+<body>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5" style="background-color: #58a6ff">
+        <div class="col-3 d-flex justify-content-center">
+          <a class="navbar-brand text-white" href="/">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="col-9 collapse navbar-collapse d-flex justify-content-start" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="/movies">Movies</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="/movies/create">New Movie</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="/celebrities">Celebrities</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="/celebrities/create">New Celebrity</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
+  </div>
+  <div class="container">
+    {{{body}}}
+  </div>
 
-    <script src="/javascripts/script.js"></script>
-  </body>
+  <script src="/javascripts/script.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</body>
 
 </html>

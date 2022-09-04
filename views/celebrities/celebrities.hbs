@@ -1,0 +1,13 @@
+<h1>All Celebrities</h1>
+
+{{#each Allcelebrites}}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h3 class="card-title">{{name}}</h3>
+        <p class="card-text"><strong>Occupation:</strong> {{occupation}}</p>
+        <p class="card-text"><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+    </div>
+</div>
+{{/each}}
+
+<a href="/celebrities/create">Add Celebrity</a>

@@ -1,0 +1,14 @@
+<h1>All Movies</h1>
+
+{{#each allMovies}}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h3 class="card-title">{{title}}</h3>
+        <p class="card-text"><strong>Genre:</strong> {{genre}}</p>
+        <p class="card-text"><strong>Plot:</strong> {{plot}}</p>
+        <a href="/movies/{{_id}}">More details</a>
+    </div>
+</div>
+{{/each}}
+
+<a href="/movies/create">Add more movies</a>

@@ -1,0 +1,26 @@
+<h1>Edit the {{movie.title}}</h1>
+
+<div class="card" style="width: 18rem;">
+    <form action="/movies/{{movie._id}}" method="post">
+        <label for="">Title: </label>
+        <input type="text" name="title" value="{{movie.title}}">
+        <br><label for="">Genre: </label>
+        <input type="text" name="genre" value="{{movie.genre}}">
+        <br><label for="">Argument: </label>
+        <input type="text" name="plot" value="{{movie.plot}}">
+        <br><label for="">Current cast members:</label>
+
+        <div class="card-body">
+            <br><label for="cast">New cast: </label>
+            <br><select name="cast" multiple>
+                {{#each allCelebrities}}
+                <br>
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <br><button class="card-link" type="submit">Update</button>
+        </div>
+
+
+    </form>
+</div>
