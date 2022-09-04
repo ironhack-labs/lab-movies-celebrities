@@ -1,0 +1,33 @@
+<h1>movies</h1>
+
+<div class="container">
+    <h2>Create a new Movie</h2>
+    <div class="col-6">
+        <div class="row">
+            <form action="/movies/create" method="POST">
+                <div class="row m-5">
+                    <label for="">Title</label>
+                    <input type="string" name="title">
+                </div>
+                <div class="row m-5">
+                    <label for="">Genre</label>
+                    <input type="text" name="genre">
+                </div>
+                <div class="row m-5">
+                    <label for="">Plot</label>
+                    <input type="text" name="plot">
+                </div>
+                <div class="row m-5">
+                    <label for="">Cast:</label>
+                    {{#each celebrities}}
+                    <select name="cast" multiple>
+                        <option value="{{_id}}">{{name}}</option>
+                    </select>
+                    {{/each}}
+                </div>
+                <button class="m-5" type="submit">Create Movie</button>
+            </form>
+
+        </div>
+    </div>
+</div>

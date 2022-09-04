@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row d-flex">
+        <h2 class="m-5">Movies</h2>
+        <a href="/movies/create" class="btn btn-primary">Create Movie</a>
+
+        {{#each movies}}
+        <div class="card col-4 m-5">
+            <div class="card-body">{{title}}</div>
+            <a href="/movies/{{_id}}" class="btn btn-primary m-5">View</a>
+
+        </div>
+        {{/each}}
+    </div>
+</div>

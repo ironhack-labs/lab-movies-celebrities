@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row d-flex">
+        <h2 class="m-5">Celebrities</h2>
+        <a href="/celebrities/create" class="btn btn-primary">Create Celebrity</a>
+
+        {{#each celebrities}}
+        <div class="card col-4 m-5">
+            <div class="card-body">{{name}}</div>
+        </div>
+        {{/each}}
+    </div>
+</div>
