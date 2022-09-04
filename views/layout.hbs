@@ -6,41 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="/images/film.ico" />
-  <title>{{title}}</title>
+  <title>IRONCELEBRITIES</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top mb-5" style="background-color: #58a6ff">
-        <div class="col-3 d-flex justify-content-center">
-          <a class="navbar-brand text-white" href="/">Home</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="col-9 collapse navbar-collapse d-flex justify-content-start" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="/movies">Movies</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="/movies/create">New Movie</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="/celebrities">Celebrities</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="/celebrities/create">New Celebrity</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+<body class="background">
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #58a6ff">
+    <a class="navbar-brand text-white ms-5" href="/">Home</a>
+    <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="/movies">Movies <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/movies/create">Add Movie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/celebrities">Celebrities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/celebrities/create">Add Celebrity</a>
+        </li>
+      </ul>
     </div>
-  </div>
+  </nav>
   <div class="container">
     {{{body}}}
   </div>

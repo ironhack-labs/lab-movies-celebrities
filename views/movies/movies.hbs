@@ -1,14 +1,20 @@
-<h1>All Movies</h1>
+<h1 class="mt-3">All Movies</h1>
 
-{{#each allMovies}}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h3 class="card-title">{{title}}</h3>
-        <p class="card-text"><strong>Genre:</strong> {{genre}}</p>
-        <p class="card-text"><strong>Plot:</strong> {{plot}}</p>
-        <a href="/movies/{{_id}}">More details</a>
+
+<div class="container">
+    <div class="row">
+        {{#each allMovies}}
+        <div class="card d-flex flex-row m-3" style="width: 25rem;">
+            <div class="card-body">
+                <h3 class="card-title">{{title}}</h3>
+                <p class="card-text"><strong>Genre:</strong> {{genre}}</p>
+                <p class="card-text"><strong>Plot:</strong> {{plot}}</p>
+                <a class="btn btn-primary" href="/movies/{{_id}}">More details</a>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>
-{{/each}}
 
-<a href="/movies/create">Add more movies</a>
+
+<a class="btn btn-primary" href="/movies/create">Add more movies</a>

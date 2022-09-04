@@ -1,13 +1,16 @@
-<h1>All Celebrities</h1>
+<h1 class="mt-3">All Celebrities</h1>
 
-{{#each Allcelebrites}}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h3 class="card-title">{{name}}</h3>
-        <p class="card-text"><strong>Occupation:</strong> {{occupation}}</p>
-        <p class="card-text"><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+<div class="container">
+    <div class="row">
+        {{#each Allcelebrites}}
+        <div class="card d-flex flex-row m-2 " style="width: 25rem;">
+            <div class="card-body">
+                <h3 class="card-title">{{name}}</h3>
+                <p class="card-text"><strong>Occupation:</strong> {{occupation}}</p>
+                <p class="card-text"><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+            </div>
+        </div>
+        {{/each}}
     </div>
+    <a class="btn btn-primary" href="/celebrities/create">Add Celebrity</a>
 </div>
-{{/each}}
-
-<a href="/celebrities/create">Add Celebrity</a>

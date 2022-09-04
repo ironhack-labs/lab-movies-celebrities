@@ -1,37 +1,27 @@
 <h1>Details Movie</h1>
 
-<div class="container center mt-5 d-flex justify-content-center" style="max-width: 1000px;">
-    <div class="row">
-
-        <div class="card mb-3">
-            <div class="row">
-                {{!-- <div class="col-md-4 d-flex justify-content-center">
-                    <img src="{{image}}" class="rounded" alt="{{name}}">
-                </div> --}}
-                <div>
-                    <div class="card-body">
-                        <h2 class="card-title">{{title}}</h2>
-                        <p class="card-text"><strong>Genre: </strong> {{genre}}</p>
-                        <p class="card-text"><strong>Plot: </strong>{{plot}}</p>
-                        {{#each cast}}
-                        <p class="card-text"><strong>Actor: </strong>{{name}}</p>
-                        <p class="card-text"><strong>Occupation: </strong>{{occupation}}</p>
-                        <p class="card-text"><strong>Catch Phrase: </strong>{{catchPhrase}}</p>
-                        {{/each}}
-                        <div class="mt-4">
-                            <a class="link" href="/movies">Go back</a>
-                            <form action="/movies/{{_id}}/delete" method="post">
-                                <button type="submit">Delete</button>
-                            </form>
-
-                            <form action="/movies/{{_id}}/edit" method="get">
-                                <button type="submit">Edit</button>
-                            </form>
-                        </div>
-                    </div>
+<div class="container mt-5" style="max-width: 25rem;">
+    <div class="row card mb-3">
+        <div class="card-body">
+            <h2 class="card-title">{{title}}</h2>
+            <p class="card-text"><strong>Genre: </strong> {{genre}}</p>
+            <p class="card-text"><strong>Plot: </strong>{{plot}}</p>
+            {{#each cast}}
+            <p class="card-text"><strong>Actor: </strong>{{name}}</p>
+            <p class="card-text"><strong>Occupation: </strong>{{occupation}}</p>
+            <p class="card-text"><strong>Catch Phrase: </strong>{{catchPhrase}}</p>
+            {{/each}}
+            <div class="mt-4">
+                <div class="d-flex flex-row mb-3">
+                    <form action="/movies/{{_id}}/edit" method="get">
+                        <button class="btn btn-primary" type="submit">Edit</button>
+                    </form>
+                    <form action="/movies/{{_id}}/delete" method="post">
+                        <button class="btn btn-danger mx-3" type="submit">Delete</button>
+                    </form>
                 </div>
+                <a class="link" href="/movies">Go back</a>
             </div>
         </div>
-
     </div>
 </div>
