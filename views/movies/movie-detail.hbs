@@ -1,0 +1,15 @@
+<div class=“container”>
+    <div class=“row d-flex”>
+        <h2 class=“m-5”>Movie details</h2>
+        <div class=“card col-4 m-5">
+            <div class=“card-body”>{{title}}</div>
+            <div class=“card-body”>{{genre}}</div>
+            <div class=“card-body”>{{plot}}</div>
+            {{#each cast}}
+            <div class=“card-body”>{{name}}</div>
+            <div class=“card-body”>{{occupation}}</div>
+            <div class=“card-body”>{{catchPhrase}}</div>
+            {{/each}}
+        </div>
+    </div>
+</div>

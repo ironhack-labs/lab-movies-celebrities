@@ -1,0 +1,10 @@
+<h2>CELEBRITIES</h2>
+
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+    <div class="card-header">Actors</div>
+    <div class="card-body">
+        {{#each celebrities}}
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{catchPhrase}}</p>
+        {{/each}}
+    </div>
