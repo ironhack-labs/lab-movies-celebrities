@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+        <p class="card-text">
+            Cast: <br>
+        <ul class="list-group">
+            {{#each cast}}
+            <li class="list-group-item"><a href="/celebrities/{{_id}}">{{name}}</a></li>
+            {{/each}}
+        </ul>
+        </p>
+        <a href="/movies/{{_id}}/edit" class="card-link btn">Edit</a>
+        <form action="/movies/{{_id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+</div>
