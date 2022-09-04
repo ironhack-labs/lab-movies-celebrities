@@ -1,7 +1,10 @@
-<div class="card" style="width: 18rem;">
+<div class="card p-5">
     <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
-        <p class="card-text">{{catchPhrase}}</p>
+        <h5 class="card-title">Name: {{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Occupation: {{occupation}}</h6>
+        <p class="card-text">Catchphrase: {{catchPhrase}}</p>
     </div>
+    <form action="/celebrities/{{_id}}/delete" method="post">
+        <button type="submit">Delete</button>
+    </form>
 </div>

@@ -21,8 +21,8 @@ router.get('/create', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
     CelebrityModel.findById(req.params.id)
         .then((celebrity) => {
-            const { name, occupation, catchPhrase } = celebrity
-            res.render('celebrities/celebrity-details', { name, occupation, catchPhrase })
+            const { _id, name, occupation, catchPhrase } = celebrity
+            res.render('celebrities/celebrity-details', { _id, name, occupation, catchPhrase })
         })
         .catch()
 })
@@ -38,6 +38,16 @@ router.post('/create', (req, res, next) => {
             console.log('Error: ', err)
             res.redirect('/celebrities/create')
         })
+})
+
+router.post('/:id/delete', (req, res, next) => {
+    CelebrityModel.findByIdAndRemove(req.params.id)
+        .then((deleted) => {
+            console.log("Celebrity removed")
+            res.redirect('/celebrities')
+        })
+        .catch((err) => next(err))
+
 })
 
 module.exports = router

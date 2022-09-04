@@ -1,20 +1,22 @@
-<h2>Add new Movie</h2>
-<form action="/movies/create" method="post">
-    <div class="mb-3">
-        <label class="form-label">Title</label>
-        <input type="text" class="form-control" name="title">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Genre</label>
-        <input type="text" class="form-control" name="genre">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Choose the cast</label>
-        <select class="selectpicker" name="cast" multiple aria-label="size 3 select example">
-            {{#each celebrities}}
-            <option value="{{_id}}">{{name}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <button type="submit">Create</button>
-</form>
+<div class="p-5">
+    <h2>Add new Movie</h2>
+    <form action="/movies/create" method="post">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Genre</label>
+            <input type="text" class="form-control" name="genre">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Choose the cast</label>
+            <select class="selectpicker" name="cast" multiple aria-label="size 3 select example">
+                {{#each celebrities}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit">Create</button>
+    </form>
+</div>

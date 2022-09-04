@@ -1,7 +1,9 @@
-<h2>CELEBRITIES</h2>
-<ul class="list-group">
-    {{#each celebrities}}
-    <li class="list-group-item"><a href="celebrities/{{_id}}"> {{name}}</a></li>
-    {{/each}}
-</ul>
-<a href="/celebrities/create">Add new celebrity</a>
+<div class="celebrities">
+    <h2>CELEBRITIES</h2>
+    <ul class="list-group">
+        {{#each celebrities}}
+        <li class="list-group-item"><a href="celebrities/{{_id}}"> {{name}}</a></li>
+        {{/each}}
+    </ul>
+    <a href="/celebrities/create">Add new celebrity</a>
+</div>

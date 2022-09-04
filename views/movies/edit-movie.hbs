@@ -1,41 +1,43 @@
-<h2>Update a Movie</h2>
-{{!-- <form action="/movies/{{_id}}/edit" method="post">
-    <label>
-        Title:
-    </label>
-    <input type="text" name="title" value="{{title}}">
-    <label>
-        Genre:
-    </label>
-    <input type="text" name="genre" value="{{genre}}">
-    <label>
-        Chose the cast:
-    </label>
-    <select name="cast" class="form-select" aria-label="Default select example" multiple>
-        {{#each celebrities}}
-        <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-    </select>
-    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
-    <button type="submit">Update</button>
-</form> --}}
-
-<form action="/movies/{{_id}}/edit" method="post">
-    <div class="mb-3">
-        <label class="form-label">Title</label>
-        <input type="text" class="form-control" name="title" value="{{title}}">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Genre</label>
-        <input type="text" class="form-control" name="genre" value="{{genre}}">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Choose the cast</label>
-        <select class="selectpicker" name="cast" multiple aria-label="size 3 select example">
+<div class="p-5">
+    <h2>Update a Movie</h2>
+    {{!-- <form action="/movies/{{_id}}/edit" method="post">
+        <label>
+            Title:
+        </label>
+        <input type="text" name="title" value="{{title}}">
+        <label>
+            Genre:
+        </label>
+        <input type="text" name="genre" value="{{genre}}">
+        <label>
+            Chose the cast:
+        </label>
+        <select name="cast" class="form-select" aria-label="Default select example" multiple>
             {{#each celebrities}}
             <option value="{{_id}}">{{name}}</option>
             {{/each}}
         </select>
-    </div>
-    <button type="submit">Update</button>
-</form>
+        <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+        <button type="submit">Update</button>
+    </form> --}}
+
+    <form action="/movies/{{_id}}/edit" method="post">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" value="{{title}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Genre</label>
+            <input type="text" class="form-control" name="genre" value="{{genre}}">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Choose the cast</label>
+            <select class="selectpicker" name="cast" multiple aria-label="size 3 select example">
+                {{#each celebrities}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit">Update</button>
+    </form>
+</div>
