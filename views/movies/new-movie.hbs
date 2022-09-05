@@ -1,0 +1,25 @@
+<div class="main-content">
+    <h2>New movie</h2>
+    <form action="/movies/create" method="POST">
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label">Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Genre</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="genre">
+        </div>
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Plot</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="plot">
+        </div>
+
+        <label for="formGroupExampleInput2" class="form-label">Cast</label>
+        <select class="form-select" aria-label="Default select example" multiple name="cast">
+            {{#each celebrities}}
+            <option value="haolaaaaaaaa">{{name}}</option>
+            {{/each}}
+        </select>
+        <button class="btn btn-secondary mt-4" type="submit">Enviar</button>
+    </form>
+</div>
