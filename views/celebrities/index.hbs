@@ -1,0 +1,13 @@
+<h1>Celebrities</h1>
+{{#each celebrities}}
+<ul>
+    <li>
+        <h2>{{this.name}}</h2>
+        <p>Occupation: {{this.occupation}}</p>
+        <p>Catchphrase: "{{this.catchPhrase}}"</p>
+    </li>
+</ul>
+{{/each}}
+
+{{! Path: views\celebrities\new-celebrity.hbs }}
+<a href="\celebrities\new-celebrity">New celebrity</a>
