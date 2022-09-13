@@ -1,4 +1,5 @@
 const app = require('../app')
+const { findByIdAndUpdate, updateMany } = require('../models/Celebrity.model')
 const Celebrity = require('../models/Celebrity.model')
 const Movie = require('../models/Movie.model')
 
@@ -58,6 +59,69 @@ router.get('/movies', (req,res,next) => {
     .catch(err => {
         console.log(err)
         res.render('Something went wrong trying to find all movies')
+    })
+})
+
+router.get('/movies/:id', (req,res,next) => {
+    let movieName = req.params.id
+    console.log(`Movie names are:`, movieName)
+    Movie.findById(req.params.id)
+        .populate('cast')
+    .then(movie => {
+        console.log(movie)
+        res.render('movies/movie-details.hbs', {
+            movieArray2: movie
+        }) 
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('Something went wrong with getting all movies please')
+    })
+})
+
+router.post('/movies/:id/delete', (req,res,next) => {
+    Movie.findByIdAndRemove(req.params.id)
+    .then(movieDelete => {
+        console.log('Data for deleting movie:', movieDelete)
+        res.redirect('/movies')
+    })
+    .catch(err => {
+        console.log(err)
+        res.send('Ran into error removing movie')
+    })
+})
+
+router.get('/movies/:id/edit', (req,res,next) => {
+    Movie.findById(req.params.id)
+        .populate('cast')
+    .then(movieEdit => {
+        console.log('movie edit data is:', movieEdit)
+        Celebrity.find()
+    .then(celebEdit => {
+        console.log('celeb edit data is:', celebEdit)
+    res.render('movies/edit-movie.hbs', {
+        movieEditArray: movieEdit,
+        celebEditArray: celebEdit
+    })
+    })    
+    })
+    
+    .catch(err => console.log('Somthing went wrong editing movies:',err))
+})
+
+router.post('/movies/:id/edit', (req,res,next) => {
+    console.log('checkpoint!', req.body)
+    let newMovieTitle = req.body.title
+    let newMovieGenre = req.body.genre
+    let newMoviePlot = req.body.plot
+    Movie.findByIdAndUpdate((req.params.id), {
+        title: newMovieTitle,
+        genre: newMovieGenre,
+        plot: newMoviePlot
+    })
+    .then(movieUpdate => {
+        console.log('new movie update:', movieUpdate)
+        res.redirect('/movies')
     })
 })
 

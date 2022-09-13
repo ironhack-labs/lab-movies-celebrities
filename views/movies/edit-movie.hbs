@@ -1,0 +1,13 @@
+<h2>Movie Edit</h2>
+<form method="post" action="/movies/{{movieEditArray.id}}/edit">
+    <input type="text" name="title" placeholder='{{movieEditArray.title}}'/>
+    <input type="text" name="genre" placeholder='{{movieEditArray.genre}}'/>
+    <input type="text" name="plot" placeholder='{{movieEditArray.plot}}'/>
+    <select name="cast" multiple>
+    {{#each celebEditArray}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+    </select>
+    <button type="submit">Submit</button>
+</select>
+</form>
