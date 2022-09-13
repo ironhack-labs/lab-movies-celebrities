@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="movieDetails card card-body">
+            {{> messages}}
+            <h2 class=" text-center">Movie Details</h2>
+            <h4 class="text-center">{{movie.title}}</h4>
+            <div class="col-md-10 m-auto">
+                <p><strong>Genre: </strong>{{movie.genre}}</p>
+                <p><strong>Plot: </strong>{{movie.plot}}</p>
+            </div>
+            <h5 class="text-center">Cast</h5>
+            {{#each movie.cast}}
+            <div class="card-body col-md-5 m-auto">
+                <p><strong>Name: </strong>{{this.name}}</p>
+                <p><strong>Occupation: </strong>{{this.occupation}}</p>
+                <p><strong>Catch Phrase: </strong>{{this.catchPhrase}}</p>
+            </div>
+            {{/each}}
+        </div>
+            <div class="movieDetailsNav text-center">
+                <form action="/movies/{{movie._id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-primary btn-block">Delete</button>
+                    <a class="btn btn-primary" href="/movies/movies">Movies</a>
+                    <a class="btn btn-primary" href="/">Home</a>
+                    <a class="btn btn-primary" href="/movies/{{movie._id}}/edit">Edit</a>
+                </form>
+            </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+         

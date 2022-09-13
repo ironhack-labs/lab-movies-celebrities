@@ -6,3 +6,29 @@ body {
 a {
   color: #00b7ff;
 }
+/* ---------------------- STYLES FOR ======= new-celebrity.hbs */
+.createCelebrity label:nth-of-type(1) {
+  margin-top: 20px;
+}
+.createCelebrity input {
+  margin: 0 0 20px 0;
+}
+
+.celebrityCard {
+  width: 300px;
+  margin: 10px auto 10px auto;
+}
+
+/* ---------------------- STYLES FOR ======= movie-details.hbs */
+.movieDetails h2 {
+  text-decoration: underline;
+}
+.movieDetails h4 {
+  margin: 40px 0 30px 0;
+}
+.movieDetails h5 {
+  margin: 40px 0 10px 0;
+}
+.movieDetailsNav {
+  margin-top: 30px;
+}

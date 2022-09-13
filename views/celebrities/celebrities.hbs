@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            {{> messages}}
+            <h2 class=" text-center">Celebrities</h2>
+        
+            {{#each celebrities}}
+                <div class="celebrityCard card card-body text-center">
+                    {{this.name}}
+                </div>
+            {{/each}}
+            <div class="col-md m-auto">
+
+            <a class="btn btn-primary" href="/">Home</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

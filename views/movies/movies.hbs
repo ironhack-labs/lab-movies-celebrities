@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            {{> messages}}
+            <h2 class=" text-center">Movies</h2>
+        
+            {{#each movies}}
+                <div class="celebrityCard card card-body text-center">
+                    <a class="btn btn-outline-primary" href="/movies/{{this._id}}">{{this.title}}</a>
+                </div>
+            {{/each}}
+            <div class="col-md m-auto">
+
+            <a class="btn btn-primary" href="/">Home</a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
