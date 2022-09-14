@@ -16,6 +16,19 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+    "nodemon": "^2.0.19"
+  },
+  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandanngo/lab-movies-celebrities.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amandanngo/lab-movies-celebrities/issues"
+  },
+  "homepage": "https://github.com/amandanngo/lab-movies-celebrities#readme"
 }

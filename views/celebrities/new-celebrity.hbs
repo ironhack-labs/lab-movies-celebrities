@@ -1,0 +1,18 @@
+<style>
+    label, input{
+        display: block;
+    }
+</style>
+
+
+<h2>Create a new Celebrity</h2>
+
+<form action="/celebrities/create" method="POST">
+    <label>Name</label>
+    <input type="text" name="celebName">
+    <label>Occupation</label>
+    <input type="text" name="occupation">
+    <label>Catch phrase</label>
+    <input type="text" name="catchPhrase">
+    <button type="submit">Create</button>
+</form>
