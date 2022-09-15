@@ -11,12 +11,12 @@ const celebSchema = new Schema ({
     occupation: {
         type: String
     },
-    catchPhrase: {
+    catchphrase: {
         type: String
     }
     
 
 })
 
-const Movie = model("Movie", movieSchema)
-module.exports = Movie;
+const Celeb = model("Celeb", celebSchema)// in the "" will be the collections name in lowercase in the database
+module.exports = Celeb;

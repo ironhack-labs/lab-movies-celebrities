@@ -1,1 +1,32 @@
-<h3>NO WHAY HOSE!</h3>
+<h2>Add Celeb</h2>
+
+{{!-- the action portion of the form is what determines the route that you will be calling when you submit the form --}}
+<form action="/celebs/create" method="post">
+{{!-- the method of the form is what determines the request type that is being made (get/post) --}}
+
+
+    <label for="celebInput">
+       Name: 
+        <input id="celebInput" type="text" name="name">
+    </label>
+    
+    <label>
+        Occupation: 
+        <input type="text" name="occupation">
+    </label>
+
+    <label>
+        Catchphrase 
+        <input type="text" name="catchphrase">
+    </label>
+
+
+
+
+
+    <br>
+    <button>Create</button>
+    {{!-- buttons in forms will auto sync to the form and when clicked will submit the data from the form using the endpoint (action) and the method (method) that is defined in the form parameters at the top --}}
+</form>
+
+

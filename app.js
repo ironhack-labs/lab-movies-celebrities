@@ -29,8 +29,9 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 //--------- this can be whaterver. its when you call the local host
 //         |
-app.use('/good', require('./routes'));
-app.use('/celebs', require(`./routes/celebrities.routes`));
+app.use('/', require('./routes/index'));
+app.use('/', require(`./routes/celebrities.routes`));
+
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
