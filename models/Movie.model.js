@@ -1,7 +1,8 @@
 //  Add your code here
-const mongoose = require('mongoose');
+// Copied this from Student Portal code
+const { Schema, model } = require('mongoose');
 
-const movieSchema = new mongoose.Schema({
+const movieSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -18,6 +19,6 @@ const movieSchema = new mongoose.Schema({
   cast: [{ type: Schema.Types.ObjectId, ref: 'name' }],
 });
 
-const Movie = mongoose.model('movie', movieSchema);
+const Movie = model('movie', movieSchema);
 
 module.exports = { Movie };
