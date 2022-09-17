@@ -44,4 +44,23 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.post("/:id/delete", async (req, res, next) => {
+    try {
+        console.log("req.params: ", req.params);
+        await Movie.findByIdAndDelete(req.params.id);
+        res.redirect("/movies");
+    } catch (err) {
+        console.log("Sorry, there was an error: ", err);
+      }
+});
+
+/* router.get("/:id/edit", async (req, res, next) => {
+    try {
+        const movieToEdit = Movie.findById(req.params.id);
+        const celebritiesInMovieToEdit = Celebrity.find()
+    } catch (err) {
+        console.log("Sorry, there was an error: ", err);
+      }
+}); */
+
 module.exports = router;
