@@ -10,20 +10,20 @@
 
     <label for='title'>Movie Title</label>
     <input type='text' name='title' required />
-
+    <br />
     <label for='genre'>Movie Genre</label>
     <input type='text' name='genre' required />
-
+    <br />
     <label for='plot'>Plot</label>
     <input type='text' name='plot' required />
-
+    <br />
     <label for='cast'>Cast</label>
     <select name='cast' multiple size='6'>
       {{#each celebrities}}
         <option value='{{this.id}}'>{{this.name}}</option>
       {{/each}}
     </select>
-
+    <br />
     <input type='submit' value='Save Movie' />
   </div>
 

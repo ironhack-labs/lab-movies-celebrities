@@ -4,9 +4,12 @@ const { Movie } = require('../models/Movie.model');
 
 // all your routes here
 router.get('/movies', (req, res, next) => {
-  Movie.find().then((data) => {
-    res.render('movies/movies', { movie: data });
-  });
+  Movie.find()
+    .populate('cast')
+    .then((data) => {
+      console.log(data);
+      res.render('movies/movies', { movies: data });
+    });
 });
 
 router.get('/movies/create', async (req, res, next) => {
