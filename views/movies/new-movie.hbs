@@ -1,0 +1,22 @@
+{{! title: String,
+  genre: String,
+  plot: String,
+  cast: [{ type: mongoose.Schema.Types.ObjectId, ref: "celebrity" }], }}
+
+<h2>Add a new Movie</h2>
+<form action="/movies/create" method="post">
+  <input
+    type="text"
+    name="title"
+    value=""
+    placeholder="Insert title of the movie"
+  />
+  <input type="text" name="genre" value="" placeholder="Insert Genre" />
+  <input type="text" name="plot" value="" placeholder="Insert Plot" />
+  <select name="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+  <button type="submit">Submit!</button>
+</form>
