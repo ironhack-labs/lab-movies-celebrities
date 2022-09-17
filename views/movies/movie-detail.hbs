@@ -16,4 +16,9 @@
     {{/each}}
   </ul>
   <hr />
+
+  <form action='/movies/{{id}}/delete' method='post'>
+    <input type='submit' value='Delete Movie' />
+  </form>
+
 {{/with}}
