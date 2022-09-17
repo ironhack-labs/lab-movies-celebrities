@@ -2,9 +2,11 @@ const router = require('express').Router();
 const { Celebrity } = require('../models/Celebrity.model');
 
 // all your routes here
-// Not sure about that yet
+
 router.get('/celebrities', (req, res, next) => {
-  res.render('celebrities/celebrities');
+  Celebrity.find().then((data) => {
+    res.render('celebrities/celebrities', { celeb: data });
+  });
 });
 
 router.get('/celebrities/create', (req, res, next) => {
