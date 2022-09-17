@@ -46,7 +46,6 @@ router.get('/movies/:id', (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      res.redirect('/movies/create');
     });
 });
 
@@ -59,27 +58,31 @@ router.post('/movies/:id/delete', (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      // res.redirect('/movies');
+      res.redirect('/movies');
     });
 });
 
 // Iteration 10
 // Edit movies
 router.get('/movies/:id/edit', async (req, res, next) => {
-  const movieData = await Movie.findById(req.params.id).populate('cast', '_id name'); // <option value="second" selected>Second Value</option>
-  const celebrityData = await Celebrity.find({}, '_id name');
+  try {
+    const movieData = await Movie.findById(req.params.id).populate('cast', '_id name');
+    const celebrityData = await Celebrity.find({}, '_id name');
 
-  // This was painful ;D
-  // https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array/34901916#34901916
-  const filteredArray = celebrityData.filter((celebrityData_el) => {
-    return (
-      movieData.cast.filter((movieData_el) => {
-        return movieData_el.name == celebrityData_el.name;
-      }).length == 0
-    );
-  });
+    // This was painful ;D
+    // https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array/34901916#34901916
+    const filteredArray = celebrityData.filter((celebrityData_el) => {
+      return (
+        movieData.cast.filter((movieData_el) => {
+          return movieData_el.name == celebrityData_el.name;
+        }).length == 0
+      );
+    });
 
-  res.render('movies/edit-movie', { movie: movieData, celebrities: filteredArray });
+    res.render('movies/edit-movie', { movie: movieData, celebrities: filteredArray });
+  } catch (error) {
+    console.log(err);
+  }
 });
 
 router.post('/movies/:id', (req, res, next) => {
@@ -89,7 +92,7 @@ router.post('/movies/:id', (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      // res.redirect('/movies');
+      res.redirect('/movies');
     });
 });
 

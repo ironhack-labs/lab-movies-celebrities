@@ -1,9 +1,8 @@
 <h1>Celebrities</h1>
 <hr />
 
-{{#each celeb}}
+{{#each celebrity}}
   <h2>{{this.name}}</h2>
-  <h3>{{this.occupation}}</h3>
-  <h3>{{this.catchphrase}}</h3>
+  <a href='/celebrities/{{this.id}}'>details</a>
   <hr />
 {{/each}}

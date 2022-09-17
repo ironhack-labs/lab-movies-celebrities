@@ -18,10 +18,10 @@
   <hr />
 
   <form action='/movies/{{id}}/delete' method='post'>
-    <input type='submit' value='Delete Movie' />
+    <input type='submit' value='Delete {{title}}' />
   </form>
   <form action='/movies/{{id}}/edit' method='get'>
-    <input type='submit' value='Edit Movie' />
+    <input type='submit' value='Edit {{title}}' />
   </form>
 
 {{/with}}
