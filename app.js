@@ -25,8 +25,16 @@ const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerC
 app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
-const index = require('./routes/index');
+const index = require('./routes/index.js');
 app.use('/', index);
+
+//localhost:3000/celebrities
+const rutasCelebrities = require("./routes/celebrities.routes")
+app.use("/celebrities", rutasCelebrities)
+
+//localhost:3000/movies
+const rutasMovies = require("./routes/movies.routes");
+app.use("/movies", rutasMovies);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
