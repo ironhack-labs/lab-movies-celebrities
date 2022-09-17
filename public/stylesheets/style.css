@@ -6,3 +6,9 @@ body {
 a {
   color: #00b7ff;
 }
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

@@ -1,9 +1,13 @@
-<h2>
+
     {{#each movie}}
-    <div class="celebsList">
-        <h3>{{title}}</h3>
-        <h4>{{genre}}</h4>
-        <h5>{{plot}}</h5>
+    
+        <div>
+            <h2>{{title}}</h2>
+            <h3>{{genre}}</h3>
+            <p>{{plot}}</p>
+            <p><a href="/movies/{{_id}}">See details</a></p>
+            <a href="/movies/{{_id}}/edit">Edit</a>
+        </div>
+        
     {{/each}}
-    </div>
-</h2>
+    

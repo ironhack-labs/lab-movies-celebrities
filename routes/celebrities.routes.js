@@ -1,6 +1,5 @@
 const { application } = require("express");
 const Celebrity = require("../models/Celebrity.model");
-
 const router = require("express").Router();
 
 // all your routes here
