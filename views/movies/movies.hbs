@@ -3,12 +3,8 @@
 
 {{#each movies}}
   <h2>{{this.title}}</h2>
-  <h4><i>genre:</i> {{this.genre}}</h4>
-  <h4><i>plot:</i> {{this.plot}}</h4>
-  <h4><i>cast:</i>
-    {{#each this.cast}}
-      <span>{{this.name}} |</span>
-    {{/each}}
-  </h4>
+  <a href='movies/{{this.id}}'>details</a>
   <hr />
 {{/each}}
+
+{{!-- {{!--{{!-- <a href='movies/{{this.id}}'><h2>{{this.title}}</h2></a> --}}
