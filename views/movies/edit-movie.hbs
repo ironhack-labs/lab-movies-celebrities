@@ -1,0 +1,26 @@
+<form action='/movies/{{movie.id}}' method='post'>
+  <div style='display:flex; flex-direction:column; width:50%'>
+
+    <label for='title'>Movie Title</label>
+    <input type='text' name='title' value='{{movie.title}}' required />
+    <br />
+    <label for='genre'>Movie Genre</label>
+    <input type='text' name='genre' value='{{movie.genre}}' required />
+    <br />
+    <label for='plot'>Plot</label>
+    <input type='text' name='plot' value='{{movie.plot}}' required />
+    <br />
+    <label for='cast'>Cast</label>
+    <select name='cast' multiple size='6'>
+      {{#each movie.cast}}
+        <option value='{{this.id}}' selected>{{this.name}}</option>
+      {{/each}}
+      {{#each celebrities}}
+        <option value='{{this.id}}'>{{this.name}}</option>
+      {{/each}}
+    </select>
+    <br />
+    <input type='submit' value='Save Movie' />
+  </div>
+
+</form>
