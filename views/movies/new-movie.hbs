@@ -1,0 +1,30 @@
+{{! Errormessage for user, not working yet }}
+<hr />
+{{#if error}}
+  <h2>ups, there was an eror, please try again!</h2>
+  <hr />
+{{/if}}
+
+<form action='/movies/create' method='post'>
+  <div style='display:flex; flex-direction:column; width:50%'>
+
+    <label for='title'>Movie Title</label>
+    <input type='text' name='title' required />
+
+    <label for='genre'>Movie Genre</label>
+    <input type='text' name='genre' required />
+
+    <label for='plot'>Plot</label>
+    <input type='text' name='plot' required />
+
+    <label for='cast'>Cast</label>
+    <select name='cast' multiple size='6'>
+      {{#each celebrities}}
+        <option value='{{this.id}}'>{{this.name}}</option>
+      {{/each}}
+    </select>
+
+    <input type='submit' value='Save Movie' />
+  </div>
+
+</form>
