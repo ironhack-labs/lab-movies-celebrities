@@ -3,6 +3,7 @@
 // importamos express
 const express = require("express");
 const router = express.Router();
+const Celebrity = require("../models/Celebrity.model")
 
 
 // all your routes here
@@ -24,18 +25,26 @@ router.post("/create", (req, res) => {
         });
         return;
       }else {
-        res.redirect("/celebrities");
+        Celebrity.create(req.body)
+          .then(newCelebrity => {
+            console.log(newCelebrity)
+            res.redirect("/celebrities");
+          })
+        
       }
 });
 
 //Vista para mostrar la lista de celebridades
 //localhost:3000/celebrities
-router.get("", (req, res) => {
+router.get("/", (req, res) => {
   Celebrity.find()
       .then((celebrities) => {
+        console.log(celebrities);
         res.render("celebrities/celebrities", {celebrities: celebrities})
       })
       .catch(err => {console.log(err)})
 })
+
+
 
 module.exports = router;
