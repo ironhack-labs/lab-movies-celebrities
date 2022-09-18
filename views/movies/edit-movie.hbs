@@ -7,23 +7,23 @@
  {{!-- the method of the form is what determines the request type that is being made (get/post) --}}
 
 
-<div>TEST AREA: {{movie._id}} <div>
+<div>TEST AREA: {{movie.title}} <div>
    
 </div></div>
 
     <label for="celebInput">
       Title:
-        <input id="celebInput"  name="title" value= {{movie.title}}>
+        <input id="celebInput"  name="title" value= "{{movie.title}}">
     </label>
     
     <label>
       Genre: 
-        <input type="text" name="genre" value={{movie.genre}}>
+        <input type="text" name="genre" value="{{movie.genre}}">
     </label>
 
     <label>
       Plot:   
-        <input type="text" name="plot" value={{movie.plot}}>
+        <input type="text" name="plot" value="{{movie.plot}}">
     </label>
 
 {{!-- {{celebs.[0].catchphrase}} --}}
