@@ -1,5 +1,5 @@
 <h2>Add movie</h2>
-
+{{!-- {{movies._id}} --}}
 
 {{!-- the action portion of the form is what determines the route that you will be calling when you submit the form --}}
 <form action="/movies/create" method="post">
@@ -28,7 +28,7 @@
 
  <select name ="cast"  multiple>
   
- {{#each cast}}
+ {{#each celebs}}
   
  <option  value="{{this._id}}">{{name}}</option>    
   

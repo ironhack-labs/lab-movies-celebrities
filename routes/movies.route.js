@@ -96,13 +96,37 @@ router.get(`/movies/create`, (req, res) =>{
 
 
     router.get('/movies/:id/edit', (req, res, next) => {
-    
-        Movie.findById(req.params.id).then(movieFromDb => {
-            console.log({movieFromDb});
-    
-            res.render('movies/edit-movie', movieFromDb);
-        }).catch(err => {console.log({err})})
+        Movie.findById(req.params.id).populate('cast')
+        .then(theMovie=>{
+            console.log({TESTTTTTT: theMovie})
+
+
+
+            
+        
+        Celeb.find()
+        .then(allCelebsDb => {
+            console.log("Got all celebs", allCelebsDb);
+     
+            res.render('movies/edit-movie', {movie: theMovie, celebs: allCelebsDb})
+        })
+        })
+
+     
+        .catch(err => {console.log({err})})
     })
+    
+
+
+
+
+
+
+
+
+
+
+
     
 
     // router.get(`/movies/:id/edit`, (req, res, next) => {
@@ -126,10 +150,11 @@ router.get(`/movies/create`, (req, res) =>{
 
     router.post('/movies/:id', (req, res, next)=>{
 
-        Movie.findByIdAndUpdate(req.params.id, {
+        Movie.findByIdAndUpdate( req.params.id, {
             title: req.body.title,
             genre: req.body.genre,
             plot: req.body.plot,
+            cast: req.body.cast
            
 
         })
