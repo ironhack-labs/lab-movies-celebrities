@@ -1,0 +1,42 @@
+<h1>I ODNT KNOW!!!</h1>
+
+<h2>EDIT MOVIE</h2>
+{{!-- {{_id}} --}}
+{{!-- the action portion of the form is what determines the route that you will be calling when you submit the form --}}
+<form action="/movies/:id" method="post">
+ {{!-- the method of the form is what determines the request type that is being made (get/post) --}}
+
+
+    <label for="celebInput">
+      Title:
+        <input id="celebInput"  name="title" value={{title}}>
+    </label>
+    
+    <label>
+      Genre: 
+        <input type="text" name="genre" value={{genre}}>
+    </label>
+
+    <label>
+      Plot:   
+        <input type="text" name="plot" value={{plot}}>
+    </label>
+
+
+
+ <label for="cast">
+        Cast 
+
+ <select name ="cast"  multiple>
+  
+ {{#each celebs}}
+  
+ <option  value="{{this._id}}">{{name}}</option>    
+  
+ {{/each}}
+   
+ </select>
+ </label>
+
+    <button>Update</button>
+</form>

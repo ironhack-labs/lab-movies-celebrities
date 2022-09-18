@@ -1,0 +1,36 @@
+
+<h2>ID CHECK {{_id}}</h2>
+<h1>MOVIE DETAILS</h1>
+<strong>TITLE:</strong> 
+<div>
+  {{title}}
+
+</div>
+
+<strong>GENRE:</strong>
+<div>
+   {{genre}}
+</div>
+
+
+<strong>PLOT:</strong>
+<div>
+   {{plot}}
+</div>
+
+
+
+<strong>CAST:</strong>
+
+{{#each cast}}
+
+<div>Name: {{name}}</div>
+<div>Occupation: {{occupation}}</div>
+<div>Catchphrase: {{catchphrase}}</div>
+<br>
+
+{{/each}}
+<form action="/movies/{{_id}}/delete" method="post">
+    <button>Delete MOVIE </button>
+</form>
+

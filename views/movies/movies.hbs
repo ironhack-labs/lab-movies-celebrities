@@ -1,1 +1,7 @@
-<h3>MOVIES.HBS</h3>
+<h1>HELLO THIS IS THE MOVIES PAGE</h1>
+
+{{#each movies}}
+    <div>Title: {{title}}</div>
+    <a href="/movies/{{_id}}">DEtaio</a>
+
+{{/each}}
