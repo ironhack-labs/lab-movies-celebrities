@@ -1,8 +1,13 @@
-<h1>Celebrities</h1>
+<h1 class='display-5 m-3'>Celebrities</h1>
 <hr />
-
-{{#each celebrity}}
-  <h2>{{this.name}}</h2>
-  <a href='/celebrities/{{this.id}}'>details</a>
-  <hr />
-{{/each}}
+<div class='d-flex flex-wrap'>
+  {{#each celebrity}}
+    <div class='card m-3' style='width: 16rem;'>
+      <div class='card-body'>
+        <h5 class='card-title'>{{this.name}}</h5>
+        <h6 class='card-subtitle mb-2 text-muted'>{{occupation}}</h6>
+        <a class='btn btn-outline-dark mt-3 me-3' href='/celebrities/{{this.id}}'>details</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

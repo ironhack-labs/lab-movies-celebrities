@@ -5,30 +5,72 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='ie=edge' />
     <title>{{title}}</title>
-    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' />
+    <link
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT'
+      crossorigin='anonymous'
+    />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
   <body>
 
-    <nav>
-      <div>
-        <a href='/'>home</a>
-        <span>| | |</span>
-        <a href='/celebrities'>celebrities</a>
-        <span>|</span>
-        <a href='/celebrities/create'>create celebrities</a>
-        <span>| | |</span>
-        <a href='/movies'>movies</a>
-        <span>|</span>
-        <a href='/movies/create'>create movies</a>
+    <nav class='navbar navbar-dark navbar-expand-md bg-dark bg-dark '>
+      <div class='container-fluid'>
+        <a class='ps-3' href='/'>
+          <img href='/' src='/images/IronCelebLogo.png' width='50' height='50' class='d-inline-block align-center me-5' alt='' />
+        </a>
+        <button
+          class='navbar-toggler'
+          type='button'
+          data-bs-toggle='collapse'
+          data-bs-target='#navbarsExample04'
+          aria-controls='navbarsExample04'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        >
+          <span class='navbar-toggler-icon'></span>
+        </button>
+
+        <div class='collapse navbar-collapse' id='navbarsExample04'>
+          <ul class='navbar-nav me-auto mb-2 mt-2 mb-md-0'>
+            <li class='nav-item h5'>
+              <a class='nav-link' href='/celebrities'>Celebrities</a>
+            </li>
+            <li class='nav-item h5 me-5'>
+              <a class='nav-link' href='/celebrities/create'>Save Celebrities</a>
+            </li>
+            <li class='nav-item h5'>
+              <a class='nav-link'href='/movies'>Movie</a>
+            </li>
+            <li class='nav-item h5'>
+              <a class='nav-link'href='/movies/create'>Save Movies</a>
+            </li>
+            {{!-- <li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' href='/celebrities' data-bs-toggle='dropdown' aria-expanded='false'>Celebrities</a>
+              <ul class='dropdown-menu'>
+                <li><a class='dropdown-item' href='/celebrities/create'>Save Celebrities</a></li>
+              </ul>
+            </li>
+            <li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' href='/movies' data-bs-toggle='dropdown' aria-expanded='false'>Movies</a>
+              <ul class='dropdown-menu'>
+                <li><a class='dropdown-item' href='/movies/create'>Save Movies</a></li> --}}
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-    <br />
-    <br />
-    <div class='container'>
-      {{{body}}}
-    </div>
+
+    {{{body}}}
+
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'
+      integrity='sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8'
+      crossorigin='anonymous'
+    ></script>
 
     <script src='/javascripts/script.js'></script>
   </body>

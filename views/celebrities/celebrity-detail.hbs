@@ -1,20 +1,24 @@
 {{#with celebrity}}
-
-  <h1>{{name}}</h1>
-  <hr />
-        <h4><i>occupation:</i> {{occupation}}</h4>
-        <h4><i>catchphrase:</i> {{catchphrase}}</h4>
-      </ul>
-      <hr />
-
-  </ul>
+  <h1 class='display-5 m-3'>{{name}}</h1>
   <hr />
 
-  <form action='/celebrities/{{id}}/delete' method='post'>
-    <input type='submit' value='Delete {{name}}' />
-  </form>
-  <form action='/celebrities/{{id}}/edit' method='get'>
-    <input type='submit' value='Edit {{name}}' />
-  </form>
+  <div class='d-flex'>
+    <div class='card m-3'>
+      <div class='card-body'>
+        <h3 class='card-title'>{{occupation}}</h3>
+        <h5 class='card-text'><i>{{catchphrase}}</i></h5>
+        <hr />
 
+        <div class='d-flex'>
+          <form action='/celebrities/{{id}}/edit' method='get'>
+            <input class='btn btn-outline-dark mt-3 me-3' type='submit' value='edit' />
+          </form>
+          <form action='/celebrities/{{id}}/delete' method='post'>
+            <input class='btn btn-outline-dark mt-3 me-3' type='submit' value='delete' />
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
 {{/with}}

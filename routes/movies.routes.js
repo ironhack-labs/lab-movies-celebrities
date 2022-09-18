@@ -29,7 +29,7 @@ router.post('/movies/create', async (req, res) => {
 // Iteration 7
 // Listing all movies
 router.get('/movies', async (req, res) => {
-  const movieData = await Movie.find({}, 'title');
+  const movieData = await Movie.find({}, 'title genre');
   try {
     res.render('movies/movies', { movies: movieData });
   } catch (err) {

@@ -1,5 +1,5 @@
-<h2>Add celebrity</h2>
-
+  <h2 class='m-3'>Add celebrity</h2>
+  <hr />
 {{! Errormessage for user, not working yet }}
 <hr />
 {{#if error}}
@@ -7,49 +7,8 @@
   <hr />
 {{/if}}
 
-<form action='/celebrities/create' method='post'>
+  <form class='w-50 m-4' action='/celebrities/create' method='post' class='form'>
 
-  <label for='name'>Celebrity Name</label>
-  <input type='text' name='name' required />
+    {{> celebrityFormPartial}}
 
-  <label for='occupation'>Current Occupation</label>
-  <input type='text' name='occupation' required />
-
-  <label for='catchphrase'>Celebrity Catchphrase</label>
-  <input type='text' name='catchphrase' required />
-
-  <input type='submit' value='Save Celebrity' />
-
-</form>
-
-{{! For later bootstrap use: }}
-{{!-- {{!-- {{!-- {{!--
-<form class="w-50" action='/drones/create' method='post' class='form'>
-  
-<div class='form-group'>
-  <label for='name'>Name of Drone</label>
-  <input type='text' class='form-control light-opacity' name='name' value='{{name}}' required />
-  <small class='ml-3 form-text text-muted'>
-    Please use manufacturer and model
-  </small>
-</div>
-<div class='form-group'>
-  <label for='propellers'>Propellers</label>
-  <input type='number' class='form-control light-opacity' name='propellers' value='{{propellers}}' min='2' max='128' required />
-  <small class='ml-3 form-text text-muted'>
-    Please enter the maximum possible number of propellers for this model
-  </small>
-</div>
-<div class='form-group'>
-  <label for='maxSpeed'>Maximum Speed</label>
-  <input type='number' class='form-control light-opacity' name='maxSpeed' value='{{maxSpeed}}' min='2' max='100' required />
-  <small class='ml-3 form-text text-muted'>
-    Please enter the theoretical maximum speed
-  </small>
-</div>
-<div class='form-group w-25'>
-  <input type='submit' class='form-control btn btn-secondary' value='Save Drone' />
-</div>
-
-</form>
- --}}
+  </form>

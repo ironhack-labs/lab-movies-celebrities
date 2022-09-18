@@ -1,27 +1,31 @@
 {{#with movies}}
-
-  <h1>{{title}}</h1>
+  <h1 class='display-5 m-3'>{{title}}</h1>
   <hr />
 
-  <h4><i>genre:</i> {{genre}}</h4>
-  <h4><i>plot:</i> {{plot}}</h4>
-  <h4><i>cast:</i></h4>
-  <ul>
-    {{#each cast}}
-      <ul><h5>{{this.name}}</h5>
-        <h6><i>occupation:</i> {{this.occupation}}</h6>
-        <h6><i>catchphrase:</i> {{this.catchphrase}}</h6>
-      </ul>
-      <hr />
-    {{/each}}
-  </ul>
-  <hr />
+  <div class='d-flex'>
+    <div class='card m-3'>
+      <div class='card-body'>
+        <h3 class='card-title'>"{{genre}}"</h3>
+        <p class='card-text'>{{plot}}</p>
+        <hr />
 
-  <form action='/movies/{{id}}/delete' method='post'>
-    <input type='submit' value='Delete {{title}}' />
-  </form>
-  <form action='/movies/{{id}}/edit' method='get'>
-    <input type='submit' value='Edit {{title}}' />
-  </form>
+        {{#each cast}}
+          <h4 class='card-title'>{{this.name}} <a class='btn btn-outline-dark ps-1 pe-1 pt-0 pb-0' href='/celebrities/{{id}}/edit'>edit</a></p>
+          <h5 class='card-text'>{{this.occupation}}</h5>
+          <h6 class='card-text'><i>{{this.catchphrase}}</i></h6>
+          <hr />
+        {{/each}}
 
+        <div class='d-flex'>
+          <form action='/movies/{{id}}/edit' method='get'>
+            <input class='btn btn-outline-dark mt-3 me-3' type='submit' value='edit' />
+          </form>
+          <form action='/movies/{{id}}/delete' method='post'>
+            <input class='btn btn-outline-dark mt-3 me-3' type='submit' value='delete' />
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
 {{/with}}

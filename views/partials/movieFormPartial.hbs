@@ -1,0 +1,42 @@
+
+  <div class='form-group mb-3'>
+    <label for='title'>Movie Title</label>
+    <input type='text' class='form-control' name='title' value='{{movie.title}}' required />
+    <small class='form-text text-muted'>
+      Please enter the movie title
+    </small>
+  </div>
+  <div class='form-group mb-3'>
+    <label for='genre'>Genre</label>
+    <input type='text' class='form-control' name='genre' value='{{movie.genre}}' required />
+    <small class='form-text text-muted'>
+      Please enter the movie genre(s)
+    </small>
+  </div>
+  <div class='form-group mb-3'>
+    <label for='plot'>Plot</label>
+    <input type='text' class='form-control' name='plot' value='{{movie.plot}}' required />
+    <small class='form-text text-muted'>
+      Please say something about the plot
+    </small>
+  </div>
+  <div class='form-group mb-3'>
+
+    <label for='cast'>Cast</label>
+    <select class='form-control' name='cast' multiple size='6'>
+      {{#if movie}}
+      {{#each movie.cast}}
+        <option value='{{this.id}}' selected>{{this.name}}</option>
+      {{/each}}
+      {{/if}}
+      {{#each celebrities}}
+        <option value='{{this.id}}'>{{this.name}}</option>
+      {{/each}}
+
+    </select>
+    
+    
+  <div class='form-group w-25'>
+    <input type='submit' class='form-control btn btn-secondary' value='Save' />
+  </div>
+

@@ -1,8 +1,13 @@
-<h1>Movies</h1>
+<h1 class='display-5 m-3'>Movies</h1>
 <hr />
-
-{{#each movies}}
-  <h2>{{this.title}}</h2>
-  <a href='movies/{{this.id}}'>details</a>
-  <hr />
-{{/each}}
+<div class='d-flex flex-wrap'>
+  {{#each movies}}
+    <div class='card m-3' style='width: 16rem;'>
+      <div class='card-body'>
+        <h5 class='card-title'>{{this.title}}</h5>
+        <h6 class='card-subtitle mb-2 text-muted'>{{this.genre}}</h6>
+        <a class='btn btn-outline-dark mt-3 me-3' href='/movies/{{this.id}}'>details</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

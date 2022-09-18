@@ -1,22 +1,17 @@
+{{! Errormessage for user, not working yet }}
+{{#if error}}
+  <h2>ups, there was an eror, please try again!</h2>
+  <hr />
+{{/if}}
+
 {{#with celebrity}}
 
-  <h2>{{name}}</h2>
+  <h2 class='m-3'>Update <em>{{name}}</em></h2>
+  <hr />
 
-  <form action='/celebrities/{{id}}' method='post'>
-    <div style='display:flex; flex-direction:column; width:50%'>
+  <form class='w-50 m-4' action='/celebrities/{{id}}' method='post' class='form'>
 
-      <label for='name'>Name</label>
-      <input type='text' name='name' value='{{name}}' required />
-      <br />
-      <label for='occupation'>Occupation</label>
-      <input type='text' name='occupation' value='{{occupation}}' required />
-      <br />
-      <label for='catchfrase'>Catchphrase</label>
-      <input type='text' name='catchphrase' value='{{catchphrase}}' required />
-      <br />
-      <br />
-      <input type='submit' value='Save Celebrity' />
-    </div>
+    {{> celebrityFormPartial}}
 
   </form>
 {{/with}}
