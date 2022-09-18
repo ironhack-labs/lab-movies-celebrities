@@ -11,8 +11,23 @@
   </head>
 
   <body>
-    <div class="container">
-      {{{body}}}
+
+    <div class="page-container">
+      <nav class='navbar'>
+        <a href='/celebrities'>celebrities</a>
+        <a href='/celebrities/create'>New Celebrity</a>
+        <a href='/movies'>Movies</a>
+        <a href='/movies/create'>New Movies</a>
+      </nav>
+
+      <main class='container'>
+        {{!-- <h1>{{doctitle}}</h1> --}}
+        {{{body}}}
+      </main>
+
+      <footer class='footer'>
+        <p>Built with ❤️ by avarap</p>
+      </footer>
     </div>
 
     <script src="/javascripts/script.js"></script>

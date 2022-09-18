@@ -1,0 +1,33 @@
+<h1>Edit Movie</h1>
+{{#with movie}}
+<form action="/movies/{{this._id}}/edit" method="post">
+  <input
+    type="text"
+    name="title"
+    value="{{this.title}}"
+    placeholder="Enter the name for the movie"
+  />
+  <input
+    type="text"
+    name="genre"
+    value="{{this.genre}}"
+    placeholder="Enter the genre for the movie"
+  />
+  <input
+    type="text"
+    name="plot"
+    value="{{this.plot}}"
+    placeholder="Enter a plot for the movie"
+  />
+
+  <select name="cast" multiple>
+    <option value="">&nbsp;</option>
+    {{!-- <option value="none" selected disabled hidden>Select an Option</option> --}}
+    {{#each ../celebrities}}
+      <option value="{{this._id}}"  {{#if (isIncluded this._id @root.movie.cast)}} selected="selected" {{/if}} >{{this.name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Save!</button>
+</form>
+{{/with}}

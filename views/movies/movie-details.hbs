@@ -1,0 +1,26 @@
+<div class="movie_detail">
+  {{#with movie}}
+    {{!-- <div>
+      <img src="{{this.image}}" alt="{{this.title}}" />
+    </div> --}}
+    <div>
+      <a href="/movies">Go back</a>
+      <h2>{{this.title}}</h2>
+      <h4>Genre: {{this.genre}}</h4>
+      <p>{{this.plot}}</p>
+      <h5>Stars</h5>
+      <ul>
+        {{#each cast}}
+          <li>{{this.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div>
+      <a class="aBtn" href="/movies/{{this.id}}/edit">edit</a>
+      <a class="aBtn" onclick="document.getElementById('myform').submit();" href="#">delete</a>
+      {{!-- trick to do a POST from an "a" tag using onclick and adding form--}}
+      {{!-- https://stackoverflow.com/questions/6180256/post-from-an-a-tag --}}
+      <form id="myform" method="post" action="/movies/{{this.id}}/delete"></form>
+    </div>
+  {{/with}}
+</div>

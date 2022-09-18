@@ -1,0 +1,17 @@
+<h1>Movies List</h1>
+
+<div id="movies" class="container">
+  {{#each movies}}
+    <div id="movieCard" class="card">
+      {{!-- <div class="card__header">
+        <img src="{{this.image}}" alt="{{this.title}}" />
+      </div> --}}
+      <div class="card__body">
+        <h4>{{this.title}}</h4>
+      </div>
+      <div class="card__footer">
+        <a href="/movies/{{this.id}}">See more</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,22 @@
+<h1>Celebrities List</h1>
+
+<div class="divTable blueTable">
+  <div class="divTableHeading">
+    <div class="divTableRow">
+      <div class="divTableHead">Name</div>
+      <div class="divTableHead">occupation</div>
+      <div class="divTableHead">catchPhrase</div>
+      {{!-- <div class="divTableHead">Actions</div> --}}
+    </div>
+  </div>
+  <div class="divTableBody">
+    {{#each celebrities}}
+      <div class="divTableRow">
+        <div class="divTableCell">{{this.name}}</div>
+        <div class="divTableCell">{{this.occupation}}</div>
+        <div class="divTableCell">{{this.catchPhrase}}</div>
+
+      </div>
+    {{/each}}
+  </div>
+</div>
