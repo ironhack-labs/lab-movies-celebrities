@@ -25,7 +25,6 @@ router.post("/create", async (req, res) => {
 router.get("/", async (req, res, next) => {
   try {
     const movies = await Movie.find();
-    console.log(movies);
     res.render("movies/movies", { movies });
   } catch (err) {
     console.log("Sorry, there was an error: ", err);
@@ -37,30 +36,53 @@ router.get("/:id", async (req, res, next) => {
     console.log("req.params: ", req.params);
     const foundMovie = await Movie.findById(req.params.id);
     await foundMovie.populate("cast");
-    console.log(foundMovie);
-    res.render("movies/movie-details", { movie: foundMovie });
+    res.render("movies/movie-details", {
+      movie: foundMovie,
+      id: req.params.id,
+    });
   } catch (err) {
     console.log("Sorry, there was an error: ", err);
   }
 });
 
 router.post("/:id/delete", async (req, res, next) => {
-    try {
-        console.log("req.params: ", req.params);
-        await Movie.findByIdAndDelete(req.params.id);
-        res.redirect("/movies");
-    } catch (err) {
-        console.log("Sorry, there was an error: ", err);
-      }
+  try {
+    await Movie.findByIdAndDelete(req.params.id);
+    res.redirect("/movies");
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
 });
 
-/* router.get("/:id/edit", async (req, res, next) => {
-    try {
-        const movieToEdit = Movie.findById(req.params.id);
-        const celebritiesInMovieToEdit = Celebrity.find()
-    } catch (err) {
-        console.log("Sorry, there was an error: ", err);
-      }
-}); */
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    console.log(req.params.id);
+    const movieToEdit = await Movie.findById(req.params.id);
+    const celebrities = await Celebrity.find();
+    res.render("movies/edit-movie", {
+      movie: movieToEdit,
+      celebrities: celebrities,
+    });
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
+});
+
+router.post("/:id", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    console.log(req.params);
+    const { title, genre, plot, cast } = req.body;
+    const editedMovie = await Movie.findByIdAndUpdate(req.params.id, {
+      title,
+      genre,
+      plot,
+      cast,
+    });
+    res.redirect("/movies");
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
+});
 
 module.exports = router;
