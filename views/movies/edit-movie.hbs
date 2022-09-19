@@ -1,6 +1,6 @@
 <h1>Edit Movie:</h1>
 {{#with editTitle}}
-  <form action="/movies/:id" method="POST">
+  <form action="/movies/{{this.id}}" method="POST">
     <input type="text" name="title" value="{{this.title}}" />
     <br />
     <input type="text" name="genre" value="{{this.genre}}" />
