@@ -1,0 +1,12 @@
+<h1>Edit:</h1>
+{{#with editTitle}}
+  <form action="/movies/:id" method="POST">
+    <input type="text" name="title" placeholder="{{this.title}}" />
+    <input type="text" name="genre" placeholder="{{this.genre}}" />
+    <input type="text" name="plot" placeholder="{{this.plot}}" />
+  </form>
+
+{{/with}}
+<br />
+
+<a href="/">Back to Homepage</a>

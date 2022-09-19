@@ -11,6 +11,7 @@ router.get("/movies/create", async (req, res) => {
     res.render("movies/new-movie", { celebs });
   } catch (error) {
     res.render("error");
+    console.log(error);
   }
 });
 
@@ -21,21 +22,50 @@ router.post("/movies/create", async (req, res) => {
     res.redirect("/movies/movies");
   } catch (error) {
     res.render("error");
+    console.log(error);
   }
 });
 
-router.get("/movies/movies", (req, res) => {
-  res.render("movies/movies");
+router.get("/movies/movies", async (req, res) => {
+  try {
+    const movies = await Movie.find();
+    res.render("movies/movies", { movies });
+  } catch (error) {
+    res.render("error");
+    console.log(error);
+  }
 });
 
-// router.post("/celebrities/create", async (req, res) => {
-//     try {
-//       const newCeleb = new Celeb({ ...req.body });
-//       await newCeleb.save();
-//       res.redirect("/celebrities");
-//     } catch (error) {
-//       res.render("error");
-//     }
-//   });
+router.get("/movies/:id", async (req, res) => {
+  try {
+    const viewTitle = await Movie.findById(req.params.id);
+    await viewTitle.populate("cast");
+    res.render("movies/movie-details", { viewTitle });
+  } catch (error) {
+    res.render("error");
+    console.log(error);
+  }
+});
+
+router.get("/movies/:id/edit", async (req, res) => {
+  try {
+    const editTitle = await Movie.findById(req.params.id);
+    // await editTitle.populate("cast");
+    res.render("movies/edit-movie", { editTitle });
+  } catch (error) {
+    res.render("error");
+    console.log(error);
+  }
+});
+
+router.post("/movies/:id/delete", async (req, res) => {
+  try {
+    await Movie.findByIdAndRemove(req.params.id);
+    res.redirect("/movies/movies");
+  } catch (error) {
+    res.render("error");
+    console.log(error);
+  }
+});
 
 module.exports = router;

@@ -7,8 +7,11 @@
   <label for="cast">Choose the cast members!</label>
   <select name="cast" id="cast" multiple>
     {{#each celebs}}
-      <option value="{{this._id}}">{{this.name}}</option>
+      <option value="{{this.id}}">{{this.name}}</option>
     {{/each}}
   </select>
   <button type="submit">Save</button>
 </form>
+
+<br />
+<a href="/">Back to Homepage</a>
