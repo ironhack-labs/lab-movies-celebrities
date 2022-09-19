@@ -50,7 +50,7 @@ router.get("/movies/:id", async (req, res) => {
 router.get("/movies/:id/edit", async (req, res) => {
   try {
     const editTitle = await Movie.findById(req.params.id);
-    // await editTitle.populate("cast");
+    await editTitle.populate("cast");
     res.render("movies/edit-movie", { editTitle });
   } catch (error) {
     res.render("error");
@@ -58,10 +58,26 @@ router.get("/movies/:id/edit", async (req, res) => {
   }
 });
 
-router.post("/movies/:id/delete", async (req, res) => {
+router.get("/movies/:id/edit", async (req, res) => {
   try {
-    await Movie.findByIdAndRemove(req.params.id);
-    res.redirect("/movies/movies");
+    const editTitle = await Movie.findById(req.params.id);
+    await editTitle.populate("cast");
+    res.render("movies/edit-movie", { editTitle });
+  } catch (error) {
+    res.render("error");
+    console.log(error);
+  }
+});
+
+router.post("/movies/:id", async (req, res) => {
+  try {
+    const updatedMovie = {
+      title: req.body.title,
+      genre: req.body.genre,
+      plot: req.body.plot,
+    };
+    await Movie.findByIdAndUpdate(req.params.id, { updatedMovie });
+    res.redirect("/movies/movie-details");
   } catch (error) {
     res.render("error");
     console.log(error);

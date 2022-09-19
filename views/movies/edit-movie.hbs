@@ -1,12 +1,25 @@
-<h1>Edit:</h1>
+<h1>Edit Movie:</h1>
 {{#with editTitle}}
   <form action="/movies/:id" method="POST">
-    <input type="text" name="title" placeholder="{{this.title}}" />
-    <input type="text" name="genre" placeholder="{{this.genre}}" />
-    <input type="text" name="plot" placeholder="{{this.plot}}" />
+    <input type="text" name="title" value="{{this.title}}" />
+    <br />
+    <input type="text" name="genre" value="{{this.genre}}" />
+    <br />
+    <textarea name="plot" id="" cols="30" rows="10" value="{{this.plot}}">{{this.plot}}</textarea>
+    <br />
+    <fieldset>
+      <legend>Cast:</legend>
+      {{#each this.cast}}
+        <div>
+          <input type="radio" id="" value="{{this.name}}" name="cast member" />
+          <label for="{{this.name}}">{{this.name}}</label>
+        </div>
+      {{/each}}
+    </fieldset>
+    <button type="submit">Save</button>
   </form>
-
 {{/with}}
+
 <br />
 
 <a href="/">Back to Homepage</a>
