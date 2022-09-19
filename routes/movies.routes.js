@@ -76,7 +76,7 @@ router.post("/movies/:id", async (req, res) => {
       genre: req.body.genre,
       plot: req.body.plot,
     };
-    console.log(req.body.title);
+    console.log(req.body);
     await Movie.findByIdAndUpdate(req.body.id, updatedMovie);
     res.redirect("/movie/movie-details");
   } catch (error) {
