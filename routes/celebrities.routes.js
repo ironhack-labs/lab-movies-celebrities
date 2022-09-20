@@ -1,12 +1,17 @@
 const router = require("express").Router();
 const { Celebrity } = require("../models/Celebrity.model");
+const { Movie } = require("../models/Movie.model");
 
 // all your routes here
 
 router.get("/celebrities", async (req, res) => {
-  const allCelebrities = await Celebrity.find();
-  console.log(allCelebrities);
-  res.render("celebrities/celebrities", { allCelebrities });
+  try {
+    const allCelebrities = await Celebrity.find();
+    console.log(allCelebrities);
+    res.render("celebrities/celebrities", { celebrities: allCelebrities });
+  } catch (err) {
+    res.render("error");
+  }
 });
 
 router.get("/celebrities/create", (req, res) => {
@@ -14,14 +19,15 @@ router.get("/celebrities/create", (req, res) => {
 });
 
 router.post("/celebrities/create", async (req, res) => {
-  console.log(res.body);
   try {
-    const newCelebrity = new Celebrity({ ...req.body });
-    await newCelebrity.save();
-    res.render("celebrities/celebrities");
+  const newCelebrity = new Celebrity({ ...req.body });
+  console.log(req.body);
+  await newCelebrity.save();
+  console.log(newCelebrity);
+  res.redirect("/celebrities");
   } catch (err) {
-    res.render("celebrities/new-celebrity");
-  }
+    res.render("error");
+  // }
 });
 
 module.exports = router;
