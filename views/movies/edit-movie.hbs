@@ -1,5 +1,5 @@
 <h1>Edit Movie:</h1>
-{{#with movie}}
+{{#with editTitle}}
   <form action="/movies/{{this.id}}" method="POST">
     <input type="text" name="title" value="{{this.title}}" />
     <br />

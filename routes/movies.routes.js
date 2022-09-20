@@ -51,7 +51,7 @@ router.get("/movies/:id/edit", async (req, res) => {
     const editTitle = await Movie.findById(req.params.id);
     const celebs = await Celeb.findById(editTitle.cast);
     const celebName = celebs.name;
-    res.render("movies/edit-movie", { movie: editTitle, celebName });
+    res.render("movies/edit-movie", { editTitle, celebName });
     console.log(celebName);
   } catch (error) {
     res.render("error");
