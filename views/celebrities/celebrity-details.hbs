@@ -1,0 +1,13 @@
+<h2>Movie Details:</h2>
+
+{{#with celebrity}}
+  <h3>{{name}}</h3>
+  <p>Occupation: {{occupation}}</p>
+  <p>Catchphrase: {{catchPhrase}}</p>
+  
+  <form action="/celebrities/{{this.id}}/delete" method="post">
+    <button type="submit">Delete Celebrity!</button>
+  </form>
+{{/with}}
+<a href="/celebrities/{{id}}/edit">Edit this Celebrity</a>
+<a href="/celebrities">Back to the Celebrities</a>

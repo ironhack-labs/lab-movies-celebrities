@@ -30,4 +30,51 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const foundCeleb = await Celebrity.findById(req.params.id);
+    res.render("celebrities/celebrity-details", {
+      celebrity: foundCeleb,
+      id: req.params.id,
+    });
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
+});
+
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    await Celebrity.findByIdAndDelete(req.params.id);
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
+});
+
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    console.log(req.params.id);
+    const celebToEdit = await Celebrity.findById(req.params.id);
+    res.render("celebrities/edit-celebrity", {
+      celebrity: celebToEdit,
+    });
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
+});
+
+router.post("/:id", async (req, res, next) => {
+  try {
+    const { name, occupation, catchPhrase } = req.body;
+    const editedCeleb = await Celebrity.findByIdAndUpdate(req.params.id, {
+      name,
+      occupation,
+      catchPhrase,
+    });
+    res.redirect("/celebrities");
+  } catch (err) {
+    console.log("Sorry, there was an error: ", err);
+  }
+});
+
 module.exports = router;

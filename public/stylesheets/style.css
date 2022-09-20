@@ -6,3 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
+
+.listBody {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listedBlock {
+  margin: 15px;
+}

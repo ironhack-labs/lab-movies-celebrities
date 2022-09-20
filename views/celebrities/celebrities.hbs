@@ -1,7 +1,12 @@
 <h2>Celebrities:</h2>
 
-{{#each celebrities}}
-  <h3>{{this.name}}</h3>
-{{/each}}
+<section class="listBody">
+  {{#each celebrities}}
+    <div class="listedBlock">
+      <h3>{{this.name}}</h3>
+      <a href="/celebrities/{{this.id}}">More details</a>
+    </div>
+  {{/each}}
+</section>
 
 <a href="/">Back</a>

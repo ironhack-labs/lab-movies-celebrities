@@ -1,8 +1,11 @@
 <h2>Movies:</h2>
-
-{{#each movies}}
-  <h3>{{this.title}}</h3>
-  <a href="/movies/{{this.id}}">More details</a>
-{{/each}}
+<section class="listBody">
+  {{#each movies}}
+    <div class="listedBlock">
+      <h3>{{this.title}}</h3>
+      <a href="/movies/{{this.id}}">More details</a>
+    </div>
+  {{/each}}
+</section>
 
 <a href="/">Back</a>
