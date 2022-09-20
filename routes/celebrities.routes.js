@@ -20,14 +20,14 @@ router.get("/celebrities/create", (req, res) => {
 
 router.post("/celebrities/create", async (req, res) => {
   try {
-  const newCelebrity = new Celebrity({ ...req.body });
-  console.log(req.body);
-  await newCelebrity.save();
-  console.log(newCelebrity);
-  res.redirect("/celebrities");
+    const newCelebrity = new Celebrity({ ...req.body });
+    console.log(req.body);
+    await newCelebrity.save();
+    console.log(newCelebrity);
+    res.redirect("/celebrities");
   } catch (err) {
     res.render("error");
-  // }
+  }
 });
 
 module.exports = router;
