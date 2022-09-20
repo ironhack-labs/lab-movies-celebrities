@@ -9,10 +9,10 @@
     <br />
     <fieldset>
       <legend>Cast:</legend>
-      {{#each this.cast}}
+      {{#each celebName}}
         <div>
-          <input type="radio" id="" value="{{this.name}}" name="cast" />
-          <label for="{{this.name}}">{{this.name}}</label>
+          <input type="radio" id="" value="{{this}}" name="{{this}}" />
+          <label for="{{this}}">{{this}}</label>
         </div>
       {{/each}}
     </fieldset>

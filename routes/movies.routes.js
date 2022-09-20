@@ -7,7 +7,6 @@ const { Celeb } = require("../models/Celebrity.model");
 router.get("/movies/create", async (req, res) => {
   try {
     const celebs = await Celeb.find({}, { name: 1 });
-    console.log(celebs);
     res.render("movies/new-movie", { celebs });
   } catch (error) {
     res.render("error");
@@ -50,19 +49,10 @@ router.get("/movies/:id", async (req, res) => {
 router.get("/movies/:id/edit", async (req, res) => {
   try {
     const editTitle = await Movie.findById(req.params.id);
-    await editTitle.populate("cast");
-    res.render("movies/edit-movie", { editTitle });
-  } catch (error) {
-    res.render("error");
-    console.log(error);
-  }
-});
-
-router.get("/movies/:id/edit", async (req, res) => {
-  try {
-    const editTitle = await Movie.findById(req.params.id);
-    await editTitle.populate("cast");
-    res.render("movies/edit-movie", { editTitle });
+    const celebs = await Celeb.findById(editTitle.cast);
+    const celebName = celebs.name;
+    res.render("movies/edit-movie", { editTitle, celebName });
+    console.log(celebName);
   } catch (error) {
     res.render("error");
     console.log(error);
