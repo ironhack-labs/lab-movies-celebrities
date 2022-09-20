@@ -1,0 +1,15 @@
+<h2>Celebrity details</h2>
+<h4>Name</h4>
+<p>{{name}}</p>
+<h4>Occupation</h4>
+<p>{{occupation}}</p>
+<h4>Catch Phrase</h4>
+<p>{{catchPhrase}}</p>
+<a href="/celebrities/{{_id}}/edit">
+  <button style="background: #3A94D5; color: white; padding: 5px; margin: 5px">Edit</button>
+</a>
+<form action="/celebrities/{{_id}}/delete" method="post">
+  <button type="submit" style="background: #F74F4F; color: white; padding: 5px; margin: 5px">Delete</button>
+</form>
+<hr><a href="/">Return home</a><br />
+
