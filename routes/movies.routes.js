@@ -1,12 +1,10 @@
 const router = require("express").Router();
-// const { Router } = require("express");
 const { Movie } = require("../models/Movie.model");
 const { Celebrity } = require("../models/Celebrity.model");
 
 // all your routes here
 router.get("/movies", async (req, res) => {
   const allMovies = await Movie.find();
-  console.log(allMovies);
   res.render("movies/movies", { movies: allMovies });
 });
 
@@ -18,12 +16,21 @@ router.get("/movies/create", async (req, res) => {
 router.post("/movies/create", async (req, res) => {
   try {
     const newMovie = new Movie({ ...req.body });
-    console.log(newMovie);
     await newMovie.save();
     res.redirect("/movies");
   } catch (err) {
-    console.log(err);
     res.render("error");
+  }
+});
+
+router.get("/movies/:id", async (req, res) => {
+  console.log("before");
+  try {
+    const foundMovie = await Movie.findById(req.params.id).populate("cast");
+    console.log(foundMovie);
+    res.render("movies/movie-details", { movie: foundMovie });
+  } catch (err) {
+    console.log(err);
   }
 });
 
