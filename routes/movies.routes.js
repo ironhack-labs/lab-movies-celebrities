@@ -24,13 +24,20 @@ router.post("/movies/create", async (req, res) => {
 });
 
 router.get("/movies/:id", async (req, res) => {
-  console.log("before");
   try {
     const foundMovie = await Movie.findById(req.params.id).populate("cast");
-    console.log(foundMovie);
     res.render("movies/movie-details", { movie: foundMovie });
   } catch (err) {
-    console.log(err);
+    res.render("error");
+  }
+});
+
+router.post("/movies/:id/delete", async (req, res) => {
+  try {
+    await Movie.findByIdAndRemove(req.params.id);
+    res.redirect("/movies");
+  } catch (err) {
+    res.render("error");
   }
 });
 
