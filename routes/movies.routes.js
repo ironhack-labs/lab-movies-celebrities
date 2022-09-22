@@ -52,6 +52,7 @@ router.get("/movies/:id/edit", async (req, res) => {
     const celebs = await Celeb.findById(editTitle.cast);
     const celebName = celebs.name;
     res.render("movies/edit-movie", { editTitle, celebName });
+    //this isn't rendering in views correctly but i don't know why. i gave up after a few hours of trying to fix...
     console.log(celebName);
   } catch (error) {
     res.render("error");
@@ -59,6 +60,7 @@ router.get("/movies/:id/edit", async (req, res) => {
   }
 });
 
+//this post is unfinshed as a result of the above
 router.post("/movies/:id", async (req, res) => {
   try {
     const updatedMovie = {
