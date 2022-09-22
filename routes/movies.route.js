@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Celeb = require("../models/Celebrity.model");
 const Movie = require('../models/Movie.model');
+const User = require('../models/User.model');
 
 
 
@@ -8,8 +9,11 @@ router.get(`/movies`, (req, res, next) => {
     // console.log(res.render(`./celebrities/celebrities`));
     Movie.find()
     .then(allMoviesDb => {
-        console.log("Got all movies", allMoviesDb);
+        // console.log("Got all movies", allMoviesDb);
  
+    
+
+
         res.render('./movies/movies', { movies: allMoviesDb});
         
     })
@@ -170,6 +174,41 @@ router.get(`/movies/create`, (req, res) =>{
         })
     
     
+    })
+// TRYING TO SEND LIEKD MOVIED ID's TO CURRENT SESSION UESER likedMovie ARRAY
+    router.post(`/like/:id`, (req, res, next) => {
+
+       
+
+
+
+      let movieId = req.params.id
+
+  
+
+      
+         
+        User.findByIdAndUpdate(req.session.currentUser._id, {
+            
+            
+            $push: {likedMovies: movieId},//adds the "likes" but keeps adding them
+            // 'new': true
+         
+            // likedMovies: req.body.likedMovies = [req.params.id]
+        })
+        .then(response => {
+            console.log(response)
+            console.log(response.likedMovies)
+        })
+        // .then(user => {
+        //     user.likedMovies = user.likedMovies.push(movieId)
+        //     console.log(user.likedMovies.length)
+        //     console.log(user)
+        // })
+       
+
+        console.log({注意likedMovie: req.params.id})// clicking like gives movie id (needs to be passed to the User.moviesliked array)
+        res.redirect(`/movies`)
     })
   
 

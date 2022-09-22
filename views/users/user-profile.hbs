@@ -1,0 +1,48 @@
+<h1>Profile Page</h1>
+<h1>{{userInSession.username}}</h1>
+{{!-- views/users/user-profile.hbs --}}
+ 
+ {{!-- userInSession in the if must match below> --}}
+{{#if userInSession}} 
+  <h2>Welcome, {{ userInSession.username }}!</h2>
+  <p>{{userInSession.username}}'s Profile Page</p>
+  <button>
+    <a href="/userProfile">Reload the page</a>
+  </button>
+
+  <h3>LIKED MOVIES</h3>
+{{#each properMovies.likedMovies}}
+
+
+<div>
+<a href="movies/{{this._id}}">See Movie Details</a>
+</div>
+
+
+<div>
+  {{this.title}}
+</div>
+{{/each}}
+
+
+
+
+  <h1>movie id example {{properMovies.likedMovies}}</h1>
+{{else}}
+  <p>Still no logged in user, sorry!</p>
+{{/if}}
+
+
+
+{{!-- {{#each userInSession}}
+
+<div>
+{{this.likedMovies}}
+
+</div>
+
+{{/each}} --}}
+
+
+{{!--  this still no logged in user is because we have not set up 
+as session (sessions are related to cookies) --}}

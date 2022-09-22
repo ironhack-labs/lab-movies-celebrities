@@ -1,10 +1,35 @@
 <h1>HELLO THIS IS THE MOVIES PAGE</h1>
 
+{{!-- <h1>USER CHECK {{userInSession.username}}</h1> --}}
+
 {{#each movies}}
     <div>Title: {{title}}</div>
     <a href="/movies/{{_id}}">Details</a>
 
     <div> <a href="/movies/{{_id}}/edit">Edit Movie</a></div>
-   
+
+              <form id="like-form" action="/like/{{_id}}" name="likedMovies" value={{_id}} method="POST">
+            <button>Like!</button>
+           </form> 
+
+<h1>MOVIE ID: {{_id}}</h1>
 
 {{/each}}
+
+{{!-- 
+
+to hide this button if there is no active form desu.
+
+{{#unless currentUser}}
+              <form id="like-form" action="/like/{{_id}}" method="POST">
+            <button>Like!</button>
+           </form> 
+
+
+ {{/unless}}
+
+
+ --}}
+
+
+ 
