@@ -1,10 +1,11 @@
 
     {{#each movie}}
     
-        <div>
+        <div class="moviesList">
             <h2>{{title}}</h2>
             <h3>{{genre}}</h3>
             <p>{{plot}}</p>
+            
             <p><a href="/movies/{{_id}}">See details</a></p>
             <a href="/movies/{{_id}}/edit">Edit</a>
         </div>

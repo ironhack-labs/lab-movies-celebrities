@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgray;
 }
 
 a {
@@ -11,4 +12,50 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  border: 2px solid black;
+}
+
+.movieList {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+/* .createCeleb {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+} */
+
+.profilePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.authItems {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  width: 10rem;
+}
+
+.changePass {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

@@ -1,8 +1,19 @@
-<h2>Create a Celeb</h2>
+
+<div class="createCeleb">
+   <h2>Create a Celeb</h2>
+   {{#if theUser}}
 <form action="/celebrities/create" method="post">
     Name: <input type="text" name="name">
+    <br>
     Occupation: <input type="text" name="occupation">
+    <br>
     Catch Phrase: <input type="text" name="catchPhrase">
     <br>
+    <br>
     <button>Submit</button>
-</form>
+</form> 
+{{/if}}
+{{#unless theUser}}
+<h4>Please Login to create a Celebrity</h4>
+{{/unless}}
+</div>

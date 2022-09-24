@@ -15,7 +15,22 @@
       <a href="/celebrities">Celebrities List</a>
       <a href="/celebrities/create">Create Celeb</a>
       <a href="/movies">Movies List</a>
-      <a href="movies/create">Create Movie</a>
+      <a href="/movies/create">Create Movie</a>
+      <div class="authItems">
+        {{#if theUser}}
+        <a href="/profile">Profile</a>
+        {{/if}}
+        {{#unless theUser}}
+        <a href="/signup">Signup</a>
+        <a href="/login">Login</a>
+        {{/unless}}
+        <br><br>
+        {{#if theUser}}
+        <form action="/logout" method="post">
+        <button>Logout</button>
+        </form>
+        {{/if}}
+      </div>
     </div>
     <div class="container">
       {{{body}}}

@@ -3,6 +3,7 @@
             <h3>{{title}}</h3>
             <p>{{genre}}<p>
             <p>{{plot}}</p>
+            
             {{#each cast}}
                 <p>{{name}}</p>
                 <p>{{occupation}}</p>
@@ -11,9 +12,17 @@
         <br>
         
         
-   
+    
     {{/each}}
-
+    <hr>
+    
+    {{#if theUser}}
+            <form action="/profile/{{id}}" method="post">
+                <button type="submit">Like</button>
+            </form>
+            
+    {{/if}}
+    <hr>
      <form action="/movies/{{movie._id}}/delete" method="POST">
         <button>Delete</button>
         </form>
