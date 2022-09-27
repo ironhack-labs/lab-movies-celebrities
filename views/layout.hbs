@@ -12,6 +12,12 @@
 
   <body>
 <nav>
+<h1>CURRENT USER is: <strong>{{userInSession.username}}</strong></h1>
+{{#if userInSession}}
+  <div>
+<a href="/change-password">Change Password</a>
+</div>
+{{/if}}
 
   <div>
 <a href="/userProfile">Profile</a>
@@ -24,6 +30,9 @@
   <div>
   <a href="/login">Log In</a>
   </div>
+             <form id="logout-form" action="/logout" method="POST">
+            <button>Logout</button>
+           </form> 
 
 
   <div>

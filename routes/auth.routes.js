@@ -7,15 +7,17 @@ const User = require('../models/User.model');
 const { default: mongoose } = require('mongoose');
 const { route } = require('./index');
 
+//requiring the auth "custom" middlware //
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
 
 //START-SIGNUP ROUTES
 
-router.get(`/signup`,  (req, res, next) => {// remeber you need a "/" in the route for the local host!
+router.get(`/signup`, isLoggedOut, (req, res, next) => {// remeber you need a "/" in the route for the local host!
     res.render(`auth/signup`)
 })
 
-router.post(`/signup`, (req, res, next )=>{
+router.post(`/signup`, isLoggedOut, (req, res, next )=>{
     // console.log(req.body) getting the right responses 
     const { username, email, password } = req.body;
 
@@ -68,7 +70,7 @@ router.post(`/signup`, (req, res, next )=>{
 
 //START - PROFILE PAGE
 
-router.get(`/userProfile`, (req, res, next) => {
+router.get(`/userProfile`, isLoggedIn, (req, res, next) => {
     //userInSession will be called on the user-profile.hbs file in the {{}}
 
     User.findById(req.session.currentUser).populate('likedMovies')
@@ -143,6 +145,75 @@ User.findOne({ email })// chceks if email exsits in db
 
 
 //END-LOGIN ROUTES
+
+//※※※※※※※※※※※START-LOGOUT-ROUTE※※※※※※※※※※※※※※※※※
+
+router.post(`/logout`, (req, res, next) => {
+  req.session.destroy(err => {//destroy() method is avaliable through the express-session npm package.
+    if(err) next(err);
+    res.redirect(`/`);
+  })
+})
+
+
+//※※※※※※※※※※※END-LOGOUT-ROUTE※※※※※※※※※※※※※※※※※
+
+
+
+//※※※※※※※※※※※START-CHANGE PASSWORD-ROUTE※※※※※※※※※※※※※※※※※
+
+//GET ROUTE- that sets up the page or "view"
+
+router.get(`/change-password`, (req, res, next) => {
+  res.render(`auth/changePassword`, {currentUser: req.session.userInSession}) // page loads
+
+})
+
+
+//POST ROUTE- that takes the input data!!!!
+router.post(`/change-password`, (req, res, next) => {
+//Mismatched Password Checker on newPass and confirmedPass
+console.log({REQNEW: req.body.newpass});
+console.log({REQCONFIRM: req.body.confirmnewpass});
+  if(req.body.newpass !== req.body.confirmnewpass) {
+  
+    res.render(`auth/changePassword`, {errorMessage:`You made a mistake typing the password`}); // throws you back to this same page and runs an error messate
+    // add error message after you get it working!!!
+
+  }
+
+
+  User.findById(req.session.currentUser._id)
+  .then(resultFromDB => {
+
+      console.log({OLDPASS: req.body.oldpass})
+      console.log({DBPASSWORD: resultFromDB.passwordHash})
+     if (bcryptjs.compareSync(req.body.oldpass, resultFromDB.passwordHash)) {
+      const saltRounds = 12;
+      bcryptjs
+      .genSalt(saltRounds)
+      .then(salt => bcryptjs.hash(req.body.newpass, salt))
+      .then(hashedPassword => {
+        
+        User.findByIdAndUpdate(req.session.currentUser._id, {
+          passwordHash: hashedPassword
+        })
+        .then(()=>{
+          res.redirect('/userProfile');
+
+        })
+      })
+        .catch((err)=>{
+          next(err);
+        })
+  }
+})
+})
+
+
+
+//※※※※※※※※※※※END-CHANGE PASSWORD-ROUTE※※※※※※※※※※※※※※※※※
+
 
 
 

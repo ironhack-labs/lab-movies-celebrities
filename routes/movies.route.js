@@ -191,8 +191,7 @@ router.get(`/movies/create`, (req, res) =>{
         User.findByIdAndUpdate(req.session.currentUser._id, {
             
             
-            $push: {likedMovies: movieId},//adds the "likes" but keeps adding them
-            // 'new': true
+            $addToSet: {likedMovies: movieId},//addToSet to array only once.
          
             // likedMovies: req.body.likedMovies = [req.params.id]
         })

@@ -27,8 +27,8 @@ const userSchema = new Schema(
 
     likedMovies:  [{
       type: Schema.Types.ObjectId,
-      ref: 'Movie',
-      unique: true
+      ref: 'Movie'
+     
   }]
 
     //need to add a "likedMovies" key and it is an array that takes stuff.

@@ -28,7 +28,7 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
 
-//--------- this can be whaterver. its when you call the local host
+//--------- this can be whaterver. its when you call the local host -- this is about 
 //         |
 app.use('/', require('./routes/index'));
 app.use('/', require(`./routes/celebrities.routes`));
