@@ -79,4 +79,43 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
   });
 
 
+//Edit: display form
+router.get("/movies/:movieId/edit", (req, res, next) => {
+    const { id } = req.params.movieId;
+    let movieInfo;
+    Movie
+    .findById(req.params.movieId)
+    .then(movieDetails => {
+        console.log(movieDetails);
+        movieInfo = movieDetails
+        return Celebrity.find()
+    })
+    .then(allCelebs => {
+        res.render("movies/edit-movie", {movieInfo: movieInfo, allCelebs: allCelebs})
+    })
+    .catch(err => console.log(err))
+});
+
+//Edit: process form
+router.post("/movies/:movieId/edit", (req, res, next) => {
+    const  id  = req.params.movieId
+
+    const updatedMovie = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast
+    }
+
+    Movie
+    .findByIdAndUpdate(id, updatedMovie, { new : true })
+    .then(() => {
+        res.redirect(`/movies/${id}`);
+      })
+      .catch((err) => {
+        console.log("Error updating movie...", err);
+        next();
+      });
+});
+
 module.exports = router;
