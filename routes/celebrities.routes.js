@@ -2,6 +2,18 @@ const Celebrity = require("../models/Celebrity.model");
 
 const router = require("express").Router();
 
+//READ: List all celebrities
+router.get("/celebrities", (req, res, next) => {
+    Celebrity.find()
+      .then(celebrities => {
+        res.render("celebrities/celebrities", { celebrities });
+      })
+      .catch(err => {
+        console.log('Error getting celebrities from DB...', err);
+        next(err);
+      })
+  });
+
 //CREATE: display form
 router.get("/celebrities/create", (req, res, next) => {
     res.render("celebrities/new-celebrity");
