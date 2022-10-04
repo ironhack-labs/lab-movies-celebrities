@@ -23,7 +23,7 @@ router.post('/celebrities/create', (req, res, next) => {
     const celebrityDetails = {
         name: req.body.name,
         occupation: req.body.occupation,
-        catchphrase: req.body.catchPhrase,
+        catchPhrase: req.body.catchPhrase,
     }
     Celebrity.create(celebrityDetails)
     .then((celebrityDetails) => {
