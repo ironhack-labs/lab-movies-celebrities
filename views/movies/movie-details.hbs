@@ -9,18 +9,13 @@
             <p>
             Name: {{this.name}} <br />
             Occupation: {{this.occupation}} <br />
-            Catchphrasse: {{this.catchPhrase}}
+            Catchphrase: {{this.catchPhrase}}
             </p>
         {{/each}}
 
-    </p>
-    
+    </p>    
 
-    <p>
-        <form action="/books/{{_id}}/delete" method="POST">
-            <button>Delete</button>
-        </form>
-    </p>
+    
 
 </section>
 <a href="/movies/{{this._id}}/edit">Edit Movie</a> | <a href="/movies">Back</a>

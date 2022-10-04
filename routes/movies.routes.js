@@ -46,8 +46,7 @@ router.get(`/movies/create`, (req, res, next) => {
 
 //CREATE: process form
 router.post("/movies/create", (req, res, next) => {
-    console.log(req.body);
-
+    
     const movieDetails = {
         title: req.body.title,
         genre: req.body.genre,
@@ -60,6 +59,21 @@ router.post("/movies/create", (req, res, next) => {
     .then(movieDetails => {
         res.redirect("/movies");
     })
+    .catch((err) => {
+        console.log("Error creating movie...", err);
+        next(err);
+    });
+})
+
+
+router.post("/movies/:id/delete", (req, res, next) => {
+
+    const movieId = req.params.id;
+
+    Movie.findByIdAndDelete(movieId)
+    .then( deleteMovie => {
+        res.redirect("/movies")
+    })       
     .catch((err) => {
         console.log("Error creating movie...", err);
         next(err);
