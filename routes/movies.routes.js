@@ -8,13 +8,27 @@ const Celebrity = require("../models/Celebrity.model");
 //READ: List all movies
 router.get("/movies", (req, res, next) => {
     Movie.find()
-    .populate("cast")
     .then( moviesFromDB => {
         res.render("movies/movies", {movies: moviesFromDB})
     })
     .catch(err => {
         console.log("error getting movies from DB", err);
         next(err);
+    })
+})
+
+//READ Movie details
+router.get("/movies/:id", (req, res, next) => {
+    const id = req.params.id;
+
+    Movie.findById(id)
+    .populate("cast")
+    .then( movieDetails => {
+        res.render("movies/movie-details", movieDetails);
+    })
+    .catch( err => {
+        console.log("error getting movie details from DB", err);
+        next();
     })
 })
 

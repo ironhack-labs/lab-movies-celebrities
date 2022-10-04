@@ -4,15 +4,6 @@
     <section>
         <h2>{{this.title}}</h2>
         <p>
-            Genre: {{this.genre}}<br />
-            Plot: {{this.plot}} <br />
-            Cast: <ul>
-            {{#each this.cast}}
-                 <li>{{this.name}}</li>
-            {{/each}}
-            </ul>
-        </p>
-        <p>
 
         
             <a href="/movies/{{this._id}}">More details</a> |
@@ -25,11 +16,3 @@
 
     </section>
 {{/each}}
-
-{{!-- title: String,
-        genre: String,
-        plot: String,
-        cast: [{
-            type: Schema.Types.ObjectId,
-            ref: "Celebrity"
-             }] --}}
