@@ -14,7 +14,7 @@
 
 
 <label> Cast:
-<select name="cast" multiple>
+<select name="cast" multiple style="height: 40px; width: 150px"> 
     {{#each celebrities}}
     <option value={{_id}}>{{name}}</option>
     {{/each}}
@@ -22,5 +22,5 @@
 </select>
 </label>
 
-<button type="submit">Submit</button>
+<button class="btn" type="submit">Submit</button>
 </form>

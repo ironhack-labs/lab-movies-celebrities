@@ -1,8 +1,52 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(254, 255, 202);
+  background-color: rgb(156, 79, 79);
 }
 
-a {
-  color: #00b7ff;
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  background-color: black;
+  margin: 0 0 50px 0;
+}
+
+.navbar > a {
+  color: rgb(254, 255, 202);
+  text-decoration: none;
+  margin: 10px;
+}
+
+.mov {
+  margin: 50px auto;
+}
+.mov > h3 {
+  margin-bottom: 30px;
+}
+
+.mov > a {
+  padding: 10px;
+  margin: 10px;
+  color:rgb(236, 203, 132);
+  text-decoration: none;
+  background-color: rgb(14, 9, 19);
+  border-radius: 10px;;
+}
+
+.btn {
+  padding: 10px;
+  margin: 10px;
+  color:rgb(236, 203, 132);
+  text-decoration: none;
+  background-color: rgb(14, 9, 19);
+  border-radius: 10px;;
+}
+
+select {
+  height: 50px; 
+  width: 165px;
+  overflow-y: auto;
 }

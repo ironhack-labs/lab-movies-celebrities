@@ -1,7 +1,9 @@
-<h2>Movies list</h2>
+<h2>MOVIES</h2>
 
 {{#each moviesArr}}
-<h3>{{title}}</h3>
-<a href="/movies/{{_id}}">Details</a>
-<a href="/movies/{{_id}}/edit">Edit</a>
+<div class="mov">
+<h3 class="mov-title">{{title}}</h3>
+<a class="btn" href="/movies/{{_id}}">Details</a>
+<a class="btn" href="/movies/{{_id}}/edit">Edit</a>
+</div>
 {{/each}}

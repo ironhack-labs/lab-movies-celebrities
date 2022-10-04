@@ -1,15 +1,17 @@
-<h2>Details: {{result.title}}</h2>
-
-<h5>Genre: {{result.genre}}</h5>
-<h5>Plot:  {{result.plot}}</h5>
-
-<h5>Cast Details:</h5> 
+<h2>Title: {{result.title}}</h2>
+<br/>
+<h6><strong>Genre:</strong> {{result.genre}}</h6>
+<h6><strong>Plot:</strong> {{result.plot}}</h6>
+<br/>
+<h6><strong>Cast Details:</strong></h6> 
 {{#each cast}}
-<h5>Name: {{this.name}}</h5>
-<h5>Occupation: {{this.occupation}}</h5>
-<h5>Catch Phrase: {{this.catchPhrase}}</h5>
+<h6><strong>Name:</strong> {{this.name}}</h6>
+<h6><strong>Occupation:</strong> {{this.occupation}}</h6>
+<h6><strong>Catch Phrase:</strong> {{this.catchPhrase}}</h6>
 {{/each}}
-
-<form action="/movies/{{result.id}}/delete" method="post">
-<button type="submit">Delete</button>
+<br/>
+<form action="/movies/{{result.id}}/delete" method="post"> 
+<a class="btn" href="/movies/{{result._id}}/edit">Edit</a>
+<button class="btn" type="submit">Delete</button>
 </form>
+
