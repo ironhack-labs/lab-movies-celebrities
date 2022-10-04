@@ -61,4 +61,31 @@ router.get("/movies/:movieId", (req, res, next) => {
   });
 
 
+  //Iteration 9
+  router.post("/movies/:movieId/delete", (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.movieId)
+      .then(() => {
+        res.redirect("/movies");
+      })
+      .catch(err => {
+        console.log("Error deleting movie...", err);
+      });
+    });
+
+    //Iteration10
+
+    router.post("/movies/:movieId/edit", (req,res,next)=> {
+        const{id} = req.params
+        let movieDetails
+        Movie
+        .findById(id)
+        .then(foundMovies => {
+            movieDetails=foundMovies
+            return Celebrity.find()
+        })
+        .catch(err=>{console.log('there was an error', err)})
+        })
+        
+    
+
 module.exports = router;
