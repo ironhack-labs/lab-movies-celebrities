@@ -7,7 +7,8 @@ body {
 
 a {
   color: #f8f8f8;
-  font-size: 16px;
+  font-size:20px;
+  font-weight: bold;
 }
 
 ul{
@@ -27,21 +28,27 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: chartreuse;
+  background-color: rgb(170, 170, 170);
   text-align: center;
+  border: 1px solid grey;
 }
 form label{
   font-size: 16px;
   font-weight: bold;
   text-align: left;
-  color: #f8f8f8;
+  color: black;
 
 }
 
 form > input{
   text-align: center;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 25px 40px;
+  margin: 15;
   box-sizing: border-box;
+  
+}
+button{
+  width: 60px;
+  padding: 10px;
 }

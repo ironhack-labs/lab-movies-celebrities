@@ -1,17 +1,4 @@
-{{!-- const movieSchema = new Schema(
-    {
-        title: String,
-        genre: String,
-        plot: String,
-        cast: [{
-                type: Schema.Types.ObjectId,
-                ref: "Celebrity"
-        }]
-    },
-    {
-        timestamps: true
-    } --}}
-)
+
 <h2>Add new Movie</h2>
 
 <form action='/movies/create' method='post'>
@@ -27,7 +14,7 @@
         
          <label>
                 Plot:
-                <input type='text' name='polt'  />
+                <input type='text' name='plot'  />
          </label>
 
 
@@ -43,4 +30,5 @@
      
 
   <button type='submit'>Create New Movie</button>
+
 </form>
