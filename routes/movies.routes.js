@@ -7,7 +7,6 @@ const router = require("express").Router();
 // all your routes here
 router.get('/movies', (req, res, next) => {
     Movie.find()
-        .populate('cast')
         .then(moviesFromDB => {
             res.render('movies/movies', { movies: moviesFromDB });
         })
@@ -16,6 +15,20 @@ router.get('/movies', (req, res, next) => {
             next(err);
         })
 })
+
+router.get('/movies/:movieId', (req, res, next) => {
+    const id = req.params.movieId;
+
+    Movie.findById(id)
+    .populate('cast')
+    .then(movieDetails => {
+        res.render('movies/movie-details', movieDetails);
+    })
+    .catch(err => {
+        console.log('error getting movie details from DB', err)
+        next(err);
+    })
+});
 
 router.get('/movies/create', (req, res, next) => {
     Celebrity.find()

@@ -2,13 +2,6 @@
 
 {{#each movies}}
     <section>
-        <h3>{{title}}</h3>
-        <p>
-            Genre: {{genre}} <br>
-            Plot: {{plot}} <br>
-            Cast: {{#each cast}}
-            {{name}}
-            {{/each}}
-        </p>
+        <a href="/movies/{{_id}}">{{title}}</a>
     </section>
 {{/each}}
