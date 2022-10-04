@@ -3,11 +3,11 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model")
 
 router.get("/celebrities/create", (req, res, next) => {
-    res.render("celebrities/new-celebtity")
+    res.render("celebrities/new-celebrity")
 
 })
 
-/*router.post("/celebrities/create", (req, res, nex) => {
+router.post("/celebrities/create", (req, res, nex) => {
     const newCelebrity = {
         name: req.body.name,
         occupation: req.body.occupation,
@@ -21,6 +21,6 @@ router.get("/celebrities/create", (req, res, next) => {
     .catch(()=>{
         res.render("celebrities/new-celebtity")
     })
-}) */
+}) 
 
 module.exports = router;
