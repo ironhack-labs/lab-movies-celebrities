@@ -6,6 +6,17 @@ const Celebrity = require("../models/Celebrity.model");
 // all your routes here
 
 //READ: List all movies
+router.get("/movies", (req, res, next) => {
+    Movie.find()
+    .populate("cast")
+    .then( moviesFromDB => {
+        res.render("movies/movies", {movies: moviesFromDB})
+    })
+    .catch(err => {
+        console.log("error getting movies from DB", err);
+        next(err);
+    })
+})
 
 //CREATE: Add new movie: display form
 router.get(`/movies/create`, (req, res, next) => {

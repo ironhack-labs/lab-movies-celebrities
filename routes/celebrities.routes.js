@@ -33,7 +33,7 @@ router.post("/celebrities/create", (req, res, next) => {
 
   Celebrity.create(celebrityData)
     .then((createdCelebrity) => {
-     /*  res.redirect("/celebrities"); */
+     res.redirect("/celebrities");
     })
     .catch((err) => {
       console.log("Error getting authors from DB...", err);
