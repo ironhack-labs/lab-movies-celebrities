@@ -3,17 +3,18 @@ const Celebrity = require("../models/Celebrity.model");
 
 const router = require("express").Router();
 
-// router.get("/books", (req, res, next) => {
-//     Book.find()
-//     .populate("author")
-//       .then( booksFromDB => {
-//           res.render("books/books-list", {books: booksFromDB})
-//       })
-//       .catch( err => {
-//           console.log("error getting books from DB", err);
-//           next();
-//       })
-//   });
+//READ: List of all books
+router.get("/movies", (req, res, next) => {
+    Movie.find()
+    .populate("celebrity")
+      .then( moviesFromDB => {
+          res.render("movies/movies", {movies: moviesFromDB})
+      })
+      .catch( err => {
+          console.log("error getting movies from DB", err);
+          next();
+      })
+  });
 
 
   //CREATE: display form
@@ -27,6 +28,20 @@ router.get("/movies/create", (req, res, next) => {
         next(err);
       })
 })
+
+router.get("/movies/:movieId", (req, res, next) => {
+    const id = req.params.movieId;
+
+    Movie.findById(id)
+    .populate("movie")
+    .then(movieDetails => {
+        res.render("movies/movies-details", movieDetails)
+    })
+    .catch( err => {
+        console.log("error getting movies details fom DB", err);
+        next();
+    })
+});
 
 //CREATE: process form
 router.post("/movies/create", (req, res, next) => {

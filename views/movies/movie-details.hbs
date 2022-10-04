@@ -1,0 +1,26 @@
+<section >
+    <h2>{{title}}</h2>
+
+    <p>
+        <strong>Celebrity:</strong> <br />
+        {{celebrity.name}} <br />
+        {{celebrity.occupation}} <br />
+        {{celebrity.catchPhrase}} <br />
+    </p>
+    <p>
+        <strong>Plot: </strong> {{plot}} <br />
+    </p>
+    <p>
+        <strong>Genre:</strong>
+        {{genre}}
+    </p>
+
+    <p>
+        <form action="/movie/{{_id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+    </p>
+
+</section>
+
+<a href="/movies">Back</a>
