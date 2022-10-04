@@ -1,8 +1,23 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(95, 95, 223);
+  text-align: center;
 }
 
 a {
-  color: #00b7ff;
+  color: #f8f8f8;
+  font-size: 10px;
+}
+
+ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+ul > li{
+  color: rgb(1, 18, 33);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+
 }
