@@ -33,9 +33,9 @@ router.get("/movies/:movieId", (req, res, next) => {
     const id = req.params.movieId;
 
     Movie.findById(id)
-    .populate("movie")
+    .populate("celebrity")
     .then(movieDetails => {
-        res.render("movies/movies-details", movieDetails)
+        res.render("movies/movie-details", movieDetails)
     })
     .catch( err => {
         console.log("error getting movies details fom DB", err);
