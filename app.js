@@ -1,3 +1,5 @@
+const path = require('path');
+const favicon = require('serve-favicon');
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 require('dotenv/config');
@@ -24,11 +26,23 @@ const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerC
 
 app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // 👇 Start handling routes here
 const index = require('./routes/index');
 app.use('/', index);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+/* require('./error-handling')(app); */
 
+
+// starter code in both routes/celebrities.routes.js and routes/movies.routes.js
+/* const router = require("express").Router();
+ */
+
+app.use("/celebrities", require("./routes/celebrities.routes"));
+/* app.use("/", require("./routes/movies.routes")) */
 module.exports = app;
