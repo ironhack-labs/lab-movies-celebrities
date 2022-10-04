@@ -44,4 +44,18 @@ router.get("/movies", (req, res, next) => {
     });
 });
 
+router.get("/movies/:id", (req, res, next) => {
+  const movieId = req.params.id;
+  Movie.findById(movieId)
+    .populate("cast")
+    .then((movieDetails) => {
+      console.log("movieDetails>>>", movieDetails);
+      res.render("movies/movie-details", { movieDetails });
+    })
+    .catch((err) => {
+      console.log("There was an error getting movie details from DB", err);
+      next();
+    });
+});
+
 module.exports = router;
