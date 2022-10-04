@@ -1,6 +1,5 @@
 <section>
     <h2>{{title}}</h2>
-    <p>
         Genre: {{genre}} <br>
         Plot: {{plot}} <br>
         Cast: 
@@ -12,5 +11,7 @@
             </ul></li>
         {{/each}}
         </ul>
-    </p>
+    <form action="/movies/{{_id}}/delete" method="post">
+        <button>Delete this movie</button>
+    </form>
 </section>
