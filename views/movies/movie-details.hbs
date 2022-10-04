@@ -1,0 +1,16 @@
+<h2>Movie details:</h2>
+
+
+<section class="movie">
+    <h2>{{movies.title}}</h2>
+    <p>
+        Genre: {{movies.genre}}<br />
+        Plot: {{movies.plot}} <br />
+        Cast: {{movies.cast}} <br />
+
+        <a href="/celebrities">Back</a>
+    </p>
+    <form action="/movies/{{movies.id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
+</section>
