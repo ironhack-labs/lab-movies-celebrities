@@ -61,7 +61,20 @@ router.post("/movies/create", (req, res, next) => {
   })
 
 })
+
+ //DELETE
+ router.post("/movies/:movieId/delete", (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.movieId)
+      .then(() => {
+        res.redirect("/movies");
+      })
+      .catch(err => {
+        console.log("Error deleting movie...", err);
+        next();
+      });
   
+  });
+
 
 
 module.exports = router;
