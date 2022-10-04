@@ -19,6 +19,21 @@ router.get("/movies", (req, res, next) => {
   });
 
 
+//READ: Movie details
+router.get("/movies/:movieId", (req, res, next) => {
+    const id = req.params.movieId;
+  
+    Movie.findById(id)
+      .populate("cast")
+      .then((movieDetails) => {
+        res.render("movies/movie-details", movieDetails);
+      })
+      .catch((err) => {
+        console.log("error getting movie details from DB", err);
+        next(err);
+      });
+  });
+
 //CREATE: display form
 router.get("/movies/create", (req, res, next) => {
   Celebrity.find()
