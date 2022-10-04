@@ -74,18 +74,36 @@ router.get("/movies/:movieId", (req, res, next) => {
 
     //Iteration10
 
-    router.post("/movies/:movieId/edit", (req,res,next)=> {
-        const{id} = req.params
-        let movieDetails
-        Movie
-        .findById(id)
-        .then(foundMovies => {
-            movieDetails=foundMovies
-            return Celebrity.find()
+    router.get("/movies/:movieId/edit", (req, res, next)=> {
+        Movie.findById(req.params.movieId)
+        .then(movieDetails => {
+            res.render("movies/edit-movie", movieDetails)   
         })
-        .catch(err=>{console.log('there was an error', err)})
+        .catch(err=>{console.log(err)})
         })
-        
+
+
+    
+    //UPDATE
+    router.post("/movies/:movieId/edit", (req, res, next) => {
+    const movieId = req.params;
+  
+    const newDetails = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast
+    }
+  
+    Movie.findByIdAndUpdate(movieId, newDetails)
+      .then(() => {
+        res.redirect(`/movies/${movieId}`);
+      })
+      .catch(err => {
+        console.log("Error updating book...", err);
+        next();
+      });
+  });
     
 
 module.exports = router;
