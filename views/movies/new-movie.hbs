@@ -1,0 +1,46 @@
+{{!-- const movieSchema = new Schema(
+    {
+        title: String,
+        genre: String,
+        plot: String,
+        cast: [{
+                type: Schema.Types.ObjectId,
+                ref: "Celebrity"
+        }]
+    },
+    {
+        timestamps: true
+    } --}}
+)
+<h2>Add new Movie</h2>
+
+<form action='/movies/create' method='post'>
+        <label>
+                Title:
+                <input type='text' name='title' />
+        </label>
+        
+        <label>
+                Genre :
+                <input type='text' name='genre'  />
+        </label>
+        
+         <label>
+                Plot:
+                <input type='text' name='polt'  />
+         </label>
+
+
+        <label>
+                Cast:
+                <select name='cast'>
+                {{#each castArr}}
+                    <option value='{{this._id}}'>{{this.name}}</option>
+                {{/each}}
+                </select>
+         </label>
+
+     
+
+  <button type='submit'>Create New Movie</button>
+</form>

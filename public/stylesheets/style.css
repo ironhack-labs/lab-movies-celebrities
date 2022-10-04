@@ -1,13 +1,13 @@
 body {
-  padding: 50px;
+  padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(95, 95, 223);
+  background-color: rgb(95, 180, 223);
   text-align: center;
 }
 
 a {
   color: #f8f8f8;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 ul{
@@ -20,4 +20,28 @@ ul > li{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
 
+}
+
+form{
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: chartreuse;
+  text-align: center;
+}
+form label{
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  color: #f8f8f8;
+
+}
+
+form > input{
+  text-align: center;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
