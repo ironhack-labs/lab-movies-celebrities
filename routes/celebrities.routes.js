@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model")
 
 router.get("/celebrities/create", (req, res, next) => {
+    
     res.render("celebrities/new-celebrity");
 })
 
