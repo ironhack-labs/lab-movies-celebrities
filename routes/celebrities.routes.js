@@ -19,6 +19,14 @@ router.post("/celebrities/create", (req,res,next)=> {
  })
  .catch((err)=> {res.redirect("/celebrities/new-celebrity")})
 
+});
+
+
+//Iteratio 4
+router.get("/celebrities", (req,res,next)=>{
+   Celebrity.find()
+   .then((foundCelebrities)=>{res.render('celebrities/celebrities', {celebrities:foundCelebrities})})
+   .catch((err)=>{console.log('there was an error', err)})
 })
 
 
