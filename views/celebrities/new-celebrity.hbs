@@ -1,7 +1,8 @@
 <h2></h2>
-<form action="">
-    <input name="name" type="text">
-    <input name="occupation" type="text">
-    <input name="catchPhrase" type="text">
-    <button type="submit">Create new celebrity</button>
+<form action="/celebrities/create" method="POST">
+  Name:
+  <input name="name" type="text" /><br />
+  Occupation:<input name="occupation" type="text" /><br />
+  Catchphrase:<input name="catchPhrase" type="text" /><br /><br />
+  <button type="submit">Create new celebrity</button>
 </form>
