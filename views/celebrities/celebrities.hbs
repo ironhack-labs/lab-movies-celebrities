@@ -1,20 +1,15 @@
-<h2>Celebrities</h2>
+<h2>Celebrities list:</h2>
 
-<form action="/celebrities/create" method="post">
+{{#each celebritiesFromDB}}
+ <section class="celebrities-summary">
+        <h2>{{this.title}}</h2>
+        <p>
+            Name: {{this.name}}<br />
+            Occupation: {{this.occupation}} <br />
+            CatchPhrase: {{this.catchPhrase}} <br />
 
-<label>Name:
-    <input type="text" name="name" />
-</label>
+            <a href="/celebrities/{{id}}">More details</a>
+        </p>
 
-<label>Occupation:
-     <input type="text" occupation="occupation" />
-</label>
-
-<label>Catch Phrase:
-     <input type="text" catchPhrase="catchPhrase" />
-</label>
-
-
-  <button type="submit"> Create </button>
-
-</form>
+    </section>
+{{/each}}

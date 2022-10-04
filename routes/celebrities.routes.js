@@ -1,6 +1,7 @@
-const Celebrity = require("../models/Celebrity.model");
+
 
 const router = require('express').Router();
+const Celebrity = require("../models/Celebrity.model");
 
 router.get ('/celebrities/create'), (req, res, next) => {
 res.render('/celebrities/new-celebrity');
@@ -23,6 +24,18 @@ router.post('/celebrities/create', (req, res, next) =>
     .catch(err => {
 
         console.log("error creating new author in DB", err)
+        next(err);
+    })
+})
+
+router.get("/celebrities", (req, res, next) => {
+    Celebrity.find()
+    .then((celebritiesFromDB) => {
+        res.render("celebrities/celebrities", {celebritiesFromDB})
+    })
+    .catch(err => {
+
+        console.log("error reading celebrities in DB", err)
         next(err);
     })
 })
