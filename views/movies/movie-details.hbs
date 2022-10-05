@@ -1,21 +1,26 @@
 
-<h1>Movie Details:</h1>
+<h2>Movie Details:</h2>
 
-  <section class='movie-summary'>
-    <h4>Title: {{title}}</h4>
-     <br />
-    <h4>Genre: {{genre}}</h4>
-    <br />
-    <h4>Plot: {{plot}}</h4>
-    <br />
-    <h4>Cast: <ul>
-    {{#each cast}}
-        <li>Name: {{this.name}}</li>
-        <li>Occupation: {{this.occupation}}</li>
-        <li>Catch Phrase: {{this.catchPhrase}}</li>
-    {{/each}}
-    </ul></h4>
-    
-      <br />
+<section class='movie-summary'>
+  <h4>Title: {{title}}</h4>
+  <br />
+  <h4>Genre: {{genre}}</h4>
+  <br />
+  <h4>Plot: {{plot}}</h4>
+  <br />
+  <ul><h4>Cast: </h4>
+  {{#each cast}}
+      <li>Name: {{this.name}}</li>
+      <li>Occupation: {{this.occupation}}</li>
+      <li>Catch Phrase: {{this.catchPhrase}}</li>
+  {{/each}}
+  </ul>
+  <br />
+  <form action="/movies/{{_id}}/delete" method="post">
+    <button>Delete movie</button>
+  </form>
+  <form action="/movies/{{_id}}/edit" method="get">
+    <button>Edit movie</button>
+  </form>
       
-  </section>
+</section>

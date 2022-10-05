@@ -11,7 +11,7 @@ router.get("/movies/create", (req, res, next) => {
         })
 });
 
-//CREATE: process form
+//CREATE: new movie - process form
 router.post("/movies/create", (req, res, next) => {
   const movieDetails = {
     title: req.body.title,
@@ -53,6 +53,53 @@ router.get("/movies/:movieId", (req, res, next) => {
             console.log("Error getting movies...", err);
             next(err);
         })
+
+})
+
+//DELETE: movie
+router.post("/movies/:movieId/delete", (req, res, next) => {
+    const movieId = req.params.movieId
+
+    Movie.findByIdAndRemove(movieId)
+        .then( () => res.redirect("/movies"))
+        .catch((err) => {
+            console.log("Error deleting movies...", err);
+            next(err);
+        })
+})
+
+
+//UPDATE: movie - create form
+router.get("/movies/:movieId/edit", (req, res, next) => {
+    const movieId = req.params.movieId
+    let movieDetails;
+
+    Movie.findById(movieId)
+        .then( (details) => { 
+            movieDetails = details;
+            return Celebrity.find() 
+        })
+        .then( (castArr) => {
+            res.render("movies/edit-movie", { castArr, movieDetails } )
+        })
+        
+})
+
+
+//UPDATE: movie - process form
+router.post("/movies/:movieId/edit", (req, res, next) => {
+    const movieId = req.params.movieId
+
+    const movieDetailsUpdate = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast,
+    };
+    
+    Movie.findByIdAndUpdate(movieId)
+        .then( () => res.redirect("/movies") )
+        .catch( () => res.redirect("/movies/:movieId/edit") );
 
 })
   
