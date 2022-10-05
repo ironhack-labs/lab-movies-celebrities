@@ -97,7 +97,7 @@ router.post("/movies/:movieId/edit", (req, res, next) => {
         cast: req.body.cast,
     };
     
-    Movie.findByIdAndUpdate(movieId)
+    Movie.findByIdAndUpdate(movieId, movieDetailsUpdate)
         .then( () => res.redirect("/movies") )
         .catch( () => res.redirect("/movies/:movieId/edit") );
 
