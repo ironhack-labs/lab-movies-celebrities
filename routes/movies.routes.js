@@ -24,7 +24,8 @@ router.post("/movies/create", (req, res, next) => {
     celebrity: req.body.celebrity,
   };
   Movie.create(newMovie)
-    .then(() => {
+    .then((newMovie) => {
+      console.log("newMovie>>>", newMovie);
       res.redirect("/movies");
     })
     .catch((err) => {

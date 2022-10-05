@@ -1,11 +1,13 @@
 <h2>Movie details:</h2>
 
 {{#each movieDetails}}
-  <h3>{{this.title}}</h3>
-  <p>{{this.genre}}</p>
-  <p>{{this.plot}}</p>
-  {{#each movieDetails.cast}}
-    <p>{{this.name}} - {{this.occupation}} - {{this.catchPhrase}}</p>
-  {{/each}}
-  <br /><br />
+  <section>
+    <h3>{{this.title}}</h3>
+    <p>{{this.genre}}</p>
+    <p>{{this.plot}}</p>
+    {{#each movieDetails.cast}}
+      <p>{{this.name}} - {{this.occupation}} - {{this.catchPhrase}}</p>
+    {{/each}}
+    <br />
+  </section>
 {{/each}}
