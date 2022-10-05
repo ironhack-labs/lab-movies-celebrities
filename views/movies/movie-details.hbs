@@ -5,7 +5,7 @@
     <h3>{{this.title}}</h3>
     <p>{{this.genre}}</p>
     <p>{{this.plot}}</p>
-    {{#each movieDetails.cast}}
+    {{#each this.cast}}
       <p>{{this.name}} - {{this.occupation}} - {{this.catchPhrase}}</p>
     {{/each}}
     <br />

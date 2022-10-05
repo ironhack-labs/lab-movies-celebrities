@@ -21,8 +21,9 @@ router.post("/movies/create", (req, res, next) => {
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
-    celebrity: req.body.celebrity,
+    cast: req.body.cast,
   };
+  console.log("newMovie>>>", newMovie);
   Movie.create(newMovie)
     .then((newMovie) => {
       console.log("newMovie>>>", newMovie);
