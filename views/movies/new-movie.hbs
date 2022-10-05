@@ -17,8 +17,8 @@
 
 <label> Cast:
 <select name="cast" multiple>
-    {{#each movieArr}}
-    <option value = "{{this.cast._id}}"> {{this.name}}</option>
+    {{#each CelebrityData}}
+    <option value = "{{this._id}}"> {{this.name}}</option>
     {{/each}}
     </select>
 </label>

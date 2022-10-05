@@ -1,13 +1,13 @@
 const router = require("express").Router();
-const CelebrityModel = require("../models/Celebrity.model");
+const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model")
 
 router.get("/movies/create", (req, res, next) => {
-    Movie.find()
-    .populate("cast")
-    .then((movieArr) => {
-        console.log(movieArr)
-        res.render("movies/new-movie", {movieArr})
+   Celebrity.find()
+    
+    .then((CelebrityData) => {
+        console.log(CelebrityData)
+        res.render("movies/new-movie", {CelebrityData})
     })
     .catch(error => {
         console.log("error in creating a new movie", error)
