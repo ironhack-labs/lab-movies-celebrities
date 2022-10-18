@@ -25,8 +25,23 @@ router.post("/create", async (req, res, next) => {
     catch (error) {
         next.error
     }
-
 })
+
+
+
+//GET "/movies/movies-list" => ruta para renderizar
+router.get("/movies-list", (req, res, next) => {
+    Movie.find()
+    .then((moviesList) =>{
+        res.render("movies/movies.hbs", {
+        moviesList
+        })
+    })
+    .catch((error) =>{
+        next(error)
+    })
+})
+
 
 
 module.exports = router;
