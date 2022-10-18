@@ -13,17 +13,17 @@ router.post("/create", async (req, res, next) => {
     console.log(req.body);
     res.redirect("/celebrities/celebrities-list");
   } catch (error) {
-    res.redirect("/celebrities/create");
+    res.render("celebrities/new-celebrity.hbs")
+    console.log(error)
   }
 });
 
 // GET "/celebrities/celebrities-list" => renderiza la lista de famosos
 router.get("/celebrities-list", async (req, res, next) => {
   try {
-    const celebritiesList = await Celebrity.find()
-    .select({ name: 1 });
+    const celebritiesList = await Celebrity.find().select({ name: 1 });
     res.render("celebrities/celebrities.hbs", { celebritiesList });
-    console.log(celebritiesList)
+    console.log(celebritiesList);
   } catch (error) {
     next(error);
   }
