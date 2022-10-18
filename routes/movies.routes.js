@@ -44,4 +44,25 @@ router.get("/movies-list", (req, res, next) => {
 
 
 
+//GET "movies/:movieId" => renderizar a los detalles de la peli
+router.get("/:movieId", (req, res, next) => {
+    const { movieId } = req.params
+
+    Movie.findById(movieId)
+    .populate("cast")
+    .then((movie) =>{
+        console.log(movieId)
+        res.render("movies/movie-details.hbs", {
+            movie
+        })
+    })
+    .catch((error) =>{
+        next(error)
+    })
+
+
+})
+
+
+
 module.exports = router;
