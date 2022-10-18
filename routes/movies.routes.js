@@ -78,22 +78,38 @@ router.post("/:movieId/delete", (req, res, next) =>{
 
 
 //! Dejo comentado esto para revisar error
-// // GET "movies/:id/edit" => ruta para para editarel form de una pelicula
-// router.get("/:movieId/edit", (req, res, next) =>{
+  //GET "movies/:id/edit" => ruta para para editarel form de una pelicula
+//  router.get("/:movieId/edit", (req, res, next) =>{
     
-//     const { movieId } = req.params
+//      const { movieId } = req.params
 
-//     Movie.findById(movieId)
-//     .populate("cast")
-//     .then((allCelebrities) =>{
-//         res.render(("edit-movie.hbs"), {
-//             allCelebrities
-//         })
-//     })
+//      Movie.findById(movieId)
+//      .populate("cast")
+//      .then((allCelebrities) =>{
+//          res.render(("edit-movie.hbs"), {
+//              allCelebrities
+//          })
+//      })
 
 
 
-// })
+//  })
+
+ router.get("/:movieId/edit", async(req, res, next) =>{
+    
+    const { movieId } = req.params
+
+    try {
+       const getMovie = await Movie.findById(movieId).populate("cast")
+       const celebritiesList = await Celebrity.find()
+       res.render("movies/edit-movie.hbs", {getMovie, celebritiesList})
+       console.log("This is", getMovie.cast[0].name)
+    }
+    catch (error) {
+       next(error)
+    }
+
+})
 
 
 
