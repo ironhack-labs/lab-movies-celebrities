@@ -23,6 +23,7 @@ router.get("/celebrities-list", async (req, res, next) => {
     const celebritiesList = await Celebrity.find()
     .select({ name: 1 });
     res.render("celebrities/celebrities.hbs", { celebritiesList });
+    console.log(celebritiesList)
   } catch (error) {
     next(error);
   }
