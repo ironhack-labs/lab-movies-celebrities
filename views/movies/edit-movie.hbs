@@ -16,11 +16,16 @@
       <label for="cast">Actor: {{name}}</label>
     {{/each}}
     <br />
-    <select name="cast" multiple="true">
+    {{!-- De esta forma consigo que se marque el que tambien esta en "cast", pero luego me aparece duplicado en el siguiente each y nose como incluir el select solo del id que se repite --}}
+    <select name="cast" multiple="true" >
+        {{#each getMovie.cast}}
+        <option value="{{_id}}" selected>{{name}}</option>
+      {{/each}}
       {{#each celebritiesList}}
         <option value="{{_id}}">{{name}}</option>
       {{/each}}
     </select>
+
     <br />
     <button type="submit">Actualizar</button>
   </form>
