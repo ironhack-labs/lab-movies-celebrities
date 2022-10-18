@@ -1,29 +1,31 @@
 const router = require("express").Router();
-const Celebrity = require("../models/Celebrity.model")
+const Celebrity = require("../models/Celebrity.model");
 
 // GET "/celebrities/create" => ruta para renderizar formulario
 router.get("/create", (req, res, next) => {
-    res.render("celebrities/new-celebrity.hbs")
-})
-
+  res.render("celebrities/new-celebrity.hbs");
+});
 
 // POST "/celebrities/create" => ruta para crear celebrity
 router.post("/create", async (req, res, next) => {
-try {
-    await Celebrity.create(req.body)
+  try {
+    await Celebrity.create(req.body);
     console.log(req.body);
-    res.redirect("/celebrities")
+    res.redirect("/celebrities/celebrities-list");
+  } catch (error) {
+    res.redirect("/celebrities/create");
+  }
+});
 
-
-} catch (error) {
-    res.redirect("/create")
-    
-}
-
-})
-
-
-
-
+// GET "/celebrities/celebrities-list" => renderiza la lista de famosos
+router.get("/celebrities-list", async (req, res, next) => {
+  try {
+    const celebritiesList = await Celebrity.find()
+    .select({ name: 1 });
+    res.render("celebrities/celebrities.hbs", { celebritiesList });
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
