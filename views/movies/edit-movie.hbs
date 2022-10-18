@@ -3,7 +3,7 @@
 
 <h2>Editar película</h2>
 
-<form action="/movies/{{getMovie._id}}/edit" method="POST"></form>
+<form action="/movies/{{getMovie._id}}/edit" method="POST">
 <label for="title">Nombre:  </label>
     <input type="text" name="title" value="{{getMovie.title}}"/>
     <br />
@@ -28,5 +28,5 @@
 
     <button type="submit">Actualizar</button>
 
-
+    </form>
 </div>
