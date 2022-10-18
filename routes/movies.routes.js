@@ -59,9 +59,23 @@ router.get("/:movieId", (req, res, next) => {
     .catch((error) =>{
         next(error)
     })
-
-
 })
+
+
+//POST "movies/:movieId/delete" => borrar elementos
+router.post("/:movieId/delete", (req, res, next) =>{
+    
+    const { movieId } = req.params
+
+    Movie.findByIdAndRemove(movieId)
+    .then(() =>{
+        res.redirect("/movies/movies-list")
+    })
+    .catch((error) =>{
+        next(error)
+    })
+})
+
 
 
 
