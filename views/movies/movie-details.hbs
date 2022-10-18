@@ -1,0 +1,15 @@
+<div>
+    <h2>Check out this movie!</h2>
+    {{#with movieDetails}} 
+        <h3>{{title}}</h3>
+        <p>Genre: {{genre}}</p>
+        <p>Plot: {{plot}}</p>
+
+        {{#each cast}}
+            <h5>CAST:</h5>
+                <p>{{name}}</p>
+                <p>{{occupation}}</p>
+                <p>{{catchPhrase}}</p>
+        {{/each}}
+    {{/with}}
+</div>

@@ -33,5 +33,33 @@ router.post("/create", async (req, res, next) => {
   }
 });
 
-router.post("/create");
+// GET /movies > show all movies
+router.get("/", async (req, res, next) =>{
+try {
+  const moviesList = await Movie.find()
+   res.render('movies/movies.hbs', {moviesList});
+
+  } catch (error) {
+  next(error)
+}
+});
+
+//GET /movies/:id Show specific movie
+router.get("/:moviesId", async (req, res, next) => {
+ 
+  const {moviesId} = req.params;
+  try { 
+  const movieDetails = await Movie.findById(moviesId).populate("cast")
+  
+  console.log(movieDetails)
+  res.render("movies/movie-details.hbs", {movieDetails})
+} catch (error) {
+  next(error)
+}
+
+})
+
+
+
+
 module.exports = router;
