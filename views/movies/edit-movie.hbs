@@ -1,32 +1,27 @@
 <div>
 
+  <h2>Editar película</h2>
 
-<h2>Editar película</h2>
-
-<form action="/movies/{{getMovie._id}}/edit" method="POST">
-<label for="title">Nombre:  </label>
-    <input type="text" name="title" value="{{getMovie.title}}"/>
+  <form action="/movies/{{getMovie._id}}/edit" method="POST">
+    <label for="title">Nombre: </label>
+    <input type="text" name="title" value="{{getMovie.title}}" />
     <br />
     <label for="genre">Genero: </label>
-    <input type="text" name="genre" value="{{getMovie.genre}}"/>
+    <input type="text" name="genre" value="{{getMovie.genre}}" />
     <br />
     <label for="plot">Descripcion: </label>
-    <input type="text" name="plot" value="{{getMovie.plot}}"/>
+    <input type="text" name="plot" value="{{getMovie.plot}}" />
     <br />
     {{#each getMovie.cast}}
-    <label for="cast">Actor: {{name}}</label>
+      <label for="cast">Actor: {{name}}</label>
     {{/each}}
-    <br>
+    <br />
     <select name="cast" multiple="true">
-        {{#each celebritiesList}}
+      {{#each celebritiesList}}
         <option value="{{_id}}">{{name}}</option>
-        
-        {{/each}}
+      {{/each}}
     </select>
-
-    <br>
-
+    <br />
     <button type="submit">Actualizar</button>
-
-    </form>
+  </form>
 </div>

@@ -1,9 +1,7 @@
 <div>
-
   <h2>Añadir pelicula</h2>
-
   <form action="/movies/create" method="POST">
-    <label for="title">Nombre:  </label>
+    <label for="title">Nombre: </label>
     <input type="text" name="title" />
     <br />
     <label for="genre">Genero: </label>
@@ -13,21 +11,14 @@
     <input type="text" name="plot" />
     <br />
     <label for="cast">Actor:</label>
-    <br>
+    <br />
     <select name="cast" multiple="true">
-
       <option value="">Eliga actor</option>
       {{#each celebritiesList}}
-
         <option value="{{_id}}">{{name}}</option>
-    
       {{/each}}
-
     </select>
-
     <br />
     <button>Añadir</button>
-
   </form>
-
 </div>

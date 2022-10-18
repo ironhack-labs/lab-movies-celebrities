@@ -1,26 +1,19 @@
 <div>
-
-<h2>Película</h2>
-<h4>Nombre: {{movie.title}}</h4>
-<h5>Género: {{movie.genre}}</h5>
-<h6>Descripción: {{movie.plot}}</h6>
-
-{{#each movie.cast}}
-<p>Nombre: {{name}}</p>
-<p>Ocupación: {{occupation}}</p>
-<p>Frase: {{catchPhrase}}</p>
-
-{{/each}}
-
-
-<form action="/movies/{{movie._id}}/delete" method="POST">
+  <h2>Película</h2>
+  <h4>Nombre: {{movie.title}}</h4>
+  <h5>Género: {{movie.genre}}</h5>
+  <h6>Descripción: {{movie.plot}}</h6>
+  {{#each movie.cast}}
+    <p>Nombre: {{name}}</p>
+    <p>Ocupación: {{occupation}}</p>
+    <p>Frase: {{catchPhrase}}</p>
+  {{/each}}
+  <form action="/movies/{{movie._id}}/delete" method="POST">
     <button>Borrar</button>
-</form>
+  </form>
 
-<a href="/movies/{{movie._id}}/edit">
+  <a href="/movies/{{movie._id}}/edit">
     <button>Ir a Editar</button>
   </a>
-
-
 
 </div>
