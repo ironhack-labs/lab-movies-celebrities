@@ -25,15 +25,15 @@ router.post("/create", async (req, res, next) => {
 
 // GET /celebrities list all the celebrities
 router.get("/", async (req, res, next) => {
-    try {
-        const celebritiesList = await Celebrity.find().select({name: 1})
-        
-        res.render("celebrities/celebrities.hbs", {
-            celebritiesList
-        })
-    } catch (error) {
-        next(error)
-    }
-})
+  try {
+    const celebritiesList = await Celebrity.find().select({ name: 1 });
+
+    res.render("celebrities/celebrities.hbs", {
+      celebritiesList,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;
