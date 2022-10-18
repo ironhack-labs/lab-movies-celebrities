@@ -10,15 +10,21 @@ router.get("/create", (req, res, next) => {
 //POST /celebrities/create data from form to create celeb and save it in DB
 router.post("/create", async (req, res, next) => {
    const {name, occupation, catchPhrase} = req.body;
-
+    
     try {
-    await Celebrity.create({name, occupation, catchPhrase})
-    res.redirect("/celebrities")
+        if(!name || !occupation ||!catchPhrase) {
+            res.render("celebrities/new-celebrity")
+            
+        }else{
+            await Celebrity.create({name, occupation, catchPhrase})
+            res.redirect("/celebrities")
+        }
 
     } catch (error) {
-        res.render("celebrities/new-celebrity")
         next(error)
     }
+
+   
 })
 
 
