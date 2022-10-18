@@ -11,5 +11,8 @@
                 <p>{{occupation}}</p>
                 <p>{{catchPhrase}}</p>
         {{/each}}
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
     {{/with}}
 </div>

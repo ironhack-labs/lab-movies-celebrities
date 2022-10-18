@@ -59,6 +59,20 @@ router.get("/:moviesId", async (req, res, next) => {
 
 })
 
+// DELETE 
+// POST /movies/:id/delete -- Delete a specific movie
+router.post("/:movieId/delete", async (req, res, next) => {
+
+  const {movieId} = req.params
+
+  try {
+    await Movie.findByIdAndDelete(movieId)
+
+    res.redirect("/movies")
+  } catch(error) {
+    next(error)
+  }
+})
 
 
 
