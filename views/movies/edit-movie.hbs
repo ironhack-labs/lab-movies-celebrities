@@ -1,26 +1,27 @@
-<div>
- <h2>Edit a Movie!</h2>
+<h2>Edit a Movie!</h2>
 
-
-    <form action ="/movies/{{movieInfo._id}}/edit" method="POST"> 
-{{#with movieInfo}}
-        <label for="title">Title</label>
-        <input type="text" name="title" value="{{title}}">
-            <br>
-        <label for="genre">Genere</label>
-        <input type="text" name="genre" value="{{genre}}">
-            <br>
-        <label for="plot">Plot</label>
-        <input type="text" name="plot" value="{{plot}}">
-        <br>
-{{/with}}
-        <label for="cast">Cast</label>
-        <select name="cast" multiple="true">
-        {{#each celebrityInfo}}
-            <option value="{{_id}}" selected>{{name}}</option>
-        {{/each}}
-        </select>    
-        <br>
-        <button>Edit</button>
-    </form>
-</div>
+<form action="/movies/{{movieInfo._id}}/edit" method="POST">
+    <div class="mb-3">
+    {{#with movieInfo}}
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" value="{{title}}" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="genre" class="form-label">Genere</label>
+      <input type="text" name="genre" value="{{genre}}"  class="form-control"/>
+    </div>
+    <div class="mb-3">
+      <label for="plot" class="form-label">Plot</label>
+      <input type="text" name="plot" value="{{plot}}" class="form-control" />
+    </div>
+    {{/with}}
+    <label for="cast">Cast</label>
+    <select name="cast" multiple="true">
+      {{#each celebrityInfo}}
+        <option value="{{_id}}" selected>{{name}}</option>
+      {{/each}}
+    </select>
+    </div>
+    
+    <button class="btn btn-primary">Edit</button>
+  </form>
