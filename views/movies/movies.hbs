@@ -1,0 +1,15 @@
+<ul class="list-wrapper">
+    <h2>Movies</h2>
+    {{#each moviesFromDB}}
+
+    <li>
+
+        <a href="/movies/{{this._id}}" class="home-link">
+            <h4 class="movie-name">{{this.title}}</h4>
+        </a>
+    </li>
+    {{/each}}
+    <a href="/movies/create" class="create-link">create Movie</a>
+    <br>
+    <a href="/" class="back-link">back</a>
+</ul>

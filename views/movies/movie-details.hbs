@@ -1,0 +1,19 @@
+<div class="movie-details">
+
+    <h2 class="movie-detail-title">{{movieDetails.title}}</h2>
+    <h3 class="movie-genre">Genre: {{movieDetails.genre}}</h3>
+    <p class="movie-plot">Plot: {{movieDetails.plot}}</p>
+
+    <ul class="no-effects-list">
+        {{#each movieDetails.cast}}
+        <li class="celebrity-name">{{this.name}}</li>
+        {{/each}}
+    </ul>
+
+    <form action="/movies/{{movieDetails._id}}/delete" method="POST">
+        <button type="submit" class="delete-btn">Delete</button>
+    </form>
+
+    <a href="/movies/{{movieDetails._id}}/edit" class="edit-link">Edit |</a>
+    <a href="/movies" class="back-link"> back</a>
+</div>
