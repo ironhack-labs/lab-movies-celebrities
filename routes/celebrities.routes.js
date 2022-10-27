@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const Celebrity = require('../models/Celebrity.model');
 
-router.get('/create', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         const celebritiesFromDB = await Celebrity.find()
         res.status(200).json(celebritiesFromDB)
