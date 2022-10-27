@@ -2,7 +2,16 @@ const router = require("express").Router();
 
 const Celebrity = require('../models/Celebrity.model');
 
-router.post('/new-celebrit', async (req, res, next) => {
+router.get('/create', async (req, res, next) => {
+    try {
+        const celebritiesFromDB = await Celebrity.find()
+        res.status(200).json(celebritiesFromDB)
+    } catch (error){
+        next(error)
+    }
+})
+
+router.post('/create', async (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body;
 
     try {
