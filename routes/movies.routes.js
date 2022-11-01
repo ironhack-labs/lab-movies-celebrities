@@ -67,6 +67,35 @@ router.post('/movies/:id/delete', async (req, res, next) => {
         console.log(error);
         next(error);
     }
+});
+
+router.get('/movies/:id/edit', async (req, res, next) => {
+    const { id } = req.params;
+
+    try {
+        const updatedMovie = await Movie.findById(id);
+        const allCeleb = await Celebrity.find();
+
+        res.render('movies/edit-movie', {updatedMovie, allCeleb});
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+router.post('/movies/:id/edit', async (req, res, next) =>{
+    const { id } = req.params;
+    const { title, genre, plot, cast } = req.body;
+
+    try {
+        const updateMovie = await Movie.findByIdAndUpdate(id, {title, genre, plot, cast});
+
+        res.redirect(`/movies/movie-details/${updateMovie._id}`);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
 })
 
 
