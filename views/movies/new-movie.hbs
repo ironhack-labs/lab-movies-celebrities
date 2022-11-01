@@ -1,0 +1,29 @@
+<h2>Add a Movie</h2>
+{{!-- 'action' receive the route created, not a file or anything else --}}
+<form action="/movie-create" method="post">
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title"/>
+
+    <label for="genre">Genre</label>
+    <input type="text" name="genre" id="genre"/>
+
+    <label for="plot">Plot</label>
+    <input type="text" name="plot" id="plot">
+
+    <label for="cast">Cast</label>
+    <select name="cast" multiple>
+    {{#each allCelebrities}}
+        <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+    </select>
+    <button type="submit">Add the movie</button>
+
+    
+
+
+
+    {{!-- <label for="plot">Cast</label>
+    <input type="" name="plot" id="plot" value="{{name}}">
+
+    <button type="submit">Add Movie</button> --}}
+</form>
