@@ -37,13 +37,4 @@ router.get("/celebrities", async(req, res, next) => {
 })
 
 
-
-
-
-
-
-
-
-
-
 module.exports = router;
