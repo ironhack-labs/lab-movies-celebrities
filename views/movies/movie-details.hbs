@@ -1,0 +1,24 @@
+<h2>Movie Details:</h2>
+
+<hr />
+
+<div>
+
+  <h3>{{movie.title}}</h3>
+  <p>{{movie.genre}}</p>
+  <p>{{movie.plot}}</p>
+
+  <p>
+    {{#each movie.cast}}
+      <div>
+        <ul>
+          <li>{{name}}</li>
+        </ul>
+      </div>
+    {{/each}}
+  </p>
+</div>
+
+<hr />
+
+<a href="/">Homepage</a>
