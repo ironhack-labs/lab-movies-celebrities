@@ -1,0 +1,10 @@
+<h1>Celebrity</h1>
+
+{{#each movies}}
+ <div>
+    <h3>{{name}}</h3>
+    <p>Occupation: {{occupation}}</p>
+    <a href='/celebrities/create/{{_id}}'>See details</a>
+ </div>
+
+{{/each}}
