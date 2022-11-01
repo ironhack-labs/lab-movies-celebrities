@@ -1,0 +1,15 @@
+<h2>All Movies available</h2>
+<hr/>
+
+{{#each movies}}
+
+    <div>
+        <a href="/movies/{{_id}}"><h3>{{title}}</h3></a>
+        <p>Genre: {{genre}}</p>
+        <p>Plot: {{plot}}</p>
+        <p>Cast: {{cast}}</p>
+        {{!-- <a href="/book-details/{{_id}}">See details</a> --}}
+    </div>
+
+
+{{/each}}
