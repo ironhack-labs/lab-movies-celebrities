@@ -2,5 +2,11 @@
 
 
     {{#each movies}}
-    <p>{{title}}</p>
+    <h3>{{title}}</h3>
+    <p>{{genre}}</p>
+    <p>{{plot}}</p>
+    <a href="/movies/{{_id}}">See details</a>
+    <br />
     {{/each}}
+
+<a href="/">Homepage</a>
