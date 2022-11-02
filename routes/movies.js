@@ -18,14 +18,14 @@ router.post('/movies/create', async (req, res, next) => {
 }
 }); 
 
-/* router.get('/movies', async (req, res, next) => {
+router.get("/movies", async (req, res, next) => {
   try {
-    const celebrities = await Movie.find()
-    res.render("movies/movies", {celebrities})
-} catch (error) {
-    console.log(error)
-    next (error)
-}
-})  */
+      const movies = await Movie.find()
+      res.render("movies/movies", {movies})
+  } catch (error) {
+      console.log(error)
+      next (error)
+  }
+})
 
 module.exports = router;
