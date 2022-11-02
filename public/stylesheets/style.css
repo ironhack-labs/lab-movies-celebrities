@@ -1,8 +1,171 @@
-body {
-  padding: 50px;
+*{
+  margin: 0;
+}
+ body{
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(172, 172, 255);
+ }
+
+ h1{
+  font-size: 2rem;
+ }
+
+ #welcome{
+  margin-bottom: 20vh;
+ }
+
+.container {
+  margin: 0;
+  padding: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
-a {
-  color: #00b7ff;
+nav{
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: darkblue;
+  border-bottom: 1px solid black;
+  box-shadow: 0 0 5px 0 black;
+}
+
+nav > a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+nav > a:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.btn {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: black;
+  margin: 3vh;
+  padding: 1vh;
+  border: 1px solid black;
+  background-color: rgb(165, 165, 165);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 black;
+}
+
+.btn:hover{
+  color: red;
+  background-color: black;
+  box-shadow: 5px 5px 5px red;
+}
+
+.box{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.small{ 
+  width: 30vw;
+}
+
+h2{
+  font-size: 2rem;
+  margin: 4vh;
+}
+
+.details-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4vh;
+  background-color: black;
+  border-radius: 20px;
+  box-shadow: 0 0 20px black;
+}
+
+.details-box > *{
+  color: white;
+  font-size: 1.1rem;
+  padding: 1vh;
+}
+
+.grey-span{
+  color: rgb(172, 172, 172);
+}
+
+.names{
+  font-size: 1.5rem;
+}
+
+.box-movie{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.starring-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.actors-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: rgb(24, 24, 24);
+  border: 1px solid black;
+  margin: 1vh;
+}
+
+.actors-box > *{
+  color: white;
+  padding: 1vh;
+}
+
+#title{
+  font-size: 1.8rem;
+}
+
+label{
+  font-style: italic;
+  font-weight: 800;
+}
+
+input{
+  width: 100%;
+  height: 3vh;
+  margin-bottom: 3vh;
+  border-radius: 10px;
+  background-color: rgb(238, 238, 238);
+  font-weight: 700;
+}
+
+select{
+  width: 15vw;
+  height: 20vh;
+  border-radius: 10px;
+  
+}
+
+option{
+  padding: 1vh;
+  border: 0.5px solid black;
+  border-radius: 10px;
+}
+
+.selected{
+  font-weight: bold;
 }

@@ -4,6 +4,8 @@ const Movie = require("../models/Movie.model");
 
 // all your routes here
 
+//create Movies
+
 router.get("/movies/create", async (req, res, next) => {
     
     try {
@@ -31,6 +33,8 @@ router.post("/movies/create", async (req, res, next) => {
     }
 })
 
+//Read all movies and movie details
+
 router.get("/movies", async (req, res, next) => {
     try {
         const allMovies = await Movie.find();
@@ -54,6 +58,8 @@ router.get("/movies/:id", async (req, res, next) =>{
     }
 })
 
+//delete movies
+
 router.post("/movies/delete/:id", async (req, res, next) => {
     try {
         const movieId = req.params.id;
@@ -65,19 +71,28 @@ router.post("/movies/delete/:id", async (req, res, next) => {
     }
 })
 
+//edit movies
+
 router.get("/movies/edit/:id", async (req, res, next) => {
     try {
         const movieId = req.params.id;
         const selectedMovie = await Movie.findById(movieId);
         const allCelebs = await Celeb.find();
-        res.render("movies/edit-movie", {selectedMovie, allCelebs});
+        const celebsinSelectedMovie = [];
+        const celebsNotInMovie = [];
+        
+        allCelebs.forEach(actor => {
+            selectedMovie.cast.forEach(actorId =>{
+                if(actor._id.equals(actorId)) celebsinSelectedMovie.push(actor);
+            })
+            if(!celebsinSelectedMovie.includes(actor)) celebsNotInMovie.push(actor);
+        });
+        res.render("movies/edit-movie", {selectedMovie, celebsinSelectedMovie, celebsNotInMovie});
     } catch (error) {
         console.log(error);
         next(error);
     }
 })
-
-
 
 
 

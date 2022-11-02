@@ -1,16 +1,25 @@
 <h2>Movie Info</h2>
-<h4>{{title}}</h4>
-<p>{{genre}}</p>
-<p>{{plot}}</p>
 
-{{#each this.cast}}
-<p>{{this.name}}</p>
-<p>{{this.occupation}}</p>
-<p>{{this.catchPhrase}}</p>
-{{/each}}
-
+<div class="details-box">
+<h4 id="title">{{title}}</h4>
+<p><span class="grey-span">Genre: </span>{{genre}}</p>
+<p><span class="grey-span">Plot: </span>{{plot}}</p>
+<div class="box">
 <form action="/movies/delete/{{_id}}" method="post">
-  <button type="submit">delete Movie</button>
+  <button type="submit" class="btn">Delete {{title}}</button>
 </form>
-<br>
-<a href="/movies/edit/{{_id}}">edit Movie</a>
+<a href="/movies/edit/{{_id}}" class="btn">Edit {{title}}</a>
+</div>
+</div>
+
+<h2>Starring</h2>
+<div class="starring-box">
+{{#each this.cast}}
+<div class="actors-box">
+<p class="names">{{this.name}}</p>
+<p><span class="grey-span">Occupation: </span>{{this.occupation}}</p>
+<p><span class="grey-span">Catch phrase: </span>{{this.catchPhrase}}</p>
+</div>
+{{/each}}
+</div>
+

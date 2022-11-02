@@ -1,5 +1,6 @@
 <h2>Check all the Movies!</h2>
-{{#each allMovies}}
-<a href="/movies/{{_id}}">{{title}}</a>
-{{!-- <p>{{title}}</p> --}}
-{{/each}}
+<div class="box">
+  {{#each allMovies}}
+  <a href="/movies/{{_id}}" class="btn">{{title}}</a>
+  {{/each}}
+</div>
