@@ -28,4 +28,14 @@ router.get("/movies", async (req, res, next) => {
   }
 })
 
+router.get("/movies/:id", async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    const movie = await Movie.findById(id)
+  } catch (error) {
+      console.log(error)
+      next (error)
+  }
+})
+
 module.exports = router;
