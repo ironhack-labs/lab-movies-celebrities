@@ -1,11 +1,14 @@
-//  Add your code here
 const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema(
   {
-    name: String,
-    occupation: String,
-    catchPhrase: String,
+    title: String,
+    genre: String,
+    plot: String,
+    cast: {
+      type: Schema.Types.ObjectId,
+      ref: "Celebrity",
+    },
   },
   {
     timestamps: true,
