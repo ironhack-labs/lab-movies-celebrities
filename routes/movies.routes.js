@@ -1,6 +1,14 @@
 const router = require('express').Router()
 const Movie = require('../models/Movie.model')
 const Celebrity = require('../models/Celebrity.model')
+router.get('/movies',async(req,res)=>{
+    try{
+     const movies = await Movie.find()
+     res.render('movies/movies',movies)
+    }catch(error){
+        console.log(error.message)
+    }
+})
 router.get('/movies/create',async(req,res)=>{
     const celebrities = await Celebrity.find()
     res.render('movies/new-movie',celebrities)
