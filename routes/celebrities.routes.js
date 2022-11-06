@@ -19,6 +19,7 @@ router.post('/celebrities/create',async(req,res)=>{
   const foundedCelebrity = await Celebrity.findOne(celebrity)
   foundedCelebrity ? res.render('celebrities/new-celebrity') : null
   try{
+    await Celebrity.create(celebrity)
    res.redirect('/celebrities')
   }catch(error){
     console.log(error)

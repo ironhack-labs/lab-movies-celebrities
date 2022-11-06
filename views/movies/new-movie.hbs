@@ -1,0 +1,24 @@
+<h1>Adicione um filme</h1>
+<form method="post" action="/movies/create" >
+    <div>
+        <label>Name of the movie:</label>
+        <input type="text" name="title"/>
+    </div>
+      <div>
+        <label>Genre:</label>
+        <input type="text" name="genre"/>
+    </div>
+      <div>
+        <label>Plot:</label>
+        <input type="text" name="plot"/>
+    </div>
+    <div>
+        <label>Choose os artistas:</label>
+        <select name="cast" multiple>
+        {{#each this}}
+          <option value={{_id}}>{{name}}</option>
+        {{/each}}
+        </select> 
+    </div>
+    <button type="submit">Salvar o filme</button>
+</form>
