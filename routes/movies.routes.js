@@ -22,15 +22,37 @@ router.get('/movies/:id',async(req,res)=>{
 router.post('/movies/:id/delete',async(req,res)=>{
     const {id} = req.params
     try{
-      await Movie.findByIdAndRemove(id)
+      
       res.redirect('/movies')
     }catch(error){
         console.log(error.message)
         res.redirect(`/movies/${id}`)
     }
 })
+router.get('/movies/:id/edit',async(req,res)=>{
+    try{
+   const movie = await Movie.findOne(id)
+   const celebrities = await Celebrity.find()
+   res.render('/movies/edit-movie',{movie,celebrities})
+    }catch(error){
+        console.log(error.message)
+        res.redirect('/movies')
+    }
+})
+router.post('/movies/:id/edit',async(req,res)=>{
+    const {id} =req.params
+    const movieUpdated = req.body
+  try{
+    await findByIdAndUpdate(id,movieUpdated)
+    res.redirect(`/movies/${id}`)
+  }catch(error){
+    console.log(error.message)
+    res.redirect('/movies/edit-movie')
+  }
+})
 router.get('/movies/create',async(req,res)=>{
     const celebrities = await Celebrity.find()
+    console.log(celebrities)
     res.render('movies/new-movie',celebrities)
 })
 router.post('/movies/create',async(req,res)=>{
