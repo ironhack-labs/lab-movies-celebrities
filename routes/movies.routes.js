@@ -19,6 +19,16 @@ router.get('/movies/:id',async(req,res)=>{
      res.redirect('/movies')
     }
 })
+router.post('/movies/:id/delete',async(req,res)=>{
+    const {id} = req.params
+    try{
+      await Movie.findByIdAndRemove(id)
+      res.redirect('/movies')
+    }catch(error){
+        console.log(error.message)
+        res.redirect(`/movies/${id}`)
+    }
+})
 router.get('/movies/create',async(req,res)=>{
     const celebrities = await Celebrity.find()
     res.render('movies/new-movie',celebrities)
