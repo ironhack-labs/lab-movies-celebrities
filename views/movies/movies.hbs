@@ -1,7 +1,7 @@
 <h1>Movies</h1>
 {{#each this}}
 <div>
-    <h2>{{title}}</h2>
+    <h2><a href="/movies/{{_id}}">{{title}}</a></h2>
 </div>
 {{/each}}
 <a href="/movies/create">Adicione um filme</a>

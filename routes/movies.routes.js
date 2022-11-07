@@ -9,6 +9,16 @@ router.get('/movies',async(req,res)=>{
         console.log(error.message)
     }
 })
+router.get('/movies/:id',async(req,res)=>{
+    const { id } = req.params
+    try{
+     const movie = await Movie.findById(id).populate('cast')
+     res.render('movies/movie-details',movie)
+    }catch(error){
+        console.log(error.message)
+     res.redirect('/movies')
+    }
+})
 router.get('/movies/create',async(req,res)=>{
     const celebrities = await Celebrity.find()
     res.render('movies/new-movie',celebrities)
