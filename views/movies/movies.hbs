@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Movies List</h2>
+    <hr>
+    <div class="d-flex flex-wrap justifycontent-center">
+        {{#each moviesArr}}
+        <div class="card m-2" style="width: 18rem;">
+            {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <a href="/movie-details/{{_id}}" class="btn btn-dark">Info</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="d-grid gap-2">
+        <a class="btn btn-dark" href="/movies/create" role="button">Create New</a>
+    </div>
+</div>

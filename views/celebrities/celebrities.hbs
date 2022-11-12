@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h1>Celebrities List</h1>
+    <hr>
+    <div class="d-flex flex-wrap justifycontent-center">
+        {{#each celebrityArr}}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <a href="/celebrities-details/{{_id}}" class="btn btn-dark">Info</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="d-grid gap-2">
+        <a class="btn btn-dark" href="/celebrities/create" role="button">Create New</a>
+    </div>
+
+</div>
