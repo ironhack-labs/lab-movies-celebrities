@@ -1,0 +1,45 @@
+<h2>Update the Movie</h2>
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+
+            <form action="/movies/{{moviesFromDB._id}}/update-movie" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{moviesFromDb.title}}">
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genero</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{moviesFromDb.genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Trama</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{moviesFromDb.plot}}">
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label for="cast" class="form-label">celebrity</label>
+
+                    <select class="form-select " name="cast">
+
+                        {{#each celebrities}}
+                        <option value="{{_id}}">{{name}}</option>
+
+                        {{/each}}
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-dark" value="editar"></input>
+                        </div>
+                    </select>
+
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
