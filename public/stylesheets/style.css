@@ -1,8 +1,18 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+  font:sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.catchPhrase {
+  color: rgb(189, 0, 0) ;
+  font-size: 0.8em;
+}
+
+.occupation {
+  
+  font-size: 0.9em;
+}
+
+li {
+  list-style: none;
 }

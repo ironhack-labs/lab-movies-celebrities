@@ -1,0 +1,49 @@
+
+
+
+<div class="container my-5 p-2 bg-dark rounded">
+
+    <div class="row m-4">
+
+        <div class="col-12 my-2 bg-light rounded p-4">
+
+                <h4>{{title}}</h4>
+
+                <h5>Genre: {{genre}}</h5>
+
+                <h6>Cast</h6>
+
+                <ul>
+
+                    {{#each cast}}
+                        <div class="border border-dark rounded mb-1 p-2">
+                        <li>{{name}}</li>
+                        <p class="occupation">{{occupation}}</p>
+                        <p class="catchPhrase"><strong>{{catchPhrase}}</strong></p>
+
+                        </div>
+                        
+                    {{/each}}
+                </ul>
+
+                <h6 class="color-indicator-blue">Description</h6>
+
+                <p>{{plot}}</p>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row m-4">
+
+        <div class="col-2 my-4 bg-light rounded">
+
+            <a href="/movies" class="btn btn-outline-danger btn-lg my-1 w-100">Go back</a>
+
+        </div>
+    </div>
+</div>
+    
+

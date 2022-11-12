@@ -1,0 +1,25 @@
+
+<h2 class="mb-4">Movies list</h2>
+
+
+<ul class="list-group">
+    {{#each movie}}
+  <li class="list-group-item">
+    <h4>{{title}}</h4>
+    
+    <p class="catchPhrase">
+        {{#each cast}}
+        {{name}}.
+        {{/each}}
+        </p>
+
+    <a href="/movies/{{_id}}" type="button" class="btn btn-dark">Details</a>
+
+    <a href="/movies/{{_id}}/edit" type="button" class="btn btn-warning">Edit</a>
+
+    <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
+    <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+  </li>
+  {{/each}}
+</ul>
