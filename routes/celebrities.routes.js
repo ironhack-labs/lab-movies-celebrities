@@ -21,5 +21,33 @@ router.get('/celebrities/create', (req, res)=>{
     res.render('celebrities/new-celebrity')
 })
 
+router.get('/celebrities/:id/edit', (req,res)=>{
+    let id = req.params.id
+    Celebrity.findById(id)
+    .then ((celebrityInfo)=>{
+        res.render('celebrities/celebrity-edit', {id, celebrityInfo})
+    })
+})
+
+router.post('/celebrities/:id/edit', (req,res)=>{
+    console.log(req.body)
+    const { name, occupation, catchPhrase} = req.body
+    Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase}, {new: true})
+    .then ((data)=>{
+        data.save();
+        res.redirect('edit')
+    })
+})
+
+
+router.post('/celebrities/:id/delete', (req, res)=>{
+    let id = req.params.id
+    console.log(req.body)
+    Celebrity.findByIdAndDelete(id)
+    .then (()=>{
+        res.redirect('/celebrities',)
+    })
+    
+})
 
 module.exports = router;

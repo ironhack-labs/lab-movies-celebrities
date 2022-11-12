@@ -1,0 +1,14 @@
+<a  href='/'><button class='go-back' >Go Back ></button></a>
+
+
+<h3>Edit the Celebrity Information:</h3>
+
+<form action="/celebrities/{{id}}/edit" method="post">
+<label>Celebrity Name:</label>
+    <input name="name" placeholder="title" value="{{celebrityInfo.name}}">
+    <label>Celebrity Occupation:</label>
+    <input name="occupation" placeholder="occupation" value="{{celebrityInfo.occupation}}">
+    <label>Celibrity Catch Phrase:</label>
+    <input name="catchPhrase" placeholder="Catch Phrase" value="{{celebrityInfo.catchPhrase}}">
+    <button class="edit-save">Save Edits</button>
+</form>

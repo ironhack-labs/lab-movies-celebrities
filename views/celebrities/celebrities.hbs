@@ -7,6 +7,7 @@
             <td class="border-right bold">Name</td>
             <td  class="border-right bold">Occupation</td>
             <td class="bold">Catch Phrase</td>
+            <td></td>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,12 @@
             <td  class="border-right">{{this.name}}</td>
             <td  class="border-right">{{this.occupation}}</td>
             <td>{{this.catchPhrase}}</td>
+            <td><a href="/celebrities/{{this._id}}/edit">Edit</a></td>
+            <td>
+                <form method="post" action="/celebrities/{{this._id}}/delete">
+                    <button>Delete</button>
+                </form>
+            </td>
         </tr>
         {{/each}}
     </tbody>
