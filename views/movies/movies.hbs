@@ -8,7 +8,11 @@
                 <h3>{{title}}</h3>
                 <p>Genre: {{genre}}</p>
                 <p>{{plot}}</p>
-                <p>{{cast}}</p>
+                <p>
+                    {{#each cast}}
+                    <span> | {{name}}</span>
+                    {{/each}}
+                </p>
                 <a href="/movies/{{_id}}" class="btn btn-success">See More</a>
                 {{!-- <form action="/celebrities/{{_id}}/delete" method="POST">
                     <button class="btn btn-warning">Delete Celebrity</button>

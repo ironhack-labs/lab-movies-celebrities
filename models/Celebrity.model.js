@@ -1,6 +1,6 @@
 //  Add your code here
 const mongoose = require('mongoose');
-const { Schema, model } = require("mongoose");
+
 const celebritySchema = new mongoose.Schema([
     {
         name: {
@@ -17,6 +17,5 @@ const celebritySchema = new mongoose.Schema([
         }
     }
 ])
-const Celebrity = model("celebrity", celebritySchema);
 
-module.exports = Celebrity;
+module.exports = mongoose.model('Celebrity', celebritySchema);

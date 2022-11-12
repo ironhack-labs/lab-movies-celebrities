@@ -3,7 +3,11 @@
         <h3>{{movies.title}} details:</h3>
         <p>Genre: {{movies.genre}}</p>
         <p>{{movies.plot}}</p>
-        <p>{{movies.cast}}</p>
+        <p>
+            {{#each movies.cast}}
+            <span>| {{name}}</span>
+            {{/each}}
+        </p>
         <form action="/movies/{{movies.id}}/delete" method="POST">
             <button class="btn btn-warning">Delete Movie</button>
         </form>

@@ -21,7 +21,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="cast" class="form-label">Cast</label>
-                    <input type="text" class="form-control" id="cast" name="cast">
+                    <select multiple name="cast" id="cast">
+                        {{#each celebritiesFromDB}}
+                        <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
                 </div>
                 <div class=" d-grid">
                     <button type="submit" class="btn btn-dark">Add</button>
