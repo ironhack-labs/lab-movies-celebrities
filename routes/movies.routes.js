@@ -66,7 +66,13 @@ router.get('/movies/:id/edit',(req,res)=>{
     let id = req.params.id
     Movie.findById(id)
     .then ((movieInfo)=>{
-        res.render('movies/edit-movie', {movieInfo, id})
+        Celebrity.find()
+        .then((data)=>{
+            let celebrityInfo = data
+            console.log(celebrityInfo)
+            res.render('movies/edit-movie', {movieInfo, id, celebrityInfo})
+        })  
+        
     })
     
 })

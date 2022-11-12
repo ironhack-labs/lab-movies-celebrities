@@ -10,5 +10,11 @@
     <input name="genre" placeholder="genre" value="{{movieInfo.genre}}">
     <label>Movie Plot:</label>
     <input name="plot" placeholder="plot" value="{{movieInfo.plot}}">
+    <select name="cast">
+        <options selected current></options>
+        {{#each celebrityInfo}}
+        <option>{{this.name}}</option>
+        {{/each}}
+    </select>
     <button class="edit-save">Save Edits</button>
 </form>
