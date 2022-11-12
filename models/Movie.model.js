@@ -14,11 +14,11 @@ const movieSchema = new mongoose.Schema([
             type: String,
             required: true
         },
-        cast: [{
-            type: mongoose.Types.ObjectId,
-            ref: 'Celebrity.model',
-            required: true
-        }]
+        /*   cast: [{
+              type: mongoose.Types.ObjectId,
+              ref: 'Celebrity',
+              required: true
+          }] */
     }
 ])
 const Movie = model("movie", movieSchema);

@@ -4,8 +4,9 @@
         <p>Genre: {{movies.genre}}</p>
         <p>{{movies.plot}}</p>
         <p>{{movies.cast}}</p>
-        <form action="/movies/{{_id}}/delete" method="POST">
+        <form action="/movies/{{movies.id}}/delete" method="POST">
             <button class="btn btn-warning">Delete Movie</button>
         </form>
+        <a href="/movies/{{movies.id}}/edit" class="btn btn-secondary">Edit Info</a>
     </div>
 </div>
