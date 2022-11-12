@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h2>Celebrities</h2>
+    <hr>
+    <div class="row gp-4 m-4 d-flex justify-content-center alig-items-center">
+        {{#each celebrities}}
+        <div class="d-flex card col-md-4 p-3 m-1">
+            <div class="p-3 bg-white mb-1">
+                <img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Academy_Award_trophy.png">
+                <h4 class="card-title pt-3">{{name}}</h4>
+                <p>Name Celebrities</p>
+                <h5 class="card-subtitle pt-2">{{occupation}}</h5>
+                <p class="card-text">Occupation</p>
+                <h5 class="card-subtitle pt-2">{{catchPhrase}}</h5>
+                <p class="card-text">Catch Phrase</p>
+            </div>
+        </div>
+        {{/each}}
+        <div class="d-grid col-md-4">
+            <a href="/" class="btn btn-dark p-3 m-1 d-block">Go Home</a>
+        </div>
+    </div>
+</div>

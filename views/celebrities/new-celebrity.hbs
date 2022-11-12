@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Create Celebrity</h1>
+            <form action="/celebrities/create" method="POST"> {{!--Action === Ruta en donde se encuentra el form --}}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation">
+                </div>
+
+                <div class="mb-3">
+                    <label for="catchPhrase" class="form-label">Catch Phrase</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+
+                {{!-- <div class="mb-3">
+                    <label for="author" class="form-label">Autor/a</label>
+                    <select class="form-select" name="author">
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                        <option value="id_del_autor">Un autor/a</option>
+                    </select>
+                </div> --}}
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Create Celebrity</button>
+                </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+    <a href="/" class="btn btn-dark">Go Home</a>
+</div>
