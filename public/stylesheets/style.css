@@ -1,6 +1,9 @@
 body {
   height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+
+
 }
 
 a {
@@ -9,7 +12,6 @@ a {
 
 .fondo {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
 
 }

@@ -58,7 +58,7 @@ router.get('/movies/:movies_id/edit', (req, res) => {
     const { movies_id } = req.params
     Movie
         .findById(movies_id)
-        .populate('cast')
+        /*  .populate('cast') */
         .then(movie => {
             Celebrity
                 .find()
