@@ -1,0 +1,20 @@
+<h1>Movie Details</h1>
+
+<div>
+    {{#each movies}}
+    <p>Title: {{title}}</p>
+
+    <p>Genre: {{genre}}</p>
+
+    <p>Plot: {{plot}}</p>
+    {{#each cast}}
+    <p>Cast: {{name}}</p>
+    {{/each}}
+    {{!-- <a class="btn btn-secondary" href="/drones/{{_id}}/edit" role="button">Edit Celebrity</a>
+    <form action="/drones/{{_id}}/delete" method="POST">
+        <input type="submit" value="Eliminar dron" class="btn btn-danger">
+    </form> --}}
+    <hr>
+    {{/each}}
+
+</div>
