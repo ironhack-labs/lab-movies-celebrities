@@ -1,0 +1,22 @@
+<div class="container mt-5">
+	<h2 class="my-4">Movies list</h2>
+	<div class="row d-flex justify-content-center gap-4">
+		{{#each movies}}
+			<div class="card justify-content-between col-lg-3 col-md-4 p-3 gap-2" style="width: 18rem;">
+				<img
+					class="movie-img card-img-top"
+					src="https://cinemaone.net/images/movie_placeholder.png"
+					alt="empty picture"
+				/>
+				<div>
+					<h1 class="card-title mt-2">{{title}}</h1>
+					<p><em>{{plot}}</em></p>
+					<p class="text-end genre">{{genre}}</p>
+					<p class="text-end">{{#each cast}} <span>{{name}} |</span> {{/each}}</p>
+
+				</div>
+				<a class="justify-self-end btn btn-secondary mb-2" href="/movies/{{_id}}/edit">Edit</a>
+			</div>
+		{{/each}}
+	</div>
+</div>

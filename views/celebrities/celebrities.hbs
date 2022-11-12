@@ -1,0 +1,21 @@
+<div class="container mt-5">
+	<h2 class="my-4">Celebrities list</h2>
+	<div class="row d-flex justify-content-center gap-4">
+		{{#each celebrity}}
+			<div class="card justify-content-between col-lg-3 col-md-4 mb-3 p-3 gap-2" style="width: 18rem;">
+				<img
+					class="card-img-top"
+					src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png"
+					alt="empty picture"
+				/>
+				<h3 class="card-title mt-3">{{name}}</h3>
+				<p> Occupation: {{occupation}}</p>
+				<p class="text-end"><em>"{{catchPhrase}}"</em></p>
+				<a class="btn btn-secondary" href="/celebrities/{{_id}}/edit">Edit</a>
+				<form action="/celebrities/{{_id}}/delete" method="POST" class="btn btn-danger">
+					<input type="submit" value="Delete" class="btn btn-danger p-0" />
+				</form>
+			</div>
+		{{/each}}
+	</div>
+</div>

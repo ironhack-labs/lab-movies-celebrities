@@ -1,0 +1,21 @@
+<div class="container mt-5 d-flex flex-column justify-content-center">
+	<div class="row">
+		<div class="d-flex justify-content-between mb-4">
+			<h2>{{title}}</h2>
+			<p class="text-end genre">{{genre}}</p>
+		</div>
+		<p class="mb-4"><em>{{plot}}</em></p>
+		<p><u><strong>Cast:</strong></u></p>
+		<ul class="ms-3">
+			{{#each cast}}
+				<li class="ms-3 ps-3">Name: {{name}}</li>
+				<li class="ms-3 ps-3">Ocupation: {{occupation}}</li>
+				<br />
+			{{/each}}
+		</ul>
+		<a class="btn btn-secondary mb-2" href="/movies/{{_id}}/edit">Edit</a>
+		<form action="/movies/{{_id}}/delete" method="POST" class="btn btn-danger mb-3">
+			<input type="submit" value="Delete" class="btn btn-danger p-0" />
+		</form>
+	</div>
+</div>
