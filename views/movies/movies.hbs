@@ -1,0 +1,18 @@
+<h1>Movies</h1>
+<div class="container d-flex gap-3 flex-wrap justify-content-center">
+    {{#each movie}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <a href="/movies/{{_id}}/details" class="btn btn-secondary">Info</a>
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+            <a href="/movies/{{_id}}/edit" class="btn btn-success">Edit</a>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
+<a href="/" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Go Back</a>
+</div>

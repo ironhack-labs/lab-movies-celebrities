@@ -1,0 +1,15 @@
+<div class="container d-flex gap-3 flex-wrap justify-content-center">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p>{{genre}}</p>
+            <p>{{plot}}</p>
+            <p>
+                {{#each cast}}
+            <p>{{name}}</p>
+            {{/each}}
+            </p>
+            <a href="/" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Go back</a>
+        </div>
+    </div>
+</div>

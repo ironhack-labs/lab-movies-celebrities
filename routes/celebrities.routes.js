@@ -27,5 +27,14 @@ router.get('/celebrities', (req, res) => {
         .catch(err => console.log(err))
 
 })
+router.post('/celebrities/:celebrity_id/delete', (req, res) => {
+    const { celebrity_id } = req.params
+
+    Celebrity
+        .findByIdAndDelete(celebrity_id)
+        .then(() => res.redirect('/celebrities'))
+        .catch(err => console.log(err))
+
+})
 
 module.exports = router;
