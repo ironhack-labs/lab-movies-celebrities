@@ -57,6 +57,23 @@ router.post("/:movie_id/delete", (req, res) => {
 router.get("/:movie_id/edit", (req, res) => {
 	const { movie_id } = req.params;
 
+	/* let movieToEdit;
+	let celebFromMovie
+
+	Movie.findById(movie_id)
+		.populate("cast")
+		.then((movie) => {
+			movieToEdit = movie;
+			console.log(movieToEdit);
+			return Celebrity.find();
+		})
+		.then((celebrities) => {
+			celebFromMovie = celebrities;
+			res.render("movies/edit-movie", { movieToEdit, celebFromMovie });
+			console.log(celebFromMovie);
+		})
+		.catch((err) => console.log(err)); */
+
 	Movie.findById(movie_id)
 		.then((movie) => {
 			Celebrity.find()

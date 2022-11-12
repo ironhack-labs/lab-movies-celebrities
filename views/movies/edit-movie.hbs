@@ -3,26 +3,30 @@
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 
-			<h1>Edit {{movie.title}}</h1>
+			<h1>Edit {{movieToEdit.title}}</h1>
 
-			<form action="/movies/{{movie._id}}/edit" method="POST">
+			<form action="/movies/{{movieToEdit._id}}/edit" method="POST">
 				<div class="mb-3">
 					<label for="title" class="form-label">Title</label>
-					<input type="text" class="form-control" id="title" name="title" value="{{movie.title}}" />
+					<input type="text" class="form-control" id="title" name="title" value="{{movieToEdit.title}}" />
 				</div>
 				<div class="mb-3">
 					<label for="genre" class="form-label">Genre</label>
-					<input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}" />
+					<input type="text" class="form-control" id="genre" name="genre" value="{{movieToEdit.genre}}" />
 				</div>
 				<div class="mb-3">
 					<label for="plot" class="form-label">Plot</label>
-					<textarea  class="form-control" id="plot" name="plot" rows="4" >{{movie.plot}}</textarea>
+					<textarea  class="form-control" id="plot" name="plot" rows="4" >{{movieToEdit.plot}}</textarea>
 				</div>
 				<div class="mb-3">
 					<label for="cast" class="form-label">Cast</label>
-					<select class="form-control" multiple="true" id="cast" name="cast" >
-                        {{#each celebrities}}
-                            <option value="{{_id}}">{{name}}</option>
+					<select class="form-control" multiple id="cast" name="cast" >
+						{{!-- {{#each movieToEdit.cast}}
+      						<option value="{{id}}" selected>{{name}}</option>
+    					{{/each}} --}}
+						
+                        {{#each celebFromMovie}}
+                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                     <select />
 				</div>

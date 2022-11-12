@@ -16,6 +16,9 @@
 
 				</div>
 				<a class="justify-self-end btn btn-secondary mb-2" href="/movies/{{_id}}/edit">Edit</a>
+				<form action="/movies/{{_id}}/delete" method="POST" class="btn btn-danger">
+					<input type="submit" value="Delete" class="btn btn-danger p-0" />
+				</form>
 			</div>
 		{{/each}}
 	</div>
