@@ -1,0 +1,15 @@
+<div class="container ">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{title}}</h5>
+      <p class="card-text">Genre : {{genre}}</p>
+      <p class="card-text">Plot : {{plot}}</p>
+      {{!-- <p class="card-text">Cast : {{cast}}</p> --}}
+      <a href="/movies/{{_id}}/edit" class="btn btn-secondary">Edit</a>
+      <form action="/movies/{{_id}}/delete" method="POST">
+        <input type="submit" value="Delete" class="btn btn-danger">
+      </form>
+    </div>
+  </div>
+
+</div>

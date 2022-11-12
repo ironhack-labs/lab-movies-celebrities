@@ -1,0 +1,15 @@
+<div class="container ">
+  {{#each celebrity}}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <p class="card-text">Occupation : {{occupation}}</p>
+      <p class="card-text">Catchphrase : {{catchPhrase}}</p>
+      <a href="/celebrity/{{_id}}/edit" class="btn btn-secondary">Edit</a>
+      <form action="/celebrity/{{_id}}/delete" method="POST">
+        <input type="submit" value="Delete" class="btn btn-danger">
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>
