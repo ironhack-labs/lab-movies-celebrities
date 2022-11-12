@@ -1,0 +1,16 @@
+<a href='/'><button class="go-back">Go Back ></button></a>
+
+<h3>Create a New Movie</h3>
+
+<form style="display:flex; justify-content:center;" method="post" action="/movies/create">
+<input type="text" name="title" placeholder="Movie title">
+<input type="text" name="genre" placeholder="Pick a Genre">
+<textarea class="textarea" name="plot" rows="4" cols="50" placeholder="Write the plot"></textarea>
+<select name="cast" multiple>
+    <option selected disabled></option>
+    {{#each celebritiesArray}}
+        <option value="{{this._id}}">{{this.name}}</option>
+     {{/each}}
+</select>
+<button>Create Movie</button>
+</form>

@@ -1,0 +1,21 @@
+<a href='/'><button class="go-back">Go Back ></button></a>
+<h3>Celebrities Data Base</h3>
+
+<table>
+    <thead>
+        <tr class="border-bottom">
+            <td class="border-right bold">Name</td>
+            <td  class="border-right bold">Occupation</td>
+            <td class="bold">Catch Phrase</td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each celebritiesArray}}
+        <tr class="border-bottom">
+            <td  class="border-right">{{this.name}}</td>
+            <td  class="border-right">{{this.occupation}}</td>
+            <td>{{this.catchPhrase}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

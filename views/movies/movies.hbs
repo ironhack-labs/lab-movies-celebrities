@@ -1,0 +1,36 @@
+<a  href='/'><button class='go-back' >Go Back ></button></a>
+
+<h2 style="margin-bottom: 35px;text-decoration:underline;">Movies List</h2>
+
+<table>
+    <thead>
+        <tr class="border-bottom">
+            <td class="border-right bold">Title</td>
+            <td  class="border-right bold">Genre</td>
+            <td class="bold">Plot</td>
+            <td class="bold">Casting</td>
+            <td></td>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each moviesArray}}
+        <tr class="border-bottom">
+            <td  class="border-right">{{this.title}}</td>
+            <td  class="border-right">{{this.genre}}</td>
+            <td>{{this.plot}}</td>
+            <td>
+                <ul>
+                    {{#each cast}}
+                    <li>{{this.name}}</li>
+                    {{/each}}
+                </ul>
+            </td>
+            <td>
+                <a href="/movies/{{this._id}}"><button class="details">Details</button></a>
+            </td>
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

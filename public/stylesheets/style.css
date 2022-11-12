@@ -1,8 +1,171 @@
+*{
+  padding:0;
+  margin:0;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
+.go-back{
+  background-color: orange;
+  padding: 10px 25px 10px 25px;
+  margin-bottom: 20px;
+}
+
+.homelinks{
+  background-color: lightblue;
+  padding: 10px 25px 10px 25px;
+  color: black;
+  text-decoration: none;
+  border: 1px black solid;
+}
+
+
+.homelinks:hover{
+  background-color: lightblue;
+  border: 1px black solid;
+  text-decoration: none;
+  color: rgb(3, 102, 216);
+  font-weight: bold;
+}
+
+table{
+  margin-top: 25px;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px black solid;
+
+}
+
+.details{
+  padding: 5px 15px 5px 15px
+}
+
+.details:hover{
+  background-color: orange;
+}
+
+.edit-save{
+  background-color: lightgreen;
+  padding: 15px 25px 15px 25px;
+  margin-left: 25px;
+  border-radius: 25px;
+}
+
+.edit-save:hover{
+  border:2px black solid;
+  font-weight: bold;
+  color:white;
+  background-color: green;
+}
+
+a{
+  text-decoration: none;
+}
+
+.wild{
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.edit-btn{
+  border: 1px black solid;
+  text-decoration: none;
+  margin: 0 auto;
+  margin-top: 25px;
+  width: 175px;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 25px 15px 25px;
+  background-color: lightgreen;
+  font-size: 1.3rem;
+  color:black
+}
+
+.margin-bottom{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  list-style-type:none;
+  text-align: center;
+}
+
+.edit-btn:hover{
+  text-decoration: none;
+  color:black;
+  border:5px green solid;
+}
+
+
+
+form{margin-top: 25px;}
+
+td{
+  padding: 5px 15px 5px 15px;
+}
+.movie-details{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px black solid;
+}
+
+.delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.delete-btn{
+  background-color: lightcoral;
+  padding: 25px 40px 25px 40px;
+  border-radius: 25px;
+  font-size: 1.4rem;
+}
+
+.delete-btn:hover{
+  background-color: red;
+  outline: 5px red solid;
+  border:3px white solid;
+  color:white;
+  font-weight: bold;
+
+}
+
 a {
   color: #00b7ff;
+}
+
+.celebrities-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
+
+.bold{
+  font-weight: bold;
+}
+
+td{
+  height: 35px;
+  padding-left: 7px
+}
+
+.border-bottom{
+  border-bottom: 1px black solid;
+}
+
+.border-right{
+  border-right: 1px black solid;
 }

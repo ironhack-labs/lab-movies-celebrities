@@ -1,0 +1,14 @@
+<a  href='/'><button class='go-back' >Go Back ></button></a>
+
+
+<h3>Edit the Movie Information:</h3>
+
+<form action="/movies/{{id}}/edit" method="post">
+<label>Movie Title:</label>
+    <input name="title" placeholder="title" value="{{movieInfo.title}}">
+    <label>Movie Genre:</label>
+    <input name="genre" placeholder="genre" value="{{movieInfo.genre}}">
+    <label>Movie Plot:</label>
+    <input name="plot" placeholder="plot" value="{{movieInfo.plot}}">
+    <button class="edit-save">Save Edits</button>
+</form>

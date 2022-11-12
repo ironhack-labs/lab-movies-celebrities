@@ -1,0 +1,29 @@
+<a href='/'><button  class='go-back' >Go Back ></button></a>
+<div class="movie-details">
+
+    <div style="margin-top:25px;">
+        <h2 style=" margin-bottom:25px;"><span style='font-weight:bold;font-size:1.5rem;text-decoration:underline;'> Title:</span> {{data.title}}</h2>
+        <h3><span style='font-weight:bold;font-size:1.5rem;text-decoration:underline;'>Genre:</span> {{data.genre}}</h3>
+    </div>
+    <div style="margin-top:35px;">
+        <p style="text-align:center;"><span style='text-decoration:underline;font-weight:bold;font-size:1.5rem;'>Plot:</span> {{data.plot}}</p>
+        <ul >
+            <p style="margin-bottom:35px;font-size:1.5rem;text-align:center;">Casting:</p>
+        {{#each data.cast}}
+        <li style="text-align:center;font-size:1.20rem;text-decoration:underline;list-style-type:none;font-weight:bold;">{{this.name}}</li>
+        <ul class="margin-bottom">
+            <li>Occupation: {{this.occupation}}</li>
+            <li>Catch Phrase: " {{this.catchPhrase}} "</li>
+        </ul>
+        <hr>
+        {{/each}}
+        </ul>
+    </div>
+
+</div>
+
+<form class="delete" method="post" action="/movies/{{data._id}}/delete">
+    <button class="delete-btn">Delete</button>
+</form>
+
+<a class="edit-btn" href='/movies/{{data._id}}/edit'>Edit Movie</a>
