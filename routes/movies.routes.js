@@ -12,6 +12,7 @@ router.get('/movies', (req, res) => {
 
     Movie
         .find()
+        .sort({ title: 1 })
         .populate('cast', 'name')
         .then(moviesArr => {
             res.render('movies/movies', { moviesArr })
@@ -26,6 +27,7 @@ router.get('/movie-details/:movie_id', (req, res) => {
 
     Movie
         .findById(movie_id)
+        .sort({ title: 1 })
         .populate('cast', 'name')
         .then(movieFromDB => {
             // console.log(movieFromDB)
@@ -40,6 +42,7 @@ router.get('/movies/create', (req, res) => {
     Celebrity
         .find()
         .select({ name: 1 })
+        .sort({ name: 1 })
         .then(celebrityArr => {
             const celebrities = { celebrityArr }
             res.render('movies/new-movie', celebrities)
@@ -69,13 +72,24 @@ router.get('/movies/:id/edit', (req, res) => {
     const { id } = req.params
     Movie
         .findById(id)
+        .sort({ title: 1 })
+        .populate('cast', 'name')
         .then(movie => {
             Celebrity
                 .find()
                 .select({ name: 1 })
+                .sort({ name: 1 })
                 .then(celebrityArr => {
+                    movie.cast.forEach(movieElem => {
+                        celebrityArr.forEach(celebrityElem => {
+                            if (movieElem.name.includes(celebrityElem.name)) {
+                                let elem = celebrityArr.indexOf(celebrityElem)
+                                celebrityArr.splice(elem, 1)
+                                // console.log(celebrityArr)
+                            }
+                        })
+                    })
                     res.render('movies/edit-movie', { movie, celebrityArr })
-                    // console.log({ movie, celebrityArr })
                 })
         })
         .catch(err => console.log(err))
@@ -88,6 +102,7 @@ router.post('/movies/:id/edit', (req, res) => {
 
     Movie
         .findByIdAndUpdate(id, { title, genre, plot, cast })
+        .sort({ title: 1 })
         .then(() => res.redirect(`/movie-details/${id}`))
         .catch(err => {
             console.log(err)

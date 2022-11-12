@@ -21,6 +21,9 @@
                 <div class="mb-3">
                     <label for="cast" class="form-label">Cast</label>
                     <select multiple class="form-select" name="cast" id="cast">
+                        {{#each movie.cast}}
+                        <option value="{{id}}" selected>{{name}}</option>
+                        {{/each}}
                         {{#each celebrityArr}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}

@@ -11,6 +11,7 @@ router.get('/celebrities', (req, res) => {
 
     Celebrity
         .find()
+        .sort({ name: 1 })
         .then((celebrity) => {
             const celebrities = { celebrityArr: celebrity }
             res.render('celebrities/celebrities', celebrities)
@@ -59,6 +60,7 @@ router.get('/celebrities/:id/edit', (req, res) => {
     const { id } = req.params
     Celebrity
         .findById(id)
+        .sort({ name: 1 })
         .then(celebrity => {
             res.render('celebrities/edit-celebrity', celebrity)
         })
@@ -72,6 +74,7 @@ router.post('/celebrities/:id/edit', (req, res) => {
 
     Celebrity
         .findByIdAndUpdate(id, { name, occupation, catchPhrase })
+        .sort({ name: 1 })
         .then(() => res.redirect(`/celebrities-details/${id}`))
         .catch(err => {
             console.log(err)
