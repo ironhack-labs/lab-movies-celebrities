@@ -1,0 +1,18 @@
+<div class="container d-flex flex-column justify-content-center">
+    <h2>Celebrities</h2>
+    <hr>
+    <div class="justify-content-center">
+        {{#each celebrities}}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h3>{{name}}</h3>
+                <p>Occupation: {{occupation}}</p>
+                <p>{{catchPhrase}}</p>
+                <form action="/celebrities/{{_id}}/delete" method="POST">
+                    <button class="btn btn-warning">Delete Celebrity</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <a href="/celebrities/create" type="button" class="btn btn-secondary">Add a New Celebrity</a>

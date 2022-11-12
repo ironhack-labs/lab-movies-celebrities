@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h3>{{movies.title}} details:</h3>
+        <p>Genre: {{movies.genre}}</p>
+        <p>{{movies.plot}}</p>
+        <p>{{movies.cast}}</p>
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <button class="btn btn-warning">Delete Movie</button>
+        </form>
+    </div>
+</div>
