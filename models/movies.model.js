@@ -1,7 +1,7 @@
 //  Add your code here
 const mongoose = require('mongoose');
 
-const celebritiesSchema = new mongoose.Schema(
+const moviesSchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -9,12 +9,17 @@ const celebritiesSchema = new mongoose.Schema(
             unique: true
 
         },
-        ocupation: {
+        genre: {
             type: String,
             required: true
         },
-        catchPhrase: {
+        plot: {
             type: String,
+            required: true
+        },
+        cast: {
+            type: [mongoose.Types.ObjectId],
+            ref: 'Celebrity',
             required: true
         },
     },
@@ -23,4 +28,4 @@ const celebritiesSchema = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('Celebrities', celebritiesSchema)
+module.exports = mongoose.model('Movies', moviesSchema)
