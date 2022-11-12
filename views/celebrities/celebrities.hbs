@@ -1,0 +1,18 @@
+<h1>Celebrities</h1>
+<div class="container d-flex gap-3 flex-wrap justify-content-center">
+    {{#each celebrity}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Occupation : {{occupation}}</p>
+            <p class="card-text">Catchphrase : {{catchphrase}}</p>
+            <a href="/drones/{{_id}}/edit" class="btn btn-secondary">Edit</a>
+            <form action="/drones/{{_id}}/delete" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+
+        </div>
+    </div>
+    {{/each}}
+</div>
+<a href="/" class="btn btn-dark" tabindex="-1" role="button" aria-disabled="true">Go Back</a>
