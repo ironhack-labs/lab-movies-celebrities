@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h2>Edit {{moviesFromDB.title}}</h2>
+
+            <form action="/movies/edit-movies/{{moviesFromDB.id}}" method="POST">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{moviesFromDB.title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Plot</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{moviesFromDB.plot}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{moviesFromDB.genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cast" class="form-label">Cast</label>
+                    <select multiple="true" id='cast' class="form-control" name="cast">
+
+                        {{#each celebrities}}
+                        <option value="{{_id}}"> {{name}} </option>
+
+                        {{!-- relacionado con el id del actor y debe parecer su nombre --}}
+                        {{!-- dentro de cada each hay que hacer referencia seguir el ejercicio --}}
+                        {{/each}}
+
+                    </select>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-dark">Edit Movie</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

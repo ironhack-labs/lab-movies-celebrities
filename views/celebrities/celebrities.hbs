@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Celebrities</h1>
+    <hr>
+
+    {{#each celebrities}}
+    <div class="card" style="width: 18rem;">
+        {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+        <div class="card-body">
+            <h3 class="card-title">{{name}}</h3>
+            <h4 class="card-title">Occupation: {{occupation}}</h4>
+            <h4 class="card-title">Amazing Quote: {{catchPhrase}}</h4>
+
+
+
+        </div>
+
+        {{/each}}
+
+        <hr>
+
+        <a href="./celebrities/create" class="btn btn-dark">Create Celebrity</a>
+
+    </div>

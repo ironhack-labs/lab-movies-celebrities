@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Movies</h1>
+    <hr>
+
+    <div style="width: 18rem;">
+        {{!-- <img class="card-img-top" src="..." alt="Card image cap"> --}}
+        {{#each movies}}
+        <div class="card-body">
+            <h3 class="card-title"> <a href="movies/movie-details/{{_id}}"> {{title}}</a></h3>
+            <h3 class="card-title">{{genre}}</h3>
+            <h3 class="card-title">{{plot}}</h3>
+        </div>
+        {{/each}}
+
+        <hr>
+
+        <a href="./movies/create" class="btn btn-dark">Create a Movie</a>
+
+    </div>
+
+    {{!-- <p class="card-text">Occupation: {{occupation}} .</p>
+    <p class="card-text">Catch Phrase: {{catchPhrase}} .</p> --}}
+    {{!-- <a href="/drones/{{_id}}/edit" class="btn btn-dark">Edit</a> --}}
+    {{!--
+    <form action="/drones/{{_id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="Delete Drone" class="btn btn-danger">
+    </form> --}}
