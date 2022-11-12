@@ -1,0 +1,34 @@
+<h1>Editar Pelicula</h1>
+
+<form action="/movies/{{_id}}/edit" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label">genre</label>
+        <input type="text" class="form-control" id="description" name="genre" value="{{genre}}">
+    </div>
+    <div class="mb-3">
+        <label for="plot" class="form-label">plot</label>
+        <input type="text" class="form-control" id="description" name="plot" value="{{plot}}">
+    </div>
+
+
+    {{!-- <div class="mb-3">
+        <label for="maxSpeed" class="form-label">Velocidad</label>
+        <input type="number" class="form-control" id="rate" name="maxSpeed" value="{{maxSpeed}}">
+
+    </div> --}}
+    <div class=" d-grid">
+        <button type="submit" class="btn btn-dark">Editar Pelicula</button>
+    </div>
+
+</form>
+
+<hr>
+</div>
+</div>
+
+<a href="/" class="btn btn-dark">Volver al inicio</a>
+</div>

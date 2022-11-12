@@ -5,7 +5,10 @@ const moviesSchema = new mongoose.Schema(
         title: String,
         genre: String,
         plot: String,
-        cast: []
+        cast: [{
+            type: mongoose.Types.ObjectId,
+            ref: 'Celebrity'
+        }],
     },
     {
         timestamps: true
