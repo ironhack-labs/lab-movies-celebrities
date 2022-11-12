@@ -22,12 +22,12 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 const index = require('./routes/index');
 app.use('/', index);
-
+const movies = require('./routes/movies.routes');
+app.use('/', movies);
 const celebrities = require('./routes/celebrities.routes');
 app.use('/', celebrities);
 
-const movies = require('./routes/movies.routes');
-app.use('/', movies);
+
 
 require('./error-handling')(app);
 
