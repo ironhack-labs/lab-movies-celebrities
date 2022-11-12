@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-  <body>
-    <div class="container">
-      {{{body}}}
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{appTitle}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/celebrities">Celebrities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/celebrities/create">Crear nuevo/a Celebrity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/movies">Películas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/movies/create">Crear película</a>
+          </li>
+        </ul>
+
+      </div>
     </div>
+  </nav>
 
-    <script src="/javascripts/script.js"></script>
-  </body>
+  {{{body}}}
+
+
+  <script src="/javascripts/script.js"></script>
+</body>
 
 </html>

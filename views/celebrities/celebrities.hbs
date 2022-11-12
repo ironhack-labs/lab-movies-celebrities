@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Celebrities</h2>
+    <hr>
+
+    <ul>
+        {{#each Celebrity}}
+        <h5 class="mt-5">
+            {{name}}
+        </h5>
+        {{!-- <li>
+            {{occupation}}
+        </li>
+        <li>
+            {{catchPhrase}}
+        </li> --}}
+
+        {{!-- <a href="/celebrities/{{_id}}/edit" class="btn btn-dark mt-3">Editar Celebrity</a> --}}
+
+        {{!-- <form class="mt-3" action="/celebrities/{{_id}}/delete" method="POST">
+            <input type="submit" value="Eliminar celebrity" class="btn btn-danger">
+        </form> --}}
+
+        {{/each}}
+    </ul>
+
+</div>
