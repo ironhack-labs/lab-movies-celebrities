@@ -1,0 +1,9 @@
+<h2 class="title-page">Movies</h2>
+<div class="row">
+    {{#each movies}}
+    <div class="col-lg-3 box-container">
+        <p>{{title}}</p>
+        <a href="/movies/{{_id}}">Show Detail</a>
+    </div>
+    {{/each}}
+</div>

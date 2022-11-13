@@ -1,0 +1,9 @@
+<h2 class="title-page">Celebrities</h2>
+<div class="row">
+    {{#each celebrities}}
+    <div class="col-md-3 box-container">
+        <p>{{name}}</p>
+        <a href="/celebrities/{{_id}}">Show Detail</a>
+    </div>
+    {{/each}}
+</div>

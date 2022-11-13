@@ -1,0 +1,18 @@
+<h2 class="title-page">Celebrity Detail</h2>
+<div class="row">
+    <div class="details-container col-4">
+        <p>Name:</p>
+        <p>{{name}}</p>
+        <p>Genre:</p>
+        <p>{{occupation}}</p>
+        <p>Plot:</p>
+        <p>{{catchPhrase}}</p>
+        <a class="a-button-form" href="/celebrities/{{_id}}/edit">Edit</a>
+        <form action="/celebrities/{{_id}}/delete" method="post">
+            <button class="celebrity-delete" type="submit">
+                Delete
+            </button>
+        </form>
+
+    </div>
+</div>

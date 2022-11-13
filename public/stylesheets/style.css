@@ -6,3 +6,109 @@ body {
 a {
   color: #00b7ff;
 }
+
+.row {
+  margin-top: 40px;
+}
+
+.button-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.button-index,
+.a-button-form {
+  padding: 10px;
+  background-color: #00b7ff;
+  color: white;
+  border-radius: 4px;
+}
+
+.button-index:hover,
+.button-index:active {
+  color: white;
+  text-decoration: none;
+}
+
+.title-page {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.celebrity-container,
+.movie-container {
+
+  margin: 0 auto;
+  width: 200px
+}
+
+.celebrity-input,
+.movie-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.celebrity-button,
+.celebrity-delete,
+.movie-button,
+.movie-delete {
+  width: 100%;
+  border-radius: 4px;
+  background-color: #00b7ff;
+  padding: 10px;
+  border: 0;
+  color: white;
+}
+
+.box-container {
+  display: grid;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.box-container p {
+  font-weight: bold;
+  padding: 0;
+}
+
+.box-container a {
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: #00b7ff;
+  padding: 10px;
+  border: 0;
+  color: white;
+  width: 120px;
+  text-align: center;
+  max-height: 36px;
+}
+
+.box-container a:hover,
+.box-container a:active,
+.a-button-form:hover,
+.a-button-form:active {
+  color: white;
+  text-decoration: none;
+}
+
+.details-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.details-container p:nth-child(1),
+.details-container p:nth-child(3),
+.details-container p:nth-child(5),
+.details-container p:nth-child(7) {
+  font-weight: bold;
+}
+
+.a-button-form {
+  display: block;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: white !important;
+}

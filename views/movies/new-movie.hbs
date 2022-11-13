@@ -1,0 +1,14 @@
+<h2 class="title-page">Create Movie</h2>
+<form action="/movies/create" method="post">
+    <div class="movie-container">
+        <input class="movie-input" type="text" name="title" placeholder="Title">
+        <input class="movie-input" type="text" name="genre" placeholder="Genre">
+        <input class="movie-input" type="text" name="plot" placeholder="Plot">
+        <select class="movie-input" name="cast" id="cast" multiple>
+            {{#each celebrities}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <button class="movie-button" type="submit">Create</button>
+    </div>
+</form>
