@@ -1,12 +1,10 @@
-<h1>Movie Details</h1>
-
-
+<h1>Ficha Película</h1>
 
 <hr>
 <h2>{{title}}</h2>
 
-<p>Genre: {{genre}}</p>
-<p>Plot: {{plot}}</p>
+<p>Genero: {{genre}}</p>
+<p>Trama: {{plot}}</p>
 <p>Cast:</p>
 <ul>
     {{#each cast}}
@@ -18,8 +16,12 @@
 </ul>
 
 <hr>
-{{!-- <a href="/movies/{{_id}}/edit" class="btn btn-warning">Edit</a> --}}
 
-<form action="/movies/{{_id}}/delete" method="POST">
-    <button class="btn btn-danger">Delete</button>
-</form>
+<div class="d-grid">
+    <a class="btn btn-success" href="/movies/{{_id}}/edit" role="button">Editar Película</a>
+    <a class="btn btn-outline-danger" href="/" role="button">Volver a inicio</a>
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <br>
+        <button class="btn btn-danger">Eliminar</button>
+    </form>
+</div>

@@ -28,19 +28,6 @@ router.get("/movie-details/:movie_id", (req, res) => {
         .catch((err) => console.log(err));
 })
 
-//-----
-router.post('/movies/:movie_id/delete', (req, res) => {
-
-    const { movie_id } = req.params
-
-    Movie
-        .findByIdAndDelete(movie_id)
-        .then(() => {
-            res.redirect('/movies')
-        })
-        .catch(err => console.log(err))
-})
-
 
 //-----
 router.get('/movies/create', (req, res, next) => {
@@ -90,9 +77,50 @@ router.post('/movies/create', (req, res) => {
         .catch(err => console.log(err))
 })
 
+//-----78787878
+router.get('/movies/:movie_id/edit', (req, res) => {
+
+    const { movie_id } = req.params
+
+    Movie
+        .findById(movie_id)
+        .then(movie => {
+            Celebrity
+                .find()
+                .then((celebrities) => {
+
+                    res.render('movies/edit-movie', { movie, celebrities })
+                })
+
+        })
+        .catch(err => console.log(err))
+})
+
+router.post('/movies/:movie_id/edit', (req, res) => {
+    const { title, genre, plot, cast } = req.body
+    const { movie_id } = req.params
+
+    Movie
+        .findByIdAndUpdate(movie_id, { title, genre, plot, cast })
+        .then(() => res.redirect(`/movie-details/${movie_id}`))
+        .catch(err => {
+            console.log(err)
+            res.redirect(`/movies/${movie_id}/edit`)
+        })
+})
+
+
 //-----
+router.post('/movies/:movie_id/delete', (req, res) => {
 
+    const { movie_id } = req.params
 
-
+    Movie
+        .findByIdAndDelete(movie_id)
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch(err => console.log(err))
+})
 
 module.exports = router
