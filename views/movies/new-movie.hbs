@@ -14,11 +14,18 @@
             <label for="plot" class="form-label">Plot</label>
             <input type="text" class="form-control" id="plot" name="plot">
         </div>
-        <div class="mb-3">
+        {{!-- <div class="mb-3">
             <label for="cast" class="form-label">Cast</label>
             <input type="text" class="form-control" id="cast" name="cast">
+        </div> --}}
+        <div class="mb-3">
+            <label for="cast" class="form-label">Cast</label>
+            <select class="form-select" name="cast">
+                {{#each movie}}
+                <option value="{{cast._id}}"></option>
+                {{/each}}
+            </select>
         </div>
-
 
         <button type="submit" class="btn btn-dark">Submit</button>
     </form>

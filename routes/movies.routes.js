@@ -5,7 +5,18 @@ const Celebrities = require('../models/Celebrity.model')
 const Movies = require('../models/movies.model')
 
 router.get('/movies/create', (req, res) => {
-    res.render('movies/new-movie')
+
+    Celebrities
+        .find()
+        .populate('')
+        .then(cast => {
+            console.log(cast)
+            res.render('movies/new-movie', { cast })
+        })
+
+
+
+
 })
 
 router.post('/movies/create', (req, res) => {
@@ -16,7 +27,6 @@ router.post('/movies/create', (req, res) => {
     Movies
         .create(req.body)
         .then(movies => {
-            console.log(movies)
             res.redirect('/movies')
         })
         .catch(err => res.redirect('/movies/create')
@@ -39,7 +49,6 @@ router.get('/movies/:id', (req, res) => {
 
     Movies
         .findById(id)
-        .populate('Celebrity')
         .then(movie => {
             console.log(movie)
             res.render('movies/movie-details', movie)
@@ -49,6 +58,22 @@ router.get('/movies/:id', (req, res) => {
 
 })
 
+
+
+router.post('/movies/:id/delete', (req, res) => {
+
+    const { id } = req.params
+
+    Movies
+        .findByIdAndDelete(id)
+        .then(movie => {
+            res.redirect('/movies')
+        })
+        .catch(err => res.redirect('/movies')
+        )
+
+
+})
 
 
 router.get('/movies/:id/edit', (req, res) => {
@@ -74,26 +99,6 @@ router.post('/movies/:id/edit', (req, res) => {
         .catch(err => res.redirect('/movies'))
 
 })
-
-
-
-
-router.post('/movies/:id/delete', (req, res) => {
-
-    const { id } = req.params
-
-    Movies
-        .findByIdAndDelete(id)
-        .then(movie => {
-            res.redirect('/movies')
-        })
-        .catch(err => res.redirect('/movies')
-        )
-
-
-})
-
-
 
 
 
