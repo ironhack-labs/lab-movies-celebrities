@@ -7,10 +7,11 @@
             {{name}}
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{genre}}</li>
-            <li class="list-group-item">{{plot}}</li>
-            <li class="list-group-item">Cast:
+            <li class="list-group-item"> <span class="fw-bold">Genre:</span> {{genre}}</li>
+            <li class="list-group-item"><span class="fw-bold">Plot:</span> {{plot}}</li>
+            <li class="list-group-item"><span class="fw-bold">Cast:</span>
                 <ul>
+
                     {{#each cast}}
                     <li>{{name}}</li>
                     {{/each}}

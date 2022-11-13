@@ -3,6 +3,8 @@
     <h2>Celebrities List</h2>
 
 </div>
+
+
 <div class="row d-flex justify-content-around flex-wrap">
 
     {{#each celebritiesDb}}
@@ -13,9 +15,17 @@
             <span class="fw-bold">Name:</span> {{name}}
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"><span class="fw-bold">Ocupation:</span> {{ocupation}}</li>
-            <li class="list-group-item"><span class="fw-bold">Phrase:</span> {{catchPhrase}}</li>
-
+            <li class="list-group-item"><span class="fw-bold"><a href="/celebrities/{{_id}}"
+                        class="d-block text-center">Show Details</a></li>
+            <li class="list-group-item"><span class="fw-bold"><a href="/celebrities/{{_id}}/edit"
+                        class="d-block text-center">Edit</a>
+            </li>
+            <li class="list-group-item">
+                <form action="/celebrities/{{_id}}/delete" class="d-block btn  btn-danger text-center border border-0"
+                    method="POST">
+                    <input type="submit" name="delete" id="delete" class="d-inline" value="Delete">
+                </form>
+            </li>
         </ul>
     </div>
 
