@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const Movie = require('../models/Movie.model')
-const Celebrity = require('../models/Celebrity.model')
+const Movie = require('./../models/Movie.model')
+const Celebrity = require('./../models/Celebrity.model')
 
 router.get('/movies', (req, res, next) => {
 
@@ -8,14 +8,41 @@ router.get('/movies', (req, res, next) => {
         .find()
         .populate('cast')
         .then(movies => {
-            console.log(movies)
+            // console.log(movies)
             res.render('movies/movies', { movies })
         })
         .catch(err => console.log(err))
 })
 
 
+//-----
+router.get("/movie-details/:movie_id", (req, res) => {
+    const { movie_id } = req.params;
 
+    Movie
+        .findById(movie_id)
+        .populate("cast")
+        .then((movie) => {
+            res.render("movies/movie-details", movie);
+        })
+        .catch((err) => console.log(err));
+})
+
+//-----
+router.post('/movies/:movie_id/delete', (req, res) => {
+
+    const { movie_id } = req.params
+
+    Movie
+        .findByIdAndDelete(movie_id)
+        .then(() => {
+            res.redirect('/movies')
+        })
+        .catch(err => console.log(err))
+})
+
+
+//-----
 router.get('/movies/create', (req, res, next) => {
     Celebrity
         .find()
@@ -26,20 +53,19 @@ router.get('/movies/create', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-
-
-
 router.post('/movies/create', (req, res) => {
 
     const { title, genre, plot, cast } = req.body
 
     Movie
         .create({ title, genre, plot, cast })
-        .then(movie => {
+        .then(() => {
             res.redirect('/movies')
         })
         .catch(err => console.log(err))
+    //res.redirect('/movies/create')
 })
+
 
 // ------
 router.get('/movies/:id', (req, res, next) => {
@@ -52,9 +78,6 @@ router.get('/movies/:id', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-
-
-
 router.post('/movies/create', (req, res) => {
 
     const { title, genre, plot, cast } = req.body
@@ -66,6 +89,10 @@ router.post('/movies/create', (req, res) => {
         })
         .catch(err => console.log(err))
 })
+
+//-----
+
+
 
 
 module.exports = router

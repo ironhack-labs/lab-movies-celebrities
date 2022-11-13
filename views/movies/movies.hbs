@@ -3,6 +3,7 @@
 <div>
     {{#each movies}}
     <p>Title: {{title}}</p>
+    <a class="btn btn-outline-dark" href="/movie-details/{{_id}}" role="button">Movie Details</a>
     <hr>
     {{/each}}
 
@@ -12,11 +13,8 @@
     <p>Plot: {{plot}}</p>
     {{#each cast}}
     <p>Cast: {{name}}</p>
-    {{/each}}
-    {{!-- <a class="btn btn-secondary" href="/drones/{{_id}}/edit" role="button">Edit Celebrity</a>
-    <form action="/drones/{{_id}}/delete" method="POST">
-        <input type="submit" value="Eliminar dron" class="btn btn-danger">
-    </form> --}}
+    {{/each}} --}}
+
 
 
 
