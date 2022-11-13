@@ -3,11 +3,11 @@
 <div class="col-md-4 mb-3">
     <div class="card">
         <div class="card-body">
-            <h3 class="card-title">{{title}}</h3>
-            <p class="card-text"> Genre:{{genre}}</p>
-            <p class="card-text">Plot:{{plot}}</p>
+            <h3 class="card-title text-capitalize">{{title}}</h3>
+            <p class="card-text text-capitalize"> Genre: {{genre}}</p>
+            <p class="card-text text-capitalize">Plot: {{plot}}</p>
             {{#each cast}}
-            <p class="card-text">Actor/Actress: {{name}}</p>
+            <p class="card-text text-capitalize">Actor/Actress: {{name}}</p>
             {{/each}}
         </div>
     </div>

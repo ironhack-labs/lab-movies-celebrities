@@ -2,18 +2,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form action="/movies/{{moviesFromDB._id}}/update-movie" method="POST">
+            <form action="/movies/{{moviesArray._id}}/update-movie" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{moviesFromDB.title}}">
+                    <input type="text" class="form-control" id="title" name="title" value="{{moviesArray.title}}">
                 </div>
                 <div class="mb-3">
                     <label for="genre" class="form-label">Genre</label>
-                    <input type="text" class="form-control" id="genre" name="genre" value="{{moviesFromDB.genre}}">
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{moviesArray.genre}}">
                 </div>
                 <div class="mb-3">
                     <label for="plot" class="form-label">Plot</label>
-                    <input type="text" class="form-control" id="plot" name="plot" value="{{moviesFromDB.plot}}">
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{moviesArray.plot}}">
                 </div>
                 <div class="mb-3">
                     <label for="cast" class="form-label">celebrity</label>
@@ -22,7 +22,7 @@
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                         <div class="d-grid">
-                            <input type="submit" class="btn btn-dark" value="editar"></input>
+                            <input type="submit" class="btn btn-dark" value="editar">
                         </div>
                     </select>
                 </div>

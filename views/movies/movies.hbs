@@ -1,26 +1,28 @@
 <h2>Movies</h2>
-<div class="row justify-content-center d-flex"></div>
-{{#each moviesArray}}
-<div class="col-md-4 mb-3">
-    <div class="card">
-        <div class="card-body">
-            <h3 class="card-title">{{title}}</h3>
-            <p class="card-text"> Genre: {{genre}}</p>
-            {{#each cast}}
-            <p class="card-text">Actor/Actress: {{name}}</p>
-            {{/each}}
-            <p>
-                <a href="/movies/{{_id}}/movie-details">Info de {{title}}</a>
-            </p>
-            <div class="d-grid">
-                <a href="/movies/{{_id}}/update-movie"><input type="submit" class="btn btn-dark"
-                        value="editar"></input></a>
+<div class="row justify-content-center d-flex">
+    {{#each moviesArray}}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-capitalize">{{title}}</h3>
+                <p class="card-text text-capitalize"> Genre: {{genre}}</p>
+                {{#each cast}}
+                <p class="card-text text-capitalize">Actor/Actress: {{name}}</p>
+                {{/each}}
+                <p>
+                    <a class="text-capitalize" href="/movies/{{_id}}/movie-details">Info de {{title}}</a>
+                </p>
+                <div class="d-grid">
+                    <a href="/movies/{{_id}}/update-movie">
+                        <input type="submit" class="btn btn-dark" value="edit">
+                    </a>
+
+                    <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="delete" class="btn btn-danger">
+                    </form>
+                </div>
             </div>
-            <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
-                <input type="submit" value="eliminar" class="btn btn-danger">
-            </form>
         </div>
     </div>
-</div>
-{{/each}}
+    {{/each}}
 </div>

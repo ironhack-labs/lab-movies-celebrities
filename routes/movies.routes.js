@@ -1,21 +1,20 @@
-const express = require('express');
+// const express = require('express');
 const router = require("express").Router();
 const Movie = require('./../models/Movies.model')
 const Celebrity = require('./../models/Celebrity.model');
 
-
-
 router.get('/movies/create', (req, res, next) => {
     Celebrity
         .find()
-        .then((celebritiesFromDB) => {
+        .then((celebritiesArray) => {
             const celebrities = {
-                celebritiesArray: celebritiesFromDB
+                celebritiesArray
             }
             res.render('movies/new-movie', celebrities)
         })
         .catch(err => (err))
 })
+
 router.post('/movies/create', (req, res) => {
     const { title, genre, plot, cast } = req.body
     Movie
@@ -32,8 +31,10 @@ router.get('/movies', (req, res) => {
     Movie
         .find()
         .populate('cast')
-        .then((moviesFromDB) => {
-            const movies = { moviesArray: moviesFromDB }
+        .then((moviesArray) => {
+            const movies = {
+                moviesArray
+            }
             res.render("movies/movies", movies)
         })
         .catch(err => (err))
@@ -45,8 +46,8 @@ router.get('/movies/:movie_id/movie-details', (req, res) => {
     Movie
         .findById(movie_id)
         .populate('cast')
-        .then(moviesFromDB => {
-            res.render('movies/movie-details', moviesFromDB)
+        .then(moviesArray => {
+            res.render('movies/movie-details', moviesArray)
         })
         .catch(err => (err))
 })
@@ -56,12 +57,12 @@ router.get('/movies/:movie_id/update-movie', (req, res) => {
 
     Movie
         .findById(movie_id)
-        .then(moviesFromDB => {
+        .then(moviesArray => {
             Celebrity
                 .find()
                 .then(celebrities => {
-                    res.render('movies/update-movie', { moviesFromDB, celebrities })
-                    console.log({ moviesFromDB, celebrities })
+                    res.render('movies/update-movie', { moviesArray, celebrities })
+                    console.log({ moviesArray, celebrities })
                 })
         })
         .catch(err => (err))

@@ -1,14 +1,20 @@
 <h2>Celebrities</h2>
-
 <div class="row justify-content-center d-flex">
     {{#each celebritiesArray}}
     <div class="col-md-4 mb-3">
         <div class="card">
             <div class="card-body">
-                <p class=" card-text">{{name}}</p>
-                <p class=" card-text">{{occupation}}</p>
-                <p class=" card-text">{{catchPhrase}}</p>
-                </form>
+                <h3 class="card-title">{{name}}</h3>
+                <p>
+                    <a href="/celebrities/{{_id}}/celebrities-details">Info de {{name}}</a>
+                </p>
+                <div class="d-grid">
+                    <a href="/celebrities/{{_id}}/celebrities-update"><input type="submit" class="btn btn-dark"
+                            value="edit" style="display:inline"></input></a>
+                    <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="delete" class="btn btn-danger">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
