@@ -42,6 +42,11 @@ a {
   width: 200px
 }
 
+.celebrity-container label,
+.movie-container label {
+  font-weight: bold;
+}
+
 .celebrity-input,
 .movie-input {
   width: 100%;

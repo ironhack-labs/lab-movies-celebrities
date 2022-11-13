@@ -1,8 +1,11 @@
 <h2 class="title-page">Edit Celebrity</h2>
 <form action="/celebrities/{{_id}}/edit" method="post">
     <div class="celebrity-container">
+        <label for="name">Name:</label><br>
         <input class="celebrity-input" type="text" name="name" placeholder="Name" value="{{name}}">
+        <label for="occupation">Occupation:</label><br>
         <input class="celebrity-input" type="text" name="occupation" placeholder="Occupation" value="{{occupation}}">
+        <label for="catchPhrase">CatchPhrase:</label><br>
         <input class="celebrity-input" type="text" name="catchPhrase" placeholder="CatchPhrase" value="{{catchPhrase}}">
         <button class="celebrity-button" type="submit">Edit</button>
     </div>
