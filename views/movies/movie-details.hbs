@@ -1,0 +1,40 @@
+<h2>{{title}}</h2>
+
+<div class="container">
+    <div class="row">
+
+        <p>Genre: {{genre}}</p>
+
+    </div>
+
+    <div class="row">
+
+        <p>Plot: {{plot}}</p>
+
+    </div>
+
+
+
+
+    <div class="row">
+        {{#each celebrities}}
+
+        <h5>Cast:</h5>
+
+        <p>{{name}}</p>
+
+        <p>{{occupation}}</p>
+
+        <p>{{catchPhrase}}</p>
+
+        {{/each}}
+
+    </div>
+
+    <a class="btn btn-secondary mb-3" href="/movies/{{_id}}/edit">Edit</a>
+
+    <form action="/movies/{{_id}}/delete" method="POST" class="btn btn-danger">
+        <input type="submit" value="Delete" class="btn btn-danger p-0" />
+    </form>
+
+</div>
