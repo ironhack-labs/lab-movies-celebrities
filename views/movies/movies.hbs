@@ -1,5 +1,6 @@
 <h2>movies</h2>
 
 {{#each movies}}
-<p>Title:{{title}}</p>
+<a href="/movies/details/{{_id}}">{{title}}</a>
+<hr>
 {{/each}}

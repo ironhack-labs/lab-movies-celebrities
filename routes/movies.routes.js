@@ -40,7 +40,18 @@ router.get('/movies', (req, res, next) => {
         .catch(err => console.log(err))
 });
 
+router.get('/movies/details/:movie_id', (req, res) => {
 
+    const { movie_id } = req.params
+
+    MovieModel
+        .findById(movie_id)
+        .populate('cast')
+        .then(movieFromDB => {
+            res.render('movies/details', movieFromDB)
+        })
+        .catch(err => console.log(err))
+})
 
 
 module.exports = router;
