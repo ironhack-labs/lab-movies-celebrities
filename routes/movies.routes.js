@@ -59,18 +59,19 @@ router.get("/:movie_id/edit", (req, res) => {
 
 	let movieToEdit;
 	let celebFromMovie;
+	let filteredCelebs;
 
 	Movie.findById(movie_id)
 		.populate("cast")
 		.then((movie) => {
 			movieToEdit = movie;
-			console.log(movieToEdit);
-			return Celebrity.find();
+			// console.log(movieToEdit);
+			return Celebrity.find().select({ name: 1 });
 		})
 		.then((celebrities) => {
 			celebFromMovie = celebrities;
 			res.render("movies/edit-movie", { movieToEdit, celebFromMovie });
-			console.log(celebFromMovie);
+			// console.log(celebFromMovie);
 		})
 		.catch((err) => console.log(err));
 

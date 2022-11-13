@@ -21,13 +21,17 @@
 				<div class="mb-3">
 					<label for="cast" class="form-label">Cast</label>
 					<select class="form-control" multiple id="cast" name="cast" >
-						{{!-- {{#each movieToEdit.cast}}
+						{{#each movieToEdit.cast}}
       						<option value="{{id}}" selected>{{name}}</option>
-    					{{/each}} --}}
-						
-                        {{#each celebFromMovie}}
-                         <option value="{{_id}}">{{name}}</option>
-                        {{/each}}
+    					{{/each}}
+
+						{{!-- Use the new function from app.js checking duplicates 
+						and displaying as selected the celebrities of the edited movie --}}
+						{{#each celebFromMovie}}
+            				{{#unless (checkDuplicates  ../movieToEdit.cast name)}}
+               					<option value="{{this._id}}">{{this.name}}</option>
+            				{{/unless}}
+        				{{/each}} 
                     <select />
 				</div>
 				<div class="d-grid">
