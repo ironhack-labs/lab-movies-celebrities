@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <hr>
+    <div class="row">
+        <h2>Movies</h2>
+        <br>
+        <div class="col-md-4 mb-3 ">
+            <div>
+                <h5 class="card-title mt-2">{{title}} </h5>
+                <p></p> Genre: {{genre}}</p>
+                <p></p> Plot: {{plot}}</p>
+                {{#each cast}}
+                <p> Cast:{{name}}</p>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+
+
+    <a href="/movies/" class="btn btn-dark ">Movies list</a>
+    </row>
+    <a href="/" class="btn btn-dark ">Home </a>
+</div>
