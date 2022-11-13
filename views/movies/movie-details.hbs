@@ -4,7 +4,11 @@
       <h5 class="card-title">{{title}}</h5>
       <p class="card-text">Genre : {{genre}}</p>
       <p class="card-text">Plot : {{plot}}</p>
-      {{!-- <p class="card-text">Cast : {{cast}}</p> --}}
+      <p>
+        {{#each cast}}
+        <span>Cast : {{name}}</span>
+        {{/each}}
+      </p>
       <a href="/movies/{{_id}}/edit" class="btn btn-secondary">Edit</a>
       <form action="/movies/{{_id}}/delete" method="POST">
         <input type="submit" value="Delete" class="btn btn-danger">

@@ -1,13 +1,21 @@
 const router = require("express").Router();
 
 const Movie = require('./../models/Movies.model')
+const Celebrity = require('./../models/Celebrity.model')
+
+
 
 
 router.get('/movies/create', (req, res) => {
-  res.render('movies/new-movie')
+
+  Celebrity
+    .find()
+    .then((celebrityFromDB) => {
+      res.render('movies/new-movie', { celebrityFromDB })
+    })
+    .catch(err => console.log(err))
+
 })
-
-
 
 router.post('/movies/create', (req, res) => {
 
@@ -26,6 +34,7 @@ router.get('/movies', (req, res) => {
 
   Movie
     .find()
+    .populate('cast')
     .then(movie => {
       res.render('movies/movies', { movie })
     })
@@ -38,7 +47,7 @@ router.get('/movies/:movie_id', (req, res) => {
 
   Movie
     .findById(movie_id)
-    // .populate('cast')
+    .populate('cast')
     .then(movieFromDB => {
       res.render('movies/movie-details', movieFromDB)
     })
@@ -63,8 +72,14 @@ router.get('/movies/:movie_id/edit', (req, res, next) => {
 
   Movie
     .findById(movie_id)
+    .populate('cast')
     .then(movie => {
-      res.render('movies/edit-movie', movie)
+      Celebrity
+        .find()
+        .then((celebrities) => {
+          res.render('movies/edit-movie', { celebrities, movie })
+        })
+        .catch(err => console.log(err))
     })
     .catch(err => console.log(err))
 });
