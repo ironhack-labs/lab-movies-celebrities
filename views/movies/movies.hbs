@@ -1,0 +1,23 @@
+<div class="container">
+    <hr>
+
+    <h1>Movies</h1>
+    <div class="d-flex flex-wrap justifycontent-center">
+
+        {{#each movies}}
+
+        <div class="card-m2" style="width: 18rem;">
+            <br>
+            <h3>{{title}}</h3>
+
+
+            <a href="/movies/{{_id}}" class="btn btn-outline-success">Movie Details</a>
+            <br>
+        </div>
+
+        {{/each}}
+
+    </div>
+
+
+</div>

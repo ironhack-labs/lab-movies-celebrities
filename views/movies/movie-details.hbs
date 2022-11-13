@@ -1,0 +1,19 @@
+<h1>Movie Details</h1>
+
+<hr>
+<h2>{{title}}</h2>
+<p><button type="button" class="btn btn-outline-secondary my-2">{{genre}}</button></p>
+<p class="card-text">Plot: {{plot}}</p>
+<p>Cast:</p>
+<ul>
+    {{#each cast}}
+    <li>{{name}}</li>
+    {{/each}}
+</ul>
+<hr>
+
+<a href="/movies/{{_id}}/edit" class="btn btn-outline-warning">Edit</a>
+
+<form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
+    <input type="submit" value="Delete" class="btn btn-outline-danger">
+</form>
