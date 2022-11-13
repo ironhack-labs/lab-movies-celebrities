@@ -1,0 +1,17 @@
+<h2>Celebrities</h2>
+<div class="row">
+    {{#each celebrities}}
+    <div class="class col-xl-3 display: flex, justify-content: center">
+        <h1>
+            <h3>Nuestra celebridad favorita es {{name}}</h3>
+            <h4>Se dedica a {{occupation}}</h4>
+            <h5>Eslogan {{catchPhrase}}</h5>
+            {{!-- <a href="/drones/{{_id}}/edit" class="btn btn-dark">Update</a>
+            <form action="/drones/{{_id}}/delete" method="POST">
+                <input type="submit" value="Eliminar Drone" class="btn btn-danger">
+            </form> --}}
+
+            <hr>
+        </h1>
+    </div>
+    {{/each}}
