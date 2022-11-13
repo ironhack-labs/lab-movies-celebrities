@@ -3,20 +3,27 @@
     <hr>
     <div class="row gp-4 m-4 d-flex justify-content-center alig-items-center">
         {{#each celebrities}}
-        <div class="d-flex card col-md-4 p-3 m-1">
-            <div class="p-3 bg-white mb-1">
-                <img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Academy_Award_trophy.png">
-                <h4 class="card-title pt-3">{{name}}</h4>
-                <p>Name Celebrities</p>
-                <h5 class="card-subtitle pt-2">{{occupation}}</h5>
+        <div class="d-flex card col-md-4 p-3 m-1 card-style">
+            <div class="p-3 mb-1">
+                <img
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficon-library.com%2Fimages%2Fspotlight-icon-png%2Fspotlight-icon-png-16.jpg&f=1&nofb=1&ipt=9e6477283ac9daa33b1fd2a6a25353f78cb9439e450047cf20bb57451884c8c2&ipo=images">
+                <h4 class="card-title pt-3 text">{{name}}</h4>
+                <p>Name Celebrity</p>
+                <h5 class="card-subtitle pt-2 text">{{occupation}}</h5>
                 <p class="card-text">Occupation</p>
-                <h5 class="card-subtitle pt-2">{{catchPhrase}}</h5>
+                <h5 class="card-subtitle pt-2 text">{{catchPhrase}}</h5>
                 <p class="card-text">Catch Phrase</p>
+                <a href="/celebrities/{{_id}}/edit" class="btn btn-outline-success mb-3">Edit</a>
+                <form action="/celebrities/{{_id}}/delete" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-outline-danger mb-3">
+                </form>
             </div>
         </div>
         {{/each}}
+
         <div class="d-grid col-md-4">
-            <a href="/" class="btn btn-dark p-3 m-1 d-block">Go Home</a>
+            <a href="/celebrities/create" class="btn btn-outline-success p-3 m-1">Create a new Celebrity</a>
+            <a href="/" class="btn btn-outline-dark p-3 m-1 d-block">Go Home</a>
         </div>
     </div>
 </div>

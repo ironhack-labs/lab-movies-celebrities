@@ -1,11 +1,24 @@
-//  Add your code here
 
 const mongoose = require('mongoose')
 
 const celebritiesSchema = new mongoose.Schema({
-    name: String,
-    occupation: String,
-    catchPhrase: String,
+    name: {
+        type: String,
+        required: true,
+        default: 'Nombre desconocido',
+        trim: true,
+        //set: value => value.chartAt(0).toUpperCase() + value.substring(1)
+    },
+    occupation: {
+        type: String,
+        trim: true,
+    },
+    catchPhrase: {
+        type: String,
+        minlength: 2,
+        maxlength: 100,
+        trim: true
+    }
 },
     {
         timestamps: true

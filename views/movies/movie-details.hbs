@@ -2,31 +2,31 @@
     <h2>Movies Details</h2>
     <hr>
     <div class="row gp-4 m-4 d-flex justify-content-center alig-items-center">
-        <div class="d-flex card col-md-4 p-3 m-1">
-            <div class="p-3 bg-white mb-1">
-                <img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Academy_Award_trophy.png">
-                <h4 class="card-title pt-3">{{title}}</h4>
+        <div class="d-flex card col-md-4 p-3 m-1 card-style">
+            <div class="p-3 mb-1">
+                <img
+                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F5%2FMovie-PNG-Image.png&f=1&nofb=1&ipt=f276342d2f559dc65a922aed1fa1b418b4fd6c99af2e30cdba31e3429b58bd3d&ipo=images">
+                <h4 class="card-title pt-3 text">{{title}}</h4>
                 <p>title</p>
-                <h5 class="card-subtitle pt-2">{{genre}}</h5>
+                <h5 class="card-subtitle pt-2 text">{{genre}}</h5>
                 <p class="card-text">Genre</p>
-                <h5 class="card-subtitle pt-2">{{plot}}</h5>
+                <h5 class="card-subtitle pt-2 text">{{plot}}</h5>
                 <p class="card-text">Plot</p>
-                <h5>Cast</h5>
+                <h5 class="text">Cast</h5>
                 {{#each cast}}
                 <ul>
-                    <li>{{name}}</li>
+                    <li class="text">{{name}}</li>
                 </ul>
                 {{/each}}
             </div>
             </select>
-            <a href="/movies/edit-movie/{{_id}}" class="btn btn-success mb-3">Edit</a>
+            <a href="/movies/edit-movie/{{_id}}" class="btn btn-outline-success mb-3">Edit</a>
             <form action="/movies/movie-details/{{_id}}" method="POST">
-                <input type="submit" value="Delete Movie" class="btn btn-danger mb-3">
+                <input type="submit" value="Delete Movie" class="btn btn-outline-danger mb-3">
             </form>
         </div>
+        <div class="d-grid col-md-4">
+            <a href="/movies" class="btn btn-outline-dark p-3 m-1 d-block">Go Movies</a>
+        </div>
     </div>
-</div>
-<div class="d-grid col-md-4">
-    <a href="/" class="btn btn-dark p-3 m-1 d-block">Go Home</a>
-</div>
 </div>

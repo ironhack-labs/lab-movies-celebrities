@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: sans-serif;
+  background-color: #e7f2f8;
+  color: black;
+}
+
+p {
+  color: #868B8E;
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+.card-style {
+  background-color: #FFA384;
+  color: #868B8E;
+  border: 3px solid #FFA384;
+}
+
+.text {
+  color: black;
 }

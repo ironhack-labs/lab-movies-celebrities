@@ -1,23 +1,24 @@
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-4">
         <div class="col-md-6">
-            <h1>Create Celebrity</h1>
-            <form action="/celebrities/create" method="POST"> {{!--Action === Ruta en donde se encuentra el form --}}
+            <h1>Edit Celebrity</h1>
+            <form action="/celebrities/{{_id}}/edit" method="POST"> {{!--Action === Ruta en donde se encuentra el form
+                --}}
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
                 </div>
                 <div class="mb-3">
                     <label for="occupation" class="form-label">Occupation</label>
-                    <input type="text" class="form-control" id="occupation" name="occupation">
+                    <input type="text" class="form-control" id="occupation" name="occupation" value="{{occupation}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="catchPhrase" class="form-label">Catch Phrase</label>
-                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                    <input type="text" class="form-control" id="catchPhrase" name="cathPhrase" value="{{catchPhrase}}">
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-outline-success">Create Celebrity</button>
+                    <button type="submit" class="btn btn-outline-dark">Update</button>
                 </div>
             </form>
             <hr>
