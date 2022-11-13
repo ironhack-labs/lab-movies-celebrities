@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body>
+  <body onload="selected()">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -27,9 +27,8 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/celebrities">Our Celebrities</a></li>
-            <li><a class="dropdown-item" href="/celebrities/create">Add New Celebrity</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="/celebrities/create">Add New Celebrity</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown mx-3">
@@ -38,9 +37,8 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/movies">Our Movies</a></li>
-            <li><a class="dropdown-item" href="/movies/create">Add New Movie</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="/movies/create">Add New Movie</a></li>
           </ul>
         </li>
       </ul>

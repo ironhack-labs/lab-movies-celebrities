@@ -3,23 +3,37 @@
 
 
 <ul class="list-group">
-    {{#each movie}}
-  <li class="list-group-item">
-    <h4>{{title}}</h4>
-    
-    <p class="catchPhrase">
-        {{#each cast}}
-        {{name}}.
-        {{/each}}
-        </p>
 
-    <a href="/movies/{{_id}}" type="button" class="btn btn-dark">Details</a>
+  {{#each movie}}
 
-    <a href="/movies/{{_id}}/edit" type="button" class="btn btn-warning">Edit</a>
+    <div class="row"> 
 
-    <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
-    <input type="submit" value="Delete" class="btn btn-danger">
-    </form>
-  </li>
+      <li class="list-group-item d-flex align-items-center bg-list-color">
+
+        <div class="col-md-9 pt-3">
+          <h4>{{title}}</h4>          
+          <p class="cast">
+              {{#each cast}}
+              {{name}}.
+              {{/each}}
+              </p>
+        </div>
+
+        <div class="col-md-1 me-1">
+          <a href="/movies/{{_id}}" type="button" class="btn btn-dark w-100">Details</a>
+        </div>
+
+        <div class="col-md-1 me-1">
+          <a href="/movies/{{_id}}/edit" type="button" class="btn btn-warning w-100">Edit</a>
+        </div>
+
+        <div class="col-md-1">            
+            <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
+          <input type="submit" value="Delete" class="btn btn-danger w-100">
+          </form>           
+        </div>
+        
+      </li>
+    </div>
   {{/each}}
 </ul>

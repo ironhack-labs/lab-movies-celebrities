@@ -5,14 +5,27 @@ body {
 
 .catchPhrase {
   color: rgb(189, 0, 0) ;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
+.cast {
+  color: rgb(189, 0, 0) ;
+  font-size: 0.9em;
+}
 .occupation {
-  
+  color: rgb(128, 128, 128);
   font-size: 0.9em;
 }
 
 li {
   list-style: none;
+}
+
+.bg-list-color {
+  background-color: rgba(128, 128, 128, 0.184);
+  border: solid white 1px;
+}
+
+.option {
+  background-color: rgba(176, 241, 243, 0.264);
 }

@@ -1,5 +1,6 @@
 const moviesRouter = require("express").Router();
 
+const { find } = require("../models/Celebrity.model");
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require('../models/Movie.model')
 
@@ -54,27 +55,50 @@ moviesRouter.get("/movies/create", (req, res) => {
       })
  });
 
- moviesRouter.get("/movies/:movie_id/edit", (req, res) => {
+moviesRouter.get("/movies/:movie_id/edit", (req, res) => {
   
    const {movie_id} = req.params
 
   Movie
     .findById(movie_id)
+    .populate('cast', 'name')
     .then((movie) => {
-
+      // console.log(movie.cast)
       Celebrity
         .find()
         .select({ name: 1 })
         .then(celebrity => {
-          // res.send({movie, celebrity})
-          res.render("movies/edit-movie", {movie, celebrity})
+          
+          //   function selected (){
+          //     celebrity.forEach(celebrity => {
+          //       movie.cast.forEach(celeb => {
+          //         // console.log(celeb.name)
+          //         // console.log(celebrity.name)
+          //         // console.log('--------')
+          //         if (celeb.name === celebrity.name) {
+                    
+          //           console.log(celeb.name)
+          //           console.log(celebrity.name)
+          //           console.log('--------')
+          //           document.querySelector('#option').setAttribute('selected')
+                    
+          //         }
+          //       })
+          //     })
+          // }
+          // addEventListener('load', selected())
+          res.render("movies/edit-movie", { movie, celebrity })
+          
+          // const selected = movie.cast[0]._id
+          // // res.send({movie, celebrity})
+          // console.log( movie.cast[0]._id)
+          // console.log({movie, celebrity})
         })
     })
     .catch(err => {
       console.log(err)
     })
 });
-
 
 moviesRouter.post("/movies/create", (req, res) => {
   
@@ -107,7 +131,6 @@ moviesRouter.post("/movies/:movie_id/edit", (req, res) => {
       .catch(err => {      
         console.log(err)
       })
-  
 });
 
 

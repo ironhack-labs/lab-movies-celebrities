@@ -3,11 +3,35 @@
 <h2>Celebrities list</h2>
 
 <ul class="list-group mt-4">
+
     {{#each celebrity}}
-  <li class="list-group-item">
-    <h4>{{name}}</h4>
-    <p>{{occupation}}</p>
-    <p class="catchPhrase"><strong>{{catchPhrase}}</strong></p>
-  </li>
-  {{/each}}
+
+      <div class="row">
+
+        <li class="list-group-item d-flex align-items-center bg-list-color">
+
+          <div class="col-md-9 pt-2">
+            <h4>{{name}}</h4>
+            <p class="catchPhrase"><strong>{{catchPhrase}}</strong></p>          
+          </div>
+
+          <div class="col-md-1 me-1">
+              <a href="/celebrities/{{_id}}" type="button" class="btn btn-dark w-100">Details</a>
+          </div>
+
+          <div class="col-md-1 me-1">
+            <a href="/celebrities/{{_id}}/edit" type="button" class="btn btn-warning w-100">Edit</a>
+          </div>
+
+          <div class="col-md-1">            
+              <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline">
+              <input type="submit" value="Delete" class="btn btn-danger w-100">
+              </form>            
+          </div>
+
+        </li>
+      </div>
+
+    {{/each}}
+
 </ul>
