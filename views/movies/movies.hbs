@@ -1,2 +1,28 @@
-<h2>Movies!</h2>
+<h2>Movies</h2>
 <hr>
+<div class="container d-flex flex-wrap justify-content-center">
+
+    {{#each movies}}
+    <div class="row ">
+
+        <div class="card col-md-3" style="width: 18rem">
+
+            <div class="card-body">
+                <h5 class="card-title">Title: {{title}}</h5>
+                <p class="card-text">Genre: {{genre}}</p>
+                <p class="card-text">Plot: {{plot}}</p>
+                <p class="card-text">Cast: {{cast}}</p>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    {{/each}}
+
+    <hr>
+
+
+</div>
