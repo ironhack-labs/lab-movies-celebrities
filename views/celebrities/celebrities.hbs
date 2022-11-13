@@ -1,0 +1,28 @@
+<h2 class="title">Our Celebrities</h2>
+<div class="d-grid justify-content-center" style="margin:30px auto">
+  <a href="/celebrities/create" class="btn btn-dark">Go to create a NEW
+    Celebrity</a>
+  <a href="/" class="btn btn-dark">Back to the Homepage</a>
+</div>
+
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each celebrity}}
+      <div class="col" style="margin-bottom: 50px;">
+        <div class="card h-100" style="margin-bottom:10px">
+          <div class="card-body">
+            <h4 class="card-title" style="font-weight:border">Name:{{name}}</h4>
+            <hr />
+            <div class="card-text">
+              <h5>Occupation:{{occupation}}</h5>
+              <hr />
+              <h5>CatchPhrase:{{catchPhrase}}</h5>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-dark" href="/celebrities/{{_id}}">Movie Details</a>
+      </div>
+    {{/each}}
+  </div>
+</div>

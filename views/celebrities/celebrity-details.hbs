@@ -1,0 +1,34 @@
+<div class="container">
+  <div style="margin-bottom: 30px">
+    <h2>Celebrity Details</h2>
+    <br />
+    <br />
+    <h4>Name:{{name}}</h4>
+    <hr />
+    <h4>Occupation:{{occupation}}</h4>
+    <hr />
+    <h4>catchPhrase:{{plot}}</h4>
+    <hr />
+  </div>
+
+  <div>
+    <div class="d-grid gap-2 d-md-block">
+      <a
+        href="/celebrities/{{_id}}/edit"
+        class="btn btn-secondary"
+        style="margin-bottom: 20px"
+      >Edit the Celebrity</a>
+      <form action="/celebrities/{{_id}}/delete" method="POST">
+        <input
+          type="submit"
+          value="Delete the Celebrity"
+          class="btn btn-danger"
+        />
+      </form>
+    </div>
+
+    <a href="/celebrities" class="btn btn-dark" style="block-inline">Back to the
+      Movie list</a>
+  </div>
+
+</div>

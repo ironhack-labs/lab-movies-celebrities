@@ -1,0 +1,33 @@
+<h2 class="title">Our Movies</h2>
+<div class="d-grid justify-content-center" style="margin:30px auto">
+  <a href="/movies/create" class="btn btn-dark">Go to create a NEW Movie</a>
+  <a href="/" class="btn btn-dark">Back to the Homepage</a>
+</div>
+
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each movie}}
+      <div class="col" style="margin-bottom: 50px;">
+        <div class="card h-100" style="margin-bottom:10px">
+          <div class="card-body">
+            <h4
+              class="card-title"
+              style="font-weight:border"
+            >Title:{{title}}</h4>
+            <a class="btn btn-dark" href="/movies/{{_id}}">Movie Details</a>
+            <hr />
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+{{!-- 
+        <form
+          action=" /drones/{{_id}}/delete "
+          method="POST"
+          style="display: inline"
+        >
+          <input type="submit" value="Delete the drone" class="btn btn-dark" />
+        </form> --}}

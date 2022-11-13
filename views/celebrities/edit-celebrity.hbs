@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <h1 style="margin-bottom: 20px">Edit a new Celebrity</h1>
+      <hr />
+
+      <form
+        action="/celebrities/{{_id}}/edit"
+        method="POST"
+        style="margin-top: 20px"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            value="{{name}}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="occupation" class="form-label">Occupation</label>
+          <input
+            type="text"
+            class="form-control"
+            id="occupation"
+            name="occupation"
+            value="{{occupation}}"
+          />
+        </div>
+        <div class="mb-3">
+          <div class="form-group">
+            <label for="catchPhrase" class="form-label">CatchPhrase</label>
+            <textarea
+              class="form-control"
+              id="catchPhrase"
+              name="catchPhrase"
+              rows="5"
+            >{{catchPhrase}}</textarea>
+          </div>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-dark"> Edit</button>
+          <a href="/celebrities" class="btn btn-secondary"> Cancel</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

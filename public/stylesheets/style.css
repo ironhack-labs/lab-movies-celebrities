@@ -6,3 +6,13 @@ body {
 a {
   color: #00b7ff;
 }
+
+
+#myForm select {
+  width: 520px;
+  height: 30px;
+}
+
+/* #myForm select:focus {
+  width: auto;
+} */
