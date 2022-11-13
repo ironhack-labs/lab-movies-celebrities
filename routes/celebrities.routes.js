@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const CelebrityModel = require('../models/Celebrity.model')
+const MovieModel = require('../models/Movie.model')
+
 
 router.get('/celebrities/create', (req, res, next) => {
     res.render('celebrities/new-celebrity')
-    // console.log('la ruta desde celebrities funciona')
 });
 
 router.post('/celebrities/create', (req, res, next) => {
