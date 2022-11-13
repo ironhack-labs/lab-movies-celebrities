@@ -17,8 +17,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="cast" class="form-label">Cast</label>
-                    <select class="form-select" id= "cast" name="cast">
-                        {{#each Celebrity.model}}
+                    <select class="form-select" id="cast" name="cast">
+                        {{#each celebrities}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                     </select>

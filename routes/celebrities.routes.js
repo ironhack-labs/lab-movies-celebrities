@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const CelebrityModel = require('../models/Celebrity.model')
-const MovieModel = require('../models/Movie.model')
-
 
 router.get('/celebrities/create', (req, res, next) => {
     res.render('celebrities/new-celebrity')
@@ -21,7 +19,7 @@ router.post('/celebrities/create', (req, res, next) => {
             console.log(err)
             res.redirect('celebrities/new-celebrity')
         })
-})
+});
 
 router.get('/celebrities', (req, res, next) => {
    

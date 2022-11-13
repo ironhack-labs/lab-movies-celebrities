@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const MovieModel = require('../models/Movie.model')
-const CelebrityModel = require('../models/Celebrity.model')
-
 
 router.get('/movies/create', (req, res, next) => {
 
@@ -31,11 +29,18 @@ router.post('/movies/create', (req, res, next) => {
             console.log(err)
             res.redirect('movies/new-movie')
         })
-})
-
-router.get('/movies', (req, res, next) => {
-    res.render('movies/movies')
 });
+router.get('/movies', (req, res, next) => {
+
+    MovieModel
+        .find()
+        .then(moviesFromDB => {
+            res.render('movies/movies', { movies: moviesFromDB })
+        })
+        .catch(err => console.log(err))
+});
+
+
 
 
 module.exports = router;
