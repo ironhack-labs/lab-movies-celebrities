@@ -57,9 +57,20 @@ router.post("/:movie_id/delete", (req, res) => {
 router.get("/:movie_id/edit", (req, res) => {
 	const { movie_id } = req.params;
 
+	// Method 1, shorter but with nested thens
+	/* Movie.findById(movie_id)
+		.then((movie) => {
+			Celebrity.find()
+				.then((celebrities) => {
+					res.render("movies/edit-movie", { movie, celebrities });
+				})
+				.catch((err) => console.log(err));
+		})
+		.catch((err) => console.log(err)); */
+
+	// Method 2, longer and with declared variables, but no nested thens
 	let movieToEdit;
 	let celebFromMovie;
-	let filteredCelebs;
 
 	Movie.findById(movie_id)
 		.populate("cast")
@@ -74,16 +85,6 @@ router.get("/:movie_id/edit", (req, res) => {
 			// console.log(celebFromMovie);
 		})
 		.catch((err) => console.log(err));
-
-	/* Movie.findById(movie_id)
-		.then((movie) => {
-			Celebrity.find()
-				.then((celebrities) => {
-					res.render("movies/edit-movie", { movie, celebrities });
-				})
-				.catch((err) => console.log(err));
-		})
-		.catch((err) => console.log(err)); */
 });
 
 router.post("/:movie_id/edit", (req, res) => {
