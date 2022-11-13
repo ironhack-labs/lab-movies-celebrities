@@ -1,0 +1,33 @@
+<h2>Update the Celebrity</h2>
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+
+            <form action="/celebrities/{{celebArray._id}}/update-celebrities" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{celebArray.name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Motores</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation"
+                        value="{{celebArray.occupation}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="catchPhrase" class="form-label">Velocidad Maxima</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase"
+                        value="{{celebArray.catchPhrase}}">
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-dark" value="editar"></input>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>

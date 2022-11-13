@@ -1,15 +1,27 @@
-<h1>celebrities</h1>
-<div class="row justify-content-center d-flex"></div>
-{{#each celebArray}}
-<div class="col-md-4 mb-3">
-    <div class="card">
+<h1>Celebrities</h1>
+<div class="row ">
+    {{#each celebArray}}
+    <div class="col-md-4 mb-4 w-25 text-center">
+        <div class="card">
 
-        <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <p class="card-text"> Occupation:{{occupation}}</p>
-            <p class="card-text">Catch Phrase:{{catchPhrase}}</p>
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+
+            </div>
+            <p>
+                <a href="/celebrities/celebritie-details/{{_id}}">Info de {{name}}</a>
+            </p>
+            <div>
+                <a href="/celebrities/{{_id}}/update-celebrities"><input type="submit" class="btn btn-dark"
+                        value="editar" style="display: inline;"></input></a>
+
+                <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline">
+                    <input type="submit" value="eliminar" class="btn btn-danger">
+                </form>
+            </div>
         </div>
+
     </div>
-</div>
-{{/each}}
+
+    {{/each}}
 </div>
