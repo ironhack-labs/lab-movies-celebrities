@@ -2,23 +2,9 @@ const router = require("express").Router();
 
 const Celebrity = require('../models/Celebrity.model')
 
-router.get('/celebrities', (req, res, next) => {
-
-    Celebrity
-        .find()
-        .then(Celebrity => {
-            res.render('celebrities/celebrities', { Celebrity })
-        })
-        .catch(err => console.log(err))
-})
-
 router.get('/celebrities/create', (req, res, next) => {
 
-    Celebrity
-        .find()
-        .then(celebrity => {
-            res.render('celebrities/new-celebrity', { celebrity })
-        })
+    res.render('celebrities/new-celebrity')
         .catch(err => console.log(err))
 })
 
@@ -32,7 +18,22 @@ router.post('/celebrities/create', (req, res, next) => {
         })
         // .catch(err => console.log(err))
 
-        .catch(() => res.render('/celebrities/new-celebrity'))
+        .catch(() => {
+            res.render('/celebrities/new-celebrity')
+        })
+})
+
+router.get('/celebrities', (req, res, next) => {
+
+    Celebrity
+        .find()
+        .then((celebrityFormDB) => {
+            const celebritiesArray = {
+                celebrityFormDB
+            }
+            res.render('celebrities/celebrities', celebritiesArray)
+        })
+        .catch(err => console.log(err))
 })
 
 module.exports = router;

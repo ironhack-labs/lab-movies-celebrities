@@ -20,11 +20,11 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
-const celebritiesRoutes = require('./routes/celebrities.routes')
-app.use('/', celebritiesRoutes)
-
 const moviesRoutes = require('./routes/movies.routes')
 app.use('/', moviesRoutes)
+
+const celebritiesRoutes = require('./routes/celebrities.routes')
+app.use('/', celebritiesRoutes)
 
 require('./error-handling')(app);
 

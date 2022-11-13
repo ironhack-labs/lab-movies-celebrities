@@ -20,8 +20,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="cast" class="form-label">Reparto</label>
-                    <select class="form-select" name="author">
-                        {{#each Celebrity}}
+                    <select multiple class="form-select" name="cast">
+                        {{#each celebritiesFromDB}}
                         <option value="{{_id}}">{{name}}</option>
                         {{/each}}
                     </select>

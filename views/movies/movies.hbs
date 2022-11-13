@@ -2,12 +2,10 @@
     <h2>Movies</h2>
     <hr>
 
-    <ul>
-        {{#each Movie}}
-        <h5 class="mt-5">
-            <a href="/movies/:id" class="btn btn-dark mt-2">{{title}}</a>
-        </h5>
-        {{/each}}
-    </ul>
+    {{#each moviesFromDB}}
+    <h5 class="mt-5">
+        <a href="/movies/{{_id}}/movie-details" class="btn btn-dark mt-2">{{title}}</a>
+    </h5>
+    {{/each}}
 
 </div>

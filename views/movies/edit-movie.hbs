@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Editar película</h2>
+
+    <form action="/movies/{{moviesFromDB._id}}/edit-movie" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{moviesFromDB.title}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="genre" class="form-label">Género</label>
+            <input type="text" class="form-control" id="genre" name="genre" value="{{moviesFromDB.genre}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="plot" class="form-label">Trama</label>
+            <input type="text" class="form-control" id="plot" name="plot" value="{{moviesFromDB.plot}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="cast" class="form-label">Reparto</label>
+            <select multiple class="form-select" name="cast" value="{{cast}}">
+                {{#each celebritiesArray}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="d-grid">
+            <input class="btn btn-black d-grid" type="submit" value="Editar película">
+        </div>
+    </form>
+
+</div>

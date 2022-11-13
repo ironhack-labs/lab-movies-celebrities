@@ -1,14 +1,29 @@
 <div class="container">
     <h2>Detalles de la película</h2>
-    <h3>{{title}}</h3>
-    <h3>{{genre}}</h3>
-    <h3>{{plot}}</h3>
 
-    {{#each cast}}
-    <h5 class="mt-5">
-        {{name}}
-    </h5>
-    {{/each}}
+    <ul>
+
+        <h5 class="mt-5">
+            {{title}}
+        </h5>
+        <li>
+            {{genre}}
+        </li>
+        <li>
+            {{plot}}
+        </li>
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <div class="btn btn-black d-grid">
+                <input type="submit" class="btn btn-danger mt-3" value="Borrar">
+            </div>
+        </form>
+        <div>
+            <a href="/movies/{{_id}}/edit-movie">
+                <input type="submit" class="btn btn-black mt-3" value="Editar">
+            </a>
+        </div>
+
+    </ul>
 
     <hr>
 
