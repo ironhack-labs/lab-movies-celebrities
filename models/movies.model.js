@@ -1,6 +1,7 @@
 //  Add your code here
 const mongoose = require('mongoose');
 
+
 const moviesSchema = new mongoose.Schema(
     {
         name: {
@@ -19,8 +20,7 @@ const moviesSchema = new mongoose.Schema(
         },
         cast: [{
             type: mongoose.Types.ObjectId,
-            ref: 'Celebrity',
-            required: true
+            ref: 'Celebrities',
         }]
     },
     {

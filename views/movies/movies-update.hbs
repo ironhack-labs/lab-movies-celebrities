@@ -1,22 +1,26 @@
-<h2 class="text-center">Update {{name}}!</h2>
+<h2 class="text-center">Update {{movie.name}}!</h2>
 
 <div class="container d-flex text-center justify-content-center mt-3">
     <form action="/movies/{{_id}}/edit" method="POST">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+            <input type="text" class="form-control" id="name" name="name" value="{{movie.name}}">
         </div>
         <div class="mb-3">
             <label for="genre" class="form-label">Genre</label>
-            <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}">
+            <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
         </div>
         <div class="mb-3">
             <label for="plot" class="form-label">Plot</label>
-            <input type="text" class="form-control" id="plot" name="plot" value="{{plot}}">
+            <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}">
         </div>
         <div class="mb-3">
             <label for="cast" class="form-label">Cast</label>
-            <input type="text" class="form-control" id="cast" name="cast" value="{{cast}}">
+            <select multiple class="form-select" name="cast">
+                {{#each cast}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
         </div>
 
 

@@ -9,7 +9,14 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">{{genre}}</li>
             <li class="list-group-item">{{plot}}</li>
-            <li class="list-group-item">{{cast}}</li>
+            <li class="list-group-item">Cast:
+                <ul>
+                    {{#each cast}}
+                    <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+
+            </li>
         </ul>
     </div>
 
