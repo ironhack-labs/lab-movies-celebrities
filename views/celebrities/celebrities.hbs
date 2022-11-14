@@ -1,0 +1,30 @@
+<div class="container d-flex gap-6 flex-wrap justify-content-center">
+    <h2>List of celebrities</h2>
+    <hr>
+
+    {{#each data}}
+        <div class="card col-md-4 mb-3 ">
+            <h3>{{name}}</h3>
+            <br>
+            <ul>
+                <li>
+                    {{occupation}}
+                </li>
+                <li>
+                    {{catchPhrase}}
+                </li>
+
+            </ul>
+            <a href="/drones/{{_id}}/edit" class="btn btn-dark">Edit</a>
+
+            <form action="/drones/{{_id}}/delete" method="POST">
+                <input type="submit" value="Delet" class="btn btn-danger">
+            </form>
+        </div>
+    {{/each}}
+</div>
+
+<hr>
+
+<a href="/" class="btn btn-dark">Volver a incio</a>
+</div>
