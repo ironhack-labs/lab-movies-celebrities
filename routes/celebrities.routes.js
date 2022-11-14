@@ -5,7 +5,9 @@ const Celebrities = require("../models/Celebrity.model");
 // all your routes here
 
 router.get("/", (req, res) => {
-  res.send("Celebrities");
+  Celebrities.find().then((celebrities) => {
+    res.render("./celebrities/celebrities", { celebrities: celebrities });
+  });
 });
 
 //Create new celebrity
