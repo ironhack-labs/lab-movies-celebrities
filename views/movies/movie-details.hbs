@@ -1,0 +1,22 @@
+
+
+
+<div class="container">
+
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+        <p class="card-text">{{plot}}</p>
+        <a href="/movies" class="card-link" class="btn btn-outline-secondary">go to movies</a>
+        
+    </div>
+<a type="button" class="btn btn-outline-primary" href="/movies/{{id}}/edit">update movie</a>
+    <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="Delete movie" class="btn btn-outline-dark">
+    </form>
+</div>
+</div>
+

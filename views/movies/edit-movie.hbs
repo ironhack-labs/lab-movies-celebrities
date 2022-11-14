@@ -1,0 +1,34 @@
+<form action="/movies/{{id}}/edit" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Film</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label">genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}">
+
+    </div>
+    <div class="mb-3">
+        <label for="plot" class="form-label">plot</label>
+        <input type="text" class="form-control" id="plot" name="plot" value="{{plot}}">
+
+    </div>
+
+
+    <div class="mb-3">
+        <label for="cast" class="form-label">cast</label>
+        <select class="form-select" name="author">
+            <option value="{{id}}">{{name}}</option>
+            <option value="id_del_autor">Un autor/a</option>
+            <option value="id_del_autor">Un autor/a</option>
+            <option value="id_del_autor">Un autor/a</option>
+            <option value="id_del_autor">Un autor/a</option>
+            <option value="id_del_autor">Un autor/a</option>
+            <option value="id_del_autor">Un autor/a</option>
+            <option value="id_del_autor">Un autor/a</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-light">Submit</button>
+</form>

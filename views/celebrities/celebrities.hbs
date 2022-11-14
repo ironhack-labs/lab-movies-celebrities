@@ -1,0 +1,28 @@
+<div class="container d-flex flex-wrap justify-content-center">
+    
+    
+{{#each celebrities}}
+
+
+<div class="card" style="width: 18rem;">
+  
+    <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{occupation}}</li>
+        <li class="list-group-item">{{catchPhrase}}</li>
+        
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">Update</a>
+        <a href="#" class="card-link">Delete</a>
+        <a href="/celebrities" class="card-link">go back</a>
+    </div>
+</div>
+
+{{/each}}
+
+
+</div>

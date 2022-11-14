@@ -1,0 +1,30 @@
+<form action="/new-movie" method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Film</label>
+        <input type="text" class="form-control" id="title" name="title">
+
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label">genre</label>
+        <input type="text" class="form-control" id="genre" name="genre">
+
+    </div>
+    <div class="mb-3">
+        <label for="plot" class="form-label">plot</label>
+        <input type="text" class="form-control" id="plot" name="plot">
+
+    </div>
+
+
+                <div class="mb-3">
+                    <label for="cast" class="form-label">cast</label>
+                    <select class="form-select" name="celebrity">
+                        {{#each cast}}
+                        <option value="{{_id}}">{{name}}</option>
+                       {{/each}}
+                    </select>
+                </div>
+
+    <button type="submit" class="btn btn-light">Submit</button>
+</form>
+
