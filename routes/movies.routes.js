@@ -7,13 +7,11 @@ const Movie = require("../models/Movie.model");
 // Create - GET
 router.get("/movies/create", async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const celebs = await Celebrity.find()
     //get all the celebrities
     const celebrities = await Celebrity.find();
-    //get the specific movie
-    //single populate
-    const movie = await Movie.findById(id);
-    res.render("movies/new-movie", { movie, celebrities });
+
+    res.render("movies/new-movie", {celebs });
   } catch (error) {
     console.log(error);
     next(error);
@@ -56,8 +54,8 @@ router.get("/movie-details/:id", async (req, res, next) => {
     const celebrities = await Celebrity.find();
     //get the specific movie
     //single populate
-    const movie = await Movie.findById(id).populate("cast");
-    res.render("movies/movie-details", { movie, celebrities });
+    const movies = await Movie.findById(id).populate("cast");
+    res.render("movies/movie-details", { movies });
   } catch (error) {
     console.log(error);
     next(error);
@@ -80,9 +78,11 @@ router.post("/movies/:id/delete", async (req, res, next) => {
 // Display a página de Edit routes (edit-movie.hbs)
 router.get("/movies/:id/edit", async (req, res, next) => {
   try {
-    const celebrities = await Celebrity.find();
-    const movie = await Movie.findById(req.params.id);
-    res.render("movies/edit-movie", { movie, celebrities });
+    const {id} = req.params
+    const {title, genre,plot, cast}=req.body
+    const movie = await Movie.findById(id);
+    const celebrity = await Celebrity.findById();
+    res.render("movies/edit-movie", { movie, celebrity });
   } catch (error) {
     console.log(error);
     next(error);

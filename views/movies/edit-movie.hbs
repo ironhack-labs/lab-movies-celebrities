@@ -23,14 +23,12 @@
   <br />
   <br />
 
-  <select name="cast" id="cast" multiple>
+<label for="cast">Cast</label>
+  <select name="cast">
     {{#each celebrities}}
       <option value="{{_id}}">{{title}}</option>
     {{/each}}
   </select>
-
-  <br />
-  <br />
 
   <button type="submit">Edit</button>
 

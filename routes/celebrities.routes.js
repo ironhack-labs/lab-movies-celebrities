@@ -6,11 +6,13 @@ router.get("/celebrities/create", (req, res, next) =>
 );
 
 router.post("/celebrities/create", async (req, res, next) => {
-  try {
-    const { title, occupation, catchPhrase } = req.body;
+  const { name, occupation, catchPhrase } = req.body;
+ 
 
+  try {
+    
     const createdCelebrity = await Celebrity.create({
-      title,
+      name,
       occupation,
       catchPhrase,
     });
@@ -31,5 +33,6 @@ router.get("/celebrities", async (req, res, next) => {
     next(error);
   }
 });
+
 
 module.exports = router;
