@@ -1,0 +1,20 @@
+<div class="container-fluid mt-5">
+    <h1 class="display-3 text-center">List of celebrities</h1>
+    <div class="row mt-5">
+        <div class="d-flex justify-content-around mt-5">
+            <div class="w-25 text-center fs-3"><strong>Nombre</strong></div>
+            <div class="w-25 text-center fs-3"><strong>Ocupación</strong></div>
+            <div class="w-25 text-center fs-3"><strong>Catch Phrase</strong></div>
+
+
+        </div>
+        {{#each celebrity}}
+        <div class="d-flex align-items-center mt-2">
+            <div class="col-3 text-center"><a href="/celebrities/{{_id}}">{{name}}</a></div>
+            <div class="col-3 text-center">{{occupation}}</div>
+            <div class="col-3 text-center">{{catchPhrase}}</div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>

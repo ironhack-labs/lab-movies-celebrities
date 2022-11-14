@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-center display-3">Detalles de "{{name}}"</h1>
+    <div class="row justify-content-center">
+        <div class="card d-flex flex-row justify-content-around p-3" style="width:70%" id="detail-card">
+
+            <img class="card-img-top d-block" style="width:30%"
+                src="http://www.yelmcinemas.com/template_1/img/default-movie-portrait.jpg" alt="Card image cap">
+            <div class="ml-5">
+                <a href="/movies">Go back</a>
+                <p class="card-title "><strong>Nombre: </strong>{{name}}</p>
+                <p class="card-text "><strong>Ocupación: </strong>{{occupation}}</p>
+                <p class="card-text "><strong>Lema: </strong>{{catchPhrase}}</p>
+                <div class="d-flex">
+                    <form action="/celebrities/{{_id}}/delete" method="POST">
+                        <input type="submit" class="btn btn-danger" value="Eliminar">
+                    </form>
+                    <a href="/celebrities/{{_id}}/edit" class="btn btn-dark">Editar</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

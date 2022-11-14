@@ -1,0 +1,26 @@
+<div class="container-fluid mt-5">
+    <h1 class="display-3 text-center">List of movies</h1>
+    <div class="row mt-5">
+        <div class="d-flex justify-content-around mt-5">
+            <div class="w-25 text-center fs-3"><strong>Título</strong></div>
+            <div class="w-25 text-center fs-3"><strong>Género</strong></div>
+            <div class="w-25 text-center fs-3"><strong>Argumento</strong></div>
+            <div class="w-25 text-center fs-3"><strong>Reparto</strong></div>
+
+
+        </div>
+        {{#each movies}}
+        <div class="d-flex align-items-center mt-2">
+            <div class="col-3 text-center"><a href="/movies/{{_id}}">{{title}}</a></div>
+            <div class="col-3 text-center">{{genre}}</div>
+            <div class="col-3 text-center">{{plot}}</div>
+            <ul class="col-3 d-inline-flex justify-content-evenly align-items-center">
+                {{#each cast}}
+                <li>{{name}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+
+    </div>
+</div>

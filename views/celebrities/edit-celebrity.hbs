@@ -1,0 +1,26 @@
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1 class="display-5 text-center">Edita {{name}}</h1>
+
+            <form action="/celebrities/{{_id}}/edit" method="POST" class="mt-5">
+                <div class="mb-4">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+                </div>
+                <div class="mb-4">
+                    <label for="occupation" class="form-label">Ocupación</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation" value="{{occupation}}">
+                </div>
+                <div class="mb-4">
+                    <label for="phrase" class="form-label">Catchphrase</label>
+                    <input type="text" class="form-control" id="phrase" name="catchPhrase" value="{{catchPhrase}}">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-dark w-50 mt-3" value="Editar">
+                </div>
+            </form>
+        </div>
+    </div>
