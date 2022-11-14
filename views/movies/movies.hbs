@@ -1,0 +1,10 @@
+<h2>MOVIES</h2>
+<div>{{#each movies}}
+    <h3> {{title}}</h3>
+    <p>{{genre}}</p>
+    <p>{{plot}}</p>
+    <p>{{cast}}</p>
+    <a href="/movies/{{_id}}">Movie details</a>
+    {{/each}}
+</div>
+<a href="/">Página principal</a>
