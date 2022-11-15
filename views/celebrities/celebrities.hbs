@@ -1,0 +1,27 @@
+<h2>All Celebrities</h2>
+
+<section>
+  <div>
+    <a href="/celebrities/create">Add</a>
+  </div>
+</section>
+
+<section>
+  <ul>
+    {{#celebrities}}
+      <li>
+        <h3><a href="/celebrities/{{id}}">{{name}}</a></h3>
+        <div>
+          <a href="/celebrities/{{id}}/edit">edit</a>
+          <form action="/celebrities/{{id}}/delete" method="post">
+            <button type="submit">delete</button>
+          </form>
+        </div>
+      </li>
+    {{/celebrities}}
+  </ul>
+</section>
+
+<div>
+  <a href="/">home</a>
+</div>

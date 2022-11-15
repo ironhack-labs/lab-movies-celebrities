@@ -1,0 +1,24 @@
+<section>
+  <a href="/movies/create">Add</a>
+</section>
+
+<ul>
+  {{#movies}}
+    <li>
+      <div>
+        <h3><a href="/movies/{{id}}">{{title}}</a></h3>
+
+        <a href="/movies/{{id}}/edit">Edit</a>
+
+        <form action="/movies/{{id}}/delete" method="post">
+          <button type="submit">Delete</button>
+        </form>
+        <hr />
+      </div>
+    </li>
+  {{/movies}}
+</ul>
+
+<div>
+  <a href="/">home</a>
+</div>
