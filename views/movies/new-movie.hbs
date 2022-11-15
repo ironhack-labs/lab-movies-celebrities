@@ -1,0 +1,24 @@
+<h2>Add a movie</h2>
+<form action="/movies/create" method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" class="form-control" id="title" aria-describedby="title" placeholder="ex. Matrix">
+  </div>
+  <div class="form-group">
+    <label for="genre">Specify genre</label>
+    <input type="text" name="genre" class="form-control" id="genre" placeholder="ex. sci-fi">
+  </div>
+  <div class="form-check">
+    <label for="plot">Plot summary</label>
+    <input type="text" name="plot" class="form-control" id="plot" placeholder="ex. Aliens breed humans to harvest their energy">
+  </div>
+  <div class="form-check">
+    <label for="cast">Who's in it?</label>
+    <select name="cast" id="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

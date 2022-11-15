@@ -1,0 +1,16 @@
+<h2>Add a celebrity</h2>
+<form action="/celebrities/create" method="post">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="ex. Paris Hilton">
+  </div>
+  <div class="form-group">
+    <label for="occupation">What is their job?</label>
+    <input type="text" name="occupation" class="form-control" id="occupation" placeholder="ex. celebrity">
+  </div>
+  <div class="form-check">
+    <label for="catchphrase">What is their catchphrase?</label>
+    <input type="text" name="catchphrase" class="form-control" id="catchphrase" placeholder="ex. That's hot!">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
