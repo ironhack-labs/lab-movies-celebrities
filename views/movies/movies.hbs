@@ -1,0 +1,12 @@
+<h2>All Movies</h2>
+<a class="btn btn-success" href="/movies/create">Add a new one</a>
+
+{{#each movies}}
+    <div class="mt-4">
+        <h3>{{title}}</h3>
+        <a class="btn btn-primary" href="/movies/{{_id}}">See details</a> 
+        <a class="btn btn-primary ms-2" href="/movies/{{_id}}/edit">Edit</a> 
+    </div>
+{{/each}}
+
+<a class="mt-4 btn btn-secondary" href="/">Back</a>

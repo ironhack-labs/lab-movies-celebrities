@@ -1,0 +1,14 @@
+<h2>All celebrities</h2>
+<a class="btn btn-success" href="/celebrities/create">Add a new one</a>
+
+<div class="mt-4">
+    {{#each celebrities}}
+    <div class="mt-4">
+        <h4>{{name}}</h4>
+        <a class="btn btn-primary" href="/celebrities/{{_id}}">See details</a> 
+        <a class="btn btn-primary ms-2" href="/celebrities/{{_id}}/edit">Edit</a> 
+    </div>
+    {{/each}}
+</div>
+
+<a class="mt-4 btn btn-secondary" href="/">Back</a>
