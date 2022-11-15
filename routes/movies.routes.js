@@ -50,7 +50,7 @@ router.get('/movies/:movieId', (req, res) => {
     });
 });
 
-//Deliting movies
+//Deleting movies
 router.post('/movies/:movieId/delete', (req, res) => {
     const { movieId } = req.params;
     console.log(movieId)
