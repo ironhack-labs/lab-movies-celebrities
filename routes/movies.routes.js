@@ -19,9 +19,8 @@ router.get('/movies/create', (req, res) => {
 
 //POST
 router.post('/movies/create', (req, res) => {
-    console.log("HEY!!")
-    const { title, description, plot, cast } = req.body;
-    Movie.create({title, description, plot, cast})
+    const { title,  description, plot, cast } = req.body;
+    Movie.create({title,  description, plot, cast})
     .then((result) => console.log(result))
     .then(() => res.redirect('/movies'))
     .catch(error => res.render('movies/new-movie.hbs'));
@@ -37,7 +36,6 @@ router.get('/movies', (req, res) => {
     })
     .catch((error) => {
         console.log("Error while getting movie from the DB: ", error);
-       // next(error);
     });
 })
 
@@ -46,7 +44,6 @@ router.get('/movies/:movieId', (req, res) => {
     const { movieId } = req.params;
     Movie.findById(movieId)
     .populate('cast')
-    //.then((theMovie) => console.log("movies/movie-details.hbs", theMovie))
     .then(theMovie => res.render("movies/movie-details.hbs", { newMovie: theMovie }))
     .catch(error => {
       console.log("Error while retrieving movie details: ", error);
@@ -55,11 +52,45 @@ router.get('/movies/:movieId', (req, res) => {
 
 //Deliting movies
 router.post('/movies/:movieId/delete', (req, res) => {
-    const { mId } = req.params;
-    Movie.findByIdAndRemove(mId)
+    const { movieId } = req.params;
+    console.log(movieId)
+    Movie.findByIdAndRemove(movieId)
     .then(() => res.redirect('/movies'))
     .catch(error => {
-        //???????
+        console.log("Error while getting movie from the DB: ", error);
+    })
+})
+
+//Editing movies === get all parts
+router.get("/movies/:movieId/edit", (req, res) => {
+    const { movieId } = req.params; //must be the same name of ID as in the route!!!
+    console.log(movieId)
+    Movie.findById(movieId)
+    .then(movieToEdit => {
+        console.log(movieToEdit)
+        Celebrity.find()
+        .then(celebrity => {
+            console.log(celebrity)
+            res.render('movies/edit-movie', {movieToEdit, movieId, celebrity})
+        })
+    })
+    .catch(error => {
+        console.log("Error!!!", error);
+    })
+});
+
+//Editing movies === posting changes
+router.post('/movies/:movieId/edit',(req, res) => {
+    const { movieId } = req.params;
+    const { title, description, plot } = req.body
+    Movie.findByIdAndUpdate(movieId , {title,  description, plot},  {new: true})
+    .then(updatedMovie => {
+        updatedMovie.save();
+        console.log(updatedMovie)
+       // res.redirect('/movies')
+    })
+    .then(() => res.redirect('/movies'))
+    .catch(error => {
         console.log("Error while getting movie from the DB: ", error);
     })
 })

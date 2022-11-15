@@ -1,5 +1,6 @@
 <h2>{{newMovie.title}}</h2> 
-<p>{{newMovie.genre}}</p>
+<p>{{newMovie.description}}</p>
+<p>{{newMovie.plot}}</p>
 {{#each newMovie.cast}}
     <li>
         <ul>{{name}}</ul>
@@ -10,4 +11,8 @@
 
 <form action="/movies/{{newMovie._id}}/delete" method="POST">
   <button value="DELETE">DELETE</button>
+</form>
+
+<form action="/movies/{{newMovie._id}}/edit" method="GET">
+  <button value="EDIT">EDIT</button>
 </form>
