@@ -1,0 +1,10 @@
+{{#each movie}}
+    <h3>{{title}}</h3>
+   <p>
+     {{#each cast}}
+       {{name}}
+     {{/each}}
+ </p> 
+ <a href="/movies/{{_id}}">Movie Details</a>
+
+ {{/each}}
