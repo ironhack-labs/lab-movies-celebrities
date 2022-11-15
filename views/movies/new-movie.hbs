@@ -1,0 +1,24 @@
+<h2>Movies</h2>
+<h2>Create a New Movie</h2>
+<form action="/movies/create" method="POST">
+    <label> Title:
+        <input type="text" name="name" />
+    </label>
+
+    <label> Genre:
+        <input type="text" name="ocupation" />
+    </label>
+
+    <label> Plot:
+        <textarea name="catchPhrase" cols="30" rows="4"> </textarea>
+    </label>
+    <label> Cast:
+        <textarea name="catchPhrase" cols="30" rows="4"> </textarea>
+        <select name="movies" id="movies" multiple>
+            {{#each this}}
+          <option value='{{_id}}'>{{name}}</option>
+            {{/each}}
+        </select>
+    </label>
+    <button type="submit"> Create </button>
+</form>

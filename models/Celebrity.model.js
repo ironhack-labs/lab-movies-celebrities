@@ -15,9 +15,6 @@ const celebritiesSchema = new Schema(
         required: true,
      }
   },
-//   {
-//     timestamps: true,
-//   },
 );
 
 const Celebrity = model('Celebrity', celebritiesSchema);
