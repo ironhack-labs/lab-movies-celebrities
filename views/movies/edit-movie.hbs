@@ -7,7 +7,7 @@
       <hr />
 
       <form
-        action="/movies/{{_id}}/edit"
+        action="/movies/{{movie._id}}/edit"
         method="POST"
         style="margin-top: 20px"
       >
@@ -18,7 +18,7 @@
             class="form-control"
             id="title"
             name="title"
-            value="{{title}}"
+            value="{{movie.title}}"
           />
         </div>
 
@@ -29,7 +29,7 @@
             class="form-control"
             id="genre"
             name="genre"
-            value="{{genre}}"
+            value="{{movie.genre}}"
           />
         </div>
 
@@ -41,15 +41,24 @@
               id="plot"
               name="plot"
               rows="5"
-            >{{plot}}</textarea>
+            >{{movie.plot}}</textarea>
           </div>
+        </div>
+
+        <div>
+          <ul>
+            Autores present
+            {{#each movie.cast}}
+              <li>{{name}}</li>
+            {{/each}}
+          </ul>
         </div>
 
         <div class="mb-3" id="myForm">
 
           <label for="cast">Select a cast members:</label>
           <select name="cast" id="cast" multiple>
-            {{#each cast}}
+            {{#each celebrities}}
               <option value="{{_id}}">{{name}}</option>
             {{/each}}
           </select>

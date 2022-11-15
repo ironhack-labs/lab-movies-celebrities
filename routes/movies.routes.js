@@ -70,18 +70,25 @@ router.post('/movies/:id/delete', (req, res, next) => {
 
 //Iteration #10: Editing Movies
 
-
-router.get('/movies/:id/edit', (req, res, next) => {
+router.get("/movies/:id/edit", (req, res, next) => {
     const { id } = req.params
+    let oneMovie = {}
     Movie
         .findById(id)
-        .populate('cast')
-        .then(movie => {
-            res.render('movies/edit-movie', movie)
+        .populate("cast")
+        .then((movie) => {
+            oneMovie = movie
+            return Celebrity.find().select('name')
         })
-        .catch(err => console.log(err))
+        .then((allCelebrities) => {
+            const movieAndCelebrities = { movie: oneMovie, celebrities: allCelebrities }
+            // res.json(movieAndCelebrities)
+            res.render("movies/edit-movie", movieAndCelebrities)
+        })
+        .catch((err) => next(err))
+})
 
-});
+
 
 
 router.post('/movies/:id/edit', (req, res, next) => {
