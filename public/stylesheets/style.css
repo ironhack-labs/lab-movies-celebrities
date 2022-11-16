@@ -1,8 +1,28 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font-family: sans-serif;
+    height: 1200px;
+    background-color: #cccccc;
+    background-image: linear-gradient(red, yellow, green);
+    /* background-color: rgb(155, 76, 134); */
+    /* background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fpromocionmusical.es%2Fcomo-hacer-tu-show-mas-interesante%2F&psig=AOvVaw1nkAga1fxSVs8PDM-FLkgC&ust=1668716207465000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjLtbnCs_sCFQAAAAAdAAAAABAD'); */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+    font-size: 20px;
 }
 
 a {
-  color: #00b7ff;
+    color: #000;
+    font-size: 30px;
+    text-shadow: 3px 3px 20px black;
+}
+
+h1 {
+    color: 15px;
 }

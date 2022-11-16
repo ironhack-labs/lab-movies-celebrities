@@ -1,9 +1,9 @@
-<h2>Celebrities</h2>
-
-<ul>
+<div class="container">
+    <h2>Celebrities</h2>
     {{#each celebrity}}
-        <li>{{name}}</li>
-       
+        <p>Name: {{this.name}}</p>
+        <a href="/celebrities/{{this._id}}">View {{this.name}}</a>
     {{/each}}
-</ul>
-<a href="/">return Home</a>
+    <a href="/celebrities/create">Add celebrity</a>
+    <a href="/"> Return Home</a>
+</div>

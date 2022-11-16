@@ -1,17 +1,17 @@
-<h2>Celebrities</h2>
+<div class="container">
+    <h1>Add celebrity</h1>
+    <form action="/celebrities/create" method="POST">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name">
 
-<form action="/celebrities/create" method="post">
-    <label>
-        Name:
-        <input type="text" name="name" />
-    </label>
-    <label>
-        occupation:
-        <input type="text" name="occupation" />
-    </label>
-    <label>
-        Catch Phrase:
-        <input type="text" name="catchPhrase" />
-    </label>
-    <button type="submit"> Create </button>
-</form>
+        <label for="occupation">Occupation: </label>
+        <input type="text" name="occupation" id="occupation">
+
+        <label for="catchPhrase">Catch phrase: </label>
+        <input type="text" name="catchPhrase" id="catchPhrase">
+
+        <button type="submit">Add celebrity</button>
+    </form>
+    <a href="/celebrities">Celebrities</a>
+    <a href="/">Return Home</a>
+</div>

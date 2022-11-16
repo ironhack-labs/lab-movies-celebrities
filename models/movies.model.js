@@ -13,14 +13,14 @@ const moviesSchema = new Schema(
         plot: {
             type: String,
         },
-        posts: [{
+        cast: [{
             type: Schema.Types.ObjectId,
             ref: 'Celebrity'
         }],
     },
-    {
-        timestamps: true,
-    }
+    // {
+    //     timestamps: true,
+    // }
 );
 
 const Movies = model("Movies", moviesSchema);
