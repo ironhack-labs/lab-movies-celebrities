@@ -60,4 +60,14 @@ router.post("/celebrities/:celebId/edit", (req, res, next) => {
     .then(() => res.redirect("/celebrities/"))
     .catch((error) => next(error));
 });
+//delete
+router.post("/celebrities/:celebId/delete", (req, res) => {
+  const { celebId } = req.params;
+  Celeb.findByIdAndRemove(celebId)
+    .then(() => res.redirect("/celebrities/"))
+    .catch((error) => {
+      console.log("Error while retrieving celeb for delete: ", error);
+    });
+});
+
 module.exports = router;

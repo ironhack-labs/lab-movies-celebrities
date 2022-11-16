@@ -5,6 +5,7 @@
      <th scope="col">View</th>
     <th scope="col">Celeb Name</th>
      <th scope="col">Update</th>
+      <th scope="col">Remove Celeb</th>
   </tr>
   {{#each celeb}}
     <tr scope="row">
@@ -13,6 +14,10 @@
       <td> <form action="/celebrities/{{_id}}/edit" method="GET">
         <button value="EDIT"> Edit</button>
     </form></td>  
+    <td>
+      <form action="/celebrities/{{_id}}/delete" method="POST">
+  <button value="DELETE">Delete</button>
+    </td>
     </tr>
   {{/each}} 
  
