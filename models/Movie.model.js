@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+
+//  Add your code here
 const { Schema, model } = mongoose;
 
 const movieSchema = new Schema({
@@ -9,4 +11,4 @@ const movieSchema = new Schema({
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
-model.export = Movie;
+module.exports = Movie;
