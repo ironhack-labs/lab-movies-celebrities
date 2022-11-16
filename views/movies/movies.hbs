@@ -1,5 +1,8 @@
-<h1>All movies:</h1>
-{{#each this}}
-  <a href='/movies/{{_id}}'>
-    <h3 class='text-xl ml-24'>{{title}}</h3>
-  </a>
+<div class="container">
+    <h2>Movies</h2>
+    {{#each movies}}
+        <p>Title: <a href="/movies/{{this._id}}">{{this.title}}</a></p>
+    {{/each}}
+    <a href="/movies/create">Add movie</a>
+    <a href="/">Home</a>
+</div>
