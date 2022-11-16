@@ -1,0 +1,27 @@
+<div>
+    <h2 class="heading">
+        Load a New Movie
+    </h2>
+</div>
+<div>
+<form action="/movies/create" method="POST">
+
+    <label> Movie Title </label>
+      <input type="text" class="formInput" name="title" placeholder="Mario World">
+
+    <label> Genre </label>
+      <input type="text" class="formInput" name="genre" placeholder="action">
+
+    <label> Plot</label>
+      <input type="text" class="formInput" name="plot" placeholder="King Koopa has stolen the Princess">
+
+    <label> Cast</label>
+        <select name="celebs" id="starringDrop" class="formInput" multiple> 
+            {{#each allCelebrities}}
+            <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+
+    <button class="addDB" type="submit">Add</button>
+  </div>
+</form>
