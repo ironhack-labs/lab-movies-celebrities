@@ -1,20 +1,22 @@
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <table class="table">
   <tr>
-     <th scope="col">View</th>
+    
     <th scope="col">Celeb Name</th>
-     <th scope="col">Update</th>
+    <th scope="col">Occupation</th>
+    <th scope="col">Catch-Phrase</th>
+   
   </tr>
-  {{#each celeb}}
+
     <tr scope="row">
-      <td> <a href="/celebrities/{{_id}}">See Detail</a></td>
-      <td>{{this.name}}</td>
-      <td> <form action="/celebrities/{{_id}}/edit" method="GET">
-        <button value="EDIT"> Edit</button>
+    
+      <td>{{celeb.name}}</td>
+      <td>{{celeb.occupation}}</td>
+      <td>{{celeb.catchPhrase}}</td>
+      
     </form></td>  
     </tr>
-  {{/each}} 
+  
  
   
 </table>
