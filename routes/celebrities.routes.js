@@ -45,7 +45,7 @@ router.get("/celebrities/:celebId/edit", (req, res) => {
       console.log("Error while retrieving movie details: ", error);
     });
 });
-router.post("/celebrities/:celebId/", (req, res, next) => {
+router.post("/celebrities/:celebId/edit", (req, res, next) => {
   const { celebId } = req.params;
   const { name, occupation, catchPhrase } = req.body;
 
@@ -57,7 +57,7 @@ router.post("/celebrities/:celebId/", (req, res, next) => {
     .then((updatedCeleb) => {
       updatedCeleb.save();
     })
-    .then(() => res.redirect("celebrities/celebrities.hbs"))
+    .then(() => res.redirect("/celebrities/"))
     .catch((error) => next(error));
 });
 module.exports = router;
