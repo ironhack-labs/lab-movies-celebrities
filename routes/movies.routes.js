@@ -45,4 +45,17 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.post("/:id/delete", (req, res) => {
+  const { id } = req.params;
+
+  Movie.findByIdAndRemove(id)
+    .then(() => {
+      console.log("Movie Deleted");
+      res.redirect("/movies");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
