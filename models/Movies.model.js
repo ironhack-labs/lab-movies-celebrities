@@ -16,12 +16,13 @@ const movieSchema = new Schema({
         type: String, 
     },
 
-    cast: {
-        type: [{type: Schema.Types.ObjectId, ref: 'Celebrity'}]
-    }
+    cast: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Celebrity'
+    }]
       
     });
 
-    const Mov = mongoose.model('Movie', movieSchema);
+    const Movie = mongoose.model('Movie', movieSchema);
 
-module.exports = Mov;
+module.exports = Movie;

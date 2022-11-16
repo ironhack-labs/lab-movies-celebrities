@@ -11,27 +11,31 @@ router.get("/celebrities/create", (req, res) => {
 })
 
 
+//posting new celebrity group to DB
+router.post("/celebrities/create",	(req, res, next) => {
+    const { name, occupation, phrase } = req.body;  
+
+    Celebrity.create({name, occupation, phrase})
+    .then((newCel) => {
+        res.redirect("/celebrities");
+        // console.log( `Celebrity ${newCel.name} was added`)
+    })
+    .catch((error) => {
+        res.redirect("/celebrities/new-celebrity");
+        next(error);
+    });
+});        
+
+
 //link celebrity viewing page
 router.get("/celebrities", (req, res) => {
     return Celebrity.find()
         .then((allCelebrities) => {
-            res.render("celebrities/celebrities.hbs", { celebrity: allCelebrities });
+            res.render("celebrities/celebrities.hbs", { allCelebrities });
         })
         .catch((error) => {
             console.log("Error while getting the Celebrities from the DB: ", error); 
         });
-});
-
-
-//posting new celebrity group to DB
-router.post("/celebrities/create",	(req, res) => {
-    const { name, occupation, phrase } = req.body;  
-
-    Celebrity.create({name, occupation, phrase})
-    .then(() => {
-        res.redirect("/celebrities");
-    })
-    .catch((error) => res.redirect("/celebrities/create"))
 });
 
 
