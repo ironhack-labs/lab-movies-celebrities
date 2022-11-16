@@ -9,7 +9,7 @@
   <label for="cast">Cast</label>
   <select name="cast" id="cast" multiple>
     {{#each casts}}
-      <option value="{{this.name}}">{{this.name}}</option>
+      <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select>
   <button type="submit">Submit</button>
