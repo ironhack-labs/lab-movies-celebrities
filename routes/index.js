@@ -4,5 +4,9 @@ const router = require("express").Router();
 router.get("/", (req, res, next) => {
   res.render("index");
 });
+router.get("/celebrities", (req, res, next) => {
+  res.render("celebrities");
+});
+
 
 module.exports = router;
