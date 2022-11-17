@@ -1,0 +1,28 @@
+<h2 class="mb-5">New Movie</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="d-flex flex-column" action="/movies/create" method="POST">
+                <label for="title-input">Title</label>
+                <input id="title-input" type="text" name="title" />
+
+                <label class="mt-3" for="genre-input">Genre</label>
+                <input id="genre-input" type="text" name="genre" />
+
+                <label class="mt-3" for="plot-input">Plot</label>
+                <input id="plot-input" type="text" name="plot" />
+
+                <label class="mt-3" for="cast-input">Cast</label>
+
+                <select name="cast" id="" multiple>
+                    {{#each celebrities}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+
+                <button class="btn btn-dark mt-5" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
