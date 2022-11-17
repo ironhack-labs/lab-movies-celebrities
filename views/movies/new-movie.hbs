@@ -1,25 +1,27 @@
-<h2>Movies</h2>
-
-<form action="/movies/create" method="post">
-    <label>
-        title:
-        <input type="text" name="title" />
-    </label>
-    <label>
-        genre:
-        <input type="text" name="genre" />
-    </label>
-    <label>
-        plot:
-        <input type="text" name="plot" />
-    </label>
-    <label >cast:
-      <input
-        name='posts'
-        multiple>
-        {{#each celebrities}}
-          <option value='{{_id}}'>{{name}}</option>
-        {{/each}}
-      </label>
-    <button type="submit"> Create Movie</button>
-</form>
+<h1>Movies</h1>
+<div class="container">
+    <form action="/movies/create" method="post">
+        <label>
+            title:
+            <input type="text" name="title" />
+        </label>
+        <label>
+            genre:
+            <input type="text" name="genre" />
+        </label>
+        <label>
+            plot:
+            <input type="text" name="plot" />
+        </label>
+        <label for="posts">
+            cast:
+            <select name="posts">
+                {{#each celebrities}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <button type="submit"> Create Movie</button>
+    </form>
+    <a href="/"> Home</a>
+</div>

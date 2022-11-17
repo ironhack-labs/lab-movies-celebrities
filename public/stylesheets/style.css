@@ -3,7 +3,7 @@ body {
     font-family: sans-serif;
     height: 1200px;
     background-color: #cccccc;
-    background-image: linear-gradient(red, yellow, green);
+    background-image: linear-gradient(blue, yellow, green);
     /* background-color: rgb(155, 76, 134); */
     /* background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fpromocionmusical.es%2Fcomo-hacer-tu-show-mas-interesante%2F&psig=AOvVaw1nkAga1fxSVs8PDM-FLkgC&ust=1668716207465000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCOjLtbnCs_sCFQAAAAAdAAAAABAD'); */
 }
@@ -24,5 +24,6 @@ a {
 }
 
 h1 {
+    text-align: center;
     color: 15px;
 }
