@@ -2,13 +2,15 @@
 <div>{{data.title}}</div>
 <div>{{data.genre}}</div>
 <div>{{data.plot}}</div>
-<ul>Casts</ul>
-{{#each data.cast}}
-  <li>{{this.name}}
-    <br />{{this.occupation}}
-    <br />{{this.catchPhrase}}
-  </li>
-{{/each}}
+<ul class="casts">
+  {{#each data.cast}}
+    <li>{{this.name}}
+      <br />{{this.occupation}}
+      <br />{{this.catchPhrase}}
+    </li>
+  {{/each}}
+</ul>
 <form action="/movies/{{data._id}}/delete" method="post">
   <button type="submit">Delete</button>
 </form>
+<a href="/movies/{{data._id}}/edit">Edit</a>
