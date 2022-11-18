@@ -1,11 +1,24 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 
+const Celebrity = require("../models/Celebrity.model");
+
 // all your routes here
 /* GET create-celeb page */
 router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrity");
 });
+
+/* GET celebrity page */
+
+router.get("/celebrities", (req, res, next) => {
+  Celebrity.find()
+        .then(dbCelebrities => {
+            res.render("celebrities/celebrities", { celbrities: dbCelebrities })
+        })
+        .catch(err => console.log(err))
+});
+
 
 //POST create-celeb page
 
