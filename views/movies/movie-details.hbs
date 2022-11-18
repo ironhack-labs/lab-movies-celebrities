@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<h4>Genre:</h4>
+<p>{{genre}}</p>
+<h4>Plot:</h4>
+<p>{{plot}}</p>
+<h4>Cast:</h4>
+{{#each cast}}
+    <div>
+        <h5>{{name}} - {{occupation}}</h5>
+        <p><cite>{{catchphrase}}</cite></p>
+    </div>
+{{/each}}
+<a href="/movies/{{id}}/edit">Edit Movie</a>
+<form action="/movies/{{id}}/delete" method="post">
+    <button type="submit">Delete Movie</button>
+</form>
