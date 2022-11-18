@@ -1,0 +1,11 @@
+ <p>title {{result.title}}</p>
+ <p>genre {{result.genre}}</p> 
+ <p>plot {{result.plot}}</p> 
+ {{#each result.cast}}
+ <p>cast {{name}}  Occupation {{occupation}}  catchphrase {{catchPhrase}}</p> 
+ {{/each}}
+
+
+<form action="/movies/{{result._id}}/delete" method="post">
+<button type="submit"> Delete this movie </button>
+</form>
