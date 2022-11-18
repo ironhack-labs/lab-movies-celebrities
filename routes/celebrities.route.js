@@ -14,7 +14,7 @@ router.get("/create", (req, res, next) => {
 router.get("/celebrities", (req, res, next) => {
   Celebrity.find()
         .then(dbCelebrities => {
-            res.render("celebrities/celebrities", { celbrities: dbCelebrities })
+            res.render("celebrities/celebrities", { celebrities: dbCelebrities })
         })
         .catch(err => console.log(err))
 });
