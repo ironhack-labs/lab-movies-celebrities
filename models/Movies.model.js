@@ -6,7 +6,10 @@ const movieSchema = new Schema(
     title: String,
     genre: String,
     plot: String,
-    cast: [{Schema.Types.ObjectId}]
+    cast: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Celebrity'
+    }]
   },
  
 );
