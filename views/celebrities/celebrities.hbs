@@ -1,0 +1,14 @@
+<h1>Celebrities list</h1>
+
+{{#each celebrity}}
+    <div>
+        <h2>Name: {{name}}</h2>
+        <h2>Occupation: {{occupation}}</h2>
+        <h2>Catch Phrase: {{catchPhrase}}</h2>
+        <a href="/celebrities/{{_id}}">See details</a> {{!-- link that points to the details page --}}
+        <a href="/celebrities/{{_id}}/edit">Edit</a>
+        <form action="/celebrities/{{_id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+{{/each}}

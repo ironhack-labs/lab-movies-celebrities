@@ -28,6 +28,17 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
+//1.requerimos el sistema de rutas de celebrities
+const celebritiesRoutes = require("./routes/celebrities.routes")
+//2. registramos el sistema de rutas
+app.use("/",celebritiesRoutes)
+
+//1.requerimos el sistema de rutas de movies
+const moviesRoutes = require("./routes/movies.routes")
+//2. registramos el sistema de rutas
+app.use("/",moviesRoutes)
+
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 
