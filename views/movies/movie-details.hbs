@@ -1,0 +1,19 @@
+
+
+<h1>{{title}}</h1>
+
+<h2>genre: {{genre}}</h2>
+<em>plot: {{plot}}</em>
+<p>Cast:</p>
+<ul>
+    {{#if cast}}
+    {{#each cast}}
+        <li>{{name}}</li>
+    {{/each}}
+    {{else}}
+    <li>No added</li>
+    {{/if}}
+</ul>
+
+<a href="/movies/{{_id}}/edit">Editar</a>
+<a href="/movies/{{_id}}/delete">Eliminar</a>
