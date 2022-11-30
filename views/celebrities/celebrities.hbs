@@ -1,0 +1,10 @@
+
+<div class="container">
+    <h2>Celebrities</h2>
+    {{#each celebrities}}
+        <p>Name: {{this.name}}</p>
+        <a href="/celebrities/{{this._id}}">View {{this.name}}</a>
+    {{/each}}
+    <a href="/celebrities/create">Add celebrity</a>
+    <a href="/">Home</a>
+</div> 
