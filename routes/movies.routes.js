@@ -33,7 +33,16 @@ router.post('/create', async (req,res,next)=>{
     }
 })
 
-
+router.get('/:id/detail', async (req,res,next)=>{
+    try {
+        const { id } = req.params
+        const movie = await Movie.findById(id).populate('_cast','name')
+        console.log(movie)
+        res.render('movies/movie-details', { movie })
+    } catch (error) {
+        next(error)
+    }
+})
 
 
 
