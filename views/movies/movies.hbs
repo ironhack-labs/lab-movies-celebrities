@@ -1,0 +1,19 @@
+<h2>Lista de Peliculas</h2>
+
+{{#each moviesList}}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+    <p class="card-text">{{plot}}</p>
+    {{#each _cast}}
+    <ul>
+        <li>{{name}}</li>
+    </ul>
+    {{/each}}
+    <a href="#" class="card-link">Editar</a>
+    <a href="#" class="card-link">Eliminar</a>
+    <a href="#" class="card-link">Ver Detalle</a>
+  </div>
+</div>
+{{/each}}

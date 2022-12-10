@@ -1,0 +1,23 @@
+<form action="/movies/create" method="post">
+    <div class="mb-3">
+        <label for="movieTitle" class="form-label">Titulo</label>
+        <input name="movieTitle" type="text" class="form-control" id="movieTitle" placeholder="Titulo de la pelicula">
+    </div>
+    <div class="mb-3">
+        <label for="movieGenre" class="form-label">Genero</label>
+        <input name="movieGenre" type="text" class="form-control" id="movieGenre" placeholder="Genero">
+    </div>
+    <div class="mb-3">
+        <label for="moviePlot" class="form-label">Trama</label>
+        <input name="moviePlot" type="text" class="form-control" id="moviePlot" placeholder="Trama">
+    </div>
+    <label for="selectedCelebrity" class="form-label">Selecciona las celebridades participantes</label>
+    <select name="CelebritiesIds" class="form-select" multiple>
+        {{#each listCelebrities}}
+        <option value="{{_id}}" >{{name}}</option>
+        {{/each}}
+    </select>
+    
+    <button type="submit" class="btn btn-primary mt-3">Crear</button>
+
+</form>
