@@ -1,0 +1,13 @@
+<h2>Celebrity Details</h2>
+
+<p>Name: {{result.name}}</p>
+ <p>Occupation: {{result.occupation}}</p> 
+ <p>Catch Phrase: "{{result.catchPhrase}}"</p> 
+ {{!-- {{#each result.cast}}
+ <p>cast {{name}}  Occupation {{occupation}}  catchphrase {{catchPhrase}}</p> 
+ {{/each}} --}}
+
+
+<form action="/celebrities/{{result._id}}/delete" method="post">
+<button type="submit"> Delete this celebrity </button>
+</form>
