@@ -1,0 +1,8 @@
+<h2>Movies</h2>
+<ul>
+    {{#each movies}}
+    <li>{{title}}</li> 
+    <a href="movies/{{_id}}/detail">See details</a>
+    <a href="movies/{{_id}}/edit">Edit</a>
+    {{/each}}
+</ul>

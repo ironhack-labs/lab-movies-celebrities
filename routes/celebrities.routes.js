@@ -1,33 +1,29 @@
-const Celebrity = require("../models/Celebrity.model");
-
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 
-// all your routes here
-router.get("/", (req,res,next)=>{
+const Celebrity = require("../models/Celebrity.model");
 
+// all your routes here
+router.get("/create", (req,res,next)=>{
+    res.render("celebrities/new-celebrity")
 })
 
-router.post("", (req,res,next) => {
-    const { name, catchPhrase, occupation} = req.body
-    Celebrity.create({
-        name,
-        catchPhrase,
-        occupation
-    }).then(celebrityCreated =>{
-        console.log("Celebrity created", celebrityCreated);
-        res.redirect("/")
-    }).catch(error =>{
-        if(error instanceof mongoose.Error.ValidationError){
-            //                                            
-            return res.status(400).render("celebrities/new-celebrity", { errorMessage: error.message})
-        }
-        if(error.code === 11000){
-            return res.status(400).render("celebrities/celebrities", { errorMessage: "Error message"})
-        }
-        //500 --> lo mandamos a la pagina del error
-        return next(error)
+router.post("/create",(req,res,next) => {
+    const { name, occupation, catchPhrase} = req.body
+    Celebrity.create( { name, occupation, catchPhrase} )
+   .then (celebrities => {
+    res.redirect("celebrities")
+   })        
+   .catch (error => res.render("celebrities/new-celebrity"))
     })
+
+
+router.get("/celebrities", (req,res,next) => {
+    Celebrity.find()
+    .then(celebrities =>{
+        res.render("celebrities/celebrities", { celebrities })
+    })
+    .catch(error => next(error))
 })
 
 module.exports = router;
