@@ -16,7 +16,7 @@ method="POST">
 <select name="celebritiesIds" multiple>
     <option>Choose one or more</option>
         {{#each celebrities}}
-             <option value="{{_id}}">{{name}}</option>
+             <option value="{{celebrities._id}}">{{name}}</option>
         {{/each}}
 </select>
 
