@@ -2,7 +2,7 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
-// all your routes here
+// Create a route for adding new celebrities
 
 router.get("/celebrities/create", (req, res, next) => {
     Celebrity.find()
@@ -30,6 +30,18 @@ router.post("/celebrities/create", (req, res, next) => {
             console.log("error creating new book in DB", err);
             res.render("celebrities/new-celebrity");
             next();
+        })
+});
+
+
+router.get("/celebrities", (req, res, next) => {
+    Celebrity.find()
+        .then(celebrities => {
+            res.render("celebrities/celebrities", { celebrities });
+        })
+        .catch(err => {
+            console.log('Error getting authors from DB...', err);
+            next(err);
         })
 });
 
