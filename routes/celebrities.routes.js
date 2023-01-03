@@ -1,4 +1,4 @@
-const CelebrityModel = require("../models/Celebrity.model");
+const Celebrity = require("../models/Celebrity.model");
 
 const router = require("express").Router();
 
@@ -15,7 +15,7 @@ router.post("/celebrities/create", (req, res, next) => {
         catchPhrase: req.body.catchPhrase
     }
 
-    CelebrityModel.create(celebritydetails)
+    Celebrity.create(celebritydetails)
         .then(celebritydetails => {
             res.redirect("/celebrities");
         })
@@ -27,7 +27,7 @@ router.post("/celebrities/create", (req, res, next) => {
 
 //READ: List all the celebrities
 router.get("/celebrities", (req, res, next) => {
-    CelebrityModel.find()
+    Celebrity.find()
         .then(celebritiesFromDB => {
             res.render("celebrities/celebrities", { celebrities: celebritiesFromDB})
         })

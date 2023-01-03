@@ -9,4 +9,4 @@ const celebritySchema = new Schema(
     }
 );
 
-module.exports = model('CelebrityModel', celebritySchema);
+module.exports = model('Celebrity', celebritySchema);
