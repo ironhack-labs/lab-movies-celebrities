@@ -12,8 +12,6 @@ const Movie = require("../models/Movie.model");
 router.get("/movies/create", (req, res, next) => {
   Celebrity.find()
     .then((celebritiesFromDb) => {
-      console.log(celebritiesFromDb);
-
       res.render("movies/new-movie", { celebritiesFromDb });
     })
     .catch((err) => {
@@ -59,7 +57,6 @@ router.get("/movies/:id", (req, res, next) => {
   Movie.findById(req.params.id)
     .populate("cast")
     .then((movieDetails) => {
-    console.log(movieDetails);
       res.render("movies/movie-details", {movieDetails });
     })
     .catch((err) => {
@@ -74,7 +71,6 @@ router.get("/movies/:id", (req, res, next) => {
 router.post("/movies/:id/delete", (req, res, next) => {
     Movie.findByIdAndRemove(req.params.id)
       .then(() => {
-        console.log("movie deleted");
         res.redirect("/movies");
       })
       .catch((err) => {
@@ -82,6 +78,55 @@ router.post("/movies/:id/delete", (req, res, next) => {
         next();
       });
   });
+
+
+// //UPDATE: display form
+router.get("/movies/:id/edit", (req, res, next) => {
+
+    let celebritiesArr;
+
+    Celebrity.find()
+        .then( (celebritiesFromDB) => {
+            celebritiesArr = celebritiesFromDB;
+            return Movie.findById(req.params.id)
+        })
+        .then((movieDetails) => {
+            const data = {
+                movieDetails: movieDetails,
+                celebritiesArr: celebritiesArr
+            }
+
+            res.render("movies/edit-movie", data);
+        })
+        .catch(err => {
+            console.log("Error getting movie details from DB...", err);
+            next();
+        });
+});
+
+
+
+//UPDATE: process form
+router.post("/movies/:id/edit", (req, res, next) => {
+    const movieId = req.params.id;
+
+    const newDetails = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast,
+    }
+
+    Movie.findByIdAndUpdate(movieId, newDetails)
+        .then(() => {
+            res.redirect(`/movies/${movieId}`);
+        })
+        .catch(err => {
+            console.log("Error updating movie...", err);
+            next();
+        });
+});
+
 
 
 module.exports = router;
