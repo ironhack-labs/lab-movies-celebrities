@@ -5,15 +5,9 @@ const Celebrity = require("../models/Celebrity.model");
 // Create a route for adding new celebrities
 
 router.get("/celebrities/create", (req, res, next) => {
-    Celebrity.find()
-        .then(celebrities => {
-            res.render("celebrities/new-celebrity", { celebrities });
-        })
-        .catch(err => {
-            console.log('Error getting authors from DB...', err);
-            next(err);
-        })
-});
+   
+            res.render("celebrities/new-celebrity");
+        });
 
 router.post("/celebrities/create", (req, res, next) => {
     const celebrityDetails = {
