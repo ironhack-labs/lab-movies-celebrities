@@ -1,31 +1,49 @@
 const express = require('express');
+const Celebrity = require("../models/Celebrity.model")
 const router = express.Router();
-const Celebrity = require("../models/Celebrity.model.js")
-const mongoose = require("mongoose");
 
 
-
+/*
 router.get('/celebrities',(req, res, next) => {
-    Celebrity.find({}, function(error,celebrities){
-       if (error) return console.log(error)
-      // console.log(data)
-       res.render("celebrities/list", {celebrities})
- 
-     })
+  Celebrity.find()
+  .then((celebritiesFromDB) => {
+      res.render("celebrities/index", {celebritiesFromDB});
+  })
+  .catch(err => {
+      console.log("The error while searching for Celebrity details: ", err);
+      next();
+  });
  });
+ */
+// GET route
+router.get('/celebrities/create', (req, res, next) => {
+  res.render('celebrities/new-celebrity')
+});
  
- router.get('/celebrities/create', (req, res, next) => {
-     res.render("celebrities/new-celebrity")
- });
+// POST route
+router.post('/celebrities', (req, res, next) => {
+  console.log(req.body);
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.create({ name, occupation, catchPhrase })
+      .then(() => res.redirect('/celebrities'))
+      .catch(error => {
+        console.log('Error inserting Celebrity into DB', error)
+        res.redirect('/celebrities/create')
+      });
  
+});
 
- router.post('/celebrities/create', (req, res, next) => {
-   const newCelebrity = req.body;
-   Celebrity.create(newCelebrity)
-   .then(() => res.redirect('/celebrities'))
-   .catch(error => next(error));
- 
- });
+/* GET ALL celebrities */
+router.get("/celebrities", (req, res, next) => {
+  Celebrity.find()
+  .then(celebritiesFromDB => {
+      console.log(celebritiesFromDB);
+      res.render("celebrities/celebrities", {celebrities: celebritiesFromDB});
+  })
+  .catch(error => {
+      console.log("Error getting celebrities from DB", error);
+      next();
+  })
+});
 
-
- module.exports = router;
+module.exports = router;

@@ -1,0 +1,26 @@
+<h1>Available Celebrities</h1>
+{{#if celebrities}}
+    <div class="drones">
+    {{#each celebrities}}
+        <section class="drone-summary">
+            <h2>{{this.name}}</h2>
+            <p>
+                Occupation: {{this.occupation}}<br />
+                Catch Phrase: {{this.catchPhrase}}<br />
+                <a href="celebrities/{{this._id}}/edit" class="edit">Edit</a>
+
+                <form action="/celebrities/{{this._id}}/delete" method="POST">
+                    <button class="delete">Delete</button>
+                </form>
+            </p>
+        </section>
+    {{/each}}
+    </div>
+{{else}}
+    <h3>Sorry, no Celebrities in the DB</h3>
+{{/if}}
+
+    <br />
+    <br />
+    <!--a href="celebrities" class="view">View all Celebrities</a--> 
+    <a href="celebrities/create" class="create">Create a new Celebrity</a>
