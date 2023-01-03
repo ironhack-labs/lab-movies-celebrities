@@ -3,8 +3,8 @@ const router = require("express").Router();
 const Celebrity = require('../models/Celebrity.model');
 const Movie = require('../models/Movie.model');
 
-// creating a movie
-router.get('/movies/create', (req, res, next) =>{
+// create a movie
+router.get('/movies/create', (req, res) =>{
 
     Celebrity.find()
     .then(celebritiesArr => {
@@ -15,22 +15,22 @@ router.get('/movies/create', (req, res, next) =>{
     })
 })
 
-router.post('/movies/create',(req,res,next)=>{
+router.post('/movies/create', (req, res)=>{
     const{ title, genre, plot, cast} = req.body
 
     Movie.create({ title, genre, plot, cast})
-        .then(() => {
-            res.redirect("/movies")
+    .then(() => {
+        res.redirect("/movies")
 
-        })
-        .catch(error =>{
-            console.log(`We have an error creating a movie`, error)
-            res.redirect("/movies/new-movie")
-        })
+    })
+    .catch(error =>{
+        console.log(`We have an error creating a movie`, error)
+        res.redirect("/movies/new-movie")
+    })
 })
 
-// listing the movies
-router.get('/movies', (req, res, next) => {
+// list of movies
+router.get('/movies', (req, res) => {
 
     Movie.find()
     .then(moviesArr => {
@@ -39,8 +39,8 @@ router.get('/movies', (req, res, next) => {
     .catch(error => console.log(error))
 })
 
-// display movies details
-router.get('/movies/:id', (req, res, next) => {
+// display movie details
+router.get('/movies/:id', (req, res) => {
     const {id} = req.params;
 
     Movie.findById(id)
@@ -52,8 +52,8 @@ router.get('/movies/:id', (req, res, next) => {
     .catch(error => console.log(error))
 })
 
-//deleting movies
-router.post("/movies/:id/delete",(req,res,next)=>{
+// delete movies
+router.post("/movies/:id/delete",(req, res)=>{
     const {id} = req.params;
 
     Movie.findByIdAndDelete(id)
@@ -64,29 +64,29 @@ router.post("/movies/:id/delete",(req,res,next)=>{
 })
 
 // edit movies
-router.get("/movies/:id/edit", async (req,res,next) => {
+router.get("/movies/:id/edit", async (req, res) => {
     const {id} = req.params;
-
+    
     try {
         const movie = await Movie.findById(id).populate('cast');
         const celebrities = await Celebrity.find()
-        const data = {
-            movie:movie,
-            celebrities : celebrities
+        // const notCasted = filterNotCasted(movie, celebrities);
+
+        const data={
+            movie: movie,
+            celebrities: celebrities
         }
 
         res.render("movies/edit-movie", data)
-
     } catch (error) {
         console.log(error)
     }
 })
 
-router.post('/movies/:id/edit', (req, res, next) => {
+router.post('/movies/:id/edit', (req, res) => {
     const {id} = req.params;
-
     const {title, genre, plot, cast} = req.body;
-
+    
     Movie.findByIdAndUpdate(id,{title, genre, plot, cast})
     .then(() => {
         res.redirect(`/movies/${id}`)
@@ -94,5 +94,42 @@ router.post('/movies/:id/edit', (req, res, next) => {
     .catch(error => console.log(error))
 })
 
+// function filterNotCasted(movie, celebrities) {
+//     return celebrities.filter(celebrity =>  {
+//         movie.cast.forEach(celebrityInMovie => {
+//             if (celebrityInMovie.name === celebrity.name) {
+//                 return false;
+//             }
+//         })
+//         return true;
+//     })
+// }
+
 
 module.exports = router;
+
+
+
+        // celebrities={celebrities,isInTheMovie}
+        // const allCelebrities =[]
+
+//********************************************************************** */
+// const celebritiesCasted = ()=>{
+//     movie.cast.forEach((actor,index)=>{
+
+//         celebrities.forEach((celebrity)=>{
+
+//             // console.log(`what is happening====>`,actor._id.toString()===celebrity._id.toString())                
+//             if(actor._id.toString()===celebrity._id.toString()){
+//                 allCelebrities.push({celebrity, isInTheMovie: true})
+
+//             }else{
+//                 allCelebrities.push({celebrity, isInTheMovie: false})
+//             }
+
+//         })
+//     })
+
+// }
+// celebritiesCasted()
+//********************************************************************** */

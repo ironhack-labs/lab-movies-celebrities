@@ -7,7 +7,7 @@ const celebritySchema = new Schema(
             require: true,
         },
         occupation: String,
-        catchPhrase:String
+        catchPhrase: String
     }
 )
 

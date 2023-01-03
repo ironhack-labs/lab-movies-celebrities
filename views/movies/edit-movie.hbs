@@ -11,9 +11,9 @@
         <textarea name="plot" cols="30" rows="4">{{movie.plot}}</textarea>
     </label>
 
-    <select name="cast" id="" multiple>
-        {{#each celebrities }}
-        <option value="{{this._id}}">{{this.name}}</option>
+    <select name="cast" multiple>
+        {{#each celebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
     </select>
 
