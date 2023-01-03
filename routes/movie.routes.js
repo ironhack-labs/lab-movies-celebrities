@@ -11,7 +11,7 @@ router.post("/create", movieController.postCreateForm);
 
 router.get("/:id", movieController.detail);
 router.get("/:id/edit", movieController.getEditForm);
-router.post("/:id", movieController.postEditForm);
+router.post("/:id/edit", movieController.postEditForm);
 router.post("/:id/delete", movieController.delete);
 
 module.exports = router;

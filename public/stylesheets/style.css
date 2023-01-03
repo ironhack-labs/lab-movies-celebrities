@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -17,6 +16,15 @@ form {
   border: 1px solid #b7b7b7;
   border-radius: 10px;
   background-color: #eee;
+}
+
+.cast-edit {
+  background-color: white;
+  width: 400px;
+  padding: 3px;
+  margin: 10px;
+  margin-bottom: 30px;
+  border: 1px solid black;
 }
 
 input,
@@ -68,4 +76,49 @@ li > h3 {
   padding: 20px;
 
   background-color: #eee;
+}
+
+.del-form {
+  border: none;
+
+  width: 400px;
+  display: block;
+}
+
+.del-btn {
+  border: none;
+  font-size: 1.5rem;
+  background-color: red;
+  width: 400px;
+  display: block;
+
+  background-color: red;
+}
+
+.del.btn:hover,
+del-form:hover {
+  background-color: red;
+  color: white;
+}
+
+.navbar {
+  display: absolute;
+  top: 0;
+
+  justify-content: center;
+  gap: 4rem;
+  align-items: center;
+  padding: 20px;
+  background-color: #00b7ff;
+  color: white;
+}
+
+.nav-item {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.container {
+  margin: 1% 10%;
+  width: 100%;
 }

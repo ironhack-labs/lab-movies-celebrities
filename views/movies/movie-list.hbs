@@ -1,20 +1,23 @@
-<h2>Movie List</h2>
-<ul>
+<div class="container">
+  <h2>Movie List</h2>
+  <ul>
 
-  {{#each movies}}
-    <li>
-      <h3>{{title}}</h3>
-      <h5>{{genre}}</h5>
-      <p>{{plot}}</p>
-      {{#each cast}}
-        <p>{{this.name}}</p>
-      {{/each}}
-      <a href="/movies/{{this._id}}/">details</a>
-    </li>
-  {{/each}}
-</ul>
-<a href="movies/create">create new</a>
-<br />
-<br />
-<br />
-<a href="/">home</a>
+    {{#each movies}}
+      <li>
+        <h3>{{title}}</h3>
+        <h5>{{genre}}</h5>
+        <p>{{plot}}</p>
+        <h5>cast</h5>
+        {{#each cast}}
+          <p>{{this.name}}</p>
+        {{/each}}
+        <a href="/movies/{{this._id}}/">details</a>
+      </li>
+    {{/each}}
+  </ul>
+  <a href="movies/create">create new</a>
+  <br />
+  <br />
+  <br />
+  <a href="/">home</a>
+</div>

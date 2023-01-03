@@ -10,12 +10,14 @@
       <p>{{this.name}}</p>
     {{/each}}
   </div>
+  <div style="display:flex">
 
-  <a href="/movies/{{_id}}/edit">edit</a>
-  {{! delete movie }}
-  <form action="/movies/{{_id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-  </form>
+    <a class="btn" href="/movies/{{_id}}/edit">edit</a>
+    {{! delete movie }}
+    <form class="del-form" action="/movies/{{_id}}/delete" method="POST">
+      <button class="del-btn" type="submit">Delete</button>
+    </form>
+  </div>
 
 </div>
 

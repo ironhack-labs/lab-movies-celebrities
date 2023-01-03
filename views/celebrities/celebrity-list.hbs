@@ -1,15 +1,18 @@
-<h2>Celebrities</h2>
-{{#each celebrities}}
-  <li>
-    <h3>{{name}}</h3>
-    <p>{{occupation}}</p>
-    <h5>{{catchPhrase}}</h5>
-    <a href="/celebrities/{{this._id}}/">details</a>
-  </li>
-{{/each}}
+<div class="container">
+  <h2>Celebrities</h2>
+  {{#each celebrities}}
+    <li>
+      <h3>{{name}}</h3>
 
-<a href="celebrities/create">create new</a>
-<br />
-<br />
-<br />
-<a href="/">home</a>
+      <p>{{occupation}}</p>
+      <h5>{{catchPhrase}}</h5>
+      <a href="/celebrities/{{this._id}}/">details</a>
+    </li>
+  {{/each}}
+
+  <a href="celebrities/create">create new</a>
+  <br />
+  <br />
+  <br />
+  <a href="/">home</a>
+</div>

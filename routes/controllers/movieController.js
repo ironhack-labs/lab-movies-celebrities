@@ -53,17 +53,23 @@ exports.postCreateForm = (req, res, next) => {
 
 exports.getEditForm = (req, res, next) => {
     const { id } = req.params;
-    Movie
-        .findById(id).populate("cast")
+    let castArr
+    Celebrity.find()
+        .then((celebrities) => {
+            castArr = celebrities;
+            return Movie.findById(id).populate("cast");
+        })
         .then((movie) => {
-            res.render("movies/movie-edit", movie);
-        }
-        )
+            res.render("movies/movie-edit", { movie, castArr });
+        })
         .catch((err) => {
             next(err);
-        }
-        );
+        });
 }
+
+
+
+
 
 
 exports.postEditForm = (req, res, next) => {
