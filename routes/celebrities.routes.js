@@ -2,19 +2,6 @@ const express = require('express');
 const Celebrity = require("../models/Celebrity.model")
 const router = express.Router();
 
-
-/*
-router.get('/celebrities',(req, res, next) => {
-  Celebrity.find()
-  .then((celebritiesFromDB) => {
-      res.render("celebrities/index", {celebritiesFromDB});
-  })
-  .catch(err => {
-      console.log("The error while searching for Celebrity details: ", err);
-      next();
-  });
- });
- */
 // GET route
 router.get('/celebrities/create', (req, res, next) => {
   res.render('celebrities/new-celebrity')

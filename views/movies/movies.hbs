@@ -1,0 +1,23 @@
+<h1>Movies</h1>
+{{#if movies}}
+    <div class="drones">
+    {{#each movies}}
+        <section class="drone-summary">
+            <h2>{{this.title}}</h2>
+            <p>
+                <a href="movies/{{this._id}}" class="edit">View</a>
+
+                <form action="/movies/{{this._id}}/delete" method="POST">
+                    <button class="delete">Delete</button>
+                </form>
+            </p>
+        </section>
+    {{/each}}
+    </div>
+{{else}}
+    <h3>Sorry, no Movies in the DB</h3>
+{{/if}}
+
+    <br />
+    <br />
+    <a href="movies/create" class="create">Create a new Movie</a>
