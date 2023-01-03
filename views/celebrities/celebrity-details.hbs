@@ -1,0 +1,15 @@
+<h2>Celebrity Details</h2>
+
+<h3>{{celebrity.name}}</h3>
+<p>{{celebrity.occupation}}</p>
+<h5>{{celebrity.catchPhrase}}</h5>
+
+{{#each celebrity.movies}}
+  <p>{{this.title}}</p>
+{{/each}}
+
+<a href="/celebrities/{{celebrity._id}}/edit">edit</a>
+<br />
+<br />
+<br />
+<a href="/celebrities">back</a>

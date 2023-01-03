@@ -4,8 +4,8 @@ const Celebrity = require('../models/Celebrity.model');
 const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/lab-mongoose-movies';
 
 const celebrities = [
-    { name: 'Arnold Schwarzenegger', occupation: 'Actor', catchPhrase: 'I\'ll be back' },
-    { name: 'Sylvester Stallone', occupation: 'Actor', catchPhrase: 'I\'m getting too old' },
+    { name: 'Arnold Schwarzenegger', occupation: 'Actor', catchPhrase: "I'll be back" },
+    { name: 'Sylvester Stallone', occupation: 'Actor', catchPhrase: "It Ain't About How Hard You Hit.It's About How Hard You Can Get Hit And Keep Moving Forward." },
     { name: 'Bruce Willis', occupation: 'Actor', catchPhrase: 'Yippee ki yay' },
 ];
 

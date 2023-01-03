@@ -34,7 +34,7 @@ exports.postCreateForm = (req, res, next) => {
     const { name, occupation, catchPhrase } = req.body;
     Celebrity.create({ name, occupation, catchPhrase })
         .then(() => {
-            res.redirect("/celebrities");
+            res.redirect("/celebrities-list");
         })
         .catch((err) => {
             next(err);

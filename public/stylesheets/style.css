@@ -6,3 +6,66 @@ body {
 a {
   color: #00b7ff;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+input,
+textarea,
+select {
+  font-size: 1.5rem;
+  padding: 3px;
+  width: 400px;
+
+  margin-bottom: 10px;
+}
+option {
+  font-size: 1.5rem;
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: 3px;
+  width: 400px;
+  display: block;
+  margin-bottom: 10px;
+  background-color: #00b7ff;
+}
+
+.btn:hover {
+  background-color: #00b7ff;
+  color: white;
+}
+
+li {
+  list-style: none;
+  background-color: #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+li > h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  color: #00b7ff;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
+  padding: 20px;
+
+  background-color: #eee;
+}
