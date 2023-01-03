@@ -1,7 +1,7 @@
 <h2></h2>
 <form action="/movies/create" method="post">
   <label>Moviename:
-     <input type="text" name="movieName" />
+     <input type="text" name="title" />
   </label>
 
   <label>Genre:
@@ -9,7 +9,7 @@
   </label>
   
   <label>Cast:
-     <select name="celebrity" multiple>
+     <select name="cast" multiple>
             {{#each celebrities}}
             <option value="{{this._id}}">{{this.name}}</option>
             {{/each}}
@@ -17,7 +17,7 @@
   </label>
 
   <label>Plot:
-      <textarea name="moviePlot" cols="20" rows="4"></textarea>
+      <textarea name="plot" cols="20" rows="4"></textarea>
   </label>
 
 
