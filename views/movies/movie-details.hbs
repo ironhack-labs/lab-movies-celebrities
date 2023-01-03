@@ -1,5 +1,4 @@
 <h1>Movie Details</h1>
-{{#if viewMovie}}
 <h2>{{title}}</h2>
 
 <p>Genre: {{genre}}</p>
@@ -14,6 +13,3 @@
     <button type:"submit">Delete</button>
 </form>
 <a href="/movies/{{_id}}/edit">Edit</a>
-{{else}}
-    <h3>Sorry, no Movies in the DB</h3>
-{{/if}}
