@@ -1,6 +1,6 @@
 <h2>Create a new MOVIE</h2>
 
-<form action="/movies/new-movie" method="post">
+<form action="/movies/create" method="post">
   <label>
     Title:
     <input type="text" name="title" />
@@ -18,7 +18,7 @@
   <label for="cast">Choose the cast:
     {{#each celebrities}}
       <select name="cast" id="cars" multiple>
-        <option value={{this.name}}>{{this.name}}</option>
+        <option value={{this._id}}>{{this.name}}</option>
       </select>
     {{/each}}
   </label>

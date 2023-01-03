@@ -1,1 +1,14 @@
-<h2>All the movies ever!!!</h2>
+<h2>Movies</h2>
+
+{{#each movies}}
+  <ul>
+    <li>Title:
+      {{title}}<br />
+      Genre:
+      {{genre}}<br />
+      Plot:
+      {{plot}}</li>
+      Cast:
+      {{celebrities.name}}</li>
+  </ul>
+{{/each}}

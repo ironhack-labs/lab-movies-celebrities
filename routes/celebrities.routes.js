@@ -1,4 +1,4 @@
-const CelebrityModel = require("../models/Celebrity.model");
+const Celebrity = require("../models/Celebrity.model");
 
 const MONGO_URI =
   process.env.MONGODB_URI ||
@@ -10,8 +10,7 @@ const router = require("express").Router();
 
 //GET list all Celebs
 router.get("/celebrities", (req, res, next) => {
-  CelebrityModel.find()
-
+  Celebrity.find()
     .then((celebsFromDB) => {
       console.log(celebsFromDB);
 
@@ -37,11 +36,12 @@ router.post("/celebrities/create", (req, res, next) => {
   };
 
   Celebrity.create(celebDetails)
-    .then((celebDetails) => {
-      res.redirect("/celebrites");
+
+    .then(() => {
+      res.redirect("/celebrities");
     })
     .catch((err) => {
-      res.render("/celebrites/new-celebrity");
+      res.redirect("/celebrities/create");
       next();
     });
 });
