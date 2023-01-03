@@ -46,7 +46,7 @@ router.get('/movies/:id', (req, res) => {
     Movie.findById(id)
     .populate('cast')
     .then(movie => {
-        console.log(movie)
+      
         res.render('movies/movie-details', movie)
     })
     .catch(error => console.log(error))
@@ -71,13 +71,22 @@ router.get("/movies/:id/edit", async (req, res) => {
         const movie = await Movie.findById(id).populate('cast');
         const celebrities = await Celebrity.find()
         // const notCasted = filterNotCasted(movie, celebrities);
-
-        const data={
-            movie: movie,
-            celebrities: celebrities
-        }
-
-        res.render("movies/edit-movie", data)
+        const celebritiesNotCasted = celebrities.filter((celebritie) => {
+            let counter = 0;
+            movie.cast.forEach((celebritieCasted) => {
+              if (celebritie._id.toString() ===  celebritieCasted._id.toString()) {
+                counter++;
+              }
+            });
+            if (counter >= 1) {
+              return false;
+            } else {
+              return true;
+            }
+          });
+        
+          console.log(celebritiesNotCasted)
+        res.render("movies/edit-movie", {celebritiesNotCasted,movie})
     } catch (error) {
         console.log(error)
     }
@@ -93,6 +102,7 @@ router.post('/movies/:id/edit', (req, res) => {
     })
     .catch(error => console.log(error))
 })
+
 
 // function filterNotCasted(movie, celebrities) {
 //     return celebrities.filter(celebrity =>  {
