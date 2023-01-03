@@ -53,17 +53,35 @@ router.get("/movies", (req, res, next) => {
     });
 });
 
+// Displaying Movie Details
+
 router.get("/movies/:id", (req, res, next) => {
   Movie.findById(req.params.id)
     .populate("cast")
-    .then((moviesDetails) => {
-    console.log(moviesDetails);
-      res.render("movies/movie-details", { movies: moviesDetails });
+    .then((movieDetails) => {
+    console.log(movieDetails);
+      res.render("movies/movie-details", {movieDetails });
     })
     .catch((err) => {
       console.log("error getting details from the db", err);
       next();
     });
 });
+
+
+// Route for Deleting a movie
+
+router.post("/movies/:id/delete", (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.id)
+      .then(() => {
+        console.log("movie deleted");
+        res.redirect("/movies");
+      })
+      .catch((err) => {
+        console.log("error deleting the movie from the database", err);
+        next();
+      });
+  });
+
 
 module.exports = router;
