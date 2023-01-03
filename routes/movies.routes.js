@@ -32,7 +32,6 @@ router.post("/movies/create", (req, res, next) => {
   };
   Movie.create(movieDetail)
     .then((movieDetails) => {
-      
       res.redirect("/movies");
     })
     .catch((err) => {
@@ -47,6 +46,19 @@ router.get("/movies", (req, res, next) => {
 
     .then((moviesFromDb) => {
       res.render("movies/movies", { movies: moviesFromDb });
+    })
+    .catch((err) => {
+      console.log("error getting details from the db", err);
+      next();
+    });
+});
+
+router.get("/movies/:id", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .populate("cast")
+    .then((moviesDetails) => {
+    console.log(moviesDetails);
+      res.render("movies/movie-details", { movies: moviesDetails });
     })
     .catch((err) => {
       console.log("error getting details from the db", err);
