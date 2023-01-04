@@ -1,0 +1,16 @@
+<h2>Detalle de la pelicula</h2>
+{{#with movie}}
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+    <p class="card-text">{{plot}}</p>
+    {{#each _cast}}
+    <ul>
+        <li>{{name}}</li>
+    </ul>
+    {{/each}}
+  </div>
+</div>
+{{/with}}

@@ -1,8 +1,16 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+}
+ul li {
+list-style: none;
+}
+h1{
+text-align: center;
+}
+.btn{
+  width: 250px;
 }

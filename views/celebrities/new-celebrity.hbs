@@ -1,0 +1,16 @@
+<h2>Crear nueva celebridad</h2>
+<form action="/celebrities/create" method="POST">
+    <div class="mb-3">
+        <label for="celebrityName" class="form-label">Nombre</label>
+        <input name="celebrityName" type="text" class="form-control" id="celebrityName" placeholder="Nombre de la celebridad">
+    </div>
+    <div class="mb-3">
+        <label for="celebrityOcupation" class="form-label">Ocupación</label>
+        <input name="celebrityOcupation" type="text" class="form-control" id="celebrityOcupation" placeholder="Ocupación de la celebridad">
+    </div>
+    <div class="mb-3">
+        <label for="celebrityPhrase" class="form-label">Frase</label>
+        <textarea name="celebrityPhrase" class="form-control" id="celebrityPhrase" rows="3" placeholder="Frase mas conocida"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
