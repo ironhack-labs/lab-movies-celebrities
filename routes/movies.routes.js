@@ -84,10 +84,11 @@ router.get("/movies/:movieId/edit", (req, res) => {
   const { movieId } = req.params;
 
   MovieModel.findById(movieId)
+    .populate("cast")
     .then((movie) => {
       console.log("Found movie to edit: ", movie);
 
-      res.render("movies/edit-movie", movie);
+      res.render("movies/movie-edit", movie);
     })
     .catch((error) => {
       console.log("An error occured while editing movie details: ", error);
