@@ -19,6 +19,19 @@ router.post("/movies/create", (req, res) => {
     });
 });
 
+router.post("/movies/:movieId/delete", (req,res) => {
+    const { movieId } = req.params;
+
+    MovieModel.findByIdAndRemove(movieId)
+    .then((movie) => {
+        console.log(movie + "was deleted.")
+        res.redirect("/movies")
+    })
+    .catch((error) => {
+        console.log("Something went wrong while deleting the movie: ", error);
+      });
+})
+
 router.get("/movies", (req, res) => {
   MovieModel.find()
     .then((movies) => {
