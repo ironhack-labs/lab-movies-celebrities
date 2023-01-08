@@ -20,11 +20,26 @@ router.post("/celebrities/create", (req, res) => {
       res.redirect("/celebrities");
     })
     .then(() => {
-      res.render("/celebrities/create");
+      res.render("celebrities/create");
     })
     .catch((err) => {
       console.log("Error while creating the celebrities:", err);
     });
 });
+
+router.get("/celebrities", (req, res) => {
+    console.log(res.render);
+    Celebrity.find()
+    .then((result) => {
+        console.log(result) 
+        res.render("celebrities/celebrities", {result}); 
+    })
+    .catch((err) => {
+        console.log("Celebrities are on the red carpet - that's why you see an error", err)
+    })
+    
+  });
+
+
 
 module.exports = router;
