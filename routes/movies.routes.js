@@ -6,6 +6,7 @@ const router = require("express").Router();
 
 // all your routes here
 
+//POST for the create a new movie
 router.post("/movies/create", (req, res) => {
   const { title, genre, plot, cast } = req.body;
   MovieModel.create({ title, genre, plot, cast })
@@ -19,6 +20,7 @@ router.post("/movies/create", (req, res) => {
     });
 });
 
+//POST for the delete the movie
 router.post("/movies/:movieId/delete", (req,res) => {
     const { movieId } = req.params;
 
@@ -32,6 +34,7 @@ router.post("/movies/:movieId/delete", (req,res) => {
       });
 })
 
+//list of the movies
 router.get("/movies", (req, res) => {
   MovieModel.find()
     .then((movies) => {
@@ -44,6 +47,7 @@ router.get("/movies", (req, res) => {
     });
 });
 
+//create a new movie
 router.get("/movies/create", (req, res) => {
   CelebrityModel.find().then((celebrities) => {
     console.log(celebrities);
