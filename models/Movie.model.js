@@ -7,4 +7,4 @@ const movieSchema = new Schema({
   cast: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 });
 
-module.exports = ("Movie", movieSchema);
+module.exports = model("Movie", movieSchema);
