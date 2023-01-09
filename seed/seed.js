@@ -129,3 +129,5 @@ mongoose
   .catch((err) => {
     console.log("Error while seeding db: ", err);
   });
+
+//had some issues with commiting, just checking
