@@ -32,13 +32,7 @@ a {
   width: 20px;
 }
 
-.navbar-link-container {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.navbar-link-container a {
+.navbar-link {
   display: flex;
   align-items: center;
   gap: 5px;
