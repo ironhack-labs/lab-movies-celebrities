@@ -38,6 +38,12 @@ a {
   gap: 5px;
 }
 
+.navbar-link-container a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .menu-buttons a {
   background-color: black;
 }
