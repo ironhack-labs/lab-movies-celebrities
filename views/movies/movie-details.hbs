@@ -1,0 +1,18 @@
+<h2>{{title}}</h2>
+<h2>{{genre}}</h2>
+<h2>{{plot}}</h2>
+<p>
+    {{#each cast}}
+    <h2>{{this.name}}</h2>
+<h2>{{this.occupation}}</h2>
+<h2>{{this.catchPhrase}}</h2>
+    {{/each}}
+</p>
+
+<form method="GET" action="/movies/{{_id}}/edit">
+<button type="submit">EDIT</button>
+</form>
+
+<form method="POST" action="/movies/{{_id}}/delete">
+<button type="submit">REMOVE</button>
+</form>

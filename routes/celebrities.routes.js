@@ -24,7 +24,7 @@ router.get('/celebrities', (req,res,next) => {
     Celebrity.find()
     .then(allCelebs => {
         console.log(allCelebs);
-        res.render('celebrities/celebrities', {allCelebs})
+        res.render('celebrities/celebrities', {x: allCelebs})
     })
 } )
 
