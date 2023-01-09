@@ -20,19 +20,33 @@ router.post("/movies/create", (req, res) => {
     });
 });
 
-//POST for the delete the movie
 router.post("/movies/:movieId/delete", (req,res) => {
     const { movieId } = req.params;
 
-    MovieModel.findByIdAndRemove(movieId)
+  MovieModel.findByIdAndRemove(movieId)
     .then((movie) => {
-        console.log(movie + "was deleted.")
-        res.redirect("/movies")
+      console.log(movie + "was deleted.");
+      res.redirect("/movies");
     })
     .catch((error) => {
-        console.log("Something went wrong while deleting the movie: ", error);
-      });
+      console.log("Something went wrong while deleting the movie: ", error);
+    });
 })
+});
+
+router.post("/movies/:movieId/edit", (req, res) => {
+  const { title, genre, plot, cast } = req.body;
+
+  const { movieId } = req.params;
+
+  MovieModel.findByIdAndUpdate(movieId, { title, genre, plot, cast }).then(
+    (movie) => {
+      console.log("Movie successfully updated! Details: ", movie);
+
+      res.redirect(`/movies/${movieId}`);
+    }
+  );
+});
 
 //list of the movies
 router.get("/movies", (req, res) => {
@@ -67,6 +81,21 @@ router.get("/movies/:movieId", (req, res) => {
     })
     .catch((error) => {
       console.log("An error occured while getting movie details: ", error);
+    });
+});
+
+router.get("/movies/:movieId/edit", (req, res) => {
+  const { movieId } = req.params;
+
+  MovieModel.findById(movieId)
+    .populate("cast")
+    .then((movie) => {
+      console.log("Found movie to edit: ", movie);
+
+      res.render("movies/movie-edit", movie);
+    })
+    .catch((error) => {
+      console.log("An error occured while editing movie details: ", error);
     });
 });
 

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <br>
+=======
+<a href="/">Back to Home Page</a>
+<br />
+>>>>>>> 663f5e5cae453ba8c7ff38da27dabe2b0fb51215
 <h2>Details for {{title}}</h2>
 <p>Genre: {{genre}}</p>
 <p>Plot: {{plot}}</p>
@@ -8,9 +13,10 @@
   <p>-> The {{occupation}} {{name}} used to say "{{catchPhrase}}"</p>
 {{/each}}
 
-<br>
+<br />
 
 <form action="/movies/{{_id}}/delete" method="POST">
-<button>Delete the Movie</button>
+  <button>Delete the Movie</button>
 </form>
-
+<br />
+<a href="/movies/{{_id}}/edit">Edit the Movie</a>
