@@ -21,10 +21,11 @@ router.post('/celeb/create', (req, res, next) => {
     })
 })
 
-router.get('/celebs', (req, res, next) => {
+router.get('/celebs/celebs', (req, res, next) => {
     Celeb.find()
     .then((result) => {
-        res.render('celebs/celebs')
+        console.log(result)
+        res.render('celebs/celebs', {result})
     }) 
 })
 
