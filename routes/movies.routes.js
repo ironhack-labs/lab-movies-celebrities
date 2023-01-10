@@ -86,15 +86,26 @@ router.get("/movies/:movieId", (req, res) => {
 router.get("/movies/:movieId/edit", (req, res) => {
   const { movieId } = req.params;
 
-  MovieModel.findById(movieId)
-    .populate("cast")
-    .then((movie) => {
-      console.log("Found movie to edit: ", movie);
+  const movie = MovieModel.findById(movieId).populate("cast");
 
-      res.render("movies/movie-edit", movie);
+  const celebrities = CelebrityModel.find();
+  /*  .then((celebrities) => {
+      console.log("Found movie to edit: ", celebrities);
+
+      
     })
     .catch((error) => {
       console.log("An error occured while editing movie details: ", error);
+    }); */
+
+  Promise.all([movie, celebrities])
+    .then((result) => {
+      const [movie, celebrities] = result;
+
+      res.render("movies/edit-movie", { celebrities, movie });
+    })
+    .catch((err) => {
+      console.log("An error occurred while editing movie details: ", err);
     });
 });
 
