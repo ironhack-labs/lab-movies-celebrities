@@ -65,4 +65,14 @@ router.post("/movies/:movieId/delete", (req, res) => {
     });
 });
 
+router.get("/movies/:editId/edit", (req, res) => {
+  let allCelebrities = [];
+  Celebrity.find().then((result) => {
+    allCelebrities = result;
+  });
+  Movie.findById(req.params.editId).then((result) => {
+    res.render("movies/edit-movie", { result, allCelebrities });
+  });
+});
+
 module.exports = router;
