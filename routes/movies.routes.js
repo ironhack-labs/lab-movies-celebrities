@@ -89,14 +89,6 @@ router.get("/movies/:movieId/edit", (req, res) => {
   const movie = MovieModel.findById(movieId).populate("cast");
 
   const celebrities = CelebrityModel.find();
-  /*  .then((celebrities) => {
-      console.log("Found movie to edit: ", celebrities);
-
-      
-    })
-    .catch((error) => {
-      console.log("An error occured while editing movie details: ", error);
-    }); */
 
   Promise.all([movie, celebrities])
     .then((result) => {

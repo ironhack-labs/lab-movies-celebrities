@@ -56,11 +56,5 @@ a {
 
 .a-button:hover {
   background-color: rgb(21, 165, 163);
+  text-decoration: none;
 }
-
-/* .a-button2 {
-  padding-top: 1000px;
-  margin-top: 1000px;
-
-  can't create the space from the body of the page
-} */
