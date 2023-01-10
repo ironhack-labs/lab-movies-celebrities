@@ -31,17 +31,25 @@ router.post("/movies/create", (req, res) => {
     });
 });
 
-router.get("/movies", (req, res)=> {
-    console.log(res.render)
-    Movie.find()
-    .then((result)=> {
-        res.render("movies/movies", {result})
+router.get("/movies", (req, res) => {
+  console.log(res.render);
+  Movie.find()
+    .then((result) => {
+      res.render("movies/movies", { result });
     })
     .catch((err) => {
-        console.log("Error on the movies list", err)
-    })
-    
+      console.log("Error on the movies list", err);
+    });
+});
 
-})
+router.get("/movies/:movieId", (req, res) => {
+  console.log(req.params);
+  Movie.findById(req.params.movieId)
+    .populate("cast")
+    .then((result) => {
+      console.log(result);
+      res.render("movies/movie-details", result);
+    });
+});
 
 module.exports = router;
