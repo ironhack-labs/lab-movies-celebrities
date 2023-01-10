@@ -49,6 +49,19 @@ router.get("/movies/:movieId", (req, res) => {
     .then((result) => {
       console.log(result);
       res.render("movies/movie-details", result);
+    })
+    .catch((err) => {
+      console.log("Error in accessing movie details", err);
+    });
+});
+
+router.post("/movies/:movieId/delete", (req, res) => {
+  Movie.findByIdAndDelete(req.params.movieId)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch((err) => {
+      console.log("Error in deleting movie", err);
     });
 });
 
