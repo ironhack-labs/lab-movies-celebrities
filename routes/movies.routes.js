@@ -102,6 +102,19 @@ router.get("/movies/:movieId/edit", (req, res) => {
     .then((result) => {
       const [movie, celebrities] = result;
 
+      const cast = {};
+
+      for (const actor of movie.cast) {
+        cast[actor.name] = true;
+      }
+
+      for (let i = 0; i < celebrities.length; i++) {
+        const celebrity = celebrities[i].name;
+        if (cast[celebrity]) {
+          celebrities[i].isInCast = true;
+        }
+      }
+
       res.render("movies/edit-movie", { celebrities, movie });
     })
     .catch((err) => {
