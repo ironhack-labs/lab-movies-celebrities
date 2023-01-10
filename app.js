@@ -29,7 +29,7 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const celebRoutes = require('./routes/celeb.routes');
-app.use('/celeb', celebRoutes);
+app.use('/', celebRoutes);
 
 
 const moviesRoutes = require('./routes/movies.routes');
