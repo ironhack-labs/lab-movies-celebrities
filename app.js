@@ -33,7 +33,7 @@ app.use('/', celebRoutes);
 
 
 const moviesRoutes = require('./routes/movies.routes');
-app.use('/movies', moviesRoutes);
+app.use('/', moviesRoutes);
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

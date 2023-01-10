@@ -13,7 +13,7 @@ router.post('/celeb/create', (req, res, next) => {
     const {name, occupation, catchPhrase} = req.body
     Celeb.create({name, occupation, catchPhrase})
     .then(()=> {
-        res.redirect('/celebs/celebs')
+        res.redirect('/celebs')
     })
     .catch((err)=> {
         res.render('celebs/new-celebs')
@@ -21,7 +21,7 @@ router.post('/celeb/create', (req, res, next) => {
     })
 })
 
-router.get('/celebs/celebs', (req, res, next) => {
+router.get('/celebs', (req, res, next) => {
     Celeb.find()
     .then((result) => {
         console.log(result)
