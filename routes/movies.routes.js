@@ -31,4 +31,17 @@ router.post("/movies/create", (req, res) => {
     });
 });
 
+router.get("/movies", (req, res)=> {
+    console.log(res.render)
+    Movie.find()
+    .then((result)=> {
+        res.render("movies/movies", {result})
+    })
+    .catch((err) => {
+        console.log("Error on the movies list", err)
+    })
+    
+
+})
+
 module.exports = router;
