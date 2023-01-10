@@ -19,11 +19,10 @@ router.post("/celebrities/create", (req, res) => {
     .then(() => {
       res.redirect("/celebrities");
     })
-    .then(() => {
-      res.render("celebrities/create");
-    })
+
     .catch((err) => {
       console.log("Error while creating the celebrities:", err);
+      res.redirect("/celebrities/new-celebrity");
     });
 });
 

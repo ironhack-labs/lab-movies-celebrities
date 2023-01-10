@@ -7,7 +7,7 @@ const router = require("express").Router();
 router.get("/movies/create", (req, res) => {
   console.log(res.render);
   Celebrity.find()
-    .populate("cast")
+    /* .populate("cast") */
     .then((result) => {
       res.render("movies/new-movie", { result });
     });
@@ -15,7 +15,7 @@ router.get("/movies/create", (req, res) => {
 
 router.post("/movies/create", (req, res) => {
   console.log(req.body);
-  const { title, genre, plot } = req.body;
+  const { title, genre, cast, plot } = req.body;
   Movie.create({
     title: title,
     genre: genre,
@@ -25,12 +25,9 @@ router.post("/movies/create", (req, res) => {
     .then(() => {
       res.redirect("/movies");
     })
-    .then(() => {
-      console.log(res.render);
-      res.render("movies/new-movie");
-    })
     .catch((err) => {
       console.log("Error while creating movies:", err);
+      res.redirect("/movies/new-movie");
     });
 });
 
