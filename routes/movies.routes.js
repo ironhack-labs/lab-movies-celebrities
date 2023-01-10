@@ -75,4 +75,18 @@ router.get("/movies/:editId/edit", (req, res) => {
   });
 });
 
+router.post("/movies/:editId/edit", (req, res) => {
+  /*   let editCelebrities = [];
+    Celebrity.findByIdAndUpdate().then((result) => {
+        editCelebrities = result
+    }) */
+    console.log(req.body)
+    const {title, genre, plot} = req.body
+    Movie.findByIdAndUpdate(req.params.editId, {title:title, genre:genre, plot:plot})
+        .then(() => {
+            console.log("update")
+            res.redirect("/movies/:movieId")
+        })
+})
+
 module.exports = router;
