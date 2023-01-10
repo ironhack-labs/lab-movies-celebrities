@@ -29,10 +29,11 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const celebrity = require('./routes/celebrities.routes');
-app.use('/', celebrity);
+app.use('/celebrities', celebrity);
 
 const movies = require('./routes/movies.routes');
-app.use('/', movies);
+app.use('/movies', movies);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

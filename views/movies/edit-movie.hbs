@@ -1,4 +1,4 @@
-<h2>New Movie</h2>
+<h2>Edit the Movie</h2>
 <form action="/movies/{{movie._id}}/edit" method="POST">
 <label> Title
     <input value="{{movie.title}}" type="text" name="title">
@@ -21,5 +21,6 @@
 </select>
 </label>
 
-<button type="submit">Submit</button>
+<button type="submit">Edit</button>
 </form>
+<a href="/movies">Back</a>

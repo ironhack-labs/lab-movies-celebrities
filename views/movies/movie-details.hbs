@@ -1,13 +1,13 @@
 <h2>{{title}}</h2>
-<h2>{{genre}}</h2>
-<h2>{{plot}}</h2>
-<p>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+<div>
     {{#each cast}}
-    <h2>{{this.name}}</h2>
-<h2>{{this.occupation}}</h2>
-<h2>{{this.catchPhrase}}</h2>
+    <h3>- {{this.name}}</h3>
+    <p>-- {{this.occupation}}</p>
+    <p>-- {{this.catchPhrase}}</p>
     {{/each}}
-</p>
+</div>
 
 <form method="GET" action="/movies/{{_id}}/edit">
 <button type="submit">EDIT</button>

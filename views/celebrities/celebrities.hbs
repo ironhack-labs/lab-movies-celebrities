@@ -1,11 +1,15 @@
+<h2>Checkout theese Celebrities!</h2>
 <ul>
-    {{#each x}}
-    <li>
-        {{this.name}}
-        {{this.occupation}}
-        {{this.catchPhrase}}
-    </li>
+    {{#each allCelebs}}
+    <a href="/celebrities/{{this._id}}" >
+      <li>
+          {{this.name}}
+          {{this.occupation}}
+          {{this.catchPhrase}}
+      </li>
     {{/each}}
+    </a>
 </ul>
 
-<a href="/celebrities/create">Create New Celeb!!!</a>
+<a href="/celebrities/create">Add a New Celeb!!!</a>
+<a href="/">Back to Home</a>
