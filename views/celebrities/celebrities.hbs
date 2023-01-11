@@ -1,11 +1,11 @@
-
 <h2 id="celebrities-title">Celebrities</h2>
 
-<ul>
+<div class="celebrities-container">
   {{#each celebrities}}
-    <li>{{name}}</li>
+    <div class="celebrities-card">
+      <h3 class="celebrities-card-title">{{name}}</h3>
+      <a class="celebrities-card-link" href="/celebrities/{{id}}">View Details</a>
+    </div>
   {{/each}}
-
-  <a class="a-button2" href="/celebrities/create">Create a new Celebrity</a>
-
-</ul>
+</div>
+<a class="a-button2" href="/celebrities/create">Create a new Celebrity</a>

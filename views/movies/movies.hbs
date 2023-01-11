@@ -1,13 +1,13 @@
-
 <h2 id="movies-title">Movies</h2>
 
-<ul>
+<div class="movie-container">
   {{#each movies}}
-    <li> <a href="/movies/{{_id}}">{{title}}</a> </li>
+    <div class="movie-card">
+      <h3 class="movie-card-title">{{title}}</h3>
+      <a class="movie-card-link" href="/movies/{{_id}}">View Details</a>
+
+    </div>
 
   {{/each}}
-
-  <a class="a-button2" href="/movies/create">Add a new Movie to the Collection</a>
-
-
-</ul>
+</div>
+<a class="a-button2" href="/movies/create">Add a new Movie to the Collection</a>
