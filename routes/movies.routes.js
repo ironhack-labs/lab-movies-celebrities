@@ -60,27 +60,38 @@ router.post('/movies/:movieId/delete', (req, res, next) => {
 })
 
 router.get('/movies/:movieId/edit', (req, res, next) => {
-    console.log(req.params.movieId)
+    
     Movie.findById(req.params.movieId)
-    .then((result) => {
-        Celeb.find(result)
+    .then((movieToEdit)=>{
+        console.log(movieToEdit)
+        Celeb.find()
+        .then((allCelebs)=>{
+            console.log(allCelebs)
+            res.render('movies/edit-movie', {allCelebs, movieToEdit})
+        })
     })
-    .then((result)=>{
-        console.log(result)
-        res.render('movies/edit-movie', {result})
-    })
+
+    // Tried passing multiple variables, did not work
+    // function passMultVariables() {
+    //     const allCelebs = Celeb.find()
+    //     const movieToEdit = Movie.findById(req.params.movieId)
+    //     return {cast:allCelebs, movie: movieToEdit}
+    // }
+
+    // passMultVariables().then((result)=>{
+    //     res.render('movies/edit-movie', result)
+    // })
 })
 
-router.post('/movies/:movieId', (req, res, next) => {
+router.post('/movies/:movieId/edit', (req, res, next) => {
     console.log(req.body)
     const {title, genre, plot, cast} = req.body
-    Movie.findByIdAndUpdate(req.params.movieId, req.body)
+    Movie.findByIdAndUpdate(req.params.movieId, {title:title, genre:genre, plot:plot, cast:cast})
     .then(()=> {
         res.redirect('/movies')
     })
     .catch((err)=> {
-        res.render('movies')
-        console.log('The error while creating is: ', err)
+        console.log('The error while editing is: ', err)
     })
 })
 

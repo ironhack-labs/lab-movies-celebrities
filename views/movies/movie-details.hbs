@@ -1,6 +1,8 @@
 <h2>{{title}}</h2>
 <div>Genre: {{genre}}</div>
+<br>
 <div>Plot: {{plot}}</div>
+<br>
 <div>Cast:
     <br>
 {{#each cast}}
@@ -13,8 +15,10 @@
 <br>
 <hr>
 {{/each}}
+</div>
 
 <form action="/movies/{{_id}}/delete" method="POST">
     <button type="submit">Delete Movie</button>
 </form>
-</div>
+
+<a style="margin-left:5px" href="/movies/{{_id}}/edit">Edit Movie</a>
