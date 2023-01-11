@@ -44,6 +44,20 @@ router.get('/movies/:movieId', (req,res,next) =>{
     .then((result)=>{
         res.render('movies/movie-details', result)
     })
+    .catch((err)=> {
+        console.log('The error while rendering movie-details is, ', err)
+    })
+})
+
+router.post('/movies/:movieId/delete', (req, res, next) => {
+    console.log(req.params.movieId)
+    Movie.findByIdAndRemove(req.params.movieId)
+    .then(() => {
+        res.redirect('/movies')
+    })
+    .catch((err)=> {
+        console.log('The error while deleting the movie-details page is, ', err)
+    })
 })
 
 module.exports = router;
