@@ -50,7 +50,6 @@ router.get('/movies/:movieId', (req,res,next) =>{
 })
 
 router.post('/movies/:movieId/delete', (req, res, next) => {
-    console.log(req.params.movieId)
     Movie.findByIdAndRemove(req.params.movieId)
     .then(() => {
         res.redirect('/movies')
@@ -59,5 +58,31 @@ router.post('/movies/:movieId/delete', (req, res, next) => {
         console.log('The error while deleting the movie-details page is, ', err)
     })
 })
+
+router.get('/movies/:movieId/edit', (req, res, next) => {
+    console.log(req.params.movieId)
+    Movie.findById(req.params.movieId)
+    .then((result) => {
+        Celeb.find(result)
+    })
+    .then((result)=>{
+        console.log(result)
+        res.render('movies/edit-movie', {result})
+    })
+})
+
+router.post('/movies/:movieId', (req, res, next) => {
+    console.log(req.body)
+    const {title, genre, plot, cast} = req.body
+    Movie.findByIdAndUpdate(req.params.movieId, req.body)
+    .then(()=> {
+        res.redirect('/movies')
+    })
+    .catch((err)=> {
+        res.render('movies')
+        console.log('The error while creating is: ', err)
+    })
+})
+
 
 module.exports = router;
