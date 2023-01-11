@@ -29,6 +29,12 @@ router.get('/celebs', (req, res, next) => {
     }) 
 })
 
+router.get('/celebs/:celebId', (req,res,next)=>{
+    Celeb.findById(req.params.celebId)
+    .then((result)=>{
+        res.render('celebs/celeb-details', result)
+    })
+})
 
 
 

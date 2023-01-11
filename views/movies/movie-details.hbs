@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<div>Genre: {{genre}}</div>
+<div>Plot: {{plot}}</div>
+<div>Cast:
+    <br>
+{{#each cast}}
+<div>Name: {{name}}</div>
+<div>Occupation: {{occupation}}</div>
+<div>Catch Phrase: {{catchPhrase}}</div>
+<div>
+    <a href="/celebs/{{_id}}">View Celebrity Details</a>
+</div>
+<br>
+<hr>
+{{/each}}
+</div>

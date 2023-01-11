@@ -32,12 +32,18 @@ router.post('/movies/create', (req, res, next) => {
 
 router.get('/movies', (req, res, next) => {
     Movie.find()
-    .populate('cast')
     .then((result) => {
         console.log(result)
         res.render('movies/movies', {result})
     }) 
 })
 
+router.get('/movies/:movieId', (req,res,next) =>{
+    Movie.findById(req.params.movieId)
+    .populate('cast')
+    .then((result)=>{
+        res.render('movies/movie-details', result)
+    })
+})
 
 module.exports = router;
