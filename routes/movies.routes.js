@@ -8,8 +8,8 @@ const router = require("express").Router();
 
 //POST for the create a new movie
 router.post("/movies/create", (req, res) => {
-  const { title, genre, plot, cast } = req.body;
-  MovieModel.create({ title, genre, plot, cast })
+  const { title, genre, plot, image_url, cast } = req.body;
+  MovieModel.create({ title, genre, plot, image_url, cast })
     .then((result) => {
       console.log("new Movie was created: " + result);
       res.redirect("/movies");
@@ -34,17 +34,21 @@ router.post("/movies/:movieId/delete", (req, res) => {
 });
 
 router.post("/movies/:movieId/edit", (req, res) => {
-  const { title, genre, plot, cast } = req.body;
+  const { title, genre, plot, image_url, cast } = req.body;
 
   const { movieId } = req.params;
 
-  MovieModel.findByIdAndUpdate(movieId, { title, genre, plot, cast }).then(
-    (movie) => {
-      console.log("Movie successfully updated! Details: ", movie);
+  MovieModel.findByIdAndUpdate(movieId, {
+    title,
+    genre,
+    plot,
+    image_url,
+    cast,
+  }).then((movie) => {
+    console.log("Movie successfully updated! Details: ", movie);
 
-      res.redirect(`/movies/${movieId}`);
-    }
-  );
+    res.redirect(`/movies/${movieId}`);
+  });
 });
 
 //list of the movies

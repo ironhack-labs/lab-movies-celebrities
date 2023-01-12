@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 a {
@@ -75,9 +76,8 @@ a {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 150px;
-  width: 150px;
-  padding: 5px;
+  height: 300px;
+  width: 200px;
 
   border: 1px solid #000;
 }
@@ -88,4 +88,13 @@ a {
 
   text-align: center;
   font-size: 20px;
+}
+
+.movie-card-img {
+  width: inherit;
+  height: 200px;
+}
+
+.movie-details-img {
+  width: 100px;
 }

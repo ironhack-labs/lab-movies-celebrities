@@ -3,6 +3,7 @@
 <div class="movie-container">
   {{#each movies}}
     <div class="movie-card">
+      <img class="movie-card-img" src="{{image_url}}" alt="Movie poster" />
       <h3 class="movie-card-title">{{title}}</h3>
       <a class="movie-card-link" href="/movies/{{_id}}">View Details</a>
 
