@@ -1,0 +1,23 @@
+<div class='celebrities__list'>
+  <h1>LIST OF CELEBRITIES</h1>
+  <h2><a href='/celebrities/create'>Add New</a></h2>
+  {{#each celebs}}
+    <div class='celebrities__list-item'>
+      <div>
+        {{this.name}}
+      </div>
+      <div>
+        {{this.occupation}}
+      </div>
+      <div>
+        {{this.catchPhrase}}
+      </div>
+      <div>
+        <a href='/celebrities/delete/{{this._id}}'>Delete</a>
+      </div>
+      <div>
+        <a href='/celebrities/create/{{this._id}}'>Edit</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

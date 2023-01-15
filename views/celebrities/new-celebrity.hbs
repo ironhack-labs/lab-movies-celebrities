@@ -1,0 +1,30 @@
+<div class='celebrities__create'>
+  <div class='celebrities__create-header'>
+    <h1>{{formData.title}}</h1>
+  </div>
+
+  <form action='{{formData.action}}' method='post'>
+    <label for='name'>Name:</label>
+    <input type='text' name='name' id='name' required value='{{celeb.name}}' />
+
+    <label for='occupation'>Occupation:</label>
+    <input
+      type='text'
+      name='occupation'
+      id='occupation'
+      required
+      value='{{celeb.occupation}}'
+    />
+
+    <label for='catchPhrase'>Catch Phrase:</label>
+    <input
+      type='text'
+      name='catchPhrase'
+      id='catchPhrase'
+      required
+      value='{{celeb.catchPhrase}}'
+    />
+
+    <button type='submit'>{{formData.btnSubmit}}</button>
+  </form>
+</div>
