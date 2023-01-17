@@ -1,0 +1,31 @@
+<div class='main__container--movies-create'>
+  <div class='main__container--movies--create-header'>
+    <h1>Movie Details</h1>
+  </div>
+
+  <div class='main__container--movies-details'>
+    <label>Title:</label>
+    <div>{{movie.title}}</div>
+
+    <label>Genre:</label>
+    <div>{{movie.genre}}</div>
+
+    <label>Plot:</label>
+    <div>{{movie.plot}}</div>
+
+    <label>Celebrity:</label>
+    <div>
+      {{movie.celebrity.name}}
+    </div>
+
+    <button
+      type='button'
+      onclick="document.location.href = '/movies/create/{{movie._id}}'"
+    >Edit</button>
+    <button
+      type='button'
+      onclick="document.location.href = '/movies/delete/{{movie._id}}'"
+    >Delete</button>
+    <button type='button' onclick="document.location.href = '/movies'">Go Back</button>
+  </div>
+</div>

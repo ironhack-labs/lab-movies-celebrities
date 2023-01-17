@@ -1,0 +1,38 @@
+<div class='main__container--movies-create'>
+  <div class='main__container--movies--create-header'>
+    <h1>{{formData.title}}</h1>
+  </div>
+
+  <form action='{{formData.action}}' method='post'>
+    <label for='title'>Title:</label>
+    <input
+      type='text'
+      name='title'
+      id='title'
+      required
+      value='{{movie.title}}'
+    />
+
+    <label for='genre'>Genre:</label>
+    <input
+      type='text'
+      name='genre'
+      id='genre'
+      required
+      value='{{movie.genre}}'
+    />
+
+    <label for='genre'>Plot:</label>
+    <textarea name='plot' id='plot' rows='5'>{{movie.plot}}</textarea>
+
+    <label for='celebrity'>Celebrity:</label>
+    <select name='celebrity' id='celebrity'>
+      {{#each celebs}}
+        <option value='{{this._id}}' {{#if this.selected }} selected="selected" {{/if}}>{{this.name}}</option>
+      {{/each}}
+    </select>
+
+    <button type='submit'>{{formData.btnSubmit}}</button>
+    <button type='button' onclick = "document.location.href = '/movies'">Cancel</button>
+  </form>
+</div>

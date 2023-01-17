@@ -1,0 +1,36 @@
+<div class='main__container--celebrities-create'>
+  <div class='main__container--celebrities--create-header'>
+    <h1>Celebrity Details</h1>
+  </div>
+
+  <div class='main__container--celebs-details'>
+    <label>Name:</label>
+    <div>{{celeb.name}}</div>
+
+    <label>Occupation:</label>
+    <div>{{celeb.occupation}}</div>
+
+    <label>Catch Phrase:</label>
+    <div>{{celeb.catchPhrase}}</div>
+
+    <label>Movies:</label>
+    <div>
+      <ul>
+        {{#each movies}}
+          <li><a href='/movies/{{this._id}}'>{{this.title}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <button
+      type='button'
+      onclick="document.location.href = '/celebrities/create/{{celeb._id}}'"
+    >Edit</button>
+    <button
+      type='button'
+      onclick="document.location.href = '/celebrities/delete/{{celeb._id}}'"
+    >Delete</button>
+    <button type='button' onclick="document.location.href = '/celebrities'">Go
+      Back</button>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-<div class='celebrities__create'>
-  <div class='celebrities__create-header'>
+<div class='main__container--celebs-create'>
+  <div class='main__container--celebs--create-header'>
     <h1>{{formData.title}}</h1>
   </div>
 
@@ -26,5 +26,10 @@
     />
 
     <button type='submit'>{{formData.btnSubmit}}</button>
+    <button
+      type='button'
+      onclick="document.location.href = '/celebrities'"
+    >Cancel</button>
+
   </form>
 </div>

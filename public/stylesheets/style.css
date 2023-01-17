@@ -1,5 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  padding: 50px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
@@ -7,7 +11,118 @@ a {
   color: #00b7ff;
 }
 
-.celebrities__create form {
+.main__container {
+  width: 700px;
+  margin: 0 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main__container nav {
+  display: flex;
+  height: 80px;
+}
+
+.main__container nav ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  text-transform: uppercase;
+  background-color: rgb(117, 117, 117);
+  margin: 0;
+  padding: 0;
+}
+
+.main__container nav ul li {
+  list-style: none;
+}
+
+.main__container-body {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.main__container-body > div {
+  margin-top: 50px;
+}
+
+.main__container-body h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.main__container-index {
+  align-self: center;
+}
+
+.main__container-index h1 {
+  margin-bottom: 50px;
+}
+
+.main__container-footer {
+  height: 80px;
+  border-top: 1px solid #000;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.main__container--movies-list,
+.main__container--celebs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.main__container--movies-header,
+.main__container--celebs-header {
+  border-bottom: 1px solid #000;
+  margin-bottom: 40px;
+}
+
+.main__container--movies--list-item,
+.main__container--celebs--list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  width: 200px;
+  border: 1px solid #000;
+  gap: 10px;
+  min-height: 150px;
+}
+
+.main__container--movies--list-item > div:first-child,
+.main__container--celebs--list-item > div:first-child {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.main__container--celebs--list-item > div:nth-child(3) {
+  font-style: italic;
+  color: rgb(112, 111, 111);
+}
+
+.main__container--movies--list-item > div:nth-child(4),
+.main__container--celebs--list-item > div:nth-child(4) {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  background-color: rgb(117, 117, 117);
+}
+.main__container--movies--list-item > div:nth-child(4) > div,
+.main__container--celebs--list-item > div:nth-child(4) > div {
+  flex: 1;
+}
+
+.main__container--movies-create form,
+.main__container--movies-details,
+.main__container--celebs-details,
+.main__container--celebs-create form {
   display: grid;
   grid-template-columns: auto auto;
   width: 400px;
@@ -15,7 +130,20 @@ a {
   margin-top: 50px;
 }
 
-.celebrities__create form button {
+.main__container--celebs-details label,
+.main__container--movies-details label {
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.main__container--celebs-details div {
+  text-align: left;
+}
+.main__container--movies-create form button,
+.main__container--movies-details button,
+.main__container--celebs-details button,
+.main__container--celebs-create form button {
   grid-column-start: 1;
   grid-column-end: 3;
 }

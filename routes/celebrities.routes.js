@@ -3,6 +3,7 @@ const app = require('../app');
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require('express').Router();
 const Celebrity = require('../models/Celebrity.model');
+const Movie = require('../models/Movie.model');
 // all your routes here
 
 router.get('/', async (req, res, next) => {
@@ -16,6 +17,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/create/:id?', async (req, res, next) => {
+  console.log('Creating Celeb');
   try {
     const formData = {
       title: 'Add New Celebrity',
@@ -32,6 +34,17 @@ router.get('/create/:id?', async (req, res, next) => {
     }
 
     res.render('celebrities/new-celebrity', { celeb, formData });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    const celeb = await Celebrity.findById(req.params.id);
+    const movies = await Movie.find({ celebrity: celeb });
+    console.log({ movies });
+    res.render('celebrities/celebrity-details', { celeb, movies });
   } catch (err) {
     next(err);
   }

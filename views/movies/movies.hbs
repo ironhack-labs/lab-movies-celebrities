@@ -1,0 +1,35 @@
+<div class='main__container-movies'>
+  <div class='main__container--movies-header'>
+    <h1>LIST OF MOVIES</h1>
+    <h2><a href='/movies/create'>Add New</a></h2>
+  </div>
+  <div class='main__container--movies-list'>
+    {{#each movies}}
+      <div class='main__container--movies--list-item'>
+        <div>
+          {{this.title}}
+        </div>
+        <div>
+          {{this.genre}}
+        </div>
+        <div>
+          <a
+            href='/celebrities/{{this.celebrity._id}}'
+          >{{this.celebrity.name}}</a>
+        </div>
+        <div>
+          <div>
+            <a href='/movies/{{this._id}}'>Details</a>
+          </div>
+          <div>
+            <a href='/movies/create/{{this._id}}'>Edit</a>
+          </div>
+          <div>
+            <a href='/movies/delete/{{this._id}}'>Delete</a>
+          </div>
+
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
