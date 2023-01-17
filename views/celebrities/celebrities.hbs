@@ -23,7 +23,7 @@
             <a href='/celebrities/create/{{this._id}}'>Edit</a>
           </div>
           <div>
-            <a href='/celebrities/delete/{{this._id}}'>Delete</a>
+            <a href='/celebrities/delete/{{this._id}}' onclick="if(!confirm('Are you sure you want to delete?')) event.preventDefault()">Delete</a>
           </div>
 
         </div>

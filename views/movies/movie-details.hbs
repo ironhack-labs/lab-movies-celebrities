@@ -13,9 +13,18 @@
     <label>Plot:</label>
     <div>{{movie.plot}}</div>
 
-    <label>Celebrity:</label>
+    <label>Cast:</label>
     <div>
-      {{movie.celebrity.name}}
+      <ul>
+        {{#each movie.cast}}
+          <li><a href='/celebrities/{{this._id}}'>{{this.name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <label>Top Celebrity:</label>
+    <div>
+      <a href='/celebrities/{{this._id}}'>{{movie.celebrity.name}}</a>
     </div>
 
     <button
@@ -24,7 +33,7 @@
     >Edit</button>
     <button
       type='button'
-      onclick="document.location.href = '/movies/delete/{{movie._id}}'"
+      onclick="if(confirm('Are you sure you want to delete?')) document.location.href = '/movies/delete/{{movie._id}}'"
     >Delete</button>
     <button type='button' onclick="document.location.href = '/movies'">Go Back</button>
   </div>

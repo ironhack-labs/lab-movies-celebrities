@@ -28,7 +28,7 @@
     >Edit</button>
     <button
       type='button'
-      onclick="document.location.href = '/celebrities/delete/{{celeb._id}}'"
+      onclick="if(confirm('Are you sure you want to delete?')) document.location.href = '/celebrities/delete/{{celeb._id}}'" 
     >Delete</button>
     <button type='button' onclick="document.location.href = '/celebrities'">Go
       Back</button>

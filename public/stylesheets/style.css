@@ -137,8 +137,10 @@ a {
   text-transform: uppercase;
 }
 
+.main__container--movies-details div, 
 .main__container--celebs-details div {
   text-align: left;
+  margin-left: 50px;
 }
 .main__container--movies-create form button,
 .main__container--movies-details button,

@@ -10,7 +10,6 @@ router.get('/', async (req, res, next) => {
   console.log('GETTING MOVIES');
   try {
     movies = await Movie.find().populate('celebrity');
-    // console.log(celeb)
     res.render('movies/movies', { movies });
   } catch (err) {
     next(err);
@@ -32,9 +31,17 @@ router.get('/create/:id?', async (req, res, next) => {
 
     if (req.params.id) {
       movie = await Movie.findById(req.params.id);
+
       celebs.forEach((celeb) => {
         if (celeb._id.equals(movie.celebrity)) celeb.selected = true;
       });
+
+      movie.cast.forEach((castID) => {
+        celebs.forEach((celebID) => {
+          if (celebID._id.equals(castID)) celebID.cast = true;
+        });
+      });
+
       formData.title = 'Edit Movie';
       formData.action = `/movies/update/${movie._id}`;
       formData.btnSubmit = 'Save Changes';
@@ -49,8 +56,9 @@ router.get('/create/:id?', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const movie = await Movie.findById(req.params.id).populate('celebrity');
-    // console.log(celeb)
+    const movie = await Movie.findById(req.params.id)
+      .populate('celebrity')
+      .populate('cast');
     res.render('movies/movie-details', { movie });
   } catch (err) {
     next(err);

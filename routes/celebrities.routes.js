@@ -9,7 +9,6 @@ const Movie = require('../models/Movie.model');
 router.get('/', async (req, res, next) => {
   try {
     celebs = await Celebrity.find();
-    // console.log(celeb)
     res.render('celebrities/celebrities', { celebs });
   } catch (err) {
     next(err);
@@ -42,7 +41,7 @@ router.get('/create/:id?', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const celeb = await Celebrity.findById(req.params.id);
-    const movies = await Movie.find({ celebrity: celeb });
+    const movies = await Movie.find({ cast: celeb });
     console.log({ movies });
     res.render('celebrities/celebrity-details', { celeb, movies });
   } catch (err) {

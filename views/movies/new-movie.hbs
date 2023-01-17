@@ -25,7 +25,14 @@
     <label for='genre'>Plot:</label>
     <textarea name='plot' id='plot' rows='5'>{{movie.plot}}</textarea>
 
-    <label for='celebrity'>Celebrity:</label>
+    <label for='cast'>Cast:</label>
+    <select name='cast' id='cast' multiple>
+      {{#each celebs}}
+        <option value='{{this._id}}' {{#if this.cast }} selected="selected" {{/if}}>{{this.name}}</option>
+      {{/each}}
+    </select>
+
+    <label for='celebrity'>Top Celebrity:</label>
     <select name='celebrity' id='celebrity'>
       {{#each celebs}}
         <option value='{{this._id}}' {{#if this.selected }} selected="selected" {{/if}}>{{this.name}}</option>
