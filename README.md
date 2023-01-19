@@ -923,13 +923,13 @@ That's it! :trophy:
 
   In the above example, we created and exported a `User` model, so that it can be imported and used anywhere in the application for managing the database collection `users`.
 
-Let's break down the above example and the steps in creating a mongoose model:
+  Let's break down the above example and the steps in creating a mongoose model:
 
-1. **Import mongoose:** The first step is to import the `mongoose` library.
-2. **Create a schema:**  The next step is to create a schema, which defines the shape of the documents that will be stored in the `users` collection. In the above example, the schema has two fields `firstName` and `lastName` which are both strings.
-3. **Create the model**: The last step is to create the model. This is done using the method `mongoose.model()`, which takes two arguments: the name of the model, in this case `'User'` and the schema it should use.
-   Mongoose automatically pluralizes and converts to lowercase the provided model name and uses it as the name of the collection. In this case, the string `'User'` is automatically converted into a collection name -> `users`.
-4. **Export the model:** After the model is created, it needs to be exported so it can be used in other parts of the application.
+  1. **Import mongoose:** The first step is to import the `mongoose` library.
+  2. **Create a schema:**  The next step is to create a schema, which defines the shape of the documents that will be stored in the `users` collection. In the above example, the schema has two fields `firstName` and `lastName` which are both strings.
+  3. **Create the model**: The last step is to create the model. This is done using the method `mongoose.model()`, which takes two arguments: the name of the model, in this case `'User'` and the schema it should use.
+    Mongoose automatically pluralizes and converts to lowercase the provided model name and uses it as the name of the collection. In this case, the string `'User'` is automatically converted into a collection name -> `users`.
+  4. **Export the model:** After the model is created, it needs to be exported so it can be used in other parts of the application.
 
   <br>
 
