@@ -26,11 +26,11 @@ router.get("/movies", (req, res) => {
   });
 });
 
-router.get("/movies/:movieId", (req, res) =>{
-    Movie.findById(req.params.movieId)
+router.get("/movies/:id", (req, res) =>{
+    Movie.findById(req.params.id)
     .populate("cast")
     .then((movie)=>{
-    res.render("movies/movie-details", movie)
+    res.render("movies/movie-details", {movie})
     })
     .catch((err) => res.send(err));
 })
