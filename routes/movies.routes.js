@@ -35,5 +35,45 @@ router.get("/movies/:id", (req, res) =>{
     .catch((err) => res.send(err));
 })
 
+router.post("/movies/:id/delete", (req, res)=>{
+    Movie.findByIdAndRemove(req.params.id)
+    .then(()=>{
+        res.redirect("/movies")
+    })
+    .catch((err)=> res.send(err))
+})
+
+router.get("/movies/:id/edit", (req, res)=>{
+
+  let celebrities;
+
+    Celebrity.find()
+        .then( (celebritiesFromDB) => {
+            celebrities = celebritiesFromDB;
+            return Movie.findById(req.params.id)
+        })
+        .then((movie) => {
+            const data = {
+                movie: movie,
+                celebrities: celebrities
+            }
+
+            res.render("movies/edit-movie", data);
+        })
+        .catch(err => {
+            console.log("Error getting movie details from DB...", err);
+        });
+})
+
+
+
+router.post("/movies/:id/edit", (req, res) =>{
+  Movie.findByIdAndUpdate(req.params.id, req.body)
+  .then((movie) =>{
+    res.redirect(`/movies/${movie.id}`)
+  })
+  .catch(err => res.send(err))
+})
+
 
 module.exports = router;

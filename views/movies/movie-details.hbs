@@ -14,7 +14,12 @@
     {{/each}}
 
 
-<form class="delete-movie-form" action="/movies/:{{_id}}/delete" method="POST">
+<form class="delete-movie-form" action="/movies/{{movie.id}}/delete" method="POST">
 
 <button type="submit" class="btn btn-primary">Delete</button>
+</form>
+
+<form class="edit-movie-form" action="/movies/{{movie.id}}/edit" method="GET">
+
+<button type="submit" class="btn btn-primary">Edit</button>
 </form>
