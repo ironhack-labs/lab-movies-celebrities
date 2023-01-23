@@ -1,9 +1,16 @@
 
-{{#each movie}}
+    <h2>Movies</h2>
+    <div class="container">
+    <div class="row gy-3 pb-3">
+        {{#each movie}}
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="custom-card m-3">
+                <h2>{{title}}</h2>
+                <a href="/movies/{{id}}">See the movie details</a>
+            </div>
+        </div>
+    {{/each}}
+</div>
+    <a href="/movies/create">Create a new movie</a>
 
-<h2>{{title}}</h2>
-<a href="/movies/{{id}}">See the movie details</a>
-
-{{/each}}
-
-<a href="/movies/create">Create a new movie</a>
+</div>
