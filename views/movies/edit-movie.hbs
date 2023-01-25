@@ -17,7 +17,7 @@
     <div>
       <select name="cast" class="form-select" multiple aria-label="multiple select example">
         {{#each celebrities}}
-          <option value="{{id}}">
+          <option value="{{id}}" {{isOptionSelected ../movie.cast}}>
             {{name}}
           </option>
         {{/each}}
