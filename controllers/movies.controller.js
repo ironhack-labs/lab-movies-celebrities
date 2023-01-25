@@ -23,4 +23,13 @@ module.exports.doCreate = (req, res, next) => {
         res.render('movies/new-movie');
         console.error(err)
     })
+};
+
+module.exports.detail = (req, res, next) => {
+    Movie.findById(req.params.id)
+    .populate('cast')
+    .then((movie) => {
+        res.render('movies/movie-details', { movie })
+    })
+    .catch(err => console.error(err))
 }
