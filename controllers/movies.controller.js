@@ -41,4 +41,27 @@ module.exports.doDelete = (req, res, next) => {
         console.info(`${movie.title} has been deleted`)
     })
     .catch(err => console.error(err))
+};
+
+module.exports.edit = (req, res, next) => {
+    Promise.all([
+        Movie.findById(req.params.id),
+        Celebrity.find()
+    ])
+    .then((response) => {
+        const [movie, celebrities] = response; // lo mismo que hacer lo de abajo
+      // const movie = response[0]
+      // const celebrities = response[1]
+        res.render('movies/edit-movie', { celebrities, movie})
+    })
+    .catch(err => console.error(err))
+};
+
+module.exports.doEdit = (req, res, next) => {
+    Movie.findByIdAndUpdate(req.params.id, req.body)
+    .then((movie) => {
+        res.redirect('/movies')
+        console.info(`${movie.title} has been updated`)
+    })
+    .catch(err => console.error(err))
 }
