@@ -2,12 +2,12 @@ const Celebrity = require('../models/Celebrity.model')
 
 module.exports.list = (req, res, next) => {
     Celebrity.find()
-    .then(celebrities => res.render('celebrities/celebrities.hbs', { celebrities }))
+    .then(celebrities => res.render('celebrities/celebrities', { celebrities }))
     .catch(err => console.error(err))
 };
 
 module.exports.create = (req, res, next) => {
-    res.render("celebrities/new-celebrity");
+    res.render('celebrities/new-celebrity');
 };
 
 module.exports.doCreate = (req, res, next) => {
@@ -17,7 +17,7 @@ module.exports.doCreate = (req, res, next) => {
         console.info(`${newCelebrity.name} has been created`)
     })
     .catch((err) => {
-        res.render("celebrities/new-celebrity");
+        res.render('celebrities/new-celebrity');
         console.error(err)
     })
 };
