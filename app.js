@@ -1,4 +1,3 @@
-
 const express = require("express");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
@@ -26,6 +25,12 @@ app.use(favicon(path.join(__dirname, ".", "public", "images", "favicon.ico")));
 // 👇 Start handling routes here
 const index = require('./routes/index');
 app.use('/', index);
+
+const movies = require('./routes/movies.routes');
+app.use('/movies', movies);
+
+const celebrities = require('./routes/celebrities.routes');
+app.use('/celebrities', celebrities);
 
 // default value for title local
 const projectName = 'lab-movies-celebrities';
