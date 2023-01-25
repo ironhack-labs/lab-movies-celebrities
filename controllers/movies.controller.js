@@ -2,7 +2,9 @@ const Movie = require('../models/Movie.model');
 const Celebrity = require('../models/Celebrity.model');
 
 module.exports.list = (req, res, next) => {
-    res.render('movies/movies');
+    Movie.find()
+    .then(movies => res.render('movies/movies', { movies }))
+    .catch(err => console.error(err))
 };
 
 module.exports.create = (req, res, next) => {
