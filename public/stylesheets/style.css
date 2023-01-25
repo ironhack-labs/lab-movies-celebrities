@@ -1,8 +1,35 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
 }
+
+.new-celebrity-form, .new-movie-form {
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: 50px;
+}
+
+.movies, .celebrities {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-details {
+  width: 700px;
+}
+
+.movie-details .movie-details-btns {
+  display: flex;
+}
+
+.movie-details .movie-details-btns form button {
+  margin-right: 20px;
+}
+

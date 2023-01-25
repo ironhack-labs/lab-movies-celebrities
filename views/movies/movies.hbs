@@ -1,9 +1,13 @@
 <h1>Movies</h1>
 
-<div>
-    {{#each movies}}
-    <h2>Title: {{title}}</h2>
-    <a href="/movies/{{id}}">More Info</a>
-    {{/each}}
+<div class="movies">
+  {{#each movies}}
+    <div class="card text-center m-5" style="width: 18rem;">
+      <div class="card-body">
+        <h5>{{title}}</h5>
+        <a href="/movies/{{id}}" class="mt-3 btn btn-primary">More Info</a>
+      </div>
+    </div>
+  {{/each}}
 </div>
 

@@ -1,18 +1,22 @@
-<div>
-    <h1>{{movie.title}}</h1>
-    <h4>Genre: {{movie.genre}}</h3>
-    <p>Plot: {{movie.plot}}</p>
-    <p>Cast:</p>
-    <ul>
-        {{#each movie.cast}}
-        <li>{{name}} | {{occupation}} | "{{catchPhrase}}"</li>
-        {{/each}}
-    </ul>
-
+<div class="movie-details">
+  <hr>
+  <h1><strong>{{movie.title}}</strong></h1>
+  <h5>Genre: {{movie.genre}}</h5><br>
+  <p><strong>Plot:</strong><br><br>{{movie.plot}}</p>
+  <p><strong>Cast:</strong></p>
+  <ul>
+    {{#each movie.cast}}
+    <li>{{name}} | {{occupation}} | <i>"{{catchPhrase}}"</i></li>
+    {{/each}}
+  </ul>
+  <hr>
+  <div class="movie-details-btns">
     <form action="/movies/{{movie.id}}/delete" method="POST">
-        <button>DELETE MOVIE</button>
+      <button class="mt-3 btn btn-danger">DELETE MOVIE</button>
     </form>
     <form action="/movies/{{movie.id}}/edit">
-        <button>EDIT MOVIE</button>
+      <button class="mt-3 btn btn-primary">EDIT MOVIE</button>
     </form>
+  </div>
+
 </div>
