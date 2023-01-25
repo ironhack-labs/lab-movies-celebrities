@@ -32,4 +32,13 @@ module.exports.detail = (req, res, next) => {
         res.render('movies/movie-details', { movie })
     })
     .catch(err => console.error(err))
+};
+
+module.exports.doDelete = (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+    .then((movie) => {
+        res.redirect('/movies')
+        console.info(`${movie.title} has been deleted`)
+    })
+    .catch(err => console.error(err))
 }

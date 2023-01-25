@@ -8,4 +8,8 @@
         <li>{{name}} | {{occupation}} | "{{catchPhrase}}"</li>
         {{/each}}
     </ul>
+
+    <form action="/movies/{{movie.id}}/delete" method="POST">
+        <button>DELETE MOVIE</button>
+    </form>
 </div>
