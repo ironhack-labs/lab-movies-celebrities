@@ -1,55 +1,12 @@
-const Movie = require("../models/Movie.model");
+const router = require("express").Router();
+const moviesController = require("../controllers/movies.controller");
 
-module.exports.newMovie = (req, res, next) => {
-  res.render("movies/new-movie");
-};
+router.get("/create", moviesController.newMovie);
+router.post("/create", moviesController.create);
+router.get("/", moviesController.find);
+router.get("/:movieId/detail", moviesController.detail);
+router.post("/:movieId/delete", moviesController.delete);
+router.get("/:movieId/edit", moviesController.edit);
+router.post("/:movieId/edit", moviesController.doEdit);
 
-module.exports.create = (req, res, next) => {
-  Movie.create(req.body)
-  .then(()=> {
-    res.redirect("/movies");
-  })
-  .catch(err => res.send(err))
-};
-
-module.exports.find = (req, res) => {
-  Movie.find()
-  .then((movies)=> {
-    res.render("movies/movies.hbs", {movies});
-  })
-  .catch(err => res.send(err))
-}
-
-module.exports.detail = (req, res) => {
-  const id = req.params.movieId
-  Movie.findById(id)
-  .populate('cast')
-  .then((movie) =>{
-    res.render('movies/movie-details.hbs', { movie })
-  })
-  .catch(err => res.send(err))
-}
-
-module.exports.delete = (req, res) => {
-  Movie.findByIdAndDelete(req.params.movieId)
-  .then(() =>{
-    res.redirect("/movies")
-  })
-  .catch(err => res.send(err))
-}
-
-module.exports.edit = (req, res) => {
-  Movie.findById(req.params.movieId)
-  .then((movie) =>{
-    res.render("movies/edit-movie.hbs", {movie})
-  })
-  .catch(err => res.send(err))
-}
-
-module.exports.doEdit = (req, res) => {
-  Movie.findByIdAndUpdate(req.params.movieId, req.body)
-  .then(movie => {
-    res.redirect(`/books/${movie.id}/detail`)
-  })
-  .catch(err => res.send(err))
-}
+module.exports = router;

@@ -1,0 +1,11 @@
+<div class ="form-container">
+<h1>{{celebrity.name}}</h1>
+<p>Occupation: {{celebrity.occupation}}</p>
+<p>Phrase: {{celebrity.catchPhrase}}</p>
+
+<form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+<button type="submit">Delete</button>
+</form>
+</div>
+
+

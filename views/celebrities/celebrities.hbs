@@ -1,7 +1,17 @@
+<div class ="form-container">
 <h1>Celebrities</h1>
 
-{{#each celebrities}}
-    <h3>{{name}}</h3>
-    <p>{{occupation}}</p>
-    <p>{{catchPhrase}}</p>
+<ul>
+{{#each celebrities as |celebrity|}}
+<li>
+  <a href="/celebrities/{{celebrity.id}}/detail">{{celebrity.name}}</a>  
+</li>
+    
 {{/each}}
+</ul>
+
+<div class = "links">
+<a href="/celebrities/create">Add a new celebrity</a>
+</div>
+
+</div>

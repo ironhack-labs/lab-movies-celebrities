@@ -1,24 +1,12 @@
-const Celebrity = require("../models/Celebrity.model");
+const router = require("express").Router();
+const celebritiesController = require('../controllers/celebrities.controller')
+
+router.get("/", celebritiesController.find);
+router.get("/create", celebritiesController.newCelebrity);
+router.post("/create", celebritiesController.create);
+router.get("/:id/detail", celebritiesController.detail)
+router.post("/:id/delete", celebritiesController.delete)
 
 
-module.exports.newCelebrity = (req, res, next) => {
-  res.render("celebrities/new-celebrity");
-};
-
-module.exports.create = (req, res, next) => {
-  
-  Celebrity.create(req.body)
-  .then(() => {
-    res.redirect('/celebrities')
-  })
-  .catch(err => res.send(err))
-};
-
-module.exports.find = (req, res, next) => {
-  Celebrity.find()
-  .then(celebrities => {
-    res.render("celebrities/celebrities.hbs", {celebrities})
-  })
-  .catch(err => res.send(err))
-};
+module.exports = router;
 
