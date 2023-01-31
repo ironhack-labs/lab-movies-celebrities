@@ -1,7 +1,12 @@
+const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
 module.exports.newMovie = (req, res, next) => {
-  res.render("movies/new-movie");
+  Celebrity.find()
+  .then(celebrities => {
+    res.render("movies/new-movie", {celebrities});
+  })
+  
 };
 
 module.exports.create = (req, res, next) => {
