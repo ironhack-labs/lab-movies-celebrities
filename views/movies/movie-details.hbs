@@ -1,14 +1,16 @@
 <div class ="form-container">
-<h1>{{movie.title}}</h1>
-<p>Genre: {{movie.genre}}</p>
-<p>Plot: {{movie.plot}}</p>
-<p>Cast</p>
+    <h1>{{movie.title}}</h1>
+    <p>Genre: {{movie.genre}}</p>
+    <p>Plot: {{movie.plot}}</p>
+    <p>Cast: {{movie.cast}}</p>
 
-<a href="/movies/{{movie.id}}/edit">Edit Movie</a>
+    <div class = "link-A">
+        <a href="/movies/{{movie.id}}/edit">Edit</a>
+    </div>
 
-<form action="/movies/{{movie.id}}/delete" method="POST">
-<button type="submit">Delete</button>
-</form>
+    <form action="/movies/{{movie.id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
 </div>
 
 

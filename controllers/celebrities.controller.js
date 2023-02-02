@@ -40,3 +40,19 @@ module.exports.delete = (req, res, next) => {
   })
   .catch(err => res.send(err))
 }
+
+module.exports.edit = (req, res, next) => {
+  Celebrity.findById(req.params.id)
+  .then((celebrity) => {
+    res.render("celebrities/edit-cel", {celebrity})
+  })
+  .catch(err => res.send(err))
+}
+
+module.exports.doEdit = (req, res, next) => {
+  Celebrity.findByIdAndUpdate(req.params.id, req.body)
+  .then((celebrity) => {
+    res.redirect(`/celebrities/${celebrity.id}/detail`)
+  })
+  .catch(err => res.send(err))
+}

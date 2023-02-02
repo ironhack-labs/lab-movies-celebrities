@@ -3,6 +3,9 @@
 <p>Occupation: {{celebrity.occupation}}</p>
 <p>Phrase: {{celebrity.catchPhrase}}</p>
 
+<div class = "link-A">
+<a href="/celebrities/{{celebrity.id}}/edit">Edit</a>
+</div>
 <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
 <button type="submit">Delete</button>
 </form>

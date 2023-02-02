@@ -6,8 +6,8 @@ module.exports.newMovie = (req, res, next) => {
   .then(celebrities => {
     res.render("movies/new-movie", {celebrities});
   })
+  }
   
-};
 
 module.exports.create = (req, res, next) => {
   Movie.create(req.body)
@@ -54,7 +54,7 @@ module.exports.edit = (req, res) => {
 module.exports.doEdit = (req, res) => {
   Movie.findByIdAndUpdate(req.params.movieId, req.body)
   .then(movie => {
-    res.redirect(`/movies/${movie.id}/detail`)
+    res.redirect(`/movies/${movie.movieId}/detail`)
   })
   .catch(err => res.send(err))
 }

@@ -5,6 +5,7 @@ body {
 
 a {
   color: #00b7ff;
+  text-decoration: none;
 }
 
 .form-container {
@@ -17,14 +18,31 @@ a {
   padding: 50px;
 }
 
-li {
+.link-A {
+  background-color: grey;
+  position: relative;
+  width: 350px;
+  height: 50px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.link-A a{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 20px;
-
+  color: white;
   
 }
 
-a {
-  text-decoration: none;
+li {
+  font-size: 20px;
+}
+
+p {
+  margin: 5px;
+  font-size: 18px;
 }
 
 .form-container div {
@@ -34,4 +52,13 @@ a {
 .links {
   display: flex;
   flex-direction: column;
+}
+
+ul {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+button {
+  margin-top: 20px;
 }

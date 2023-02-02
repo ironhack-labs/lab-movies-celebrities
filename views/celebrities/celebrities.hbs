@@ -1,16 +1,17 @@
 <div class ="form-container">
-<h1>Celebrities</h1>
+<h1>Celebrities</h1>Click the name to see details 
 
 <ul>
 {{#each celebrities as |celebrity|}}
 <li>
-  <a href="/celebrities/{{celebrity.id}}/detail">{{celebrity.name}}</a>  
+  <a href="/celebrities/{{celebrity.id}}/detail">{{celebrity.name}}</a>
+   
 </li>
     
 {{/each}}
 </ul>
 
-<div class = "links">
+<div class = "link-A">
 <a href="/celebrities/create">Add a new celebrity</a>
 </div>
 
