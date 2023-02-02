@@ -1,0 +1,13 @@
+<h2>Movies</h2>
+{{#each movies as |movie|}}
+  <div class="movie-row">
+    <a href="/movies/{{movie.id}}">{{movie.title}}</a> 
+    <div class="buttons">
+      <a href="/movies/{{movie.id}}/edit" class="btn btn-primary">Edit</a>
+      <form action="/movies/{{movie.id}}/delete" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+  </br>
+{{/each}}
