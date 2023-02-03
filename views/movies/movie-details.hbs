@@ -2,7 +2,10 @@
     <h1>{{movie.title}}</h1>
     <p>Genre: {{movie.genre}}</p>
     <p>Plot: {{movie.plot}}</p>
-    <p>Cast: {{movie.cast}}</p>
+    <p>Cast:  {{#each movie.cast as |celebrity|}}
+        </br>{{celebrity.name}}
+        {{/each}}
+    </p>
 
     <div class = "link-A">
         <a href="/movies/{{movie.id}}/edit">Edit</a>

@@ -44,17 +44,23 @@ module.exports.delete = (req, res) => {
 }
 
 module.exports.edit = (req, res) => {
-  Movie.findById(req.params.movieId)
-  .then((movie) =>{
-    res.render("movies/edit-movie.hbs", {movie})
+  Celebrity.find()
+  .then((celebrities) => {
+    Movie.findById(req.params.movieId)
+    .then((movie) =>{
+      res.render("movies/edit-movie.hbs", {movie, celebrities})
+    })
   })
+  
   .catch(err => res.send(err))
 }
 
 module.exports.doEdit = (req, res) => {
-  Movie.findByIdAndUpdate(req.params.movieId, req.body)
+  const id = req.params.movieId
+  console.log(req.body)
+  Movie.findByIdAndUpdate(id, req.body)
   .then(movie => {
-    res.redirect(`/movies/${movie.movieId}/detail`)
+    res.redirect(`/movies/${id}/detail`)
   })
   .catch(err => res.send(err))
 }

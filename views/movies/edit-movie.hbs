@@ -1,6 +1,6 @@
 <div class = "form-container">
   <h1>Edit Movie</h1>
-  <form action="/movies/{{movie.movieId}}/edit" method="POST"></form>
+  <form action="/movies/{{movie.id}}/edit" method="POST">
     <div>
       <label for="title"> Title </label>
       <input value="{{movie.title}}" type="text" name="title" id ="title"/>
@@ -14,7 +14,7 @@
       <label for="plot"> Plot</label>
       <input value="{{movie.plot}}" type="text" name="plot" id ="plot" />
     </div>
-    {{!-- <div>
+    <div>
       <label for="cast">Cast</label>
       <select name="cast" id="cast" multiple>
         {{#each celebrities as |celebrity|}}
@@ -23,7 +23,7 @@
           </option>
         {{/each}}
       </select>
-    </div> --}}
+    </div>
     
     <button type="submit">Update changes</button>
   </form>
