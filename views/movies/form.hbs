@@ -1,0 +1,37 @@
+{{#if editing}}
+  <h1>Edit this movie</h1>
+{{else}}
+  <h1>Create a movie</h1>
+{{/if}}
+
+{{#if editing}}
+<form action="/movies/{{movie.id}}/edit" method="POST">
+{{else}}
+<form action="/movies/create" method="POST">
+{{/if}}
+  <div>
+    <label for="tile">Title of the movie</label>
+    <input type="text" name="title" id="title" value="{{movie.title}}" />
+  </div>
+  <div>
+    <label for="genre">Genre of the movie</label>
+    <input type="text" name="genre" id="genre" value="{{movie.genre}}" />
+  </div>
+  <div>
+    <label for="plot">Plot</label>
+    <textarea id="plot" name="plot" rows="5">{{movie.plot}}</textarea>
+  </div>
+
+  <div>
+    <label for="cast">Cast</label>
+    <select name="cast" id="cast" multiple>
+      {{#each celebrities as |celebrity|}}
+        <option value="{{celebrity.id}}">
+          {{celebrity.name}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <button>Submit</button>
+</form>
