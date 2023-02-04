@@ -12,8 +12,15 @@ const express = require('express');
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
+// const exphbs = require('express-handlebars');
+
 
 const app = express();
+
+// app.engine('.hbs', exphbs.engine({
+//     extname: '.hbs',
+//     helpers: require('./config/handlebars-helpers')
+// })); // ADDED BY ME TO CREATE COSTUM HANDLEBAR FUNCTIONS
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
