@@ -3,6 +3,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+#links-container  {
+  display: flex;
+  flex-direction: column;
+}
+
+#links-container a {
+  background-color: #00b7ff;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+  text-align: center;
+  font-size: 2rem;
 }
