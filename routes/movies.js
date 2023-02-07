@@ -3,11 +3,22 @@ const router = require("express").Router();
 const Celeb = require("../models/Celebrity.model");
 const Movie = require("../models/Movie");
 
-// get all movies
+// render all movies
 router.get("/movies", (req, res) => {
   Movie.find()
     .then((allMovies) => {
       res.render("movies/movies", { allMovies });
+    })
+    .catch((err) => next(err));
+});
+
+// render movie details page
+router.get("/movies/:id", (req, res, next) => {
+  const movieId = req.params.id;
+  Movie.findById(movieId)
+    .populate("cast")
+    .then((movie) => {
+      res.render("movies/movie-details", { movie });
     })
     .catch((err) => next(err));
 });
@@ -21,22 +32,12 @@ router.get("/movies/create", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-/* GET movie details */
-router.get("/movies/:id", (req, res, next) => {
-  const movieId = req.params.id;
-  Movie.findById(movieId)
-    .populate("cast")
-    .then((movie) => {
-      res.render("movies/movie-details", { movie });
-    })
-    .catch((err) => next(err));
-});
-
 // submit new movie
 router.post("/movies", (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
   Movie.create({ title, genre, plot, cast })
     .then((newMovie) => {
+      console.log("MOVIE SUCCESSFULLY CREATED!");
       res.redirect(`/movies/${newMovie._id}`);
     })
     .catch((err) => next(err));
@@ -44,10 +45,15 @@ router.post("/movies", (req, res, next) => {
 
 // render edit movie page
 router.get("/movies/edit/:id", (req, res, next) => {
-  Movie.findById(req.params.id)
-    .populate("cast")
+  // needed to make available in function line 56
+  let allCelebs;
+  Celeb.find()
+    .then((celebs) => {
+      allCelebs = celebs;
+      return Movie.findById(req.params.id);
+    })
     .then((movie) => {
-      res.render("movies/edit-movie", { movie });
+      res.render("movies/edit-movie", { movie, allCelebs });
     })
     .catch((err) => next(err));
 });
@@ -65,15 +71,13 @@ router.post("/movies/edit/:id", (req, res, next) => {
     },
     { new: true }
   )
-    .then((data) => {
+    .then(() => {
       console.log("MOVIE UPDATED SUCCESSFULLY!");
-      console.log(data);
-      // res.send("editing movie!");
       res.redirect(`/movies/${req.params.id}`);
     })
     .catch((err) => {
       console.log("oh no error in editing!");
-      console.log(err);
+      next(err);
     });
 });
 

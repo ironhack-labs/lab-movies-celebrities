@@ -28,10 +28,10 @@
 
   <label>Cast:</label>
   <select name="cast" multiple>
-    {{#each movie.cast}}
-      <option value="{{this._id}}">{{this.name}}</option>
+    {{#each allCelebs}}
+      <option selected value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select>
 
-  <button>Edit</button>
+  <button>Save changes</button>
 </form>
