@@ -1,8 +1,15 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(228, 250, 32);
+  color:rgb(26, 241, 227);
+  text-shadow: black 2px 2px 2px;
+  
 }
 
+h1 {
+  font-size: 35px;
+}
 a {
   color: #00b7ff;
 }
