@@ -8,7 +8,7 @@ router.get("/movies", (req, res) => {
   // res.send("hello from movies route!");
   Movie.find()
     .then((allMovies) => {
-      console.log(allMovies);
+      // console.log(allMovies);
       res.render("movies/movies", { allMovies });
     })
     .catch((err) => next(err));
@@ -69,7 +69,8 @@ router.post("/movies/edit/:id", (req, res, next) => {
     .then((data) => {
       console.log("MOVIE UPDATED SUCCESSFULLY!");
       console.log(data);
-      res.send("editing movie!");
+      // res.send("editing movie!");
+      res.redirect(`/movies/${req.params.id}`);
     })
     .catch((err) => {
       console.log("oh no error in editing!");
@@ -77,4 +78,23 @@ router.post("/movies/edit/:id", (req, res, next) => {
     });
 });
 
+// delete movie
+router.get("/movies/delete/:id", (req, res, next) => {
+  Movie.findByIdAndDelete(req.params.id)
+    .then(() => {
+      console.log("MOVIE WAS DELETED!!!");
+      res.redirect("/movies");
+    })
+    .catch((err) => next(err));
+});
+
 module.exports = router;
+
+//delete book
+// router.get("/books/delete/:id", (req, res, next) => {
+//   Book.findByIdAndDelete(req.params.id)
+//     .then(() => {
+//       res.redirect("/books");
+//     })
+//     .catch((err) => next(err));
+// });
