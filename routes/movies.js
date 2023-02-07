@@ -44,4 +44,37 @@ router.post("/movies", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+// render edit movie page
+router.get("/movies/edit/:id", (req, res, next) => {
+  Movie.findById(req.params.id)
+    .then((movie) => {
+      // console.log(movie);
+      res.render("movies/edit-movie", { movie });
+    })
+    .catch((err) => next(err));
+});
+
+//submit edited movie
+router.post("/movies/edit/:id", (req, res, next) => {
+  const { title, genre, plot } = req.body;
+  Movie.findByIdAndUpdate(
+    req.params.id,
+    {
+      title,
+      genre,
+      plot,
+    },
+    { new: true }
+  )
+    .then((data) => {
+      console.log("MOVIE UPDATED SUCCESSFULLY!");
+      console.log(data);
+      res.send("editing movie!");
+    })
+    .catch((err) => {
+      console.log("oh no error in editing!");
+      console.log(err);
+    });
+});
+
 module.exports = router;
