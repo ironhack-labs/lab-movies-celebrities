@@ -25,5 +25,13 @@
     placeholder="{{movie.plot}}"
     value="{{movie.plot}}"
   />
+
+  <label>Cast:</label>
+  <select name="cast" multiple>
+    {{#each movie.cast}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+
   <button>Edit</button>
 </form>
