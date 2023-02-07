@@ -11,7 +11,6 @@ cast: [
         ref: "Celebrity"
     }
 ]
-
 })
 
 const Movie = mongoose.model("Movie", movieSchema)

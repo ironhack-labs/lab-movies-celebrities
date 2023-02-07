@@ -3,12 +3,8 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
 router.get("/celebrities/create", (req, res, next) => {
-    Celebrity.create()
-        .then(celebrity => {
-            res.render("celebrities/new-celebrity", { celebrity })
+            res.render("celebrities/new-celebrity")
         })
-        .catch(err => next(err))
-})
 
 router.post("/celebrities/create", (req, res, next) => {
     const { name, occupation, catchPhrase } = req.body
