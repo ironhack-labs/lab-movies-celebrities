@@ -2,11 +2,16 @@
 const router = require("express").Router();
 const Celeb = require("../models/Celebrity.model");
 
-// all your routes here
-
+// get all celebs
 router.get("/celebs", (req, res) => {
   // console.log("sending router");
-  res.send("hello from celebs route!");
+  // res.send("hello from celebs route!");
+  Celeb.find()
+    .then((allCelebs) => {
+      console.log(allCelebs);
+      res.render("celebs/celebs", { allCelebs });
+    })
+    .catch((err) => next(err));
 });
 
 // render create new celeb page
