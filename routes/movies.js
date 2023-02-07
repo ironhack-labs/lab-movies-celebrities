@@ -13,13 +13,15 @@ router.get("/movies/create", (req, res, next) => {
 
 router.post("/movies/create", (req, res, next) => {
     const { title, genre, plot, cast } = req.body
-    Movie.create({title, genre, plot, cast})
+    Movie.create({ title, genre, plot, cast })
         .then(createdMovie => {
             console.log(createdMovie)
             res.redirect("/movies")
         })
-        .catch(err => {next(err)
-        res.render("movies/new-movie")})
+        .catch(err => {
+            next(err)
+            res.render("movies/new-movie")
+        })
 })
 
 router.get("/movies", (req, res, next) => {
@@ -30,6 +32,16 @@ router.get("/movies", (req, res, next) => {
         .catch(err => next(err))
 })
 
+router.get("/movies/:id", (req, res, next) => {
+    const movieId = req.params.id
+
+    Movie.findById(movieId)
+        .populate("cast")
+        .then(movieFromDB => {
+            res.render("movies/movie-details", { movie: movieFromDB })
+        })
+        .catch(err => next(err))
+})
 
 
 module.exports = router;

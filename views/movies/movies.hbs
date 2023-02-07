@@ -2,9 +2,9 @@
 
 {{#if movies}}
 {{#each movies}}
-
-<p>{{this.title}}</p>
-
+<div>
+    <a href="/movies/{{_id}}">{{this.title}}</a>
+</div>
 
 {{/each}}
 {{/if}}
