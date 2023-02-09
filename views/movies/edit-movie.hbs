@@ -1,3 +1,5 @@
+
+
 <h2>Edit the movie {{movie.title}}</h2>
 
 <form action="/movies/{{movie._id}}/edit" method="post">
@@ -17,7 +19,7 @@
     <select name="cast" multiple>
       <option disable selected value=""></option>
       {{#each cast}}
-        <option> {{name}} </option>
+        <option value={{_id}}> {{name}} </option>
       {{/each}}
     </select>
   </label>

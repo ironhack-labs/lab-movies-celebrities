@@ -62,10 +62,11 @@ router.get('/movies/:movieId/edit', (req,res,next) => {
 
 router.post('/movies/:movieId/edit', (req,res,next) => {
   const { movieId } = req.params
+  console.log (movieId) 
   const { title, genre, plot, cast } = req.body
-
+console.log ("Aqui error") 
   Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast } , { new:true })
-      .then(movieUpdated => res.redirect(`/movies/${movieUpdated._id}`))
+      .then(updatedMovie => res.redirect(`/movies/${updatedMovie._id}`))
       .catch(err => next(err))
 })
 
