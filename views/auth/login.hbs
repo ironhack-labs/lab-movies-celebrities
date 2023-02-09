@@ -1,0 +1,20 @@
+<div class="container d-flex justify-content-center">
+    <form action="/auth/login" method="post" class="w-50 d-flex flex-column mt-5 needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" id="username" class="form-control" required>
+            <div class="invalid-feedback">
+                Please provide a Username
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+            <div class="invalid-feedback">
+                Please provide a Password
+            </div>
+        </div>
+        <span class="text-danger mb-3">{{errorMessage}}</span>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

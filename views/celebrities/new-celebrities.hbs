@@ -1,0 +1,18 @@
+<h2>New celebrity</h2>
+<div>
+    <ul>
+        <li>Name: {{celebrities.name}}</li>
+        <li>Ocupation: {{celebrities.ocupation}}</li>
+        <li>Catch Phrase: {{celebrities.catchPhrase}}</li>
+    </ul> 
+
+
+<form action="/celebrities/create" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="{{celebrities.name}}">
+    <label for="ocup">Ocupation</label>
+    <input type="text" name="ocupation" placeholder="{{celebrities.ocupation}}">
+    <label for="phrase">Catch Phrase</label>
+    <input type="text" name="catchPhrase" placeholder="{{celebrities.catchPhrase}}">
+    <button type="submit">Create celeb</button>
+</form> 
