@@ -18,11 +18,9 @@ router.post("/movies/create", (req, res, next) => {
   if (title !== "" && genre !== "" && plot !== "" && cast !== [{}]) {
     Movie.create({ title, genre, plot, cast })
       .then((newMovie) => {
-        res.render("movies/movies", { movie: newMovie });
+        res.redirect("/movies/movies");
       })
       .catch((err) => next(err));
-  } else {
-    res.redirect("/movies/create");
   }
 });
 
@@ -34,20 +32,49 @@ router.get("/movies/movies", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get("/movies/:id", (req, res, next) => {
+router.get("/movies/:movieId", (req, res, next) => {
   const { movieId } = req.params;
   Movie.findById(movieId)
-    .populate("name occupation catchPhrase")
-    .populate({
-      // we are populating movie in the previously populated cast
-      path: "movies",
-      populate: {
-        path: "cast",
-        model: "Movie",
-      },
-    })
-    .then((movieIndex) => res.render("movies/movie-details", movieIndex))
+    .populate("cast")
+    .then((movieIndex) =>
+      res.render("movies/movie-details", { movie: movieIndex })
+    )
     .catch((err) => next(err));
+});
+
+router.post("/movies/:movieId/delete", (req, res, next) => {
+  const { movieId } = req.params;
+  Movie.findByIdAndRemove(movieId)
+    .then(() => res.redirect("/movies/movies"))
+    .catch((err) => next(err));
+});
+
+router.get("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId } = req.params;
+
+  Promise.all([Movie.findById(movieId), Celebrity.find()])
+    .then(([movieToEdit, celebrities]) =>
+      res.render("movies/edit-movies", {
+        movie: movieToEdit,
+        cast: celebrities,
+      })
+    )
+    .catch((err) => next(err));
+});
+
+router.post("/movie/:movieId", (req, res, next) => {
+  const { movieId } = req.params;
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, { new: true })
+    .then((updatedMovie) => {
+      console.log("Successfully updated movie:", updatedMovie);
+      res.redirect(`/movies/${updatedMovie._id}`);
+    })
+    .catch((err) => {
+      console.error("Error updating movie:", err);
+      next(err);
+    });
 });
 
 module.exports = router;
