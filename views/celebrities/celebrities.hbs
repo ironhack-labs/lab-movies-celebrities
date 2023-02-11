@@ -1,0 +1,23 @@
+<h2>Celebrities</h2>
+<hr>
+
+<div class="row justify-content-center my-3">
+    <div class="d-grid col-3">
+        <a class="btn btn-warning" href="/celebrities/create" role="button">Create a new celebrity</a>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+
+    {{#each celebrities}}
+
+    <div class="card col-3 m-2 p-2">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
+            <p class="card-text">{{catchPhrase}}</p>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

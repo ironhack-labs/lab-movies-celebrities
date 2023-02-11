@@ -1,0 +1,27 @@
+<h2>Create a new Celebrity</h2>
+
+<form action="/celebrities/create" method="POST" class="row g-3">
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="string" class="form-control" id="name" name="name">
+    </div>
+    <div class="col-md-12">
+        <label for="inputState" class="form-label">Occupation</label>
+        <select id="inputState" class="form-select" name="occupation">
+            <option selected>Select</option>
+            <option value="Actor">Actor</option>
+            <option value="Singer">Singer</option>
+            <option value="Comedian">Comedian</option>
+            <option value="Influencer">Influencer</option>
+            <option value="Streamer">Streamer</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="catchPhrase" class="form-label">Catch phrase</label>
+        <input type="string" class="form-control" id="catchPhrase" name="catchPhrase">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-warning mt-3">Create new Celebrity</button>
+    </div>
+</form>
