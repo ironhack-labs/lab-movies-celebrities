@@ -1,0 +1,35 @@
+<div class="container p-5">
+
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="container p-3">
+                <h2 class="text-center">List of movies</h2>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <td></td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each movies}}
+                        <tr>
+                            <td>{{title}}</td>
+                            <td><a href="/movies/{{id}}" class="btn btn-dark">Details</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+
+                <div class="my-3 d-flex justify-content-center align-items-center">
+                    <h3 class="my-2">Do you want add a new movie?</h3>
+                    <a href="/movies/create" class="btn btn-success mx-3">Add movie</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

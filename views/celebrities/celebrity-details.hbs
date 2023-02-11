@@ -1,0 +1,23 @@
+<div class="container p-5">
+    <div class="row justify-content-center">
+
+        <div class="col-5 ">
+            <h2 class="text-center">{{name}} details</h2>
+            <div class="card text-center">
+
+                <div class="card-body text-start">
+                    <p class="card-text"><strong>Name:</strong> {{name}}</p>
+                    <p class="card-text"><strong>Occupation:</strong> {{occupation}}</p>
+                    <p class="card-text"><strong>CatchPhrase:</strong> {{catchPhrase}}</p>
+
+                    <form action="/celebrities/{{id}}/delete" method="post" class="d-grid gap-2">
+                        <td><a href="/celebrities/{{id}}/edit" class="btn btn-success">Update</a></td>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        <td><a href="/celebrities" class="btn btn-dark">Back</a></td>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

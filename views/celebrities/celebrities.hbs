@@ -1,0 +1,35 @@
+<div class="container p-5">
+
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <div class="container p-3">
+                <h2 class="text-center">List of celebrities</h2>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <td></td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each celebrities}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td><a href="/celebrities/{{id}}" class="btn btn-dark">Details</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+
+                <div class="my-3 d-flex justify-content-center align-items-center">
+                    <h3 class="my-2">Do you want add a new celebrity?</h3>
+                    <a href="/celebrities/create" class="btn btn-success mx-3">Add celebrity</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

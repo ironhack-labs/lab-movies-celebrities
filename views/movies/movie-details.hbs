@@ -1,0 +1,44 @@
+<div class="container p-5">
+    <div class="row justify-content-center">
+
+        <div class="col-5 ">
+            <h2 class="text-center">Details of the movie</h2>
+            <div class="card text-center">
+
+                <div class="card-body text-start">
+                    <p class="card-text"><strong>Title:</strong> {{title}}</p>
+                    <p class="card-text"><strong>Genre:</strong> {{genre}}</p>
+                    <p class="card-text"><strong>Plot:</strong> {{plot}}</p>
+                    <p class="card-text m-0"><strong>Cast:</strong>
+                    <ul class="list-unstyled">
+                        {{#each cast}}
+                        <li class="mx-4">
+                            <ul class="list-unstyled">
+                                <li class="mx-4">
+                                    <strong>Name:</strong> {{name}}
+                                </li>
+                                <li class="mx-4">
+                                    <strong>Occupation:</strong> {{occupation}}
+                                </li>
+                                <li class="mx-4">
+                                    <strong>Catchphrase:</strong> {{catchPhrase}}
+                                </li>
+                            </ul>
+                            <hr>
+
+                        </li>
+                        {{/each}}
+                    </ul>
+
+                    <form action="/movies/{{id}}/delete" method="post" class="d-grid gap-2">
+                        <td><a href="/movies/{{id}}/edit" class="btn btn-success">Update</a></td>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        <td><a href="/movies/" class="btn btn-dark">Back</a></td>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
