@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>Lista famosos</h2>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Ocupacion</th>
+                        <th scope="col">Eslogan</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each celebrities}}
+
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{occupation}}</td>
+                        <td>{{catchPhrase}}</td>
+                        <td><a href="/celebrities/{{_id}}/edit" class="btn btn-dark btn-sm">Editar</a></td>
+                        <td>
+                            <form action="/celebrities/{{_id}}/delete" method="POST">
+                                <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
+                            </form>
+                        </td>
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+</div>

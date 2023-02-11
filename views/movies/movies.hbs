@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>Lista Peliculas</h2>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Trama</th>
+                        <th scope="col">Elenco</th>
+                        <th scope="col">Más Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each movies}}
+
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{genre}}</td>
+                        <td>{{plot}}</td>
+                        <td>{{cast}}</td>
+                        <td><a href="/movies/{{_id}}"> Más info</a></td>
+                        <td><a href="/movies/{{_id}}/edit" class="btn btn-dark btn-sm">Editar</a></td>
+                        
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+</div>

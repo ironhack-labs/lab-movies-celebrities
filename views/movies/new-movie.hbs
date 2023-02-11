@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Crear nueva Peli</h1>
+            <hr>
+
+            <form action="/movies/create" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Título</label>
+                    <input required="required" type="text" class="form-control" id="title" name="title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genero</label>
+                    <input required="required" type="text" class="form-control" id="genre" name="genre">
+                </div>
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Trama</label>
+                    <input required="required" type="text" class="form-control" id="plot" name="plot">
+                </div>
+                <div class="mb-3">
+                    <label for="cast" class="form-label">Elenco/a</label>
+                    <select class="form-select" name="cast" id="cast">
+                        <option>Seleccionar...</option>
+
+                        {{#each Celebrity}}
+
+                        <option value="{{_id}}">{{name}}</option>
+
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-dark btn-lg">Crear Pelicula</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+</div>
