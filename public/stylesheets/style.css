@@ -1,8 +1,16 @@
+/* text: #343a40 */
+
 body {
-  padding: 50px;
+  margin: 0;
+  padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  color: #ffffff;
+}
+
+h1,
+h2 {
+  padding-top: 40px;
 }

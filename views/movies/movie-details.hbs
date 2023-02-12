@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h2>Detalles de {{title}}</h2>
+    <hr>
+    <p>Género: {{genre}}</p>
+    <hr>
+    <p>Sinopsis: {{plot}}</p>
+    <hr>
+    <p>Reparto:</p>
+
+    <ul>
+        {{#each cast}}
+        <li>{{name}}</li>
+        {{/each}}
+    </ul>
+
+    <a href="/movies" class="btn btn-dark">Volver</a>
+
+</div>
