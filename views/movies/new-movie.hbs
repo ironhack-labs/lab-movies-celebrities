@@ -23,14 +23,9 @@
                     <input type="text" class="form-control" id="plot" name="plot">
                 </div>
 
-                {{!-- <div class="mb-3">
-                    <label for="cast" class="form-label">Cast</label>
-                    <input type="text" class="form-control" id="cast" name="cast">
-                </div> --}}
-
                 <div class="mb-3">
                     <label for="cast" class="form-label">Cast</label>
-                    <select class="form-select" name="cast" id="cast" multiple>
+                    <select multiple class="form-select" id="cast" name="cast">
                         <option>Select...</option>
                         {{#each celebrities}}
                         <option value="{{id}}">{{name}}</option>

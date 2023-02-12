@@ -7,7 +7,7 @@ router.get('/movies', (req, res, next) => {
     Movie
         .find()
         .populate({
-            path: "cast",
+            path: 'cast',
             select: '-_id name'
         })
         .sort({ title: 1 })
@@ -34,5 +34,48 @@ router.post('/create', (req, res, next) => {
         })
 })
 
+router.get('/:id', (req, res, next) => {
+    const { id } = req.params
+    Movie
+        .findById(id)
+        .populate({
+            path: "cast",
+            select: '-_id name occupation catchPhrase'
+        })
+        .then(movie => res.render('movies/movie-details', movie))
+        .catch(err => console.error(err))
 
-module.exports = router;
+})
+
+router.post("/:id/delete", (req, res, next) => {
+    const { id } = req.params
+    Movie
+        .findByIdAndDelete(id)
+        .then(() => res.redirect("/movies/movies"))
+        .catch(err => console.error(err))
+})
+
+router.get('/:id/edit', (req, res, next) => {
+
+    const { id } = req.params
+
+    Movie
+        .findById(id)
+        .then(movie => res.render('movies/edit-movie', movie))
+        .catch(err => console.log(err))
+})
+
+
+router.post('/:id/edit', (req, res, next) => {
+
+    const { title, genre, plot, cast, id } = req.body
+
+    Movie
+        .findByIdAndUpdate(id, { title, genre, plot, cast })
+        .then(() => res.redirect('/movies/movies'))
+        .catch(err => console.log(err))
+})
+
+
+
+module.exports = router

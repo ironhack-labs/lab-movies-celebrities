@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>All details of the movie: <i>"{{title}}"</i> </h2>
+            <hr>
+            <p>Most accurate information you can get on this picture is here.</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Plot</th>
+                        <th scope="col">Cast</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{genre}}</td>
+                        <td>{{plot}}</td>
+                        <td>
+                            {{#each cast}}
+                            <b>{{name}}</b> | {{occupation}} <br> <i>"{{catchPhrase}}"</i>
+                            <br><br>
+                            {{/each}}
+
+                        </td>
+
+                        <td><a href="/movies/{{_id}}/edit">Edit</a></td>
+
+                        <td>
+                            <form action="/movies/{{_id}}/delete" method="POST">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

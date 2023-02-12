@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>Edit: <i>"{{title}}"</i></h2>
+            <hr>
+
+            <form action="/movies/:id/edit" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Plot</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{plot}}">
+                </div>
+
+                {{!-- This form isn't working --}}
+
+                <div class="mb-3">
+                    <label for="cast" class="form-label">Cast</label>
+                    <select multiple class="form-select" id="cast" name="cast">
+                        <option>Select...</option>
+                        {{#each celebrities}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <input type="hidden" name="movie_id" value="{{id}}">
+
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-dark btn-lg">Save edit (not working, sorry)</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
