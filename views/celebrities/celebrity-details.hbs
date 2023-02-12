@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+
+        <div class="col-4 ">
+            <h2 class="text-center">Celebrity details</h2>
+            <div class="card text-center">
+
+                <div class="card-body text-start">
+                    <p class="card-text"><b>Name:</b> {{name}}</p>
+                    <p class="card-text"><b>Occupation:</b> {{occupation}}</p>
+                    <p class="card-text"><b>CatchPhrase:</b> {{catchPhrase}}</p>
+
+                    <form action="/celebrities/{{id}}/delete" method="post">
+                        <td><a href="/celebrities/{{id}}/edit" class="btn btn-dark">Edit</a></td>
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                        <td><a href="/celebrities" class="btn btn-warning">Go Back</a></td>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

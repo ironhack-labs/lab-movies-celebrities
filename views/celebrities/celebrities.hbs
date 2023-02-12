@@ -1,0 +1,36 @@
+<div class="container p-5">
+
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <div class="container p-3">
+                <h2 class="text-center">Celebrities</h2>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <td></td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each celebrities}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td><a href="/celebrities/{{id}}" class="btn btn-success d-flex justify-content-center">See
+                                    more</a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <a href="/celebrities/create" class="btn btn-dark">Create a new Celebrity</a>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

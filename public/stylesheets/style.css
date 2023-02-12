@@ -1,8 +1,5 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00b7ff;
+    background-image: url('https://images.ecestaticos.com/VEPZfauK_97k5cANKqfDg8bQTl0=/0x114:2255x1331/557x418/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F000%2F7a9%2F9be%2F0007a99be8c5283e3edc30a082c22774.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
