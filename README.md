@@ -80,11 +80,11 @@ In order to have everything organized, we will first create a couple of folders 
 
 ```js
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
-const router = require("express").Router();
+const router = require("express").Router()
 
 // all your routes here
 
-module.exports = router;
+module.exports = router
 ```
 
 - **Views**: To keep things nice and clean, we will also create separate folders for `celebrities` and `movies`: `views/celebrities` and `views/movies`. Also, we will create a couple of files in each folder:
@@ -392,7 +392,7 @@ That's it! :trophy:
   After the package is installed, you can use it by importing it at the top of your file. Remember to import it at the top, before other packages:
 
   ```bash
-  require("dotenv").config();
+  require("dotenv").config()
   ```
 
   Also, you should check that there is a `.env` file in the root directory of your project.
@@ -545,8 +545,8 @@ That's it! :trophy:
    ```js
    app.get('/search', (req, res) => {
      // Print the data coming from the form
-     console.log(req.query);
-   });
+     console.log(req.query)
+   })
    ```
 
   3. Check that the `form` tag is properly formatted and that it has an opening and a closing tag. Example: 
@@ -794,7 +794,7 @@ That's it! :trophy:
    - Inside the *MongoDB* folder, follow this path `Server/4.4/bin`. The version number on your system (`4.4`) may be slightly different for the newer installations.
    - Double-click on the file named **mongod.exe**.
 
-     <details style="font-size: 14px; cursor: pointer; outline: none;">
+     <details style="font-size: 14px cursor: pointer outline: none">
       <summary> Check the image inside </summary>
 
      <br>
@@ -877,7 +877,7 @@ That's it! :trophy:
    - Inside the *MongoDB* folder, follow this path `Server/4.4/bin`. The version number on your system (`4.4`) may be slightly different for the newer installations.
    - Double-click on the file named **mongod.exe**.
 
-     <details style="font-size: 14px; cursor: pointer; outline: none;">
+     <details style="font-size: 14px cursor: pointer outline: none">
       <summary> Check the image inside </summary>
 
      <br>
@@ -904,19 +904,19 @@ That's it! :trophy:
 
   ```js
   // IMPORT MONGOOSE
-  const mongoose = require("mongoose");
+  const mongoose = require("mongoose")
 
   // CREATE A SCHEMA - defines the shape of the documents
   const userSchema = new mongoose.Schema({ 
     firstName: String,
     lastName: String 
-  });
+  })
 
   // CREATE THE MODEL
-  const User = mongoose.model('User', schema);
+  const User = mongoose.model('User', schema)
 
   // EXPORT THE MODEL
-  module.exports = User;
+  module.exports = User
   ```
 
   <br>

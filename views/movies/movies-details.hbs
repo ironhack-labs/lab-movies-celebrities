@@ -1,0 +1,23 @@
+<h1>Movie Details</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <h6 class="card-title">Genre: {{genre}}</h6>
+                <p class="card-text">Plot: {{plot}}</p>
+                <ul>
+                    {{#each cast}}
+                    <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+
+                <a href="/movies/edit/{{id}}" class="btn btn-dark">Edit</a>
+                <form action="/movies/delete/{{id}}" method="POST" style="display: inline">
+                    <input type="submit" value="Delete" class="btn btn-dark">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

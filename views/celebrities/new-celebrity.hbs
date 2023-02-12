@@ -1,0 +1,26 @@
+<h2>Add a new celebrity</h2>
+<br>
+<div class="row justify-content-center">
+
+    <div class="col-md-6 card">
+        <form action="/celebrities/create" method="POST">
+            <div class="mb-3">
+                <label class="fs-2 fw-bold" for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-2 fw-bold" for="occupation" class="form-label">Occupation</label>
+                <input type="text" class="form-control" id="occupation" name="occupation">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-2 fw-bold" for="catchPhrase" class="form-label">CatchPhrase</label>
+                <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+            </div>
+            <div class="d-grid mt-5 mb-4">
+                <button type="submit" class="btn btn-dark btn-lg">Add celebrity</button>
+            </div>
+        </form>
+    </div>
+</div>

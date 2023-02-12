@@ -1,0 +1,26 @@
+<h2>Edit {{name}} </h2>
+<br>
+<div class="row justify-content-center">
+
+    <div class="col-md-6 card">
+        <form action="/celebrities/edit/{{id}}" method="POST">
+            <div class="mb-3">
+                <label class="fs-2 fw-bold" for="name" class="form-label">Name</label>
+                <input value="{{name}}" type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-2 fw-bold" for="occupation" class="form-label">Occupation</label>
+                <input value="{{occupation}}" type="text" class="form-control" id="occupation" name="occupation">
+            </div>
+
+            <div class="mb-3">
+                <label class="fs-2 fw-bold" for="catchPhrase" class="form-label">CatchPhrase</label>
+                <input value="{{catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+            </div>
+            <div class="d-grid mt-5 mb-4">
+                <button type="submit" class="btn btn-dark btn-lg">Edit celebrity</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<h1>Celebrity Details</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <h6 class="card-title">Occupation: {{occupation}}</h6>
+                <p class="card-text">Catchphrase: {{catchPhrase}}</p>
+                <a href="/celebrities/edit/{{id}}" class="btn btn-dark">Edit</a>
+                <form action="/celebrities/delete/{{id}}" method="POST" style="display: inline">
+                    <input type="submit" value="Delete" class="btn btn-dark">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
