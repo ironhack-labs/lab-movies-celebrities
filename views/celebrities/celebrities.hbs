@@ -1,0 +1,49 @@
+<h2>Aqui tienes las celebrities </h2>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Listado de celebrities</h1>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Ocupaction </th>
+                        <th scope="col">catchPhrase</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    {{#each celebrities}}
+                    <tr></tr>
+                    <td>{{name}}</td>
+
+                    <td {{occupation}}</td>
+
+                    <td>{{catchPhrase}}</td>
+                    {{!-- <td><a href="/celebrities" class="btn btn-dark btn-sm">Ver</a></td>
+                    <td><a href="/celebrities/celebrities" class="btn btn-warning btn-sm">Editar</a></td> --}}
+                    <td>
+                        <form action="/celebrities/delete/{{id}}" method="POST">
+                            <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                        </form>
+                    </td>
+                    {{/each}}
+                    </tr>
+
+
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+</div>

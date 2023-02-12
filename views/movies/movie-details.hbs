@@ -1,0 +1,29 @@
+<h1>Detalle de las movies</h1>
+<h2>{{title}}</h2>
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Title:{{title}}</h5>
+        <p class="card-text">Genre: {{genre}}</p>
+        <p class="card-text">Plot: {{plot}}</p>
+
+        <div>
+            {{#each cast}}
+            <p class="card-text"> Cast: {{name}}</p>
+            {{/each}}
+
+        </div>
+    </div>
+</div>
+
+
+
+<a href="/movies/{{id}}/edit">Editar</a>
+
+{{!-- <form action="/movies/{{id}}/edit" method="GET">
+    <input type="submit" value="Edit-movies" class="btn btn-primary btn-sm">
+</form> --}}
+
+<hr>
+<a class="navbar-brand btn btn-dark btn-lg " href="/movies">Volver a movies</a>

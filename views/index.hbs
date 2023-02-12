@@ -1,2 +1,28 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-warning" data-bs-theme="dark">
+        <div class=" container-fluid">
+            <a class="navbar-brand" href="/">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/celebrities">Ver celebrities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/celebrities/create">Crea tus
+                            celebrities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/movies/create">Crea tus movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/movies">Ver movies</a>
+                    </li>
+                </ul>
+                <div>
+                    {{!-- <h1>{{title}}</h1> --}}
+                </div>
+            </div>

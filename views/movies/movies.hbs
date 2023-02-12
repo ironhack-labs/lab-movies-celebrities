@@ -1,0 +1,52 @@
+<h2>Aqui tienes las movies </h2>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Listado de movies</h1>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Genre </th>
+                        <th scope="col">plot</th>
+                        <th scope="col">cast</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    {{#each movies}}
+                    <tr>
+
+                        <td>{{title}}</td>
+                        <td>{{genre}}</td>
+                        <td>{{plot}}</td>
+
+
+
+                        <td><a href="/movies/details/{{id}}" class="btn btn-dark btn-sm">Ver</a></td>
+
+                        <td>
+                            <form action="/movies/{{id}}/delete" method="POST">
+                                <input type="submit" value="delete" class="btn btn-danger btn-sm">
+                            </form>
+                        </td>
+                    </tr>
+                    {{/each}}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+
+</div>
