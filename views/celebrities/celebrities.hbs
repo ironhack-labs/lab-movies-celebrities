@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Available Celebrities</h2>
+    <br>
+    <div class="row">
+        {{#each celebrities}}
+        <div class="card col-md-2 m-4 mb-2" style="width: 10rem;">
+
+            <div class=" card-body">
+                <h5 class="card-title">{{name}}</h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <a href='/celebrities/create' class="btn btn-dark">Add a new celebrity</a>
+</div>
