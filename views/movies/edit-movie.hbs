@@ -1,0 +1,59 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h1>Edit {{movies.title}}</h1>
+            <hr>
+
+            <form action="/movies/edit" method="POST">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{movies.title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{movies.genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Plot</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{movies.plot}}">
+                </div>
+
+                {{!-- <div class="mb-3">
+                    <label for="cast" class="form-label">Cast</label>
+                    <input type="text" class="form-control" id="cast" name="cast" value="{{movies.cast}}">
+                </div> --}}
+
+                {{!-- {{#each cast}}
+
+                <label for="cast" class="form-label">Cast</label>
+                <select class="form-select" name="cast" multiple id="cast">
+                    <option value="{{_id}}">{{movies.name}}</option>
+                </select>
+
+                {{/each}} --}}
+
+                <div class="mb-3">
+                    <label for="cast" class="form-label">Cast</label>
+                    <select class="form-select" name="cast" multiple id="cast">
+                        {{#each celebrities}}
+                        <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <input type="hidden" name="id" value="{{movies.id}}">
+
+                <div class="d-grid mt-5 text-center">
+                    <button type="submit" class="btn btn-dark btn-lg">Save</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

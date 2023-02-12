@@ -1,0 +1,29 @@
+<h1 class="text-center">MOVIES</h1>
+
+<div class="container">
+
+    <div class="row">
+
+        {{#each movies}}
+        <div class="col-4 card drones-card">
+
+            <div class="card-body">
+
+                <h5 class="title text-center"><b>Title:</b> {{title}}</h5>
+                {{!-- <p class="genre text-center"><b>Genre:</b> {{genre}}</p>
+                <p class="plot text-center"><b>Plot:</b> {{plot}}</p>
+                <p class="cast text-center"><b>Cast:</b> {{cast}}</p> --}}
+
+                <div class="col-12 text-center">
+                    <a class="btn btn-dark border-dark" href="/movies/{{id}}">Movie Details</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>

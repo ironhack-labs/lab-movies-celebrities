@@ -1,0 +1,30 @@
+<h1 class="text-center">CELEBRITIES</h1>
+
+<div class="container">
+
+    <div class="row">
+
+        {{#each celebrities}}
+        <div class="col-4 card drones-card">
+            <div class="card-body">
+                <h5 class="name text-center"><b>Name:</b> {{name}}</h5>
+                <p class="occupationr text-center"><b>Occupation:</b> {{occupation}}</p>
+                <p class="catchPhrase text-center"><b>Catch Phrase:</b> {{catchPhrase}}</p>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-12 text-center p-5">
+            <a class="btn btn-light border-dark" href="/celebrities/create">Create Celebrity</a>
+        </div>
+
+    </div>
+
+</div>
