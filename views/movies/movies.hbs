@@ -1,0 +1,16 @@
+<h2>Movies</h2>
+<div class="row row-cols-2 row-cols-md-4 g-4">
+    {{#each movie}}
+    <div class="col">
+        <div class="card h-100">
+            <img src="" onerror="this.src='./../../images/whaaat.jpg';" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{genre}}</p>
+                <p class="card-text">{{plot}}</p>
+                <a href="/movies/{{id}}" class="btn btn-success border">Details</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

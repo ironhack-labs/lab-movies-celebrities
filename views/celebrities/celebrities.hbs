@@ -1,0 +1,15 @@
+<h2>Celebs</h2>
+<div class="row row-cols-2 row-cols-md-4 g-4">
+    {{#each celebrity}}
+    <div class="col">
+        <div class="card h-100">
+            <img src="" onerror="this.src='./../../images/whaaat.jpg';" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{occupation}}</p>
+                <p class="card-text">{{catchPhrase}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

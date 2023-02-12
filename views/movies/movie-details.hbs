@@ -1,0 +1,31 @@
+<div class="row row-cols-1 row-cols-md-1 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="" onerror="this.src='./../../images/Shrek.png';" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{genre}}</p>
+                <p class="card-text">{{plot}}</p>
+
+                <h4>cast</h4>
+
+                <div class="row row-cols-2 row-cols-md-4 g-4 mb-5">
+                    {{#each cast}}
+                    <div>
+                        <p>{{name}}</p>
+                        <p>{{occupation}}</p>
+                        <p>{{catchPhrase}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+
+                <div class="row row-cols-2 row-cols-md-4 g-4">
+                    <a href="/movies/{{id}}/edit" class="btn btn-success m-2">Edit</a>
+                    <form action="/movies/{{id}}/delete" method="post">
+                        <button class="btn btn-success m-2">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
