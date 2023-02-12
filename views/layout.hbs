@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CELEBRITIES & MOVIES</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-  <body>
-    <div class="container">
-      {{{body}}}
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <div class="col-md-8">
+        <hr>
+        <p>
+          <a href="/">Home</a> |
+          <a href="/celebrities/create">Create New Celebrity</a> |
+          <a href="/celebrities/celebrities">See All Celebrities</a> |
+          <a href="/movies/create">Create New Movie</a> |
+          <a href="/movies/movies">See All Movies</a>
+        </p>
+        <hr>
+        <h1> <b>This is Celebrities & Movies.</b> </h1>
+        <hr>
+      </div>
     </div>
+  </div>
 
-    <script src="/javascripts/script.js"></script>
-  </body>
+  {{{body}}}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+  <script src="/javascripts/script.js"></script>
+</body>
 
 </html>

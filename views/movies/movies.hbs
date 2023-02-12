@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>Awesome movies alphabetically ordered just because.</h2>
+            <hr>
+            <p>Play attention, these are the movies you have to dig into.</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Plot</th>
+                        <th scope="col">Cast</th>
+                        {{!-- <th scope="col">Edit</th>
+                        <th scope="col">Delete</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each movies}}
+
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{genre}}</td>
+                        <td>{{plot}}</td>
+                        <td>{{cast}}</td>
+
+                        {{!-- <td><a href="/celebrities/{{_id}}/edit">Edit</a></td>
+                        <td>
+                            <form action="/celebrities/{{_id}}/delete" method="POST">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td> --}}
+                    </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
