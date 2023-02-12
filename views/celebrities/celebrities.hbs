@@ -1,0 +1,51 @@
+<dic class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-3 d-flex justify-content-center">
+
+            <h2>All Celebrities</h2>
+            {{!-- este hr desaparece --}}
+            <hr>
+        </div>
+    </div>
+</dic>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        {{#each celebrities}}
+
+        <div class="col-3 m-2">
+
+            <div class="card" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{name}}</b></h5>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item m-2">Occupation: {{occupation}}</li>
+                    <li class="list-group-item m-2">Catch phrase: {{catchPhrase}}</li>
+                </ul>
+
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <a href="/celebrities/{{_id}}/edit" class="btn btn-dark">Edit</a>
+                            </div>
+                            <div class="col">
+                                <form action="/celebrities/{{_id}}/delete" method="post">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

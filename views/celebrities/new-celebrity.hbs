@@ -1,0 +1,44 @@
+<dic class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-4 d-flex justify-content-center">
+
+            <h2>Create new celebrity</h2>
+            {{!-- este hr desaparece --}}
+            <hr>
+        </div>
+    </div>
+</dic>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <form action="/celebrities/create" method="POST">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Occupation:</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation">
+                </div>
+
+                <div class="mb-3">
+                    <label for="catchPhrase" class="form-label">Catch phrase:</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-dark btn-lg">Create Celebrity</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

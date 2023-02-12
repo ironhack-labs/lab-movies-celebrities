@@ -1,0 +1,49 @@
+<dic class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-2 d-flex justify-content-center">
+
+            <h2>All Movies</h2>
+            {{!-- este hr desaparece --}}
+            <hr>
+        </div>
+    </div>
+</dic>
+
+<div class="container">
+
+    <div class="row">
+
+        {{#each movies}}
+
+        <div class="col-4 m-2">
+
+            <div class="card" style="width: 22rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{title}}</b></h5>
+                </div>
+
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <a href="/movies/{{_id}}/details" class="btn btn-dark">Details</a>
+                            </div>
+                            <div class="col">
+                                <a href="/movies/{{_id}}/edit" class="btn btn-dark">Edit</a>
+                            </div>
+                            <div class="col">
+                                <form action="/movies/{{_id}}/delete" method="post">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

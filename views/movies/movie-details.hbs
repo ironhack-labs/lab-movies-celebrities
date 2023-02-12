@@ -1,0 +1,70 @@
+<dic class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-3 d-flex justify-content-center">
+
+            <h2>Movies Details</h2>
+            {{!-- este hr desaparece --}}
+            <hr>
+        </div>
+    </div>
+</dic>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-4 m-2">
+
+            <div class="card" style="width: 28rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{title}}</b></h5>
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item m-2"><b>Genre:</b> {{genre}}</li>
+                    <li class="list-group-item m-2"><b>Plot:</b> {{plot}}</li>
+                    <li class="list-group-item m-2"><b>Cast:</b>
+                        <ul class='list-unstyled'>
+                            {{#each cast}}
+                            <li>
+
+                                {{name}}
+
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <a href="/movies/{{_id}}/edit" class="btn btn-dark">Edit</a>
+                            </div>
+                            <div class="col-3">
+                                <form action="/movies/{{_id}}/delete" method="post">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<dic class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-2 d-flex justify-content-center">
+            <a href="/movies" class="btn btn-dark">Go back</a>
+
+        </div>
+    </div>
+</dic>
