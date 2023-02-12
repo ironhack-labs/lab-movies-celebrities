@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h2>Movies</h2>
+            <hr>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Plot</th>
+                        <th scope="col">Cast</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each movies}}
+                    <tr>
+                        <td>{{title}}</td>
+                        <td>{{genre}}</td>
+                        <td>{{plot}}</td>
+
+                        <td>
+                            {{#each cast}}
+
+                            {{/each}}
+                        </td>
+                        <td><a href="/movies/{{_id}}" class="btn btn-dark btn-sm"> Details</a></td>
+                        <td><a href="/movies/{{_id}}/edit" class="btn btn-warning btn-sm">Edit</a></td>
+                        <td><a href="/movies/{{id}}/delete" class="btn btn-danger btn-sm">Delete</a></td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <a href="/movies/create" class="btn btn-warning btn-lg">Create a Movie</a>
+        </div>
+
+
+    </div>
