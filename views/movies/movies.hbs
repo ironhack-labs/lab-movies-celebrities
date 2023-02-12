@@ -25,10 +25,19 @@
                         <td>{{title}}</td>
                         <td>{{genre}}</td>
                         <td>{{plot}}</td>
-                        <td>{{cast}}</td>
+
+                        <td>
+                            {{#each cast}}
+
+                            {{/each}}
+                        </td>
+
+
+
+
                         <td><a href="/movies/{{_id}}"> Más info</a></td>
                         <td><a href="/movies/{{_id}}/edit" class="btn btn-dark btn-sm">Editar</a></td>
-                        
+
                     </tr>
 
                     {{/each}}

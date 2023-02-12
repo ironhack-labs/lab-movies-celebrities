@@ -8,10 +8,10 @@
             <hr>
 
 
-            <form action="/movies/{{_id}}" method="POST">
+            <form action="/celebrities/{{_id}}" method="POST">
                 <div class="mb-3">
-                    <label for="title" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                    <label for="name" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="name" name="name" value="{{name}}">
                 </div>
 
                 <div class="mb-3">
@@ -28,19 +28,7 @@
                     <input type="text" class="form-control" id="author" name="author" value="{{author}}">
                 </div> --}}
 
-                <div class="mb-3">
-                    <label for="author" class="form-label">Autor/a</label>
-                    <select class="form-select" name="author" id="author">
-                        <option>Seleccionar...</option>
-                        <option value="ID_DEL_AUTOR_1">Nombre del autor 1</option>
-                        <option value="ID_DEL_AUTOR_2">Nombre del autor 2</option>
-                        <option value="ID_DEL_AUTOR_3">Nombre del autor 3</option>
-                        <option value="ID_DEL_AUTOR_4">Nombre del autor 4</option>
-                        <option value="ID_DEL_AUTOR_5">Nombre del autor 5</option>
-                    </select>
-                </div>
-
-                <input type="hidden" name="movie_id" value="{{id}}">
+                <input type="hidden" name="celebrity_id" value="{{id}}">
 
                 <div class="d-grid mt-5">
                     <button type="submit" class="btn btn-dark btn-lg">Guardar edición</button>

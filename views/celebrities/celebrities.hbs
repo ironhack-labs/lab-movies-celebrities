@@ -23,12 +23,6 @@
                         <td>{{name}}</td>
                         <td>{{occupation}}</td>
                         <td>{{catchPhrase}}</td>
-                        <td><a href="/celebrities/{{_id}}/edit" class="btn btn-dark btn-sm">Editar</a></td>
-                        <td>
-                            <form action="/celebrities/{{_id}}/delete" method="POST">
-                                <input type="submit" value="Eliminar" class="btn btn-dark btn-sm">
-                            </form>
-                        </td>
                     </tr>
 
                     {{/each}}

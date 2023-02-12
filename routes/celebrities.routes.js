@@ -12,9 +12,16 @@ router.get('/celebrities', (req, res) => {
         .catch(err => console.log(err))
 })
 
+
+// Create Celebrity Get
+
+
 router.get('/create', (req, res) => {
     res.render('celebrities/new-celebrity')
 })
+
+// Create Celebrity Post
+
 
 router.post('/create', (req, res) => {
 
@@ -25,6 +32,21 @@ router.post('/create', (req, res) => {
         .then(celebrity => res.redirect(`/celebrities/celebrities`))
         .catch(err => res.redirect(`/new-celebrity`))
 })
+
+
+// // Celebrity Detail
+
+
+// router.get('/:celebrity_id', (req, res) => {
+
+//     const { celebrity_id } = req.params
+
+//     Celebrity
+//         .findById(celebrity_id)
+//         // .populate('cast')
+//         .then(celebrity => res.render('celebrities/celebrity-details', celebrity))
+//         .catch(err => console.log(err))
+// })
 
 
 
