@@ -1,0 +1,41 @@
+<h2>MOVIE DETAILS</h2>
+<div class="container list">
+
+    <div class="row justify-content-center">
+
+
+        <div class="col-md-4 ">
+            <div class="card mb-4 player-card ">
+
+                <div class="card-body">
+                    <h5 class="card-title"> <span>{{title}}</span></h5>
+                    <p class="card-title"> GENRE: {{genre}}</p>
+                    <p class="card-title"> PLOT: {{plot}}</p>
+                    <p class="card-title"><span> CAST:</span></p>
+                    {{#each cast}}
+
+
+                    <p class="card-title">NAME: {{name}} </p>
+                    <p class="card-title"> OCCUPATION:{{occupation}}</p>
+                    <p class="card-title"> CATCHPHRASE: {{catchPhrase}}</p>
+
+                    {{/each}}
+
+                    <form action="/movies/{{_id}}/delete" method="POST">
+                        <input type="submit" value="Delete Movie" class="btn btn-danger btn-sm btn-margin">
+                    </form>
+
+                    <a href="/movies/{{_id}}/edit" class="btn btn-dark btn-sm btn-margin btn-edit-movie">Edit Movie</a>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container buttons-back">
+    <a href="/movies" class="btn btn-dark">BACK TO MOVIES</a>
+    <a href="/" class="btn btn-dark">BACK TO HOME</a>
+</div>

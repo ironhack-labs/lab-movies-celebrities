@@ -1,0 +1,62 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+            {{#each movie}}
+
+            {{/each}}
+
+
+            <form action="/movies/:movie_id/edit" method="POST">
+                <h2>EDIT MOVIE: {{title}}</h2>
+                <hr>
+                <div class="mb-3">
+                    <label for="title" class="form-label">TITLE</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">GENRE</label>
+                    <input type="text" class="form-control" id="genre" name="genre" value="{{genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="plot" class="form-label">PLOT</label>
+                    <input type="text" class="form-control" id="plot" name="plot" value="{{plot}}">
+                </div>
+
+                <div class="mb-3">
+
+                    <label for="cast" class="form-label">CAST</label>
+
+                    <select class="form-select" name="cast" id="cast" multiple>
+
+
+                        {{#each celebrities}}
+
+                        <option value="{{_id}}">{{name}}
+                        </option>
+                        {{/each}}
+
+                    </select>
+
+                </div>
+
+
+                <input type="hidden" name="movie_id" value="{{_id}}">
+
+
+                <div class="d-grid d-md-flex justify-content-center ">
+                    <button type="submit" class="btn btn-dark button-create-add">SAVE EDIT</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container buttons-back">
+    <a href="/movies" class="btn btn-dark">BACK TO MOVIES</a>
+    <a href="/" class="btn btn-dark">BACK TO HOME</a>
+</div>

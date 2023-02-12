@@ -1,0 +1,25 @@
+<h2>MOVIES</h2>
+<div class="container list">
+
+    <div class="row">
+        {{#each movies}}
+
+        <div class="col-md-4">
+            <div class="card mb-4 player-card">
+
+                <div class="card-body">
+                    <h5 class="card-title"> <span>{{title}}</span></h5>
+                    <a href="/movies/{{_id}}" class="btn btn-dark">MOVIE DETAILS</a>
+
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
+</div>
+
+<div class="container buttons-back">
+    <a href="/" class="btn btn-dark">BAK TO HOME</a>
+    <a href="/movies/create" class="btn btn-dark">ADD A NEW MOVIE</a>
+</div>

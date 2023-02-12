@@ -1,8 +1,47 @@
 body {
-  padding: 50px;
+  margin: 20px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Mallanna', sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.buttons-back {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+
+}
+
+h2 {
+  margin: 30px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.index {
+  margin-top: 300px;
+}
+
+.button-create-add {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.btn {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.card-title {
+  font-weight: 500;
+}
+
+.btn-margin {
+  margin: 10px;
+  margin-left: 55px;
+}
+
+.btn-edit-movie {
+  margin-left: 65px;
 }

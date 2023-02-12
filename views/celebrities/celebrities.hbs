@@ -1,0 +1,31 @@
+<h2>CELEBRITIES</h2>
+<div class="container list">
+
+    <div class="row">
+        {{#each celebrities}}
+
+        <div class="col-md-4">
+            <div class="card mb-4 player-card">
+
+                <div class="card-body">
+                    <h5 class="card-title"> <span>{{name}}</span></h5>
+                    <p class="card-title"> OCCUPATION: {{occupation}}</p>
+                    <p class="card-title"> CATCH PHRASE: {{catchPhrase}}</p>
+                    <form action="/celebrities/{{_id}}/delete" method="POST">
+                        <input type="submit" value="Delete celebrity" class="btn btn-danger btn-sm btn-margin">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+
+
+    </div>
+</div>
+
+<div class="container buttons-back">
+    <a href="/" class="btn btn-dark">BACK TO HOME</a>
+    <a href="/celebrities/create" class="btn btn-dark">ADD A NEW CELEBRITY</a>
+</div>
