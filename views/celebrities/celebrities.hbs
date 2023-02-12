@@ -1,0 +1,20 @@
+<div class="container">
+    <a href="/" class="btn btn-light">Volver atrás</a>
+    <div class="row">
+        <h2 class="col-4">Lista de celebridades</h2>
+        <a href="./celebrities-create" class="btn btn-light mb-2 col-2">Agregar celebridad</a>
+    </div>
+    <div class="row">
+        {{#each celebrities}}
+        <div class="col-3">
+            <div class="card mb-2 bg-light flex-fill">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p>Ocupación: {{occupation}}</p>
+                    <p>Eslogan: {{catchPhrase}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

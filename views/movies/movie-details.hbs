@@ -1,0 +1,23 @@
+<div class="container">
+    <a href="/movies" class="btn btn-light">Volver atrás</a>
+    <div class="row">
+        <div class="card mb-2 bg-light flex-fill">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <ul>
+                    <p>Género: {{genre}}</p>
+                    <p>Plot: {{plot}}</p>
+                    <p>Cast:</p>
+                    <ul>
+                        {{#each cast}}
+                        <li>{{this.name}}</li>
+                        {{/each}}
+                    </ul>
+                    <a href="/movies/{{id}}/edit" class="btn btn-dark btn-sm mb-2">Editar</a>
+                    <form action="/movies/{{id}}/delete" method="POST">
+                        <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
