@@ -1,0 +1,37 @@
+<h2>Movies</h2>
+<hr>
+
+<div class="container text-center">
+
+    <div class="row justify-content-center">
+        {{#each data}}
+
+        <div class="mb-4 col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{title}}</h5>
+
+                        <p>{{genre}}</p>
+
+                        <a href="/movies/{{id}}">View details</a>
+                        {{!-- <p>Propellers: {{occupation}}</p>
+                        <p class="card-text">Speed: {{catchPhrase}}</p>
+                        <hr>
+
+                        <p><a href="XXXXXX" class="btn btn-warning">Update</a></p>
+
+                        <form action="XXXXX" method="POST">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form> --}}
+
+                </div>
+
+            </div>
+
+        </div>
+        {{/each}}
+
+    </div>
+
+    <hr>
+    <p><a href="/movies/create" class="btn btn-dark btn-lg">Create new movie</a></p>

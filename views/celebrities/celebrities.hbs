@@ -1,0 +1,25 @@
+<h2 class="white-text">Celebrities</h2>
+<hr>
+
+<div class="container text-center">
+
+    <div class="row justify-content-center">
+        {{#each data}}
+
+        <div class="mb-4 col-12 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{name}}</h5>
+
+                        <a href="/celebrities/{{id}}">View details</a>
+                </div>
+
+            </div>
+
+        </div>
+        {{/each}}
+
+    </div>
+
+    <hr>
+    <p><a href="/celebrities/create" class="btn btn-dark btn-lg">Create new celebrity</a></p>

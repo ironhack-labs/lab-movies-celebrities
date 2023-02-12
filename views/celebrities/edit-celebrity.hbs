@@ -1,0 +1,41 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <h2>Edit Celebrity</h2>
+            <hr>
+
+
+            <form action="/celebrities/:id/edit" method="POST">
+                <div class="mb-3">
+                    <label class="white-text mb-3" for="name" class="form-label">Name:</label>
+                    <input type="name" class="form-control" id="name" name="name" required="required"
+                        value="{{celebrity.name}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="white-text mb-3" for="occupation" class="form-label">Occupation:</label>
+                    <input type="text" class="form-control" id="occupation" name="occupation" required="required"
+                        value="{{celebrity.occupation}}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="white-text mb-3" for="catchPhrase" class="form-label">Catch Phrase:</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase" required="required"
+                        value="{{celebrity.catchPhrase}}">
+                </div>
+
+                <div>
+                    <input type="hidden" name="celebrity_id" value="{{celebrity.id}}">
+                </div>
+
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-dark btn-lg">Update celebrity</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
