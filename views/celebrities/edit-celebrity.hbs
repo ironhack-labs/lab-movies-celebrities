@@ -1,9 +1,9 @@
-<h2>Create a new Celebrity</h2>
+<h2>{{name}}</h2>
 
-<form action="/celebrities/create" method="POST" class="row g-3">
+<form action="/celebrities/{{id}}/edit" method="POST" class="row g-3">
     <div class="col-md-6">
         <label for="name" class="form-label">Name</label>
-        <input type="string" class="form-control" id="name" name="name">
+        <input type="string" class="form-control" id="name" name="name" value="{{name}}">
     </div>
     <div class="col-md-12">
         <label for="occupation" class="form-label">Occupation</label>
@@ -19,9 +19,9 @@
     </div>
     <div class="col-md-6">
         <label for="catchPhrase" class="form-label">Catch phrase</label>
-        <input type="string" class="form-control" id="catchPhrase" name="catchPhrase">
+        <input type="string" class="form-control" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}">
     </div>
     <div class="col-12">
-        <button type="submit" class="btn btn-warning mt-3">Create</button>
+        <button type="submit" class="btn btn-warning mt-3">Save changes</button>
     </div>
 </form>

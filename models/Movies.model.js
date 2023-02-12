@@ -15,4 +15,4 @@ const movieSchema = new Schema(
     }
 )
 
-model.exports = model('movie', movieSchema)
+module.exports = model('movie', movieSchema)

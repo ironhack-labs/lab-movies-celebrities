@@ -1,1 +1,12 @@
-<h2>Details of the movie:</h2>
+<h2>{{title}}</h2>
+<h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+<hr>
+<p>Cast:</p>
+{{#each cast}}
+<span>{{this.name}} · </span>
+{{/each}}
+<p>{{plot}}</p>
+<a href="./{{id}}/edit" class="btn btn-success">Edit</a>
+<form action="./{{id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

@@ -1,1 +1,32 @@
 <h2>Movies</h2>
+<hr>
+
+<div class="row justify-content-center my-3">
+    <div class="d-grid col-3">
+        <a class="btn btn-warning" href="/movies/create" role="button">Create a new movie</a>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+
+    {{#each movies}}
+
+    <div class="card col-4 m-2 p-2">
+        <div class="card-body">
+            <a href="/movies/{{id}}">
+                <h5 class="card-title">{{title}}</h5>
+            </a>
+            <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+            <hr>
+            <p>Cast:</p>
+            {{#each cast}}
+            <span>{{this.name}} · </span>
+            {{/each}}
+
+            <div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

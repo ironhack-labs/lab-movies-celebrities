@@ -9,15 +9,39 @@
 
 <div class="row justify-content-center mb-3">
 
-    {{#each celebrities}}
 
-    <div class="card col-3 m-2 p-2">
-        <div class="card-body">
-            <h5 class="card-title">{{name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
-            <p class="card-text">{{catchPhrase}}</p>
-        </div>
-    </div>
-    {{/each}}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Occupation</th>
+                <th scope="col">Catch Phrase</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each celebrities}}
+            <tr>
+                <td>
+                    <a href="/celebrities/{{id}}">
+                        {{name}}
+                    </a>
+                </td>
+                <td>{{occupation}}</td>
+                <td>"{{catchPhrase}}"</td>
+                <td>
+                    <a href="/celebrities/{{id}}/edit" role="button" class="btn btn-success">Edit</a>
+                </td>
+                <td>
+                    <form action="/celebrities/{{id}}/delete" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 
 </div>
