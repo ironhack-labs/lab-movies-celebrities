@@ -1,0 +1,43 @@
+<div class="celebrities-list">
+
+    <h2>Celebrities</h2>
+
+
+    <div class="celebrities">
+        <div class="row">
+
+            {{#each celeb}}
+
+            <div class="col-md-4">
+                <div class="card mb-4 artist-card">
+
+                    <div class="card-name">
+
+                        <h3>{{name}}</h3>
+                    </div>
+                    <div class="card-occupation">
+
+                        <p>{{occupation}}</p>
+                    </div>
+                    <a href="/celebrity-details/{{_id}}" class="btn btn-warning btn-md">More Info</a>
+                    <form action="/celebrity/{{_id}}/delete" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger btn-md">
+
+                    </form>
+                </div>
+            </div>
+
+
+
+
+            {{/each}}
+
+
+
+        </div>
+
+    </div>
+
+
+
+</div>

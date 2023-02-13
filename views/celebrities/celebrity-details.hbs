@@ -1,0 +1,23 @@
+<div class="details-celebrity">
+
+    <h1>Name: {{name}}</h1>
+    <hr>
+    <p>Occupation: {{occupation}}</p>
+    <hr>
+    <p>Catch Phrase: {{catchPhrase}}</p>
+    <hr>
+
+    <div class="options">
+
+        <a href="/celebrity/{{_id}}/edit" class="btn btn-warning btn-md">Edit</a>
+
+        <form action="/celebrity/{{_id}}/delete" method="POST">
+            <input type="submit" value="Delete" class="btn btn-danger btn-md">
+
+        </form>
+    </div>
+
+
+    <a href="/celebrities/list" class="btn btn-dark btn-md">Show all Celebrities</a>
+
+</div>
