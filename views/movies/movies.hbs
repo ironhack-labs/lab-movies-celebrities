@@ -1,0 +1,14 @@
+<div class='container'>
+    <div class="encabezado mt-5">
+        <h2>Movies</h2>
+    </div>
+    {{#each movies}}
+    <div class="moviesList ms-5 mt-5">
+        <h4>{{title}}</h4><a href=""></a>
+        <p>{{genre}}</p>
+        <p>{{plot}}</p>
+        <p>cast:{{cast}}</p>
+        <a class="btn btn-dark" href="/movies/:id" role="button" >Details</a>
+    </div>
+    {{/each}}
+</div>
