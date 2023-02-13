@@ -1,0 +1,24 @@
+<h2>Movies</h2>
+
+
+<div class="container movies">
+    <div class="row movies">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Movie:{{title}}</h5>
+                <p class="card-text">Genre:{{genre}}</p>
+                <p class="card-text">Plot:{{plot}}</p>
+                {{#each cast}}
+                <p class="cast">Cast: {{name}}</p>
+                <p class="occupation">Occupation: {{occupation}}</p>
+                <p class="catchphrase">Catch Phrase: {{catchPhrase}}</p>
+                {{!-- <form action="/celebrities/{{id}}/delete" method="POST"> --}}
+                    {{!-- </form><br> --}}
+                {{/each}}
+                <input class="btn btn-danger" type="submit" value="Delete">
+
+            </div>
+        </div>
+
+    </div>

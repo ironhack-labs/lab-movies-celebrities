@@ -1,0 +1,20 @@
+<h2>Celebrities</h2>
+
+<div class="container celebrities">
+    <div class="row drones">
+        {{#each celebrities}}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Celebritie name:{{name}}</h5>
+                <p class="card-text">Occupation:{{occupation}}</p>
+                <p class="card-text">Catch Phrase:{{catchPhrase}}</p>
+                <form action="/celebrities/{{id}}/delete" method="POST">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form><br>
+
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
