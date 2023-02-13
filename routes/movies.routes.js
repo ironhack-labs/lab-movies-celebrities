@@ -54,22 +54,24 @@ router.post("/movies/:id/delete", (req, res) => {
 
 router.get("/movies/:id/edit", (req, res) => {
     const { id } = req.params
+    const moviesObject = {
+        movies: undefined,
+    }
     Movie
         .findById(id)
         .then(movie => {
-            Celebrity
-                .find()
-                .then(celebrities => {
-                    const celebritiesSelected = movie.cast
-                    const celebritiesFiltered = { selected: [], notSelected: [] }
-                    celebrities.forEach(celebrity => {
-                        celebritiesSelected.includes(celebrity._id)
-                            ? celebritiesFiltered.selected.push(celebrity)
-                            : celebritiesFiltered.notSelected.push(celebrity)
-                    })
-                    return res.render("movies/edit-movie", { movie, celebritiesFiltered })
-                })
-                .catch(err => console.error(err))
+            moviesObject.movies = movie
+            return Celebrity.find()
+        })
+        .then(celebrities => {
+            const celebritiesSelected = moviesObject.movies.cast
+            const celebritiesFiltered = { selected: [], notSelected: [] }
+            celebrities.forEach(celebrity => {
+                celebritiesSelected.includes(celebrity._id)
+                    ? celebritiesFiltered.selected.push(celebrity)
+                    : celebritiesFiltered.notSelected.push(celebrity)
+            })
+            return res.render("movies/edit-movie", { moviesObject, celebritiesFiltered })
         })
         .catch(err => console.error(err))
 })
