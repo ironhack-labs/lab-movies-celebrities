@@ -7,7 +7,7 @@
             <h1>Edit {{movies.title}}</h1>
             <hr>
 
-            <form action="/movies/edit" method="POST">
+            <form action="/movies/{{movies.id}}/edit" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{movies.title}}">

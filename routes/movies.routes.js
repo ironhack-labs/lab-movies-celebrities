@@ -88,12 +88,12 @@ router.get('/:id/edit', (req, res) => {
 
 // })
 
-router.post('/movies/:id', (req, res) => {
+router.post('/movies/:id/edit', (req, res) => {
     const { title, genre, plot, cast, id } = req.body
 
     Movie
         .findByIdAndUpdate(id, { title, genre, plot, cast })
-        .then(movies => res.redirect('movies/movie-details'))
+        .then(() => res.redirect(`/movies/${id}`))
         .catch(err => console.log(err))
 })
 
