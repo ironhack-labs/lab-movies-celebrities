@@ -41,4 +41,62 @@ router.get("/movies", async (req, res, next) => {
   }
 });
 
+router.get("/movies/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const movie = await Movie.findById(id);
+
+    const celebrities = await Celebrity.find();
+
+    res.render("movies/edit-movie", { movie, celebrities });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
+router.post("/movies/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const { title, genre, plot, cast } = req.body;
+
+    await Movie.findByIdAndUpdate(id, { title, genre, plot, cast });
+
+    res.redirect(`/movies/${id}/edit`);
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
+router.get("/movies/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const movie = await Movie.findById(id).populate("cast");
+
+    const celebrities = await Celebrity.find();
+
+    res.render("movies/movie-details", { movie, celebrities });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
+router.post("/movies/:id/delete", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    await Movie.findByIdAndRemove(id);
+
+    res.redirect("/movies");
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
 module.exports = router;
