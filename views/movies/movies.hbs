@@ -1,0 +1,8 @@
+<h2>Movies List</h2>
+
+<section id="movie-card">
+    {{#each moviesList}}
+        <h4>{{title}}</h4>
+        <a href="/movies/{{_id}}">Movie details</a>
+    {{/each}}
+</section>
