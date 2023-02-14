@@ -1,5 +1,5 @@
 
-<p>{{movie.title}}</p>
+<h2>{{movie.title}}</h2>
 
 <p>Movie details</p>
 
@@ -15,8 +15,10 @@
         <li><option value='{{_id}}'>{{catchPhrase}}</option></li>
       {{/each}}
       </ul>
-      </p> 
-{{!-- 
-      <option value='{{_id}}'>{{name}}</option>
-        <option value='{{_id}}'>{{occupation}}</option>
-        <option value='{{_id}}'>{{catchPhrase}}</option> --}}
+      
+      </p>
+
+<form action='/movies/:id/delete' method='post'>
+  <button>Delete {{movie.title}}</button>
+</form>
+

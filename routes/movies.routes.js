@@ -36,7 +36,6 @@ router.post('/create', async (req, res, next) => {
         res.redirect('/movies')
         } catch (error) {
             return res.redirect('/movies/new-movie')
-            console.log(error)
             next(error)
         }
 })
@@ -53,6 +52,29 @@ router.get('/:id', async (req, res, next) => {
     }
   })
 
+router.get('/:id/delete', async (req, res, next) => {
+    try {
+      await Movie.findByIdAndDelete(req.params.id)
+      const allCelebrities = await Celebrity.find({ movie: req.params.id })
+      for (const celebrity of allCelebrities) {
+        movie.celebrity = null
+        await celebrity.save()
+      }
+      res.redirect('/movies')
+    } catch (error) {
+      next(error)
+    }
+  })
+
+  router.post('movies/_id/delete', async (req, res, next) => {
+    try {
+        await Movie.findByIdAndDelete(req.params.id)
+        res.redirect('/movies')
+        } catch (error) {
+            // return res.redirect('/movies/new-movie')
+            next(error)
+        }
+})
 
 
 module.exports = router
