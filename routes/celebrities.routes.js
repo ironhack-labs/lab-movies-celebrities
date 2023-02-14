@@ -42,7 +42,6 @@ router.get("/", async (req, res, next) => {
       eachCelebrity: response
     })
 
-
   }catch(err) {
     next(err)
   };
