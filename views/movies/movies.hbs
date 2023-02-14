@@ -1,0 +1,19 @@
+<p> AISH CA BURRO </p>
+
+{{#each movies}}
+
+    <div>
+        <h2>{{title}}</h2>
+        <p>genre: {{genre}}</p>
+        <p>Plot: {{plot}}</p>
+        <p>Cast: {{cast}}</p>
+    </div>
+
+<form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete Movie</button>
+</form>
+
+<a href="/celebrities/celebrities.hbs">Celebrity List</a>
+<a href="/movies/{{_id}}">Movie Details</a>
+
+{{/each}}

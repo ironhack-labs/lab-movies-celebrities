@@ -1,0 +1,16 @@
+<p> AISH CA BURRO </p>
+
+{{#each celebrities}}
+
+    <div>
+        <h2>{{name}}</h2>
+        <p>Occupation: {{occupation}}</p>
+        <p>Catch Phrase: {{catchPhrase}}</p>
+    </div>
+
+<form action="/celebrities/{{_id}}/delete" method="post">
+    <button type="submit">Delete Celebrity</button>
+</form>
+
+
+{{/each}}
