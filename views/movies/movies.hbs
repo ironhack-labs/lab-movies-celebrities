@@ -1,0 +1,7 @@
+<h2>List of all the movies in our database</h2>
+
+{{#each movies}}
+    <a href="/movies/{{_id}}">{{title}}</a>
+{{/each}}
+
+<a href="/movies/create">Add a movie to our database</a>
