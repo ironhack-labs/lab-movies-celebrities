@@ -1,0 +1,10 @@
+<h2>{{movie.title}}</h2>
+<p><strong>Genre:</strong> {{movie.genre}}</p>
+<p><strong>Plot:</strong> {{movie.plot}}</p>
+
+<h3>Cast:</h3>
+<ul>
+  {{#each movie.cast}}
+    <li>{{this.name}} - {{this.occupation}} - "{{this.catchPhrase}}"</li>
+  {{/each}}
+</ul>
