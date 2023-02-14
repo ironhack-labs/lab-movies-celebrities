@@ -1,0 +1,20 @@
+//  Add your code here
+const { Schema, model } = require("mongoose");
+
+const movieSchema = new Schema ({
+    //This first object is the schema itself
+    title: String,
+    genre: String,
+    plot: String,
+    cast : [{
+        type: Schema.Types.ObjectId,
+        ref:'Celebrity'
+    }]
+
+},{
+timestamps: true,
+})
+
+const Movie = model("Movie", movieSchema)
+
+module.exports = Movie
