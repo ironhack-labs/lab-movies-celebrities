@@ -1,0 +1,17 @@
+<h1>Movies list</h1>
+  <hr />
+<div class="container">
+
+{{#each movies}}
+<div class="holder">
+    <h3 class='name'><a href='/movies/{{id}}'>{{title}}</a></h3>
+</div>
+ {{/each}}
+
+</div>
+
+<div class="btn-container">
+<div>
+<a class='btn2' href="/movies/new-movie">Create a Movie</a>
+</div>
+</div>
