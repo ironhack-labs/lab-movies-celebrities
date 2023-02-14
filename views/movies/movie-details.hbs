@@ -1,0 +1,15 @@
+<h2></h2>
+
+<h3> {{title}} </h3>
+<h3> {{genre}} </h3>
+<h3> {{plot}} </h3>
+
+{{#each celebrities}}
+
+<h3> {{name}} </h3>
+<h3> {{occupation}} </h3>
+<h3> {{catchPhrase}} </h3>
+ <form action="/movies/{{_id}}/delete" method="post">  {{!-- We do a form for a delete button. --}}
+    <button type="submit">Delete</button>
+    </form>
+{{/each}}
