@@ -1,35 +1,53 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 
-const celebritieModel = require("../models/Celebrity.model.js");
+const Celebrity = require("../models/Celebrity.model.js");
 
 // all your routes here
+
 
 //GET "/celebrities/create"
 
 router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrity.hbs");
+  
 });
-  router.post("/create", async (req, res, next) => {
-    try {
-      const response = await celebritieModel.create({
 
-        name: req.body.title,
-        occupation: req.body.occupation,
-        catchPhrase: req.body.catchPhrase,
+//POST "/celebrities/create"
 
-      });
+router.post("/create", async (req, res, next) => {
+  try {
+    const response = await Celebrity.insertMany({
+      name: req.body.name,
+      occupation: req.body.occupation,
+      catchPhrase: req.body.catchPhrase,
+    });
 
-      res.redirect("/")
+    res.redirect("/celebrities");
+  } catch (err) {
+    next(err);
+    res.redirect("/celebrities/create");
+  }
+});
 
-    } catch(err) {
 
-      next(err);
-      res.redirect("/new-celebrity.hbs")
-    }
-  });
+//GET "/celebrities"
+router.get("/", async (req, res, next) => {
 
-  //GET
+  try {
+
+    const response = await Celebrity.find()
+
+    res.render("celebrities/celebrities.hbs", {
+      eachCelebrity: response
+    })
+
+
+  }catch(err) {
+    next(err)
+  };
+
+});
 
 
 module.exports = router;
