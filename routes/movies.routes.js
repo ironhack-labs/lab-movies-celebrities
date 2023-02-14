@@ -42,7 +42,8 @@ router.get("/movies/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
     const movie = await Movie.findById(id).populate("cast");
-    res.render("movies/movie-details", movie);
+    const celebrities =  await Celebrity.find()
+    res.render("movies/movie-details", {movie, celebrities});
   } catch (error) {
     console.log(error);
     next(error);
@@ -59,5 +60,52 @@ router.post("/movies/:id/delete", async (req, res, next) => {
     next(error);
   }
 });
+
+router.get("/movies/:id/edit", async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const movies = await Movies.findById(id);
+    const celebrities = await Celebrities.find();
+      res.render("movies/edit-movie", {movies, celebrities});
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  });
+  router.post("/movies/:id/edit", async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { title, genre, plot, cast } = req.body
+      await Movies.findByIdAndUpdate(id, { title, genre, plot, cast });
+      res.redirect(`/movies/${id}`);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  });
+
+  router.get("/movies/:id/edit", async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const movies = await Movies.findById(id);
+    const celebrities = await Celebrities.find();
+      res.render("movies/edit-movie", {movies, celebrities});
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  });
+  
+  router.post("/movies/:id/edit", async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const { title, genre, plot, cast } = req.body
+      await Movies.findByIdAndUpdate(id, { title, genre, plot, cast });
+      res.redirect(`/movies/${id}`);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  });
 
 module.exports = router;
