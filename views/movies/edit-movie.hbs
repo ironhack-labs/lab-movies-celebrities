@@ -11,8 +11,9 @@
     <label for="plot">Plot:</label>
     <input type="text" name="plot" id="plot" value="{{movie.plot}}">
 
-    <select name="cast" id="cast">
+    <select name="cast" id="cast" >
         {{#each celebsList}}
+            {{#if}}
             <option value="{{_id}}">{{name}}</option>
         {{/each}}
     </select>
