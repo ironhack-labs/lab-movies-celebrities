@@ -1,0 +1,22 @@
+
+<p>{{movie.title}}</p>
+
+<p>Movie details</p>
+
+      <p>
+        {{movie.genre}}
+      <br>
+        {{movie.plot}}
+      <br>
+      <ul>
+      {{#each movie.cast}}
+        <li><option value='{{_id}}'>{{name}}</option></li>
+        <li><option value='{{_id}}'>{{occupation}}</option></li>
+        <li><option value='{{_id}}'>{{catchPhrase}}</option></li>
+      {{/each}}
+      </ul>
+      </p> 
+{{!-- 
+      <option value='{{_id}}'>{{name}}</option>
+        <option value='{{_id}}'>{{occupation}}</option>
+        <option value='{{_id}}'>{{catchPhrase}}</option> --}}
