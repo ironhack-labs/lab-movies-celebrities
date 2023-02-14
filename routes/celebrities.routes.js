@@ -5,12 +5,10 @@ const Celebrity = require("../models/Celebrity.model.js");
 
 // all your routes here
 
-
 //GET "/celebrities/create"
 
 router.get("/create", (req, res, next) => {
   res.render("celebrities/new-celebrity.hbs");
-  
 });
 
 //POST "/celebrities/create"
@@ -30,23 +28,17 @@ router.post("/create", async (req, res, next) => {
   }
 });
 
-
 //GET "/celebrities"
 router.get("/", async (req, res, next) => {
-
   try {
-
-    const response = await Celebrity.find()
+    const response = await Celebrity.find();
 
     res.render("celebrities/celebrities.hbs", {
-      eachCelebrity: response
-    })
-
-  }catch(err) {
-    next(err)
-  };
-
+      eachCelebrity: response,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
-
 
 module.exports = router;

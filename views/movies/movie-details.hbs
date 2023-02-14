@@ -1,17 +1,24 @@
 <div>
-<h2>Detalles de la película</h2>
+  <h2>Detalles de la película</h2>
 
-<h4>{{movieDetails.title}}</h4>
-<h5>Género: {{movieDetails.genre}}</h5>
-<h5>Trama:{{movieDetails.plot}}</h5>
+  <h4>{{movieDetails.title}}</h4>
+  <h5>Género: {{movieDetails.genre}}</h5>
+  <h5>Trama:{{movieDetails.plot}}</h5>
 
-{{#each movieDetails.cast}}
+  {{#each movieDetails.cast}}
 
-<h5>Reparto: {{this.name}}</h5>
+  <h5>Reparto: {{this.name}}</h5>
 
-{{/each}}
-
-
-
+  {{/each}}
 
 </div>
+
+<form action="/movies/{{movieDetails._id}}/delete" method="post">
+
+  <button>BORRAR</button>
+</form>
+
+<a href="/movies/{{movieDetails._id}}/edit">
+  <button>Actualizar</button>
+
+</a>

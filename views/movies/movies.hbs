@@ -1,15 +1,10 @@
 <div>
-<h2>Películas</h2>
+    <h2>Películas</h2>
 
+    {{#each eachMovie}}
 
-{{#each eachMovie}}
+    <a href="/movies/{{this._id}}/details">{{this.title}}</a>
+    <br>
 
-<a href="/movies/{{this._id}}/details">{{this.title}}</a>
-
-<h3>{{this.title}}</h3>
-
-
-{{/each}}
-
-
+    {{/each}}
 </div>
