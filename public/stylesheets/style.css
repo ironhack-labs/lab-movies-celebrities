@@ -6,3 +6,45 @@ body {
 a {
   color: #00b7ff;
 }
+
+#inicio {
+  display: flex;
+  flex-direction: column;
+  background-image: url(/images/movie.jpg);
+  background-size: cover;
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+}
+
+#titulo {
+  color: white;
+  font-size: 6em;
+  font-weight: bold;
+  position: relative; top: 50px; left: 80px;
+  width: 500px;
+  text-shadow: 2px 2px 4px #2b2b2b;
+}
+
+#welcome {
+  color: lightgrey;
+  font-size: 1.2em;
+  position: relative; top: 60px; left: 80px;
+}
+
+#inicioBtn {
+  flex-wrap: wrap;
+  position: relative; top:100px; left:50px;
+  align-items: center;
+
+}
+
+button {
+  background-color: white;
+  color: darkred;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  border-color: transparent;
+  box-shadow: 2px 2px 4px #2b2b2b;
+}
