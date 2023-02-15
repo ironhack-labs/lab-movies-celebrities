@@ -4,8 +4,13 @@ const Celebrities = require("../models/Celebrity.model");
 const { findByIdAndUpdate } = require("../models/Movie.model");
 
 route.get("/create", async (req, res, next) => {
-  let celebrities = await Celebrities.find();
-  res.render("movies/new-movie", { celebrities });
+  try {
+    let celebrities = await Celebrities.find();
+    res.render("movies/new-movie", { celebrities });
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
 });
 
 route.post("/create", async (req, res, next) => {
