@@ -25,6 +25,12 @@ const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerC
 app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
+const movieRoutes = require("./routes/movies.routes");
+app.use("/", movieRoutes)
+
+const celebrityRoutes = require("./routes/celebrities.routes");
+app.use("/", celebrityRoutes)
+
 const index = require('./routes/index');
 app.use('/', index);
 
