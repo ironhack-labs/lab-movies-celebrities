@@ -1,0 +1,13 @@
+<h2>Celebrities</h2>
+<section id="celebrities">
+  {{#each allCelebrities}}
+    <div class='shop-card'>
+      <a href='/celebrities/{{_id}}' class='celebrity-name'>{{name}}</a>
+      <p>
+        {{occupation}}
+        {{catchPhrase}}
+      </p>
+    </div>
+  {{/each}}
+</section>
+<a href="/" class="home"> < Home</a>

@@ -6,3 +6,33 @@ body {
 a {
   color: #00b7ff;
 }
+a:hover {
+  text-decoration: none;
+}
+ul, li {
+  text-decoration: none;
+  list-style: none;
+}
+.home {
+  margin-top: 5rem;
+  color: gray;
+}
+#top {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+#top a {
+  background-color: rgb(236, 105, 105);
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
+#new-celebrity, #celebrities, #one-celebrity, #edit-movie, #movie-details, #movies, #new-movie {
+  border: 1px solid black;
+  padding: 3rem;
+}
+#new-celebrity button, #new-movie button, #edit-movie button {
+  margin: 2rem;
+}

@@ -1,0 +1,21 @@
+<section id="movie-details">
+  <h2>Title: {{movie.title}}</h2>
+  <ul>
+      <li><p>Genre: {{movie.genre}}</p></li>
+      <li><p>Plot: {{movie.plot}}</p></li>
+      <li><p>Cast:
+       {{#each movie.cast}}
+       <div class="movie-card">
+        <p>Name: {{name}}</p>
+        <p>Occupation: {{occupation}}</p>
+        <p>Catch Phrase: {{catchPhrase}}</p>
+      </div>
+      {{/each}}</p></li>
+  </ul>
+  <form action="/movies/{{movie._id}}/delete" method="POST">
+        <button formaction="/movies/{{movie._id}}/edit" formmethod="GET">Edit Movie</button>
+        <button>Delete Movie</button>
+    </form>
+</section>
+<a href="/" class="home"> < Home</a>
+
