@@ -1,5 +1,6 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
+const { restart } = require("nodemon");
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movies.model")
 
@@ -7,7 +8,7 @@ const Movie = require("../models/Movies.model")
 
 router.get("/movies/create", async (req, res, next)=> { 
     try {
-        const celebrities = Celebrity.find()
+        const celebrities = await Celebrity.find()
         res.render("movies/new-movie.hbs", {celebrities})
     } catch (error) {
         console.log(error)
@@ -48,7 +49,7 @@ router.get('/movies/:id', async (req, res, next) => {
         .populate('cast')
       console.log(movies);
     
-      res.render('/movies/movie-details', movies);
+      res.render('movies/movie-details', movies);
     } catch (error) {
       console.log(error);
       next(error);
@@ -63,6 +64,7 @@ router.get('/movies/:id', async (req, res, next) => {
     } catch (error) {
       console.log(error);
       next(error);
+    
     }
   });
 
@@ -74,7 +76,8 @@ router.get('/movies/:id', async (req, res, next) => {
       res.render("movies/edit-movie", { movies, celebrity});
     } catch (error) {
       console.log(error);
-      next(error);
+      next(error)
+      res.redirect("/movie-details")
     }
   });
   
@@ -84,7 +87,6 @@ router.get('/movies/:id', async (req, res, next) => {
       const {title, genre, plot, cast } = req.body;
       const {name, occupation, catchPhrase } = req.body;
       await Movie.findByIdAndUpdate(id, { title, genre, plot, cast });
-      await Celebrity.findByIdAndUpdate(id,{name, occupation, catchPhrase } )
       res.redirect(`/movies/${id}`);
     } catch (error) {
       console.log(error);
