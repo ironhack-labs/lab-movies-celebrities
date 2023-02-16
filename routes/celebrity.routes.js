@@ -20,11 +20,11 @@ router.get("/create", (req, res, next) => {
 
 router.post("/create", async (req, res, next) => {
   try {
-    const newlyCreatedCelebrity = await Celebrity.create(req.body);
-    console.log(newlyCreatedCelebrity);
+    const { name, occupation, catchPhrase } = req.body;
+    await Celebrity.create({ name, occupation, catchPhrase });
     res.redirect("/celebrities");
   } catch (error) {
-    res.render("celebrities/new-celebrity");
+    next(error);
   }
 });
 
