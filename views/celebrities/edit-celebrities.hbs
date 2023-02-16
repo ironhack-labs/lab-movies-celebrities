@@ -1,0 +1,24 @@
+<h2>Edit {{name}}</h2>
+
+<form action="/celebrities/{{_id}}/edit" method="post">
+    <label for="">Name</label>
+    <input type="text" name="name" value="{{name}}">
+    <br>
+    <label for="">Ocuppation</label>
+    <input type="text" name="ocuppation" value="{{ocuppation}}">
+    <br>
+    <label for="">Catch Phrase</label>
+    <textarea name="catchPhrase" id="" cols="30" rows="10">{{catchPhrase}}</textarea>
+
+    <label for="">Movies</label>
+    <select name="participateMovies" multiple>
+        {{#each updateMovie}}
+        {{#if this.done}}
+        <option value="{{_id}}" selected>{{title}}</option>
+        {{else}}
+        <option value="{{_id}}">{{title}}</option>
+        {{/if}}
+        {{/each}}
+    </select>
+    <button type="submit">Update</button>
+</form>
