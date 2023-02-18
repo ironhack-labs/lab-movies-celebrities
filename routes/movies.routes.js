@@ -15,6 +15,16 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const {id} = req.params;
+        const response = await Movie.findById(id).populate("cast")
+        res.render("movies/movie-details.hbs", {movie: response})
+    }
+    catch(error){
+        console.log(error)
+    }
+})
 
 router.get('/create', (req, res, next) => {
     res.render('movies/new-movie.hbs')
