@@ -26,6 +26,17 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+router.post('/:id/delete', async (req, res, next) => {
+    try {
+        const {id} =req.params
+        await Movie.findByIdAndDelete(id)
+        res.redirect('/movies')
+    }
+    catch (error){
+        console.log(error)
+    }
+})
+
 router.get('/create', (req, res, next) => {
     res.render('movies/new-movie.hbs')
 })
@@ -44,6 +55,7 @@ router.post('/create', async (req, res, next) => {
 }
 
 })
+
 
 
 module.exports = router;
