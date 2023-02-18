@@ -1,9 +1,8 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
-
-// all your routes here
 const Celebrity = require('../models/Celebrity.model.js');
 
+// all your routes here
 router.get('/', async (req, res, next) => {
     try {
         const response = await Celebrity.find()
