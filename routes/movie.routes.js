@@ -28,10 +28,66 @@ router.post("/create", async (req, res, next) => {
     const { title, genre, plot, cast } = req.body;
 
     await Movie.create({ title, genre, plot, cast });
-    res.redirect("/movies")
+    res.redirect("/movies");
   } catch (error) {
-    next(error)
+    next(error);
   }
 });
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const oneMovie = await Movie.findById(req.params.id).populate("cast");
+    console.log(oneMovie);
+    res.render("movies/movie-details", { oneMovie });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/:id/delete", async (req, res, next) => {
+  try {
+    await Movie.findByIdAndDelete(req.params.id);
+    res.redirect("/movies");
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:id/edit", async (req, res, next) => {
+  try {
+    const oneMovie = await Movie.findById(req.params.id);
+    const allCelebrities = await Celebrity.find();
+
+    // mongoose stores the actual document inside document._doc, and only allows us to access it through a getter function. this is a hacky way to retrieve the actual document and edit it
+    const mappedCelebrities = allCelebrities.map((celeb) => celeb._doc);
+
+    mappedCelebrities.forEach((celeb) => {
+      oneMovie.cast.forEach((star) => {
+        if (celeb._id.equals(star._id)) {
+          celeb.isSelected = true;
+        }
+      });
+    });
+
+    res.render("movies/edit-movie", {
+      allCelebrities: mappedCelebrities,
+      oneMovie,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/:id/edit", async (req, res, next) => {
+  try {
+    const { title, genre, plot, cast } = req.body;
+
+    await Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast });
+    res.redirect("/movies");
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 module.exports = router;

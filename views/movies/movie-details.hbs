@@ -1,0 +1,10 @@
+<h1>{{oneMovie.title}}</h1>
+<a href="/movies/{{oneMovie._id}}/edit">Edit</a>
+<ul>
+  {{#each oneMovie.cast}}
+  <li>{{name}}</li>
+  {{/each}}
+</ul>
+<form action="/movies/{{oneMovie._id}}/delete" method="post">
+  <input type="submit" value="Delete" />
+</form>
