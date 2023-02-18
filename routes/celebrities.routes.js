@@ -3,6 +3,8 @@ const router = require('express').Router();
 
 const Celebrity = require('../models/Celebrity.model');
 
+//the order of req, res, next is important!!!
+
 router.get('/celebrities/create', (req, res, next) => {
 	res.render('celebrities/new-celebrity');
 });
