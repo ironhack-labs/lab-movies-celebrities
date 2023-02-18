@@ -1,0 +1,13 @@
+<h2>Movie</h2>
+<form action="" method="POST">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="genre" placeholder="genre">
+    <input type="text" name="plot" placeholder="plot">
+    <select name="cast" id="" size="2" multiple>
+        <option value="">Select a celebrity</option>
+        {{#each celebrities}}
+            <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+    </select>
+    <button>Submit</button>
+</form>
