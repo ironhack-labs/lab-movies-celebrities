@@ -3,6 +3,8 @@ const router = require('express').Router();
 
 const Movie = require('../models/Movie.model');
 
+const Celebrity = require('../models/Celebrity.model');
+
 // all your routes here
 
 router.get('/movies', (req, res, next) => {
@@ -12,7 +14,9 @@ router.get('/movies', (req, res, next) => {
 });
 
 router.get('/movies/create', (req, res, next) => {
-	res.render('movies/new-movie');
+	Celebrity.find().then((allCelebrities) => {
+		res.render('movies/new-movie', { allCelebrities: allCelebrities });
+	});
 });
 
 router.post('/movies/create', (req, res, next) => {
@@ -25,13 +29,27 @@ router.post('/movies/create', (req, res, next) => {
 					res.redirect('/movies');
 				});
 			} else {
-				res.render('movies/new-movie', { movieMessage: 'Movie already in DB!' });
+				Celebrity.find().then((allCelebrities) => {
+					res.render('movies/new-movie', { movieMessage: 'Movie already in DB!', allCelebrities: allCelebrities });
+				});
 			}
 		})
 		.catch((err) => {
 			console.log('Detected error, redirecting');
 			res.render('movies/new-movie');
 		});
+});
+
+router.get('/movies/:id', (req, res, next) => {
+	const { id } = req.params;
+
+	Movie.findById(id)
+		.populate('cast')
+		.then((foundMovie) => {
+			console.log(foundMovie);
+			res.render('movies/movie-details', { details: foundMovie });
+		})
+		.catch((err) => console.log('MONKEY', err));
 });
 
 module.exports = router;

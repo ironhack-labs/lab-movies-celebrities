@@ -1,0 +1,15 @@
+<h2>Details</h2>
+
+<h3>{{details.title}}</h3>
+
+<h6>{{details.genre}}</h6>
+
+<p>{{details.plot}}</p>
+
+{{#each details.cast}}
+
+	<li><h3>{{name}}</h3></li>
+	<li>{{this.occupation}}</li>
+	<li>{{catchPhrase}}</li>
+
+{{/each}}
