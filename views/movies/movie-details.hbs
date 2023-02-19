@@ -13,3 +13,9 @@
 	<li>{{catchPhrase}}</li>
 
 {{/each}}
+
+<form action='/movies/{{details._id}}/delete' method='POST'>
+	<button type='submit'>Delete</button>
+</form>
+
+<a href='/movies/{{details._id}}/edit'>Edit Movie</a>
