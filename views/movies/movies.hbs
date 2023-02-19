@@ -1,12 +1,17 @@
 <h2>Movies</h2>
 {{#each movies}}
     <div>
-        <h3>{{this.title}}</h3>
-        <p>{{this.genre}}</p>
-        <p>{{this.plot}}</p>
+        <h3>Title: {{this.title}}</h3>
+        <p>Genre: {{this.genre}}</p>
+        <p>Plot: {{this.plot}}</p>
+        <span>Cast:</span>
         {{#each this.cast}}
-            <p>{{this.name}}</p>
+            <span>{{this.name}} </span>
         {{/each}}
+        <br>
+        <br>
         <a href="/movies/{{this._id}}">See more details</a>
+        <br>
+        <br>
     </div>
 {{/each}}

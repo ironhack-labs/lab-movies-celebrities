@@ -31,6 +31,14 @@ router.get('/:id', (req, res) => {
         .then(movie => res.render('movies/movie-details.hbs', {movie}))
         .catch(() => res.render('movies/movies.hbs'))
 })
+router.post('/:id/delete', (req, res) => {
+
+    const { id } = req.params;
+    movie.findByIdAndDelete(id)
+        .then(() => res.redirect('/movies'))
+        .catch(() => res.render('movies/movies.hbs'))
+})
+
 
 
 
