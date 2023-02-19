@@ -3,6 +3,14 @@ const router = require('express').Router();
 
 const Celebrity = require('../models/Celebrity.model');
 
+router.get('/celebrities', (req, res, next) => {
+	Celebrity.find()
+		.then((celebritiesFromDB) => {
+			res.render('celebrities/celebrities', { celebs: celebritiesFromDB });
+		})
+		.catch((err) => console.log(err));
+});
+
 //the order of req, res, next is important!!!
 
 router.get('/celebrities/create', (req, res, next) => {
