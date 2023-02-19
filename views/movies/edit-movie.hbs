@@ -3,11 +3,11 @@
 <form action='/movies/{{movieToEdit._id}}/edit' method='POST'>
 
 	<label for=''>Title</label>
-	<input type='text' value='{{movieToEdit.title}}' name='{{movieToEdit.title}}' />
+	<input type='text' value='{{movieToEdit.title}}' name='title' />
 	<label for=''>Genre</label>
-	<input type='text' value='{{movieToEdit.genre}}' name='{{movieToEdit.genre}}' />
+	<input type='text' value='{{movieToEdit.genre}}' name='genre' />
 	<label for=''>Plot</label>
-	<input type='text' value='{{movieToEdit.plot}}' name='{{movieToEdit.plot}}' />
+	<input type='text' value='{{movieToEdit.plot}}' name='plot' />
 
 	<select name='cast' id='cast' multiple>
 
