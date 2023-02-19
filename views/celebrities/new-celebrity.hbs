@@ -1,5 +1,9 @@
 <h2>New Celebrity</h2>
 
+{{#if message}}
+	<p>{{message}}</p>
+{{/if}}
+
 <form action='/celebrities/create' method='POST'>
 
 	<label for='name'> Name</label>

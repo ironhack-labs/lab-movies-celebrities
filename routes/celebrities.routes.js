@@ -20,10 +20,17 @@ router.get('/celebrities/create', (req, res, next) => {
 router.post('/celebrities/create', (req, res, next) => {
 	const { name, occupation, catchPhrase } = req.body;
 
-	Celebrity.create({ name, occupation, catchPhrase })
-		.then((newCeleb) => {
-			res.redirect('/celebrities');
+	Celebrity.findOne({ name })
+		.then((celebFromDB) => {
+			if (!celebFromDB) {
+				Celebrity.create({ name, occupation, catchPhrase }).then(() => {
+					res.redirect('/celebrities');
+				});
+			} else {
+				res.render('celebrities/new-celebrity', { message: 'Celeb already exists!' });
+			}
 		})
+
 		.catch((err) => {
 			console.log('Detected error, redirecting');
 			res.render('celebrities/new-celebrity');
