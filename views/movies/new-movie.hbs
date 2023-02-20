@@ -1,19 +1,20 @@
 <h2>New movie</h2>
 <form action="" method="POST">
-  <input type="text" name="title">
-  <input type="text" name="genre">
-  <textarea name="plot"
-          rows="5" cols="33">
-
-</textarea>
-<label for="celebrity">Choose a celebrity:</label>
-
-<select name="celebrities" id="celebrities" multiple>
+  <br />
+  <input type="text" name="title" />
+  <br />
+  <input type="text" name="genre" />
+  <br />
+  <textarea name="plot" rows="5" cols="33"></textarea>
+  <br />
+  <label for="celebrity">Choose a celebrity:</label>
+  <br />
+  <select name="celebrities" id="celebrities" multiple>
     {{#each allCeleb}}
-  <option value='{{this_id}}'>{{this.name}}</option>
+      <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
-</select>
-
-
+  </select>
+  <br />
+  <br />
   <button>Create!</button>
 </form>
