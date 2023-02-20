@@ -9,4 +9,4 @@ const Celebrity = new Schema(
     }
 )
 
-module.exports = model('celebrity', Celebrity)
+module.exports = model('Celebrity', Celebrity)

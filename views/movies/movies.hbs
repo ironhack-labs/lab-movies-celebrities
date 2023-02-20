@@ -1,10 +1,17 @@
 <h2>Movies</h2>
+<a href="/">Go Back</a>
+<br />
 {{#each movie}}
-<div>
+  <div>
     <h3>{{title}}</h3>
     <p>genre: {{genre}}</p>
     <p>plot: {{plot}}</p>
-    <p>cast: {{this.celebrity.name}}</p>
+    <p>cast:
+      {{#each cast}}
+        <span>{{this.name}} | </span>
+      {{/each}}
+    </p>
     <a href="/movies/{{_id}}">Look the movie details</a>
-</div>
+  </div>
+  <br />
 {{/each}}

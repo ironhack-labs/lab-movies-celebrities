@@ -1,17 +1,26 @@
 <h2>New movie</h2>
+<a href="/">Go Back!</a>
+<br>
+<br>
 <form action="" method="POST">
+  <br />
+  <label for="title">Title:</label>
   <br />
   <input type="text" name="title" />
   <br />
+  <label for="genre">Genre:</label>
+  <br />
   <input type="text" name="genre" />
+  <br />
+  <label for="plot">Description:</label>
   <br />
   <textarea name="plot" rows="5" cols="33"></textarea>
   <br />
-  <label for="celebrity">Choose a celebrity:</label>
+  <label for="cast">Choose a celebrity:</label>
   <br />
-  <select name="celebrities" id="celebrities" multiple>
+  <select name="cast" id="celebrities" multiple>
     {{#each allCeleb}}
-      <option value="{{this._id}}">{{this.name}}</option>
+      <option name="cast" value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select>
   <br />
