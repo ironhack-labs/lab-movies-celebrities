@@ -52,4 +52,16 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+// Editing movie details
+
+router.get("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId } = req.params;
+
+  Movie.findById(movieId)
+  .then((foundMovie) => {
+      res.render("../views/movies/edit-movie.hbs", { movie: foundMovie });
+    })
+  .catch((error) => next(error));
+});
+
 module.exports = router;
