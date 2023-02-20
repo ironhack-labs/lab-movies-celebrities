@@ -21,10 +21,18 @@ router.post("/create-movie", (req, res, next) =>{
 
 router.get("/movies/", (req, res, next) => {
     Movie.find()
+    .populate('_id')
     .then(allMovies => {
         res.render("../views/movies/movies.hbs", {movie: allMovies})
     })
    
+})
+
+router.get("/movies/:id", (req, res, next) => {
+    const { movieId } = req.params
+    Movie.findById(movieId).then(movie => {
+        res.render('../views/movies/movie-details.hbs', {movie: movie})
+    })
 })
 
 module.exports = router;
