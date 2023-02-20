@@ -37,4 +37,54 @@ router.post('/celebrities/create', (req, res, next) => {
 		});
 });
 
+router.get('/celebrities/:id', async (req, res, next) => {
+	const { id } = req.params;
+
+	try {
+		let foundCelebrity = await Celebrity.findById(id);
+		res.render('celebrities/celebrity-details', { celebDetails: foundCelebrity });
+	} catch (error) {
+		console.log('KRIKEY', error);
+		next(error);
+	}
+});
+
+router.get('/celebrities/:id/edit', async (req, res, next) => {
+	const { id } = req.params;
+
+	try {
+		let celebToEdit = await Celebrity.findById(id);
+		res.render('celebrities/edit-celebrity', { celebToEdit: celebToEdit });
+	} catch (error) {
+		console.log('MIKEY', error);
+		next(error);
+	}
+});
+
+router.post('/celebrities/:id/edit', async (req, res, next) => {
+	const { id } = req.params;
+	const { name, occupation, catchPhrase } = req.body;
+
+	try {
+		let celebToUpdate = await Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase }, { new: true });
+
+		res.redirect(`/celebrities/${celebToUpdate.id}`);
+	} catch (error) {
+		console.log('PIKEY', error);
+		next(error);
+	}
+});
+
+router.post('/celebrities/:id/delete', async (req, res, next) => {
+	const { id } = req.params;
+
+	try {
+		await Celebrity.findByIdAndDelete(id);
+		res.redirect('/celebrities');
+	} catch (error) {
+		console.log('AVADA KEDAVRA', error);
+		next(error);
+	}
+});
+
 module.exports = router;
