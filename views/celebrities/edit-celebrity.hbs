@@ -1,14 +1,16 @@
-<h2>Edit Celebrity</h2>
+<div class="formsAndDetails">
+	<h2>Edit Celebrity</h2>
 
-<form action='/celebrities/{{celebToEdit._id}}/edit' method='POST'>
+	<form action='/celebrities/{{celebToEdit._id}}/edit' method='POST'>
 
-	<label for=''>Name</label>
-	<input type='text' value='{{celebToEdit.name}}' name='name' />
-	<label for=''>Occupation</label>
-	<input type='text' value='{{celebToEdit.occupation}}' name='occupation' />
-	<label for=''>Catchphrase</label>
-	<input type='text' value='{{celebToEdit.catchPhrase}}' name='catchPhrase' />
+		<label for=''>Name</label>
+		<input type='text' value='{{celebToEdit.name}}' name='name' />
+		<label for=''>Occupation</label>
+		<input type='text' value='{{celebToEdit.occupation}}' name='occupation' />
+		<label for=''>Catchphrase</label>
+		<input type='text' value='{{celebToEdit.catchPhrase}}' name='catchPhrase' />
 
-	<button type='submit'>Save Changes</button>
+		<button type='submit'>Save Changes</button>
 
-</form>
+	</form>
+</div>

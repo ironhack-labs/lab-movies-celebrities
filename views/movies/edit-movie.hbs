@@ -1,24 +1,27 @@
-<h2>Edit Movie</h2>
+<div class="formsAndDetails">
+	<h2>Edit Movie</h2>
 
-<form action='/movies/{{movieToEdit._id}}/edit' method='POST'>
+	<form action='/movies/{{movieToEdit._id}}/edit' method='POST'>
 
-	<label for=''>Title</label>
-	<input type='text' value='{{movieToEdit.title}}' name='title' />
-	<label for=''>Genre</label>
-	<input type='text' value='{{movieToEdit.genre}}' name='genre' />
-	<label for=''>Plot</label>
-	<input type='text' value='{{movieToEdit.plot}}' name='plot' />
+		<label for=''>Title</label>
+		<input type='text' value='{{movieToEdit.title}}' name='title' />
+		<label for=''>Genre</label>
+		<input type='text' value='{{movieToEdit.genre}}' name='genre' />
+		<label for=''>Plot</label>
+		<input type='text' value='{{movieToEdit.plot}}' name='plot' />
 
-	<select name='cast' id='cast' multiple>
+		<select name='cast' id='cast' multiple>
 
-		{{#each castToEdit}}
+			{{#each castToEdit}}
 
-			<option value='{{_id}}'>{{name}}</option>
+				<option value='{{_id}}'>{{name}}</option>
 
-		{{/each}}
+			{{/each}}
 
-	</select>
+		</select>
 
-	<button type='submit'>Save Changes</button>
+		<button type='submit'>Save Changes</button>
 
-</form>
+	</form>
+
+</div>

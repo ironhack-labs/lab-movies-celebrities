@@ -1,8 +1,11 @@
-<h2>Celebrities</h2>
+<div class="formsAndDetails">
+	<h2>Celebrities</h2>
+	<div class="celebsAndMovies">
+	{{#each celebs}}
 
-{{#each celebs}}
+		<p>{{name}}</p>
+		<button><a href='/celebrities/{{_id}}'>Details</a></button>
 
-	<li>{{name}}</li>
-	<a href='/celebrities/{{_id}}'>Details</a>
-
-{{/each}}
+	{{/each}}
+	</div>
+</div>

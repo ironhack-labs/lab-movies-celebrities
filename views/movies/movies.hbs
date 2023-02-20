@@ -1,7 +1,10 @@
-<h2>Movies</h2>
+<div class="formsAndDetails">
+	<h2>Movies</h2>
+	<div class="celebsAndMovies">
+	{{#each movies}}
 
-{{#each movies}}
-
-	<li>{{title}}</li>
-	<a href='/movies/{{_id}}'>Details</a>
-{{/each}}
+		<p>{{title}}</p>
+		<button><a href='/movies/{{_id}}'>Details</a></button>
+	{{/each}}
+	</div>
+</div>

@@ -1,29 +1,31 @@
-<h2>New Movie</h2>
+<div class="formsAndDetails">
+	<h2>New Movie</h2>
 
-{{#if movieMessage}}
-	<p>{{movieMessage}}</p>
-{{/if}}
+	{{#if movieMessage}}
+		<p>{{movieMessage}}</p>
+	{{/if}}
 
-<form action='/movies/create' method='POST'>
+	<form action='/movies/create' method='POST'>
 
-	<label for='title'> Title</label>
-	<input type='text' name='title' id='title' />
-	<label for='genre'> Genre</label>
-	<input type='text' name='genre' />
-	<label for='plot'> Plot</label>
-	<input type='text' name='plot' />
-	<label for='cast'>Choose the cast</label>
+		<label for='title'> Title</label>
+		<input type='text' name='title' id='title' />
+		<label for='genre'> Genre</label>
+		<input type='text' name='genre' />
+		<label for='plot'> Plot</label>
+		<input type='text' name='plot' />
+		<label for='cast'>Choose the cast</label>
 
-	<select name='cast' id='cast' multiple>
+		<select name='cast' id='cast' multiple>
 
-		{{#each allCelebrities}}
+			{{#each allCelebrities}}
 
-			<option value='{{_id}}'>{{name}}</option>
+				<option value='{{_id}}'>{{name}}</option>
 
-		{{/each}}
+			{{/each}}
 
-	</select>
+		</select>
 
-	<button type='submit'>Create Movie</button>
+		<button type='submit'>Create Movie</button>
 
-</form>
+	</form>
+</div>

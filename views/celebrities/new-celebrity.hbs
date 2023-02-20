@@ -1,17 +1,21 @@
-<h2>New Celebrity</h2>
+<div class="formsAndDetails">
+	
+	<h2>New Celebrity</h2>
 
-{{#if message}}
-	<p>{{message}}</p>
-{{/if}}
+		{{#if message}}
+			<p>{{message}}</p>
+		{{/if}}
 
-<form action='/celebrities/create' method='POST'>
+	<form id="addCeleb" action='/celebrities/create' method='POST'>
 
-	<label for='name'> Name</label>
-	<input type='text' name='name' id='name' />
-	<label for='occupation'> Occupation</label>
-	<input type='text' name='occupation' />
-	<label for='catchPhrase'> Catch Phrase</label>
-	<input type='text' name='catchPhrase' />
-	<button type='submit'>Create Celebrity</button>
+		<label for='name'> Name</label>
+		<input type='text' name='name' id='name' />
+		<label for='occupation'> Occupation</label>
+		<input type='text' name='occupation' />
+		<label for='catchPhrase'> Catch Phrase</label>
+		<input type='text' name='catchPhrase' />
+		<button type='submit'>Create Celebrity</button>
 
-</form>
+	</form>
+
+</div>

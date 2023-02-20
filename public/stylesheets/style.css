@@ -1,8 +1,96 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin:0;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width:100vw;
+  background-color: black;
+  background-image: url(/images/daria-volkova-OH6jXILNVAo-unsplash.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
 }
-
-a {
-  color: #00b7ff;
+nav{
+  background-color: black;
+  height:50px;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;  
+}
+nav a {
+  color:red;
+  margin:0% 2%;  
+}
+.container a{
+  background-color: black;
+  color:red;
+  
+}
+#frontText{
+margin-top:20%;
+}
+#frontText h1{
+  font-size: 100px;
+  font-weight: bolder;
+}
+#frontText p{
+  font-size:30px;
+  font-weight: bold;
+}
+h2{
+  font-size:60px;
+  font-weight: bolder;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+input{
+  width:40%;
+  margin-bottom:2%;
+  background-color:rgb(124, 29, 29);
+  height:50px;
+}
+button{
+  width: 40%;
+  height:50px;
+  color:red;
+  border-radius: 50px;
+  background-color: black;
+}
+select{
+  width:40%;
+  margin-bottom: 2%;
+  background-color:rgb(124, 29, 29);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background:black   
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(91, 21, 21);
+  border-style: solid;
+}
+.formsAndDetails{
+  padding-top:10%;
+}
+.formsAndDetails button{
+  width: 40%;
+  height:50px;
+  border-radius: 50px;
+  background-color: black;
+}
+.celebsAndMovies p{
+  margin:2% 0%;
+  font-size: 25px;
+  font-weight: bold;
+}
+.hrDiv{
+  background-color: black;
+  height:2px;
+  width:40%;
 }

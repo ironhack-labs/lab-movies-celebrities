@@ -1,13 +1,20 @@
-<h2>Celebrity Details</h2>
+<div class="formsAndDetails">
 
-<h3>{{celebDetails.name}}</h3>
+	<h2>Celebrity Details</h2>
 
-<h6>{{celebDetails.occupation}}</h6>
+	<h4><u>Name:</u></h4>
+	<p>{{celebDetails.name}}</p>
 
-<p>{{celebDetails.catchPhrase}}</p>
+	<h4><u>Occupation:</u></h4>
+	<p>{{celebDetails.occupation}}</p>
 
-<form action='/celebrities/{{celebDetails._id}}/delete' method='POST'>
-	<button type='submit'>Delete</button>
-</form>
+	<h4><u>Catch Phrase:</u></h4>
+	<p>{{celebDetails.catchPhrase}}</p>
 
-<a href='/celebrities/{{celebDetails._id}}/edit'>Edit Celebrity</a>
+	<form action='/celebrities/{{celebDetails._id}}/delete' method='POST'>
+		<button type='submit'>Delete Celebrity</button>
+	</form>
+
+	<button><a href='/celebrities/{{celebDetails._id}}/edit'>Edit Celebrity</a></button>
+
+</div>
