@@ -5,11 +5,15 @@
 </div>
 <div>
   <p>cast:</p>
-    {{#each cast}}
+  {{!-- WHY? movie.cast here? --}}
+    {{#each movie.cast}}
     <div>
+        <br>
       <p>{{this.name}}</p>
       <p>{{this.occupation}}</p>
       <p>{{this.catchPhrase}}</p>
+        ––
+        <br>
     </div>
     {{/each}}
   </p>
