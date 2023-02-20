@@ -5,7 +5,7 @@ const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
 router.get("/movies/create", (req, res) => {
-  Celebrity.find()
+  Celebrity.find() // check if the celebrity exists
     .then((dbMovie) => {
       res.render("movies/new-movie", { dbMovie });
     })
@@ -26,15 +26,45 @@ router.post("/movies/create", (req, res, next) => {
         $push: { movies: dbMovie._id },
       });
     })
-    .then(() => res.redirect("movies")) // if everything is fine, redirect to list of posts
+    .then(() => res.redirect("/movies")) // if everything is fine, redirect to list of movies
     .catch((err) => {
       console.log(`Err while creating the movie in the DB: ${err}`);
       next(err);
     });
 });
 
-router.get("/movies/movies", (req, res, next) => {
-  res.render("movies/movies");
+router.get("/movies", (req, res, next) => {
+  Movie.find()
+    .then((dbMovie) => {
+      console.log(dbMovie);
+      res.render("movies/movies", { dbMovie }); //show all movies
+    })
+    .catch((err) =>
+      console.log(`Err while displaying movie list page: ${err}`)
+    );
+});
+
+router.post("/movies/:movieId/delete", (req, res, next) => {
+  const { movieId } = req.params;
+
+  Movie.findByIdAndRemove(movieId)
+    .then(() => res.redirect("/movies"))
+    .catch((error) => next(error));
+});
+
+//show details from each movie
+router.get("/movies/:movieId", (req, res, next) => {
+  const { movieId } = req.params;
+
+  Movie.findById(movieId)
+    .populate("cast")
+    .then((foundMovie) => {
+      res.render("movies/movie-details", foundMovie);
+    })
+    .catch((err) => {
+      console.log(`Err while getting a single movie from the  DB: ${err}`);
+      next(err);
+    });
 });
 
 module.exports = router;

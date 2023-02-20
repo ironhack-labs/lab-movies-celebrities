@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<div>
+  genre: {{genre}}
+  <br>
+  - Plot: {{plot}} ♥️
+</div>
+<div>
+    members of the cast
+    {{#each cast}}
+        {{this.name}}
+    {{/each}}
+</div>
+
+<form action="/movies/{{_id}}/delete" method="POST">
+<button>delete</button>
+</form>
