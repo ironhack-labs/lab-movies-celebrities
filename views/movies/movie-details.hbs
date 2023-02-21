@@ -1,8 +1,11 @@
+
 <h2>{{title}}</h2>
 <div>
   genre: {{genre}}
   <br>
-  - Plot: {{plot}} ♥️
+  - Plot: {{plot}}
+
+  "/movies/{{_id}}/edit"
 </div>
 <div>
     members of the cast
@@ -10,7 +13,16 @@
         {{this.name}}
     {{/each}}
 </div>
+<br>
+<a href="/">Go back to the Homepage</a>
+<br>
+<a href="/movies">Go back to the list of all movies</a>
 
+<hr>
 <form action="/movies/{{_id}}/delete" method="POST">
 <button>delete</button>
+</form>
+<hr>
+<form action="/movies/{{_id}}/edit" method="get">
+<button>edit the movie</button>
 </form>

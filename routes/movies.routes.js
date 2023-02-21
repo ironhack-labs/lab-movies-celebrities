@@ -52,15 +52,46 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
     .catch((error) => next(error));
 });
 
+// get route to display the form to update a specific movie
+router.get("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId } = req.params;
+
+  Movie.findById(movieId)
+    .then((foundMovie) => {
+      Celebrity.find().then((allCast) => {
+        res.render("movies/edit-movie", {
+          movieToEdit: foundMovie,
+          castToEdit: allCast,
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(
+        `Err while getting a single movie and its cast from the  DB: ${err}`
+      );
+      next(err);
+    });
+});
+
+router.post("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId } = req.params;
+  const { title, genre, plot, cast } = req.body;
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, { new: true })
+    .then((updatedMovie) => {
+      res.redirect(`/movies/${updatedMovie._id}`);
+    })
+    .catch((err) =>
+      console.log(`Err while displaying movie to edit page: ${err}`)
+    );
+});
+
 //show details from each movie
 router.get("/movies/:movieId", (req, res, next) => {
   const { movieId } = req.params;
 
   Movie.findById(movieId)
     .populate("cast")
-    .then((foundMovie) => {
-      res.render("movies/movie-details", foundMovie);
-    })
+    .then((foundMovie) => res.render("movies/movie-details", foundMovie))
     .catch((err) => {
       console.log(`Err while getting a single movie from the  DB: ${err}`);
       next(err);
