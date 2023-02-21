@@ -56,12 +56,25 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
 
 router.get("/movies/:movieId/edit", (req, res, next) => {
   const { movieId } = req.params;
-
   Movie.findById(movieId)
   .then((foundMovie) => {
       res.render("../views/movies/edit-movie.hbs", { movie: foundMovie });
     })
+  Celebrity.find()
+    .then((foundCeleb) => {
+      res.render("../views/movies/edit-movie.hbs", { celebrity: foundCeleb })
+  })
   .catch((error) => next(error));
 });
+
+router.post("/movies/:movieId/edit", (req, res, next) => {
+  const { title, genre, plot, cast } = req.body;
+  const { movieId } = req.params
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, {new: true})
+  .then(updatedMovie => {
+    res.redirect(`/movies/${updatedMovie.id}?message=updatedSuccess`)
+  })
+  .catch((error) => next(error));
+})
 
 module.exports = router;
