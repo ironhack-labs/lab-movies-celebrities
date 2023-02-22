@@ -21,37 +21,28 @@ router.get('/movies/create', (req, res, next) => {
   });
 });
 
-router.get('/movies/:id', (req, res, next) => {
-  Movie.findById(req.params.id)
-    .populate('cast') //colocar dados dentro do cast
-    .then((movie) => {
-      res.render('movies/movie-details.hbs', movie);
+router.get('/movies/:id/edit', (req, res, next) => {
+  Movie.findById(req.params.id).then((movie) => {
+    Celebrity.find()
+      .then((celebrities) => {
+        res.render('movies/edit-movie.hbs', { movie, celebrities });
+      })
+      .catch((error) => console.error(error));
+  });
+});
+
+router.post('/movies/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+    .then((updatedMovie) => {
+      console.log(updatedMovie);
+      console.log(`Movie ${updatedMovie.title} updated.`);
+      res.redirect('/movies');
     })
     .catch((error) => console.error(error));
 });
-
-//Not working yet Iteration #10: Editing Movies
-
-// router.get('/movies/:id/edit', (req, res, next) => {
-//   Movie.findById(req.params.id);
-//   Celebrity.find()
-//     .then((movie) => {
-//       res.render('movies/edit-movie.hbs', movie);
-//     })
-//     .catch((error) => console.error(error));
-// });
-
-// router.post('/movies/:id/edit', (req, res, next) => {
-//   const { id } = req.params;
-//   const { title, genre, plot, cast } = req.body;
-
-//   Movie.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
-//     .then((updatedMovie) => {
-//       console.log(`Movie ${movie.name} updated.`);
-//       res.redirect('/movies');
-//     })
-//     .catch((error) => console.error(error));
-// });
 
 router.post('/movies/:id/delete', (req, res, next) => {
   Movie.findByIdAndDelete(req.params.id)
@@ -72,9 +63,13 @@ router.post('/movies/create', (req, res, next) => {
     });
 });
 
-module.exports = router;
+router.get('/movies/:id', (req, res, next) => {
+  Movie.findById(req.params.id)
+    .populate('cast')
+    .then((movie) => {
+      res.render('movies/movie-details.hbs', movie);
+    })
+    .catch((error) => console.error(error));
+});
 
-//CRUD
-// .get = read = url //ouvindo alguma coisa
-// .post = create
-// hbs = renderizar / html
+module.exports = router;
