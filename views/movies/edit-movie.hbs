@@ -1,29 +1,33 @@
-<h2>Edit a movie!</h2>
+<h2>Edit the movie: {{movie.title}}!</h2>
 
-
-
-<form onsubmit="" method="POST">
-   Title:
-   <input type="text" name="title" value="{{movie.title}}">
-   genre:
-   <input type="text" name="genre" value="{{movie.genre}}">
-   <br>
-   <br>
-   Plot:
-   <br>
-   <textarea name="plot" id="" cols="30" rows="5">{{movie.plot}}</textarea>
-   <br>
-   <br>
-   Cast:
-   {{#each movie.cast}}
-     <select name="cast" id="celebrities" multiple>
-          {{#each celebrity}}
-              <option name="cast" value="{{this._id}}">{{this.name}}</option>
-          {{/each}}
-     </select>
+<form action="/movies/{{movie._id}}/edit" method="POST">
+  Title:
+  <input type="text" name="title" value="{{movie.title}}" />
+  <br />
+  <br />
+  genre:
+  <input type="text" name="genre" value="{{movie.genre}}" />
+  <br />
+  <br />
+  Plot:
+  <br />
+  <textarea name="plot" id="" cols="30" rows="5">{{movie.plot}}</textarea>
+  <br />
+  <br />
+  Cast:
+  <select name="cast" id="celebrities" multiple>
+    <br />
+    {{#each celebrity}}
+      <option name="cast" value="{{this._id}}">{{this.name}}</option>
     {{/each}}
-
-      <form action="/movies/{{movie._id}}" method="POST">
-        <button>Edit Movie!</button>
-    </form>
+  </select>
+  <br />
+  <br />
+  <form action="/movies/{{movie._id}}" method="POST">
+    <button>Save Edited Movie!</button>
+  </form>
 </form>
+
+<br />
+
+<a href="/movies">Go Back to all Movies!</a>

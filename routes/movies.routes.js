@@ -25,10 +25,9 @@ router.post("/create-movie", (req, res, next) => {
 // List all movies
 
 router.get("/movies/", (req, res, next) => {
-  Movie.find()
-    .then((allMovies) => {
-      res.render("../views/movies/movies.hbs", { movie: allMovies });
-    });
+  Movie.find().then((allMovies) => {
+    res.render("../views/movies/movies.hbs", { movie: allMovies });
+  });
 });
 
 router.get("/movies/:movieId", (req, res, next) => {
@@ -56,25 +55,28 @@ router.post("/movies/:movieId/delete", (req, res, next) => {
 
 router.get("/movies/:movieId/edit", (req, res, next) => {
   const { movieId } = req.params;
+
   Movie.findById(movieId)
-  .then((foundMovie) => {
-      res.render("../views/movies/edit-movie.hbs", { movie: foundMovie });
+    .then((movieDetails) => {
+      Celebrity.find().then((allCelebrities) => {
+        res.render("../views/movies/edit-movie.hbs", {
+          movie: movieDetails,
+          celebrity: allCelebrities,
+        });
+      });
     })
-  Celebrity.find()
-    .then((foundCeleb) => {
-      res.render("../views/movies/edit-movie.hbs", { celebrity: foundCeleb })
-  })
-  .catch((error) => next(error));
+    .catch((error) => next(error));
 });
 
 router.post("/movies/:movieId/edit", (req, res, next) => {
+  const { movieId } = req.params;
   const { title, genre, plot, cast } = req.body;
-  const { movieId } = req.params
-  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, {new: true})
-  .then(updatedMovie => {
-    res.redirect(`/movies/${updatedMovie.id}?message=updatedSuccess`)
-  })
-  .catch((error) => next(error));
-})
+
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast }, { new: true })
+    .then((updatedMovie) => {
+      res.redirect(`/movies/${updatedMovie.id}?message=updatedSuccess`);
+    })
+    .catch((error) => next(error));
+});
 
 module.exports = router;
