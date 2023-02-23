@@ -18,13 +18,14 @@
   <br>
  
  <label class="form" for="cast">Choose a celebrity:</label>
+ <br>
 <select class="form" name="cast" multiple>
   {{#each dbCeleb}}
   <option value="{{this._id}}">{{this.name}}</option>
 {{/each}}
 </select>
  <br>
-  <button type="submit"> Create a new Movie </button>
+  <button id= "submit" type="submit"> Create a new Movie </button>
 </form>
 
 
