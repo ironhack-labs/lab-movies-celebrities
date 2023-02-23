@@ -17,6 +17,13 @@ body {
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
 }
 
 .footer-dark {
@@ -29,6 +36,7 @@ body {
   font-size: 13px;
   margin-bottom: 0;
   min-width: 100vw;
+  flex-shrink: 0;
 }
 
 .footer-dark h3 {
@@ -64,4 +72,40 @@ body {
 .footer-dark .item.text p {
   opacity: 0.6;
   margin-bottom: 0;
+}
+
+#homepage {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  padding: 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 30px;
+}
+
+#form-movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#form-movie h2 {
+  margin-bottom: 20px;
+}
+
+.form {
+  margin-bottom: 20px;
 }
