@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+<p>
+  Genre:
+  {{genre}}
+  <br />
+  Plot:
+  {{plot}}
+  <br />
+  Cast:
+  <ul>
+    {{#each cast}}
+      <li>{{this.name}}</li>
+    {{/each}}
+  </ul>
+
+</p>

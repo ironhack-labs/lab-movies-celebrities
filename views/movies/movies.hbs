@@ -1,5 +1,6 @@
 <h2>list of all movies</h2>
 
 {{#each moviesArray}}
-    <h3>{{this.title}}</h3>
+  <h3>{{this.title}}</h3>
+  <a href="/movies/{{this._id}}">Details …</a>
 {{/each}}
