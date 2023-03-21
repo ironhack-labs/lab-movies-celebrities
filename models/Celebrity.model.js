@@ -1,13 +1,9 @@
-const {mongoose,Schema,model} = require ("mongoose")
-
-
-
-
+const { mongoose, Schema, model } = require('mongoose');
 
 const celebritySchema = new Schema({
-  name: String,
-  occupation: String,
-  catchPhrase: String,
+	name: String,
+	occupation: String,
+	catchPhrase: String,
 });
 const Celebrity = model('Celebrity', celebritySchema);
 

@@ -1,7 +1,10 @@
-<h1>i'm working</h1>
+<h1>Movies</h1>
 {{#each movies}}
-{{this.title}}
-{{this.genre}}
-{{this.plot}}
-{{this.cast}}
-{{/each}} 
+	<div style='border: 1px solid black'>
+		{{Title}}
+		{{Genre}}
+		{{Plot}}
+		{{Cast}}
+		<a href='/movies/{{_id}}'>Details</a>
+	</div>
+{{/each}}
