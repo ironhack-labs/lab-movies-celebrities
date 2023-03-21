@@ -1,0 +1,23 @@
+<h2>Edit</h2>
+
+<form class="edit-form" action="/celebrities/{{celebrity._id}}/edit" method="POST">
+
+    <label>Name:
+        <input type="text" name="name" value="{{celebrity.name}}">
+    </label>
+
+    <label>Occupation:
+        <input type="text" name="occupation" value="{{celebrity.occupation}}">
+    </label>
+
+    <label>Catch Phrase:
+        <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}">
+    </label>
+
+    <button type="submit">Update</button>
+
+</form>
+
+<div class="go-home-container">
+    <a class="button-link go-home" href="/celebrities">Back to Celebrities</a>
+</div>

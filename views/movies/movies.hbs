@@ -1,0 +1,18 @@
+<h2>🎞️ List of Movies 🎞️</h2>
+
+<div class="list">
+    {{#each movie}}
+    <div class="item">
+        <p>{{this.title}}</p>
+        <a href="/movies/{{this.id}}">See Details</a>
+    </div>
+    {{/each}}
+</div>
+
+<div class="add-button-container">
+    <a class="button-link" href="/movies/create">Create Movie</a>
+</div>
+
+<div class="go-home-container">
+    <a class="button-link go-home" href="/">Back to Main Page</a>
+</div>

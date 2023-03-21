@@ -1,7 +1,18 @@
-<h2>List of Celebrities</h2>
+<h2>😎 List of Celebrities 😎</h2>
 
-{{#each celebrity}}
+<div class="list">
+    {{#each celebrity}}
+        <div class="item">
+            <p>{{this.name}}</p>
+            <a href="/celebrities/{{this.id}}">See Details</a>
+        </div>
+    {{/each}}
+</div>
 
-    <p>{{this.name}}</p>
+<div class="add-button-container">
+    <a class="button-link" href="/celebrities/create">Add a Celeb</a>
+</div>
 
-{{/each}}
+<div class="go-home-container">
+    <a class="button-link go-home" href="/">Back to Main Page</a>
+</div>

@@ -1,0 +1,19 @@
+<h2>{{celebrity.name}}</h2>
+<div class="details">
+  <strong>Occupation:</strong> {{celebrity.occupation}}<br>
+  <strong>Catch Phrase:</strong> {{celebrity.catchPhrase}}<br>
+
+  <hr />
+
+  <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+    <button>Delete</button>
+  </form>
+
+  <form action="/celebrities/{{celebrity._id}}/edit" method="GET">
+    <button>Edit</button>
+  </form>
+</div>
+
+<div class="go-home-container">
+    <a class="button-link go-home" href="/celebrities">Back to Celebrities</a>
+</div>

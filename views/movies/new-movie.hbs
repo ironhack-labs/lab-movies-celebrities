@@ -1,0 +1,25 @@
+<h2>📽️ Add a movie! 📽️</h2>
+
+<form class="edit-form" action="/movies/create" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title">
+
+    <label>Genre:</label>
+    <input type="text" name="genre">
+
+    <label>Plot:</label>
+    <textarea name="plot"></textarea>
+
+    <label>Cast:</label>
+    <select name="cast" multiple>
+        {{#each celebrity}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+
+    <button type="submit">Create Movie</button>
+</form>
+
+<div class="go-home-container">
+    <a class="button-link go-home" href="/movies">Back to Movies</a>
+</div>

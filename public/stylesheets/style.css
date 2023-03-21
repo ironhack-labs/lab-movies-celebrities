@@ -1,8 +1,255 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #f8a978;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111111;
+  padding: 1rem 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+/* Main Heading */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 2rem 0;
+  text-shadow: 2px 2px 0px #f8a978;
+}
+
+#centerImg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 120px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  text-align: center;
+  text-shadow: 2px 2px 0px #f8a978;
+}
+
+/* Celebrity List */
+.celebrity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 2rem;
+}
+
+.celebrity-item {
+  background-color: #333333;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.celebrity-item p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.celebrity-item a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #f8a978;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.celebrity-item a:hover {
+  background-color: #ffbf9d;
+}
+
+/* Movie List */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 2rem;
+}
+
+.item {
+  background-color: #333333;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.item p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.item a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #f8a978;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.item a:hover {
+  background-color: #ffbf9d;
+}
+
+/* Movie Details */
+.details {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.details strong {
+  color: #f8a978;
+}
+
+.details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details li {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.details form {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.details button {
+  background-color: #f8a978;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.details button:hover {
+  background-color: #ffbf9d;
+}
+
+/* Edit Movie */
+.edit-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.edit-form label {
+  display: block;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea,
+.edit-form select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.edit-form select {
+  height: 200px;
+}
+
+.edit-form button {
+  background-color: #f8a978;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.edit-form button:hover {
+  background-color: #ffbf9d;
+}
+
+.button-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #f8a978;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button-link:hover {
+  background-color: #ffbf9d;
+}
+
+
+/* ... existing styles ... */
+
+.add-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.go-home-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.go-home {
+  background-color: #6c63ff;
+}
+
+.go-home:hover {
+  background-color: #8a84ff;
+}
+
+hr {
+  border-top: 2px solid white;
 }
