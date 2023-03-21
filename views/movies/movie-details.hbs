@@ -16,6 +16,10 @@
         Plot : {{movieDetails.plot}} <br />
     </p>
 
+    <form action="/movies/{{movieDetails._id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+
 </section>
 
 <a href="/movies">Back</a>

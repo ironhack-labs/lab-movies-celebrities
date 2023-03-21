@@ -20,7 +20,7 @@ Celebrity.create(celebDetails)
     .catch(e => {
         console.log("Error trying to create a  new celebrity", e)
         next(e);
-        res.redirect("/celebrities/create")
+        res.redirect("/celebrities")
     });
 });
 
