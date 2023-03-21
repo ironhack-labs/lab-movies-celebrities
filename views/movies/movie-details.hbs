@@ -1,0 +1,21 @@
+<h1>Movie details page</h1>
+
+<section class="movie-details">
+
+
+    {{#each movieDetails.cast}}
+    <p>
+        Celebrity: {{this.name}} <br>
+        Occupation: {{this.occupation}} <br>
+        Catch Phrase: {{this.catchPhrase}}
+    </p>
+{{/each}}
+    <p>
+        Title: {{movieDetails.title}} <br />
+        Genre : {{movieDetails.genre}} <br />
+        Plot : {{movieDetails.plot}} <br />
+    </p>
+
+</section>
+
+<a href="/movies">Back</a>
