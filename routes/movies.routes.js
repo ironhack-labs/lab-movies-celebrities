@@ -33,6 +33,7 @@ router.get("/movies/:movieId", (req, res, next) => {
 });
 
 
+
 router.get("/movies", (req, res, next) => {
 
     Movie.find()
@@ -45,6 +46,7 @@ router.get("/movies", (req, res, next) => {
         });
 });
 
+//POST
 
 router.post("/movies/create", (req, res, next) => {
     const movieDetails = {
@@ -61,6 +63,18 @@ router.post("/movies/create", (req, res, next) => {
             next(err);
         });
 
+});
+
+router.post("/movies/:movieId/delete", (req, res, next) => {
+    const {movieId} = req.params;
+
+    Movie.findByIdAndDelete(movieId)
+        .then(() => {
+            res.redirect("/movies");            
+        }).catch((err) => {
+            next(err);
+        });
+        
 });
 
 module.exports = router;
