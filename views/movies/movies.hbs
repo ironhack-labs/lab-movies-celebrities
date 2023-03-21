@@ -3,6 +3,7 @@
 {{#each moviesArray}}
   <h3>{{this.title}}</h3>
   <a href="/movies/{{this._id}}">Details …</a>
+  <a href="/movies/{{this._id}}/edit">Edit</a>
   <form method="POST" action="/movies/{{this._id}}/delete">
     <button type="submit">Delete</button>
   </form>
