@@ -24,4 +24,15 @@ router.post('/celebrities/create', (req, res, next) => {
         });
 })
 
+// GET /celebrities
+router.get('/celebrities', (req, res, next) => {
+    Celebrity.find({})
+        .then(celebritiesArr => {
+            res.render('celebrities/celebrities', {celebrity: celebritiesArr});
+        })
+        .catch(err => {
+            console.error("There was an erorr showing the list of Celebrities: ", err);
+        });
+});
+
 module.exports = router;
