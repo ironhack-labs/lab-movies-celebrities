@@ -3,4 +3,9 @@
 {{#each moviesArray}}
   <h3>{{this.title}}</h3>
   <a href="/movies/{{this._id}}">Details …</a>
+  <form method="POST" action="/movies/{{this._id}}/delete">
+    <button type="submit">Delete</button>
+  </form>
 {{/each}}
+
+<a href="/">Home</a>
