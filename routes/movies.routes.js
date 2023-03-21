@@ -1,3 +1,4 @@
+const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
@@ -7,7 +8,7 @@ const router = require("express").Router();
 router.get("/movies",(req,res,next)=> {
 
     Movie.find()
-    .populate("cast")
+    .populate("celebrity")
     .then((movieArr) => {
     
         const data = {
@@ -23,10 +24,12 @@ router.get("/movies",(req,res,next)=> {
     
 
 
-    router.get("/movies/create", (req,res,next)=> {
+ router.get("/movies/create", (req,res,next)=> {
         res.render("movies/new-movie");
     })
     
+
+
     router.post ("/movies/create", (req,res,next)=> {
         console.log(req.body);
         const { title, genre, plot, cast } = req.body;
@@ -48,7 +51,7 @@ router.get("/movies",(req,res,next)=> {
         const { movieId } = req.params;
       
         Movie.findById(movieId)
-          .populate("cast")
+          .populate("celebrity")
           .then(movieDetails => {
       
             res.render("movies/movie-details", movieDetails);
@@ -62,6 +65,7 @@ router.get("/movies",(req,res,next)=> {
       
       router.post('/movies/:movieId/delete', (req, res, next) => {
         const { movieId } = req.params;
+        let movieDetails;
       
         Movie.findByIdAndRemove(movieId)
           .then(() => res.redirect('/movies'))
@@ -73,11 +77,19 @@ router.get("/movies",(req,res,next)=> {
         const { movieId } = req.params;
       
         Movie.findById(movieId)
-          .populate("cast")
-          .then((movieDetails) => {
-      
-            res.render("movies/edit-movie", movieDetails);
-          })
+          .then((movieFromDB) => {
+    
+            movieDetails = movieFromDB;
+            return Celebrity.find(); //get list of cast
+        })
+        .then(celebritiesArr => {
+
+            const data = {
+                movie:movieDetails,
+                celebrities: celebritiesArr
+            }
+            res.render("movies/edit-movie", data);
+        })
           .catch((e) => {
             console.log("error ", e);
             next(e);
@@ -119,11 +131,21 @@ router.get("/movies/:movieId/edit-movie", (req, res, next) => {
       { new: true }
     )
       .then((updatedMovie) => {
-        res.redirect(`/movies`); //redirect to book details page
+        res.redirect(`/movies`); 
       })
       .catch((error) => next(error));
   });
   
-      
+
+  //DELETE
+  router.post('/movies/:movieId/delete', (req, res, next) => {
+    const { movieId } = req.params;
+  
+    Movie.findByIdAndRemove(movieId)
+      .then(() => res.redirect('/movies'))
+      .catch(error => next(error));
+  });
+  
+
 
 module.exports = router;
