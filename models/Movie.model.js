@@ -10,7 +10,7 @@ const movieSchema = new Schema(
         cast: {
             type: [Schema.Types.ObjectId],
             ref: 'Celebrity'
-        }
+        },
 
     }
 )

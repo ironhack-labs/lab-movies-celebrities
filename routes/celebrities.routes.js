@@ -22,7 +22,7 @@ router.post("/celebrities/create", (req, res, next) => {
 
     Celebrity.create(celebrityDetails)
         .then(celebrityFromDB => {
-            res.render("celebrities/new-celebrity");
+            res.render("celebrities/celebrities");
         })
         .catch(e => {
             console.log(`Something wrong with creating celebrity`, e)
