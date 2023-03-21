@@ -3,23 +3,30 @@
 <form action='`' movies ${_id} edit` method='POST'>
 	<label>
 		Title:
-		<input type='text' name='title' value='{{title}}' />
+		<input type='text' name='title' value='{{movie.title}}' />
 	</label>
 
 	<label>
 		Genre:
-		<input type='text' value='{{genre}}' />
+		<input type='text' value='{{movie.genre}}' />
 
 	</label>
 
 	<label>
 		Plot:
-		<input type='text' value='{{plot}}' name='plot' />
+		<input type='text' value='{{movie.plot}}' name='plot' />
 	</label>
 
 	<label>
 		Cast:
-		<input type='text' value='{{cast}}' name='cast' />
+
+		<select name='cast'>
+			{{#each celebs}}
+
+				<option value='{{_id}}'>{{name}}</option>
+			{{/each}}
+		</select>
+
 	</label>
 
 	<button>Save changes</button>
