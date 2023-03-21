@@ -2,7 +2,10 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model")
 
 router.get("/celebrities",(req,res)=>{
-    res.render("celebrities/list")
+    Celebrity.find().then((celebrities)=>{
+        res.render("celebrities/list",{celebrities})
+    })
+  
 })
 
 
@@ -14,7 +17,7 @@ router.get("/celebrities/create",(req,res)=>{
 
 router.post("/celebrities/create",(req, res) => {
     const {name,occupation,catchPhrase}= req.body
-    Celebrity.create(name,occupation,catchPhrase).then(()=>res.redirect/celebrities).catch((err)=>console.log(err))
+    Celebrity.create({name,occupation,catchPhrase}).then(()=>res.redirect("/celebrities")).catch((err)=>console.log(err))
 
 })
 
