@@ -1,9 +1,27 @@
+const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
-const router = require("express").Router();
+
 // all your routes here
+
+router.get("/movies/create", (req,res,next)=> {
+Celebrity.find()
+.then((celebritiesArr) => {
+ 
+  const data = {
+    celebrities : celebritiesArr
+  }
+  res.render("movies/new-movie" , data);
+})
+.catch((error)=> {
+  console.log("Error")
+});
+  
+});
+
+
 
 router.get("/movies",(req,res,next)=> {
 
@@ -24,10 +42,7 @@ router.get("/movies",(req,res,next)=> {
     
 
 
- router.get("/movies/create", (req,res,next)=> {
-        res.render("movies/new-movie");
-    })
-    
+ 
 
 
     router.post ("/movies/create", (req,res,next)=> {
