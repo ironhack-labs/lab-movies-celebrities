@@ -1,1 +1,10 @@
 <h2>celebrities</h2>
+<button><a href="/celebrities/new-celebrity">add a celebrity</a></button>
+
+{{#each celebrities}}
+<section>
+  <h1>Name: {{this.name}}</h1>
+  <p>Occupation: {{this.occupation}}</p>
+  <p>Catchphrase: {{this.catchphrase}}</p>
+</section>
+{{/each}}
