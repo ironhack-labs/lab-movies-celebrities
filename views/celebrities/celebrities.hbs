@@ -1,7 +1,7 @@
 <h2>Celebrities</h2>
 
 {{#each celebrities}}
-    <h3>{{this.name}}</h3>
+    <a href="/celebrities/{{this._id}}"><h3>{{this.name}}</h3></a>
 
 {{else}}
     <h3>No Celebrities in DB</h3>
