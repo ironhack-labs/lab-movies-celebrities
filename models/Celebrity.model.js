@@ -7,4 +7,5 @@ const celebritySchema = new Schema({
 
 });
 
-module.exports = model("Celebrity", celebritySchema)
+const Celebrity = model("Celebrity", celebritySchema)
+module.exports = Celebrity;
