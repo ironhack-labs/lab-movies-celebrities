@@ -1,0 +1,25 @@
+<h2>Movie Edit</h2>
+
+<section>
+ <section>
+<label> Title:
+        <input type="text" name="title" />
+    </label>
+
+  <label> Genre:
+        <input type= "text" name = "genre"/>
+    </label>
+
+<label> Plot:
+        <input type= "text" name = "plot"/>
+    </label>
+
+<label> Cast:
+    <select name="name"  multiple> </select>
+   </label>
+
+    
+  <form action="/movies/{{this._id}}/edit-movie" method="POST"> 
+  <button type="submit">submit</button>
+ </form>
+</section>
