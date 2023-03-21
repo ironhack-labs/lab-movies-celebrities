@@ -1,10 +1,15 @@
 <h1>Movies</h1>
 {{#each movies}}
 	<div style='border: 1px solid black'>
-		{{Title}}
-		{{Genre}}
-		{{Plot}}
-		{{Cast}}
+		{{title}}
+		{{genre}}
+		{{plot}}
+
+		{{#each cast}}
+
+			{{name}}
+
+		{{/each}}
 		<a href='/movies/{{_id}}'>Details</a>
 	</div>
 {{/each}}

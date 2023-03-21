@@ -13,8 +13,8 @@ router.get('/celebrities/create', (req, res) => {
 
 router.post('/celebrities/create', (req, res) => {
 	const { name, occupation, catchPhrase } = req.body;
-	Celebrity.create(name, occupation, catchPhrase)
-		.then(() => res.redirect / celebrities)
+	Celebrity.create({ name, occupation, catchPhrase })
+		.then(() => res.redirect('/celebrities'))
 		.catch((err) => console.log(err));
 });
 

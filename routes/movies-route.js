@@ -1,19 +1,25 @@
 const router = require('express').Router();
 const Movie = require('../models/Movie.model');
+const Celebrity = require('../models/Celebrity.model');
 
 router.get('/movies', (req, res) => {
 	Movie.find()
+		.populate('cast')
 		.then((movies) => {
 			res.render('movies/list', { movies });
 		})
 		.catch((err) => console.log(err));
 });
 
-router.get('/movies/create', (req, res) => res.render('movies/create'));
+router.get('/movies/create', (req, res) => {
+	Celebrity.find()
+		.then((celebs) => res.render('movies/create', { celebs }))
+		.catch((err) => console.log(err));
+});
 
 router.post('/movies/create', (req, res) => {
-	const { Title, Genre, Plot, Cast } = req.body;
-	Movie.create({ Title, Genre, Plot, Cast })
+	const { title, genre, plot, cast } = req.body;
+	Movie.create({ title, genre, plot, cast })
 		.then(() => res.redirect('/movies'))
 		.catch((err) => console.log(err));
 });
@@ -37,8 +43,8 @@ router.get('/movies/:movieId/edit', (req, res) => {
 });
 
 router.post('/movies/:movieId/edit', (req, res) => {
-	const { Title, Genre, Cast, Plot } = req.body;
-	Movie.findByIdAndUpdate(req.params.movieId, { Title, Genre, Cast, Plot }, { new: true })
+	const { title, genre, cast, plot } = req.body;
+	Movie.findByIdAndUpdate(req.params.movieId, { title, genre, cast, plot }, { new: true })
 		.then(() => {
 			res.redirect('/movies');
 		})
