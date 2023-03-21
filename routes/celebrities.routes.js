@@ -39,3 +39,5 @@ router.get("/celebrities", (req, res, next) => {
         res.render("celebrities/celebrities", data)
     })
   });
+
+  
