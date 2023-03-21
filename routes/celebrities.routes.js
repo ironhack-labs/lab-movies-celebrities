@@ -30,10 +30,28 @@ router.post("/celebrities/create",(req,res,next)=>{
             res.redirect("/celebrities");
         })
         .catch(e => {
-            console.log("error creating new book", e);
+            console.log("error creating new celebrities", e);
             next(e);
           });
 })
 
+// DISPLAY celebrities
+
+router.get("/celebrities", (req, res, next) => {
+
+    Celebrity.find()
+        .then(celebsArr => {
+
+            const data = {
+                celebs: celebsArr
+            };
+
+            res.render("celebrities/celebrities", data);
+        })
+        .catch(e => {
+            console.log("error getting celebrities from DB", e);
+            next(e);
+          });
+})
 
 module.exports = router;
