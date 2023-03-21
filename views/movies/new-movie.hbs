@@ -1,3 +1,12 @@
+<header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/celebrities">Celebrities</a>
+        <a href="/celebrities/create">Add Celebrity</a>
+        <a href="/movies">Movies</a>
+    </nav>
+</header>
+
 <h2>Add a New Movie</h2>
 
 <form method="POST" action="/movies/create">
@@ -15,7 +24,7 @@
     </label>
 
     <label> Cast:
-        <select name="cast">
+        <select name="cast" multiple>
             {{#each celebs}}
                 <option value={{this._id}}>{{this.name}}</option>
             {{/each}}

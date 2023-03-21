@@ -1,5 +1,13 @@
-<h2>Add a New Celebrity</h2>
+<header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/celebrities">Celebrities</a>
+        <a href="/movies">Movies</a>
+        <a href="/movies/create">Add a Movie</a>
+    </nav>
+</header>
 
+<h2>Add a New Celebrity</h2>
 <form method="POST" action="/celebrities/create">
 
     <label> Name:
@@ -7,7 +15,13 @@
     </label>
 
     <label> Occupation:
-        <input type="text" name="occupation">
+    
+        <select name="occupation">
+                {{#each occupationEnum}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+        </select>
+    
     </label>
 
     <label> Catch Phrase:

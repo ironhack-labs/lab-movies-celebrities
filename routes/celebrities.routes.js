@@ -2,18 +2,12 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model")
 
-// all your routes here
-
 // CREATE - display form
 router.get("/celebrities/create", (req, res, next) => {
    
-    res.render("celebrities/new-celebrity")
-    // .then(
-    // )
-    // .catch(e => {
-    //     console.log("error getting authors from DB", e);
-    //     next(e);
-    //   });
+    const occupationEnum = Celebrity.schema.path('occupation').enumValues;
+
+    res.render("celebrities/new-celebrity", {occupationEnum});
 })
 
 // CREATE - process form
@@ -36,7 +30,6 @@ router.post("/celebrities/create",(req,res,next)=>{
 })
 
 // DISPLAY celebrities
-
 router.get("/celebrities", (req, res, next) => {
 
     Celebrity.find()
