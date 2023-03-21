@@ -1,4 +1,4 @@
-
+const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema({
     name: String,
