@@ -1,4 +1,4 @@
-const {Schema} = require("mongoose");
+const {Schema, model} = require("mongoose");
 
 
 const celebritySchema = new Schema(
