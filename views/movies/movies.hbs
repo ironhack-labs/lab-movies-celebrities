@@ -1,0 +1,21 @@
+<h2>Testing movies page</h2>
+
+{{#each movie}}
+
+<section class="movieSummary">
+<h4>
+    Title: {{this.title}}
+</h4>
+<h4>
+    Genre: {{this.genre}}
+</h4>
+<h4>
+    Cast: {{this.celebrity}}
+</h4>
+<h4>
+    Plot: {{this.plot}}
+</h4>
+
+</section>
+
+{{/each}}
