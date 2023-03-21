@@ -31,8 +31,10 @@ router.post("/celebrities/create",(req,res,next)=>{
         })
         .catch(e => {
             console.log("error creating new celebrities", e);
-            next(e);
+            
           });
+          console.error(e);
+          res.redirect("/celebrities/create")
 })
 
 // DISPLAY celebrities
