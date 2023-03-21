@@ -4,16 +4,34 @@ const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
+
 router.get("/movies/create", (req, res, next) => {
-
+    
     Celebrity.find()
-        .then((celebritiesArr) => {
+    .then((celebritiesArr) => {
+        
+        res.render("movies/new-movie", { celebrities: celebritiesArr });
+    }).catch((err) => {
+        
+    });
 
-            res.render("movies/new-movie", { celebrities: celebritiesArr });
-        }).catch((err) => {
-            
+});
+
+
+router.get("/movies/:movieId", (req, res, next) => {
+    const {movieId} = req.params;
+
+    Movie.findById(movieId)
+        .populate("cast")
+        .then((movie) => {
+            console.log(movie);
+            res.render("movies/movie-details", {movie});
+        })
+        .catch((err) => {
+            next(err);
         });
 });
+
 
 router.get("/movies", (req, res, next) => {
 
