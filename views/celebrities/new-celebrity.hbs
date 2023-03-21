@@ -1,26 +1,20 @@
-<h2>Create Celebrity</h2>
+<h2>Create a celebrity</h2>
 
-<form action="" "/celebrities" method="POST">
-     <label> Title:
-        <input type="text" name="title" />
-    </label>
+<form action="/celebrities/create" method="POST">
+<label for="">
+    Name
+    <input type="text" name="name"/>
+</label>
 
-    <label> Author:
-        <select name="author">
-            {{#each authors}}
-                <option value={{this._id}}>{{this.name}}</option>
-            {{/each}}
-        </select>
-    </label>
-    
+<label for = "">
+    Occupation
+    <input type="text"  name="occupation"/>
+</label>
 
-    <label> Description:
-        <textarea name="description" cols="30" rows="4"> </textarea>
-    </label>
+<label for = "">
+    Catch Phrase
+    <input type="text" name="catchPhrase" />
+</label>
 
-    <label> Rate:
-        <input type="number" name="rating" min="1" max="10" />
-    </label>
-
-    <button type="submit"> Create </button>
+<button type="submit">Submit Celebrity</button>
 </form>

@@ -2,7 +2,7 @@ const express = require('express');
 const celebrity = require('../models/Celebrity.model');
 const router = express.Router();
 
-router.get("/celebrities/create", (req, res) => {
+router.get("/celebrities/create", (req, res, next) => {
     res.render("celebrities/new-celebrity");
 });
 
@@ -21,5 +21,9 @@ celebrity.create(celebDetails)
         next(e);
     });
 });
+
+router.get("/celebrities", (req, res) => {
+    
+})
 
 module.exports = router;
