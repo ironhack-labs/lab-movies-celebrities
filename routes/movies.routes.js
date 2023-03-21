@@ -32,6 +32,23 @@ router.get("/movies/:movieId", (req, res, next) => {
         });
 });
 
+router.get("/movies/:movieId/edit", (req, res, next) => {
+    const {movieId} = req.params;
+    let movieDetails;
+
+    Movie.findById(movieId)
+        .then((movie) => {
+            movieDetails = movie;
+
+            return Celebrity.find();
+        })
+        .then(celebritiesArr => {
+            res.render("movies/edit-movie", {movie: movieDetails, celebrities: celebritiesArr});
+        }) 
+        .catch((err) => {
+            next(err)
+        });
+});
 
 
 router.get("/movies", (req, res, next) => {
@@ -65,6 +82,23 @@ router.post("/movies/create", (req, res, next) => {
 
 });
 
+router.post("/movies/:movieId/edit", (req, res, next) => {
+    const {movieId} = req.params;
+    const newMovieDetails = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast
+    };
+    
+    Movie.findByIdAndUpdate(movieId, newMovieDetails, { new: true })
+    .then(()=> {
+        res.redirect(`/movies`);
+    })
+    .catch(err => next(err));
+})
+
+//DELETE
 router.post("/movies/:movieId/delete", (req, res, next) => {
     const {movieId} = req.params;
 
