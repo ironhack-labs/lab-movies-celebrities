@@ -7,6 +7,18 @@ router.get("/celebrities/create",(req, res, next) => {
     res.render("celebrities/new-celebrity")
 });
 
+router.get("/celebrities", (req, res, next) => {
+
+    Celebrity.find()
+        .then((celebritiesArr) => {
+
+            res.render("celebrities/celebrities", {celebrities: celebritiesArr});
+
+        }).catch((err) => {
+            next(err);
+        });
+});
+
 
 //POST
 router.post("/celebrities/create", (req, res, next) => {
@@ -18,7 +30,6 @@ router.post("/celebrities/create", (req, res, next) => {
 
     Celebrity.create(celebrityDetails)
         .then((result) => {
-            console.log(result);
             res.redirect("/celebrities");
         }).catch((err) => {
             console.error(err);
