@@ -1,8 +1,102 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	background: #74ebd5;
+	background: linear-gradient(90deg, #74ebd5 0%, #9face6 100%);
 }
 
 a {
-  color: #00b7ff;
+	color: #00b7ff;
+	text-decoration: none;
+}
+
+nav {
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0px 0px 5px;
+	height: 3rem;
+}
+
+nav a {
+	font-size: 1.7rem;
+	text-decoration: none;
+	margin: 0 2rem;
+}
+
+.container {
+	background: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2rem auto;
+	width: 35%;
+	padding: 1rem;
+	border-radius: 2em;
+	box-shadow: 0px 0px 5px;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.container div * {
+	margin: 0 0.5rem;
+}
+
+.container div a {
+	font-size: 1.5rem;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.edit * {
+	margin: 0.5rem;
+	font-size: 1.5rem;
+	text-align: center;
+	width: 75%;
+}
+
+.edit input {
+	border: 1px solid black;
+	border-radius: 0.5rem;
+}
+
+.edit select {
+	margin-bottom: 5rem;
+}
+
+.edit button {
+	width: 35%;
+	padding: 0.5rem;
+	background: none;
+	color: #00b7ff;
+	border: none;
+	cursor: pointer;
+}
+
+.delete {
+	color: rgb(255, 69, 69);
+	background: none;
+	border: none;
+	font-size: 2rem;
+	margin-top: 1rem;
+}
+
+.edit {
+	color: rgb(255, 178, 35);
+}
+
+.container p {
+	margin: 1rem;
+}
+
+.container h5 {
+	margin: 1rem;
+	margin-top: 0.2rem;
+	font-weight: 400;
+	font-style: italic;
 }

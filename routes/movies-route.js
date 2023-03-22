@@ -26,6 +26,7 @@ router.post('/movies/create', (req, res) => {
 
 router.get('/movies/:movieId', (req, res) => {
 	Movie.findById(req.params.movieId)
+		.populate('cast')
 		.then((movie) => res.render('movies/movie', movie))
 		.catch((err) => console.log(err));
 });

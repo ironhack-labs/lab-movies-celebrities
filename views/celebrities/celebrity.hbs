@@ -1,0 +1,15 @@
+<div class='container'>
+	<h2>{{name}}</h2>
+	<p>Occupation:</p>
+	<h5>{{occupation}}</h5>
+	<p>Catch Phrase:</p>
+	<h5>{{catchPhrase}}</h5>
+
+	<a href='/celebrities/{{_id}}/edit' class='edit'>Edit</a>
+	<form action='/celebrities/{{_id}}/delete' method='POST'>
+		<button class='delete'>Delete</button>
+	</form>
+
+	<a href='javascript:history.back()'>Go Back</a>
+
+</div>

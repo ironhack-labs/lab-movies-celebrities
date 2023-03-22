@@ -18,4 +18,10 @@ router.post('/celebrities/create', (req, res) => {
 		.catch((err) => console.log(err));
 });
 
+router.get('/celebrities/:celebId', (req, res) => {
+	Celebrity.findById(req.params.celebId)
+		.then((celebrity) => res.render('celebrities/celebrity', celebrity))
+		.catch((err) => console.log(err));
+});
+
 module.exports = router;

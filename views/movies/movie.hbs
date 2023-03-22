@@ -1,11 +1,20 @@
-<h1>Movie Details</h1>
-<div>
-	{{title}}
-	{{genre}}
-	{{plot}}
-	{{cast}}
-	<form action='/movies/{{_id}}/delete' method='POST'>
-		<button style='color: white; background-color:red; border:none; padding:1rem;'>Delete</button></form>
+<div class='container'>
 
-	<a href='/movies/{{_id}}/edit'>Edit</a>
+	<h2>{{title}}</h2>
+	<p>Genre:</p>
+	<h5>{{genre}}</h5>
+	<p>Plot:</p>
+	<h5>{{plot}}</h5>
+
+	<p>Cast:</p>
+	{{#each cast}}
+		<h5>{{name}}</h5>
+	{{/each}}
+
+	<a href='/movies/{{_id}}/edit' class='edit' style='margin-top: 2rem;'>Edit</a>
+	<form action='/movies/{{_id}}/delete' method='POST'>
+		<button class='delete'>Delete</button>
+	</form>
+
+	<a href='javascript:history.back()'>Go Back</a>
 </div>

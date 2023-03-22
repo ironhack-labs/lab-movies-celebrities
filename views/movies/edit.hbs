@@ -1,24 +1,26 @@
-<h2>Edit the Movie: {{title}}</h2>
-
-<form action='/movies/{{movieInfo._id}}/edit' method='POST'>
+<form action='/movies/{{movieInfo._id}}/edit' method='POST' class='container edit'>
 	<label>
 		Title:
+		<br />
 		<input type='text' name='title' value='{{movieInfo.title}}' />
 	</label>
 
 	<label>
 		Genre:
-		<input type='text' value='{{movieInfo.genre}}' />
+		<br />
+		<input type='text' name='genre' value='{{movieInfo.genre}}' />
 
 	</label>
 
 	<label>
 		Plot:
+		<br />
 		<input type='text' value='{{movieInfo.plot}}' name='plot' />
 	</label>
 
 	<label>
 		Cast:
+		<br />
 
 		<select name='cast'>
 			{{#each celebs}}
@@ -30,4 +32,5 @@
 	</label>
 
 	<button>Save changes</button>
+	<a href='javascript:history.back()'>Go Back</a>
 </form>

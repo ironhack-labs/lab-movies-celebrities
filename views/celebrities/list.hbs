@@ -1,7 +1,13 @@
-{{#each celebrities}}
+<div class='wrapper'>
+	{{#each celebrities}}
+		<div class='container'>
+			<h2>{{name}}</h2>
 
-{{name}}
-{{occupation}}
-{{catchPhrase}}
-
-{{/each}}
+			<div>
+				<a href='/celebrities/{{_id}}'>Details</a>
+				<a href='/celebrities/{{_id}}/edit' class='edit'>Edit</a>
+				<a href='/celebrities/{{_id}}/delete' class='delete'>Delete</a>
+			</div>
+		</div>
+	{{/each}}
+</div>
