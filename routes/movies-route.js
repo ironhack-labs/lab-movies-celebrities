@@ -31,12 +31,6 @@ router.get('/movies/:movieId', (req, res) => {
 		.catch((err) => console.log(err));
 });
 
-router.post('/movies/:movieId/delete', (req, res) => {
-	Movie.findByIdAndDelete(req.params.movieId)
-		.then(() => res.redirect('/movies'))
-		.catch((err) => console.log(err));
-});
-
 router.get('/movies/:movieId/edit', (req, res) => {
 	let movieInfo;
 	Movie.findById(req.params.movieId)
@@ -54,6 +48,12 @@ router.post('/movies/:movieId/edit', (req, res) => {
 		.then(() => {
 			res.redirect('/movies');
 		})
+		.catch((err) => console.log(err));
+});
+
+router.post('/movies/:movieId/delete', (req, res) => {
+	Movie.findByIdAndDelete(req.params.movieId)
+		.then(() => res.redirect('/movies'))
 		.catch((err) => console.log(err));
 });
 

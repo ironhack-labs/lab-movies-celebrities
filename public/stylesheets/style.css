@@ -40,12 +40,16 @@ nav a {
 	text-align: center;
 }
 
+.container h2 {
+	font-weight: 400;
+}
+
 .container div * {
 	margin: 0 0.5rem;
 }
 
 .container div a {
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 
 .wrapper {
@@ -58,6 +62,10 @@ nav a {
 	font-size: 1.5rem;
 	text-align: center;
 	width: 75%;
+}
+
+.create {
+	font-size: 2rem;
 }
 
 .edit input {
@@ -84,6 +92,7 @@ nav a {
 	border: none;
 	font-size: 2rem;
 	margin-top: 1rem;
+	cursor: pointer;
 }
 
 .edit {

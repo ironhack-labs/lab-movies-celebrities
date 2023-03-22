@@ -6,7 +6,9 @@
 			<div>
 				<a href='/movies/{{_id}}'>Details</a>
 				<a href='/movies/{{_id}}/edit' class='edit'>Edit</a>
-				<a href='/movies/{{_id}}/delete' class='delete'>Delete</a>
+				<form action='/movies/{{_id}}/delete' method='POST'>
+					<button class='delete'>Delete</button>
+				</form>
 			</div>
 		</div>
 	{{/each}}

@@ -1,0 +1,19 @@
+<form action='/celebrities/{{_id}}/edit' method='POST' class='container edit'>
+	<label>Name:
+		<br />
+		<input type='text' name='name' value={{name}} />
+	</label>
+
+	<label>Occupation:
+		<br />
+		<input type='text' name='occupation' value={{occupation}} />
+	</label>
+
+	<label>Catch Phrase:
+		<br />
+		<input type='text' name='catchPhrase' value={{catchPhrase}} />
+	</label>
+
+	<button class='edit'>Save Changes</button>
+	<a href='javascript:history.back()'>Go Back</a>
+</form>

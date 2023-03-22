@@ -1,10 +1,19 @@
-<form action='/celebrities/create' method='POST' class='container'>
-	<label for='name'>Name</label>
-	<input type='text' name='name' />
-	<label for='occupation'>Occupation</label>
-	<input type='text' name='occupation' />
-	<label for='catchPhrase'>Catch Phrase</label>
-	<input type='text' name='catchPhrase' />
+<form action='/celebrities/create' method='POST' class='container edit'>
+	<label>Name:
+		<br />
+		<input type='text' name='name' />
+	</label>
 
-	<button>Submit</button>
+	<label>Occupation:
+		<br />
+		<input type='text' name='occupation' />
+	</label>
+
+	<label>Catch Phrase:
+		<br />
+		<input type='text' name='catchPhrase' />
+	</label>
+
+	<button class='edit' style='color:rgb(66, 219, 66)'>Create</button>
+	<a href='javascript:history.back()'>Go Back</a>
 </form>
