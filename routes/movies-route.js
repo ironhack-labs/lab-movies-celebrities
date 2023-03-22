@@ -37,12 +37,14 @@ router.post('/movies/:movieId/delete', (req, res) => {
 });
 
 router.get('/movies/:movieId/edit', (req, res) => {
-	Celebrity.find().then((celebs) => {
-		Movie.findById(req.params.movieId)
-			.populate('cast')
-			.then((movie) => res.render('movies/edit', { movie, celebs }))
-			.catch((err) => console.log(err));
-	});
+	let movieInfo;
+	Movie.findById(req.params.movieId)
+		.then((movie) => {
+			movieInfo = movie;
+			return Celebrity.find();
+		})
+		.then((celebs) => res.render('movies/edit', { movieInfo, celebs }))
+		.catch((err) => console.log(err));
 });
 
 router.post('/movies/:movieId/edit', (req, res) => {

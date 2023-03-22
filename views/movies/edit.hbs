@@ -1,20 +1,20 @@
 <h2>Edit the Movie: {{title}}</h2>
 
-<form action='`' movies ${_id} edit` method='POST'>
+<form action='/movies/{{movieInfo._id}}/edit' method='POST'>
 	<label>
 		Title:
-		<input type='text' name='title' value='{{movie.title}}' />
+		<input type='text' name='title' value='{{movieInfo.title}}' />
 	</label>
 
 	<label>
 		Genre:
-		<input type='text' value='{{movie.genre}}' />
+		<input type='text' value='{{movieInfo.genre}}' />
 
 	</label>
 
 	<label>
 		Plot:
-		<input type='text' value='{{movie.plot}}' name='plot' />
+		<input type='text' value='{{movieInfo.plot}}' name='plot' />
 	</label>
 
 	<label>
