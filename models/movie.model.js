@@ -1,10 +1,28 @@
-const {Schema, model} = require ("mongoose");
+const mongoose = require('mongoose');
 
-const movieSchema = new Schema ({
-title: String,
-genre: String,
-plot: String,
-cast: [{type: Schema.Types.ObjectId, ref: "Post"}],
+const Schema = mongoose.Schema;
+
+const movieSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  genre: {
+    type: String,
+    required: true
+  },
+  plot: {
+    type: String,
+    required: true
+  },
+  cast: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Celebrity'
+    }
+  ]
 });
 
-module.exports = ("Movie", movieSchema);
+const Movie = mongoose.model('Movie', movieSchema);
+
+module.exports = Movie;
