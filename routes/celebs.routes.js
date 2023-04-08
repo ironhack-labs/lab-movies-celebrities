@@ -13,8 +13,17 @@ router.post("/create", async (req, res) => {
     } catch {
         res.redirect('/create');
     }
-   
-
   });
+
+router.get("/celebs", async (req,res) => {
+    try {
+        const allCelebs = await CelebModel.find();
+        res.render("celebs/celebs", {allCelebs});
+
+    } catch {
+        res.send ("Oops, an error, go back");
+    }
+    
+})
 
 module.exports = router;
