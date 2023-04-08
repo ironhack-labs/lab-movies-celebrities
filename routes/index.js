@@ -5,5 +5,12 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-module.exports = router;
+router.get("/celebrities", (req, res, next) => {
+  res.render("celebreties.routes");
+});
 
+router.get("/movies", (req, res, next) => {
+  res.render("movies.routes");
+});
+
+module.exports = router;
