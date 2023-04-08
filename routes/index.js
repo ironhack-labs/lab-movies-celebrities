@@ -1,3 +1,4 @@
+const express = require("express");
 const router = require("express").Router();
 
 /* GET home page */
@@ -6,7 +7,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/celebrities", (req, res, next) => {
-  res.render("celebreties.routes");
+  res.render("celebrities");
 });
 
 router.get("/movies", (req, res, next) => {
