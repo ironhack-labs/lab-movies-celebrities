@@ -17,10 +17,10 @@ router.post('/new-celebrity',async(req,res)=>{
     try{
     const newCelebrityCreated=await celebrityModel.create(req.body)
     console.log("celebrity created ")
-    res.redirect('/celebrities')
+    res.redirect('/celebrity/celebrities')
     }
-    catch{
-        res.render('celebrities/new-celebrity')
+    catch(err){
+        res.redirect('/celebrity/new-celebrity')
     }
     //res.render('/celebrities/new-celebrity')
 })
