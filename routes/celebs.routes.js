@@ -20,7 +20,7 @@ router.post("/create", async (req, res) => {
 router.get("/celebslist", async (req, res) => {
   try {
     const allCelebs = await CelebModel.find();
-    res.render("..views/celebs/allCelebs", { allCelebs });
+    res.render("celebs/allCelebs", { allCelebs });
   } catch {
     res.send("Oops, an error, go back");
   }
