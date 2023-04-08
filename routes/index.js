@@ -10,6 +10,10 @@ router.get("/celebrities", (req, res, next) => {
   res.render("celebrities");
 });
 
+router.get("/celebrities", (req, res, next) => {
+  res.render("celebrities/new-celebrety");
+});
+
 router.get("/movies", (req, res, next) => {
   res.render("movies.routes");
 });
