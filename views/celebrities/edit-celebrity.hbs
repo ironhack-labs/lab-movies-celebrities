@@ -1,0 +1,26 @@
+<h1>Edit Celebrity</h1>
+
+<div class="new-form">
+    <form action="/celebrities/{{oneCelebrity._id}}" method="POST">
+
+    <div class="form-group">
+        <label class="form-label" for="title">Name</label>
+        <input class="form-input" type="text" name="title" value="{{oneCelebrity.name}}">
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" for="genre">Occupation</label>
+        <input class="form-input" type="text" name="genre" value="{{oneCelebrity.occupation}}">
+    </div>
+
+
+    <div class="form-group">
+        <label class="form-label" for="genre">Catch phrase</label>
+        <input class="form-input" type="text" name="genre" value="{{oneCelebrity.catchPhrase}}">
+    </div>
+
+    <button type="submit" class="form-submit">Edit Celebrity</button>
+
+    </form>
+
+</div>

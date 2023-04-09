@@ -1,23 +1,34 @@
-<h1>Movie details</h1>
-<p>Title: {{eachMovie.title}}</p>
-<p>Genre: {{eachMovie.genre}}</p>
-<p>Plot: {{eachMovie.plot}}</p>
+<div class="movie-details">
+  <h1>Movie Details</h1>
+  
+  <div class="movie-info">
+    <p><strong>Title:</strong> {{eachMovie.title}}</p>
+    <p><strong>Genre:</strong> {{eachMovie.genre}}</p>
+    <p><strong>Plot:</strong> {{eachMovie.plot}}</p>
+  </div>
 
-<h3>Cast</h3>
-<ul>
-{{#each eachMovie.cast}}
-  <li>Name: {{this.name}}</li>
-    <li>Occupation: {{this.occupation}}</li>
-    <li>Catchphrase: {{this.catchPhrase}}</li>
+  <div class="cast-details">
+    <p><strong>Cast</strong></p>
+    <ul>
+      {{#each eachMovie.cast}}
+      <li>
+        <div class="cast-info">
+          <p><strong>Name: </strong>{{this.name}}</p>
+          <p><strong>Occupation:</strong> {{this.occupation}}</p>
+          <p><strong>Catchphrase:</strong> {{this.catchPhrase}}</p>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
 
-</ul>
-{{/each}}
+  <div class="movie-actions">
+    <form action="/movies/{{eachMovie._id}}/delete" method="POST">
+      <button type="submit">Delete</button>
+    </form>
 
-<form action="/movies/{{eachMovie._id}}/delete" method="POST">
-<button type="submit" >Delete</button>
-</form>
-<br>
-
-<form action="/movies/{{eachMovie._id}}/edit" method="GET">
-<button type="submit" >Edit Movie</button>
-</form>
+    <form action="/movies/{{eachMovie._id}}/edit" method="GET">
+      <button type="submit">Edit Movie</button>
+    </form>
+  </div>
+</div>

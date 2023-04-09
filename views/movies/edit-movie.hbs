@@ -1,20 +1,34 @@
-
 <h1>Edit Movie</h1>
+
+<div class="new-form">
 <form action="/movies/{{eachMovie._id}}" method="POST">
-    <label for="title">Title</label>
-    <input type="text" name="title" value="{{eachMovie.title}}">
 
-    <label for="genre">Genre</label>
-    <input type="text" name="genre" value="{{eachMovie.genre}}">
+<div class="form-group">
+    <label class="form-label" for="title">Title</label>
+    <input class="form-input" type="text" name="title" value="{{eachMovie.title}}">
+</div>
 
-    <label for="plot">Plot</label>
-    <input type="text" name="plot" value="{{eachMovie.plot}}">
+<div class="form-group">
+    <label class="form-label" for="genre">Genre</label>
+    <input class="form-input" type="text" name="genre" value="{{eachMovie.genre}}">
+</div>
 
-    <select multiple name="cast" >
+<div class="form-group">
+    <label class="form-label" for="plot">Plot</label>
+    <input class="form-input" type="text" name="plot" value="{{eachMovie.plot}}">
+</div>
+
+<div class="form-group">
+    <label class="form-label" for="cast">Cast</label>
+    <select class="form-select" multiple name="cast" >
         {{#each celebrities}}
-        <option value="{{this.name}}">{{this.name}}</option>
+            <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
     </select>
-<button type="submit">Edit Movie</button>
+</div>
+
+<button type="submit" class="form-submit">Submit changes</button>
 
 </form>
+
+</div>

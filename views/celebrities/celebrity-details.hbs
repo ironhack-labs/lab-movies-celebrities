@@ -1,0 +1,19 @@
+<div class="movie-details">
+  <h1>Celebrity Details</h1>
+
+  <div class="movie-info">
+    <p><strong>Name:</strong> {{oneCelebrity.name}}</p>
+    <p><strong>Occupation:</strong> {{oneCelebrity.occupation}}</p>
+    <p><strong>Catch phrase:</strong> {{oneCelebrity.catchPhrase}}</p>
+  </div>
+
+  <div class="movie-actions">
+    <form action="/celebrities/{{oneCelebrity._id}}/delete" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+
+    <form action="/celebrities/{{oneCelebrity._id}}/edit" method="GET">
+      <button type="submit">Edit Celebrity</button>
+    </form>
+  </div>
+</div>
