@@ -18,6 +18,11 @@ a {
   color: #ffffff;
 }
 
+.index-subtitle {
+  font-size: 25pt;
+  color: #ffffff;
+}
+
 nav {
   background-color: #a33f67;
   padding: 30px;
