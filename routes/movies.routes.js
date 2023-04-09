@@ -13,6 +13,10 @@ router.get("/all", async (req, res) => {
   res.render("movies/movies", { allMovies });
 });
 
+router.get("/edit", (req, res) => {
+  res.render("movies/edit-movie");
+});
+
 router.get("/:movieId", async (req, res) => {
   const { movieId } = req.params;
   const oneMovie = await MovieModel.findById(movieId).populate("cast");
