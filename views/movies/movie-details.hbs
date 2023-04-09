@@ -1,10 +1,8 @@
-<h1>{{title}}</h1>
-<h2>Genre: {{genre}}</h2>
 <h2><strong>cast</strong></h2>
 <ul>
-  {{#each cast}}
-    <li>{{this}}</li>
+  {{#each oneMovie.cast}}
+    <li>{{name}}</li>
   {{/each}}
 </ul>
 <br />
-<p>{{plot}}</p>
+<p>{{oneMovie.plot}}</p>
