@@ -2,6 +2,6 @@
 <h2>Movies</h2>
 
 {{#each allMovies}}
-   <p> {{title}}</p>
-   
+   {{!-- <p> {{title}}</p> --}}
+   <a href="/movies/{{_id}}">See more {{title}}</a>
 {{/each}}

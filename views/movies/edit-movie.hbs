@@ -1,1 +1,21 @@
-models/Celebrity.model.js
+
+<h2>Edit Movie</h2>
+<form action="/movies/{{eachMovie._id}}/edit" method="POST">
+<label for="title">Title</label>
+<input type="text" name="title" value="{{eachMovie.title}}">
+
+<label for="genre">Genre</label>
+<input type="text" name="genre" value="{{genre}}">
+
+<label for="plot">Plot</label>
+<input type="text" name="plot" value="{{plot}}">
+
+<label for="cast">Cast</label>
+<input type="text" name="cast" value="{{cast}}">
+
+<button type="submit">Edit Movie</button>
+
+
+
+
+</form>

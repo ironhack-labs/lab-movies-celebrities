@@ -35,6 +35,59 @@ router.get("/movies", async (req,res) => {
 
 
 
+router.get("/:id", async (req,res) => {
+    try {
+        const eachMovie = await MovieModel.findById(req.params.id).populate("cast");
+        console.log(eachMovie);
+        res.render("movies/movie-details", {eachMovie});
+    }
+    catch (err) {
+        console.log(err)};
+});
+
+// router.post("/:id/delete", async (req,res,next) => {
+//     const {id} = req.params;
+//     try {
+//         await MovieModel.findByIdAndRemove(id)
+//         // console.log(eachMovie);
+//         res.redirect("movies/movies");
+//     }
+//     catch (err) {
+//         console.log(err)};
+// });
+
+router.post('/:id/delete', (req, res, next) => {
+    const { id } = req.params;
+    MovieModel.findByIdAndDelete(id)
+    .then(() => res.redirect('/movies/movies'))
+    .catch(error => next(error));
+    });
+
+
+
+
+    router.get("/:id/edit", async (req,res) => {
+        try {
+            const eachMovie = await MovieModel.findById(req.params.id);
+            const celebrities = await CelebrityModel.find();
+            console.log(eachMovie,celebrities);
+            res.render("movies/edit-movie", {eachMovie, celebrities});
+        }
+        catch (err) {
+            console.log(err)};
+    });
+
+    router.post("/:id/edit", async (req,res) => {
+        try {
+            const {id} = req.params;
+            const editedMovie = await MovieModel.findByIdAndUpdate(id,req.body, {new:true});
+            res.redirect(`/movies/${editedMovie._id}`);
+        }
+        catch (err) {
+            console.log(err);
+            res.redirect("/movies/movie-details")};
+    });
+
 
 module.exports = router;
 
