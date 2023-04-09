@@ -74,14 +74,17 @@ nav a {
 
 .create-title {
   color: green;
-  font-size: 30pt;
+  font-size: 20pt;
   font-weight: bold;
 }
 
 .input-container {
+  margin: 40px;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 300px;
 }
 
 .submit-btn {
@@ -136,7 +139,7 @@ nav a {
 .movie-detail-card {
   display: flex;
   flex-direction: column;
-  margin: 100px;
+  margin: 50px;
   align-items: center;
   justify-content: center;
 }
@@ -156,7 +159,7 @@ nav a {
 
 .movies-plot {
   color: #ffffff;
-  margin: 0 250px;
+  width: 400px;
   border: 2px solid #a33f67;
   padding: 30px;
   background-color: #a33f67;
