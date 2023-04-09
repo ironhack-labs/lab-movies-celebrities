@@ -1,38 +1,58 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #000;
 }
 
 a {
-  color: #00b7ff;
+  color: #0273a0;
+  font-size: 15pt;
 }
+
+.index-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.index-title {
+  font-size: 40pt;
+  color: #ffffff;
+}
+
 nav {
-  background-color: #dcdcdc;
-  padding: 20px;
+  background-color: #a33f67;
+  padding: 30px;
   text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
+  margin: 100px 150px 0 150px;
 }
 
 nav a {
-  display: inline-block;
   color: #000;
   text-decoration: none;
-  padding: 10px;
-  margin: 0 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
+  padding: 15px;
+  margin: 0 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.nav-container {
+  border: 2px solid #000;
+  background-color: #004a44;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
 }
 
 .create-title {
   color: green;
   font-size: 30pt;
   font-weight: bold;
-  padding-bottom: 50px;
 }
 
 .input-container {
