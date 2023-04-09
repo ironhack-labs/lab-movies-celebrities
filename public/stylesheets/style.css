@@ -132,3 +132,32 @@ nav a {
 .movies-image {
   width: 150px;
 }
+
+.movie-detail-card {
+  display: flex;
+  flex-direction: column;
+  margin: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-title {
+  color: #ffffff;
+  font-size: 40pt;
+}
+
+.detailed-list {
+  color: #ffffff;
+}
+
+.list-name {
+  color: #ffffff;
+}
+
+.movies-plot {
+  color: #ffffff;
+  margin: 0 250px;
+  border: 2px solid #a33f67;
+  padding: 30px;
+  background-color: #a33f67;
+}

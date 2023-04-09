@@ -1,9 +1,24 @@
-<h2><strong>cast</strong></h2>
-<ul>
-  {{#each oneMovie.cast}}
-    <li>{{name}}</li>
-    <img src="{{image}}" alt={{title}} class="image" />
-  {{/each}}
-</ul>
-<br />
-<p>{{oneMovie.plot}}</p>
+<nav>
+  <a href="/">Home</a>
+  <a href="/celebrities/all">Celebrities</a>
+  <a href="/celebrities/create">Create new celebrity</a>
+  <a href="/movies/all">movies</a>
+  <a href="/movies/create">Create new movie</a>
+</nav>
+
+<div class="movie-detail-card">
+
+  <img class="image" src="{{image}}" alt={{oneMovie.title}} />
+
+  <h2 class="detail-title"><strong>cast</strong></h2>
+
+  <ul class="detailed-list">
+    {{#each oneMovie.cast}}
+      <li class="list-name">{{name}}</li>
+    {{/each}}
+  </ul>
+
+  <br />
+  <p class="movies-plot">{{oneMovie.plot}}</p>
+
+</div>
