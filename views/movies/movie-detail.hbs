@@ -1,0 +1,1 @@
+<h1>Movie Detail</h1>
