@@ -66,22 +66,21 @@ router.post('/:id/delete', (req, res, next) => {
 
 
 
-    router.get("/:id/edit", async (req,res) => {
+router.get("/:id/edit", async (req,res) => {
         try {
             const eachMovie = await MovieModel.findById(req.params.id);
             const celebrities = await CelebrityModel.find();
-            console.log(eachMovie,celebrities);
             res.render("movies/edit-movie", {eachMovie, celebrities});
         }
-        catch (err) {
-            console.log(err)};
+        catch (err) {console.log(err)};
     });
-
-    router.post("/:id/edit", async (req,res) => {
+    
+router.post("/:id", async (req,res) => {
         try {
-            const {id} = req.params;
-            const editedMovie = await MovieModel.findByIdAndUpdate(id,req.body, {new:true});
-            res.redirect(`/movies/${editedMovie._id}`);
+                const newValues = req.body;
+                const {id} = req.params;
+                const editedMovie = await MovieModel.findByIdAndUpdate(id, newValues, {new: true});
+                res.redirect(`/movies/${id}`);
         }
         catch (err) {
             console.log(err);

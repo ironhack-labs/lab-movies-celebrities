@@ -8,7 +8,7 @@
 {{#each eachMovie.cast}}
   <li>Name: {{this.name}}</li>
     <li>Occupation: {{this.occupation}}</li>
-  <li>Catchphrase: {{this.catchPhrase}}</li>
+    <li>Catchphrase: {{this.catchPhrase}}</li>
 
 </ul>
 {{/each}}
@@ -17,6 +17,6 @@
 <button type="submit" >Delete</button>
 </form>
 <br>
-<form action="/movies/{{eachMovie._id}}/edit" method="POST">
+<form action="/movies/{{eachMovie._id}}/edit" method="GET">
 <button type="submit" >Edit Movie</button>
 </form>
