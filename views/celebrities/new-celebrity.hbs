@@ -1,23 +1,24 @@
+<h1>Submit a celebrity</h1>
 
-
-
-<h2>New celebrity</h2>
-
+<div class="new-form">
 <form action="/celebrities/create" method="POST">
 
-  <label>Name:
-    <input type="text" name="name" />
-  </label>
+  <div class="form-group">
+    <label class="form-label" for="name-input">Name:</label>
+    <input type="text" name="name" id="name-input" class="form-input">
+  </div>
 
-  <label>Occupation:
-    <input type="text" name="occupation" />
-  </label>
+  <div class="form-group">
+    <label class="form-label" for="occupation-input">Occupation:</label>
+    <input type="text" name="occupation" id="occupation-input" class="form-input">
+  </div>
 
-  <label>Catch Phrase:
-    <input type="text" name="catchPhrase" />
-  </label>
+  <div class="form-group">
+    <label class="form-label" for="catch-phrase-input">Catch Phrase:</label>
+    <input type="text" name="catchPhrase" id="catch-phrase-input" class="form-input">
+  </div>
 
-
-  <button type="submit">Create a celebrity</button>
+  <button class="form-submit" type="submit">Create a celebrity</button>
 
 </form>
+</div>

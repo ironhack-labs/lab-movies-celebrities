@@ -1,8 +1,109 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+  font: 14px;
+  font-family: Helvetica, sans-serif;
+  background-color: #fff;
 }
 
-a {
-  color: #00b7ff;
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 70vh;
 }
+
+nav {
+  background-color: #222725;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin: 0 10px;
+}
+
+.nav-links {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 15px;
+}
+
+
+.nav-links:hover {
+  text-decoration: none;
+  color: #899878;
+}
+
+a{
+
+}
+
+a:hover {
+  /* background-color: #555; */
+}
+
+h1{
+  color: #222725;
+  background-color: #fff;
+  font-size: 80px;
+  background-color: #E4E6C3;
+}
+
+.index-links{
+  color: #222725;
+  font-size: 20px;
+}
+
+.index-links:hover{
+  color: #222725;
+  background-color: #E4E6C3;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.new-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  margin-right: 10px;
+  width: 100px;
+}
+
+.form-input,
+.form-select {
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-submit {
+  background-color: #899878;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

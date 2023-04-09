@@ -1,4 +1,4 @@
-<h2>Movie details</h2>
+<h1>Movie details</h1>
 <p>Title: {{eachMovie.title}}</p>
 <p>Genre: {{eachMovie.genre}}</p>
 <p>Plot: {{eachMovie.plot}}</p>
@@ -17,6 +17,7 @@
 <button type="submit" >Delete</button>
 </form>
 <br>
+
 <form action="/movies/{{eachMovie._id}}/edit" method="GET">
 <button type="submit" >Edit Movie</button>
 </form>
