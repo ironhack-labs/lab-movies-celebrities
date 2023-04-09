@@ -1,11 +1,13 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #000;
+  margin: 0;
 }
 
 a {
-  color: #0273a0;
+  color: #014a67;
   font-size: 15pt;
+  font-weight: bold;
 }
 
 .index-container {
@@ -23,7 +25,7 @@ a {
   color: #ffffff;
 }
 
-nav {
+.index-nav {
   background-color: #a33f67;
   padding: 30px;
   text-align: center;
@@ -31,11 +33,20 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 100px 150px 0 150px;
+  margin: 100px 100px 0 100px;
+}
+
+nav {
+  background-color: #a33f67;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
 }
 
 nav a {
-  color: #000;
   text-decoration: none;
   padding: 15px;
   margin: 0 20px;
@@ -49,9 +60,16 @@ nav a {
 .nav-container {
   border: 2px solid #000;
   background-color: #004a44;
-  padding: 5px;
+  padding: 10px;
   width: 150px;
   height: 150px;
+  text-decoration: none;
+  margin: 0 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .create-title {
@@ -72,4 +90,45 @@ nav a {
   border-radius: 3px;
   color: white;
   font-size: 15pt;
+}
+
+.movies-page {
+  padding: 20px;
+}
+
+.movies-title {
+  color: #ffffff;
+}
+
+.movies-text {
+  color: #ffffff;
+  font-size: 15pt;
+}
+
+.movies-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #d95489;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-link {
+  margin-bottom: 20px;
+}
+
+.movies-image {
+  width: 150px;
 }

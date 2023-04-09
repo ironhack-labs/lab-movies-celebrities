@@ -1,6 +1,14 @@
+<nav>
+  <a href="/">Home</a>
+  <a href="/celebrities/all">Celebrities</a>
+  <a href="/celebrities/create">Create new celebrity</a>
+  <a href="/movies/all">movies</a>
+  <a href="/movies/create">Create new movie</a>
+</nav>
+
 <div class="movies-page">
 
-  <h1 class="movies-title">All Movies available</h1>
+  <h1 class="movies-title">Your movies:</h1>
   <br />
   <h2 class="movies-text">Click on the movie to check the details!</h2>
   <br />
@@ -8,10 +16,10 @@
   <div class="movies-flex">
     {{#each allMovies}}
       <div class="card">
-        <h3>{{title}}</h3>
-        <a href="/movies/{{_id}}">See more</a>
+        <h3 class="card-title">{{title}}</h3>
+        <a class="card-link" href="/movies/{{_id}}">See more</a>
         <a href="/movies/{{_id}}">
-          <img src="{{image}}" alt={{title}} class="image" />
+          <img src="{{image}}" alt={{title}} class="movies-image" />
         </a>
       </div>
     {{/each}}
