@@ -1,1 +1,16 @@
-<h1>movies</h1>
+<div class="movies-page">
+
+  <h1 class="movies-title">All Movies available</h1>
+  <br />
+  <h2 class="movies-text">Click on the movie to check the details!</h2>
+  <br />
+
+  <div class="movies-flex">
+    {{#each moviesArray}}
+      <div class="card">
+        <h3>{{title}}</h3>
+        <a href="/movies/{{_id}}">See more</a>
+      </div>
+    {{/each}}
+  </div>
+</div>

@@ -6,6 +6,27 @@ body {
 a {
   color: #00b7ff;
 }
+nav {
+  background-color: #dcdcdc;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+}
+
+nav a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
 
 .create-title {
   color: green;
