@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="container text-white p-5">
+        <div class="w-75 bg-secondary rounded-3 p-4">
+        <form action="{{celebrityData.id}}" method="post">
+            <label class="fs-4 my-2" for="name">Name:</label>
+         <input class="form-control w-25" id="name" name="name" type="text" value="{{celebrityData.name}}">
+          <label class="fs-4 my-2" for="occupation">Occupation:</label>
+         <input class="form-control w-25" id="occupation" name="occupation" type="text" value="{{celebrityData.occupation}}">
+          <label class="fs-4 my-2" for="catchPhrase">Catch Phrase:</label>
+         <input class="form-control w-25" id="catchPhrase" name="catchPhrase" type="text" value="{{celebrityData.catchPhrase}}">
+         <button class="btn btn-success px-4 py-2 mt-4">Edit</button>
+        </form>
+        </div>
+    </div>
+</div>

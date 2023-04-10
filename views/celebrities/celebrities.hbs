@@ -1,9 +1,12 @@
 <div class="container-fluid p-5">
  <div class="container d-flex gap-5">
+    <div class="row d-flex gap-4">
     {{#each allCelebrities}}
-    <div class="bg-secondary rounded-4 p-3">
+    <div class="col bg-secondary rounded-4 p-3">
 <h2 class="text-white fw-bold">{{name}}</h2>
+<a class="btn btn-primary" href="{{_id}}">See More!</a>
 </div>
 {{/each}}
+</div>
  </div>
 </div>

@@ -26,5 +26,38 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.get("/:celebrityId", async (req,res) => {
+  try{
+    const {celebrityId} = req.params;
+    const celebrityData = await celebrityModel.findById(celebrityId);
+    console.log(celebrityData);
+    res.render("celebrities/celebrity-details", {celebrityData});
+  }catch(err){
+    console.log("There was an error", err);
+  }
+})
+
+router.get("/edit/:celebrityId", async (req, res) => {
+  try{
+    const {celebrityId} = req.params;
+    const celebrityData = await CelebrityModel.findById(celebrityId);
+    console.log(celebrityData);
+    res.render("celebrities/celebrity-edit", {celebrityData});
+  }catch(err){
+    console.log("There was an error", err);
+  }
+})
+
+router.post("/edit/:celebrityId", async (req, res) => {
+  try{
+    const {celebrityId} = req.params;
+    console.log(req.body)
+    const editedCelebirty = await CelebrityModel.findByIdAndUpdate({ _id: celebrityId },
+      req.body)
+     res.redirect("/celebrities/all")
+  }catch(err){
+    console.log("There was an error", err);
+  }
+})
 
 module.exports = router;
