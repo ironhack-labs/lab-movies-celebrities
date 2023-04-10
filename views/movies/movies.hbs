@@ -10,9 +10,11 @@
       <div class="card">
         <h3 class="card-title">{{title}}</h3>
         <a class="card-link" href="/movies/{{_id}}">See more</a>
-        <a href="/movies/{{_id}}">
-          <img src="{{image}}" alt={{title}} class="movies-image" />
-        </a>
+        {{#if image}}
+          <a href="/movies/{{_id}}">
+            <img src="{{image}}" alt={{title}} class="movies-image" />
+          </a>
+        {{/if}}
       </div>
     {{/each}}
   </div>
