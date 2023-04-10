@@ -1,6 +1,9 @@
 <div class="movie-detail-card">
+  <h2 class="detail-title">{{oneMovie.title}}</h2>
 
-  <img class="image" src="{{image}}" alt={{oneMovie.title}} />
+  {{#if oneMovie.image}}
+    <img class="image" src="{{oneMovie.image}}" alt={{oneMovie.title}} />
+  {{/if}}
 
   <h2 class="detail-title"><strong>cast</strong></h2>
 
@@ -12,5 +15,7 @@
 
   <br />
   <p class="movies-plot">{{oneMovie.plot}}</p>
+
+  <a class="card-link" href="/movies/edit/{{oneMovie._id}}">edit movie</a>
 
 </div>
