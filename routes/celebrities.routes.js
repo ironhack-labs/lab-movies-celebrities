@@ -60,4 +60,14 @@ router.post("/edit/:celebrityId", async (req, res) => {
   }
 })
 
+router.post("/delete/:celebrityId", async (req,res) => {
+  try{
+     const {celebrityId} = req.params
+     const deletedCelebrity = await CelebrityModel.findByIdAndDelete(celebrityId);
+     res.redirect("/celebrities/all")
+  }catch(err){
+    console.log("There was an error", err);
+  }
+})
+
 module.exports = router;

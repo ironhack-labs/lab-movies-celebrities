@@ -5,7 +5,10 @@
         <h2>Occupation: {{celebrityData.occupation}}</h2>
         <h3>Catch Phrase: {{celebrityData.catchPhrase}}</h3>
             <form action="edit/{{celebrityData._id}}" method="get">
-        <button class="btn btn-danger px-5 py-3 m-2" type="submit">Edit</button>
+        <button class="btn btn-success px-5 py-3 m-2" type="submit">Edit</button>
+    </form>
+    <form action="delete/{{celebrityData._id}}" method="post">
+        <button class="btn btn-danger px-5 py-3 m-2" type="submit">Delete</button>
     </form>
     </div>
     </div>
