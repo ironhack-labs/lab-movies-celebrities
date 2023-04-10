@@ -1,1 +1,9 @@
-<h1>celebrities</h1>
+<div class="container-fluid p-5">
+ <div class="container d-flex gap-5">
+    {{#each allCelebrities}}
+    <div class="bg-secondary rounded-4 p-3">
+<h2 class="text-white fw-bold">{{name}}</h2>
+</div>
+{{/each}}
+ </div>
+</div>
