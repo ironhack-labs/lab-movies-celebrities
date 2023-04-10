@@ -1,21 +1,25 @@
-<form class="input-container" action="/movies/update" method="post">
+<form
+  class="input-container"
+  action="/movies/edit/{{oldMovie._id}}"
+  method="post"
+>
   <h2 class="create-title">
-    update the movie
+    Edit the movie
   </h2>
   <label>Movie Title:
-    <input type="text" name="title" />
+    <input type="text" name="title" value="{{oldMovie.title}}" />
   </label>
 
   <label>Genre:
-    <input type="text" name="genre" />
+    <input type="text" name="genre" value="{{oldMovie.genre}}" />
   </label>
 
   <label>Plot:
-    <input type="text" name="plot" />
+    <input type="text" name="plot" value="{{oldMovie.plot}}" />
   </label>
 
   <label>Image:
-    <input type="text" name="image" />
+    <input type="text" name="image" value="{{oldMovie.image}}" />
   </label>
 
   <select name="cast" multiple>
@@ -25,7 +29,7 @@
   </select>
 
   <div>
-    <button class="submit-btn" type="submit">update movie</button>
+    <button class="submit-btn" type="submit">save updated movie</button>
   </div>
 
 </form>

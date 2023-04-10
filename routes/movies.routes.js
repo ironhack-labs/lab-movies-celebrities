@@ -13,8 +13,27 @@ router.get("/all", async (req, res) => {
   res.render("movies/movies", { allMovies });
 });
 
-router.get("/edit", (req, res) => {
-  res.render("movies/edit-movie");
+router.get("/edit/:movieId", async (req, res) => {
+  const { movieId } = req.params;
+  const oldMovie = await MovieModel.findById(movieId).populate("cast");
+  const allCelebrity = await CelebrityModel.find();
+  console.log(allCelebrity);
+  res.render("movies/edit-movie", { oldMovie, allCelebrity });
+});
+
+router.post("/edit/:movieId", async (req, res) => {
+  const { movieId } = req.params;
+  try {
+    const updatedMovie = await MovieModel.findByIdAndUpdate(
+      { _id: movieId },
+      req.body
+    );
+    console.log("Movie updated ", updatedMovie);
+    res.redirect(`/movies/${movieId}`);
+  } catch (err) {
+    console.log("there was an error", err);
+    res.redirect(`/movies/edit/${movieId}`);
+  }
 });
 
 router.get("/:movieId", async (req, res) => {
