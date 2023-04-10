@@ -4,7 +4,6 @@ const CelebrityModel = require("../models/Celebrity.model");
 
 router.get("/create", async (req, res) => {
   const allCelebrity = await CelebrityModel.find();
-  console.log(allCelebrity);
   res.render("movies/new-movie", { allCelebrity });
 });
 
@@ -17,7 +16,6 @@ router.get("/edit/:movieId", async (req, res) => {
   const { movieId } = req.params;
   const oldMovie = await MovieModel.findById(movieId).populate("cast");
   const allCelebrity = await CelebrityModel.find();
-  console.log(allCelebrity);
   res.render("movies/edit-movie", { oldMovie, allCelebrity });
 });
 
