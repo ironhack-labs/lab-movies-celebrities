@@ -17,5 +17,7 @@
   <p class="movies-plot">{{oneMovie.plot}}</p>
 
   <a class="card-link" href="/movies/edit/{{oneMovie._id}}">edit movie</a>
-
+<form action="/movies/{{oneMovie._id}}/delete" method="post">
+     <button class="btn btn-danger" type="submit">Delete</button>
+</form>
 </div>
