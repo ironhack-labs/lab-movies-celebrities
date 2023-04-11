@@ -1,25 +1,27 @@
-<h2>Movie Detail</h2>
-<ul>
-  <li>{{title}}</li>
-  <li>{{genre}}</li>
-  <li>{{plot}}</li>
-</ul>
+<h1>Movie Detail</h1>
+
+  <h2>{{title}}</h2>
+  <p>{{genre}}</p> 
+  <p>{{plot}}</p>
+
 
 <ul>
   Cast Info:
-  {{#each this.cast}}
-    <li>{{this.name}}</li>
-    <li>{{this.occupation}}</li>
-    <li>{{this.catchPhrase}}</li>
+  {{#each cast}}
+  
+    <li>{{name}}</li>
+    <li>{{occupation}}</li>
+    <li>{{catchPhrase}}</li>
   {{/each}}
-</ul>
+
+    </ul>
 
 <form action="/movies/{{_id}}/delete" method="POST">
   <button type="submit">Delete Movie
   </button>
 </form>
-
 <form action="/movies/{{_id}}/edit" method="GET">
   <button type="submit">Edit Movie
   </button>
 </form>
+

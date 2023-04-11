@@ -29,15 +29,14 @@ router.post("/movies/create", async (req, res) => {
 
 //creating a movie details route
 
-router.get("/movies/:id", (req, res) => {
-  const { id } = req.params;
-  Movie.findById(id)
-    .populate({
-      path: "cast",
-      select: "-_id", // Ask Josh or Rico about the Syntax
-    })
-    .then((movie) => res.render("movies/movie-detail", movie))
-    .catch((err) => console.error(err));
+router.get("/movies/:id", async(req, res) => {
+  try{
+  
+  const movie = await Movie.findById(req.params.id).populate("cast")
+  res.render('movies/movie-detail', movie);
+  } catch(err){
+    console.log(err);
+  }
 });
 
 //route for deleting movies
@@ -45,7 +44,7 @@ router.post("/movies/:id/delete", async (req, res) => {
   try {
     const { id } = req.params;
     const deletedMovie = await Movie.findByIdAndRemove(id);
-    console.log(deletedMovie);
+   // console.log(deletedMovie);
     res.redirect("/movies");
   } catch (err) {
     console.log(err);
@@ -56,22 +55,24 @@ router.post("/movies/:id/delete", async (req, res) => {
 router.get("/movies/:id/edit", async (req, res) => {
   try {
     const { id } = req.params;
-    const movieToUpdate = await Movie.findById(id);
+    const movie = await Movie.findById(id);
     const celebrityToUpdate = await Celebrity.find();
-    res.render("movies/edit-movie", { movieToUpdate, celebrityToUpdate });
+    res.render("movies/edit-movie", { movie, celebrityToUpdate });
   } catch (err) {
     console.log(err);
   }
 });
 
-router.post("/movies/:id", async (req, res, next) => {
+router.post("/movies/:id/edit", async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const { title, genre, plot, cast } = req.body;
-    await Movie.findByIdAndUpdate(id, { title, genre, plot, cast });
-    res.redirect("/movies/movie-detail");
+    const {id} = req.params;
+    const {title, genre, plot, cast} = req.body;
+     await Movie.findByIdAndUpdate(id, { title, genre, plot, cast });
+
+    res.redirect("/movies");
   } catch (error) {
     console.log(error);
+    
   }
 });
 
