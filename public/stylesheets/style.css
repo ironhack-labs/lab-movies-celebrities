@@ -119,9 +119,11 @@ a {
   padding: 20px;
 }
 .movies-title {
-  color: #cac9c9;
+  color: #1500ff;
+  text-shadow: 4px 2px #86c2ff;
   text-align: center;
   margin: 50px 0;
+  font-size: 45pt;
 }
 .movies-flex {
   display: flex;
@@ -129,7 +131,6 @@ a {
   flex-wrap: wrap;
 }
 .card {
-  color: rgb(34, 170, 165);
   width: 280px;
   height: 300px;
   display: flex;
@@ -141,6 +142,9 @@ a {
 }
 .card-title {
   margin-bottom: 10px;
+  text-shadow: 2px 1px #848484;
+  color: rgb(255, 255, 255);
+  font-size: 20pt;
 }
 .card-link {
   color: #00d9ff;
