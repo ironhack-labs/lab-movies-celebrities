@@ -9,3 +9,5 @@ npm-debug.log
 
 # added for maintainance purposes - not best  practice
 package-lock.json 
+
+.DS_Store
