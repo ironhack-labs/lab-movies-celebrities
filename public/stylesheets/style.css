@@ -99,7 +99,6 @@ a {
   font-size: 20pt;
   font-weight: bold;
 }
-
 .input-container {
   margin: 40px;
   color: #ffffff;
@@ -108,7 +107,6 @@ a {
   justify-content: center;
   width: 300px;
 }
-
 .submit-btn {
   background-color: rgba(51, 0, 255, 0.942);
   padding: 5px 10px;
@@ -120,45 +118,37 @@ a {
 .movies-page {
   padding: 20px;
 }
-
 .movies-title {
-  color: #ffffff;
+  color: #cac9c9;
+  text-align: center;
+  margin: 50px 0;
 }
-
-.movies-text {
-  color: #ffffff;
-  font-size: 15pt;
-}
-
 .movies-flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 .card {
-  color: white;
-  width: 350px;
-  height: 350px;
+  color: rgb(34, 170, 165);
+  width: 280px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin: 10px;
   border: 2px solid #484747;
-  background-color: #000000;
+  background-color: #181818;
 }
-
 .card-title {
   margin-bottom: 10px;
 }
-
 .card-link {
-  margin-bottom: 20px;
   color: #00d9ff;
+  font-size: 12pt;
 }
-
 .movies-image {
-  width: 150px;
+  width: 120px;
+  margin-bottom: 10px;
 }
 
 .movie-detail-card {
