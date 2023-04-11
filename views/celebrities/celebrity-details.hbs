@@ -1,6 +1,9 @@
 <h1 class="movies-title">Celebrity:</h1>
 
 <div class="movie-detail-card">
+  {{#if celebrityData.image}}
+    <img src="{{celebrityData.image}}" alt={{celebrityData.name}} />
+  {{/if}}
   <div>
     <h1 class="detail-title">Name </h1>
     <p class="celebrity-text">{{celebrityData.name}}</p>
