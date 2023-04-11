@@ -59,26 +59,23 @@ a {
 }
 
 .layout-nav {
-  border: 2px solid #484747;
-  background-color: #000000;
-  padding: 5px;
+  background-color: #252525;
+  padding: 15px;
   text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
-  margin: 0 100px;
 }
 .container-layout {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0 30px;
 }
 .container-layout img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   background-size: cover;
   margin: 0 20px;
   display: flex;
@@ -87,14 +84,14 @@ a {
   align-items: center;
 }
 .container-layout a {
-  font-size: 12pt;
+  font-size: 10pt;
   text-decoration: none;
-  border-radius: 15px;
+  border-radius: 7px;
   padding: 3px;
   margin-top: 15px;
-  color: white;
+  color: black;
   border: 1px solid red;
-  background-color: #ff0000;
+  background-color: #f92121;
 }
 
 .create-title {
