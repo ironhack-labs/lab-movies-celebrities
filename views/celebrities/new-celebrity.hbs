@@ -1,20 +1,24 @@
-<h2 class="create-title">
+<h2 class="movies-title">
   Create a Celebrity
 </h2>
-<div>
-<form class="input-container" action="/celebrities/create" method="post">
-  <label>Celebrity Name:
-    <input type="text" name="name" />
-  </label>
-  <label>Occupation:
-    <input type="text" name="occupation" />
-  </label>
-  <label>Catch Phrase:
-    <input type="text" name="catchPhrase" />
-  </label>
-  </div>
-  <div >  
+<div class="movie-create-card">
+  <h3 class="details-text">
+    Insert Celebrity details
+  </h3>
+  <form class="input-container" action="/celebrities/create" method="post">
+    <label>Celebrity Name:
+      <input type="text" name="name" />
+    </label>
+    <label>Occupation:
+      <input type="text" name="occupation" />
+    </label>
+    <label>Catch Phrase:
+      <input type="text" name="catchPhrase" />
+    </label>
+
+  </form>
+
+  <div>
     <button class="submit-btn" type="submit">Submit</button>
   </div>
-
-</form>
+</div>

@@ -99,13 +99,39 @@ a {
   font-size: 20pt;
   font-weight: bold;
 }
+.movie-create-card {
+  display: flex;
+  flex-direction: row;
+  margin: 0 100px;
+  padding: 0 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 2px solid #484747;
+  background-color: #181818;
+}
+.details-text {
+  color: white;
+}
 .input-container {
-  margin: 40px;
+  margin: 150px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 300px;
+  padding: 50px;
+  width: 600px;
+  border: 3px solid #8ebbbb;
+  background-color: #141414;
+}
+.input-container label {
+  padding: 10px;
+  font-size: 15pt;
+}
+.input-container select {
+  padding: 10px;
+}
+.input-container div {
+  padding: 10px;
 }
 .submit-btn {
   background-color: rgba(51, 0, 255, 0.942);
