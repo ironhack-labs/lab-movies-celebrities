@@ -189,6 +189,12 @@ a {
   padding: 10px;
 }
 
+.celebrity-text {
+  color: white;
+  font-size: 15pt;
+  border: 2px solid #484747;
+}
+
 .edit-delete {
   text-align: center;
   margin-top: 50px;

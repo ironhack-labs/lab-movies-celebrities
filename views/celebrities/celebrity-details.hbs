@@ -1,15 +1,25 @@
-<div class="container-fluid">
-    <div class="container">
-    <div class="text-white text-center bg-secondary rounded-4 w-50 p-3 m-5">
-        <h1>Name: {{celebrityData.name}}</h1>
-        <h2>Occupation: {{celebrityData.occupation}}</h2>
-        <h3>Catch Phrase: {{celebrityData.catchPhrase}}</h3>
-            <form action="edit/{{celebrityData._id}}" method="get">
-        <button class="btn btn-success px-5 py-3 m-2" type="submit">Edit</button>
+<h1 class="movies-title">Celebrity:</h1>
+
+<div class="movie-detail-card">
+  <div>
+    <h1 class="detail-title">Name </h1>
+    <p class="celebrity-text">{{celebrityData.name}}</p>
+    <h2 class="detail-title">Occupation:</h2>
+    <p class="celebrity-text"> {{celebrityData.occupation}}</p>
+  </div>
+
+  <div>
+    <h3 class="detail-title">Catch Phrase:</h3>
+    <p class="movies-plot">{{celebrityData.catchPhrase}}</p>
+  </div>
+
+</div>
+
+<div class="edit-delete">
+  <a class="card-link" href="/movies/edit/{{celebrityData._id}}">edit movie</a>
+  <div class="delete">
+    <form action="/movies/{{celebrityData._id}}/delete" method="post">
+      <button class="btn btn-danger" type="submit">Delete</button>
     </form>
-    <form action="delete/{{celebrityData._id}}" method="post">
-        <button class="btn btn-danger px-5 py-3 m-2" type="submit">Delete</button>
-    </form>
-    </div>
-    </div>
+  </div>
 </div>
