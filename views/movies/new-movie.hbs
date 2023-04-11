@@ -12,6 +12,7 @@
       <input type="text" name="title" />
     </label>
 
+    <label>Director: </label>
     <select name="director" multiple>
       {{#each allDirectors}}
         <option value="{{_id}}">{{name}}</option>
@@ -30,6 +31,7 @@
       <input type="text" name="image" />
     </label>
 
+    <label>Cast: </label>
     <select name="cast" multiple>
       {{#each allActors}}
         <option value="{{_id}}">{{name}}</option>
