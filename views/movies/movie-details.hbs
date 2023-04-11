@@ -6,7 +6,12 @@
   {{/if}}
 
   <div>
-    <h2 class="detail-title"><strong>cast</strong></h2>
+    <h2 class="detail-title"><strong>Director</strong>
+    </h2>
+    <ul class="detailed-list">
+      <li class="list-name">{{oneMovie.director}}</li>
+    </ul>
+    <h2 class="detail-title"><strong>Cast</strong></h2>
     <ul class="detailed-list">
       {{#each oneMovie.cast}}
         <li class="list-name">{{name}}

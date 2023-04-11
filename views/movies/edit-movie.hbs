@@ -6,9 +6,16 @@
   <h2 class="card-title">
     Edit the movie
   </h2>
+
   <label>Movie Title:
     <input type="text" name="title" value="{{oldMovie.title}}" />
   </label>
+
+  <select name="cast" multiple>
+    {{#each allDirector}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
 
   <label>Genre:
     <input type="text" name="genre" value="{{oldMovie.genre}}" />
@@ -23,7 +30,7 @@
   </label>
 
   <select name="cast" multiple>
-    {{#each allCelebrity}}
+    {{#each allActor}}
       <option value="{{_id}}">{{name}}</option>
     {{/each}}
   </select>

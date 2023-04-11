@@ -12,6 +12,12 @@
       <input type="text" name="title" />
     </label>
 
+    <select name="director" multiple>
+      {{#each allDirectors}}
+        <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
+
     <label>Genre:
       <input type="text" name="genre" />
     </label>
@@ -25,7 +31,7 @@
     </label>
 
     <select name="cast" multiple>
-      {{#each allCelebrity}}
+      {{#each allActors}}
         <option value="{{_id}}">{{name}}</option>
       {{/each}}
     </select>

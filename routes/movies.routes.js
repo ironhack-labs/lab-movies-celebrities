@@ -3,8 +3,9 @@ const MovieModel = require("../models/movie.model");
 const CelebrityModel = require("../models/Celebrity.model");
 
 router.get("/create", async (req, res) => {
-  const allCelebrity = await CelebrityModel.find();
-  res.render("movies/new-movie", { allCelebrity });
+  const allActors = await CelebrityModel.find({ occupation: "Actor" });
+  const allDirectors = await CelebrityModel.find({ occupation: "Director" });
+  res.render("movies/new-movie", { allActors, allDirectors });
 });
 
 router.get("/all", async (req, res) => {
@@ -15,8 +16,9 @@ router.get("/all", async (req, res) => {
 router.get("/edit/:movieId", async (req, res) => {
   const { movieId } = req.params;
   const oldMovie = await MovieModel.findById(movieId).populate("cast");
-  const allCelebrity = await CelebrityModel.find();
-  res.render("movies/edit-movie", { oldMovie, allCelebrity });
+  const allActors = await CelebrityModel.find({ occupation: "Actor" });
+  const allDirectors = await CelebrityModel.find({ occupation: "Director" });
+  res.render("movies/edit-movie", { oldMovie, allActors, allDirectors });
 });
 
 router.post("/edit/:movieId", async (req, res) => {
