@@ -7,11 +7,11 @@ router.get("/create", (req, res) => {
 });
 
 router.get("/all", async (req, res) => {
-  try{
+  try {
     const allCelebrities = await CelebrityModel.find();
-    res.render("celebrities/celebrities", {allCelebrities});
-  }catch(err){
-     console.log("There was an error", err);
+    res.render("celebrities/celebrities", { allCelebrities });
+  } catch (err) {
+    console.log("There was an error", err);
   }
 });
 
@@ -26,48 +26,50 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.get("/:celebrityId", async (req,res) => {
-  try{
-    const {celebrityId} = req.params;
+router.get("/:celebrityId", async (req, res) => {
+  try {
+    const { celebrityId } = req.params;
     const celebrityData = await celebrityModel.findById(celebrityId);
     console.log(celebrityData);
-    res.render("celebrities/celebrity-details", {celebrityData});
-  }catch(err){
+    res.render("celebrities/celebrity-details", { celebrityData });
+  } catch (err) {
     console.log("There was an error", err);
   }
-})
+});
 
 router.get("/edit/:celebrityId", async (req, res) => {
-  try{
-    const {celebrityId} = req.params;
+  try {
+    const { celebrityId } = req.params;
     const celebrityData = await CelebrityModel.findById(celebrityId);
     console.log(celebrityData);
-    res.render("celebrities/celebrity-edit", {celebrityData});
-  }catch(err){
+    res.render("celebrities/celebrity-edit", { celebrityData });
+  } catch (err) {
     console.log("There was an error", err);
   }
-})
+});
 
 router.post("/edit/:celebrityId", async (req, res) => {
-  try{
-    const {celebrityId} = req.params;
-    console.log(req.body)
-    const editedCelebirty = await CelebrityModel.findByIdAndUpdate({ _id: celebrityId },
-      req.body)
-     res.redirect("/celebrities/all")
-  }catch(err){
+  try {
+    const { celebrityId } = req.params;
+    console.log(req.body);
+    const editedCelebirty = await CelebrityModel.findByIdAndUpdate(
+      { _id: celebrityId },
+      req.body
+    );
+    res.redirect("/celebrities/all");
+  } catch (err) {
     console.log("There was an error", err);
   }
-})
+});
 
-router.post("/delete/:celebrityId", async (req,res) => {
-  try{
-     const {celebrityId} = req.params
-     const deletedCelebrity = await CelebrityModel.findByIdAndDelete(celebrityId);
-     res.redirect("/celebrities/all")
-  }catch(err){
+router.post("/delete/:celebrityId", async (req, res) => {
+  try {
+    const { celebrityId } = req.params;
+    await CelebrityModel.findByIdAndDelete(celebrityId);
+    res.redirect("/celebrities/all");
+  } catch (err) {
     console.log("There was an error", err);
   }
-})
+});
 
 module.exports = router;
