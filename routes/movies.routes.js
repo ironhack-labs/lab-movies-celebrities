@@ -51,16 +51,17 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.post("/:movieId/delete", async (req,res) => {
-  try{
-    const {movieId} = req.params;
-    const deletedMovie = await MovieModel.findByIdAndRemove(movieId)
-    .then(() => {
-      res.redirect('/movies/all')
-    })
-  }catch(err){
-       console.log("There was an error", err);
+router.post("/:movieId/delete", async (req, res) => {
+  try {
+    const { movieId } = req.params;
+    const deletedMovie = await MovieModel.findByIdAndRemove(movieId).then(
+      () => {
+        res.redirect("/movies/all");
+      }
+    );
+  } catch (err) {
+    console.log("There was an error", err);
   }
-})
+});
 
 module.exports = router;
