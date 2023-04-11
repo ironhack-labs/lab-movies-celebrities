@@ -34,10 +34,45 @@ router.get("/movies/:id", (req, res) => {
   Movie.findById(id)
     .populate({
       path: "cast",
-      select: "-_id name occupation catchPhrase",
+      select: "-_id", // Ask Josh or Rico about the Syntax
     })
     .then((movie) => res.render("movies/movie-detail", movie))
     .catch((err) => console.error(err));
+});
+
+//route for deleting movies
+router.post("/movies/:id/delete", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedMovie = await Movie.findByIdAndRemove(id);
+    console.log(deletedMovie);
+    res.redirect("/movies");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+//route for editing movies
+router.get("/movies/:id/edit", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const movieToUpdate = await Movie.findById(id);
+    const celebrityToUpdate = await Celebrity.find();
+    res.render("movies/edit-movie", { movieToUpdate, celebrityToUpdate });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/movies/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { title, genre, plot, cast } = req.body;
+    await Movie.findByIdAndUpdate(id, { title, genre, plot, cast });
+    res.redirect("/movies/movie-detail");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
