@@ -1,23 +1,28 @@
-<div class="movie-detail-card">
-  <h2 class="detail-title">{{oneMovie.title}}</h2>
+<h2 class="movies-title">{{oneMovie.title}}</h2>
 
+<div class="movie-detail-card">
   {{#if oneMovie.image}}
-    <img class="image" src="{{oneMovie.image}}" alt={{oneMovie.title}} />
+    <img src="{{oneMovie.image}}" alt={{oneMovie.title}} />
   {{/if}}
 
-  <h2 class="detail-title"><strong>cast</strong></h2>
+  <div>
+    <h2 class="detail-title"><strong>cast</strong></h2>
+    <ul class="detailed-list">
+      {{#each oneMovie.cast}}
+        <li class="list-name">{{name}}</li>
+      {{/each}}
+    </ul>
+    <h2 class="detail-title"><strong>Plot</strong></h2>
+    <p class="movies-plot">{{oneMovie.plot}}</p>
+  </div>
 
-  <ul class="detailed-list">
-    {{#each oneMovie.cast}}
-      <li class="list-name">{{name}}</li>
-    {{/each}}
-  </ul>
+</div>
 
-  <br />
-  <p class="movies-plot">{{oneMovie.plot}}</p>
-
+<div class="edit-delete">
   <a class="card-link" href="/movies/edit/{{oneMovie._id}}">edit movie</a>
-<form action="/movies/{{oneMovie._id}}/delete" method="post">
-     <button class="btn btn-danger" type="submit">Delete</button>
-</form>
+  <div class="delete">
+    <form action="/movies/{{oneMovie._id}}/delete" method="post">
+      <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
+  </div>
 </div>
