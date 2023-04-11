@@ -20,8 +20,7 @@
   <label>Occupation:</label>
   <select name="occupation">
     <option value="Actor">Actor</option>
-    <option value="Director">Director</option>
-
+    <option value="Director" {{#if (eq celebrityData.occupation "Director")}}selected{{/if}}>Director</option>
   </select>
 
   <label>Catch Phrase:</label>

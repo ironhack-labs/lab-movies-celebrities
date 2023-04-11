@@ -15,6 +15,10 @@ const hbs = require("hbs");
 
 const app = express();
 
+hbs.registerHelper({
+  eq: (v1, v2) => v1 === v2,
+});
+
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
 
