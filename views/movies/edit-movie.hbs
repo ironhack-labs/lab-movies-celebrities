@@ -8,10 +8,11 @@
 
   <label for="plot">Plot:</label>
   <textarea name="plot" id="plot" >{{movie.plot}}</textarea>
-<label for="cast"> Cast</label>
+<label for="cast"> Cast
   <select name="cast" id="cast">
+    </label>
     {{#each celebrityToUpdate}}
-      <option value="{{_id}}" selected>{{name}}</option>
+      <option value={{this.id}} selected>{{name}}</option>
     {{/each}}
   </select>
 
