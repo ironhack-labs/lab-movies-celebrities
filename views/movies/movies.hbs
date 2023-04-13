@@ -1,4 +1,5 @@
 <h2>Movies list</h2>
+<h3>Click on the title for more details</h3>
 {{#each allMovies}}
-  {{title}}
+  <a href="/movies/{{_id}}">{{title}}</a>
 {{/each}}
