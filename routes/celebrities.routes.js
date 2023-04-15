@@ -1,6 +1,7 @@
 
 
 const router = require("express").Router();
+
 const CelebrityModel = require("../models/Celebrity.model");
 
 
@@ -12,10 +13,11 @@ router.get('/create', async (req, res) => {
 
 //send result from form to db
 router.post('/create', async (req, res) => {
-console.log("here we are")
+console.log("sending form to db")
 try{
     await CelebrityModel.create(req.body);
-    res.redirect('/celebrities');
+    console.log("redirecting to list")
+    res.redirect('/celebrities/celebrities-list');
 }
 
 catch(err){
@@ -23,6 +25,23 @@ catch(err){
 res.redirect('/create');
 }
 });
+
+router
+.route('/celebrities-list')
+
+.get( (req, res) => {
+    CelebrityModel.find()
+    .then(celebsList => {
+    console.log("trying to render list", celebsList)
+    res.render("celebrities/celebrities-list", {celebs: celebsList})
+})
+.catch(error =>{
+    console.log("could not render list", error);
+    next(error);
+});
+});
+
+
 
 
 
