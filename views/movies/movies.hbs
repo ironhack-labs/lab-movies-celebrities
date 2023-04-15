@@ -1,0 +1,10 @@
+<h1>List of Movies</h1>
+
+{{#each movies}}
+<h3>{{title}}</h3>
+<h4>{{genre}}</h4>
+<a href='/movies/{{_id}}'>See more!</a>
+<hr>
+{{/each}}
+
+<a href="../">Back to start page</a>

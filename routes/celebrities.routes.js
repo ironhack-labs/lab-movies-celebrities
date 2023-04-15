@@ -28,7 +28,6 @@ res.redirect('/create');
 
 router
 .route('/celebrities-list')
-
 .get( (req, res) => {
     CelebrityModel.find()
     .then(celebsList => {
