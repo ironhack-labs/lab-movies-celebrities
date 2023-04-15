@@ -9,4 +9,4 @@ const celebritySchema = new Schema(
   { timestamps: true }
 );
 
-module.experts = model("Celebrity", celebritySchema);
+module.exports = model("Celebrity", celebritySchema);
