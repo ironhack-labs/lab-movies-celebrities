@@ -16,15 +16,19 @@ router.get("/movies/create", (req, res, next) => {
 });
 
 router.post("/movies/create", (req, res, next) => {
-  const { name, genre, plot, cast } = req.body;
-  Movie.find({ name, genre, plot, cast })
+  const { movie, genre, plot, cast } = req.body;
+  Movie.findOne({ movie, genre, plot })
     .then((movieDocFromDB) => {
       if (!movieDocFromDB) {
         // prettier-ignore
-        Movie.create({ name, genre, plot, cast })
-        .then(() => res.redirect('/movies'));
+        console.log(movieDocFromDB);
+
+        Movie.create({ movie, genre, plot, cast }).then(() =>
+          res.redirect("/movies")
+        );
       } else {
-        res.render("movies/create", {
+        console.log(movieDocFromDB);
+        res.render("movies/new-movie", {
           message: "It seems that movie is already in our database. ☀️",
         });
         return;

@@ -3,7 +3,7 @@
 <form action="/movies/create" method="POST">
   <label>
     Name:
-    <input type="text" name="name" />
+    <input type="text" name="movie" />
   </label>
   <br />
 
@@ -20,10 +20,10 @@
 
   <label for="celebrity">Choose a celebrity:</label>
 
-  <select name="celebrity" id="celebrity" multiple>
-    <option value="chanquete">Chanquete</option>
-    <option value="juana">Juana de Arco</option>
-    <option value="vamos">VAMOOOOOS</option>
+  <select name="cast" id="cast" multiple>
+    {{#each movie}}
+      <option value={{movie}}>{{movie}}</option>
+    {{/each}}
   </select>
 
   <button type="submit"> Create movie </button>
