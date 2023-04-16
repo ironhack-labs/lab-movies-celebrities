@@ -2,16 +2,16 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
-// router.get("/", (req, res, next) => {
-//   Celebrity.find()
-//     .then((celebrities) => {
-//       res.render("celebrities/celebrities", { celebrities });
-//     })
-//     .catch((error) => {
-//       console.log("Error when listing celebrities", error);
-//       next(error);
-//     });
-// });
+router.get("/", (req, res, next) => {
+  Celebrity.find()
+    .then((celebrities) => {
+      res.render("celebrities/celebrities", { celebrities });
+    })
+    .catch((error) => {
+      console.log("Error when listing celebrities", error);
+      next(error);
+    });
+});
 
 router.get("/create", (req, res) => {
   res.render("celebrities/new-celebrity");
