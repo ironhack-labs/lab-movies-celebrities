@@ -48,9 +48,18 @@ router.post('/create', async (req, res) => {
         .then(theMovie =>  res.render('movies/movie-details', {movie:theMovie}))
        .catch(error => {
            console.log( 'error while rendering movie details', error)
-       })
+       });
        
-    })
+    });
+
+    router.post('/:movieId/delete', (req, res,next)=>{
+        const {movieId} = req.params;
+        console.log('trying to delete movie')
+
+        MovieModel.findByIdAndDelete(movieId)
+        .then(()=> res.redirect('/movies/movies'))
+        .catch(error => console.log(`problem deleting movie`, error));
+    });
     
     
 

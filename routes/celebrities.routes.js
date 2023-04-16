@@ -29,7 +29,7 @@ res.redirect('/create');
 router
 .route('/celebrities-list')
 .get( (req, res) => {
-    CelebrityModel.find()
+    CelebrityModel.find(id)
     .then(celebsList => {
     console.log("trying to render list", celebsList)
     res.render("celebrities/celebrities-list", {celebs: celebsList})
