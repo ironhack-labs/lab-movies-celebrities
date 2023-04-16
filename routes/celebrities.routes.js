@@ -6,9 +6,8 @@ const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
 router.get("/celebrities", (req, res, next) => {
-  Celebrity.find().then((celebs) => {
-    let allCelebs = celebs;
-    res.render("celebrities/celebrities", [allCelebs]);
+  const celebArr = Celebrity.find().then((celebArr) => {
+    res.render("celebrities/celebrities", { celebArr });
   });
 });
 
