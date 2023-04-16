@@ -18,8 +18,8 @@ router.get("/celebrities/create", (req, res, next) => {
 router.post("/celebrities/create", (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body;
   Celebrity.findOne({ name, occupation, catchPhrase })
-    .then((userDocFromDB) => {
-      if (!userDocFromDB) {
+    .then((celebrityDocFromDB) => {
+      if (!celebrityDocFromDB) {
         // prettier-ignore
         Celebrity.create({ name, occupation, catchPhrase })
         .then(() => res.redirect('/celebrities'));

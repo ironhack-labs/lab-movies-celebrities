@@ -1,1 +1,36 @@
 <h1>New movie page</h1>
+
+<form action="/movies/create" method="POST">
+  <label>
+    Name:
+    <input type="text" name="name" />
+  </label>
+  <br />
+
+  <label>
+    Genre:
+    <input type="text" name="genre" />
+  </label>
+  <br />
+
+  <label>
+    Plot:
+    <input type="text" name="plot" />
+  </label>
+
+  <label for="celebrity">Choose a celebrity:</label>
+
+  <select name="celebrity" id="celebrity" multiple>
+    <option value="chanquete">Chanquete</option>
+    <option value="juana">Juana de Arco</option>
+    <option value="vamos">VAMOOOOOS</option>
+  </select>
+
+  <button type="submit"> Create movie </button>
+</form>
+
+<div>
+  {{#if message}}
+    <p><b>{{message}}</b></p>
+  {{/if}}
+</div>
