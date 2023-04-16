@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const Movie = require("../models/Movie.model.js");
-const Celebrity = require("../models/Celebrity.model.js");
+const Movie = require("../models/Movie.model");
+const Celebrity = require("../models/Celebrity.model");
 
 // all your routes here
 router.get("/", (req, res, next) => {
