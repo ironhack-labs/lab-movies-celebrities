@@ -60,7 +60,24 @@ router.post('/create', async (req, res) => {
         .then(()=> res.redirect('/movies/movies'))
         .catch(error => console.log(`problem deleting movie`, error));
     });
-    
+    router.post('/:movieId/edit', (req,res)=>{
+        const {movieId} = req.params;
+        MovieModel.findById(movieId)
+        .then((theMovie)=> res.render ('movies/edit-movie', {movie:theMovie}))
+        .catch(error=> {
+            console.log('coulden´t load edit page', error)
+        })
+    })
+
+    router.post('/:movieId', (req,res,next)=>{
+        const {movieId} = req.params;
+        const {title, genre, plot} = req.body;
+        MovieModel.findByIdAndUpdate(movieId, {title, genre, plot}, {new:true})
+        .then(updatedMovie => res.redirect(`/movies/${updatedMovie.id}`)) 
+    .catch(error => next(error));
+
+
+    })
     
 
 module.exports = router;
