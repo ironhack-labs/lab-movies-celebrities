@@ -17,10 +17,23 @@ router.get("/celebrities/create", (req, res, next) => {
 });
 
 router.post("/celebrities/create", (req, res, next) => {
-  const { celebrity } = req.body;
-  console.log(req.body);
-  Celebrity.create({ celebrity });
-  console.log(celebrity);
+  const { name, occupation, catchPhrase } = req.body;
+  Celebrity.findOne({ name, occupation, catchPhrase })
+    .then((userDocFromDB) => {
+      if (!userDocFromDB) {
+        // prettier-ignore
+        Celebrity.create({ name, occupation, catchPhrase })
+        .then(() => res.redirect('/celebrities'));
+      } else {
+        res.render("celebrities/create", {
+          message: "It seems that celebrity is already in our database. ☀️",
+        });
+        return;
+      }
+    })
+    .catch((err) =>
+      console.log(`Error while creating a new celebrity: ${err}`)
+    );
 });
 
 module.exports = router;
