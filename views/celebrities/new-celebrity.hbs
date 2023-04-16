@@ -1,6 +1,6 @@
 <h2>New celebrity page</h2>
 
-<form action="/create" method="POST">
+<form action="/celebrities/create" method="POST">
   <label>
     Name:
     <input type="text" name="name" />
@@ -15,8 +15,14 @@
 
   <label>
     Catch Phrase:
-    <input type="text" name="catchphrase" />
+    <input type="text" name="catchPhrase" />
   </label>
 
   <button type="submit"> Create celebrity </button>
 </form>
+
+<div>
+  {{#if message}}
+    <p><b>{{message}}</b></p>
+  {{/if}}
+</div>

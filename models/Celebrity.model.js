@@ -4,15 +4,15 @@ const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema(
   {
-    name: String,
-    occupation: String,
-    catchPhrase: String,
+    name: { type: String },
+    occupation: { type: String },
+    catchPhrase: { type: String },
   },
   {
     timestamps: true,
   }
 );
 
-const Celebrity = model("User", celebritySchema);
+const Celebrity = model("Celebrity", celebritySchema);
 
 module.exports = Celebrity;
