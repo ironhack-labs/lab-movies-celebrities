@@ -48,4 +48,8 @@ router.post("/create", (req, res) => {
     .catch((err) => console.log(`Error while creating a new movie: ${err}`));
 });
 
+router.get("/:movieId", async (req, res) => {
+  const movie = await Movie.findById(req.params.movieId);
+  res.render("movies/movie-details", { movie });
+});
 module.exports = router;
