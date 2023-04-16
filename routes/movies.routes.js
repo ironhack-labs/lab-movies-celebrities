@@ -33,4 +33,29 @@ router.get('/movies', (req, res, next) => {
     });
 });
 
+router.get('/movies/:movieId', (req, res, next) => {
+    const { movieId } = req.params;
+  
+    Movie.findById(movieId)
+      .populate('cast')
+      .then((theMovie) => res.render('movies/movie-details.hbs', { movie: theMovie }))
+      .catch((error) => {
+        console.log('Error while retrieving movie details: ', error);
+  
+        next(error);
+      });
+  });
+
+router.post('/movies/:movieId/delete', (req, res, next) => {
+    const { movieId } = req.params;
+
+    Movie.findByIdAndRemove(movieId)
+      .then(() => res.redirect('/movies'))
+      .catch((error) => {
+        console.log('Error while deleting movie: ', error);
+
+        next(error);
+      });
+});
+
 module.exports = router;
