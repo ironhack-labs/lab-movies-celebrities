@@ -36,7 +36,9 @@ router.post("/create", (req, res) => {
         return;
       }
     })
-    .catch((err) => console.log(`Error while creating a new user: ${err}`));
+    .catch((err) =>
+      console.log(`Error while creating a new celebrity: ${err}`)
+    );
 });
 
 module.exports = router;
