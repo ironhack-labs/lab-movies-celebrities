@@ -2,15 +2,26 @@ const router = require("express").Router();
 const MovieModel = require("../models/movie.model");
 const CelebrityModel = require("../models/Celebrity.model");
 
+router.get("/all", async (req, res) => {
+  const allMovies = await MovieModel.find();
+  res.render("movies/movies", { allMovies });
+});
+
 router.get("/create", async (req, res) => {
   const allActors = await CelebrityModel.find({ occupation: "Actor" });
   const allDirectors = await CelebrityModel.find({ occupation: "Director" });
   res.render("movies/new-movie", { allActors, allDirectors });
 });
 
-router.get("/all", async (req, res) => {
-  const allMovies = await MovieModel.find();
-  res.render("movies/movies", { allMovies });
+router.post("/create", async (req, res) => {
+  try {
+    const newMovie = await MovieModel.create(req.body);
+    console.log("New Movie Created ", newMovie);
+    res.redirect("/movies/all");
+  } catch (err) {
+    console.log("there was an error", err);
+    res.redirect("/movies/create");
+  }
 });
 
 router.get("/edit/:movieId", async (req, res) => {
@@ -40,17 +51,6 @@ router.get("/:movieId", async (req, res) => {
   const { movieId } = req.params;
   const oneMovie = await MovieModel.findById(movieId).populate("cast");
   res.render("movies/movie-details", { oneMovie });
-});
-
-router.post("/create", async (req, res) => {
-  try {
-    const newMovie = await MovieModel.create(req.body);
-    console.log("New Movie Created ", newMovie);
-    res.redirect("/movies/all");
-  } catch (err) {
-    console.log("there was an error", err);
-    res.redirect("/movies/create");
-  }
 });
 
 router.post("/:movieId/delete", async (req, res) => {
