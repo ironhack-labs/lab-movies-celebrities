@@ -39,14 +39,16 @@ router.post('/create', async (req, res) => {
     });
     });
 
-    router.get('/movies/:movieId', (req, res, next)=>{
-        const { movieId } = req.params;
-        console.log('the movies id is ', movieId)
+    router.get('/:movieId', (req, res)=>{
+        const {movieId} = req.params;
+
+        console.log('the movie id is ', movieId);
+        
         MovieModel.findById(movieId)
         .then(theMovie =>  res.render('movies/movie-details', {movie:theMovie}))
-        .catch(error => {
-            console.log( 'error while rendering movie details', error)
-        })
+       .catch(error => {
+           console.log( 'error while rendering movie details', error)
+       })
        
     })
     
