@@ -34,5 +34,16 @@ router.post("/create", (req, res, next) => {
       res.render("movies/new-movie");
     });
 });
+router.get("/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log('id=', id)
+
+  // Movie.findOne({_id: id})
+  Movie.findById(id)
+    .then((movie) => res.render("movies/movie-details", { movie: movie }))
+    .catch((error) => {
+      console.error("Error when getting movie", error);
+    })
+})
 
 module.exports = router;

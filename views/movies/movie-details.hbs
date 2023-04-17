@@ -1,0 +1,9 @@
+<h2>Detail Film</h2>
+<div>
+  <p>Title: {{movie.title}}</p>
+  <p>Genre: {{movie.genre}}</p>
+  <p>Plot: {{movie.plot}}</p>
+  {{#each celebrities}}
+    <option value="{{_id}}">{{name}}</option>
+  {{/each}}
+</div>
