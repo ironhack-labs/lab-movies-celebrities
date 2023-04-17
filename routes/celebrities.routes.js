@@ -33,5 +33,18 @@ router.post('/:celebrityId/delete', async(req, res)=>{
     res.redirect('/celebrities/celebrities')
 })
 
+router.get('/:celebrityId/edit', async(req, res)=>{
+    const celebrityId = req.params.celebrityId
+    const celebrity = await Celebrity.findById(celebrityId)
+    res.render('celebrities/edit-celebrity', {celebrity})
+})
+
+router.post('/:celebrityId/edit', async(req, res)=>{
+    const celebrityId = req.params.celebrityId
+    const updatedCelebrity = req.body
+    const celebrity = await Celebrity.findByIdAndUpdate(celebrityId, updatedCelebrity)
+    res.redirect(`/celebrities/${celebrityId}`)
+})
+
 
 module.exports = router;
