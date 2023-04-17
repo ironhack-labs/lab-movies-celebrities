@@ -3,7 +3,7 @@ const {Schema, model} = require('mongoose');
 const celebritySchema = new Schema ({
     name: String,
     occupation: String, 
-    catchPhrase: String,
+    catchphrase: String,
 });
 
 const celebrity = model("Celebrity", celebritySchema);

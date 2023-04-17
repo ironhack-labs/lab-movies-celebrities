@@ -6,9 +6,7 @@ router.get('/celebrities', (req, res, next) => {
     Celebrity
         .find()
         .then(listFromDB => {
-            const data = {celebrity : listFromDB} 
-            console.log(data)
-            res.render('celebrities/celebrities',data)
+            res.render('celebrities/celebrities', {listFromDB})
         })
         .catch(err => console.log(`an error happened ${err}`));
 })
@@ -18,6 +16,7 @@ router.get('/celebrity/create' , (req, res, next) =>{
 });
 
 router.post('/celebrity/create', (req, res, next) => {
+    console.log("Hello, look what's inside",req.body)
     const {name, occupation, catchphrase} = req.body
     Celebrity.create({ name, occupation, catchphrase })
         .then(() => {
