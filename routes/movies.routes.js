@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie.model");
+const Celebrity = require("../models/Celebrity.model");
 
 //GET Movies
 router.get("/", async (req, res) => {
@@ -8,8 +9,9 @@ router.get("/", async (req, res) => {
 });
 
 // GET create
-router.get("/create", (req, res) => {
-  res.render("movies/new-movie");
+router.get("/create", async (req, res) => {
+  const celebrities = await Celebrity.find();
+  res.render("movies/new-movie", { celebrities });
 });
 
 // POST create

@@ -1,0 +1,14 @@
+<div>
+  <form action="create" method="POST">
+    <input type="text" name="title" />
+    <input type="text" name="genre" />
+    <input type="text" name="plot" />
+    <select name="cast" multiple>
+      {{#each celebrities}}
+        <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
+    <button type="submit">Add</button>
+  </form>
+
+</div>
