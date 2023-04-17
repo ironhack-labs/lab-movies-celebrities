@@ -28,8 +28,11 @@ router.post("/create", (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
 
   Movie.create({ title, genre, plot, cast })
-    .then((movieFromDB) => res.redirect("/movies"))
-    .catch((error) => res.render("movies/new-movie"));
+    .then(() => res.redirect("/movies"))
+    .catch((error) => {
+      console.error("Error when creating movie");
+      res.render("movies/new-movie");
+    });
 });
 
 module.exports = router;
