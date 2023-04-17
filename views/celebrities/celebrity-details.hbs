@@ -1,0 +1,18 @@
+
+
+{{#with celebrityDetails}}
+<h1>Name: {{name}}</h1>
+<h5>Catch Phrase: </h5>
+<h6>{{catchPhrase}}</h6>
+<h5>Occupation: </h5>
+<h6>{{Occupation}}</h6>
+
+<form action="/celebrities/{{_id}}/delete" method="post">
+    <label>
+        Delete this celebrity from collection
+        <button type="submit">Delete</button>
+    </label>
+</form>
+<p>Edit this celebrity <a href="/celebrities/{{_id}}/edit"><button>Edit</button></a></p>
+
+{{/with}}

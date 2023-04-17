@@ -1,0 +1,23 @@
+{{#with movie}}
+    <h1>Title: {{title}}</h1>
+    <h5>Genre: </h5> <h6>{{genre}}</h6>
+    <h5>Plot: </h5> <h6>{{plot}}</h6>
+    <h5>Cast: </h5>
+    {{#each cast}}
+    <ul>
+        <li>
+            <h6>
+                {{name}}
+            </h6>
+        </li>
+    </ul>
+    {{/each}}
+    <form action="/movies/{{_id}}/delete" method="post">
+        <label >
+            Delete this movie from collection 
+            <button type="submit">Delete</button>
+        </label>
+    </form>
+    <p>Edit this movie <a href="/movies/{{_id}}/edit"><button>Edit</button></a></p>
+
+{{/with}}
