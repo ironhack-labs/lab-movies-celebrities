@@ -57,7 +57,7 @@ router.post("/:movieID/delete", async (req, res) => {
 
 router.get("/:movieID/edit", async(req,res) => {
 
-  const { movieID } = req.params;
+  const { movieID } = req.params; 
   const movieToEdit = await MovieModel.findById(movieID).populate("cast");
   const allCelebs = await CelebModel.find();
 

@@ -49,5 +49,42 @@ body {
   /* border: solid 2px green; */
 }
 
+#new-celeb-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
 
+.create-new-button {
+  color: #3579F6;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 15px;
+  border: none;
+}
 
+#celebs-list {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#new-movie-form {
+  margin-top: 50px;
+}
+
+#movie-link {
+  color: black;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#movie-info-bar {
+  font-size: 25px;
+}
+
+#delete-edit-buttons {
+  display: flex;
+  gap: 20px;
+}

@@ -1,5 +1,8 @@
-<h2>Movies list</h2>
-<h3>Click on the title for more details</h3>
-{{#each allMovies}}
-  <a href="/movies/{{_id}}">{{title}}</a>
-{{/each}}
+<div class="container">
+  <h2>Movies list</h2>
+  <h5>Click on the title for more details</h5>
+  {{#each allMovies}}
+     <a href="/movies/{{_id}}" id="movie-link">{{title}}</a>
+  {{/each}} 
+
+</div>
