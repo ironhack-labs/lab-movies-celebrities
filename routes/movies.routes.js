@@ -7,7 +7,7 @@ const Movie = require("../models/Movie.model");
 
 router.get("/", async (req, res, next) => {
   try {
-    const movies = await Movie.find().populate("celebrity");
+    const movies = await Movie.find();
     res.render("movies/movies", { movies });
   } catch (error) {
     res.render("error", { error });
@@ -21,9 +21,17 @@ router.get("/create", (req, res, next) => {
     .catch((error) => res.render("error", { error }));
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const movie = await Movie.findById(req.params.id).populate("celebrities");
+    res.render("movies/movie-details", { movie });
+  } catch (error) {
+    res.render("error", { error });
+  }
+});
+
 router.post("/create", async (req, res, next) => {
   const { body } = req;
-  const { cast: celebrityId } = req.body;
   try {
     const movie = await Movie.create(body);
     res.redirect("/");
