@@ -6,3 +6,46 @@ body {
 a {
   color: #00b7ff;
 }
+
+#index-body {
+  background-image: url('/images/oscars.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title-content {
+  padding: 50px;
+  background-color: rgba(211, 211, 211, 0.8);
+}
+
+#content-list {
+  font-size: 20px;
+  line-height: 80px;
+}
+
+.lista {
+  color: black;
+  text-decoration: none;
+}
+
+#movie-container {
+  padding: 30px;
+  margin-bottom: 20px;
+  background-color: lightgrey;
+}
+
+#celebrity {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: lightgrey;
+}
+
+button {
+  margin-bottom: 30px;
+}
