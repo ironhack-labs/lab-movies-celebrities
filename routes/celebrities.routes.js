@@ -27,7 +27,10 @@ router.get("/", (req, res, next) => {
   Celebrity.find()
     .then((celebritiesFromDb) => {
       res.render("celebrities/celebrities", {allCelebrities: celebritiesFromDb})
-    });
+    })
+    .catch((err) =>{
+      console.log("erreur",err)
+    })
     
 });
 
