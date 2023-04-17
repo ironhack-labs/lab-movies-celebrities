@@ -35,4 +35,21 @@ router.post("/create", (req, res) => {
     });
 });
 
+// GET movie detail
+
+router.get("/:id", async (req, res) => {
+  const movie = await Movie.findById(req.params.id).populate("cast");
+  res.render("movies/movie-details", { movie });
+});
+
+// POST delete
+router.post("/:id/delete", async (req, res) => {
+  console.log("1");
+  try {
+    await Movie.findByIdAndDelete(req.params.id);
+    res.redirect("/movies");
+  } catch (e) {
+    console.error(e);
+  }
+});
 module.exports = router;
