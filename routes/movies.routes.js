@@ -31,7 +31,9 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+
+//id name in the route and then in deconstructing have to be the same
+router.get("/:movieID", async (req, res) => {
 
     const { movieID } = req.params;
     const currentMovie = await MovieModel.findById(movieID).populate("cast");
@@ -40,7 +42,7 @@ router.get("/:id", async (req, res) => {
   }); 
   
 
-router.post("/:id/delete", async (req, res) => {
+router.post("/:movieID/delete", async (req, res) => {
   try {
 
     const { movieID } = req.params;
@@ -53,7 +55,7 @@ router.post("/:id/delete", async (req, res) => {
   }
 });
 
-router.get("/:id/edit", async(req,res) => {
+router.get("/:movieID/edit", async(req,res) => {
 
   const { movieID } = req.params;
   const movieToEdit = await MovieModel.findById(movieID).populate("cast");
@@ -62,7 +64,7 @@ router.get("/:id/edit", async(req,res) => {
   res.render("movies/edit-movie", { movieToEdit, allCelebs} );
 });
 
-router.post("/:id", async(req,res) => {
+router.post("/:movieID", async(req,res) => {
   const { movieID } = req.params;
   const updatedMovie = await MovieModel.findByIdAndUpdate( { _id: movieID }, req.body);
   res.redirect(`/movies/${movieID}`);
