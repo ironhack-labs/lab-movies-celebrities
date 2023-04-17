@@ -3,7 +3,10 @@
   <p>Title: {{movie.title}}</p>
   <p>Genre: {{movie.genre}}</p>
   <p>Plot: {{movie.plot}}</p>
+  <h4>Casting:</h4>
   {{#each celebrities}}
-    <option value="{{_id}}">{{name}}</option>
+    <p>Name: {{name}}</p>
+    <p>Occupation: {{occupation}}</p>
+    <p>Catch Phrase: {{catchPhrase}}</p>
   {{/each}}
 </div>

@@ -30,20 +30,20 @@ router.post("/create", (req, res, next) => {
   Movie.create({ title, genre, plot, cast })
     .then(() => res.redirect("/movies"))
     .catch((error) => {
-      console.error("Error when creating movie");
+      console.error("Error when creating movie", error);
       res.render("movies/new-movie");
     });
 });
-router.get("/:id", (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   const id = req.params.id;
-  console.log('id=', id)
 
-  // Movie.findOne({_id: id})
-  Movie.findById(id)
-    .then((movie) => res.render("movies/movie-details", { movie: movie }))
-    .catch((error) => {
-      console.error("Error when getting movie", error);
-    })
-})
+  try {
+    const movie = await Movie.findById(id);
+    const celebrities = await Celebrity.find({ _id: { $in: movie.cast } });
+    res.render("movies/movie-details", { movie: movie, celebrities: celebrities });
+  } catch (error) {
+    console.error("Error when getting movie", error);
+  }
+});
 
 module.exports = router;
