@@ -23,6 +23,7 @@ router.get("/create", (req, res, next) => {
 
 router.post("/create", async (req, res, next) => {
   const { body } = req;
+  const { cast: celebrityId } = req.body;
   try {
     const movie = await Movie.create(body);
     res.redirect("/");
