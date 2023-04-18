@@ -1,6 +1,7 @@
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 
+// iteration #2
 const celebritySchema = new Schema( {
 	name: String,
 	occupation: {
