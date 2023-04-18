@@ -33,8 +33,11 @@ router.get("/:id", async (req, res, next) => {
 router.get("/:id/edit", async (req, res, next) => {
   const { id } = req.params;
   const movie = await Movie.findById(id).populate("cast");
+  const dbCelebrities = await Celebrity.find();
   try {
-    res.render("movies/edit-movie", { movie });
+    console.log(movie);
+    console.log(dbCelebrities);
+    res.render("movies/edit-movie", { movie, dbCelebrities });
   } catch {
     (error) => {
       res.render("error", { error });
