@@ -1,2 +1,9 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<a href="/celebrities/create">Create a new celebrity</a>
+<a href="/celebrities">View Celebrities</a>
+<a href="/movies">View all movies</a>
+
+{{#each movies}}
+  <a href="/movies/{{this._id}}">{{this.title}}</a>
+{{/each}}
