@@ -9,13 +9,13 @@ router.get("/create", (req, res, next) => {
       res.render("movies/new-movie", { allCelebrities: celebritiesFromDb });
     })
     .catch((err) => {
-      console.log("erreur", err)
+      console.log("erreur", err);
       next(err);
-    })
+    });
 });
 
 router.post("/create", (req, res, next) => {
-  const movies = req.body
+  const movies = req.body;
   Movie.create({
     title: req.body.title,
     genre: req.body.genre,
@@ -30,10 +30,10 @@ router.post("/create", (req, res, next) => {
     });
 });
 
-
-router.get("/movies", (req, res, next) => {
+router.get("/", (req, res, next) => {
   Movie.find()
     .then((moviesFromDB) => {
+      console.log("All the movies", moviesFromDB);
       res.render("movies/movies", { allMovies: moviesFromDB });
     })
     .catch((err) => {
@@ -41,21 +41,19 @@ router.get("/movies", (req, res, next) => {
     });
 });
 
-
-router.get("/movies/:id", (req, res, next) => {
-
+router.get("/:id", (req, res, next) => {
   Movie.findById(req.params.id)
     .populate("cast")
-    .then((moviesFromDb) => {
-      res.render("movies/movie-details", { allMovies: moviesFromDb });
+    .then((movieFromDb) => {
+      console.log("All the movies", movieFromDb);
+      res.render("movies/movie-details", {
+        oneMovie: movieFromDb,
+      });
     })
     .catch((err) => {
-      console.log("erreur", err)
+      console.log("erreur", err);
       next(err);
-    })
+    });
 });
-
-
-
 
 module.exports = router;

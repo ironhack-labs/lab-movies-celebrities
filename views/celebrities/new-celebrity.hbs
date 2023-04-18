@@ -1,20 +1,27 @@
-<h2></h2>
+<h2>Creation of a new celebrity</h2>
+<div class="create-celeb-content">
+  <form action="/celebrities/create" method="POST">
+    <div>
+      <label>
+        Name:
+        <input type="text" name="name" />
+      </label>
+    </div>
 
-<form action="/celebrities/create" method="POST">
-  <label>
-    Name:
-    <input type="text" name="name" />
-  </label>
+    <div>
+      <label>
+        Occupation:
+        <input type="text" name="occupation" />
+      </label>
+    </div>
 
-  <label>
-    Occupation:
-    <input type="text" name="occupation" />
-  </label>
+    <div>
+      <label>
+        Catchphrase
+        <textarea name="catchprase"></textarea>
+      </label>
+    </div>
 
-  <label>
-    Catchphrase
-    <input type="text" name="catchphrase" />
-  </label>
-
-  <button>Create new celebrity</button>
-</form>
+    <button>Create new celebrity</button>
+  </form>
+</div>

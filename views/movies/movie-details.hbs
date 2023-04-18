@@ -1,8 +1,23 @@
 <h2>Movie details</h2>
-{{#each allMovies}}
-<p>title: {{title}}</p>
-<p>genre: {{genre}}</p>
-<p>plot: {{plot}}</p>
-<p>{{cast.name}}</p>
-{{/each}}
 
+<h3>Title :</h3>
+<p>{{oneMovie.title}}</p>
+
+<h3>Genre :</h3>
+<p>{{oneMovie.genre}}</p>
+
+<h3>Plot :</h3>
+<p>{{oneMove.plot}}</p>
+
+{{#each oneMove.cast}}
+  <h3>Cast :</h3>
+
+  <h4>Name :</h4>
+  <p>{{name}}</p>
+
+  <h4>Occupation :</h4>
+  <p>{{occupation}}</p>
+
+  <h4>Catchphrase :</h4>
+  <p>{{catchphrase}}</p>
+{{/each}}
