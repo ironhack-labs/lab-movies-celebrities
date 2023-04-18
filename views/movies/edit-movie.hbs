@@ -1,0 +1,30 @@
+<h2>Edit movie</h2>
+
+{{#with movie}}
+
+<form action="/movies/:id/edit" method="POST">
+  <label> Title:
+    <input type="text" name="title" value="{{this.title}}"/>
+  </label>
+
+  <label> Genre:
+    <input type="text" name="genre" value="{{this.genre}}"/>
+  </label>
+
+  <label> Plot:
+    <input type="text" name="plot" value="{{this.plot}}"/>
+  </label>
+
+  <label for="celebrity-select"> Created by:
+    <select name="cast">
+      <option disable selected value=""></option>
+      {{#each dbCelebrities}}
+        <option value="{{this._id}}"> {{this.name}} </option>
+      {{/each}}
+    </select>
+  </label>
+
+
+  <button type="submit"> Update movie </button>
+</form>
+{{/with}}

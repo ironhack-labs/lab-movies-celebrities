@@ -4,5 +4,18 @@
 <p>Title: {{title}}</p>
 <p>Genre: {{genre}}</p>
 <p>Plot: {{plot}}</p>
+
+<h2>Cast:</h2>
+{{#each cast}}
+<p>Name: {{name}}</p>
+<p>Occupation: {{occupation}} </p>
+<p>Catch Phrase: {{catchPhrase}}</p>
+{{/each}}
+
+<a href="/movies/{{_id}}/edit">Edit movie</a>
+
+<form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">🗑</button>
+</form>
 {{/with}}
 {{/if}}

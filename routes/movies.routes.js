@@ -23,10 +23,35 @@ router.get("/create", (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const movie = await Movie.findById(req.params.id).populate("celebrities");
+    const movie = await Movie.findById(req.params.id).populate("cast");
     res.render("movies/movie-details", { movie });
   } catch (error) {
     res.render("error", { error });
+  }
+});
+
+router.get("/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  const movie = await Movie.findById(id);
+  try {
+    res.render("movies/edit-movie", { movie });
+  } catch {
+    (error) => {
+      res.render("error", { error });
+    };
+  }
+});
+
+router.post("/:id/edit", async (req, res, next) => {
+  const { body } = req;
+  const { id } = req.params;
+  try {
+    await Movie.findByIdAndUpdate(id, body);
+    res.redirect("/movies");
+  } catch {
+    (error) => {
+      res.render("error", { error });
+    };
   }
 });
 
@@ -37,6 +62,18 @@ router.post("/create", async (req, res, next) => {
     res.redirect("/");
   } catch (error) {
     res.render("error", { error });
+  }
+});
+
+router.post("/:id/delete", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    await Movie.findByIdAndDelete(id);
+    res.redirect("/");
+  } catch {
+    (error) => {
+      res.render("error", { error });
+    };
   }
 });
 
