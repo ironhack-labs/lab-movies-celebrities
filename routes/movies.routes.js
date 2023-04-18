@@ -15,8 +15,7 @@ router.get("/create", async (req, res) => {
 
 router.post("/create", async (req, res) => {
   try {
-    const newMovie = await MovieModel.create(req.body);
-    console.log("New Movie Created ", newMovie);
+    await MovieModel.create(req.body);
     res.redirect("/movies/all");
   } catch (err) {
     console.log("there was an error", err);
@@ -35,11 +34,7 @@ router.get("/edit/:movieId", async (req, res) => {
 router.post("/edit/:movieId", async (req, res) => {
   const { movieId } = req.params;
   try {
-    const updatedMovie = await MovieModel.findByIdAndUpdate(
-      { _id: movieId },
-      req.body
-    );
-    console.log("Movie updated ", updatedMovie);
+    await MovieModel.findByIdAndUpdate({ _id: movieId }, req.body);
     res.redirect(`/movies/${movieId}`);
   } catch (err) {
     console.log("there was an error", err);
