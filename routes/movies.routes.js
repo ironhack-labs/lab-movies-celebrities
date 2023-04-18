@@ -37,4 +37,16 @@ router.post("/movies/create", (req, res, next) => {
     .catch((err) => res.render("movies/new-movie"));
 });
 
+router.get("/movies/:id", (req, res, next) => {
+  const movieId = req.params.id;
+
+  MovieModel.findById(movieId)
+    .populate("cast")
+    .then((movies) => {
+      console.log(movies);
+      res.render("movies/movie-details", { movie: movies });
+    })
+    .catch((err) => next(err));
+});
+
 module.exports = router;
