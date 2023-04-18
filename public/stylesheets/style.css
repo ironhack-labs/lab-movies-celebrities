@@ -6,3 +6,17 @@ body {
 a {
   color: #00b7ff;
 }
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+label {
+	margin: 15px 0 0;
+}
+button {
+	display: block;
+	margin: 15px 0;
+}
