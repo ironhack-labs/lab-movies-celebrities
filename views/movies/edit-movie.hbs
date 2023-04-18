@@ -1,8 +1,8 @@
 {{!-- iteration #10 --}}
 <h2>Edit this Movie</h2>
 
-{{#with foundMovie}}
-	<form action="/movies/{{_id}}/edit" method="POST" class="form">
+<form action="/movies/{{foundMovie._id}}/edit" method="POST" class="form">
+	{{#with foundMovie}}
 		<div class="card">
 			<h3>movie</h3>
 
@@ -15,23 +15,16 @@
 			<label for="plot">plot</label>
 			<input type="text" name="plot" value="{{plot}}">
 		</div>
+	{{/with}}
 
-		{{#each cast}}
-			<div class="card">
-				<h3>cast {{@index}}</h3>
-
-				<label for="name">name</label>
-				<input type="text" name="name" value="{{name}}">
-
-				<label for="occupation">occupation</label>
-				<input type="text" name="occupation" value="{{occupation}}">
-
-				<label for="catchPhrase">catchPhrase</label>
-				<input type="text" name="catchPhrase" value="{{catchPhrase}}">
-			</div>
+	<label for="cast">cast</label>
+	<select name="cast" multiple required>
+		{{#each foundCelebrities}}
+		{{!-- {{#if filteredCelebrities}} BONUS? --}}
+			{{!-- <option value="{{_id}}" selected>{{name}}</option> BONUS? --}}
+			<option value="{{_id}}">{{name}}</option>
 		{{/each}}
+	</select>
 
-		<button type="submit">Save Changes</button>
-	</form>
-
-{{/with}}
+	<button type="submit">Save Changes</button>
+</form>

@@ -55,32 +55,36 @@ router.post( '/movies/:id/delete', ( req, res, next ) => {
 // iteration #10
 router.get( '/movies/:id/edit', ( req, res, next )=> {
 	const movieId = req.params.id;
-	const editArr = async () => {
+	const edit = async () => {
 		try {
-			const foundMovie = await Movie.findById( movieId );
-			const foundCelebrities = await Celebrity.find();
+			const foundMovie = await Movie.findById( movieId );				// get this movie
+			const foundCelebrities = await Celebrity.find();				// get all celebs
 
-			// console.log( foundMovie.cast );
-			// console.log( foundCelebrities );
+			// NOTE: my Approach on BONUS: "Make the current cast members selected so the user knows who is in the cast currently.""
+			const filteredCelebrities = [];
+			foundCelebrities.forEach( celeb =>								// => all celebs
+				foundMovie.cast.forEach( c => { 							// => only the cast (e.g. 2 celeb)
+					if ( c.toHexString() === celeb._id.toHexString() ) {	// if id's are matching...
+						filteredCelebrities.push( celeb );					// ...then push this entire Celebrity to filtered array
+					}
+				} ),
+			);
 
-			foundMovie.cast.forEach( () => {
-
-			} );
-
-
-			console.log( filteredCelebrities );
-
-			// res.render( 'movies/edit-movie', { foundMovie } );
+			res.render( 'movies/edit-movie', { foundMovie, foundCelebrities, filteredCelebrities } );
 		} catch ( err ) {
 			next( err );
 		}
 	};
-	editArr();
+	edit();
 } );
 
 router.post( '/movies/:id/edit', ( req, res, next )=> {
 	const movieId = req.params.id;
-	const { title, genre, plot, name, occupation, catchPhrase } = req.body;
+	const { title, genre, plot, cast } = req.body;
+
+	Movie.findByIdAndUpdate( movieId, { title, genre, plot, cast } )
+		.then( () => res.redirect( '/movies/' + movieId ) )
+		.catch( err => next( err ) );
 } );
 
 module.exports = router;
