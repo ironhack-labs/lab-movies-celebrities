@@ -41,4 +41,10 @@ router.post("/create", (req, res) => {
     );
 });
 
+router.post("/:id/delete", async (req, res) => {
+  const { id } = req.params;
+  await Celebrity.findByIdAndDelete(id);
+  res.redirect("/celebrities");
+});
+
 module.exports = router;

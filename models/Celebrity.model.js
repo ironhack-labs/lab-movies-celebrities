@@ -2,11 +2,7 @@
 const { Schema, model } = require("mongoose");
 
 const celebritySchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+  name: String,
   occupation: String,
   catchPhrase: String,
 });

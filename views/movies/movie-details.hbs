@@ -2,8 +2,9 @@
 <img src="/images/empty-image.jpg" alt="img"/>
 <p><strong>Genre:</strong> {{movie.genre}}</p>
 <p><strong>Plot:</strong> {{movie.plot}}</p>
-
-{{#each movie.cast}}
-<p><strong>Cast:</strong> {{this.cast}}</p>
-{{/each}}
+<p><strong>Cast:</strong> {{movie.cast}}</p>
+<a href="/movies/{{movie._id}}/update">Update🚀</a>
+<form action="/movies/:movieId/delete" method="post">
+<button type="submit">delete</button>
+</form>
 <a href="/movies">Back to movies</a>
