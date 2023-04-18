@@ -11,14 +11,14 @@ router.get('/movies', (req, res, next) =>{
     })
 })
 
-// router.get('/celebrities', (req, res, next) => {
-//   Celebrity.find()
-//     .then(celebrities => {
-//       res.render('celebrities/celebrities', { celebrities: celebrities })
-//     })
-//     .catch(err => console.log(err))
-// })
-
+router.get('/movies/:id', (req, res, next) => {
+  Movie.findById(req.params.id)
+    .populate('cast')
+    .then(movie => {
+      res.render('movies/movie-details', {movie})
+    })
+    .catch(err => console.log(err))
+})
 
 // all your routes here
 router.get('/movie/create', (req, res, next) => {
