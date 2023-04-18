@@ -20,4 +20,22 @@ router.post("/create", (req, res, next) => {
     });
 });
 
+router.get("/", (req, res, next) => {
+  Movie.find().then(allMovies => {
+    res.render("movies/movies", { allMovies });
+  });
+});
+
+router.get("/:id", (req, res, next) => {
+  const { id } = req.params;
+  Movie.findById(id)
+    .populate("cast")
+    .then(details => {
+      res.render("movies/movie-details", { details });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+});
+
 module.exports = router;
