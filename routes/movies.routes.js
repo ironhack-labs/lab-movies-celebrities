@@ -32,7 +32,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/:id/edit", async (req, res, next) => {
   const { id } = req.params;
-  const movie = await Movie.findById(id);
+  const movie = await Movie.findById(id).populate("cast");
   try {
     res.render("movies/edit-movie", { movie });
   } catch {
