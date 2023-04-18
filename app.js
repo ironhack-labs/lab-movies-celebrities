@@ -15,6 +15,12 @@ const hbs = require('hbs');
 
 const app = express();
 
+const celebritiesRoutes = require('./routes/celebrities.routes');
+const moviesRoutes = require('./routes/movies.routes')
+
+app.use('/celebrities', celebritiesRoutes);
+app.use('/movies', moviesRoutes)
+
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 
