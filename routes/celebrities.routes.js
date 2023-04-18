@@ -3,7 +3,6 @@ const Celebrity = require( '../models/Celebrity.model' );
 
 // iteration #3
 router.get( '/celebrities/create', ( req, res, next ) => {
-	console.log( req );
 	res.render( 'celebrities/new-celebrity' );
 } );
 

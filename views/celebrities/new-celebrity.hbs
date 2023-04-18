@@ -3,10 +3,10 @@
 
 <form action="/celebrities/create" method="POST" class="form">
 	<label for="name">name</label>
-	<input type="text" name="name">
+	<input type="text" name="name" required>
 
 	<label for="occupation">occupation</label>
-	<select name="occupation">
+	<select name="occupation" required>
 		<option value='actor'>actor</option>
 		<option value='singer'>singer</option>
 		<option value='comedian'>comedian</option>
@@ -14,7 +14,7 @@
 	</select>
 
 	<label for="catchPhrase">catchPhrase</label>
-	<input type="text" name="catchPhrase">
+	<input type="text" name="catchPhrase" required>
 
 	<button type="submit">Add</button>
 </form>
