@@ -5,7 +5,6 @@ const router = require("express").Router();
 router.get('/celebrities', (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
-      console.log('************** Celebrities: ***********', celebrities)
       res.render('celebrities/celebrities', { celebrities: celebrities })
     })
     .catch(err => console.log(err))
