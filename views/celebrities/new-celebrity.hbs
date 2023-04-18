@@ -1,0 +1,14 @@
+<h2>Add new celebrity</h2>
+
+<form action="/books" method="POST">
+<label for="name">Name:</label>
+<input type="text" name="name">
+    {{#each name}}
+			<option value="{{_id}}">{{name}}</option>
+		{{/each}}
+<label for="occupation">Occupation: </label>
+<input type="text" name="occupation">
+<label for="catchPhrase">CatchPhrase</label>
+<input type="text" name="catchPhrase">
+<button><a href="">Submit</a></button>
+</form>
