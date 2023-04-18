@@ -1,0 +1,15 @@
+{{!-- iteration #8 --}}
+<h2>Detailed Movie View</h2>
+
+{{#with foundMovie}}
+	<div class="card">
+		<p><strong>{{title}}</strong></p>
+		<p>{{genre}}</p>
+		<p>{{plot}}</p>
+		<ol>
+			{{#each cast}}
+				<li><b>{{name}}</b>, {{occupation }} –<i>"{{catchPhrase}}"</i></li>
+			{{/each}}
+		</ol>
+	</div>
+{{/with}}

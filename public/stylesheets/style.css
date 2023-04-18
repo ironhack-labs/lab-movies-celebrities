@@ -9,7 +9,7 @@ a {
 p {
 	margin: 0;
 }
-ul {
+ul, ol {
 	list-style-position: inside;
   	padding-left: 0;
 }

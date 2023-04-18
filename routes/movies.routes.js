@@ -32,4 +32,17 @@ router.get( '/movies', ( req, res, next ) => {
 		.catch( err => next( err ) );
 } );
 
+// iteration #8
+router.get( '/movies/:id', ( req, res, next ) => {
+	const movieId = req.params.id;
+	console.log( movieId );
+	Movie.findById( movieId )
+		.populate( 'cast' )
+		.then( foundMovie => {
+			console.log( foundMovie );
+			res.render( 'movies/movie-details', { foundMovie} );
+		} )
+		.catch( err => next( err ) );
+} );
+
 module.exports = router;
