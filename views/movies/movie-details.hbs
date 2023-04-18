@@ -7,17 +7,23 @@
 <p>{{oneMovie.genre}}</p>
 
 <h3>Plot :</h3>
-<p>{{oneMove.plot}}</p>
+<p>{{oneMovie.plot}}</p>
 
-{{#each oneMove.cast}}
-  <h3>Cast :</h3>
+<h3>Cast :</h3>
 
-  <h4>Name :</h4>
+{{#each oneMovie.cast}}
+  <h5>Name :</h5>
   <p>{{name}}</p>
 
-  <h4>Occupation :</h4>
+  <h5>Occupation :</h5>
   <p>{{occupation}}</p>
 
-  <h4>Catchphrase :</h4>
-  <p>{{catchphrase}}</p>
+  <h5>Catchphrase :</h5>
+  <p>{{catchPhrase}}</p>
 {{/each}}
+
+<a href="{{oneMovie._id}}/edit">EDIT</a>
+
+<form action="{{oneMovie._id}}/delete" method="POST">
+  <button>DELETE</button>
+</form>

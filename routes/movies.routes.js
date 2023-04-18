@@ -56,4 +56,52 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+router.post("/:id/delete", (req, res, next) => {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/movies");
+    })
+    .catch((err) => next(err));
+});
+
+router.get("/:id/edit", (req, res, next) => {
+  const p1 = Movie.findById(req.params.id); // movieFromDB
+  const p2 = Celebrity.find(); //celebritiesFromDB
+  Promise.all([p1, p2])
+    .then((values) => {
+      const movieFromDB = values[0];
+      const celebritiesFromDB = values[1];
+
+      // celebritiesFromDB.forEach((celebrity) => {
+      //   if (movieFromDB.cast.includes(celebrity._id)) {
+      //     celebrity.selected = true;
+      //   } else {
+      //     celebrity.selected = false;
+      //   }
+      // });
+
+      res.render("movies/edit-movie", {
+        movie: movieFromDB,
+        celebrities: celebritiesFromDB, // [ {id: , name: , etc...}, {}]
+      });
+    })
+    .catch((err) => next(err));
+});
+
+router.post("/:id/edit", (req, res, next) => {
+  Movie.create({
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+    cast: req.body.cast,
+  });
+
+  Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(() => {
+      console.log("yoooooo");
+      res.redirect("movies/movie-details");
+    })
+    .catch((err) => next(err));
+});
+
 module.exports = router;
