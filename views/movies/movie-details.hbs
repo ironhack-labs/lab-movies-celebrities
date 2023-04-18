@@ -12,4 +12,10 @@
 			{{/each}}
 		</ol>
 	</div>
+
+	{{!-- iteration #9 --}}
+	<form action="/movies/{{_id}}/delete" method="POST" class="form">
+		<button type="submit">Delete this Movie</button>
+	</form>
+
 {{/with}}

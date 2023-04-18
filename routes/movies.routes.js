@@ -13,7 +13,6 @@ router.get( '/movies/create', ( req, res, next ) => {
 
 router.post( '/movies/create', ( req, res, next ) => {
 	const { title, genre, plot, cast } = req.body;
-	console.log( req.body );
 	Movie.create( { title, genre, plot, cast } )
 		.then( () => {
 			res.redirect( '/movies' );
@@ -35,12 +34,20 @@ router.get( '/movies', ( req, res, next ) => {
 // iteration #8
 router.get( '/movies/:id', ( req, res, next ) => {
 	const movieId = req.params.id;
-	console.log( movieId );
 	Movie.findById( movieId )
 		.populate( 'cast' )
 		.then( foundMovie => {
-			console.log( foundMovie );
 			res.render( 'movies/movie-details', { foundMovie} );
+		} )
+		.catch( err => next( err ) );
+} );
+
+// iteration #9
+router.post( '/movies/:id/delete', ( req, res, next ) => {
+	const movieId = req.params.id;
+	Movie.findByIdAndDelete( movieId )
+		.then( () => {
+			res.redirect( '/movies' );
 		} )
 		.catch( err => next( err ) );
 } );
