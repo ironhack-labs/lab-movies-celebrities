@@ -1,0 +1,25 @@
+<h2>Movies Details</h2>
+
+<h4>{{details.title}}</h4>
+<h4>{{details.genre}}</h4>
+<h4>{{details.plot}}</h4>
+
+
+<h3>CAST:</h3>
+{{#each details.cast}}
+
+    <h3>{{this.name}}</h3>
+    <h3>{{this.occupation}}</h3>
+    <h3>{{this.catchPhrase}}</h3>
+
+
+{{/each}}
+
+{{!-- <a href="/books/edit/{{_id}}">Edit this book 📝</a> --}}
+
+<form action="/movies/{{details._id}}/delete" method="post">
+
+    <button type="submit">Delete This book</button>
+
+</form>
+
