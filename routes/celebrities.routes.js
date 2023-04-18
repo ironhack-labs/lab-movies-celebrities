@@ -14,9 +14,18 @@ router.post( '/celebrities/create', ( req, res, next ) => {
 		.then( () => {
 			res.redirect( '/celebrities' );
 		} )
-		.catch( foundCelebrities => {
-			res.render( 'celebrities/new-celebrity', { foundCelebrities } );
+		.catch( () => {
+			res.render( 'celebrities/new-celebrity' );
 		} );
+} );
+
+// iteration #4
+router.get( '/celebrities', ( req, res, next ) => {
+	Celebrity.find()
+		.then( foundCelebrities => {
+			res.render( 'celebrities/celebrities', {foundCelebrities} );
+		} )
+		.catch( err => next( err ) );
 } );
 
 module.exports = router;
