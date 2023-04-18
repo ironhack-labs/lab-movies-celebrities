@@ -8,3 +8,7 @@
 {{#each movie.cast}}
 <p>{{name}}, {{occupation}}, {{catchPhrase}}</p>
 {{/each}}
+<br>
+<form action="/movies/delete/{{movie._id}}" method="POST">
+<button type="submit">Delete movie</button>
+</form>

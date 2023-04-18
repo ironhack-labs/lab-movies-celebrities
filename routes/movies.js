@@ -43,4 +43,12 @@ router.get("/movies/:id", (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.post("/movies/delete/:id", (req, res, next) => {
+    Movie.findByIdAndDelete(req.params.id)
+    .then(() => {
+        res.redirect("/movies")
+    })
+    .catch(err => next(err))
+})
+
 module.exports = router;
