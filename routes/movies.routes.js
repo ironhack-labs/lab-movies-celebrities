@@ -60,7 +60,7 @@ router.get( '/movies/:id/edit', ( req, res, next )=> {
 			const foundMovie = await Movie.findById( movieId );				// get this movie
 			const foundCelebrities = await Celebrity.find();				// get all celebs
 
-			// NOTE: my Approach on BONUS: "Make the current cast members selected so the user knows who is in the cast currently.""
+			// NOTE: my Approach on BONUS: "Make the current cast members selected so the user knows who is in the cast currently.
 			const filteredCelebrities = [];
 			foundCelebrities.forEach( celeb =>								// => all celebs
 				foundMovie.cast.forEach( c => { 							// => only the cast (e.g. 2 celeb)
