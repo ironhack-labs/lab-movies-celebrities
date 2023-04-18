@@ -1,9 +1,31 @@
-// starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
-const Movie = require("../models/Celebrity.model");
-const Celebrity = require("../models/Movie.model");
+const Movie = require("../models/Movie.model");
+const Celebrity = require("../models/Celebrity.model");
 
-// all your routes here
+router.get("/", (req, res, next) => {
+  Movie.find()
+    .then((movies) => {
+      res.render("movies/movies", { movies });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send("Error retrieving movies from database");
+    });
+});
+
+router.get("movie/:id", (req, res, next) => {
+  const id = req.params.id
+
+  Movie.findById(ObjectId(id))
+    .populate("cast")
+    .then((movie) => {
+      res.render("movies/movie-details", { movie });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send("Error retrieving movie details from database");
+    });
+});
 
 router.get("/create", (req, res, next) => {
   Celebrity.find()
@@ -15,7 +37,6 @@ router.get("/create", (req, res, next) => {
       res.status(500).send("Error retrieving celebrities from database");
     });
 });
-
 
 router.post("/create", (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
@@ -33,21 +54,4 @@ router.post("/create", (req, res, next) => {
     });
 });
 
-
-router.get("/", (req, res, next) => {
-  Movie.find()
-    .populate("cast", "name") 
-    .then((movies) => {
-      res.render("movies/movies", { movies });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).send("Error retrieving movies from database");
-    });
-});
-
-
-
 module.exports = router;
-
-

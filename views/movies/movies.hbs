@@ -1,0 +1,26 @@
+{{!-- 
+<h1>List of Movies</h1>
+
+{{#if movies.length}}
+  <ul>
+    {{#each movies}}
+      <li>{{this.title}} ({{this.genre}}) - Cast: {{#each this.cast}}{{this.name}}, {{/each}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No movies found.</p>
+{{/if}}
+
+<a href="/movies/create">Add a new movie</a> --}}
+
+<h1>All Movies</h1>
+
+<ul>
+  {{#each movies}}
+
+  <li><a href="/movies/{{this._id}}">{{this.title}}</a></li>
+
+
+  {{/each}}
+</ul>
+
