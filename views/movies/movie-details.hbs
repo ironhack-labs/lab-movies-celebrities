@@ -1,0 +1,9 @@
+<h2>{{movie.title}}</h2>
+<img src="/images/empty-image.jpg" alt="img"/>
+<p>Genre:{{movie.genre}}</p>
+<p>Plot: {{movie.plot}}</p>
+
+{{#each movie.cast}}
+<p>Cast: {{this.cast}}</p>
+{{/each}}
+<a href="/movies">Back to movies</a>
