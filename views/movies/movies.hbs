@@ -1,6 +1,11 @@
 {{!-- iteration #7 --}}
 <h2>List of Movies</h2>
 
-{{#each foundMovies}}
-	<a href="/movies/{{_id}}">{{title}}</a>
-{{/each}}
+<ul>
+	{{#each foundMovies}}
+		<li><a href="/movies/{{_id}}">{{title}}</a></li>
+	{{/each}}
+</ul>
+
+{{!-- iteration #6 --}}
+<a href="/movies/create">Add new Movie</a>

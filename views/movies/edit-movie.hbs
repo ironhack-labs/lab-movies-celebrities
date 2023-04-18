@@ -1,0 +1,37 @@
+{{!-- iteration #10 --}}
+<h2>Edit this Movie</h2>
+
+{{#with foundMovie}}
+	<form action="/movies/{{_id}}/edit" method="POST" class="form">
+		<div class="card">
+			<h3>movie</h3>
+
+			<label for="title">title</label>
+			<input type="text" name="title" value="{{title}}">
+			
+			<label for="genre">genre</label>
+			<input type="text" name="genre" value="{{genre}}">
+
+			<label for="plot">plot</label>
+			<input type="text" name="plot" value="{{plot}}">
+		</div>
+
+		{{#each cast}}
+			<div class="card">
+				<h3>cast {{@index}}</h3>
+
+				<label for="name">name</label>
+				<input type="text" name="name" value="{{name}}">
+
+				<label for="occupation">occupation</label>
+				<input type="text" name="occupation" value="{{occupation}}">
+
+				<label for="catchPhrase">catchPhrase</label>
+				<input type="text" name="catchPhrase" value="{{catchPhrase}}">
+			</div>
+		{{/each}}
+
+		<button type="submit">Save Changes</button>
+	</form>
+
+{{/with}}

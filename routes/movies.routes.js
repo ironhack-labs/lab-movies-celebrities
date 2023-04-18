@@ -52,4 +52,35 @@ router.post( '/movies/:id/delete', ( req, res, next ) => {
 		.catch( err => next( err ) );
 } );
 
+// iteration #10
+router.get( '/movies/:id/edit', ( req, res, next )=> {
+	const movieId = req.params.id;
+	const editArr = async () => {
+		try {
+			const foundMovie = await Movie.findById( movieId );
+			const foundCelebrities = await Celebrity.find();
+
+			// console.log( foundMovie.cast );
+			// console.log( foundCelebrities );
+
+			foundMovie.cast.forEach( () => {
+
+			} );
+
+
+			console.log( filteredCelebrities );
+
+			// res.render( 'movies/edit-movie', { foundMovie } );
+		} catch ( err ) {
+			next( err );
+		}
+	};
+	editArr();
+} );
+
+router.post( '/movies/:id/edit', ( req, res, next )=> {
+	const movieId = req.params.id;
+	const { title, genre, plot, name, occupation, catchPhrase } = req.body;
+} );
+
 module.exports = router;
