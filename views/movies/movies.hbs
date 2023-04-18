@@ -1,0 +1,15 @@
+{{!-- iteration #7 --}}
+<h2>List of Movies</h2>
+
+{{#each foundMovies}}
+	<div class="card">
+		<p><strong>{{title}}</strong></p>
+		<p>{{genre}}</p>
+		<p>{{plot}}</p>
+		<ul>
+			{{#each cast}}
+				<li>{{this}}</li>
+			{{/each}}
+		</ul>
+	</div>
+{{/each}}

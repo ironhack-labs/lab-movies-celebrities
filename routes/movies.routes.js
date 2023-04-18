@@ -23,4 +23,13 @@ router.post( '/movies/create', ( req, res, next ) => {
 		} );
 } );
 
+// iteration #7
+router.get( '/movies', ( req, res, next ) => {
+	Movie.find()
+		.then( foundMovies => {
+			res.render( 'movies/movies', {foundMovies} );
+		} )
+		.catch( err => next( err ) );
+} );
+
 module.exports = router;

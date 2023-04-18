@@ -6,6 +6,13 @@ body {
 a {
   color: #00b7ff;
 }
+p {
+	margin: 0;
+}
+ul {
+	list-style-position: inside;
+  	padding-left: 0;
+}
 
 .form {
 	display: flex;
@@ -19,4 +26,11 @@ label {
 button {
 	display: block;
 	margin: 15px 0;
+}
+
+.card {
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid gainsboro;
+	margin-top: 20px;
 }

@@ -2,5 +2,9 @@
 <h2>List of Celebrities</h2>
 
 {{#each foundCelebrities}}
-	<p>{{name}}</p>
+	<div class="card">
+		<p><strong>{{name}}</strong></p>
+		<p>{{occupation}}</p>
+		<p><em>"{{catchPhrase}}"</em></p>
+	</div>
 {{/each}}
