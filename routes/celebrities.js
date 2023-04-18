@@ -13,9 +13,19 @@ router.post("/celebrities", (req, res, next) => {
     Celebrity.create({ name, occupation, catchPhrase })
     .then(createdCelebrity => {
         console.log(createdCelebrity)
-        res.redirect(`/celebrities/`)
+        res.redirect(`/celebrities`)
     })
     .catch(err => res.redirect(`/celebrities/create`))
+})
+
+router.get("/celebrities", (req, res, next) => {
+    Celebrity.find()
+
+    .then((celebritiesFromDB) => {
+        console.log(celebritiesFromDB)
+        res.render("celebrities/celebrities", { celebrity: celebritiesFromDB })
+    })
+    .catch(err => next(err))
 })
 
 module.exports = router;
