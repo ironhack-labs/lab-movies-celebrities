@@ -9,6 +9,9 @@
 <p>{{name}}, {{occupation}}, {{catchPhrase}}</p>
 {{/each}}
 <br>
+<a href="/movies/edit/{{movie._id}}">Edit movie</a>
+<br>
 <form action="/movies/delete/{{movie._id}}" method="POST">
+<br>
 <button type="submit">Delete movie</button>
 </form>
