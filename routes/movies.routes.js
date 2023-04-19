@@ -48,4 +48,23 @@ router.post("/:id/delete", (req, res, next) => {
       console.error(error);
     });
 });
+
+router.get("/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  const movie = await Movie.findById(id);
+  const cast = await Celebrity.find();
+  res.render("movies/edit-movie", { movie, cast });
+});
+
+router.post("/:id/edit", (req, res, next) => {
+  const { id, cast } = req.params;
+  Movie.findByIdAndUpdate(id, cast, req.body)
+    .then(details => {
+      res.render("movies/movie-details", { details });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 module.exports = router;
