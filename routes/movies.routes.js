@@ -57,10 +57,10 @@ router.get("/:id/edit", async (req, res, next) => {
 });
 
 router.post("/:id/edit", (req, res, next) => {
-  const { id, cast } = req.params;
-  Movie.findByIdAndUpdate(id, cast, req.body)
-    .then(details => {
-      res.render("movies/movie-details", { details });
+  const { id } = req.params;
+  Movie.findByIdAndUpdate(id, req.body)
+    .then(() => {
+      res.redirect("/movies/" + id);
     })
     .catch(error => {
       console.log(error);
