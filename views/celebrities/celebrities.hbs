@@ -2,10 +2,12 @@
 
 {{#each celebrities}}
   <div>
-    <p>Name: {{name}}</p>
+    <p>{{name}}</p>
+    <a href="/celebrities/{{_id}}">See details</a>
     {{!-- <p>Occupation: {{occupation}}</p>
     <p>Catch phrase: {{catchPhrase}}</p> --}}
-
   </div>
 
 {{/each}}
+<br>
+<a href="/">Go back</a>

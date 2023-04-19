@@ -19,6 +19,13 @@ router.post("/create", (req, res, next) => {
     });
 });
 
+router.get("/:id", (req, res, next) => {
+  const { id } = req.params;
+  Celebrity.findById(id).then(details => {
+    res.render("celebrities/celebrity-details", { details });
+  });
+});
+
 router.get("/", (req, res, next) => {
   Celebrity.find()
     .then(celebrities => {
