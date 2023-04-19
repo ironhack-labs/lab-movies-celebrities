@@ -50,6 +50,8 @@ router.get("/movies/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+// DELETE
+
 router.get("/movies/:id/delete", (req, res, next) => {
   MovieModel.findByIdAndDelete(req.params.id)
     .then(() => {
