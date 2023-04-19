@@ -89,17 +89,12 @@ router.get("/:id/edit", (req, res, next) => {
 });
 
 router.post("/:id/edit", (req, res, next) => {
-  Movie.create({
-    title: req.body.title,
-    genre: req.body.genre,
-    plot: req.body.plot,
-    cast: req.body.cast,
-  });
+  
 
   Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(() => {
       console.log("yoooooo");
-      res.redirect("movies/movie-details");
+      res.redirect(`/movies/${req.params.id}`);
     })
     .catch((err) => next(err));
 });
