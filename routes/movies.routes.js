@@ -72,13 +72,13 @@ router.get("/:id/edit", (req, res, next) => {
       const movieFromDB = values[0];
       const celebritiesFromDB = values[1];
 
-      // celebritiesFromDB.forEach((celebrity) => {
-      //   if (movieFromDB.cast.includes(celebrity._id)) {
-      //     celebrity.selected = true;
-      //   } else {
-      //     celebrity.selected = false;
-      //   }
-      // });
+      celebritiesFromDB.forEach((celebrity) => {
+        if (movieFromDB.cast.includes(celebrity._id)) {
+          celebrity.selected = true;
+        } else {
+          celebrity.selected = false;
+        }
+      });
 
       res.render("movies/edit-movie", {
         movie: movieFromDB,
@@ -89,8 +89,6 @@ router.get("/:id/edit", (req, res, next) => {
 });
 
 router.post("/:id/edit", (req, res, next) => {
-  
-
   Movie.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(() => {
       console.log("yoooooo");

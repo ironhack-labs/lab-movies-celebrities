@@ -25,9 +25,10 @@
   <div>
     <select name="cast" multiple>
       {{#each celebrities}}
-        {{!-- {{#if celebrities.selected}} --}}
+        {{#if selected}}
+          <option value="{{_id}}" selected>{{name}}</option>
+        {{/if}}
         <option value="{{_id}}">{{name}}</option>
-        {{!-- {{/if}} --}}
       {{/each}}
     </select>
   </div>
