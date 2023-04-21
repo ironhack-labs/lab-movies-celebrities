@@ -10,3 +10,18 @@
     <p>Catch Phrase: {{catchPhrase}}</p>
   {{/each}}
 </div>
+
+<form method="post" action="{{movie.id}}/delete">
+  <label>
+    <select>
+      {{#each movie}}
+        <option value="{{_id}}">{{title}}</option>
+      {{/each}}
+    </select>
+  </label>
+  <button>Delete</button>
+</form>
+
+{{!-- <form action="{{oneMovie._id}}/delete" method="POST">
+  <button>DELETE</button>
+</form> --}}

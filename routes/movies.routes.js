@@ -46,4 +46,16 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.post('/:id/delete', function (req, res, next) {
+  Movie.findByIdAndRemove(req.params.id)
+    .then(function () {
+      // res.send('ok ok delete')
+      res.redirect("/movies")
+    })
+    .catch(err => {
+      next("Err")
+    });
+});
+
+
 module.exports = router;
