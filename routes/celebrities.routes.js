@@ -26,7 +26,6 @@ router.post('/celebrity/create', (req, res, next) => {
         .catch(err => {
             res.render('celebrities/new-celebrity', { errorMessage: 'There was an error creating the celebrity. Try again!'});
         });
-    //res.render('new-celebrity'));
 } ),
 
 module.exports = router;

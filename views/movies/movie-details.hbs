@@ -1,1 +1,11 @@
 <h1>Movie details page</h1>
+
+<ul> 
+    <h2>{{movie.title}}</h2>
+    <li>{{movie.genre}}</li>
+    <li>{{movie.plot}}</li>
+        <li>Celebrities</li>
+        {{#each cast}}
+        <a href="celebrities/celebrities">{{name}}</a>
+        {{/each}}
+</ul>

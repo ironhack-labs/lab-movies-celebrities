@@ -1,1 +1,8 @@
 <h1>Movies page</h1>
+
+
+<ul> 
+    {{#each listFromDB}}
+        <li><a href="movies/{{id}}">{{title}}</a></li>
+    {{/each}}
+</ul>
