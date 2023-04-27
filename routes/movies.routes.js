@@ -37,4 +37,14 @@ router.post("/movies/create", (req, res, next) => {
     .catch((err) => console.log(`Error while creating a new movie: ${err}`));
 });
 
+router.get("/movies/:id", async (req, res, next) => {
+  const movie = await Movie.findById(req.params.movieId).populate(
+    "celebrities"
+  );
+  res.render("/movies/details", { movie });
+  // Movie.findById({ id })
+  //   .then(res.render("movie-details"))
+  //   .catch((err) => console.log(`Error while creating a new movie: ${err}`));
+});
+
 module.exports = router;

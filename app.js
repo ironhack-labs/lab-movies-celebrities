@@ -20,11 +20,6 @@ require("./config")(app);
 
 // app.js
 
-// 1. require the body-parser
-const bodyParser = require("body-parser");
-// 2. let know your app you will be using it
-app.use(bodyParser.urlencoded({ extended: true }));
-
 // default value for title local
 const projectName = "lab-movies-celebrities";
 const capitalized = (string) =>

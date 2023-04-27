@@ -21,8 +21,8 @@
   <label for="celebrity">Choose a celebrity:</label>
 
   <select name="cast" id="cast" multiple>
-    {{#each movie}}
-      <option value={{movie}}>{{movie}}</option>
+    {{#each celebArr}}
+      <option value="{{this._id}}"> {{this.name}} </option>
     {{/each}}
   </select>
 

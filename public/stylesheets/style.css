@@ -1,8 +1,20 @@
 body {
-  padding: 50px;
+  padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
 a {
   color: #00b7ff;
+}
+
+h2 {
+  padding: 0 0 12px 0;
+  color: #458;
+}
+
+.name {
+  border-bottom: 2px solid #fdd226;
+  text-align: center;
+  padding: 6px;
 }

@@ -1,1 +1,9 @@
 <h1>Movie details page</h1>
+
+{{#each movieArr}}
+  <p>{{movie}}</p>
+  <p>{{genre}}</p>
+  <p>{{plot}}</p>
+
+  <a href="/movies/:id">{{movie}}</a>
+{{/each}}
