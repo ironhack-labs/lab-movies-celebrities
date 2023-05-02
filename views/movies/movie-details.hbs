@@ -1,0 +1,17 @@
+<h2>Movie Details</h2>
+<hr>
+<div class="movie">
+  <h3>Title: {{theMovie.title}}</h3>
+  <h4>Genre: {{theMovie.genre}}</h4>
+  <p>Plot: {{theMovie.plot}}</p>
+  <p>
+    Cast:
+    {{#each theMovie.cast}}
+      {{this.name}}{{#unless @last}}, {{/unless}}
+    {{/each}}
+  </p>
+  <a href="/movies/{{theMovie._id}}/edit">Edit</a>
+  <a href="/movies/{{theMovie._id}}/delete">Delete</a>
+</div>
+<hr>
+<a href="/movies">Back to all movies</a>
