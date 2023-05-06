@@ -8,10 +8,9 @@
         
         <h3>{{name}}</h3>
 
-        <a href="/celebrity/edit/{{_id}}" class="btn btn-sm btn-info">edit</a>
+        <a href="/celebrities/{{id}}/edit" class="btn btn-sm btn-info">edit</a>
 
-        
-        <form action="/celebrity/delete/{{_id}}" method="POST" style="display: inline">
+        <form action="/celebrities/{{id}}/delete" method="POST" style="display: inline">
             <input type="submit" value="delete" class="btn btn-sm btn-danger">
         </form>
 

@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h1>Movies list</h1>
+
+    <hr class="mb-3">
+
+    {{#each movie}}
+
+    <h3>{{title}}</h3>
+
+    <a href="/movies/{{id}}/edit" class="btn btn-sm btn-info">edit</a>
+    
+    <a href="/movies/{{id}}/details" class="btn btn-sm btn-info">details</a>
+
+    <form action="/movies/{{id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="delete" class="btn btn-sm btn-danger">
+    </form>
+
+    <hr>
+
+    {{/each}}
+
+    <hr>
+
+
+    <div class="button">
+        <a href="/" class="btn btn-dark">Back home</a>
+        <a href="/movies/create" class="btn  btn-secondary btn-danger">CREATE A NEW MOVIE</a>
+    </div>
+</div>
