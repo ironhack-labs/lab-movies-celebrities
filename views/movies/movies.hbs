@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Movies List</h2>
+    <hr>
+    <div class="row justify-content-between">
+
+        {{#each moviesFromDB}}
+        <div class="mb-4 col-12 col-sm-6 col-md-4 ">
+
+            <div class="card h-100 px-2 py-4 justify-content-between">
+
+                <article>
+                    <h2>{{title}}</h2>
+                    <hr>
+                    <p><strong>Genre:</strong> {{genre}}</p>
+                    <p><strong>Plot:</strong> {{plot}}</p>
+                </article>
+
+                <a href="/movies/{{_id}}" class="btn btn-secondary">Movie details</a>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+    <hr>
+    <a href="/movies/create" class="btn btn-dark">Create Movies</a>
+</div>
