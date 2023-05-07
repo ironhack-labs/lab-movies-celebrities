@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Celebrity List</h2>
+    <hr>
+    <div class="row justify-content-between align-items-stretch">
+        {{#each listCelebritiesDB}}
+        <div class="mb-4 col-12 col-sm-6 col-md-4 ">
+            <div class="card h-100 px-2 py-4">
+                <h2>{{name}}</h2>
+                <hr>
+                <p><strong>Occupation:</strong> {{occupation}}</p>
+                <p><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+                <form action="/celebrities/{{_id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-light btn-outline-dark w-100 mb-4">Delete</button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <hr>
+    <a href="/celebrities/create" class="btn btn-dark">Create Celebrity</a>
+</div>

@@ -1,0 +1,33 @@
+<div class="class"=container>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <h2>Movie Details</h2>
+            <hr>
+            <div>
+                <h3>Title: {{title}}</h3>
+                <h3>Genre: {{genre}}</h3>
+                <h3>Plot: {{plot}}</h3>
+
+                {{!-- {{#each cast}} //lo intento con esto pero no sale
+                <ul>
+                    {{name}}
+                </ul>
+                {{/each}} --}}
+
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-light btn-outline-dark w-100 mb-4">Delete</button>
+                </form>
+            </div>
+            <hr>
+
+            <a href="/movies/{{_id}}/edit" class="btn btn-light btn-outline-dark w-100 mb-4"> Edit
+                Movie</a>
+
+        </div>
+
+        <a href="/movies">Back to all movies</a>
+    </div>
+</div>

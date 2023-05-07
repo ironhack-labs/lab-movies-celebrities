@@ -1,0 +1,14 @@
+<div class="container">
+
+    <h1>Movies</h1>
+    <hr class="mb-3">
+    <hr>
+    {{#each listMoviesDB}}
+    <div class="movie">
+        <h4>Title: {{title}}</h4>
+    </div>
+    <a href="/movies/{{id}}">Details</a>
+    <hr>
+    {{/each}}
+
+    <div>
