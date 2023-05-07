@@ -1,0 +1,29 @@
+<h2>CELEBS</h2>
+
+<hr>
+<div class="row">
+
+    {{#each celebFromDB}}
+    <div class="col-4">
+        <div class="card" style="width: 25rem;">
+            {{!-- <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}"> --}}
+            <div class="card-body">
+                <h5 class="card-title"><strong>NAME: </strong> {{name}}</h5>
+                <p class="card-text"> <strong>OCUP: </strong> {{occupation}}</p>
+                <p class="card-text"> <strong>CATCH-PHRASE:</strong> {{catchPhrase}}</p>
+                <form action="/celebrities/{{id}}/delete" method="POST" style="display: inline">
+                    <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+                </form>
+
+                {{!-- <a href="/drones/{{_id}}/edit" class="btn btn-sm btn-info">EDIT</a> --}}
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+
+<hr>
+
+<a href="/celebrities/create" class="btn btn-sm btn-info">CREATE</a>

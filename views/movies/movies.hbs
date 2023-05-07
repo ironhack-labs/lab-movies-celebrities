@@ -1,0 +1,28 @@
+<h2>MOVIES</h2>
+
+<hr>
+<div class="row">
+
+    {{#each movieFromDB}}
+    <div class="col-4">
+        <div class="card" style="width: 25rem;">
+            {{!-- <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}"> --}}
+            <div class="card-body">
+                <h5 class="card-title"><strong>TITLE: </strong> {{title}}</h5>
+
+                <a href="/movies/{{_id}}" class="btn btn-sm btn-info">Details</a>
+                <a href="/movies/{{_id}}/edit-movie" class="btn btn-sm btn-info">EDIT</a>
+                <form action="/movies/{{id}}/delete" method="POST" style="display: inline">
+                    <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+
+<hr>
+
+<a href="/movies/create" class="btn btn-sm btn-info">CREATE</a>

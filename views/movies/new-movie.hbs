@@ -1,0 +1,45 @@
+<h2>NEW MOVIE</h2>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h2>CREATE A MOVIE</h2>
+            <hr>
+
+            <form action="/movies/create" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="movieName" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="movieName" name="title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="movieGenre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="movieGenre" name="genre">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="moviePlot" class="form-label">Plot</label>
+                    <input type="text" class="form-control" id="moviePlot" name="plot">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="movieCast" class="form-label">Cast</label>
+                    <select class="form-select col-12" multiple name="cast">
+                        {{#each celebFromDB}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Create Movie</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
