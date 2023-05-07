@@ -1,21 +1,14 @@
-// ℹ️ Gets access to environment variables/settings
-// https://www.npmjs.com/package/dotenv
-require('dotenv/config');
 
-// ℹ️ Connects to the database
-require('./db');
+require('dotenv/config')
 
-// Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
-const express = require('express');
+require('./db')
 
-// Handles the handlebars
-// https://www.npmjs.com/package/hbs
-const hbs = require('hbs');
+const express = require('express')
 
-const app = express();
+const hbs = require('hbs')
 
-// ℹ️ This function is getting exported from the config folder. It runs most middlewares
+const app = express()
+
 require('./config')(app);
 
 // default value for title local
@@ -26,6 +19,7 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
 const index = require('./routes/index');
+const celebrities = require('./routes/celebrities.routes');
 app.use('/', index);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

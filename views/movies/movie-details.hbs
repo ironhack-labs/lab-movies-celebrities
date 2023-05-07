@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Detalles pelicula</h1>
+    <hr class="mb-3">
+    <p>{{movieInfo.title}}</p>
+    <p>{{movieInfo.genre}}</p>
+    <p>{{movieInfo.plot}}</p>
+
+    {{#each movieInfo.cast}}
+    {{this.name}}
+    {{this.occupation}}
+    {{this.catchPhrase}}
+
+    <hr>
+
+    {{/each}}
+    <form action="/movies/{{movieInfo._id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+    </form>
+
+    <a href="/movies/{{movieInfo._id}}/edit" class="btn btn-dark">editar</a>
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+</div>

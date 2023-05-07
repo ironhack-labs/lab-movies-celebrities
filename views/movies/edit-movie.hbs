@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <h1>Editar {{movie.title}}</h1>
+            <hr>
+
+            <form action="/movies/{{movie.id}}" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="movieTitle" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="movieTitle" name="title" value="{{movie.title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="movieGenre" class="form-label">Genero</label>
+                    <input type="text" class="form-control" id="movieGenre" name="genre" value="{{movie.genre}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="moviePlot" class="form-label">Plot</label>
+                    <input type="text" class="form-control" id="moviePlot" name="plot" value="{{movie.plot}}">
+                </div>
+
+                {{!-- <div class="mb-3 ">
+                    <label for="bookAuthor" class="form-label">Autor/a</label>
+                    <input type="text" class="form-control" id="bookAuthor" name="author">
+                </div> --}}
+
+                <div class="mb-3 ">
+                    <label for="movieCeleb" class="form-label">Celebridad</label>
+                    <select class="form-select" multiple name="cast">
+                        {{#each movie.cast}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Editar Movie</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

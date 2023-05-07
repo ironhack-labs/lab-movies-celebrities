@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Listado de movies</h1>
+    <hr class="mb-3">
+
+    {{#each allMovies}}
+    {{this.title}}
+    <a href="/movies/{{this._id}}" class="btn btn-dark">Details</a>
+
+
+    <hr>
+
+    {{/each}}
+
+    <a href="/" class="btn btn-dark">Volver a inicio</a>
+</div>
