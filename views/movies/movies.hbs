@@ -3,7 +3,6 @@
     <hr>
     <div class="row">
         {{#each movie}}
-
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <hr>
@@ -13,6 +12,7 @@
                 <form action="/movies/{{_id}}/delete" method="POST" style="display: inline;">
                     <input type="submit" value="delete" class="btn btn-sm btn-danger">
                 </form>
+                <a class="btn btn-sm btn-warning" href="/movies/{{_id}}/edit">Edit</a>
             </div>
         </div>
         {{/each}}
