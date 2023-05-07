@@ -13,7 +13,10 @@ const movieSchema = new Schema({
     cast: [{
         type: Schema.Types.ObjectId,
         ref: 'Celebrity'
-    }]
+    }],
+    imageUrl: {
+        type: String
+    }
 },
     {
         timestamps: true

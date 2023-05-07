@@ -9,6 +9,9 @@ const celebritySchema = new Schema({
     },
     catchPhrase: {
         type: String
+    },
+    imageUrl: {
+        type: String
     }
 },
     {

@@ -1,8 +1,25 @@
-<h1>Celebrities List</h1>
+<div>
+    <h1>Celebrities List</h1>
+</div>
+<hr>
 
-{{#each celebrities}}
-<li>
-    {{name}}
-</li>
 
-{{/each}}
+<div class="container row align-items-start">
+
+    {{#each celebrities}}
+
+    <div class="col-md-4 col-gd-4 text-center">
+
+        <article class="container">
+            <img src="{{imageUrl}}" alt="{{name}}" class="mx-auto d-block rounded float-start">
+            <h2>{{name}}</h2>
+            <p>Ocupation {{occupation}}</p>
+            <p><i>{{catchPhrase}}</i></p>
+        </article>
+
+    </div>
+
+    {{/each}}
+
+
+</div>

@@ -19,9 +19,9 @@ router.get('/celebrities/create', (req, res, next) => {
 })
 
 router.post('/celebrities/create', (req, res, mext) => {
-    const { name, occupation, catchPhrase } = req.body
+    const { name, occupation, catchPhrase, imageUrl } = req.body
     Celebrity
-        .create({ name, occupation, catchPhrase })
+        .create({ name, occupation, catchPhrase, imageUrl })
         .then(newCelebrity => res.redirect('/celebrities'))
         .catch(err => console.log(err)) //revisar el error del ejercicio
 })

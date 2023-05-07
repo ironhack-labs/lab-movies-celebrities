@@ -21,15 +21,20 @@
                     <input type="text" class="form-control" id="moviePlot" name="plot" value={{movie.plot}}>
                 </div>
 
+                <div class="mb-3">
+                    <label for="movieImage" class="form-label">New Image</label>
+                    <input type="text" class="form-control" id="movieImage" name="imageUrl" value={{movie.imageUrl}}>
+                </div>
+
                 <div class="mb-3 ">
                     <label for="actualMovieCast" class="form-label">Casting</label>
                     <select class="form-select" id="actualMovieCast" multiple name="actualCast">
-
                         {{#each movie.cast}}
                         <option selected disabled value={{id}}>{{name}}</option>
                         {{/each}}
                     </select>
                 </div>
+
                 <div class="mb-3 ">
                     <label for="newMovieCast" class="form-label">New Casting</label>
                     <select class="form-select" id="newMovieCast" multiple name="cast">

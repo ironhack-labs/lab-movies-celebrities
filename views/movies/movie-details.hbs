@@ -1,11 +1,23 @@
-<h2>Movie Details</h2>
+<div>
+    <h1>Movie Details</h1>
+</div>
 
-{{title}}
-{{genre}}
-{{plot}}
+<hr>
 
-{{#each cast}}
-{{name}}
-{{occupation}}
-{{catchPhrase}}
-{{/each}}
+<div class="row container">
+    <div class="col-md-3 col-gd-3">
+        <img src="{{imageUrl}}" alt="{{title}}">
+    </div>
+
+    <div class="col-md-6 col-gd-6">
+        <h2>{{title}}</h2>
+        <p>Género: {{genre}}</p>
+        <p>Sinopsis: {{plot}}</p>
+        <p>Reparto:</p>
+        {{#each cast}}
+        <li>{{name}}</li>
+        {{/each}}
+        <div class="d-grid gap-2 col-3 mx-auto"> <a href="/movies" class="btn btn-dark btn-sm">Return Movie List</a>
+        </div>
+    </div>
+</div>

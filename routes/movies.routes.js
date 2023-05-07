@@ -23,9 +23,9 @@ router.get('/movies/create', (req, res, next) => {
 })
 
 router.post('/movies/create', (req, res, next) => {
-    const { title, genre, plot, cast } = req.body
+    const { title, genre, plot, imageUrl, cast } = req.body
     Movie
-        .create({ title, genre, plot, cast })
+        .create({ title, genre, plot, imageUrl, cast })
         .then(newMovie => res.redirect('/movies'))
         .catch(err => console.log(err))
 })
@@ -66,10 +66,10 @@ router.get('/movies/:id/edit', async (req, res) => {
 })
 
 router.post('/movies/:id/edit', (req, res, next) => {
-    const { title, genre, plot, cast } = req.body
+    const { title, genre, plot, imageUrl, cast } = req.body
     const { id } = req.params
     Movie
-        .findByIdAndUpdate(id, { title, genre, plot, cast })
+        .findByIdAndUpdate(id, { title, genre, plot, imageUrl, cast })
         .then(() => res.redirect('/movies'))
         .catch(err => console.log(err))
 })

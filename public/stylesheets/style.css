@@ -1,18 +1,59 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: grey;
+  background-image: url(./../images/fondo-pelis.jpg);
+  color: black;
+  margin-bottom: 20px;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+.pag-title {
+  text-align: center;
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 20px;
+  font-family: fantasy;
+}
+
+h2 {
+  font-family: fantasy;
+}
+
+h5 {
+  font-family: fantasy;
+}
+
+nav {
+  margin-bottom: 10px;
+  font-family: fantasy;
+  font-size: 1.3em;
+  position: fixed;
+}
+
+.bg-color {
+  background-color: #D35353;
 }
 
 a {
   color: #00b7ff;
 }
 
+img {
+  width: 100%;
+  margin: 10px;
+}
+
 footer {
   background-color: #212529;
+  margin-top: 20px;
   color: white;
   text-align: center;
-  padding: 5px;
-  font-size: .6em;
+  font-size: .8em;
   position: fixed;
   bottom: 0;
   left: 0;
