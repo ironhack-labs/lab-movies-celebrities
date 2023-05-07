@@ -8,7 +8,7 @@ router.get("/movies/create", (req, res, next) => {
 });
 
 router.post("/movies/create", (req, res, next) => {
-    const { title, genre, post, cast } = req.body
+    const { title, genre, plot, cast } = req.body
     Movie
         .create({ title, genre, plot, cast })
         .then(newMovie => res.redirect("/movies"))
