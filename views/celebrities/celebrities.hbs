@@ -3,19 +3,19 @@
     <hr>
     <div class="row">
         {{#each celebrity}}
-        <div class="card" style="width: 18rem;">
-
+        <div class="card m-4" style="width: 18rem;">
             <div class="card-body">
                 <hr>
                 <h5 class="card-title">{{name}}</h5>
+                <a href="/celebrities/{{_id}}">Details</a>
                 <hr>
                 <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline;">
-                    <input type="submit" value="delete this celebrity" class="btn btn-sm btn-danger">
+                    <input type="submit" value="delete" class="btn btn-sm btn-danger">
                 </form>
+                <a class="btn btn-sm btn-warning" href="/celebrities/{{_id}}/edit">Edit</a>
             </div>
-
         </div>
         {{/each}}
     </div>
-    <a class="btn btn-dark" href="/">Back to menu</a>
+    <a class="btn btn-dark m-3" href="/">Back to menu</a>
 </div>

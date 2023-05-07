@@ -47,7 +47,10 @@ router.post('/:_id/delete', (req, res, next) => {
 
 router.get('/:_id/edit', (req, res, next) => {
   const {_id} = req.params 
-  Movie
+  
+  
+  ///lo siento por esto....PERO FUNCIONA!!!!!
+   Movie
     .findById(_id)
     .populate('cast')
     .then(
@@ -74,7 +77,28 @@ router.get('/:_id/edit', (req, res, next) => {
         )
         .catch(err => console.log(err))
       })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)) 
+
+
+
+    ///humilde intento de refactorizar lo anterior.
+/* Movie
+  .findById(_id)
+  .then(movieToEdit => {
+    return Celebrities.find()
+  })
+  .then(cebsData => {
+    
+    movieToEdit._doc.cast.forEach(castMember => {
+      cebsData.forEach(ceb => {
+        console.log("CASTMEMBERRR",castMember, "CELEBRITIEEEEEEE",ceb)
+        if(castMember.name === ceb.name) {
+          ceb.isSelected = true;
+        }
+      })
+    })
+  }) */
+
 })
 
 router.post('/:_id/edit', (req, res, next) => {

@@ -21,6 +21,36 @@ router.post('/create', (req, res, next) => {
     .then(res.redirect('/celebrities'))
     .catch(res.render('celebrities/new-celebrity'))
 })
+router.get('/:_id', (req, res, next) => {
+    const {_id} = req.params
+    
+    Celebrity
+      .findById(_id)
+      .then(cebDetails => {
+        res.render('celebrities/celebrities-details', cebDetails)
+    })
+      .catch(err => console.log(err))
+}) 
+
+router.get('/:_id/edit', (req,res,next) => {
+    const {_id} = req.params
+    Celebrity
+    .findById(_id)
+    .then(
+        cebToEditData => {
+            res.render('celebrities/edit-celebrity', cebToEditData)
+        }
+    )
+})
+router.post('/:_id/edit',(req, res, next) => {
+    const {name, occupation, catchPhrase} = req.body
+    const {_id} = req.params
+
+  Celebrity
+  .findByIdAndUpdate(_id, {name, occupation, catchPhrase})
+  .then(() => res.redirect(`/celebrities/${_id}`))
+  .catch(err => console.log(err))
+})
 
 router.post('/:_id/delete', (req, res, next) => {
     const { _id } = req.params

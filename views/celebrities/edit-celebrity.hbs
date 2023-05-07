@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Edit celebrity</h1>
+            <hr>
+            <h2>{{name}}</h2>
+            <hr>
+
+            <form action="/celebrities/{{_id}}/edit" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="name" class="form-label">Name</label>
+                    <input value="{{name}}" type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <input value="{{occupation}}" type="text" class="form-control" id="occupation" name="occupation">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="catchPhrase" class="form-label">Catch phrase</label>
+                    <input value="{{catchPhrase}}" type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+
+
+                <button type="submit" class="btn btn-dark">Update this celebrity</button>
+                <a class="btn btn-dark" href="/">Back to menu</a>
+
+            </form>
+        </div>
+    </div>
+</div>

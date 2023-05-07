@@ -1,0 +1,23 @@
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2>{{name}}</h2>
+                <hr>
+                <h3>Occupation:</h3>
+                <h5>{{occupation}}</h5>
+                <hr>
+                <h3>Catch phrase:</h3>
+                <h5>{{catchPhrase}}</h5>
+                <hr>
+                <a class="btn btn-sm btn-dark" href="/">Back to menu</a>
+                <a class="btn btn-sm btn-dark m-3" href="/celebrities">Back to list</a>
+                <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline;">
+                    <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                </form>
+                <a class="btn btn-sm btn-warning ml-3" href="/celebrities/{{_id}}/edit">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
