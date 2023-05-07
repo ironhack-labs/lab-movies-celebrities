@@ -23,7 +23,8 @@
 
                 <div class="mb-3 ">
                     <label for="movieCast" class="form-label">Casting</label>
-                    <select class="form-select" id="movieCast" multiple name="cast">
+                    <select class="form-select form-select-lg mb-3" id="movieCast" multiple name="cast">
+                        <option selected disabled>Choose Cast</option>
                         {{#each celebrities}}
                         <option value={{id}}>{{name}}</option>
                         {{/each}}

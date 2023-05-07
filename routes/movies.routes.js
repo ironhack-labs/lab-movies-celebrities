@@ -51,14 +51,18 @@ router.post('/movies/:id/delete', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-// Update Movies
-router.get('/movies/:id/edit', (req, res, next) => {
+//Update Movies
+
+
+router.get('/movies/:id/edit', async (req, res) => {
     const { id } = req.params
-    Movie
-        .findById(id)
-        .populate('cast')
-        .then(movie => res.render('movies/edit-movie', movie))
-        .catch(err => console.log(err))
+    try {
+        const celebrities = await Celebrity.find()
+        const movie = await Movie.findById(id).populate('cast')
+        res.render('movies/edit-movie', { celebrities, movie })
+    } catch (error) {
+        console.error('Error al obtener los modelos', error)
+    }
 })
 
 router.post('/movies/:id/edit', (req, res, next) => {
@@ -70,4 +74,4 @@ router.post('/movies/:id/edit', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-module.exports = router;
+module.exports = router
