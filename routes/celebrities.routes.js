@@ -5,8 +5,7 @@ router.get('/', (req, res, next) => {
     Celebrity
     .find()
     .then(celebrity =>  res.render('celebrities/celebrities', {celebrity: celebrity}))
-    .catch(err => console.log(console.error()))
-   
+    .catch(err => console.log(console.error())) 
 })
 
 
