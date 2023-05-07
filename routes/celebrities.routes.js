@@ -52,6 +52,17 @@ router.post('/celebrities/:id/edit', (req, res, next) => {
 
 });
 
+router.get('/celebrities/:id/details', (req, res, next) => {
+
+    const { id } = req.params
+    
+    Celebrity
+    .findById(id)
+    .then(celebrity => res.render('celebrities/celebrities-details', celebrity))
+    .catch(err => console.log(err))
+
+});
+
 router.post('/celebrities/:id/delete', (req, res, next) => {
 
     const { id } = req.params

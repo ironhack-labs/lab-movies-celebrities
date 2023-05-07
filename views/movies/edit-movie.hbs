@@ -1,37 +1,43 @@
 <div class="container">
-    <h2>Update {{name}}</h2>
+    <h2>Update {{movie.title}}</h2>
 
     <hr>
     <div class="row justify-content-center">
 
         <div class="col-6">
-            <form action="/movies/{{id}}/edit" method="POST">
+            <form action="/movies/{{movie.id}}/edit" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="movietitle" name="title" value="{{title}}">
+                    <input type="text" class="form-control" id="movietitle" name="title" value="{{movie.title}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="genre" class="form-label">genre</label>
-                    <input type="text" class="form-control" id="moviegenre" name="genre" value="{{genre}}">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="moviegenre" name="genre" value="{{movie.genre}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="plot" class="form-label">plot</label>
-                    <input type="text" class="form-control" id="movieplot" name="plot" value="{{plot}}">
+                    <label for="plot" class="form-label">Plot</label>
+                    <textarea class="form-control" id="movieplot" name="plot">{{movie.plot}}</textarea>
                 </div>
 
                 <div class="mb-3">
-                    <label for="cast" class="form-label">cast</label>
-                    <input type="text" class="form-control" id="moviecast" name="cast" value="{{cast}}">
+                    <label for="cast" class="form-label">Cast</label>
+                    <select class="form-select" name="cast" multiple>
+                        {{#each celebrities}}
+                            
+                            <option value="{{this.id}}">{{this.name}}</option>
+
+                        {{/each}}
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="poster" class="form-label">poster</label>
-                    <input type="text" class="form-control" id="movieposter" name="poster" value="{{poster}}">
+                    <label for="poster" class="form-label">Poster URL</label>
+                    <input type="text" class="form-control" id="movieposter" name="poster" value="{{movie.poster}}">
                 </div>
 
-                <button type="submit" class="btn btn-dark">Update movie</button>
+                <button type="submit" class="mb-5 mt-2 btn btn-dark">Update movie</button>
 
             </form>
 

@@ -1,28 +1,46 @@
 <div class="container">
-    
-    <h1>Celebrities list</h1>
-    
-    <hr class="mb-3">
 
-    {{#each celebrity}}
-        
-        <h3>{{name}}</h3>
-
-        <a href="/celebrities/{{id}}/edit" class="btn btn-sm btn-info">edit</a>
-
-        <form action="/celebrities/{{id}}/delete" method="POST" style="display: inline">
-            <input type="submit" value="delete" class="btn btn-sm btn-danger">
-        </form>
-
-        <hr>
-
-    {{/each}}
+    <h1>Celebrities</h1>
 
     <hr>
 
+    <div class="row">
+
+        {{#each celebrity}}
+
+        <div class="col-md-4">
+
+            <div class="card">
+
+                <img class="card-img-top" src="{{imageURL}}" alt="{{name}}">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    {{!-- <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6> --}}
+                    <p class="card-text">{{occupation}}</p>
+
+                    <a href="/celebrities/{{id}}/edit" class="btn btn-sm btn-info">edit</a>
+
+                    <a href="/celebrities/{{id}}/details" class="btn btn-sm btn-info">details</a>
+
+                    <form action="/celebrities/{{id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    <hr>
 
     <div class="button">
         <a href="/" class="btn btn-dark">Back home</a>
-        <a href="/celebrities/create" class="btn  btn-secondary btn-danger">CREATE A NEW CELEBRITIE</a>
+        <a href="/celebrities/create" class="btn  btn-secondary btn-danger">CREATE A NEW CELEBRITY</a>
     </div>
+
 </div>

@@ -9,7 +9,7 @@ const movieSchema = new Schema(
         // cast: { type: String },
         cast: [{
             type: Schema.Types.ObjectId,
-            ref: 'Celebrity'
+            ref: 'Celebrity',
         }],
         poster: { type: String }
     },

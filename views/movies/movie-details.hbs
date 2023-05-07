@@ -1,10 +1,33 @@
+<div class="container">
 
-{{#each movie}}
+    <div class="row justify-content-center">
+        
+        <div class="col-4">
+            <img src="{{poster}}" alt="{{title}}">
+        </div>
+
+        <div class="col-6">
+            
+            <h2>{{title}}</h2>
+
+            <hr>
+
+            <p><strong>Genre: </strong>{{genre}}</p>
+
+            <p><strong>Plot: </strong>{{plot}}</p>
+
+            {{#each cast}}
+                <li>{{this.name}}</li>
+            {{/each}}
+            
+
+        </div>
+
+        <div class="my-5">
+            <a href="/" class="btn btn-dark">Back home</a>
+            <a href="/movies/create" class="btn  btn-secondary btn-danger">CREATE A NEW MOVIE</a>
+        </div>
     
-    {{title}}
+    </div>
 
-    {{genre}}
-
-    {{plot}}
-
-{{/each}}
+</div>

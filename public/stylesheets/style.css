@@ -14,3 +14,19 @@ footer {
   font-size: .6em;
   width: 100%;
 }
+
+img {
+  width: 300px
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.index {
+  text-align: center;
+}

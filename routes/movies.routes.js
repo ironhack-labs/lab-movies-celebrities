@@ -15,12 +15,9 @@ router.get('/movies', (req, res, next) => {
 
 router.get('/movies/create', (req, res, next) => {
     
-    const { id } = req.params
-
     Celebrity
-    .findById(id)
-    .populate('cast')
-    .then(movie => res.render('movies/new-movie', {movie}))
+    .find()
+    .then(celebrity => res.render('movies/new-movie', {celebrity}))
     .catch(err => console.log(err))
 
 });
@@ -38,13 +35,21 @@ router.post('/movies/create', (req, res, next) => {
 
 router.get('/movies/:id/edit', (req, res, next) => {
   
-    const { id } = req.params
+    const { id } = req.params;
 
-    Movie
-    .findById(id)
-    .then(movie => res.render('movies/edit-movie', movie))
-    .catch(err => console.log(err))
-
+    Movie.findById(id)
+        .populate('cast')
+        .then((movie) => {
+        Celebrity.find()
+            .then((celebrities) => {
+            res.render('movies/edit-movie', { 
+                movie,
+                celebrities
+            });
+            })
+            .catch((error) => next(error));
+        })
+        .catch((error) => next(error));
 });
 
 router.post('/movies/:id/edit', (req, res, next) => {
@@ -65,7 +70,8 @@ router.get('/movies/:id/details', (req, res, next) => {
     
     Movie
     .findById(id)
-    .then(movie => res.render('movies/movie-details', {movie: movie}))
+    .populate('cast')
+    .then(movie => res.render('movies/movie-details', movie))
     .catch(err => console.log(err))
 
 });
