@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Movie List</h2>
+    {{#each movies}}
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="fw-bold">Name: <a class="text-decoration-none" href="/movies/{{_id}}">{{name}}</a>
+                    </span>
+
+                    <p> <span class="fw-bold">Cast:</span>
+                    <ul>
+                        {{#each cast}}
+                        <li>{{name}}</li>
+                        {{/each}}
+                    </ul>
+
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{/each}}
+
+    <hr>
+    <a href='/' class="btn btn-dark">Home</a>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Lista de Celebrities</h2>
+    {{#each celebrity}}
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p> <span class="fw-bold">Name:</span> {{name}}</p>
+
+                    <p> <span class="fw-bold">Occupation:</span> {{occupation}}</p>
+
+                    <p> <span class="fw-bold">Catch phrase:</span> {{catchPhrase}}</p>
+
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+    {{/each}}
+    <a href='/' class="btn btn-dark">Home</a>
+</div>

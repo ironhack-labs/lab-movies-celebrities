@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Create new celebrity</h2>
+    <hr>
+    <form action="/celebrities/create" method="post">
+        <div class="mb-3 mt-5">
+            <label for="celebrityName" class="form-label fw-bold">Nombre:</label>
+            <input type="text" class="form-control" id="celebrityName" name="name">
+        </div>
+
+        <div class="mb-3">
+            <label for="celebrityOccupation" class="form-label fw-bold">Occupation:</label>
+            <input type="text" class="form-control" id="celebrityOccupation" name="occupation">
+        </div>
+
+        <div class="mb-3 ">
+            <label for="celebrityCatchPhrase" class="form-label fw-bold">CatchPhrase:</label>
+            <input type="text" class="form-control" id="celebrityCatchPhrase" name="catchPhrase">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Create celebrity</button>
+        <a href='/' class="btn btn-dark">Home</a>
+
+    </form>
+</div>
