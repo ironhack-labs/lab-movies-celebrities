@@ -1,0 +1,28 @@
+<body class="movies-body">
+
+    <div class="container">
+
+        <h2 class="">All the movies</h2>
+
+
+        <div class="movies-list mt-30">
+
+            {{#each movies}}
+
+            <div class="link-to-details mb-3">
+                <a href="/movies/{{_id}}">
+                    <h4>{{title}}</h4>
+                </a>
+            </div>
+
+            {{/each}}
+
+        </div>
+
+        <div class="movies-button">
+            <a href="/" class="btn btn-lg btn-outline-dark">Go back home</a>
+        </div>
+
+    </div>
+
+</body>

@@ -1,0 +1,42 @@
+<div class="container">
+
+    <h2 class="mb-4">Movie details</h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <img src="{{pictureUrl}}" alt="{{title}}" style="width: 100%">
+        </div>
+
+        <div class="col-md-8">
+
+            <h4>{{title}}</h4>
+            <hr>
+            <h6 class="mb-4"> <b>Genre:</b> {{genre}}</h6>
+
+            <h6 class="mb-4"><b>Staring:</b>
+                {{#each cast}}
+                {{name}}
+                {{/each}}
+            </h6>
+
+            <h6 class="mb-4">"{{plot}}"</h6>
+
+        </div>
+
+    </div>
+
+    <div class="buttons-details">
+
+        <a href="/movies/edit/{{_id}}" class="btn btn-success">Edit Movie</a>
+
+        <form action="/movies/delete/{{_id}}" method="POST" style="display: inline">
+            <input type="submit" value="Delete" class="btn btn-danger">
+        </form>
+
+    </div>
+
+    <hr class="mb-6">
+    <a href="/movies" class="btn btn-lg btn-outline-dark">Go back to movies</a>
+
+</div>

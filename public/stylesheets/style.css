@@ -1,8 +1,129 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Open Sans, Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+  text-decoration: none
+}
+
+footer {
+  color: rgb(255, 255, 0);
+  text-align: right;
+  padding: 13px;
+  font-size: 0.8em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.navbar {
+  padding: 15px;
+}
+
+.navbar a {
+  color: white;
+  font-size: 1em;
+}
+
+.navbar a:hover {
+  color: rgb(255, 255, 0);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+h4 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* INDEX */
+
+.home-img {
+  max-width: 600px;
+}
+
+.container-home {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  margin-top: 100px;
+}
+
+.btn-dark {
+  background-color: rgb(125, 25, 224);
+  border-color: rgb(159, 127, 190);
+}
+
+.btn-dark:hover {
+  background-color: transparent;
+  border-color: rgb(159, 127, 190);
+  color: rgb(159, 127, 190);
+}
+
+
+
+/* MOVIES */
+
+.movies-body {
+  background-color: rgb(255, 255, 0);
+}
+
+.link-to-details {
+  text-decoration: none;
+}
+
+.link-to-details a {
+  text-decoration: none;
+  color: black;
+}
+
+.link-to-details a:hover {
+  text-decoration: none;
+  color: rgb(159, 127, 190);
+  font-weight: bold;
+}
+
+.movies-list {
+  display: block;
+  margin-left: 80px;
+  margin-top: 50px;
+  align-content: center;
+  justify-content: center;
+}
+
+.movies-button {
+  margin-left: 80px;
+  margin-top: 60px;
+}
+
+
+
+/* MOVIE DETAILS */
+
+.buttons-details {
+  margin-top: 30px;
+}
+
+
+
+/* CELEBRITIES */
+
+.celebrities-body {
+  background-color: rgb(125, 25, 224);
+  color: white
 }

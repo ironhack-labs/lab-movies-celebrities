@@ -1,0 +1,23 @@
+<body class="celebrities-body">
+
+    <div class="container">
+
+        <h2 class="mb-6">All the celebrities</h2>
+        <div class="row mt-5 justify-content-center">
+
+            {{#each celebrities}}
+
+            <div class="col-md-5">
+                <h4>{{name}}</h4>
+                <h6>Occupation: {{occupation}}</h6>
+                <h6>Catch Phrase: "{{catchPhrase}}"</h6>
+                <hr>
+            </div>
+
+            {{/each}}
+        </div>
+
+        {{!-- <a href="/" class="btn btn-outline-dark mt-7">Go back home</a> --}}
+    </div>
+
+</body>
