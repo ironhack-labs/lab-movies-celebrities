@@ -1,0 +1,38 @@
+<div class="container">
+
+    <h2>The Celebrities Road</h2>
+    <hr class="mb-3">
+
+
+
+    <div class="row">
+        {{#each celebrities}}
+        <div class=" card col-3">
+
+            <div>
+                <img class="card-img-top " src="{{image}}" alt="Card image cap">
+            </div>
+
+            <div class="card-body" style="color: black;">
+                <h5 class="card-title"><strong>{{name}}</strong> </h5>
+                <h6 class="card-title"><strong>Occupation:</strong> {{occupation}}</h6>
+                <hr>
+                <h6 class="card-title"><strong>Catchphrase:</strong> {{catchPhrase}}</h6>
+                <hr>
+                <a href="/celebrities/{{id}}/edit" class="btn btn-md btn-danger">editar</a>
+
+                <form action="/celebrities/{{id}}/delete" method="POST" style="display: inline">
+                    <button type="submit" class="btn btn-md btn-dark"
+                        onclick="return confirm('Are you sure you want to delete this celebrity?')">eliminar</button>
+                </form>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
+
+
+
+
+    <hr>
+</div>

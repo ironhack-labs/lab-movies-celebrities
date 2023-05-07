@@ -1,0 +1,41 @@
+<div class="greyBackground">
+
+    <h2>Edit the Movie info</h2>
+    <form action="/movies/{{movies.id}}/edit" method="POST">
+
+        <div class="mb-3 mt-5">
+            <label for="movieTitle" class="form-label">Title: </label>
+            <input type="text" class="form-control" id="movieTitle" name="title" value="{{movies.title}}">
+        </div>
+        <div class="mb-3 mt-5">
+            <label for="genre" class="form-label">Genre: </label>
+            <input type="text" class="form-control" id="genre" name="genre" value="{{movies.genre}}">
+        </div>
+        <div class="mb-3 mt-5">
+            <label for="plot" class="form-label">Plot: </label>
+            <input type="text" class="form-control" id="plot" name="plot" value="{{movies.plot}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="cast" class="form-label">Cast</label>
+            <select multiple class="form-control" name="cast" id="cast">
+                {{#each celebInfo}}
+                <option value={{id}}>{{name}}
+                </option>
+
+                {{/each}}
+
+            </select>
+
+        </div>
+
+        <div class="mb-3 mt-5">
+            <label for="moviePic" class="form-label">Image URL: </label>
+            <input type="text" class="form-control" id="moviePic" name="image" value="{{movies.image}}">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-danger">Edit the Movie Card</button>
+        <a href="/movies" class="btn btn-lg btn-dark">Cancel</a>
+    </form>
+
+</div>

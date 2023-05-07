@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2>Movie Details</h2>
+
+    <div class="row">
+
+        <div class=" card col-4">
+
+            <img class="card-img-top " src="{{image}}" alt="Card image cap">
+        </div>
+
+        <hr class="mb6">
+
+        <div class=" card col-6" style="color: black;">
+            <h4 class="card-title"><strong>{{title}}</strong></h4>
+
+            <h5 class="card-title"><strong>Genre:</strong>{{genre}}</h5>
+            <hr>
+            <h5 class="card-title"><strong>Plot:</strong>{{plot}}</h5>
+            <hr>
+            <h5 class="card-title"><strong>cast:</strong>{{#each cast}}
+                <li>{{name}}</li>
+                {{/each}}
+            </h5>
+            <hr>
+
+        </div>
+
+    </div>
+
+    <a href="/movies" class="btn btn-lg btn-danger">Return</a>
+
+
+</div>
+
+
+
+
+<hr>
+</div>

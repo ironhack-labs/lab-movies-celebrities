@@ -1,0 +1,38 @@
+<div class="greyBackground">
+    <h2>New Movie</h2>
+    <form action="/movies/create" method="POST">
+
+        <div class="mb-3 mt-5">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <div class="mb-3 mt-5">
+            <label for="genre" class="form-label">Genre:</label>
+            <input type="text" class="form-control" id="genre" name="genre">
+        </div>
+        <div class="mb-3 mt-5">
+            <label for="plot" class="form-label">Plot:</label>
+            <input type="text" class="form-control" id="plot" name="plot">
+        </div>
+        <div class="mb-3 mt-5">
+            <div class="form-group">
+                <label for="cast">Choose the Cast:</label>
+                <select class="form-control" id="cast" name="cast" multiple>
+                    {{#each celebrities}}
+                    <option value="{{id}}">{{name}}</option>
+                    {{/each}}
+
+                </select>
+            </div>
+        </div>
+
+
+        <div class="mb-3 mt-5">
+            <label for="moviePic" class="form-label">Image URL: </label>
+            <input type="text" class="form-control" id="moviePic" name="image">
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-danger">Add it to the collection</button>
+        <a href="/movies" class="btn btn-lg btn-dark">Cancel</a>
+    </form>
+</div>

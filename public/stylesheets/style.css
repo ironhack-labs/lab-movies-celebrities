@@ -1,8 +1,47 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/001/254/680/original/cinema-background-concept-vector.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
-a {
-  color: #00b7ff;
+h1 {
+  text-align: right;
+  color: white;
+  font-size: 70px;
+  margin: 0;
+  text-shadow: #050505;
+}
+
+footer {
+  background-color: #050505;
+  color: rgb(250, 248, 248);
+  padding: 10px;
+  font-size: 1em;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%
+}
+
+.mainTitle {
+  text-align: center;
+  padding: 150px;
+}
+
+.buttonB {
+  display: flex;
+  justify-content: flex-end;
+
+
+}
+
+.greyBackground {
+  background-color: rgb(55, 53, 53);
+  padding: 50px;
+  margin-top: 30px;
 }
