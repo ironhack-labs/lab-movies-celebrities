@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h2> {{name}} </h2>
+
+    <hr>
+
+    <article class="card p-3 mb-3">
+
+        <p><strong>Name:</strong> {{name}} </p>
+        <p><strong>Occupation:</strong> {{occupation}} </p>
+        <p><strong>Catch Phrase:</strong> {{catchPhrase}} </p>
+
+        <a href="/celebrities/{{id}}/edit" class="btn btn-dark"> EDIT CELEBRITY </a>
+
+        <form action="/celebrities/{{id}}/delete" method="POST">
+            {{!-- <input type="submit" value="DELETE CELEBRITY" class="btn btn-danger"> --}}
+            <button class="btn btn-danger w-100"> DELETE CELEBRITY </button>
+        </form>
+
+    </article>
+
+    <a href="/celebrities" class="btn btn-dark"> GO BACK TO CELEBRITY LIST </a>
+
+
+</div>

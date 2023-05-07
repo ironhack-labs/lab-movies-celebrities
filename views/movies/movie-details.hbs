@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h2> {{title}} </h2>
+
+    <hr>
+
+    <article class="card p-3 mb-3">
+
+        <p><strong>Genre:</strong> {{genre}} </p>
+        <p><strong>Plot:</strong> {{plot}} </p>
+
+        <p><strong>Cast:</strong></p>
+        <ul>
+            {{#each cast}}
+            <div class="container mb-3">
+                <li> Name: {{name}} </li>
+                <li> Occupation: {{occupation}} </li>
+                <li> Catch Phrase: {{catchPhrase}} </li>
+            </div>
+            {{/each}}
+        </ul>
+
+        <a href="/movies/{{id}}/edit" class="btn btn-dark"> EDIT MOVIE </a>
+
+        <form action="/movies/{{id}}/delete" method="POST">
+            {{!-- <input type="submit" value="DELETE MOVIE" class="btn btn-danger"> --}}
+            <button class="btn btn-danger w-100"> DELETE MOVIE </button>
+        </form>
+
+    </article>
+
+    <a href="/movies" class="btn btn-dark"> GO BACK TO MOVIE LIST </a>
+
+
+</div>

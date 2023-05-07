@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h2> Movies: </h2>
+
+    <hr>
+
+    {{#each movieList}}
+    <article class="card p-3 mb-3">
+
+        <a href="/movies/{{id}}"> {{title}} </a>
+
+        {{!-- <p><strong>Title:</strong> {{title}} </p>
+        <p><strong>Genre:</strong> {{genre}} </p>
+        <p><strong>Plot:</strong> {{plot}} </p>
+
+        <p><strong>Cast:</strong></p>
+        {{#each cast}}
+        <p> {{this}} </p>
+        {{/each}} --}}
+
+
+    </article>
+    {{/each}}
+
+    <a href="/" class="btn btn-dark"> GO BACK TO HOME PAGE </a>
+
+
+</div>

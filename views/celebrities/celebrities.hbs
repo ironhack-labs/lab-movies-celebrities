@@ -1,0 +1,18 @@
+<div class="container">
+
+    <h2> Celebrities: </h2>
+
+    <hr>
+
+    {{#each celebrityList}}
+    <article class="card p-3 mb-3">
+        <p><strong>Name:</strong> {{name}}</p>
+        <p><strong>Occupation:</strong> {{occupation}}</p>
+        <p><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+        <a href="/celebrities/{{id}}"> View Details </a>
+    </article>
+    {{/each}}
+
+    <a href="/" class="btn btn-dark"> GO BACK TO HOME PAGE </a>
+
+</div>

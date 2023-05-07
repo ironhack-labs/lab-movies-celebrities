@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h2> Edit movie </h2>
+
+    <hr>
+
+    <form action="/movies/{{movie.id}}/edit" method="POST">
+
+        <div class="mb-4">
+            <label for=""> Title: </label>
+            <input type="text" name="title" id="" value="{{movie.title}}">
+        </div>
+
+        <div class="mb-4">
+            <label for=""> Genre: </label>
+            <input type="text" name="genre" id="" value="{{movie.genre}}">
+        </div>
+
+        <div class="mb-4">
+            <label for=""> Plot: </label>
+            <input type="text" name="plot" id="" value="{{movie.plot}}">
+        </div>
+
+        <div class="mb-4">
+            <label for=""> Cast: </label>
+            <select class="form-select" multiple name="cast">
+                {{#each celebrityList}}
+                <option value="{{id}}" {{#if (inArray id ../movie.cast)}}selected{{/if}}> {{name}} </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <input type="submit" class="btn btn-primary" value="CONFIRM CHANGES">
+        </div>
+
+    </form>
+
+    <a href="/movies/{{movie.id}}" class="btn btn-dark"> GO BACK TO THE MOVIE </a>
+
+</div>
