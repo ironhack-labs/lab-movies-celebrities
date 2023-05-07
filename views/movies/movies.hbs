@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>movies in DataBase</h2>
+    <hr>
+    <div class="row">
+        {{#each movie}}
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <hr>
+                <h5 class="card-title">{{title}}</h5>
+                <a href="/movies/{{_id}}">See in detail</a>
+                <hr>
+                <form action="/movies/{{_id}}/delete" method="POST" style="display: inline;">
+                    <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <a class="btn btn-dark" href="/">Back to menu</a>
+</div>

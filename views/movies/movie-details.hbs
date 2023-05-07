@@ -1,0 +1,38 @@
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2>{{title}}</h4>
+                    <hr>
+                    <h3>Genre:</h3>
+                    <h4>{{genre}}</h5>
+                        <hr>
+                        <h3>Plot:</h3>
+                        <h5>{{plot}}
+                    </h4>
+                    <hr>
+                    <h3>Cast:</h5>
+                        <hr>
+                        {{!-- mira, el autoformat de VSC me deja lo de abajo así como está, yo ya non puc mes --}}
+                        {{#each cast}}
+                        <h5>{{name}}</h5>
+                        <ul>
+                            <h6>Occupation:</h6>
+                            <li>{{occupation}}</li>
+                            <hr>
+                            <h6>catchPhrase:</h6>
+                            <li>{{catchPhrase}}</li>
+                        </ul>
+                        {{/each}}
+                        <hr>
+                        <a class="btn btn-sm btn-dark" href="/">Back to menu</a>
+                        <a class="btn btn-sm btn-dark" href="/movies">Back to movies</a>
+                        <form action="/movies/{{_id}}/delete" method="POST" style="display: inline;">
+                            <input type="submit" value="delete" class="btn btn-sm btn-danger">
+                        </form>
+                        <a class="btn btn-sm btn-warning" href="/movies/{{_id}}/edit">Edit</a>
+            </div>
+        </div>
+    </div>
+</div>

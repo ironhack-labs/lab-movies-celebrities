@@ -1,0 +1,46 @@
+{{#with editData}}
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+            {{#with movieData}}
+            <h1>Edit movie</h1>
+            <hr>
+            <h2>{{title}}</h2>
+            <hr>
+
+            <form action="/movies/{{_id}}/edit" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="title" class="form-label">Title</label>
+                    <input value="{{title}}" type="text" class="form-control" id="title" name="title">
+                </div>
+
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input value="{{genre}}" type="text" class="form-control" id="genre" name="genre">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="plot" class="form-label">Plot</label>
+                    <input value="{{plot}}" type="text" class="form-control" id="plot" name="plot">
+                </div>
+
+                {{/with}}
+                <div class="mb-3 ">
+                    <label for="celebrities" class="form-label">Choose celebrities:</label>
+                    <select name="cast" multiple>
+                        {{#each cebsData}}
+                        <option value="{{_id}}" {{#if isSelected}}selected{{/if}}>{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Update this movie</button>
+                <a class="btn btn-dark" href="/">Back to menu</a>
+
+            </form>
+        </div>
+    </div>
+</div>
+{{/with}}
