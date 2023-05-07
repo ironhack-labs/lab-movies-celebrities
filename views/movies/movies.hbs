@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Movies List</h2>
+    <hr class="mb-3">
+    <div class="row">
+        {{#each movies}}
+        <div class="col-md-6 mb-4">
+            <div class="info">
+                <h2>{{title}}</h2>
+                <a href="/movies/{{_id}}" class="btn btn-sm btn-dark">Details</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <hr>
+    <a href="/" class="btn btn-dark">Home</a>
+</div>
