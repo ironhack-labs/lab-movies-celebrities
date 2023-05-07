@@ -1,0 +1,25 @@
+<div class="container">
+    <h2> <strong>Movies List </strong> </h2>
+    <br>
+    <div class="row">
+        {{#each moviesFromDB}}
+        <div class="col">
+            <div class="card" style="padding: 20px;">
+                <h3>{{title}}</h3>
+                <br>
+                <p><strong>Genre:</strong> {{genre}}</p>
+                <br>
+                <p><strong>Plot:</strong> {{plot}}</p>
+                <br>
+                <form action="/movies/{{_id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <a href="/movies/{{_id}}/edit" class="btn btn-primary">Edit</a>
+                <button type="button" class="btn btn-warning">Update</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <br>
+    <a href="/" class="btn btn-dark">Volver al inicio</a>
+</div>

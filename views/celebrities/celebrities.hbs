@@ -1,0 +1,23 @@
+<div class="container">
+    <h2> <strong>Celebrity List</strong> </h2>
+    <br>
+    <div class="row">
+        {{#each celebritiesFromDB}}
+        <div class="col">
+            <div class="card" style="padding: 20px">
+                <h3>{{name}}</h3>
+                <br>
+                <p><strong>Occupation:</strong> {{occupation}}</p>
+                <br>
+                <p><strong>Catch Phrase:</strong> {{catchPhrase}}</p>
+                <br>
+            <form action="/celebrities/{{_id}}/delete" method="POST">
+                <button type="submit" class="btn btn-dark">Delete</button>
+            </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <br>
+    <a href="/" class="btn btn-dark">Volver al inicio</a>
+</div>

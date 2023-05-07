@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Edit Movie</h2>
+
+    <form action="/movies/{{_id}}/edit" method="post">
+        <input type="text" name="title" value="{{movieToUpdate.title}}">
+        <input type="text" name="genre" value="{{movieToUpdate.genre}}">
+        <input type="text" name="Plot" value="{{movieToUpdate.plot}}">
+        {{#each allCelebrities}}
+        <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+        <a href="/movies/{{_id}}/edit" class="btn btn-sm btn-info">editar</a>
+    </form>
+
+</div>
