@@ -1,0 +1,52 @@
+<div class="container mt-5 pt-5">
+  <h2>Create a new Movie</h2>
+  <hr />
+</div>
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form action="/movies/create" method="POST">
+        <div class="mb-3 mt-5">
+          <label for="movieTitle" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="movieTitle"
+            name="title"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="movieGenre" class="form-label">Genre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="movieGenre"
+            name="genre"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="moviePlot" class="form-label">Plot</label>
+          <input type="text" class="form-control" id="moviePlot" name="plot" />
+        </div>
+        <div class="mb-3">
+          <label for="movieCast" class="form-label">Cast</label>
+          <input type="text" class="form-control" id="movieCast" name="cast" />
+        </div>
+        <div class="mb-3">
+          <label for="movieCast" class="form-label">Cast</label>
+          <select class="form-select" multiple>
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Create Movie</button>
+      </form>
+    </div>
+  </div>
+
+</div>

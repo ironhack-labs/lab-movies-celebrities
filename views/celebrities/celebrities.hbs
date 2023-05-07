@@ -1,0 +1,38 @@
+<div class="container mt-5 pt-5">
+  <h1>Celebrities List</h1>
+  <hr />
+  <table class="table align-middle mt-5">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">Name</th>
+        <th scope="col" class="text-center">Occupation</th>
+        <th scope="col" class="text-center">Catch Phrase</th>
+        {{! <th scope="col" class="text-center">Edit</th> }}
+        <th scope="col" class="text-center">Delete</th>
+      </tr>
+    </thead>
+    {{#each celebrities}}
+      <tbody>
+        <tr>
+          <th scope="row" class="text-center">{{this.counter}}</th>
+          <td class="text-center">{{name}}</td>
+          <td class="text-center">{{occupation}}</td>
+          <td class="text-center">{{catchPhrase}}</td>
+          {{!-- <td class="text-center"><a
+              href="/drones/{{id}}/edit"
+              class="btn btn-warning text-white"
+            >edit</a></td> --}}
+          <td class="text-center">
+            <form
+              action="/celebrity/{{id}}/delete"
+              method="POST"
+              style="margin-bottom:0"
+            >
+              <input type="submit" value="delete" class="btn btn-danger" />
+            </form></td>
+        </tr>
+      </tbody>
+    {{/each}}
+  </table>
+</div>
