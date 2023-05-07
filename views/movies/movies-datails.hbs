@@ -1,0 +1,16 @@
+<div class="row mt-5">
+    <div class="col-md-6">
+        {{#each movie}}
+        <h1>{{title}}</h1>
+        <p>{{genre}}</p>
+        <p>{{plot}}</p>
+    </div>
+    <div class="col-md-6">
+        {{#each cast}}
+        <h3>Reparto</h3>
+        <h4>{{name}}</h4>
+        <p>{{catchPhrase}} <br>{{occupation}}</p>
+        {{/each}}
+        {{/each}}
+    </div>
+</div>

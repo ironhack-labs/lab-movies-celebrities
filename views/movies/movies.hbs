@@ -1,0 +1,18 @@
+<h1 class="mb-5">Movies</h1>
+<div class="row mb-5">
+    {{#each movie}}
+    <div class="col-md-4">
+        <h3>{{title}}</h3>
+        <p>
+            Genero: {{genre}} <br>
+            Plot: {{plot}}
+        </p>
+        <a href="/movie/{{id}}" class="btn btn-dark">Ver Detalles</a>
+        <a href="/movie/{{id}}/edit" class="btn btn-dark">Editar</a>
+        <form method="POST" action="/movie/{{id}}/delete" style="display: inline;">
+            <input type="submit" value="Eliminar" class="btn btn-danger">
+        </form>
+    </div>
+    {{/each}}
+</div>
+<a href="/movies/create" class="btn btn-success">Crear una Pelicula</a>

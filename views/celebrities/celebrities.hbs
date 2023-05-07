@@ -1,0 +1,18 @@
+<h1 class="mb-5">Celebrites</h1>
+<div class="row mb-5">
+    {{#each celebritie}}
+    <div class="col-md-4 mb-5">
+        <h3>{{name}}</h3>
+        <p>
+            Ocupacion: {{occupation}} <br>
+            Frase Mitica: {{catchPhrase}}
+        </p>
+        <a href="/celebritie/{{id}}/details" class="btn btn-dark">Detalles</a>
+        <a href="/celebritie/{{id}}/edit" class="btn btn-dark">Editar</a>
+        <form method="POST" action="/celebrities/{{id}}/delete" style="display: inline;">
+            <input type="submit" value="Eliminar" class="btn btn-danger">
+        </form>
+    </div>
+    {{/each}}
+</div>
+<a href="/celebrities/create" class="btn btn-success">Crear una nueva Celebrite</a>
