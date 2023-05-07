@@ -1,18 +1,18 @@
-<p>EDITAR CELEBRITIES</p>
+<h2>EDIT CELEBRITY</h2>
 
 <form action="/celebrities/{{id}}/edit" method="POST">
-    <div class="mb-3 mt-5">
-        <label for="name" class="form-label">Name</label>
+    <div class="mb-3 mt-8">
+        <label for="name" class="form-label">NAME</label>
         <input type="text" class="form-control" id="celebrityName" name="name" value="{{name}}">
     </div>
-    <div class="mb-3 mt-5">
-        <label for="occupation" class="form-label">Occupation</label>
+    <div class="mb-3 mt-8">
+        <label for="occupation" class="form-label">OCCUPATION</label>
         <input type="text" class="form-control" id="celebrityOccupation" name="occupation" value="{{occupation}}">
     </div>
-    <div class="mb-3">
-        <label for="catchPhrase" class="form-label">Catch Phrase</label>
+    <div class="mb-3 mt-8">
+        <label for="catchPhrase" class="form-label">CARCH PHRASE</label>
         <input type="text" class="form-control" id="celebrityCatchPhrase" name="catchPhrase" value="{{catchPhrase}}">
     </div>
 
-    <button type="submit" class="btn btn-dark">Save</button>
+    <button type="submit" class="btn btn-dark">Save Changes</button>
 </form>

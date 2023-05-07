@@ -10,10 +10,7 @@ router.get('/celebrities/create', (req, res, next) => {
 })
 
 router.post('/celebrities/create', (req, res, next) => {
-    //este body va a contener lo que voy a crear y son las propiedades del schema del model 
     const { name, occupation, catchPhrase } = req.body
-    //pruebo que salga en terminal la celebrity que me creo
-    //console.log(req.body)
 
     Celebrity
         .create({ name, occupation, catchPhrase })

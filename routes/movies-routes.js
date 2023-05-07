@@ -26,7 +26,6 @@ router.get('/movies/create', (req, res) => {
 
 //Crear movies
 router.post('/movies/create', (req, res) => {
-    //este body va a contener lo que voy a crear y son las propiedades del schema del model 
     const { title, genre, plot, cast } = req.body
 
     Movie
@@ -36,7 +35,6 @@ router.post('/movies/create', (req, res) => {
         })
         .catch(err => console.log(err))
 })
-
 
 //Movies details. Populo el cast para asociarlo a las movies
 router.get('/movies/:id', (req, res) => {
@@ -52,9 +50,7 @@ router.get('/movies/:id', (req, res) => {
 
 });
 
-
 //editar movie (render)
-
 router.get('/movies/:id/edit', (req, res) => {
     const { id } = req.params
 
@@ -72,7 +68,6 @@ router.get('/movies/:id/edit', (req, res) => {
 })
 
 //editar movie (hanler)
-
 router.post('/movies/:id/edit', (req, res) => {
     const { id } = req.params
     const { title, genre, plot, cast } = req.body
@@ -86,7 +81,6 @@ router.post('/movies/:id/edit', (req, res) => {
 
 
 //delete 
-
 router.post('/movies/:id/delete', (req, res, next) => {
     const { id } = req.params
 

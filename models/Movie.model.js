@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+
 const CelebrityModel = require('./Celebrity.model');
 
 const movieSchema = new Schema(

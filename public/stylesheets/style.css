@@ -1,8 +1,86 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.image1 {
+  width: 1000px;
+  height: auto;
 }
 
-a {
-  color: #00b7ff;
+.button-container {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+  background-color: goldenrod;
+}
+
+.button1 {
+  margin-bottom: 300px;
+  margin-right: 750px;
+  position: absolute;
+  bottom: 4em;
+  right: 4em;
+  background-color: goldenrod;
+  border-radius: 1.5em;
+  color: black;
+  padding: 1em 1.5em;
+}
+
+.button2 {
+  margin-bottom: 300px;
+  margin-right: 30px;
+  position: absolute;
+  bottom: 4em;
+  right: 4em;
+  background-color: goldenrod;
+  border-radius: 1.5em;
+  color: black;
+  padding: 1em 1.5em;
+
+}
+
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.centrado {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin-bottom: 500px;
+  transform: translate(-50%, -50%);
+  color: goldenrod;
+  text-decoration: none;
+  font: 70px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* LAYOUT */
+h2 {
+  color: crimson;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.menu {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+h5 {
+  color: black
+}
+
+.details {
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.list {
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+  box-shadow: none;
 }

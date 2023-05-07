@@ -1,7 +1,13 @@
-<h2>celebrities list</h2>
-
+<h2>CELEBRITIES</h2>
 <div>
     {{#each celebrities}}
-    <div><a href='/celebrities/{{id}}'>{{name}}</a></div>
+    <div>
+        <li class="list"><a href='/celebrities/{{id}}'>{{name}}</a></li>
+    </div>
     {{/each}}
+</div>
+
+
+<div class="btn new">
+    <a href="/celebrities/create" class="btn btn-dark">NEW CELEBRITY</a>
 </div>

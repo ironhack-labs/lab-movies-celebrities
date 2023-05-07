@@ -1,16 +1,16 @@
-<p>EDITAR MOVIES</p>
+<h2>EDITAR MOVIES</h2>
 
 <form action="/movies/{{movie.id}}/edit" method="POST">
-    <div class="mb-3 mt-5">
-        <label for="title" class="form-label">Title</label>
+    <div class="mb-3 mt-8">
+        <label for="title" class="form-label">TITLE</label>
         <input type="text" class="form-control" id="movieTitle" name="title" value="{{movie.title}}">
     </div>
-    <div class="mb-3 mt-5">
-        <label for="genre" class="form-label">Genre</label>
+    <div class="mb-3 mt-8">
+        <label for="genre" class="form-label">GENRE</label>
         <input type="text" class="form-control" id="movieGenre" name="genre" value="{{movie.genre}}">
     </div>
-    <div class="mb-3">
-        <label for="plot" class="form-label">Plot</label>
+    <div class="mb-3 mt-8">
+        <label for="plot" class="form-label">PLOT</label>
         <input type="text" class="form-control" id="moviePlot" name="plot" value="{{movie.plot}}">
     </div>
     <select name="cast" id="cast">
@@ -19,5 +19,5 @@
         {{/each}}
     </select>
 
-    <button type="submit" class="btn btn-dark">Save</button>
+    <button type="submit" class="btn btn-dark">Save Changes</button>
 </form>

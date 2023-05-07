@@ -1,6 +1,13 @@
-<p>LAS MOVIES</p>
+<h2>MOVIES</h2>
 <div>
     {{#each movies}}
-    <div><a href='/movies/{{id}}'>{{title}}</a></div>
+    <div>
+        <li class="list"><a href='/movies/{{id}}'>{{title}}</a></li>
+    </div>
     {{/each}}
+</div>
+
+
+<div class="btn new">
+    <a href="/movies/create" class="btn btn-dark">CREATE NEW MOVIE</a>
 </div>

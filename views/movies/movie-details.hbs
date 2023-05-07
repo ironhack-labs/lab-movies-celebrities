@@ -1,16 +1,22 @@
-<h2>DETALLES DE LA MOVIE</h2>
-<article>
-    <h2>Title: {{title}}</h2>
-    <h2>Genre: {{genre}}</h2>
-    <h2>Plot: {{plot}}</h2>
-    <p> Cast:</p>
-    {{#each cast}}
-    <ul>
-        <li>{{name}}</li>
-    </ul>
-    {{/each}}
-</article>
-<a href="/movies/{{_id}}/edit" class="btn btn-dark">Edit movie</a>
-<form action="/movies/{{_id}}/delete" method="POST">
-    <input type="submit" value="Delete" class="btn btn-sm btn-danger">
-</form>
+<h2>MOVIE DETAILS</h2>
+<div>
+    <article>
+        <h5>TITLE: {{title}}</h5>
+        <h5>GENRE: {{genre}}</h5>
+        <h5>PLOT: {{plot}}</h5>
+        <h5> CAST:</h5>
+        {{#each cast}}
+        <ul>
+            <li class="details">{{name}}</li>
+        </ul>
+        {{/each}}
+    </article>
+    <div class="btn edit">
+        <a href="/movies/{{_id}}/edit" class="btn btn-dark">Edit movie</a>
+    </div>
+    <div class="btn delete">
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <input type="submit" value="Delete" class="btn btn-dark">
+        </form>
+    </div>
+</div>
