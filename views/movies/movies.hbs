@@ -9,7 +9,7 @@
         <th scope="col" class="text-center">Genre</th>
         <th scope="col" class="text-center">Plot</th>
         <th scope="col" class="text-center">Cast</th>
-        {{! <th scope="col" class="text-center">Edit</th> }}
+        <th scope="col" class="text-center">Edit</th>
         <th scope="col" class="text-center">Delete</th>
       </tr>
     </thead>
@@ -17,16 +17,24 @@
       <tbody>
         <tr>
           <th scope="row" class="text-center">{{this.counter}}</th>
-          <td class="text-center">{{name}}</td>
-          <td class="text-center">{{occupation}}</td>
-          <td class="text-center">{{catchPhrase}}</td>
-          {{!-- <td class="text-center"><a
-              href="/drones/{{id}}/edit"
+          <td class="text-center"><a
+              href="/movies/{{id}}"
+              class="link-underline-dark text-dark"
+            >{{title}}</a></td>
+          <td class="text-center">{{genre}}</td>
+          <td class="text-center">{{plot}}</td>
+          <td class="text-center">
+            {{#each cast}}
+              {{this.name}}{{#unless @last}}, {{/unless}}
+            {{/each}}
+          </td>
+          <td class="text-center"><a
+              href="/movies/{{id}}/edit"
               class="btn btn-warning text-white"
-            >edit</a></td> --}}
+            >edit</a></td>
           <td class="text-center">
             <form
-              action="/celebrity/{{id}}/delete"
+              action="/movies/{{id}}/delete"
               method="POST"
               style="margin-bottom:0"
             >

@@ -33,11 +33,11 @@
         </div>
         <div class="mb-3">
           <label for="movieCast" class="form-label">Cast</label>
-          <select class="form-select" multiple>
+          <select class="form-select" multiple id="movieCast" name="cast">
             <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {{#each celebrities}}
+              <option value="{{id}}">{{name}}</option>
+            {{/each}}
           </select>
         </div>
         <button type="submit" class="btn btn-dark">Create Movie</button>

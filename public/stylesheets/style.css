@@ -1,8 +1,10 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.image-details {
+  background-image: url("../../images/coming.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
