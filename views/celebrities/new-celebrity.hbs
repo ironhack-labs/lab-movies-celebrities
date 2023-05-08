@@ -1,0 +1,37 @@
+<h2>Page Heading</h2>
+{{!-- <form action="/celebrities/create" method="POST">
+    <input type="text" class="form-control" id="celebrityName" name="name" value="{{name}}">
+    <input type="text" class="form-control" id="celebrityOccupation" name="occupation" value="{{occupation}}">
+    <input type="text" class="form-control" id="celebrityCatchPhrase" name="catchPhrase" value="{{catchPhrase}}">
+    <a href="celebrities" class="btn btn-dark">Go to list</a>
+</form> --}}
+
+{{name}}
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="/celebrities/create" method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="celebName" class="form-label">Celebrity Name</label>
+                    <input type="text" class="form-control" id="celebName" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="celebOccupation" class="form-label">Occupation</label>
+                    <input type="text" class="form-control" id="celebOccupation" name="occupation">
+                </div>
+
+                <div class="mb-3 ">
+                    <label for="celebCatchPhrase" class="form-label">Catch Phrase</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+                <button type="submit" class="btn btn-dark">Generate celebrity</button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>
