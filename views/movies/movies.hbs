@@ -1,0 +1,27 @@
+<div class="container">
+
+    <h1>Movies</h1>
+
+    <hr>
+    <div class="row">
+
+        {{#each allMovies}}
+        <div class="col-4">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>TITLE: </strong> {{title}}</h5>
+                    <a href="/movies/{{id}}" class="btn btn-dark">Ver detalles</a>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+    <hr>
+    <a href="/" class=" btn btn-dark">Volver a inicio</a>
+
+
+
+</div>

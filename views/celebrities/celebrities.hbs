@@ -1,0 +1,25 @@
+<div class="container ">
+
+    <h1>Celebrities</h1>
+
+    <hr>
+    <div class="row">
+
+        {{#each allCelebrities}}
+        <div class="col-4">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Name: </strong> {{name}}</h5>
+                    <h5 class="card-title"><strong>Occupation: </strong> {{occupation}}</h5>
+                    <h5 class="card-title"><strong>Catch phrase: </strong> {{catchPhrase}}</h5>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+
+
+
+
+</div>

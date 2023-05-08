@@ -1,0 +1,40 @@
+<div class="container">
+
+    <h2>MOVIE DETAILS</h2>
+
+    <hr>
+    <div class="row">
+
+        <div class="col-4">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>TITLE: </strong> {{title}}</h5>
+                    <h5 class="card-title"><strong>genre: </strong> {{genre}}</h5>
+                    <h5 class="card-title"><strong>PLOT: </strong> {{plot}}</h5>
+                    <h5 class="card-title">
+                        <strong>CELEBRITIES: </strong>
+                        <ul>
+                            {{#each cast}}
+                            <li>{{name}}</li>
+                            {{/each}}
+                        </ul>
+
+                    </h5>
+
+                    <form action="/movies/{{id}}/delete" method="POST" style="display: inline">
+                        <input type="submit" value="eliminar" class="btn btn-sm btn-danger">
+                    </form>
+
+                    <a href="/movies/{{id}}/edit" class="btn btn-sm btn-info">EDIT</a>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr>
+
+
+</div>
