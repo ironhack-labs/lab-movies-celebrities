@@ -1,6 +1,6 @@
 const express = require('express')
 const router = require("express").Router();
-
+const { isLoggedIn } = require('../middlewares/route.guard')
 const Movie = require('./../models/Movie.model')
 const Celebrity = require('./../models/Celebrity.model')
 
@@ -14,15 +14,15 @@ router.get('/movies', (req, res, next) => {
 
 })
 
-// Create new Movies
-router.get('/movies/create', (req, res, next) => {
+// Create new Movies PRIVATE
+router.get('/movies/create', isLoggedIn, (req, res, next) => {
     Celebrity
         .find()
         .then(celebrities => res.render('movies/new-movie', { celebrities }))
         .catch(err => console.log(err))
 })
 
-router.post('/movies/create', (req, res, next) => {
+router.post('/movies/create', isLoggedIn, (req, res, next) => {
     const { title, genre, plot, imageUrl, cast } = req.body
     Movie
         .create({ title, genre, plot, imageUrl, cast })
@@ -42,8 +42,8 @@ router.get('/movies/:id', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-// Delete Movies
-router.post('/movies/:id/delete', (req, res, next) => {
+// Delete Movies PRIVATE
+router.post('/movies/:id/delete', isLoggedIn, (req, res, next) => {
     const { id } = req.params
     Movie
         .findByIdAndDelete(id)
@@ -51,21 +51,25 @@ router.post('/movies/:id/delete', (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-//Update Movies
+//Update Movies PRIVATE
 
-
-router.get('/movies/:id/edit', async (req, res) => {
+router.get('/movies/:id/edit', isLoggedIn, (req, res, next) => {
     const { id } = req.params
-    try {
-        const celebrities = await Celebrity.find()
-        const movie = await Movie.findById(id).populate('cast')
-        res.render('movies/edit-movie', { celebrities, movie })
-    } catch (error) {
-        console.error('Error al obtener los modelos', error)
-    }
+    const promises = [
+        Movie.findById(id).populate('cast'),
+        Celebrity.find()
+    ]
+    Promise
+        .all(promises)
+        .then(promisesResponse => {
+            const movie = promisesResponse[0]
+            const celebrities = promisesResponse[1]
+            res.render('movies/edit-movie', { celebrities, movie })
+        })
+        .catch(err => console.log(err))
 })
 
-router.post('/movies/:id/edit', (req, res, next) => {
+router.post('/movies/:id/edit', isLoggedIn, (req, res, next) => {
     const { title, genre, plot, imageUrl, cast } = req.body
     const { id } = req.params
     Movie

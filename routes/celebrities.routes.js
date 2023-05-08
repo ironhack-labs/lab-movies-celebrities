@@ -1,6 +1,6 @@
 const express = require('express')
 const router = require("express").Router();
-
+const { isLoggedIn } = require('../middlewares/route.guard')
 const Celebrity = require('./../models/Celebrity.model')
 
 // Celebrities List
@@ -13,12 +13,12 @@ router.get('/celebrities', (req, res, next) => {
 
 })
 
-// Create new Celebrities
-router.get('/celebrities/create', (req, res, next) => {
+// Create new Celebrities PRIVATE
+router.get('/celebrities/create', isLoggedIn, (req, res, next) => {
     res.render('celebrities/new-celebrity')
 })
 
-router.post('/celebrities/create', (req, res, mext) => {
+router.post('/celebrities/create', isLoggedIn, (req, res, mext) => {
     const { name, occupation, catchPhrase, imageUrl } = req.body
     Celebrity
         .create({ name, occupation, catchPhrase, imageUrl })
