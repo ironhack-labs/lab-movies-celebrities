@@ -54,17 +54,23 @@ router.get('/movies/:id', (req, res) => {
 router.get('/movies/:id/edit', (req, res) => {
     const { id } = req.params
 
-    Movie
-        .findById(id)
-        .populate('cast')
-        .then(movie => {
-            Celebrity
-                .find()
-                .then(celebritiesCreated => {
-                    res.render('movies/edit-movie', { movie, celebritiesCreated })
-                })
+    const promises = [
+        Movie.findById(id).populate('cast'),
+        Celebrity.find()
+    ]
+
+    Promise
+        .all(promises)
+        .then(response => {
+
+            const movie = response[0]
+            const celebritiesCreated = response[1]
+
+            res.render('movies/edit-movie', { movie, celebritiesCreated })
         })
         .catch(err => console.log(err))
+
+
 })
 
 //editar movie (hanler)
