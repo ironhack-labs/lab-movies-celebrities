@@ -1,8 +1,42 @@
 body {
+  margin-top: 50px;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:antiquewhite;
+  text-align: center;
 }
 
 a {
-  color: #00b7ff;
+  color: #004f6e;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+}
+
+a:hover{
+  text-decoration: none;
+  color:coral;
+}
+
+.container25{
+  background-color: rgba(255,255,255,0.5);
+  margin: 75px 20px 0px 20px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.container49{
+  background-color: rgba(255,255,255,0.5);
+  margin: 75px 20px 0px 20px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px;
+  width: 350px;
+}
+
+button {
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
