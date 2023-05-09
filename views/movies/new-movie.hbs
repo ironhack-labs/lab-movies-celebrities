@@ -4,17 +4,20 @@
 <form action="/movies/create" method="post">
 <label for="title">title:</label>
     <input type="text" name="title"/>
-    <label for "genre">genre:</label>
-    <input type="text"name="genre"/>
-     <label for "plot">plot:</label>
-     <input type="text" name="plot"/>
-     <label for="cast">cast:</label>
-     <input type="text" name="cast">
-    <select name="celebrity">
-        {{#each celebrities}}
-            <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-    </select>
+    
+    <label for="genre">genre:</label>
+<input type="text" name="genre"/>
+
+     <label for="plot">plot:</label>
+<input type="text" name="plot"/>
+
+
+  <label for="cast">Cast:</label>
+  <select name="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{._id}}">{{name}}</option>
+    {{/each}}
+  </select>
       
     <button type="submit">Create the movie</button>
 </form> 
