@@ -26,7 +26,22 @@ router.post("/create", (req,res,next) => {
 })
 
 router.get("/", (req,res,next)=>{
-    res.render("./celebrities/celebrities")
+    Celebrity.find()
+    .then((results) => {
+        // console.log("search results", results)
+        return {results}
+    })
+    .then(celebResults =>{
+        res.render("./celebrities/celebrities", celebResults)
+    })
+    .catch(err => {
+        next(err)
+    })
+
+
 })
+
+
+
 
 module.exports = router;
