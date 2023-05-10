@@ -1,0 +1,28 @@
+<h1>Edit the Movie: {{movie.title}}</h1>
+
+<form action="/movies/{{movie._id}}/edit" method="post">
+  <label> Title:
+    <input type="text" name="title" value="{{movie.title}}" />
+  </label>
+
+  <label> Genre:
+    <input type="text" name="genre" value="{{movie.genre}}" />
+  </label>
+
+  <label> Plot:
+    <textarea
+      name="plot"
+      cols="30"
+      rows="4"
+    >{{movie.plot}}</textarea>
+  </label>
+
+  <label> Cast:
+    <input
+      type="Schema.Types.ObjectId"
+      name="cast"
+      value="{{movie.cast}}"
+    /></label>
+
+    <button type="submit">Save Changes</button>
+</form>
