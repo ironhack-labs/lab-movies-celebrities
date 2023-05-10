@@ -2,12 +2,16 @@
 // Require Schema and model methods of mongoose
 const {Schema, model} = require('mongoose');
 
-const celebritySchema = new Schema(
+const movieSchema = new Schema(
     // Info that is going to be prompt
     {
-     name: String, 
-     occupation: String, 
-     catchPhrase: String, 
+     title: String, 
+     genre: String, 
+     plot: String,
+     cast: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Celebrity'
+      }],
     }, 
     // MongoDB Options
     {
@@ -15,4 +19,4 @@ const celebritySchema = new Schema(
     }
 );
 
-module.exports = model('Celebrity', celebritySchema);
+module.exports = model('Movie', movieSchema);
