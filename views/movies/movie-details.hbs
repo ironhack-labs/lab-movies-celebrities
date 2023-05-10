@@ -8,9 +8,10 @@
         {{/each}}
     </div>
 </div>
+<div class="edit-delet-btns">
+  <a href="/movies/{{movieDetails._id}}/edit">Edit</a>
 
-<a href="/movies/{{movieDetails._id}}/edit">Edit</a>
-
-<form action="/movies/{{movieDetails._id}}/delete" method="post">
-  <button type="submit">Delete</button>
+  <form action="/movies/{{movieDetails._id}}/delete" method="post">
+    <button type="submit">Delete</button>
 </form>
+</div>
