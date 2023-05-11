@@ -1,13 +1,6 @@
-<h1>Celebrities:</h1>
-
-<hr />
-
-{{#each celebrities}}
-  <div>
-    <h3>{{name}}</h3>
-    <p>Occupation: {{occupation}}</p>
-    <p>Catch Phrase: {{catchPhrase}}</p>
-  </div>
+<h2>Check all the Celebrities!</h2>
+<div class="box">
+{{#each allCelebs}}
+<a href="/celebrities/{{_id}}" class="btn">{{name}}</a>
 {{/each}}
-
-<a href="/">Homepage</a>
+</div>

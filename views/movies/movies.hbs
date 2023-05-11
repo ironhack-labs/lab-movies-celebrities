@@ -1,14 +1,6 @@
-<h1>Movies:</h1>
-
-<hr />
-
-{{#each movies}}
-  <div>
-    <a href="/movies/{{_id}}">See Details</a>
-    <h3>{{title}}</h3>
-  </div>
-{{/each}}
-
-<hr />
-
-<a href="/">Homepage</a>
+<h2>Check all the Movies!</h2>
+<div class='box'>
+  {{#each allMovies}}
+    <a href='/movies/{{_id}}' class='btn'>{{title}}</a>
+  {{/each}}
+</div>

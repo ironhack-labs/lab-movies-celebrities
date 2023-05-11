@@ -1,7 +1,7 @@
 document.addEventListener(
-  "DOMContentLoaded",
+  'DOMContentLoaded',
   () => {
-    console.log("IronGenerator JS imported successfully!");
+    console.log('IronGenerator JS imported successfully!');
   },
   false
 );
