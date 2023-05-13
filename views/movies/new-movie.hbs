@@ -15,15 +15,12 @@
 </p>
 <p>
 <label for="cast">Cast:</label>
-<select name="celebrity" id="celebrity" >
-    {{#each}}
-  <option value="volvo">Volvo</option>
+<select name="celebrity" id="celebrity" multiple>
+    {{#each celebrities}}
+  <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
-
-  {{!-- <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option> --}}
 </select>
+<p>(You'll be able to select more than one celebrity if you hold down Ctrl key!)</p>
 
 </p>
 
