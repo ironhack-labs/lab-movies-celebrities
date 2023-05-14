@@ -40,11 +40,47 @@ router.get("/:movieId", (req,res,next) => {
     Movie.findById(movieId)
     .populate("cast")
     .then((movie) => {
-        console.log(movie)
+        //console.log(movie)
         res.render("./movies/movie-details", movie)
     })
-    .catch(err => next(err))
-    
+    .catch(err => next(err))    
+})
+
+router.post("/:movieId/delete", (req, res, next) => {
+    let movieId = req.params.movieId;
+    Movie.findByIdAndDelete(movieId)
+    .then(() => {
+        res.redirect("/movies")
+    })
+    .catch(err => next(err))   
+})
+
+router.get("/:movieId/edit", (req, res, next) => {
+    let movieId = req.params.movieId;
+    let editData = {} // <-- I will be filling this variable with diverse data across the sequence of promises:
+    Movie.findById(movieId)
+    .then((movieDetails) => {
+        editData.movie = movieDetails
+        return Celebrity.find() // Importante poner aquí un return! Sin ello no pasan los datos al siguiente ".then".
+    })
+    .then((celebrities) => {
+        //console.log("celebrities: ",celebrities)
+        editData.celebrities = celebrities
+        //console.log(editData)
+        res.render("./movies/edit-movie", editData)
+    })
+    .catch(err => next(err)) 
+})
+
+router.post("/:movieId/edit", (req, res, next) => {
+    //console.log(req.body)
+    const movieId = req.params.movieId;
+    const updatedMovie = req.body
+    Movie.findByIdAndUpdate(movieId, updatedMovie)
+    .then(() => {
+        res.redirect(`/movies/${movieId}`)
+    })
+    .catch(err => next(err))   
 })
 
 
