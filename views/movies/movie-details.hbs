@@ -1,1 +1,17 @@
-blaaaa
+<h2>Movie details</h2>
+
+<ul>
+    <li>Title: {{title}}</li>
+    <li>Genre: {{genre}}</li>
+    <li>Plot: {{plot}}</li>
+    <li>Cast:
+        <ul>
+            {{#each cast}}
+            <li>Name: {{this.name}}</li>
+            <li>Occupation: {{this.occupation}}</li>
+            <li>Catch phrase: {{this.catchPhrase}}</li>
+            <p></p>
+            {{/each}}
+        </ul>
+    </li>
+</ul>

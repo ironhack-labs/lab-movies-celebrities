@@ -15,10 +15,12 @@ router.get("/create", (req, res, next) => {
 
 router.post("/create", (req, res, next) => {
     console.log(req.body)
-    const newMovieInfo = req.body
+    const {title, genre, plot} = req.body
+    const cast = req.body.celebrity
+    const newMovieInfo = {title, genre, plot, cast}
     Movie.create(newMovieInfo)
     .then(() => {
-        res.render("./movies/movies")
+        res.redirect("/movies") // (This redirects to the route defined in the next block of code; the one that does "router.get("/", ....")
     })
     .catch(err => next(err)) 
 })
@@ -33,7 +35,16 @@ router.get("/", (req,res,next) => {
 })
 
 router.get("/:movieId", (req,res,next) => {
-    res.render("./movies/movie-details")
+    //console.log(req.params)
+    let movieId = req.params.movieId;
+    Movie.findById(movieId)
+    .populate("cast")
+    .then((movie) => {
+        console.log(movie)
+        res.render("./movies/movie-details", movie)
+    })
+    .catch(err => next(err))
+    
 })
 
 
