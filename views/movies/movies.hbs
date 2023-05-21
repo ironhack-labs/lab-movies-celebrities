@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Movies</h2>
+            <hr class="mb-5">
+
+            {{#each movies}}
+            <div class="row mb-2">
+
+                <h5 class="mr-2"> {{title}}</h5>
+                <a href="/movies/{{_id}}" class="btn btn-sm btn-outline-dark mr-2">See more</a></p>
+                <a href="/movies/{{_id}}/edit" class="btn btn-sm btn-outline-warning mr-2">Edit</a></p>
+                <form action="movies/{{_id}}/delete" method="POST" style="display: inline">
+                    <input type="submit" value="DELETE" class="btn btn-sm btn-outline-danger mr-2">
+                </form>
+            </div>
+            {{/each}}
+
+            <hr class="mb-3">
+            <a href="/movies/create" alt="add another" class="btn btn-secondary"> add another</a>
+            <a href="/" alt="back home" class="btn btn-dark"> back</a>
+        </div>
+
+    </div>
+</div>

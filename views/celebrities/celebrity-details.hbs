@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col">
+
+            <h2>More details</h2>
+            <hr class="mb-5">
+
+            <div class="col-md-6">
+                <p>Name: {{name}} </p>
+                <p>Occupation: {{occupation}}</p>
+                <p>Catch Phrase: {{catchPhrase}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="mb-3">
+    <a href="/celebrities" alt="back" class="btn btn-dark"> back</a>
+    <form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="DELETE" class="btn btn-danger">
+    </form>
+
+</div>
