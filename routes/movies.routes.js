@@ -39,5 +39,15 @@ router.get('/create', async (req, res) => {
     }
   });
   
+  router.post('/:id/delete', async (req, res) => {
+    try {
+      await Movie.findByIdAndRemove(req.params.id);
+      res.redirect('/movies');
+    } catch (error) {
+      // Handle the error
+    }
+  });
+  
+
 
 module.exports = router;
