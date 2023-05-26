@@ -16,5 +16,14 @@ router.get('/create', (req, res) => {
     }
   });
   
+  router.get('/', async (req, res) => {
+    try {
+      const celebrities = await Celebrity.find();
+      res.render('celebrities/celebrities', { celebrities });
+    } catch (error) {
+      // Handle the error
+    }
+  });
+  
 
 module.exports = router;
