@@ -20,6 +20,16 @@ router.get('/create', async (req, res) => {
       // Handle the error
     }
   });
+
+  router.get('/', async (req, res) => {
+    try {
+      const movies = await Movie.find();
+      res.render('movies/movies', { movies });
+    } catch (error) {
+      // Handle the error
+    }
+  });
+  
   
 
 module.exports = router;
