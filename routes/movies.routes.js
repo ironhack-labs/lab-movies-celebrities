@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const Celebrity = require("../models/Celebrity.model");
+const Movie = require('../models/Movie.model');
 
 // All your routes here
 router.get('/create', async (req, res) => {
