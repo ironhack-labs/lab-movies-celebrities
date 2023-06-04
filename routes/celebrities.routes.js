@@ -1,8 +1,16 @@
 const router = require("express").Router();
+const Celebrity = require("../models/Celebrity.model");
 
 /* GET Celebrities page */
-router.get("/celebrities", (req, res, next) => {
-  res.render("celebrities");
+router.get("/", (req, res, next) => {
+  Celebrity.find()
+    .then((celebrities) => {
+      res.render("celebrities/celebrities", { celebrities });
+    })
+    .catch((error) => {
+      console.log("Error: ", err);
+      res.render("error", { err });
+    });
 });
 
 router.get("/create", (req, res, next) => {
@@ -22,7 +30,7 @@ router.post("/create", (req, res, next) => {
       res.redirect("/celebrities");
     })
     .catch(error => {
-      console.log('error ', err),
+      console.log("Error: ", err),
       res.render("celebrities/new-celebrity", { err });
     });
 });
