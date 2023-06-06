@@ -67,4 +67,38 @@ router.post("/movies/:id/delete", (req,res, next)=> {
         })
         .catch(e => console.log('delete error', e))
 })
+
+router.get("/movies/:id/edit", (req,res, next) => {
+    const id = req.params.id
+
+    let celebrities;
+
+    celebritiesModel.find()
+        .then((celebFromDB) => {
+            celebrities = celebFromDB
+            console.log(id);
+            return movieModel.findById(id)
+        })
+        .then((movieFromDB) => {
+            res.render("movies/edit-movie", {movieDB: movieFromDB, celebrity: celebrities})
+        })
+        .catch(e => console.log(e));
+})
+
+router.post("/movies/:id/edit", (req, res, next)=> {
+    const id = req.params.id
+    const editMovies = {
+        title: req.body.title,
+        genre: req.body.genre,
+        plot: req.body.plot,
+        cast: req.body.cast
+    }
+    movieModel.findByIdAndUpdate(id, editMovies)
+        .then((editMovies) => {
+            res.redirect("/movies")
+        })
+        .catch(e => console.log(e))
+
+
+})
 module.exports = router;

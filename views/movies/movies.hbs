@@ -4,4 +4,8 @@
 <h3>{{this.title}}</h3>
 
 <a href="/movies/{{this._id}}"><button>View Details</button></a>
+<a href="/movies/{{this._id}}/edit"><button>Edit</button></a>
+<form method="post" action="/movies/{{this._id}}/delete">
+<button>Delete the Movie</button>
+</form>
 {{/each}}
