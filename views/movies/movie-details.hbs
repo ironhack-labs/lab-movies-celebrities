@@ -10,3 +10,6 @@
 <li>{{this.catchPhrase}}</li>
 {{/if}}
 {{/each}}
+<form method="post" action="/movies/{{movieID.id}}/delete">
+    <button type="submit">Delete</button>
+</form>
