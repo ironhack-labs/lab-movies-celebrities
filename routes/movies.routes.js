@@ -26,8 +26,17 @@ router.post("/movies/create", (req, res, next) => {
 router.get("/movies/", (req, res, next) => {
 	MovieModel.find()
 		.then(movies => {
-			console.log(movies)
 			res.render("movies/movies", {movies})
+		})
+		.catch(e => next(e))
+})
+
+// READ: display details of one movie
+router.get("/movies/:id", (req, res, next) => {
+	MovieModel.findById(req.params.id)
+		.populate("cast")
+		.then(movie => {
+			res.render("movies/movie-details", movie)
 		})
 		.catch(e => next(e))
 })
