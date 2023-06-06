@@ -1,12 +1,10 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
 
-const Movie = require("../models/Movie.model");
+const Movie = require('../models/Movie.model');
 
-// all your routes here
 
-module.exports = router;
-
+// Iteration 6: Create Movies
 // GET
 router.get("/movies/create", (req,res,next) => {
     Movie.find()
@@ -39,3 +37,35 @@ Movie.create(newMovie)
         next(e);
     })
 })
+
+// Iteration 7: Create Movie List
+router.get("/movies", (req, res, next) => {
+
+    Movie.find()
+        .then(moviesFromDB => {
+            res.render("movies/movies", { moviesFromDB })
+        })
+        .catch((e) => {
+            console.log("error showing all movies", e);
+            next(e)
+        })
+});
+
+// Iteration 8: The Movie Details Page
+router.get("/movies/:movieId", (req, res, next) => {
+    const id = req.params.movieId;
+
+    Movie.findById(id)
+        .populate()
+        .then( moviesFromDB => {
+            res.render("movies/movie-details", moviesFromDB);
+        })
+        .catch( e => {
+            console.log("error getting movie details from DB", e);
+            next(e);
+        });
+});
+
+
+
+module.exports = router;

@@ -12,13 +12,9 @@
     </label>
 
     <label>Cast:
-        {{#each celebritiesFromDB}}
         <select name="celebritiesFromDB" id="celebritiesFromDB" multiple>
-            <option value="{{this.name}}">Name</option>
-            <option value="{{this.occupation}}">Occupation</option>
-            <option value="{{this.catchPhrase}}">catchPhrase</option>
+            <option value="{{this._id}}">Name</option>
         </select>
-        {{/each}}
     </label>
 
     <button type="submit"> Create </button>

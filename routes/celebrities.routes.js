@@ -3,6 +3,7 @@ const router = require("express").Router();
 
 const Celebrity = require('../models/Celebrity.model')
 
+
 // GET
 router.get("/celebrities/create", (req,res,next) => {
     Celebrity.find()
@@ -48,7 +49,6 @@ router.get("/celebrities", (req, res, next) => {
             next(e)
         })
 });
-
 
 
 
