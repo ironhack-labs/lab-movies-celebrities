@@ -7,7 +7,7 @@
 	<label> Plot</label>
 	<input type='text' name='plot' required />
 	<label>Cast</label>
-	<select name='cast'>
+	<select name='cast' multiple>
 		{{#each celebrity}}
 			<option value='{{this._id}}'>{{this.name}}</option>
 		{{/each}}

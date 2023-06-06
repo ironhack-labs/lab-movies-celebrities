@@ -28,26 +28,20 @@ router.post('/movies/create', (req, res, next) => {
 		plot: req.body.plot,
 		cast: req.body.cast,
 	};
-
+	console.log(newMovie);
 	Movies.create(newMovie)
 		.then((createMovie) => {
 			res.redirect('/movies');
 		})
 		.catch((e) => console.log(e));
-
-	// Celebrity.find()
-	// 	// .populate('cast')
-	// 	.then((dataOfNewCeleb) => {
-	// 		res.render('movies/new-movie', { celebrity: dataOfNewCeleb });
-	// 	})
-	// 	.catch((e) => console.log(e));
 });
 
-router.get('movies/:id', (res, req, next) => {
-	const id = req.params.id;
-	console.log(id);
-	Movies.findById(id)
-		// .populate('cast')
+router.get('/movies/:id', (req, res, next) => {
+	const movieId = req.params.id;
+
+	console.log('check the id', movieId);
+	Movies.findById(movieId)
+		.populate('cast')
 		.then((detailsOfMovie) => {
 			res.render('movies/movie-details', detailsOfMovie);
 		})
