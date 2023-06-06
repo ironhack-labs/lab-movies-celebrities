@@ -38,7 +38,7 @@ router.post("/movies/create", (req, res, next) =>{
             res.redirect("/movies")
         })
         .catch( e => {
-          //  res.render("/movies/new-movie")
+          res.render("/movies/new-movie")
             next(e);
         });
 
