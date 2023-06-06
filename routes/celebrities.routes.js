@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
+
 // all your routes here
 
 router.get("/celebrities/create", (req, res, next) => {
@@ -32,8 +33,9 @@ router.get("/celebrities", (req, res, next)=>{
     Celebrity.find() 
     .then((celebsFromDB)=>{
         const data = {
-            celebs:celebsFromDB
+            celebs: celebsFromDB
         }
+        console.log(data)
         res.render("celebrities/celebrities", data);
     })
     .catch( e => {
