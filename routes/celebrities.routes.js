@@ -12,8 +12,8 @@ router.get('/celebrities/create', (req,res,next)=>{
 router.post("/celebrities/create", async (req, res, next) => {
     try {
         const celebrity =  await Celebrity.create({...req.body});
-        res.send("Celebrity created: " + celebrity);
-        // res.redirect("/celebrities");
+        //res.send("Celebrity created: " + celebrity);
+        res.redirect("/celebrities");
     } catch (error) {
         next(err);
     }
