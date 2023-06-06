@@ -1,0 +1,11 @@
+    <h1>{{title}}</h1>
+    <div>
+        <p>genre: {{genre}}</p>
+        <p>plot: {{plot}}</p>
+        <p>cast:</p>
+        <ul>
+        {{#each cast}}
+            <li>{{name}}</li>
+        {{/each}}
+        </ul>
+    </div>
