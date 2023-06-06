@@ -8,9 +8,10 @@ router.get("/movies/create", (req, res, next) => {
   Celebrity.find()
     .then((celebrityArray) => {
       res.render("movies/new-movie", { celebrityArray });
+      //console.log(celebrityArray);
     })
     .catch((e) => {
-        console.log(e);
+      console.log(e);
     });
 });
 router.post("/movies/create", (req, res, next) => {
@@ -18,18 +19,28 @@ router.post("/movies/create", (req, res, next) => {
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
-    cast: req.body.cast,
+    cast: req.body.celebrity,
   };
   Movie.create(newMovie)
-  .then(()=>{
-    console.log(newMovie)
-    res.redirect("/movies")
+    .then(() => {
+      console.log(newMovie);
+      res.redirect("/movies");
+    })
 
-  })
+    .catch((e) => {
+      console.log(e);
+    });
+});
 
-  .catch((e) => {
-    console.log(e);
-  
-  });
+router.get("/movies", (req, res, next) => {
+  Movie.find()
+    .populate("cast")
+    .then((moviesArr) => {
+      res.render("movies/movies", { moviesArr });
+    })
+    .catch((e) => {
+      console.log("Error", e);
+      next(e);
+    });
 });
 module.exports = router;

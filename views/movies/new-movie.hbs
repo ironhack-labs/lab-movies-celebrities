@@ -14,19 +14,14 @@
   </label>
   <label>
     Cast:
-    <select multiple name="Celebrity">
+    <select multiple name="celebrity">
       {{#each celebrityArray}}
         <option value={{this._id}}>
-
           {{this.name}}
-
         </option>
-
       {{/each}}
-
     </select>
   </label>
-
   <button type="submit">Submit</button>
-
 </form>
+<a href="/">back</a>
