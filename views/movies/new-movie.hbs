@@ -1,29 +1,30 @@
-<h2>Add a Movie</h2>
+<div class="container">
+    <h2>Add a Movie</h2>
+    <form class="form-container" method="post" action="/movies/create">
+        <label> Title:
+            <input type="text" name="title" />
+        </label>
 
-<form method="post" action="/movies/create">
-    <label> Title:
-        <input type="text" name="title" />
-    </label>
+        <label> Genre:
+            <input type="text" name="genre" />
+        </label>
 
-    <label> Genre:
-        <input type="text" name="genre" />
-    </label>
+        <label> Plot:
+            <textarea name="plot" cols="30" rows="4"> </textarea>
+        </label>
 
-    <label> Plot:
-        <textarea name="plot" cols="30" rows="4"> </textarea>
-    </label>
+        <label> Cast:
 
-    <label> Cast:
+            <select multiple name="cast">
+                {{#each celebritiesArr}}
+                <option value={{this._id}}>
+                    {{this.name}}
+                </option>
+                {{/each}}
+            </select>
 
-        <select multiple name="cast">
-            {{#each celebritiesArr}}
-            <option value={{this._id}}>
-                {{this.name}}
-            </option>
-            {{/each}}
-        </select>
+        </label>
 
-    </label>
-
-    <button type="submit">Add Movie</button>
-</form>
+        <button type="submit">Add Movie</button>
+    </form>
+</div>

@@ -42,7 +42,6 @@ router.get("/movies/:movieID", (req, res, next) => {
   Movie.findById(req.params.movieID)
     .populate("cast")
     .then((moviesByID) => {
-      console.log(moviesByID);
       res.render("movies/movie-details", { movieID: moviesByID });
     });
 });

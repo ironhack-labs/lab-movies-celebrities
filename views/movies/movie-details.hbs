@@ -1,17 +1,23 @@
-<h2>Details</h2>
-<p>{{movieID.title}}</p>
-<p>{{movieID.genre}}</p>
-<p>{{movieID.plot}}</p>
-
-{{#each movieID.cast}}
-{{#if this._id}}
-<li>{{this.name}}</li>
-<li>{{this.occupation}}</li>
-<li>{{this.catchPhrase}}</li>
-<hr>
-{{/if}}
-{{/each}}
-<form method="post" action="/movies/{{movieID.id}}/delete">
-    <button type="submit">Delete</button>
-    <a href="/movies/{{movieID.id}}/edit">Edit</a>
-</form>
+<div class="container">
+    <h2>Details</h2>
+    <h5>Title: {{movieID.title}}</h5>
+    <h5>Genre: {{movieID.genre}}</h5>
+    <h5>Plot: {{movieID.plot}}</h5>
+    <h5>Cast:</h5>
+    {{#each movieID.cast}}
+    {{#if this._id}}
+    <ul>
+        <li class="item-list">{{this.name}}</li>
+       <ul>
+            <li>Occupation: {{this.occupation}}</li>
+            <li>Catch Phrase: {{this.catchPhrase}}</li>
+       </ul>
+    </ul>
+    <hr>
+    {{/if}}
+    {{/each}}
+    <form method="post" action="/movies/{{movieID.id}}/delete">
+        <button type="submit">Delete</button>
+        <a href="/movies/{{movieID.id}}/edit">Edit</a>
+    </form>
+</div>

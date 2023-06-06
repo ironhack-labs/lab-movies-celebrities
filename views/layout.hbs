@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-  <body>
-    <div class="container">
-      <nav>
-        <a href="/celebrities/create">Add a Celebrity</a>
-        <a href="/celebrities">Celebrities List</a>
-        <a href="/movies/create">Add a Movie</a>
-        <a href="/movies">Movies List</a>
+<body>
+  <nav class="navbar">
+    <ul class="navbar-links">
+      <li><a class="home" href="/">Home</a></li>
+      <li><a class="create-celeb" href="/celebrities/create">Add a Celebrity</a></li>
+      <li><a class="list-celeb" href="/celebrities">Celebrities List</a></li>
+      <li><a class="create-movie" href="/movies/create">Add a Movie</a></li>
+      <li><a class="list-movie" href="/movies">Movies List</a></li>
+    </ul>
+  </nav>
 
-      </nav>
-      {{{body}}}
-    </div>
+  {{{body}}}
 
-    <script src="/javascripts/script.js"></script>
-  </body>
+  <script src="/javascripts/script.js"></script>
+</body>
 
 </html>
