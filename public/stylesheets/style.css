@@ -3,6 +3,22 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+nav a {
+  padding: 0 1rem;
+  color: coral;
+}
+h1 {
+  color: 15px;
+}
+
+.edit-btn{
+  color: brown;
 }
