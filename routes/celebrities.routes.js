@@ -37,9 +37,8 @@ router.post("/celebrities/create", (req, res, next) => {
 // READ: display all celebrities
 router.get("/celebrities", (req, res, next) => {
   Celebrities.find()
-    .populate("name")
+
     .then((celebritiesFromDB) => {
-      console.log(celebritiesFromDB);
       const data = {
         celebrities: celebritiesFromDB,
       };

@@ -20,7 +20,7 @@ router.post("/movies/create", (req, res, next) => {
     title: req.body.title,
     genre: req.body.genre,
     plot: req.body.plot,
-    cast: [req.body.cast],
+    cast: req.body.cast,
   };
 
   Movies.create(newMovie)
@@ -30,6 +30,36 @@ router.post("/movies/create", (req, res, next) => {
     .catch((err) => {
       console.log("error creating new movie");
       res.redirect("movies/new-movie");
+    });
+});
+
+// READ: display all movies
+router.get("/movies", (req, res, next) => {
+  Movies.find()
+    .then((moviesFromDB) => {
+      const data = {
+        movies: moviesFromDB,
+      };
+      console.log(data);
+      res.render("movies/movies", data);
+    })
+    .catch((err) => {
+      console.log("I can't do it");
+    });
+});
+
+// READ: display all movies details
+router.get("/movies/:id", (req, res, next) => {
+  const movieId = req.params.id;
+  // const { title, genre, plot, cast } = req.body;
+
+  Movies.findById(movieId)
+    .populate("movies")
+    .then((movieFromDB) => {
+      res.render("movies", movieFromDB);
+    })
+    .catch((err) => {
+      console.log("I can't do it");
     });
 });
 

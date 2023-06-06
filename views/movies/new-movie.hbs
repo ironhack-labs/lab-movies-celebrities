@@ -1,0 +1,27 @@
+<h2>Add a new movie</h2>
+<form method="POST" action="/movies/create">
+  <label>
+    Title:
+    <input type="text" name="title" required />
+  </label>
+
+  <label>
+    Genre:
+    <input type="text" name="genre" required />
+  </label>
+
+  <label>
+    Plot:
+    <input type="text" name="plot" required />
+
+  </label>
+
+  <label>
+    Cast:
+    <input type="array" name="{{this._id}}" required />
+
+  </label>
+
+  <button type="submit">Save</button>
+
+</form>
