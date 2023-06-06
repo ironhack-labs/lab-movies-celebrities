@@ -11,7 +11,7 @@ const celebritiesSchema = new Schema ({
    }
    )
 
-module.exports = model( 'Celebrity', celebritiesSchema)
+module.exports = model('Celebrity', celebritiesSchema)
 
 
 
