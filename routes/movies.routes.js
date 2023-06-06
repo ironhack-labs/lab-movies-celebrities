@@ -8,7 +8,6 @@ const MovieModel = require("../models/Movie.model")
 router.get("/movies/create", (req, res, next) => {
 	CelebrityModel.find()
 		.then(celebrities => {
-			console.log(celebrities)
 			res.render("movies/new-movie", {celebrities})
 		})
 		.catch(e => next(e))
@@ -21,6 +20,16 @@ router.post("/movies/create", (req, res, next) => {
 		.then(movie => {
 			res.redirect("/movies")
 		})
+})
+
+// READ: list movies
+router.get("/movies/", (req, res, next) => {
+	MovieModel.find()
+		.then(movies => {
+			console.log(movies)
+			res.render("movies/movies", {movies})
+		})
+		.catch(e => next(e))
 })
 
 module.exports = router;
