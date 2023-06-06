@@ -13,5 +13,8 @@
 			{{this.catchPhrase}} <br />
 			<hr />
 		{{/each}}
+		<form method="POST" action="/movies/{{_id}}/delete">
+			<button> Delete </button>
+		</form>
 	</p>
 </section>

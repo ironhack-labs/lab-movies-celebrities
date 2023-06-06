@@ -41,4 +41,12 @@ router.get("/movies/:id", (req, res, next) => {
 		.catch(e => next(e))
 })
 
+// DELETE: process form
+router.post("/movies/:id/delete", (req, res, next) => {
+	MovieModel.findByIdAndDelete(req.params.id)
+		.then(movie => {
+			res.redirect("/movies")
+		})
+})
+
 module.exports = router;
