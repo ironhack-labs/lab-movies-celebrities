@@ -19,9 +19,8 @@ router.post("/movies/create", (req, res, next) => {
   const { title, genre, plot, cast } = req.body;
   const movieObj = { title, genre, plot, cast };
   Movie.create(movieObj)
-    .then((movie) => {
-      res.send("movies/create:" + movie);
-      
+    .then(() => {
+      res.redirect('/movies');
     })
     .catch((error) => next(error));
 });
