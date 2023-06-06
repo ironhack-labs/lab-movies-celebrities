@@ -48,6 +48,17 @@ router.get('/movies/:id', (req, res, next) => {
 		.catch((e) => console.log(e));
 });
 
+router.get('/movies/:id/delete', (req, res, next) => {
+	const movieId = req.params.id;
+
+	console.log('check the id', movieId);
+	Movies.findByIdAndRemove(movieId)
+		.then((movieToDelete) => {
+			res.redirect('/movies');
+		})
+		.catch((e) => console.log(e));
+});
+
 // 647f5ffb5782b614d6ad6e35
 
 module.exports = router;
