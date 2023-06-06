@@ -40,7 +40,7 @@ router.get("/movies", (req, res, next) => {
       const data = {
         movies: moviesFromDB,
       };
-      console.log(data);
+      // console.log(data);
       res.render("movies/movies", data);
     })
     .catch((err) => {
@@ -51,16 +51,26 @@ router.get("/movies", (req, res, next) => {
 // READ: display all movies details
 router.get("/movies/:id", (req, res, next) => {
   const movieId = req.params.id;
+  // console.log(movieId);
   // const { title, genre, plot, cast } = req.body;
 
   Movies.findById(movieId)
-    .populate("movies")
+    // .populate("movies")
     .then((movieFromDB) => {
-      res.render("movies", movieFromDB);
+      res.render("movies/movie-details", movieFromDB);
     })
     .catch((err) => {
       console.log("I can't do it");
     });
+});
+
+// DELETE: delete movie
+router.post('/movies/:movieId/delete', (req, res, next) => {
+  const movieId = req.params.movieId;
+  // console.log(req.params.movieId);
+  Movies.findByIdAndDelete(movieId)
+      .then(() => res.redirect('/movies'))
+      .catch(error => next(error));
 });
 
 module.exports = router;
