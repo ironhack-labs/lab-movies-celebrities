@@ -11,10 +11,8 @@ router.get("/celebrities/create", (req, res, next) => {
 // CREATE: process form
 router.post("/celebrities/create", (req, res, next) => {
 	const {name, occupation, catchPhrase} = req.body
-	const newCelebrity = {name, occupation, catchPhrase}
-	CelebrityModel.create(newCelebrity)
-		.then((cebrityFromDB) => {
-			console.log(cebrityFromDB)
+	CelebrityModel.create({name, occupation, catchPhrase})
+		.then((celebrity) => {
 			res.redirect("/celebrities")
 		})
 		.catch(e => next(e))
@@ -23,8 +21,8 @@ router.post("/celebrities/create", (req, res, next) => {
 // READ: list celebrities
 router.get("/celebrities", (req, res, next) => {
 	CelebrityModel.find()
-		.then((celebritiesFromDB) => {
-			res.render("celebrities/celebrities", {celebrities: celebritiesFromDB})
+		.then((celebrities) => {
+			res.render("celebrities/celebrities", {celebrities})
 		})
 		.catch(e => next(e))
 })

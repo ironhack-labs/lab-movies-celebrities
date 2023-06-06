@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const celebritySchema = new mongoose.Schema({
+const {Schema, model} = require("mongoose")
+const celebritySchema = new Schema({
 	name: String,
 	occupation: {
 		type: String,
@@ -10,4 +10,4 @@ const celebritySchema = new mongoose.Schema({
 		required: true
 	},
 });
-module.exports = mongoose.model("Celebrity", celebritySchema);
+module.exports = model("Celebrity", celebritySchema);
