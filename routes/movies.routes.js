@@ -11,7 +11,6 @@ const Celebrity = require('../models/Celebrity.model');
 router.get('/movies', (req, res, next) => {
 	Movie.find()
 		.then((moviesFromDB) => {
-			console.log(moviesFromDB);
 			res.render('movies/movies', { movie: moviesFromDB });
 		})
 		.catch((e) => {
@@ -24,7 +23,6 @@ router.get('/movies', (req, res, next) => {
 router.get('/movies/create', async (req, res, next) => {
 	try {
 		const celebrities = await Celebrity.find();
-		console.log(celebrities);
 		res.render('movies/new-movie', { celebritiesArray: celebrities });
 	} catch (error) {
 		res.send(error);
@@ -35,7 +33,6 @@ router.get('/movies/create', async (req, res, next) => {
 
 router.post('/movies/create', async (req, res, next) => {
 	try {
-		console.log(req.body);
 		await Movie.create(req.body);
 		res.redirect('/movies');
 	} catch (error) {
@@ -48,7 +45,6 @@ router.get('/movies/:id', (req, res, next) => {
 	Movie.findById(req.params.id)
 		.populate('cast')
 		.then((movie) => {
-			console.log(movie);
 			res.render('movies/movie-details', { movie });
 		})
 		.catch((error) => next(error));
@@ -59,6 +55,43 @@ router.post('/movies/:movieID/delete', (req, res, next) => {
 		.then(() => {
 			res.redirect('/movies');
 		})
+		.catch((err) => {
+			next(err);
+		});
+});
+
+// Edit: get
+router.get('/movies/:movieID/edit', async (req, res, next) => {
+	const { movieID } = req.params;
+
+	try {
+		const cast = await Celebrity.find();
+		const movieDetail = await Movie.findById(movieID);
+
+		res.render('movies/edit-movie', { movie: movieDetail, cast: cast });
+	} catch (err) {
+		next(err);
+	}
+});
+
+//Edit: post
+
+router.post('/movies/:movieID/edit', (req, res, next) => {
+	const { movieID } = req.params;
+	const { title, genre, plot, cast } = req.body;
+
+	console.log(movieID);
+	console.log('title: ', title);
+	console.log('genre: ', genre);
+	console.log('plot: ', plot);
+	console.log('cast: ', cast);
+
+	Movie.findByIdAndUpdate(movieID, { title, genre, plot, cast }, { new: true })
+		.populate('cast')
+		.then((updatedMovie) => {
+			res.redirect(`/movies/${updatedMovie.id}`);
+		})
+
 		.catch((err) => {
 			next(err);
 		});
