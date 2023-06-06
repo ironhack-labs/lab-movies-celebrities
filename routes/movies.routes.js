@@ -20,6 +20,7 @@ router.post("/movies/create", (req, res, next) => {
 		.then(movie => {
 			res.redirect("/movies")
 		})
+		.catch(e => next(e))
 })
 
 // READ: list movies
@@ -47,6 +48,39 @@ router.post("/movies/:id/delete", (req, res, next) => {
 		.then(movie => {
 			res.redirect("/movies")
 		})
+		.catch(e => next(e))
+})
+
+// UPDATE: display form
+router.get("/movies/:id/edit", (req, res, next) => {
+	let movie;
+	MovieModel.findById(req.params.id)
+		.then(movieFromDB => {
+			movie = movieFromDB
+			return CelebrityModel.find()
+		})
+		.then(celebritiesFromDB => {
+			const celebrities = []
+			celebritiesFromDB.forEach(celebrity => {
+				const celebrityCopy = {...celebrity}._doc
+				if (movie.cast.includes(celebrity._id)) celebrityCopy.selected = "selected"
+				else celebrityCopy.selected = ""
+				celebrities.push(celebrityCopy)
+			})
+			console.log(celebrities)
+			res.render("movies/edit-movie", {movie, celebrities})
+		})
+		.catch(e => next(e))
+})
+
+// UPDATE: process form
+router.post("/movies/:id", (req, res, next) => {
+	const {title, genre, plot, cast} = req.body
+	MovieModel.findByIdAndUpdate(req.params.id, {title, genre, plot, cast}, {new: true})
+		.then(movie => {
+			res.redirect("/movies/" + req.params.id)
+		})
+		.catch(e => next(e))
 })
 
 module.exports = router;
