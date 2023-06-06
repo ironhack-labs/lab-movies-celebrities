@@ -1,0 +1,30 @@
+<h2>Movies page</h2>
+
+<form method="POST" action="/movies/create">
+
+<label for="celebrities">Choose a celebrity:</label>
+<select name="Celebrity" id="calebrity" multiple>
+  <option value="{{this.celebrity.name}}"></option>
+  </select>
+
+<label> Title:
+    <input type="text" name="title" />
+  </label>
+ 
+  <label> Genre:
+    <input type="text" name="genre" />
+  </label>
+ 
+  <label> Plot:
+    <input type="text" name="plot" />
+  </label>
+
+  <label> Cast:
+    <input type="array" name="cast" />
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
+
+
+
