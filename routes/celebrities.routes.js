@@ -8,6 +8,7 @@ router.get('/celebrities/create', (req,res,next)=>{
     res.render('celebrities/new-celebrity');
 })
 
+
 router.post("/celebrities/create", async (req, res, next) => {
     try {
         const celebrity =  await Celebrity.create({...req.body});
@@ -17,5 +18,21 @@ router.post("/celebrities/create", async (req, res, next) => {
         next(err);
     }
 })
+
+router.get('/celebrities', (req,res,next)=>{
+    Celebrity.find()
+    .then((celebritiesFromDB)=>{
+    
+            const data = {
+                celebs : celebritiesFromDB
+            }
+        
+        res.render('celebrities/celebrities', data);
+    })
+    .catch(err => {
+        next(err);
+    })
+})
+
 
 module.exports = router;
