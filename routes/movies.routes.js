@@ -3,6 +3,8 @@ const router = require("express").Router();
 
 const CelebrityModel = require("../models/Celebrity.model");
 const MovieModel = require("../models/Movie.model")
+// mangoose.model() returns a Model (a subclass of `mongoose.Model) constructor that can be used with new to make a new document, so PascalCase, not camelCase
+// https://mongoosejs.com/docs/api/model.html#Model()
 
 // CREATE: display form
 router.get("/movies/create", (req, res, next) => {
