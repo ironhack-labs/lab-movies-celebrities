@@ -75,8 +75,9 @@ router.get("/movies/:id/edit", (req, res, next) => {
 
 // UPDATE: process form
 router.post("/movies/:id", (req, res, next) => {
-	const {title, genre, plot, cast} = req.body
-	MovieModel.findByIdAndUpdate(req.params.id, {title, genre, plot, cast}, {new: true})
+	// const {title, genre, plot, cast} = req.body
+	// MovieModel.findByIdAndUpdate(req.params.id, {title, genre, plot, cast}, {new: true})
+	MovieModel.findByIdAndUpdate(req.params.id, {...req.body}, {new: true})
 		.then(movie => {
 			res.redirect("/movies/" + req.params.id)
 		})
