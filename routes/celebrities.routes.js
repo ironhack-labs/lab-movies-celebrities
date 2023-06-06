@@ -6,8 +6,8 @@ const Celebrity = require('../models/Celebrity.model')
 // GET
 router.get("/celebrities/create", (req,res,next) => {
     Celebrity.find()
-    .then(celebitiesFromDB => {
-        res.render("celebrities/new-celebrity", {celebArr: celebitiesFromDB}); 
+    .then(celebritiesFromDB => {
+        res.render("celebrities/new-celebrity", {celebArr: celebritiesFromDB}); 
     })
     .catch( e => {
         console.log("error show a form to create a celebrity",e);
@@ -34,5 +34,25 @@ Celebrity.create(newCeleb)
         next(e);
     })
 })
+
+// Iteration 4: Create Celeb List
+
+router.get("/celebrities", (req, res, next) => {
+
+    Celebrity.find()
+        .then(celebritiesFromDB => {
+            res.render("celebrities/celebrities", { celebritiesFromDB })
+        })
+        .catch((e) => {
+            console.log("error showing all celebrities", e);
+            next(e)
+        })
+});
+
+
+
+
+
+
 
 module.exports = router;
