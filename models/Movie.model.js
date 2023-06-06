@@ -10,9 +10,6 @@ const movieSchema = new Schema(
             ref: "Celebrity"
         }
     },
-    {
-        timestamps: true
-    }
 );
 
 module.exports = model('Movie', movieSchema);
