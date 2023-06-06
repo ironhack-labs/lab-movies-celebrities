@@ -5,7 +5,12 @@ const movieSchema = new Schema(
     title: String,
     genre: String,
     plot: String,
-    cast: Array,
+    cast: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Celebrity",
+      },
+    ],
   },
   {
     timestamps: true,

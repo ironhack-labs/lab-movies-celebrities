@@ -2,6 +2,7 @@
 const router = require("express").Router();
 
 const Movies = require("../models/movie.model");
+const Celebrities = require("../models/Celebrity.model");
 
 //CREATE: display form
 router.get("/movies/create", (req, res, next) => {
@@ -40,7 +41,6 @@ router.get("/movies", (req, res, next) => {
       const data = {
         movies: moviesFromDB,
       };
-      // console.log(data);
       res.render("movies/movies", data);
     })
     .catch((err) => {
@@ -51,8 +51,6 @@ router.get("/movies", (req, res, next) => {
 // READ: display all movies details
 router.get("/movies/:id", (req, res, next) => {
   const movieId = req.params.id;
-  // console.log(movieId);
-  // const { title, genre, plot, cast } = req.body;
 
   Movies.findById(movieId)
     // .populate("movies")
@@ -65,12 +63,43 @@ router.get("/movies/:id", (req, res, next) => {
 });
 
 // DELETE: delete movie
-router.post('/movies/:movieId/delete', (req, res, next) => {
+router.post("/movies/:movieId/delete", (req, res, next) => {
   const movieId = req.params.movieId;
   // console.log(req.params.movieId);
   Movies.findByIdAndDelete(movieId)
-      .then(() => res.redirect('/movies'))
-      .catch(error => next(error));
+    .then(() => res.redirect("/movies"))
+    .catch((error) => next(error));
+});
+
+router.get("/movies/:id/edit", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const movieId = await Movies.findById(id);
+    const celebritiesAll = await Celebrities.find();
+
+    res.render("movies/edit-movie", {
+      movie: movieId,
+      celebrities: celebritiesAll,
+    });
+  } catch (e) {
+    next(e);
+  }
+});
+
+router.post("/movies/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+  const previousMovie = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+    cast: req.body.cast,
+  };
+
+  console.log("it's edited", previousMovie);
+
+  Movies.findByIdAndUpdate(id, previousMovie)
+    .then((updatedMovies) => res.redirect("/movies")) // go to the details page to see the updates
+    .catch((error) => next(error));
 });
 
 module.exports = router;
