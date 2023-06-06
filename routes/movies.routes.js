@@ -57,4 +57,29 @@ router.post("/movies/:movieID/delete", (req, res, next) => {
     });
 });
 
+router.get("/movies/:movieID/edit", async (req, res, next) => {
+  const { movieID } = req.params;
+  try {
+    const cast = await Celebrity.find();
+    const movieDetail = await Movie.findById(movieID);
+    res.render("movies/edit-movie", { movie: movieDetail, cast: cast });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/movies/:movieID/edit", (req, res, next) => {
+  const { movieID } = req.params;
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.findByIdAndUpdate(movieID, { title, genre, plot, cast }, { new: true })
+    .populate("cast")
+    .then((updatedMovie) => {
+      res.redirect(`/movies/${updatedMovie.id}`);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
