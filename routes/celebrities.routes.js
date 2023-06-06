@@ -16,16 +16,34 @@ router.post("/celebrities/create", (req, res, next) =>{
         catchPhrase: req.body.catchPhrase
     };
     Celebrity.create(newCeleb)
-        .then((newCeleb)=>{ //not sure if newCeleb is what should go here...
+        .then((newCeleb)=>{             //not sure if newCeleb is what should go here...
             res.redirect("/celebrities")
         })
         .catch( e => {
-            console.log("error creating new celeb", e);
-            res.render("celebrities/new-celebrity")
+            //console.log("error creating new celeb", e);
+            res.render("/celebrities/new-celebrity")
             next(e);
         });
 
 })
+
+// iteration 4
+router.get("/celebrities", (req, res, next)=>{
+    Celebrity.find() 
+    .then((celebsFromDB)=>{
+        const data = {
+            celebs:celebsFromDB
+        }
+        res.render("celebrities/celebrities", data);
+    })
+    .catch( e => {
+        console.log("error getting list of celebs from DB", e);
+        next(e);
+    });
+
+})
+
+
 
 
 module.exports = router;
