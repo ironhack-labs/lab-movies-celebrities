@@ -21,7 +21,7 @@ router.post("/movies/create", (req, res, next) => {
   Movie.create(movieObj)
     .then((movie) => {
       res.send("movies/create:" + movie);
-      // res.redirect('/movies')
+      
     })
     .catch((error) => next(error));
 });
@@ -43,5 +43,13 @@ router.get("/movies/:id", (req, res, next) => {
     })
     .catch((error) => next(error));
 });
+
+router.post('/movies/:id/delete', (req, res, next) =>{
+
+    Movie.findByIdAndDelete(req.params.id)
+    .then(()=>{
+        res.redirect('/movies');
+    }).catch((error) => next(error));
+})
 
 module.exports = router;
