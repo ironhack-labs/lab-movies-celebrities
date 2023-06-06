@@ -15,6 +15,13 @@ const hbs = require('hbs');
 
 const app = express();
 
+hbs.registerHelper('ifIn', function(elem, list, options) {
+    if(list.indexOf(elem) > -1) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 

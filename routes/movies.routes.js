@@ -51,4 +51,22 @@ router.post('/movies/:id/delete', (req, res, next) =>{
     }).catch((error) => next(error));
 })
 
+router.get('/movies/:id/edit', async (req, res, next) =>{
+    
+    try {
+        const movie = await Movie.findById(req.params.id);
+        const celebrities = await Celebrity.find();
+        res.render('movies/edit-movie', { movie, celebrities });
+    } catch (error) {
+        next(error);
+    }
+})
+
+router.post('/movies/:id/edit', (req, res, next) =>{
+    Movie.findByIdAndUpdate(req.params.id, {... req.body})
+    .then(()=>{
+        res.redirect(`/movies/${req.params.id}`);
+    }).catch((error) => next(error));
+})
+
 module.exports = router;
