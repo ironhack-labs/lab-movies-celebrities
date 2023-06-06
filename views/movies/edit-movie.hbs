@@ -17,7 +17,15 @@
 		Cast: 
 		<select name="cast" multiple>
 			{{#each celebrities}}
-			<option {{this.selected}} value="{{this._id}}">{{this.name}}</option> {{!-- using the option tag selected attribute --}}
+				{{!-- using the option tag selected attribute --}}
+				{{!-- METHOD 1 --}}
+				{{!--
+				<option {{this.selected}} value="{{this._id}}">{{this.name}}</option>
+				--}}
+				{{!-- METHOD 2 --}}
+				{{!-- access parent scope with the ../ Handlebars syntax --}}
+				{{!-- lookup helper allows for dynamic parameter resolution using Handlebars variables --}}
+				<option {{lookup ../selected @index}} value="{{this._id}}">{{this.name}}</option>
 			{{/each}}
 		</select>
 	</label>

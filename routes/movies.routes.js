@@ -51,7 +51,30 @@ router.post("/movies/:id/delete", (req, res, next) => {
 		.catch(e => next(e))
 })
 
+// // UPDATE: display form
+// // METHOD 1
+// router.get("/movies/:id/edit", (req, res, next) => {
+// 	let movie;
+// 	MovieModel.findById(req.params.id)
+// 		.then(movieFromDB => {
+// 			movie = movieFromDB
+// 			return CelebrityModel.find()
+// 		})
+// 		.then(celebritiesFromDB => {
+// 			const celebrities = []
+// 			celebritiesFromDB.forEach(celebrity => {
+// 				const celebrityCopy = {...celebrity}._doc
+// 				if (movie.cast.includes(celebrity._id)) celebrityCopy.selected = "selected"
+// 				else celebrityCopy.selected = ""
+// 				celebrities.push(celebrityCopy)
+// 			})
+// 			res.render("movies/edit-movie", {movie, celebrities})
+// 		})
+// 		.catch(e => next(e))
+// })
+
 // UPDATE: display form
+// METHOD 2
 router.get("/movies/:id/edit", (req, res, next) => {
 	let movie;
 	MovieModel.findById(req.params.id)
@@ -59,16 +82,13 @@ router.get("/movies/:id/edit", (req, res, next) => {
 			movie = movieFromDB
 			return CelebrityModel.find()
 		})
-		.then(celebritiesFromDB => {
-			const celebrities = []
-			celebritiesFromDB.forEach(celebrity => {
-				const celebrityCopy = {...celebrity}._doc
-				if (movie.cast.includes(celebrity._id)) celebrityCopy.selected = "selected"
-				else celebrityCopy.selected = ""
-				celebrities.push(celebrityCopy)
+		.then(celebrities => {
+			const selected = []
+			celebrities.forEach(celebrity => {
+				if (movie.cast.includes(celebrity._id)) selected.push("selected")
+				else selected.push("")
 			})
-			console.log(celebrities)
-			res.render("movies/edit-movie", {movie, celebrities})
+			res.render("movies/edit-movie", {movie, celebrities, selected})
 		})
 		.catch(e => next(e))
 })
