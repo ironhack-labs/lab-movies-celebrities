@@ -28,5 +28,10 @@
     {{/each}}
 
   </p>
+
+  <form action="/movies/{{movieFromDB._id}}/delete" method="POST">
+    <button>Delete</button>
+  </form>
+
   <a href="/movies">back</a>
 </section>

@@ -32,6 +32,20 @@ router.post("/movies/create", (req, res, next) => {
     });
 });
 
+
+router.post("/movies/:id/delete", (req, res, next) => {
+  const movieId = req.params.id;
+
+  Movie.findByIdAndDelete(movieId)
+    .then(() => {
+      res.redirect("/movies")
+    })
+    .catch(e => {
+      console.log("Error", e);
+      next(e);
+    })
+})
+
 router.get("/movies/:id", (req, res, next) => {
   const movieId = req.params.id;
 
@@ -57,4 +71,6 @@ router.get("/movies", (req, res, next) => {
       next(e);
     });
 });
+
+
 module.exports = router;
