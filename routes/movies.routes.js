@@ -1,5 +1,7 @@
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
+const Celebrity = require("../models/Celebrity.model");
+const Movie = require("../models/movie.model");
 
 // all your routes here
 
@@ -47,7 +49,7 @@ router.get("/", (req, res) => {
   });
 
   // displaying movie details
-  router.get("/:id", (req, res) => {
+  router.get("/movies/:id", (req, res) => {
     const movieId = req.params.id;
   
     Movie.findById(movieId)
@@ -62,7 +64,7 @@ router.get("/", (req, res) => {
   
 
 // deleting specific movie
-router.post("/:id/delete", (req, res) => {
+router.post("/movies/:id/delete", (req, res) => {
     const movieId = req.params.id;
   
     Movie.findByIdAndRemove(movieId)
@@ -76,7 +78,7 @@ router.post("/:id/delete", (req, res) => {
   
 
   // edit
-  router.get("/:id/edit", (req, res) => {
+  router.get("/movies/:id/edit", (req, res) => {
     const movieId = req.params.id;
   
     Promise.all([
@@ -92,7 +94,7 @@ router.post("/:id/delete", (req, res) => {
   });
   
   // find movie by iD
-  router.post("/:id", (req, res) => {
+  router.post("/movies/:id", (req, res) => {
     const movieId = req.params.id;
   
     const updatedMovie = {
