@@ -1,0 +1,32 @@
+<section>
+  <h2>{{movieFromDB.title}}</h2>
+  <hr />
+  <p>
+    Genre:
+    {{movieFromDB.genre}}
+    <hr />
+    Plot:
+    {{movieFromDB.plot}}
+    <hr />
+    Cast:
+
+    <br />
+    <br />
+    {{#each movieFromDB.cast}}
+
+      Name:
+      {{this.name}}
+      <br />
+      Occupation:
+      {{this.occupation}}
+      <br />
+      Catch Phrase:
+      {{this.catchPhrase}}
+      <br />
+      <hr />
+
+    {{/each}}
+
+  </p>
+  <a href="/movies">back</a>
+</section>

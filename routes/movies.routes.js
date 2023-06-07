@@ -32,9 +32,23 @@ router.post("/movies/create", (req, res, next) => {
     });
 });
 
+router.get("/movies/:id", (req, res, next) => {
+  const movieId = req.params.id;
+
+  Movie.findById(movieId)
+    .populate("cast")
+    .then(movieFromDB => {
+      console.log(movieFromDB)
+      res.render("movies/movie-details", {movieFromDB})
+    })
+    .catch(e => {
+      console.log("Error", e);
+      next(e);
+    })
+})
+
 router.get("/movies", (req, res, next) => {
   Movie.find()
-    .populate("cast")
     .then((moviesArr) => {
       res.render("movies/movies", { moviesArr });
     })

@@ -5,19 +5,7 @@
 {{#each moviesArr}}
   <section>
     <h2>{{this.title}}</h2>
-    <p>
-      Genre:
-      {{this.genre}}
-      <br />
-      Plot:
-      {{this.plot}}
-      <br />
-      {{#each cast}}
-        Cast:
-        {{this.name}}
-        <br />
-      {{/each}}
-    </p>
+    <a href="/movies/{{this._id}}">Movie details</a>
   </section>
   <hr />
 {{/each}}
