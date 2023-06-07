@@ -32,34 +32,70 @@ router.post("/movies/create", (req, res, next) => {
     });
 });
 
+router.get("/movies/:id/edit", (req, res, next) => {
+  const movieId = req.params.id;
+  let movieToEdit;
+
+  Movie.findById(movieId)
+    .then((movieFromDB) => {
+      movieToEdit = movieFromDB;
+      //console.log(movieToEdit)
+      return Celebrity.find();
+    })
+    .then((celebritiesArr) => {
+      //console.log(celebritiesArr)
+      res.render("movies/edit-movie", {
+        movie: movieToEdit,
+        celebrities: celebritiesArr,
+      });
+    })
+    .catch((e) => {
+      console.log("Error", e);
+      res.render("movies/edit-movie");
+    });
+});
+
+router.post("/movies/:id/edit", (req, res, next) => {
+  const { id } = req.params;
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+    .then((updatedMovie) => {
+      res.redirect("/movies");
+    })
+    .catch((e) => {
+      console.log("Error", e);
+      res.render("movies/edit-movie");
+    });
+});
 
 router.post("/movies/:id/delete", (req, res, next) => {
   const movieId = req.params.id;
 
   Movie.findByIdAndDelete(movieId)
     .then(() => {
-      res.redirect("/movies")
+      res.redirect("/movies");
     })
-    .catch(e => {
+    .catch((e) => {
       console.log("Error", e);
       next(e);
-    })
-})
+    });
+});
 
 router.get("/movies/:id", (req, res, next) => {
   const movieId = req.params.id;
 
   Movie.findById(movieId)
     .populate("cast")
-    .then(movieFromDB => {
-      console.log(movieFromDB)
-      res.render("movies/movie-details", {movieFromDB})
+    .then((movieFromDB) => {
+      //console.log(movieFromDB)
+      res.render("movies/movie-details", { movieFromDB });
     })
-    .catch(e => {
+    .catch((e) => {
       console.log("Error", e);
       next(e);
-    })
-})
+    });
+});
 
 router.get("/movies", (req, res, next) => {
   Movie.find()
@@ -71,6 +107,5 @@ router.get("/movies", (req, res, next) => {
       next(e);
     });
 });
-
 
 module.exports = router;

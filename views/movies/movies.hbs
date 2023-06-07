@@ -5,7 +5,8 @@
 {{#each moviesArr}}
   <section>
     <h2>{{this.title}}</h2>
-    <a href="/movies/{{this._id}}">Movie details</a>
+    <a href="/movies/{{this._id}}">Movie details</a> <br /><br />
+    <a href="/movies/{{this._id}}/edit">Edit movie</a>
   </section>
   <hr />
 {{/each}}

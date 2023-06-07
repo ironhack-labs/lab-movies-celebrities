@@ -29,9 +29,15 @@
 
   </p>
 
+  <form action="/movies/{{movieFromDB._id}}/edit">
+    <button>Edit</button>
+  </form>
+  <br />
+
   <form action="/movies/{{movieFromDB._id}}/delete" method="POST">
     <button>Delete</button>
   </form>
+  <br />
 
   <a href="/movies">back</a>
 </section>
