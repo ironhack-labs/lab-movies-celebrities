@@ -1,0 +1,20 @@
+<h2>All about the {{title}} Movie</h2>
+<hr>
+
+<h4>Genre: {{genre}}</h4>
+
+<h4>Plot: {{plot}}</h4>
+
+<h4>Cast:
+    {{#each celebretiesFromDB}}
+    <section>
+        <h4>Title: {{this.title}}</h4>
+        <h4>Genre: {{this.genre}}</h4>
+        <h4>Plot: {{this.plot}}</h4>
+    </section>
+    {{/each}}
+</h4>
+
+<hr />
+
+<a href="/movies">Back to all movies</a>
