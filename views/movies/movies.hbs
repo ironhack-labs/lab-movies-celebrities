@@ -1,0 +1,10 @@
+<a href="/movies/create">Add New Movie</a>
+
+<h2>List of Movies</h2>
+
+<ul>
+  {{#each movies}}
+  <li><a href="/movies/{{_id}}">{{title}}</a></li>
+  {{/each}}
+</ul>
+
