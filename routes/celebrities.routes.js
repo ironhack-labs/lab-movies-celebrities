@@ -16,9 +16,17 @@ router.post('/celebrities/create', (req, res, next) => {
       res.redirect('/celebrities')
     })
   .catch(err => {
-    console.log('Error@POST-New_celebrity: ', err)
+    console.log('Error @ POST /celebrities/create: ', err)
     res.redirect('/celebrities/create')
   })
+})
+
+// GET /celebrities
+router.get('/celebrities', (req, res, next) => { 
+  Celebrity
+    .find()
+    .then(allCelebrities => res.render('celebrities/celebrities.hbs', { celebrity: allCelebrities }))
+    .catch(err => console.log('Error @ GET /celebrities: ', err))
 })
 
 module.exports = router
