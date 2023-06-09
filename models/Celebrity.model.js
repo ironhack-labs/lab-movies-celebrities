@@ -4,17 +4,22 @@ const celebritySchema = new Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
+      unique: true,
+      trim: true,
     },
     occupation: {
       type: String,
+      trim: true,
     },
     catchPhrase: {
-      type: String
-    }
+      type: String,
+      unique: true,
+      trim: true,
+    },
   },
-  { 
-    timestamps: true
+  {
+    timestamps: true,
   }
 )
 
