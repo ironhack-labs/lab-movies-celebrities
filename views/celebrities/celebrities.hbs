@@ -1,1 +1,10 @@
 <h2>List of Celebrities</h2>
+
+<h2>List of Celebrities</h2>
+<a href="/celebrities/new-celebrity">Add a new Celebrity</a>
+
+<ul>
+    {{#each celebrities}}
+    <li>{{this.name}}</li>
+    {{/each}}
+</ul>
