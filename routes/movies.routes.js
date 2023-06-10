@@ -49,5 +49,43 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.post('/:id/delete', (req, res, next) => {
+    Movie.findByIdAndRemove(req.params.id)
+        .then(() => {
+            res.redirect('/movies');
+        })
+        .catch((error) => {
+            next(error);
+        });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+    Movie.findById(req.params.id)
+        .populate('cast')
+        .then((movieFromDB) => {
+            Celebrity.find()
+                .then((celebritiesFromDB) => {
+                    celebritiesFromDB.forEach(celebrity => {
+                        celebrity.selected = movieFromDB.cast.some(castMember => castMember._id.equals(celebrity._id));
+                    });
+                    res.render('movies/edit-movie', {movie: movieFromDB, celebrities: celebritiesFromDB});
+                });
+        })
+        .catch((error) => {
+            next(error);
+        });
+});
+
+router.post('/:id', (req, res, next) => {
+    const { title, genre, plot, cast } = req.body;
+    Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, cast }, {new: true})
+        .then(() => {
+            res.redirect('/movies');
+        })
+        .catch((error) => {
+            next(error);
+        });
+});
+
 
 module.exports = router;
