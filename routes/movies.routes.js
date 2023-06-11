@@ -39,10 +39,20 @@ router.get('/movies', (req, res, next) => {
 // GET /movies/:movieId
 router.get('/movies/:movieId', (req, res, next) => {
   const { movieId } = req.params
-  Movie.findById(movieId)
+  Movie
+    .findById(movieId)
     .populate("cast")
     .then((movie) => res.render("movies/movie-details.hbs", { movie }))
     .catch((err) => console.log("Error @ GET /movies/:movieId", err))
+})
+
+// POST /movies/:movie/delete
+router.post('/movies/:movieId/delete', (req, res, next) => { 
+  const { movieId } = req.params
+  Movie
+    .findByIdAndDelete(movieId)
+    .then(() => res.redirect("/movies"))
+    .catch((err) => console.log("Error @ POST /movies/:movieId/delete", err))
 })
 
 module.exports = router

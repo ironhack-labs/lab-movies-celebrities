@@ -5,6 +5,9 @@
   <li>
     <p>Title: {{title}}</p>
     <a href="/movies/{{_id}}">See details</a>
+    <form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+    </form>
   </li>
   {{/each}}
 </ul>
