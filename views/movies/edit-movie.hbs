@@ -16,15 +16,13 @@
 {{/with}}
 
   <label>Cast:
-    <select name="cast" multiple>
+    <select name="cast" multiple size='3'>
       {{#each movie.cast}}
         <option value="{{_id}}" selected>{{name}}</option>
       {{/each}}
 
       {{#each celebrity}}
-        {{!-- {{#unless (isInArray _id movie.cast)}} --}}
         <option value="{{_id}}">{{name}}</option>
-        {{!-- {{/unless}} --}}
       {{/each}}
     </select>
   </label>

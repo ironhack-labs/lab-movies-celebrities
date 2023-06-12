@@ -1,9 +1,8 @@
 <h2>All Celebrities</h2>
 
-<ul>
   {{#each celebrity}}
-  <li>
-    <p>Name: {{name}}</p>
+  <div class="list-container">
+    <h5>{{name}}</h5>
     
     <a href="/celebrities/{{_id}}">See details</a>
     
@@ -14,8 +13,7 @@
     <form action="/celebrities/{{_id}}/delete" method="post">
       <button type="submit">Delete</button>
     </form>
-  </li>
+  </div>
   {{/each}}
-</ul>
 
 <a href="/">Home</a>
