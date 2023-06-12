@@ -37,6 +37,16 @@ router.get("/celebrities/:celebrityId", (req, res, next) => {
     .catch((err) => console.log("Error @ GET /celebrities/:celebrityId", err))
 })
 
+// POST /celebrity/:celebrityId/delete
+router.post('/celebrities/:celebrityId/delete', (req, res, next) => { 
+  const { celebrityId } = req.params
+  Celebrity
+    .findByIdAndDelete(celebrityId)
+    .then(() => res.redirect('/celebrities'))
+    .catch((err) => console.log("Error @ POST /celebrity/:celebrityId/delete", err))
+})
+
+
 // GET /celebrities/:celebrityId/edit
 router.get("/celebrities/:celebrityId/edit", (req, res, next) => {
   const { celebrityId } = req.params
