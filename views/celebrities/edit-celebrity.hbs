@@ -1,0 +1,23 @@
+{{#with celebrity }}
+  <p>
+    <strong>You're editing {{name}}</strong>
+  </p>
+
+  <form action="/celebrities/{{_id}}/edit" method="post">
+    <label>Name:
+      <input type="text" name="name" placeholder="{{name}}">
+    </label>
+    
+    <label>Occupation:
+      <input type="text" name="occupation" placeholder="{{occupation}}">
+    </label>
+
+    <label>Catch phrase:
+      <input type="text" name="catchPhrase" placeholder="{{catchPhrase}}">
+    </label>
+
+    <button type="submit">Save</button>
+  </form>
+{{/with}}
+
+<a href="/celebrities">back</a>
