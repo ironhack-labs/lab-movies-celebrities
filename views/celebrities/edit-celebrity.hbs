@@ -1,8 +1,6 @@
-{{#with celebrity }}
-  <p>
-    <strong>You're editing {{name}}</strong>
-  </p>
+<h2>Edit celebrity</h2>
 
+{{#with celebrity }}
   <form action="/celebrities/{{_id}}/edit" method="post">
     <label>Name:
       <input type="text" name="name" placeholder="{{name}}">

@@ -1,13 +1,7 @@
+<h2>Edit Movie</h2>
+
 {{#with movie }}
 <form action="/movies/{{_id}}/edit" method="post">
-  <strong>You're editing {{title}}</strong>
-  <p>
-    With:
-    {{#each cast}}
-    {{name}} |
-    {{/each}}
-  </p>
-
   <label>Title:
     <input type="text" name="title" placeholder="{{title}}">
   </label>
@@ -23,8 +17,14 @@
 
   <label>Cast:
     <select name="cast" multiple>
+      {{#each movie.cast}}
+        <option value="{{_id}}" selected>{{name}}</option>
+      {{/each}}
+
       {{#each celebrity}}
-      <option value="{{_id}}">{{name}}</option>
+        {{!-- {{#unless (isInArray _id movie.cast)}} --}}
+        <option value="{{_id}}">{{name}}</option>
+        {{!-- {{/unless}} --}}
       {{/each}}
     </select>
   </label>

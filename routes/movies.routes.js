@@ -62,9 +62,13 @@ router.get('/movies/:movieId/edit', (req, res, next) => {
     .findById(movieId)
     .populate('cast')
     .then(movie => {
+      // @ts-ignore
+      const { cast } = movie
+
       Celebrity
-        .find()
+        .find({_id: {$nin: cast}}) // Filters and pass actors that are not in movie.cast
         .then(celebrities => {
+          console.log(celebrities)
           res.render("movies/edit-movie.hbs", { movie, celebrity: celebrities })
         })
         .catch((err) => console.log("Error @ GET /movies/:movieId/edit", err))
