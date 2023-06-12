@@ -29,4 +29,12 @@ router.get('/celebrities', (req, res, next) => {
     .catch(err => console.log('Error @ GET /celebrities: ', err))
 })
 
+// Get /celebrities/:celibrityId
+router.get("/celebrities/:celebrityId", (req, res, next) => {
+  const { celebrityId: celebrityId } = req.params
+  Celebrity.findById(celebrityId)
+    .then((celebrity) => res.render("celebrities/celebrity-details.hbs", { celebrity }))
+    .catch((err) => console.log("Error @ GET /celebrities/:celebrityId", err))
+})
+
 module.exports = router

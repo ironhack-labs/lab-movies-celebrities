@@ -4,10 +4,13 @@
   {{#each movie}}
   <li>
     <p>Title: {{title}}</p>
+    
     <a href="/movies/{{_id}}">See details</a>
+    
     <form action="/movies/{{_id}}/edit" method="get">
     <button type="submit">Edit</button>
     </form>
+    
     <form action="/movies/{{_id}}/delete" method="post">
     <button type="submit">delete</button>
     </form>
