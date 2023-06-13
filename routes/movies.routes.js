@@ -19,5 +19,21 @@ router.post("/create",(req, res, next) =>{
     .catch(err => console.log('Error @ POST /craete:', err))
 })  
 
+router.get('/', (req, res, next) => {
+    Movie
+        .find()
+        .then(allMovies => {
+            res.render('movies/movies', {movie: allMovies})
+        })
+})
+
+router.get('/:movieId', (req, res, next) => { 
+    const { movieId } = req.params
+    
+    Movie
+        .findById(movieId)
+        .populate('cast')
+        .then(movie => res.render('movies/movies-details', {movie}))
+})
 
 module.exports = router;

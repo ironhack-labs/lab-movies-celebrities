@@ -1,0 +1,21 @@
+{{#with movie }}
+  <h2>Details of {{title}}</h2>
+
+  <p>Genre: {{genre}}</p>
+
+  <p>Plot: {{plot}}</p>
+
+  <p>Cast:
+    {{#each cast}}
+      <li>
+        Name: {{name}}
+        <br>
+        Occupation: {{occupation}}
+        <br>
+        Catch phrase: {{catchPhrase}}
+      </li>
+    {{/each}}
+  </p>
+{{/with}}
+
+<a href="/movies">Return</a>
