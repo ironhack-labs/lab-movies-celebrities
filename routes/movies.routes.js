@@ -5,7 +5,7 @@ const Movie = require ("../models/Movie.model");
 // all your routes here
 router.get("/create", (req, res, next) => {
     Celebrity.find().then(allCelebrity => {
-        res.render('movies/new-movies',{celebrity: allCelebrity})
+        res.render('movies/new-movie',{celebrity: allCelebrity})
     })
     
 }) 
@@ -33,7 +33,7 @@ router.get('/:movieId', (req, res, next) => {
     Movie
         .findById(movieId)
         .populate('cast')
-        .then(movie => res.render('movies/movies-details', {movie}))
+        .then(movie => res.render('movies/movie-details', {movie}))
 })
 
 router.post('/:movieId/delete',(req, res, next) =>{
