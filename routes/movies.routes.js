@@ -5,6 +5,14 @@ const Celebrity = require('../models/Celebrity.model')
 
 // all your routes here
 
+router.get('/movies', (req,res,next) => {
+    Movie.find()
+    .populate('cast')
+    .then((newDataMovie) => {
+        res.render('movies/movies', { newMovie: newDataMovie });
+    })
+})
+
 router.get('/movies/create', (req, res, next) => {
     Celebrity.find()
 		.then((dataOfNewCeleb) => {
