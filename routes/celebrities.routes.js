@@ -22,4 +22,15 @@ router.get('/', (req, res, next) => {
     .then(allCelebrities => res.render('celebrities/celebrities', {celebrity: allCelebrities}))
 })
 
+router.get('/:celebrityId', (req, res, next) => { 
+  const { celebrityId } = req.params
+  Celebrity
+    .findById(celebrityId)
+    .then(celebrity => res.render('celebrities/celebrity-details', { celebrity }))
+})
+
+router.post('/:celebrityId/delete', (req, res, next) => { 
+  
+})
+
 module.exports = router;
