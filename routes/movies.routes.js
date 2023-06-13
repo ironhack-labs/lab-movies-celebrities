@@ -39,8 +39,62 @@ router.post("/create", (req, res, next) => {
       res.redirect("/movies");
     })
     .catch(error => {
-      console.log("Error: ", err),
-      res.render("movies/new-movie", { err });
+      console.log("Error: ", error),
+      res.render("movies/new-movie", { error });
+    });
+});
+
+router.get('/:id', (req, res, next) => {
+  const movieId = req.params.id;
+
+  Movie.findById(movieId)
+    .populate('cast') // Populate the cast array with celebrity data
+    .then(movie => {
+      res.render('movies/movie-details', { movie });
+    })
+    .catch(error => {
+      console.log("Error: ", error),
+      res.render("movies", { error });
+    });
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  const movieId = req.params.id;
+
+  Movie.findByIdAndRemove(movieId)
+    .then(() => {
+      res.redirect('/movies');
+    })
+    .catch(error => {
+      console.log("Error: ", error),
+      res.render("movies/movie-details", { error });
+    });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  const movieId = req.params.id;
+
+  Promise.all([Movie.findById(movieId), Celebrity.find()])
+    .then(([movie, celebrities]) => {
+      res.render('movies/edit-movie', { movie, celebrities });
+    })
+    .catch(error => {
+      console.log('Error: ', error);
+      res.render('error', { error });
+    });
+});
+
+router.post('/:id', (req, res, next) => {
+  const movieId = req.params.id;
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast })
+    .then(() => {
+      res.redirect(`/movies/${movieId}`);
+    })
+    .catch(error => {
+      console.log('Error: ', error);
+      res.render('error', { error });
     });
 });
 
