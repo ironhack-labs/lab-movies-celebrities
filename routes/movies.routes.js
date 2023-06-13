@@ -36,4 +36,12 @@ router.get('/:movieId', (req, res, next) => {
         .then(movie => res.render('movies/movies-details', {movie}))
 })
 
+router.post('/:movieId/delete',(req, res, next) =>{
+    const { movieId } = req.params
+    
+    Movie
+    .findByIdAndDelete(movieId)
+    .then(movie => res.redirect('/movies'))
+    .catch(err => console.log('Error @ POST /delete', err))
+})
 module.exports = router;

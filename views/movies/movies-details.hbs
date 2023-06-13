@@ -16,6 +16,9 @@
       </li>
     {{/each}}
   </p>
+  <form action="/movies/{{_id}}/delete" method="post">
+  <button type="submit">Delete</button>
+</form>
 {{/with}}
 
 <a href="/movies">Return</a>
