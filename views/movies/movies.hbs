@@ -3,6 +3,10 @@
 {{#each movie}}
   {{title}}
   <a href="/movies/{{_id}}">See details</a>
+  
+  <form action="/movies/{{_id}}/edit" method="get">
+    <button type="submit">Edit</button>
+  </form>
 {{/each}}
 
 <a href="/">Return</a>
