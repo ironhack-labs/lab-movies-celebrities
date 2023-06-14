@@ -1,86 +1,96 @@
-const router = require("express").Router();
-const Celebrity = require ("../models/Celebrity.model");
-const Movie = require ("../models/Movie.model");
+const router = require("express").Router()
+const Celebrity = require('../models/Celebrity.model')
+const Movie = require('../models/Movie.model')
 
-// all your routes here
-router.get("/create", (req, res, next) => {
-    Celebrity.find().then(allCelebrity => {
-        res.render('movies/new-movie',{celebrity: allCelebrity})
+
+// GET /movies/create
+router.get('/create', (req, res, next) => {
+  Celebrity
+    .find()
+    .then(celebritiesFromDB => {
+      res.render("movies/new-movie.hbs", { celebrity: celebritiesFromDB })
     })
-    
-}) 
+    .catch(err => console.log('Error @ GET /movies/create: ', err))
+})
 
-router.post("/create",(req, res, next) =>{
-    const {title, genre, plot, cast} = req.body
+// POST /movies/create
+router.post('/create', (req, res, next) => { 
+  const { title, genre, plot, cast } = req.body
+  
+  Movie
+    .create({ title, genre, plot, cast })
+    .then(movie => {
+      console.log('New movie created successfully')
+      res.redirect('/movies')
+    })
+  .catch(err => console.log('Error @ POST /movies/create', err))
+})
 
-    Movie
-    .create({ title, genre, plot, cast})
-    .then(() => res.redirect("/movies"))
-    .catch(err => console.log('Error @ POST /craete:', err))
-})  
-
+// GET /movies
 router.get('/', (req, res, next) => {
-    Movie
-        .find()
-        .then(allMovies => {
-            res.render('movies/movies', {movie: allMovies})
-        })
+  Movie
+    .find()
+    .then((allMovies) => {
+      res.render("movies/movies.hbs", { movie: allMovies })
+    })
+    .catch(err => console.log('Error @ GET /movies', err))
 })
 
-router.get('/:movieId', (req, res, next) => { 
-    const { movieId } = req.params
-    
-    Movie
-        .findById(movieId)
-        .populate('cast')
-        .then(movie => res.render('movies/movie-details', {movie}))
+// GET /movies/:movieId
+router.get('/:movieId', (req, res, next) => {
+  const { movieId } = req.params
+  Movie
+    .findById(movieId)
+    .populate("cast")
+    .then((movie) => res.render("movies/movie-details.hbs", { movie }))
+    .catch((err) => console.log("Error @ GET /movies/:movieId", err))
 })
 
-router.post('/:movieId/delete',(req, res, next) =>{
-    const { movieId } = req.params
-    
-    Movie
+// POST /movies/:movie/delete
+router.post('/:movieId/delete', (req, res, next) => { 
+  const { movieId } = req.params
+  Movie
     .findByIdAndDelete(movieId)
-    .then(movie => res.redirect('/movies'))
-    .catch(err => console.log('Error @ POST /delete', err))
+    .then(() => res.redirect("/movies"))
+    .catch((err) => console.log("Error @ POST /movies/:movieId/delete", err))
 })
 
+// GET movies/:movieId/edit
 router.get('/:movieId/edit', (req, res, next) => {
-    const { movieId } = req.params
-    
-    Movie
-        .findById(movieId)
-        .populate('cast')
-        .then((movie) => {
-            // @ts-ignore
-            const { cast } = movie
-            
-            Celebrity
-                .find({ _id: { $nin: cast } })
-                .then(celebrities => {
-                    res.render('movies/edit-movie.hbs', { movie, celebrity: celebrities})
-                })
-                .catch(err => console.log('ERROR @ GET movies/:movieID/edit: ', err))
+  const { movieId } = req.params
+  Movie
+    .findById(movieId)
+    .populate('cast')
+    .then(movie => {
+      // @ts-ignore
+      const { cast } = movie
+
+      Celebrity
+        .find({_id: {$nin: cast}}) // Filters and pass actors that are not in movie.cast
+        .then(celebrities => {
+          console.log(celebrities)
+          res.render("movies/edit-movie.hbs", { movie, celebrity: celebrities })
         })
+        .catch((err) => console.log("Error @ GET /movies/:movieId/edit", err))
+    })
 })
 
+// POST movies/:movieId/edit
 router.post('/:movieId/edit', (req, res, next) => { 
-    const { movieId } = req.params
+  const { movieId } = req.params
 
-    Movie.findById(movieId)
-        .then(movieParams => {
-            let { title, genre, plot, cast } = req.body
+  Movie.findById(movieId).then(movieProps => {
+    let { title, genre, plot, cast } = req.body
 
-            if (!title) title = movieParams?.title
-            if (!genre) genre = movieParams?.genre
-            if (!plot) plot = movieParams?.plot
-            if (!cast) cast = movieParams?.cast
+    if (!title) title = movieProps?.title
+    if (!genre) genre = movieProps?.genre
+    if (!plot) plot = movieProps?.plot
+    if (!cast) cast = movieProps?.cast
 
-            Movie.
-                findByIdAndUpdate(movieId, { title, genre, plot, cast })
-                .then(() => res.redirect('/movies'))
-                .catch(err => console.log('ERROR @ POST movies/:movie/edit: ',err))
-        })
+    Movie.findByIdAndUpdate(movieId, { title, genre, plot, cast })
+      .then(() => res.redirect("/movies"))
+      .catch((err) => console.log("Error @ POST /movies/:movieId/edit", err))
+  })
 })
 
-module.exports = router;
+module.exports = router
