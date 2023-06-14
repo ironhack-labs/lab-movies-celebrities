@@ -1,0 +1,7 @@
+<h2>Movies List</h2>
+
+  {{#each moviesFound}}
+  <p>{{title}}</p>
+
+  <a href="/movies/{{_id}}"><button>View Details</button></a>
+ {{/each}}
