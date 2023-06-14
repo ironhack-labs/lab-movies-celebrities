@@ -46,34 +46,4 @@ router.post('/:celebrityId/delete', (req, res, next) => {
     .catch((err) => console.log("Error @ POST /celebrity/:celebrityId/delete", err))
 })
 
-
-// GET /celebrities/:celebrityId/edit
-router.get("/:celebrityId/edit", (req, res, next) => {
-  const { celebrityId } = req.params
-  Celebrity.findById(celebrityId)
-    .then((celebrity) => {
-      res.render("celebrities/edit-celebrity.hbs", { celebrity })
-    })
-    .catch((err) => console.log("Error @ GET /celebrities/:celebrityId/edit", err))
-})
-
-// POST /celebrities/:celebrityId
-router.post("/:celebrityId/edit", (req, res, next) => {
-  const { celebrityId } = req.params
-
-  Celebrity
-    .findById(celebrityId)
-    .then((celebProps) => {
-      let { name, occupation, catchPhrase } = req.body
-
-      if (!name) name= celebProps?.name
-      if (!occupation) occupation = celebProps?.occupation
-      if (!catchPhrase) catchPhrase = celebProps?.catchPhrase
-
-      Celebrity.findByIdAndUpdate(celebrityId, { name, occupation, catchPhrase })
-        .then(() => res.redirect("/celebrities"))
-        .catch((err) => console.log("Error @ POST /celebrities/:celebrityId/edit", err))
-    })
-})
-
 module.exports = router
