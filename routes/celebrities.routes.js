@@ -5,25 +5,25 @@ const Movies = require('../models/Movie.model')
 
 // all your routes here
 
-router.get('/celebrities/create', (req, res, next) => {
+router.get('/create', (req, res, next) => {
     res.render('celebrities/new-celebrity')
 });
 
-router.post('/celebrities/create', (req, res, next) => {
+router.post('/create', (req, res, next) => {
     const {name , occupation, catchPhrase} = req.body;
     const newCelebrity = new Celebrity ({name, occupation, catchPhrase})
 
     newCelebrity.save()
     .then(() => {
-        res.render('/celebrities')
+        res.render('celebrities')
     })
-    .catch(err => res.render('/celebrities/new-celebritie', {err}))
+    .catch(err => res.render('celebrities/new-celebrity', {err}))
 });
 
-router.get('/celebrities', (req, res, next) => {
+router.get('/', (req, res, next) => {
     Celebrity.find()
     .then((dataCelebrity) => {
-        res.render('/celebrities/celebrities.hbs', {celebrity: dataCelebrity})
+        res.render('celebrities/celebrities', {celebrity: dataCelebrity})
     })
     .catch((err) => console.log('err pass the data Celebrity', {err}))
 });
