@@ -27,6 +27,49 @@ celebritiesRoutes.get('/', (req, res, next) => {
 
 })
 
+celebritiesRoutes.get('/:id/detail', (req, res, next) => {
+    const { id } = req.params
+    Celebrity.findById( id )
+    .then(celebrityDetail => {
+
+        res.render('celebrities/celebrity-details',  { celebrityDetail } );
+        console.log(celebrityDetail);
+    })
+    .catch(error => next(error))
+
+})
+
+celebritiesRoutes.get('/:id/delete', (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findByIdAndRemove( id )
+    .then(celebrityDeleted => {
+        console.log('celebrity deleted', celebrityDeleted);
+        res.redirect('/celebrities');
+    })
+    .catch(error => next(error))
+})
+
+celebritiesRoutes.get('/:id/edit', async (req, res, next) => {
+    const { id } = req.params;
+    Celebrity.findById( id )
+    .then(celebrity => {
+        res.render('celebrities/edit-celebrity', { celebrity });
+    })
+        
+   
+})
+
+celebritiesRoutes.post('/:id', async (req, res, next) => {
+    const { id } = req.params;
+    const { name, occupation, catchPhrase } = req.body
+    try{
+        await Celebrity.findByIdAndUpdate( id, { name, occupation, catchPhrase } )
+        const celebrityDetail = await Celebrity.findById( id )
+        res.render('celebrities/celebrity-details',  { celebrityDetail } );
+    } catch (error){
+        next(error);
+    }
+})
 
 
 module.exports = celebritiesRoutes;
