@@ -1,24 +1,26 @@
+<h2>Movie details</h2>
+
 {{#with movie }}
-  <h2>Details of {{title}}</h2>
+  <h5><strong>Title: </strong>{{title}}</h5>
+  <h5><strong>Genre: </strong>{{genre}}</h5>
+  <h5><strong>Plot: </strong>{{plot}}</h5>
 
-  <p>Genre: {{genre}}</p>
-
-  <p>Plot: {{plot}}</p>
-
-  <p>Cast:
-    {{#each cast}}
-      <li>
-        Name: {{name}}
-        <br>
-        Occupation: {{occupation}}
-        <br>
-        Catch phrase: {{catchPhrase}}
-      </li>
+  <ul>
+    <h5>Cast: </h5>
+    {{#each this.cast}}
+    <h6>
+      Name: {{name}}
+      <br>
+      Occupation: {{occupation}}
+      <br>
+      Catch phrase: {{catchPhrase}}
+    </h6>
     {{/each}}
-  </p>
+  </ul>
+  
   <form action="/movies/{{_id}}/delete" method="post">
     <button type="submit">Delete</button>
   </form>
 {{/with}}
 
-<a href="/movies">Return</a>
+<a href="/movies">Back</a>
