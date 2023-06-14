@@ -2,12 +2,12 @@ const router = require('express').Router()
 const Celebrity = require('../models/Celebrity.model')
 
 // GET /celebrities/create
-router.get('/celebrities/create', (req, res, next) => { 
+router.get('/create', (req, res, next) => { 
   res.render('celebrities/new-celebrity.hbs')
 })
 
 // POST /celebrities/create
-router.post('/celebrities/create', (req, res, next) => {
+router.post('/create', (req, res, next) => {
   const { name, occupation, catchPhrase } = req.body
   Celebrity
     .create({ name, occupation, catchPhrase })
@@ -22,7 +22,7 @@ router.post('/celebrities/create', (req, res, next) => {
 })
 
 // GET /celebrities
-router.get('/celebrities', (req, res, next) => { 
+router.get('/', (req, res, next) => { 
   Celebrity
     .find()
     .then(allCelebrities => res.render('celebrities/celebrities.hbs', { celebrity: allCelebrities }))
@@ -30,7 +30,7 @@ router.get('/celebrities', (req, res, next) => {
 })
 
 // GET /celebrities/:celibrityId
-router.get("/celebrities/:celebrityId", (req, res, next) => {
+router.get("/:celebrityId", (req, res, next) => {
   const { celebrityId: celebrityId } = req.params
   Celebrity.findById(celebrityId)
     .then((celebrity) => res.render("celebrities/celebrity-details.hbs", { celebrity }))
@@ -38,7 +38,7 @@ router.get("/celebrities/:celebrityId", (req, res, next) => {
 })
 
 // POST /celebrity/:celebrityId/delete
-router.post('/celebrities/:celebrityId/delete', (req, res, next) => { 
+router.post('/:celebrityId/delete', (req, res, next) => { 
   const { celebrityId } = req.params
   Celebrity
     .findByIdAndDelete(celebrityId)
@@ -48,7 +48,7 @@ router.post('/celebrities/:celebrityId/delete', (req, res, next) => {
 
 
 // GET /celebrities/:celebrityId/edit
-router.get("/celebrities/:celebrityId/edit", (req, res, next) => {
+router.get("/:celebrityId/edit", (req, res, next) => {
   const { celebrityId } = req.params
   Celebrity.findById(celebrityId)
     .then((celebrity) => {
@@ -58,7 +58,7 @@ router.get("/celebrities/:celebrityId/edit", (req, res, next) => {
 })
 
 // POST /celebrities/:celebrityId
-router.post("/celebrities/:celebrityId/edit", (req, res, next) => {
+router.post("/:celebrityId/edit", (req, res, next) => {
   const { celebrityId } = req.params
 
   Celebrity

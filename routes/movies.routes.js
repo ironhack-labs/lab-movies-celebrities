@@ -4,7 +4,7 @@ const Movie = require('../models/Movie.model')
 
 
 // GET /movies/create
-router.get('/movies/create', (req, res, next) => {
+router.get('/create', (req, res, next) => {
   Celebrity
     .find()
     .then(celebritiesFromDB => {
@@ -14,7 +14,7 @@ router.get('/movies/create', (req, res, next) => {
 })
 
 // POST /movies/create
-router.post('/movies/create', (req, res, next) => { 
+router.post('/create', (req, res, next) => { 
   const { title, genre, plot, cast } = req.body
   
   Movie
@@ -27,7 +27,7 @@ router.post('/movies/create', (req, res, next) => {
 })
 
 // GET /movies
-router.get('/movies', (req, res, next) => {
+router.get('/', (req, res, next) => {
   Movie
     .find()
     .then((allMovies) => {
@@ -37,7 +37,7 @@ router.get('/movies', (req, res, next) => {
 })
 
 // GET /movies/:movieId
-router.get('/movies/:movieId', (req, res, next) => {
+router.get('/:movieId', (req, res, next) => {
   const { movieId } = req.params
   Movie
     .findById(movieId)
@@ -47,7 +47,7 @@ router.get('/movies/:movieId', (req, res, next) => {
 })
 
 // POST /movies/:movie/delete
-router.post('/movies/:movieId/delete', (req, res, next) => { 
+router.post('/:movieId/delete', (req, res, next) => { 
   const { movieId } = req.params
   Movie
     .findByIdAndDelete(movieId)
@@ -56,7 +56,7 @@ router.post('/movies/:movieId/delete', (req, res, next) => {
 })
 
 // GET movies/:movieId/edit
-router.get('/movies/:movieId/edit', (req, res, next) => {
+router.get('/:movieId/edit', (req, res, next) => {
   const { movieId } = req.params
   Movie
     .findById(movieId)
@@ -76,7 +76,7 @@ router.get('/movies/:movieId/edit', (req, res, next) => {
 })
 
 // POST movies/:movieId/edit
-router.post('/movies/:movieId/edit', (req, res, next) => { 
+router.post('/:movieId/edit', (req, res, next) => { 
   const { movieId } = req.params
 
   Movie.findById(movieId).then(movieProps => {

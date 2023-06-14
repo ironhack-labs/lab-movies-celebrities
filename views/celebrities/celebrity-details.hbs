@@ -4,6 +4,10 @@
   <h5><strong>Name: </strong>{{name}}</h5>
   <h5><strong>Occupation: </strong>{{occupation}}</h5>
   <h5><strong>Catch phrase: </strong>{{catchPhrase}}</h5>
+  
+  <form action="/celebrities/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+  </form>
 {{/with}}
 
 <a href="/celebrities">Back</a>
