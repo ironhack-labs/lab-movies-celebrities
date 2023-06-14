@@ -30,7 +30,8 @@ router.get('/:celebrityId', (req, res, next) => {
 })
 
 router.post('/:celebrityId/delete', (req, res, next) => { 
-  
+  const { celebrityId } = req.params
+  Celebrity.findByIdAndDelete(celebrityId).then(()=>res.redirect('/celebrities'))
 })
 
 module.exports = router;
