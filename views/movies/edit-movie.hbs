@@ -1,0 +1,35 @@
+{{#with movie }}
+<form action="/movies/{{_id}}/edit" method="post">
+  <strong>You're editing {{title}}</strong>
+  <p>
+    With:
+    {{#each cast}}
+    {{name}} |
+    {{/each}}
+  </p>
+
+  <label>Title:
+    <input type="text" name="title" placeholder="{{title}}">
+  </label>
+
+  <label>genre:
+    <input type="text" name="genre" placeholder="{{genre}}">
+  </label>
+
+  <label>Plot:
+    <input type="text" name="plot" placeholder="{{plot}}">
+  </label>
+{{/with}}
+
+  <label>Cast:
+    <select name="cast" multiple>
+      {{#each celebrity}}
+      <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <button type="submit">Save</button>
+</form>
+
+<a href="/movies">back</a>
