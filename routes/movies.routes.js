@@ -5,7 +5,7 @@ const Celebrity = require('../models/Celebrity.model')
 
 // all your routes here
 
-router.get('/movies', (req,res,next) => {
+router.get('/', (req,res,next) => {
     Movie.find()
     .populate('cast')
     .then((newDataMovie) => {
@@ -13,7 +13,7 @@ router.get('/movies', (req,res,next) => {
     })
 })
 
-router.get('/movies/create', (req, res, next) => {
+router.get('/create', (req, res, next) => {
     Celebrity.find()
 		.then((dataOfNewCeleb) => {
 			res.render('movies/new-movie', { celebrity: dataOfNewCeleb });
@@ -22,7 +22,7 @@ router.get('/movies/create', (req, res, next) => {
 });
 
 
-router.post(('/movies/create'), (req,res,next) => {
+router.post(('/create'), (req,res,next) => {
     const newMovie = {
         title: req.body.title,
         genre: req.body.genre,
@@ -35,6 +35,14 @@ router.post(('/movies/create'), (req,res,next) => {
         res.redirect('movies')
     })
     .catch(err => {console.log('Error creating movies'), {err}})
+})
+
+router.get(('/movies/:movieId'), (req,res,next) => {
+    const { movieId } = req.params
+    Movie.findById(movieId) 
+    .populate("cast")
+    .then((movie) => res.render("movies/movie-details", {movie}))
+    .catch((err) => console.log('Err getting movie id', err))
 })
 
 module.exports = router;
