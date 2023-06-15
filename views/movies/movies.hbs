@@ -1,17 +1,15 @@
-<h1>Movie Details</h1>
+<h2>All Movies</h2>
 
-{{#each newMovie}}
-	<div>
-		<h2>Title:</h2>
-		<p>{{this.title}}</p>
-		<h2>Genre: </h2>
-		<p> {{this.genre}} </p>
-		<h2>Plot:</h2>
-		<p> {{this.plot}} </p>
-		<h2>Cast:</h2>
-		<p> {{this.cast.name}} </p>
-		<a href='movie/{{this._id}}'>Details</a>
-        <a href="/">Home page</a>
-	</div>
+  {{#each movie}}
+  <div class ='list-container'>
+    <h5>{{title}}</h5>
 
-{{/each}}
+    <a href="/movies/{{_id}}">See details</a>
+
+    <form action="/movies/{{_id}}/edit" method="get">
+    <button type="submit">Edit</button>
+    </form>
+  </div>
+  {{/each}}
+
+<a href="/">Home</a>

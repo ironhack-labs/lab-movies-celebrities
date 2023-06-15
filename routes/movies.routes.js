@@ -30,7 +30,7 @@ router.post(('/create'), (req,res,next) => {
         cast: req.body.cast,
     };
 
-    Movies.create(newMovie)
+    Movie.create(newMovie)
     .then(() => {
         res.redirect('movies')
     })
@@ -43,6 +43,14 @@ router.get(('/movies/:movieId'), (req,res,next) => {
     .populate("cast")
     .then((movie) => res.render("movies/movie-details", {movie}))
     .catch((err) => console.log('Err getting movie id', err))
+})
+
+router.post('/movies/:movieId/delete', (req, res, next) => { 
+    const { movieId } = req.params
+    Movie
+    .findByIdAndDelete(movieId)
+    .then(() => res.redirect("/movies"))
+    .catch((err) => console.log("Error POST /movies/:movieId/delete", err))
 })
 
 module.exports = router;
