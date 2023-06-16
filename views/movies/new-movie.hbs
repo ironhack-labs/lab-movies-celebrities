@@ -1,0 +1,18 @@
+{{!-- <-- The select multiple attribute --> --}}
+
+
+<container class="form-newMovie"> 
+    <form action="/movies/create" method="POST">
+
+        <label for="cast">Choose the actors/ actress:</label>
+            <select name="cast" id="cast" multiple>
+                {{#each celebrities}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+     <br><br>
+         <input type="submit" value="Submit">
+    </form>
+    <br>
+        <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+</container>     

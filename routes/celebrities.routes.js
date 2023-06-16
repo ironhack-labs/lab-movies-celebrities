@@ -1,8 +1,9 @@
+//const app = require("../app");
+const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
-const router = require("express").Router();
-
 // all your routes here
+//IT3: GET & POST mthd, add new celebrities to the database:
 
 router.get('/celebrities/create', (req, res, next) => {
     res.render('celebrities/new-celebrity')
@@ -11,16 +12,15 @@ router.get('/celebrities/create', (req, res, next) => {
 router.post('/celebrities/create', (req, res, next) => {
 
     const { name, occupation, catchPhrase } = req.body;  //defining what req.body contains
-
     const newCelebrity = new Celebrity({  //defining new instance of celebrity basing on its model
-        name,
-        occupation,
-        catchPhrase
+        name: name,
+        occupation: occupation,
+        catchPhrase: catchPhrase
         })
 
-      newCelebrity.save()
+      newCelebrity.save() // save or add celeb to DB
         .then(ifNewCelebrityIsSaved => {
-        res.redirect('celebrities/celebrities');
+        res.redirect('/celebrities');
         })
 
         .catch(ifThereIsAnError => {
@@ -29,17 +29,18 @@ router.post('/celebrities/create', (req, res, next) => {
 });
 
 
-    router.get('/celebrities', (req, res, next) => {
+//IT4: Listing Our Celebrities:
 
+    router.get('/celebrities', (req, res, next) => {
+        //Pass all the celebrities from database 
         Celebrity.find()
             .then(allCelebrities => {
-                res.render('celebrities/celebrities', { allCelebrities });
+                res.render('celebrities/celebrities', { allCelebrities }); // render the celebrities/celebrities.hbs view and pass the array of celebrities into the view as a variable
             })
-
             .catch(error => {
                 next(error);
             })
-        
     });
+
 
 module.exports = router;

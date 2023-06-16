@@ -26,15 +26,12 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
 const index = require('./routes/index');
-app.use('/', index);
-
-// Import the route files for celebrities and movies routes
 const celebritiesRoutes = require("./routes/celebrities.routes");
-const moviesRoutes = require("./routes/movies.routes");
+const moviesRoutes = require('./routes/movies.routes');
 
-// Link the route files to the main router ???????????????????? why is it app and not router?????
-app.use("./celebrities.routes.js", celebritiesRoutes);
-app.use("./movies.routes.js", moviesRoutes);
+app.use('/', index);
+app.use(celebritiesRoutes);
+app.use(moviesRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
