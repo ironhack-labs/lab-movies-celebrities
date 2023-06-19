@@ -1,0 +1,32 @@
+{{!-- <-- The select multiple attribute --> --}}
+<div class="form-newMovie">
+    <h2>Create a new Movie</h2>
+    <form action="/movies/create" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" multiple>
+        <br><br>
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" id="genre">
+        <br><br>
+        <label for="plot">Plot:</label>
+        <input type="text" id="plot" name="plot"/>
+        <br><br>
+        <label for="cast">Cast:</label>
+        <select name="cast" id="cast" multiple>
+            {{#each celebrities}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+   <label>
+        For selecting multiple actors:
+            <br>
+            Windows - Hold down the control (ctrl) button
+            <br>
+            Mac - Hold down the command button
+    </label>
+
