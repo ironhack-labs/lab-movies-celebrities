@@ -121,7 +121,7 @@ app.post('/movies/create', (req, res) =>{
         .save()
         .then(
             // Redirect to the celebrities page after successful creation
-            res.redirect('/views/movies/movies.hbs')
+            res.redirect('/movies')
         )
         .catch(err => {
             // Handle the error and render the new-celebrity view again
@@ -172,19 +172,65 @@ app.get('/movies/:id', (req,res) => {
 
 // ITERATION 9 - Delete Movie
 
-// app.post('/movies/:id/delete', (req,res) => {
+app.post('/movies/:id/delete', (req,res) => {
 
-//     const movieId = req.params.id;
+    const movieId = req.params.id;
 
-//     Movie.findByIdAndRemove(movieId)
-//         .then(res.redirect ('/views/movies/movies'))
-//         .catch((error) => {
-//         console.log("error deleting movie", error);
-//         res.render('error');
-//         });
-// })
+    Movie.findByIdAndRemove(movieId)
+        .then (res.redirect('/movies'))
+        .catch((error) => {
+        console.log("error deleting movie", error);
+        res.render('error');
+        });
+})
 
 // ITERATION 9 (END)
+
+
+
+
+// ITERATION 10 - Editing Movie
+
+app.get('/movies/:id/edit', (req,res) => {
+
+    const movieId = req.params.id;
+
+    Movie.findById(movieId)
+        .populate('cast')
+        .then ((movie)=> {
+            Celebrity.find()
+                .then((celebrities) => {
+                    res.render('./movies/edit-movie', {movie, celebrities});
+                })
+                .catch((error) => {
+                    console.log("error rendering movie", error);
+                    res.render('error');
+                });
+        })
+        .catch ((error) => {
+            console.log("error fetching movie", error);
+            res.render('error');
+        });
+});
+
+
+app.post('/movies/:id', (req,res) => {
+
+    const movieId = req.params.id;
+    const {title, genre, plot, cast} = req.body;
+
+    Movie.findByIdAndUpdate(movieId, {title, genre, plot, cast})
+        .then (()=> 
+            res.redirect(`/movies/${movieId}`))
+        .catch((error) => {
+        console.log("error editing movie", error);
+        res.render('error');
+        });
+})
+
+
+// ITERATION 10 (END)
+
 
 
 
