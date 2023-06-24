@@ -30,21 +30,12 @@ app.use('/', index);
 
 // ITERATION 1
 // Import the route files
-const celebritiesRoutes = require ('./routes/celebrities.routes.js')
+const celebritiesRoutes = require('./routes/celebrities.routes')
 const moviesRoutes = require('./routes/movies.routes');
 
 // Link the route files to the main router
-app.get('/celebrities', celebritiesRoutes);
-app.get('/celebrities/create', celebritiesRoutes);
-app.post('/celebrities/create', celebritiesRoutes);
-app.get('/movies', moviesRoutes);
-app.get('/movies/create', moviesRoutes);
-app.post('/movies/create', moviesRoutes);
-app.get('/movies/:id', moviesRoutes);
-app.post('/movies/:id/delete', moviesRoutes); 
-app.get('/movies/:id/edit', moviesRoutes);
-app.post('/movies/:id', moviesRoutes);
-
+app.use('/', celebritiesRoutes);
+app.use('/', moviesRoutes);
 
 
 // ITERATION 1(END)

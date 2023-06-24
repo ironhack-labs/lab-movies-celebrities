@@ -6,6 +6,8 @@ const router = require("express").Router();
 // ITERATION 5
 
 const Movie = require('../models/Movie.model');
+const Celebrity = require('../models/Celebrity.model');
+
 
 // ITERATION 5 (END)
 
