@@ -16,7 +16,7 @@ const getCelebrities = (req, res, next) => {
     .then(allTheCelebritiesFromDB => {
       console.log('Retrieved celebs from DB:', allTheCelebritiesFromDB);
 
-      res.render('celebrities/celebrities.hbs', { books: allTheCelebritiesFromDB });
+      res.render('celebrities/celebrities.hbs', { celebrities: allTheCelebritiesFromDB });
     })
     .catch(error => {
       console.log('Error while getting the celebs from the DB: ', error);

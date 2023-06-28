@@ -6,3 +6,10 @@ body {
 a {
   color: #00b7ff;
 }
+
+.celeb {
+  margin: 30px;
+  border: 3px dotted gold;
+  border-radius: 20px;
+  text-align: center;
+}
