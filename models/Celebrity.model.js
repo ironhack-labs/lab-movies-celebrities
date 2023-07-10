@@ -10,6 +10,9 @@ const celebritySchema = new mongoose.Schema({
     catchPhrase: {
         type: String
     }
+},
+{
+    timestamps: true
 })
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);
