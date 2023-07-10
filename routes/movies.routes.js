@@ -31,5 +31,40 @@ router.post('/movies/create', (req, res, next) => {
     })
 })
 
+// PARA MOSTRAR LAS PELÍCULAS  
+
+router.get('/movies', (req, res, next) => {
+    Movie.find()
+    .then((movie) => {
+        res.render('movies/movies', { movie })
+    })
+    .catch(err => console.error(err))
+})
+
+// PARA MOSTRAR DETALLE DE LA PELÍCULA
+
+router.get('/movies/:id', (req, res, next) => {
+    const id = req.params.id
+
+    Movie.findById(id) 
+    .populate('cast')
+    .then((movie) => {
+        res.render('movies/movie-details', { movie })
+    })
+    .catch(err => console.error(err))
+})
+
+// ELIMINAR UNA PELÍCULA
+
+router.post('/movies/:id/delete', (req, res, next) => {
+
+    const id = req.params.id
+
+    Movie.findByIdAndDelete(id)
+    .then(() => {
+        res.redirect('/movies')
+    })
+    .catch(err => console.error(err))
+})
 
 module.exports = router;
