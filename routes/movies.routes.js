@@ -8,7 +8,7 @@ const Movie = require('../models/Movie.model')
 router.get('/movies/create', (req, res, next) => {
     Celebrity.find()
     .then((celebrity) => {
-        res.render('movies/new-movie', { celebrity })
+        res.render('movies/movie-form', { celebrity })
     })
     .catch((err) => {
         console.error(err)
@@ -27,7 +27,7 @@ router.post('/movies/create', (req, res, next) => {
     })
     .catch((err) => {
         console.error(err);
-        res.render('movies/new-movie')
+        res.render('movies/movie-form')
     })
 })
 
@@ -65,6 +65,24 @@ router.post('/movies/:id/delete', (req, res, next) => {
         res.redirect('/movies')
     })
     .catch(err => console.error(err))
-})
+});
+
+// MOSTRAR PANTALLA DE EDITAR UNA PELÍCULA
+
+router.get('/movies/:id/edit', (req, res, next) => {
+
+    const id = req.params.id
+    console.log("entro a la ruta")
+
+    Movie.findById(id)
+    .then((movie) => {
+        console.log("entra aquí")
+        res.render('movies/movie-form', { movie, isEdit: true })
+    })
+    .catch((err) => {
+        console.error(err)
+    })
+    
+});
 
 module.exports = router;
