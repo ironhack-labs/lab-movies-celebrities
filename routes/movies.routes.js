@@ -72,17 +72,33 @@ router.post('/movies/:id/delete', (req, res, next) => {
 router.get('/movies/:id/edit', (req, res, next) => {
 
     const id = req.params.id
-    console.log("entro a la ruta")
 
     Movie.findById(id)
     .then((movie) => {
-        console.log("entra aquí")
-        res.render('movies/movie-form', { movie, isEdit: true })
+        return Celebrity.find()
+        .then((celebrity) => {
+            res.render('movies/movie-form', { movie, celebrity, isEdit: true })
+        })
     })
     .catch((err) => {
         console.error(err)
     })
-    
 });
+
+// PARA EDITAR LA PELÍCULA
+
+router.post('/movies/:id/edit', (req, res, next) => {
+
+    const id = req.params.id
+
+    Movie.findByIdAndUpdate(id, req.body)
+    .then(() => {
+        res.redirect('/movies')
+    })
+    .catch((err) => {
+        console.error(err)
+        res.render('movie-form', { err, movie: req.body})
+    })
+})
 
 module.exports = router;
