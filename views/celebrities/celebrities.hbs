@@ -1,0 +1,16 @@
+<h1>Celebrities list</h1>
+
+
+  {{#each celebrities as |celebrity|}}
+  <div class="list-group">
+  
+  <a href="#" class="list-group-item list-group-item-action mb-4">{{celebrity.name}}</a>
+  
+</div>
+    
+  {{/each}}
+
+
+<button type="button"  class="btn btn-success m-3"><a href="/celebrities/create">Create a new celebrity</a></button>
+
+<button type="button" class="btn btn-success m-3 "><a href="/">Go back to homepage</a></button>
