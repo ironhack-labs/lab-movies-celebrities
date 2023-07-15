@@ -1,0 +1,23 @@
+<h2>Edit Movie</h2>
+<form action="" method="POST">
+    <label for="">
+        Title
+        <input type="text" name="title" value="{{newObject.0.title}}">
+    </label>
+    <label for="">
+        Genre
+        <input type="text" name="genre" value="{{newObject.0.genre}}">
+    </label>
+    <label for="">
+        Plot
+        <input type="text" name="plot" value="{{newObject.0.plot}}">
+    </label>
+    <p>{{newObject.1}}</p>
+
+</form>
+
+
+
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button>Update Movie</button>
+</form>
