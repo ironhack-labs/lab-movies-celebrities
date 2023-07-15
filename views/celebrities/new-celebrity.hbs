@@ -1,0 +1,18 @@
+<h2>Create a celebrity:</h2>
+
+<form action="/celebrities" method="POST">
+  <label for="name">Name:</label>
+  <input required type="text" name="name" id="name" placeholder="Name" autocomplete="off">
+  <br>
+  <label for="occupation">Occupation:</label>
+  <input required type="text" name="occupation" id="occupation" placeholder="Occupation" autocomplete="off">
+  <br>
+  <label for="catchPhrase">Catch Phrase:</label>
+  <input required type="text" name="catchPhrase" id="catchPhrase" placeholder="Catch Phrase"autocomplete="off">
+  <br>
+  <button type="submit">Create Celebrity</button>
+</form>
+
+{{#if errorMessage}}
+  <p style="color: red;">{{errorMessage}}</p>
+{{/if}}
