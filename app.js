@@ -31,6 +31,9 @@ app.use('/', index);
 const celebrityIndex = require('./routes/celebrities');
 app.use('/celebrities', celebrityIndex);
 
+const movieIndex = require('./routes/movies');
+app.use('/movies', movieIndex);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 
