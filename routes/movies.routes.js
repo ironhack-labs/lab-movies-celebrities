@@ -66,6 +66,35 @@ router.post('/:id/delete', (req, res, next) => {
     })
 })
 
+router.get('/:id/edit', (req, res, next) => {
+    const movieID = req.params.id; 
+
+    
+    Promise.all ([Movie.findById(movieID), Celebrity.find()])
+    .then((results) => {
+    const [movie, celebrities] = results
+    res.render('movies/edit-movie', {movie, celebrities})
+    console.log ("results")
+})
+    .catch((error) => {
+        console.log(error)
+    })
+})
+
+router.post('/:id/edit', (req, res, next) => {
+   const movieID = req.params.id
+   const {title, genre, plot, cast} = req.body
+
+Movie.findByIdAndUpdate(movieID, {title, genre, plot, cast},
+   {new: true})
+    .then(() => {
+    res.redirect(`/movies/${movieID}`)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+})
+
 
 
 module.exports = router;
