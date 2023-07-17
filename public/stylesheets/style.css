@@ -1,6 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://cdn-media.backstage.com/files/media/edit/image/36142/original.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100vh;
+  color: white;
+}
+
+button {
+  margin: 5px 10px;
+  padding: 5px 20px;
+  background-color: #00b7ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+section {
+  background-color: lightcyan;
+  padding: 20px 20px;
+  border-radius: 20px;
 }
 
 a {

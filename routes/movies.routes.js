@@ -45,9 +45,7 @@ router.get('/:id/edit', (req, res) => {
     .then(movie => {
         Celebrity.find()
         .then(celebs => {
-            const newObject = [movie, celebs]
-            console.log(newObject[1])
-            res.render('movies/edit-movie', {newObject})
+            res.render('movies/edit-movie', {movie: movie, celebs:celebs})
         })
         .catch(err => console.log(err))
     })
@@ -55,8 +53,8 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.post('/:id/edit', (req, res) => {
-    console.log(req.params)
-    Movie.findByIdAndUpdate(req.params.id)
+    console.log(req.body)
+    Movie.findByIdAndUpdate(req.params.id, req.body)
     .then(()=> res.redirect('/movies'))
     .catch(err => console.log(err))
 })

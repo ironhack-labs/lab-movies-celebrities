@@ -1,23 +1,24 @@
 <h2>Edit Movie</h2>
-<form action="" method="POST">
+<form action="/movies/{{movie._id}}/edit" method="POST">
     <label for="">
         Title
-        <input type="text" name="title" value="{{newObject.0.title}}">
+        <input type="text" name="title" value="{{movie.title}}">
     </label>
     <label for="">
         Genre
-        <input type="text" name="genre" value="{{newObject.0.genre}}">
+        <input type="text" name="genre" value="{{movie.genre}}">
     </label>
     <label for="">
         Plot
-        <input type="text" name="plot" value="{{newObject.0.plot}}">
+        <input type="text" name="plot" value="{{movie.plot}}">
     </label>
-    <p>{{newObject.1}}</p>
-
-</form>
-
-
-
-<form action="/movies/{{_id}}/delete" method="POST">
+    <select name="cast" multiple>
+        <option value="">Please choose celebrities</option>
+        {{#each celebs}}
+        <option value={{_id}}>
+            {{name}}
+        </option>
+        {{/each}}
+    </select>
     <button>Update Movie</button>
 </form>
