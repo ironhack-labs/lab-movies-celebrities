@@ -1,8 +1,6 @@
 
 const Celebrity = require("../models/Celebrity.model")
 const Movie = require("../models/Movie.model")
-
-
 const router = require('express').Router()
 
 
@@ -79,6 +77,79 @@ router.get('/:id',(req,res)=>{
         console.log(err)
     })
 })
+// editing movies
+
+router.get('/:id/edit',(req,res)=>{
+    console.log(req.params)
+     Movie.findById(req.params.id).populate('cast')
+     .then((oneMovieToBeEdited)=>{
+        console.log(oneMovieToBeEdited)
+        res.render('movies/edit-movies',oneMovieToBeEdited)
+
+     })
+     .catch((err)=>{
+        console.log(err)
+     })
+})
+
+router.post('/:id/edit',(req,res)=>{
+    console.log("req.body")
+    console.log(req.body)
+    console.log("req.params")
+    console.log(req.params)
+
+    const {title, genre, plot, cast} = req.body
+
+    Movie.findByIdAndUpdate(req.params.id,{title, genre, plot, cast})
+    .then((updatedMovie)=>{
+        res.redirect('/movies')
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+//   router.get('/:id/edit', async (req, res) => {
+//     try {
+//       const movie = await Movie.findById(req.params.id);
+//       const celebrities = await Celebrity.find();
+  
+//       res.render('movies/edit-movie', { movie, celebrities });
+//     } catch (error) {
+//       console.log(error);
+//       res.redirect('/movies');
+//     }
+//   });
+  
+  
+//   router.post('/:id', async (req, res) => {
+//     try {
+//       const { title, director, cast } = req.body;
+//       await Movie.findByIdAndUpdate(req.params.id, { title, director, cast });
+  
+//       res.redirect(`/movies/${req.params.id}`);
+//     } catch (error) {
+//       console.log(error);
+//       res.redirect('/movies');
+//     }
+//   });
+
+
+//delete movies
+router.post('/:id/delete', (req, res) => {
+    const movieId = req.params.id;
+  
+    Movie.findByIdAndRemove(movieId)
+      .then(() => {
+        res.redirect('/movies');
+      })
+      .catch((error) => {
+        console.log(error);
+     
+      });
+  });
+
+
+
 
 
 module.exports = router
