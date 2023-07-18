@@ -1,26 +1,12 @@
+<div>
 <h1>
     Movie Details
 </h1>
-
-
 {{title}}
 {{genre}}
 {{plot}}
-{{!-- <button>Delete Movie </button> --}}
-
-{{!-- <a href="/movies{{movie._id}}/delete"></a> --}}
-
 <form action="/movies/{{_id}}/delete" method="POST">
-<button>Delete Movie</button>
-
-{{!-- <form action="/movies/{{_id}}/edit-movies" method="POST">
-<button>Edit Movie</button> --}}
-
-<a href="/movies/{{_id}}/edit">Edit Movie Info</a>
-
-{{!-- <form action="/books/{{_id}}/edit">
-            <button>Edit Book</button> --}}
-        </form>
-
-
- {{!-- <a href="movies/create">Create new Movie</a> --}}
+<button class="button" type="submit">Delete Movie</button>
+<a href="/movies/{{_id}}/edit" class="button" type="submit">Edit Movie Info</a>
+</form>
+</div>

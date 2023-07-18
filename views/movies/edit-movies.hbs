@@ -1,3 +1,4 @@
+<div class="form">
 <h2>Edit Movies</h2>
 <form action="/movies/{{_id}}/edit" method="post">
 <label for="title">Enter Movie Title</label>
@@ -6,7 +7,6 @@
 <input type="text" name="genre" value="{{genre}}">
 <label for="plot">Describe plot of movie</label>
 <input type="text" name="plot"value="{{plot}}">
-
 <label for="">
             cast
             <select name="cast" multiple id ="">
@@ -15,15 +15,8 @@
                 {{/each}}
             </select>
 
-{{!-- <label for="cast">Enter cast of movie</label>
- <select name="cast" multiple>
-        {{#each allCelebrities}}
-            <option value="{{this._id}}">{{this.name}}</option>
-        {{/each}}
-     </select> --}}
-        {{!-- <label for=""> --}}
-
-<button>Edit Movies</button>
+<button class="button" type="submit">Edit Movies</button>
 </form> 
+</div>
 
 

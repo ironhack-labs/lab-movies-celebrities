@@ -1,3 +1,5 @@
+<div class="form">
+    <h2>Create a New Movie</h2>
 <form action="/movies/create" method="post">
 <label for="title">Enter Movie Title</label>
 <input type="text" name="title">
@@ -6,17 +8,13 @@
 <label for="plot">Describe plot of movie</label>
 <input type="text" name="plot">
 
-<label for="cast">Enter cast of movie</label>
+<label for="cast">Select Cast</label>
  <select name="cast" id="cast" multiple>
         {{#each allCelebrities}}
             <option value="{{this._id}}">{{this.name}}</option>
         {{/each}}
      </select>
-        {{!-- <label for=""> --}}
-
-<button>Create New Movie</button>
+<button class="button" type="submit">Create New Movie</button>
 </form> 
-        {{!-- {{#each allCelebrities}}
-{{this}}
-{{/each}} --}}
+</div>
 
