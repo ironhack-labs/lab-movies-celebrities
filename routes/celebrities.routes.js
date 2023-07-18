@@ -22,7 +22,6 @@ router.post("/celebrities/create",(req,res)=>{
 router.get("/celebrities",(req,res)=>{
     Celebrity.find()
     .then((allCelebrities)=>{
-        console.log(allCelebrities)
         res.render("../views/celebrities/celebrities.hbs",{allCelebrities})
     })
 })
