@@ -1,0 +1,18 @@
+<h2>Movie Details</h2>
+
+<p>Title: {{title}}</p>
+<p>Genre: {{genre}}</p>
+<p>Plot: {{plot}}</p>
+<p> Cast: <ul>
+   
+  {{#each cast}}
+    <li>
+      <p>{{name}} - {{occupation}} - {{catchPhrase}}</p>  {{!-- can't figure out why cast members don't show --}}
+    </li>
+  {{/each}}
+</ul></p>
+<form action="/movies/{{_id}}/delete" method="POST">
+  <button type="submit">Delete</button>
+</form>
+
+<a href="/movies/{{_id}}/edit">Edit Movie</a>

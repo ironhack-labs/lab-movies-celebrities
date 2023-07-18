@@ -32,4 +32,54 @@ router.get('/', (req, res)=>{
         console.log(error)
     })
 })
+
+router.get("/:id", (req, res) => {
+    Movie.findById(req.params.id)
+      .populate("cast")
+      .then((oneMovie) => {
+        res.render("movies/movie-details", oneMovie);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  router.post("/:id/delete", (req, res) => {
+    Movie.findByIdAndRemove(req.params.id)
+      .then(() => {
+        res.redirect("/movies");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  router.get("/:id/edit", (req, res) => {
+    Movie.findById(req.params.id)
+      .then((movie) => {
+        Celebrity.find()
+          .then((celebrities) => {
+            res.render("movies/edit-movie", { movie, celebrities });
+          })
+          .catch((error) => {
+            console.log(error);
+            res.redirect("/movies");
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+  
+  router.post("/:id/edit", (req, res) => {
+    const { title, genre, plot, cast } = req.body;
+    Movie.findByIdAndUpdate({ title, genre, plot, cast })
+      .then((updateMovie) => {
+          res.redirect("/movies")
+      })  
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+  
 module.exports = router;
