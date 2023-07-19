@@ -1,4 +1,4 @@
-<div id="new-movie" class="container col-xxl-4 mt-5"></div>
+<div id="new-movie" class="container col-xxl-4 mt-5">
 
 {{#if movie}}
 <h2>Edit:</h2>
@@ -11,19 +11,16 @@
   <label for="title" class="form-label">Title:</label>
   <input required type="text" class="form-control" 
   name="title" id="title" placeholder="Title" value="{{movie.title}}" required>
-  <br>
   </div>
   <div class="mb-3">
   <label for="genre" class="form-label">Genre:</label>
   <input required type="text" class="form-control" 
   name="genre" id="genre" placeholder="Genre" value="{{movie.genre}}" required>
-  <br>
   </div>
   <div class="mb-3">
   <label for="plot" class="form-label">Plot:</label>
   <input required type="text" class="form-control" 
   name="plot" id="plot" placeholder="Plot" value="{{movie.plot}}" required>
-  <br>
   </div>
   <div>
   <label for="cast">Cast:</label>
@@ -32,7 +29,6 @@
       <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
   </select>
-  <br>
   </div>
   {{#if movie}}
   <div>
