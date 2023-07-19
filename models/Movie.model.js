@@ -4,9 +4,7 @@ const movieSchema = new mongoose.Schema({
     title:String,
     genre:String,
     plot:String,
-    // cast: {
-
-    // }
+    cast: [{type:mongoose.Schema.Types.ObjectId, ref:'celebrities'}]
 })
 
 const Movie = mongoose.model('movies',movieSchema)

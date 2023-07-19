@@ -16,5 +16,12 @@
         <input type="text" name="plot">
         <br><br>
     </label>
+    <br><br><br><br>
+    <select name="cast" id="" multiple>
+        {{#each allCelebrities}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <br><br><br><br>
     <button>Submit</button>
 </form>
