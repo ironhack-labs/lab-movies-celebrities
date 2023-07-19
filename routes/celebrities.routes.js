@@ -15,7 +15,8 @@ router.post("/create", (req, res) => {
     console.log(name, occupation, catchPhrase);
     Celebrity.create({ name, occupation, catchPhrase })
         .then(() => {
-            res.redirect('/celebrities');
+            //res.redirect('/');
+            res.redirect("create") //redireciona pra rota, nao arquivo ... colocar no redirect a rota completa
         })
         .catch(err => {
             console.error(err);
