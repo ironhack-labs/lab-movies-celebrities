@@ -1,18 +1,52 @@
-<h2>Create a celebrity:</h2>
+<div id="new-celebrity" class="container col-xxl-4 mt-5">
+  <h2>Create a celebrity</h2>
 
-<form action="/celebrities/create" method="POST">
-  <label for="name">Name:</label>
-  <input required type="text" name="name" id="name" placeholder="Name" autocomplete="off">
-  <br>
-  <label for="occupation">Occupation:</label>
-  <input required type="text" name="occupation" id="occupation" placeholder="Occupation" autocomplete="off">
-  <br>
-  <label for="catchPhrase">Catch Phrase:</label>
-  <input required type="text" name="catchPhrase" id="catchPhrase" placeholder="Catch Phrase"autocomplete="off">
-  <br>
-  <button type="submit">Create Celebrity</button>
-</form>
+  <form action="/celebrities/create" method="POST" class="row g-3 mt-2">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        placeholder="Name"
+        autocomplete="off"
+      />
+      <br />
+    </div>
+    <div class="mb-3">
+      <label for="occupation" class="form-label">Occupation</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        name="occupation"
+        id="occupation"
+        placeholder="Occupation"
+        autocomplete="off"
+      />
+      <br />
+    </div>
+    <div class="mb-3">
+      <label for="catchPhrase" class="form-label">Catch Phrase</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        name="catchPhrase"
+        id="catchPhrase"
+        placeholder="Catch Phrase"
+        autocomplete="off"
+      />
+      <br />
+    </div>
+    <div>
+      <button class="btn btn-primary" type="submit">Create Celebrity</button>
+    </div>
+  </form>
 
-{{#if errorMessage}}
-  <p style="color: red;">{{errorMessage}}</p>
-{{/if}}
+  {{#if errorMessage}}
+    <p style="color: red;">{{errorMessage}}</p>
+  {{/if}}
+</div>
