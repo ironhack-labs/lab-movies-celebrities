@@ -17,11 +17,15 @@
         <br><br>
     </label>
     <br><br><br><br>
-    <select name="cast" id="" multiple>
-        {{#each allCelebrities}}
+    <label for="">
+        cast
+        <br>
+        <select name="cast" id="" multiple>
+            {{#each allCelebrities}}
             <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-    </select>
+            {{/each}}
+        </select>
+    </label>
     <br><br><br><br>
     <button>Submit</button>
 </form>

@@ -6,6 +6,11 @@ const Celebrity = require("../models/Celebrity.model");
 //const router = require("express").Router();
 
 // all your routes here
+
+router.get('/',(req,res) =>{
+    res.send("OK")
+})
+
 router.get("/create", (req, res) => {
     Celebrity.find()
     .then((allCelebrities)=>{
