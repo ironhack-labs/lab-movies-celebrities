@@ -13,10 +13,17 @@ module.exports.createForm = (req, res, next) => {
     res.render('celebrities/new-celebrity');
   }
 
-  module.exports.doCreate = (req, res, next) => {
-    Celebrity.create(req.body)
-    .then(() => res.redirect('/celebrities'))
-    .catch(err => console.error(err))
 
-  }
+  module.exports.doCreate = (req, res, next) => {
+    const celebrity = req.body;
+  
+    Celebrity.create(celebrity)
+      .then((celebrity) => {
+        res.redirect("/celebrities");
+      })
+      .catch((error) => {
+        console.log('error: ', error);
+        res.render("celebrities/new-celebrity", { errorMessage: error });
+      });
+  };
 
