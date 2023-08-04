@@ -1,6 +1,5 @@
-<div>
-<h2>Movies</h2>
-{{#each movie}}
-    {{this.title}}
+<h2>MOVIES</h2>
+{{#each allMovies}}
+<p>{{this.title}}</p>
+<a href="/movies/{{this._id}}">Check Details</a>
 {{/each}}
-</div>

@@ -1,11 +1,18 @@
-const { Schema, model } = require('mongoose')
+//  Add your code here
 
-const celebritySchema = new Schema ({
-    name: String,
+const { Schema, model } = require('mongoose');
+
+const celebritySchema = new Schema(
+  {
+    name: {
+      type: String,
+      trim: true,
+      required: true,
+      unique: true,
+    },
     occupation: String,
     catchPhrase: String,
-})
+  }
+);
 
-const Celebrity = model('Celebrity', celebritySchema)
-
-module.exports = Celebrity
+module.exports = model('Celebrity', celebritySchema)
