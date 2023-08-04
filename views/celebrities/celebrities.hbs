@@ -1,0 +1,28 @@
+<h2>Celebritites list</h2>
+<hr>
+
+<div class="row">
+	{{#each celebrities}}
+	<div class="col-md-3 mb-3">
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">{{name}}</h5>
+				<hr>
+				<p class="card-text"><strong>Occupation: </strong>{{occupation}}</p>
+				<p class="card-text"><strong>Catch Phrase: </strong>{{catchPhrase}}</p>
+				<div class="d-grid mb-3">
+					<a href="{{id}}/edit" class="btn btn-warning ">Edit Celebrity</a>
+				</div>
+				<form action="{{id}}/delete" method="POST">
+					<div class="d-grid">
+						<input class="btn btn-danger" type="submit" value="Delete Celebrity">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>
+<hr>
+<a href="/celebrities/create" class="btn btn-success">Add new celebrity!</a>
+<a href="/" class="btn btn-dark">Back to home</a>

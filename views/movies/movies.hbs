@@ -1,0 +1,35 @@
+<h2>Movies list</h2>
+<hr>
+
+<div class="row">
+	{{#each movies}}
+	<div class="col-md-3 mb-3">
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title"><strong>Title: </strong>{{title}}</h5>
+				<hr>
+				<p class="card-text"><strong>Genre: </strong>{{genre}}</p>
+				<p class="card-text"><strong>Plot: </strong>{{plot}}</p>
+				<p><strong>Cast:</strong></p>
+				{{#each cast}}
+				<p class="card-text">{{name}}</p>
+				{{/each}}
+				<div class="d-grid mb-3">
+					<a href="{{id}}" class="btn btn-warning ">See details</a>
+				</div>
+				<div class="d-grid mb-3">
+					<a href="{{id}}/edit" class="btn btn-warning ">Edit Movie</a>
+				</div>
+				<form action="{{id}}/delete" method="POST">
+					<div class="d-grid">
+						<input class="btn btn-danger" type="submit" value="Delete Movie">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>
+<hr>
+<a href="/movies/create" class="btn btn-success">Add new movie!</a>
+<a href="/" class="btn btn-dark">Back to home</a>
