@@ -1,0 +1,31 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-12 text-center mt-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">{{title}}</h2>
+                <hr>
+                <h5>Genre</h5>
+                <p class="card-text">{{genre}}.</p>
+                <hr>
+                <h5>Plot</h5>
+                <p class="card-text">{{plot}}.</p>
+                <hr>
+                <h5>Cast</h5>
+
+                {{#each cast}}
+                <p class="card-text">{{name}}</p>
+                <h5>Occupation</h5>
+                <p class="card-text">{{occupation}}</p>
+                <h5>Catch Phrase</h5>
+                <p class="card-text">{{catchPhrase}}</p>
+                <hr>
+                {{/each}}
+
+                <a href="/movies/{{_id}}/edit" class="btn btn-dark">Edit</a>
+                <form class="mt-3" action="/movies/{{_id}}/delete" method="POST">
+                    <button class="btn btn-dark" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

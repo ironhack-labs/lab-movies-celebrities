@@ -1,0 +1,12 @@
+<div class="row justify-content-center">
+    {{#each celebrities}}
+    <div class="col-4 text-center mb-3 mt-3">
+        <div class="card" style="width: 14rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <a href="/celebrities/{{_id}}/edit" class="btn btn-dark">Edit</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
