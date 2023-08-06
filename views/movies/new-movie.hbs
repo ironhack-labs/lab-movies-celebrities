@@ -1,0 +1,33 @@
+<h2>Moviesssss</h2>
+<form action="/movies/create" method="POST">
+    <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div>
+        <label for="genre">Genre</label>
+        <input type="text" id="genre" name="genre">
+    </div>
+    <div>
+        <label for="plot">plot</label>
+        <input type="text" id="plot" name="plot">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="field4" class="form-label">Celebrities</label>
+
+
+        <select class="form-select" multipleq id="field4" name="cast">
+            {{#each Celebrity }}
+
+            <option value="{{_id}}">{{name}}</option>
+            {{/each }}
+        </select>
+
+    </div>
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-dark">Create Clebrity</button>
+    </div>
+</form>
