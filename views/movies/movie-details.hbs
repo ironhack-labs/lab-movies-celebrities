@@ -1,0 +1,19 @@
+<body>
+    <div class="container">
+        <h1>Detalles de {{title}}</h1>
+        <hr>
+        <p>Género: {{genre}}</p>
+        <hr>
+        <p>Argumento: {{plot}}</p>
+        <hr>
+        <p>Elenco:</p>
+        <hr>
+        {{#each cast}}
+        <p>{{name}} - {{occupation}} </p>
+        <p class="cursiva">"{{catchPhrase}}"</p>
+        <hr>
+        {{/each}}
+        <a href="/movies" class="btn btn-dark mb-3">Volver al listado</a>
+        <a href="/" class="btn btn-dark mb-3">Volver a inicio</a>
+    </div>
+</body>
