@@ -1,0 +1,37 @@
+<h2>Movie details</h2>
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    Title: {{title}}
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Genre: {{genre}}</li>
+                    <li class="list-group-item">Plot: {{plot}}</li>
+                    Cast:
+                    {{#each cast}}
+
+                    <li class="list-group-item">Actor's name: {{name}}</li>
+                    <li class="list-group-item">Occupation: {{occupation}}</li>
+                    <li class="list-group-item">Quote: {{catchPhrase}}</li>
+
+                    {{/each}}
+                    <li class="list-group-item">
+                        <form action="/movies/{{_id}}/delete" method="POST">
+                            <button class="btn btn-dark" type="submit">
+                                Delete Movie
+                            </button>
+                        </form>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="btn btn-dark" href="/movies/{{_id}}/edit">Edit Movie</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
