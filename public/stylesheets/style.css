@@ -1,8 +1,35 @@
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(./../images/descarga.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-a {
-  color: #00b7ff;
+.bodypart {
+  padding-top: 15px;
+}
+
+h1,
+h2,
+h4 {
+  color: white
+}
+
+
+.form-label {
+  color: white
+}
+
+footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  background-color: rgb(238, 229, 213);
+  color: #212529;
+  padding: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
 }
