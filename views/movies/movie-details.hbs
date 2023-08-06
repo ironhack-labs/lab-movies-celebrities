@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+<p>{{cast}}</p>
+
+
+<a href="/movies">Back to movies</a>{{!-- //no entiendo porque aquí es solo un /movie y no /movies/movies --}}
+
+<a href="/movies/{{_id}}/edit">Edit movie</a>
+
+<form action="/movies/{{_id}}/delete" method="POST">
+    <button type="submit">Delete this movie</button>
+</form>
