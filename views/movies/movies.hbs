@@ -1,0 +1,28 @@
+<main class="container my-5">
+    <h1>Movies</h1>
+    <hr>
+
+    <ol class="list-group">
+
+        {{#each movie}}
+
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{title}}</div>
+            </div>
+            <div>
+                <a href="movies/details/{{_id}}" class="btn btn-primary btn-sm me-2">Detalles</a>
+                <a href="/movies/{{_id}}/edit" class="btn btn-warning btn-sm me-2">Editar</a>
+                <form action="/movies/delete/{{_id}}" method="POST" class="d-inline">
+                    <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
+                </form>
+            </div>
+        </li>
+
+        {{/each}}
+    </ol>
+
+    <hr>
+    <a href="/movies/create" class="btn btn-dark mb-3">Añadir película</a>
+    <a href="/" class="btn btn-dark mb-3">Volver a inicio</a>
+</main>
