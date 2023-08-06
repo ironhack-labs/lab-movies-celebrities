@@ -1,0 +1,29 @@
+<h2>Movies</h2>
+
+<div class="row ">
+    {{#each movies}}
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted">{{genre}}</h6>
+
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/movies/{{_id}}/details">Details</a></li>
+                        <li><a class="dropdown-item" href="/movies/{{_id}}/edit">Edit</a></li>
+                    </ul>
+                </div>
+                <form action="/movies/{{_id}}/delete" method="post">
+                    <input type="submit" class="btn btn-danger mt-2" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

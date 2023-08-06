@@ -1,0 +1,33 @@
+<h2>Celebrities</h2>
+
+
+<div class="row ">
+    {{#each celebrity}}
+    <div class="col-md-4 mt-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted">{{occupation}}</h6>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted">{{catchPhrase}}</h6>
+                <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/celebrities/{{_id}}/details">Details</a></li>
+                        <li><a class="dropdown-item" href="/celebrities/{{_id}}/edit">Edit</a></li>
+                    </ul>
+                </div>
+
+                <form action="/celebrities/{{_id}}/delete" method="post">
+                    <input type="submit" class="btn btn-danger mt-2" value="Delete">
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
