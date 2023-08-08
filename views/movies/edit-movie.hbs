@@ -1,0 +1,28 @@
+<h2>Edit movie</h2>
+
+
+<form action="/movies/edit" method="post">
+  
+ 
+  <label> Title:
+    <input type="text" name="title" />
+  </label>
+ 
+  <label> Genre:
+    <input type="text" name="genre" />
+  </label>
+
+  <label> Plot:
+    <input type="text" name="plot" />
+  </label>
+   <label for="cast">Cast:</label>
+    <select name="cast" id="cast" multiple>
+        {{#each celebrities}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+
+    <button type="submit"> Submit </button>
+ 
+  
+</form>
