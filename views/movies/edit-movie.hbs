@@ -1,0 +1,22 @@
+  <h2>Edit Movie</h2>
+    <div>
+        <form action='/movies/{{findMovie._id}}/edit' method="post">
+        <label for="title">title
+        <input type="text" name="title" value="{{findMovie.title}}"/>
+        </label>
+        <label for="genre">genre
+        <input type="text" name="genre" value="{{findMovie.genre}}"/>
+        </label>
+        <label for="plot">plot
+        <input type="text" name="plot" value="{{findMovie.plot}}"/>
+        </label>
+        
+            <label for="cast">cast:</label>
+            <select name="cast" id="cast" multiple>
+            {{#each celebrityList}}
+            <option value={{this._id}}>{{this.name}}</option>
+            {{/each}}
+            </select>
+        <button>Update</button>
+    </form>
+    </div>
