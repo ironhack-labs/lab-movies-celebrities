@@ -104,7 +104,7 @@ router.post('/movies/:movieId/edit', async (req, res, next)=>{
 
         let updateMovie = await MovieModel.findByIdAndUpdate(movieId, {title, genre, plot, cast});
 
-        res.redirect('/movies')
+        res.redirect(`/movies/${movieId}`)
     }
     catch(error){
         console.log(error)

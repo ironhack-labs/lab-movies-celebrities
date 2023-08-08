@@ -1,17 +1,28 @@
+<div>
     <h2>Create a Movie!</h2>
     <form action='/movies/create' method="post">
-        <label for="title">title</label>
-        <input type="text" name="title">
-        <label for="genre">genre</label>
-        <input type="text" name="occupation">
-        <label for="plot">plot</label>
-        <input type="text" name="plot">
-        
-            <label for="cast">Choose the cast:</label>
-            <select name="cast" id="cast" multiple>
+        <div class="mb-3">
+             <label for="title" class="form-label">title</label>
+             <input type="text" name="title" class="form-control">
+        </div>
+        <div class="mb-3">
+             <label for="genre" class="form-label">genre</label>
+             <input type="text" name="genre" class="form-control">
+        </div>
+        <div class="mb-3">
+             <label for="plot" class="form-label">plot</label>
+             <textarea name="plot" class="form-control" rows ="3"></textarea>
+        </div>    
+        <div class="mb-3">   
+            <label for="cast" class="form-label">Choose the cast:</label>
+            <select name="cast" id="cast" class="form-select" multiple>
             {{#each cast}}
             <option value={{this._id}}>{{this.name}}</option>
             {{/each}}
             </select>
-        <button>Submit</button>
+            <div class="form-text">You can choose multiple celebrities by holding Alt or Shift!</div>
+
+        </div>
+        <button class="btn btn-primary">Submit</button>
     </form>
+</div>
