@@ -1,5 +1,5 @@
 <div>
-    <h2>Movie Edit Page Heading</h2>
+    <h2>Updating {{movie.title}}</h2>
     <div id="celeb-create">
         <form action="/movies/{{movie._id}}/edit" method="post">
         <label> Title:
@@ -23,7 +23,7 @@
             </select>
         </div>
 
-        <button type="submit"> Save your movie </button>
+        <button type="submit">Save changes</button>
         </form>
     </div>
     <a href="/">Home Page</a>

@@ -1,17 +1,17 @@
 <div>
-    <h2>Details header</h2>
+    <h2>{{chosenMovie.title}} details</h2>
     <section>
         <div>
-            <h4>{{chosenMovie.title}}</h4>
-            <p>{{chosenMovie.genre}}</p>
-            <p>{{chosenMovie.plot}}</p>
+            <h4>Title: {{chosenMovie.title}}</h4>
+            <p>Genre: {{chosenMovie.genre}}</p>
+            <p>Plot: {{chosenMovie.plot}}</p>
         </div>
         <div>
             {{#each chosenMovie.cast}}
                 <div>
-                    <h4>{{this.name}}</h4>
-                    <p>{{this.occupation}}</p>
-                    <p>{{this.catchPhrase}}</p>
+                    <h4>Cast member: {{this.name}}</h4>
+                    <p>Occupation: {{this.occupation}}</p>
+                    <p>His/Her "Food 4 Thought": {{this.catchPhrase}}</p>
                 </div>
             {{/each}}
         </div>
@@ -21,5 +21,6 @@
             <button type="submit">Delete</button>
         </form>
     </section>
+    <a href="/movies">Back to movies list</a>
     <a href="/">Home Page</a>
 </div>
