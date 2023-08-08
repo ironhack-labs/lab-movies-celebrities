@@ -1,0 +1,17 @@
+<!-- Iteration 8 -->
+
+<h3>Movie Details</h3>
+
+<h3>Title: {{movie.title}}</h3>
+<h3>Genre: {{movie.genre}}</h3>
+<h3>Plot: {{movie.plot}}</h3>
+
+{{#each cast}}
+    <p>Cast: {{cast}}</p>
+{{/each}}
+<!-- Iteration 9 -->
+<form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
+
+<a href="/movies/{{_id}}/edit">Edit Movie</a>

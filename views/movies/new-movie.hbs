@@ -1,0 +1,24 @@
+<!-- Iteration 6 - Form to Create a Movie -->
+<h2>Create Movie</h2>
+ 
+<form action="/movies/create" method="post">
+  <label><b>Title:</b>
+    <input type="text" name="title" />
+  </label>
+ 
+  <label><b>Genre:</b>
+    <input type="text" name="genre" />
+  </label>
+ 
+  <label><b>Plot:</b>
+    <textarea type="text" name="plot" cols="40" rows="4"></textarea>
+  </label>
+
+  <label><b>Cast:</b></label>
+    <select name="cast">
+        {{#each getCast}}
+            <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <button type="submit">Create Movie</button>
+</form>
