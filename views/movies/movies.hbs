@@ -1,0 +1,14 @@
+<div>
+    <h2>Movie List</h2>
+    <div class="row row-cols-2" data-bs-theme="dark">
+        {{#each movie}}
+        <div class="card text-center m-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">Genre: {{this.genre}}</p>
+                <a href="/movies/{{_id}}" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Celebrity List</h2>
+    <div class="row row-cols-2" data-bs-theme="dark">
+        {{#each celeb}}
+        <div class="card text-center m-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title ">{{this.name}}</h5>
+                <p class="card-text">Occupation: {{this.occupation}}</p>
+                <p class="card-text">Catchphrase: {{this.catchPhrase}}</p>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
