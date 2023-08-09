@@ -44,6 +44,7 @@ router.post("/movies/create", async (req, res) => {
     }
 });
 
+// DETAILS MOVIES
 router.get("/movies/movie-details", async (req, res) => {
     try {
         let allMoviesFromDB = await Movie.find();
@@ -56,6 +57,8 @@ router.get("/movies/movie-details", async (req, res) => {
     }
 });
 
+// DETAILS MOVIES
+
 router.get("/movies/:id", async (req, res) => {
     try {
         const { id } = req.params;
@@ -64,6 +67,17 @@ router.get("/movies/:id", async (req, res) => {
         let foundMovie = await Movie.findById(id).populate("cast");
 
         res.render("movies/movie-details.hbs", { movies: foundMovie });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+// DELETE MOVIES
+router.post("/movies/:id/delete", async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        await Movie.findByIdAndDelete(id);
+        res.redirect("/movies");
     } catch (error) {
         console.log(error);
     }
