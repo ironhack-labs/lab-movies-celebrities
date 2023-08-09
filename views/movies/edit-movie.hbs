@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Movie</title>
+</head>
+<body>
+  <h2>Edit Movie</h2>
+  <form action="/movies/{{ movie._id }}" method="post">
+   
+    <label>Title:</label>
+    <input type="text" name="title" value="{{ movie.title }}" required>
+    <label> Genre:
+ <input type="text" name="genre" value="{{ movie.genre }}"/>
+</label>
+
+<label> Plot:
+ <textarea name="plot" cols="10" rows="2" >{{ movie.plot }}</textarea>
+</label>
+
+    
+    <label>Cast:</label>
+    <select name="cast" multiple>
+      {{#each celebrities}}
+        <option value="{{ this._id }}" {{#if movie.cast.includes(this._id)}}selected{{/if}}>
+          {{ this.name }}
+        </option>
+      {{/each}}
+    </select>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</body>
+</html>
