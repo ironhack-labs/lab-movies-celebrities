@@ -66,7 +66,7 @@ router.get("/movies/:movieId", async (req, res) => {
 
 
   // #9.2 DELETING 
-  router.post("/movies/:id/delete", async (req, res) => {
+  router.post("/movies/:movieId/delete", async (req, res) => {
     try {
       const { movieId } = req.params;
       await Movie.findByIdAndRemove(movieId);
@@ -77,26 +77,60 @@ router.get("/movies/:movieId", async (req, res) => {
   });
 
 
+
+
+  
 // #10 EDITING 
-router.post("movies/edit-movie"), (req,res)=> {
-  const movieId = req.params
-  const{title, genre, plot, cast } = req.body;
-}
 
-
-
-router.get("/movies/:id/edit"), async (req,res) => {
+router.get("/movies/:id/edit", async (req, res) => {
   try {
-    const {movieId} = req.params;
-    let [movie, celebrities] = await Promise.all([
-      Movie.findById(movieId),
-      Celebrity.find()
-    ]);
-    res.render("/movies/edit-movie", {movie, celebrities});
-
-  }
-  catch(error) {
+    const { id } = req.params;
+    const updateMovie = await Movie.findById(id);
+    const celebrities = await Celebrity.find();
+    res.render("movies/edit-movie.hbs", { updateMovie, celebrities });
+  } catch (error) {
     console.log(error);
-
   }
-}
+});
+
+router.post("/movies/:id/edit", async (req, res) => {
+  try {
+    //Destructure the req.params object to get the bookId
+    const { id } = req.params;
+    const { title, genre, plot, cast } = req.body;
+
+    //update the same document with new content
+    await Movie.findByIdAndUpdate(
+      id,
+      { title, genre, plot, cast },
+      { new: true }
+    );
+
+    //redirect to books list page
+    res.redirect("/movies");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
+// router.get("/movies/:id/edit"), async (req,res) => {
+//   try {
+//     const {movieId} = req.params;
+//     let [movie, celebrities] = await Promise.all([
+//       Movie.findById(movieId),
+//       Celebrity.find()
+//     ]);
+//     res.render("/movies/edit-movie", {movie, celebrities});
+
+//   }
+//   catch(error) {
+//     console.log(error);
+
+//   }
+// }
+
+// router.post("movies/edit-movie"), (req,res)=> {
+//   const movieId = req.params
+//   const{title, genre, plot, cast } = req.body;
+// }
