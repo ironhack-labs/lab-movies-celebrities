@@ -1,0 +1,31 @@
+<h2>Add a New Movie</h2>
+<form action="/movies/create" method="post">
+  <label>Ttile:
+    <input type="text" name="title" />
+  </label>
+
+  <label>Genre:
+    <input type="text" name="genre" />
+  </label>
+
+  <label>Plot:
+    <input type="text" name="plot" />
+  </label>
+
+  {{!-- QUESTION FOR TA: there are two default values on "cast". How do I reset those? --}}
+
+  <label>Cast:
+      <select name="cast" id="cast" multiple>
+        {{#each celebrities}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+  </label>
+
+  <button type="submit"> Create</button>
+
+</form>
+
+<br>
+
+<a href="/">Return Home</a>
