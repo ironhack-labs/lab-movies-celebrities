@@ -68,11 +68,10 @@ router.post('/movies/:movieId/delete', async (req, res) => {
 })
 router.get('/movies/:movieId/edit', async (req,res) =>{
     try{
-    const {movieId} = req.params
+    const {movieId} = req.params;
     let editMovie = await Movie.findById(movieId)
-    
-        let celebrities = await Celebrity.find()
-        res.render('movies/edit-movie.hbs', {celebrities, editMovie})
+    let celebrities = await Celebrity.find()
+    res.render('movies/edit-movie', {editMovie, celebrities})
     } catch (error) {
         console.log(error) 
     }
@@ -82,8 +81,8 @@ router.post('/movies/:movieId/edit', async(req, res) => {
     try {
         const {movieId} = req.params
         const {title, genre, plot, cast} = req.body;
-        await Movie.findByIdAndUpdate({title, genre, plot, cast})
-        res.redirect('/movies')
+        await Movie.findByIdAndUpdate(movieId, {title, genre, plot, cast}, {new: true})
+        res.redirect(`/movies/${movieId}`)
     }
     catch(error){
         console.log(error)
