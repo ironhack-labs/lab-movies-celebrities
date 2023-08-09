@@ -1,0 +1,25 @@
+<h1>Movies details</h1>
+<br>
+    <a class="btn btn-primary mr-3" href="/movies"> Atras</a>
+    <a class="btn btn-success mr-2" href="/">HOME</a>
+<br><br>
+<div class="card row mb-3" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">{{pelicula.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{pelicula.genre}}</h6>
+    <p class="card-text">{{pelicula.plot}}</p>
+    <div>
+        <h5>Cast:</h5>
+        {{#each pelicula.cast as |x|}}
+        <h6><a href="/celebrities">{{x.name}}</a></h6>
+        <h6>{{x.occupation}}</h6>
+        <p>"{{x.catchPhrase}}"</p>
+        {{/each}}
+    </div >
+  </div>
+ 
+</div>
+<form action="/movies/{{pelicula._id}}/delete" method="POST">
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+</form>
