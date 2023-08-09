@@ -1,20 +1,23 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const celebritiesSchema = new Schema(
+const moviesSchema = new Schema(
   {
-    name: {
+    title : {
       type: String,
     },
-    occupation : {
+    genre  : {
       type: String, 
     },
-    catchPhrase : {
+    plot  : {
       type: String,
     },
+    cast:[{
+        type: Schema.Types.ObjectId,
+        ref: "Celebrity",
+
+    }
+    ]
     },
 );
-
-module.exports = model("Celebrity", celebritiesSchema);
-
-
+module.exports = model ("Movies", moviesSchema);
