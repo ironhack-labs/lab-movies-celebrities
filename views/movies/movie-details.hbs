@@ -2,11 +2,12 @@
 <p>Genre: {{chosenMovie.genre}}</p>
 <p>Plot: {{chosenMovie.plot}}</p>
 <br>
+<p>Movie cast</p>
 {{#each chosenMovie.cast}}
-    <p>Movie cast</p>
     <p>Name: {{name}}</p>
     <p>Occupation: {{occupation}}</p>
     <p>Catch Phrase: {{catchPhrase}}</p>
+    <br>
 {{/each}}
 
 <form action="/movies/{{chosenMovie._id}}/delete" method="post">

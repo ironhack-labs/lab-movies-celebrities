@@ -24,7 +24,6 @@ router.post("/celebrities/create", async (req,res) => {
 });
 
 
-// GET route to display all the celebrities in the Db
 router.get("/celebrities", async (req,res) => {
     try{
         let allCelebritiesFromDb = await Celebrity.find();

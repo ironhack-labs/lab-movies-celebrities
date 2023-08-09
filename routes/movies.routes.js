@@ -27,7 +27,6 @@ router.post("/movies/create", async (req,res) => {
 
 router.get("/movies", async (req,res) => {
     try{
-        // get all books from our database via .find() method
         let allMoviesFromDb = await Movie.find();
 
         res.render("movies/movies.hbs", {movies: allMoviesFromDb});
@@ -81,6 +80,15 @@ router.post("/movies/:movieId/edit", async (req,res) => {
     catch (error){
         console.log(error);
     }
+});
+
+router.post('/movies/:movieId/delete', async (req, res) => {
+    try{
+        const {movieId} = req.params;
+        await Movie.findByIdAndRemove(movieId);
+        res.redirect('/movies')
+    }
+catch(error){console.log(error)}
 });
 
 
