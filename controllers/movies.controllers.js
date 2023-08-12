@@ -34,7 +34,6 @@ module.exports.list = (req, res, next) => {
     movie.find()
         .populate('cast')
         .then((peliculas) => {
-            //console.log(peliculas)
             res.render('movies/movies', {peliculas: peliculas})
             })
             .catch((next) => console.log(next))
@@ -57,3 +56,33 @@ module.exports.delete = (req, res) => {
         .catch()
 }
   
+module.exports.edit = (req, res, next) => {
+    let movieData;
+    movie.findById(req.params.id)
+    .populate("cast")
+    .then(movie => {
+        movieData = movie
+        return celebrities.find();
+    })
+    .then(celebrities => {
+        console.log("esto es movie :", movie)
+        res.render('movies/edit-movie', {movie: movieData, allCelebrities: celebrities})
+    })
+    .catch()
+}
+
+module.exports.doEdit = (req, res, next) => {
+    movie.findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        genre: req.body.genre,
+        plot: req.body.plot,
+    })
+    .then(movie => {
+        res.redirect(`/movies/${movie.id}`)
+    })
+}
+
+
+
+
+

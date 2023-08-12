@@ -1,0 +1,30 @@
+<h1>Movies details</h1>
+<br>
+    <a class="btn btn-primary mr-3" href="/movies"> Atras</a>
+    <a class="btn btn-success mr-2" href="/">HOME</a>
+<br><br>
+<form action="/movies/{{movie._id}}" method="POST">
+  <div class="card row mb-3" style="width: 22rem;">
+    <div class="card-body">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name" value="{{movie.name}}" id="name"/>
+    </div>
+    <div class="card-body">
+      <label for="genre" class="form-label">Genre</label>
+      <input type="text" class="form-control" name="genre" value="{{movie.genre}}" id="genre"/>
+    </div>
+    <div class="card-body">
+      <label for="plot" class="form-label">Plot</label>
+      <textarea type="text" class="form-control" name="plot" id="plot">{{movie.plot}}</textarea>
+    </div>
+    <div><br>
+
+      <label for="castName">Cast:</label>
+      <select name="castName" id="castName" multiple>
+        {{#each allCelebrities as |celebrity|}}
+          <option value="{{celebrity._id}}">{{celebrity.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
