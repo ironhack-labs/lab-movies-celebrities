@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mivies details</title>
+</head>
+<body>
+    <h2>Movie Details</h2>
+    <h3>Title: {{movie.title}}</h3>
+    <p><strong>Genre:</strong> {{movie.genre}}</p>
+    <p><strong>Plot:</strong> {{movie.plot}}</p>
+    <p><strong>Cast:</strong>
+    {{#each movie.cast}}
+        <p><strong>Name:</strong> {{this.name}}</p>
+        <p><strong>Occupation:</strong> {{this.occupation}}</p>
+        <p><strong>Catch Phrase:</strong> {{this.catchPhrase}}</p>
+    {{/each}}
+    </p>
+</body>
+</html>
