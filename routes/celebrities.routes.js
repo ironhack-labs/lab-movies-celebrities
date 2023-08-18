@@ -6,4 +6,5 @@ router.get("/create", celebrities.create);
 router.post("/create", celebrities.doCreate);
 router.get("/list", celebrities.list);
 
+
 module.exports = router;

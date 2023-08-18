@@ -7,7 +7,7 @@ module.exports.create = (req, res, next) => {
   };
 
 module.exports.doCreate =(req, res, next) => {
-    // Note: never trust the HTTP client, always whitelist your expected properties
+   
   Celebrity.create({
     name: req.body.name,
     occupation : req.body.occupation,
