@@ -1,0 +1,17 @@
+<form action="/movies" method="POST">
+  <label for="title">Título de la película:</label>
+  <input type="text" id="title" name="title" required>
+
+  <label for="releaseYear">Año de estreno:</label>
+  <input type="number" id="releaseYear" name="releaseYear" required>
+
+  <label for="cast">Elenco:</label>
+  <select id="cast" name="cast" multiple>
+   
+    {{#each cast}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+
+  <button type="submit">Agregar película</button>
+</form>

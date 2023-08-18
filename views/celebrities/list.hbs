@@ -1,0 +1,18 @@
+
+ <thead>
+        <tr>
+            <th>Name</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        {{#each celebrities as |celebrity|}}
+            <tr>
+                <td>
+                    <a href="/celebrities/{{ celebrity._id }}">
+                        {{ celebrity.name }}
+                    </a>
+              
+            </tr>
+
+{{/each}}
