@@ -1,0 +1,23 @@
+<h1>Movie details</h1>
+<div class="row row-cols-1 row-cols-md-4 g-2">
+  <div class="card-body text-start text-middle">
+    <a class="btn btn-primary mr-3" href="/movies">Back Movies</a>
+    <a class="btn btn-danger mr-3" href="/movie/{{movie.id}}/edit">Edit</a>
+    <p class="card-title fw-bold fs-5 mb-3 mt-3">Title: {{movie.title}}</p>
+    <p class="card-title fw-bold fs-6 mb-3">Genre: {{movie.genre}}</p>
+    {{#if haveCelebrities}}
+      <div>
+        <p class="fw-semibold mb-2">Castings:</p>
+        <ul>
+          <li class="col">Name: {{movie.cast.name}}</li>
+          <li class="col">Occupation: {{movie.cast.occupation}}</li>
+          <li class="col">Catch Phrase: {{movie.cast.catchPhrase}}</li>
+        </ul>
+      </div>
+    {{/if}}
+
+  </div>
+</div>
+<form action="/movie/{{movie.id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>

@@ -1,0 +1,18 @@
+<h1>Celebrity details</h1>
+<div class="row row-cols-1 row-cols-md-4 g-2">
+  <div class="card-body text-start text-middle">
+    <a class="btn btn-primary mr-3" href="/celebrities">Back Celebrities</a>
+    <a
+      class="btn btn-danger mr-3"
+      href="/celebrity/{{celebrity.id}}/edit"
+    >Edit</a>
+    <p class="card-title fw-bold fs-5 mb-3 mt-3">Name: {{celebrity.name}}</p>
+    <p class="card-title fw-bold fs-6 mb-3">
+      Occupation:
+      {{celebrity.occupation}}</p>
+    <p class="fw-semibold mb-2">Catch Phrase: {{celebrity.catchPhrase}}</p>
+  </div>
+</div>
+<form action="/celebrity/{{celebrity.id}}/delete" method="POST">
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>

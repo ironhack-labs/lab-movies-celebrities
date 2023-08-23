@@ -1,0 +1,10 @@
+<h1>Movies list</h1>
+<a class="btn btn-success mr-2" href="/">Back Home</a>
+<a class="btn btn-primary" href="movies/new">Create New Movie</a>
+<ul class="list-group list-group-flush">
+  {{#each movies as |movie|}}
+    <li class="list-group-item">
+      <a href="movie/{{movie.id}}">{{movie.title}}</a>
+    </li>
+  {{/each}}
+</ul>
