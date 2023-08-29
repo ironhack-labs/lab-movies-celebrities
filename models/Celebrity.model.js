@@ -5,11 +5,11 @@ const celebritySchema = new Schema(
     {
         name: String,
         occupation: String,
-        catchPhrase: String
+        catchphrase: {type: String, required: true, trim: true}
     },
     {
         timestamps: true,
     }
 )
 
-    module.exports = model("Celebrity", celebritySchema)
+module.exports = model("Celebrity", celebritySchema)
