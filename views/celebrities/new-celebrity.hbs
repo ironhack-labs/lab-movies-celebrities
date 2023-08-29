@@ -1,0 +1,17 @@
+<h2>make a new celebrity</h2>
+<form action="/celebrities/create" method="POST">
+    <label> Name:
+        <input type="text" name="name" />
+    </label>
+    <label> Occupation:
+        <input type="text" name="occupation" />
+    </label>
+    <label> Catchphrase:
+        <input type="text" name="catchphrase" />
+    </label>
+    <button type="submit"> Submit </button>
+    {{#if msg}}
+    <p>{{msg}}</p>
+    {{/if}}
+</form>
+
