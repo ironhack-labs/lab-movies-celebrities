@@ -1,4 +1,4 @@
-/* Apply basic styling to the form container */
+
 form {
     max-width: 400px;
     margin: 0 auto;
@@ -9,14 +9,14 @@ form {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Style form labels */
+
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
-/* Style form input fields */
+
 input[type="text"] {
     width: 100%;
     padding: 10px;
@@ -25,17 +25,17 @@ input[type="text"] {
     border-radius: 4px;
 }
 
-/* Style the multiple select dropdown */
+
 select[multiple] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    height: auto; /* Allow the dropdown to adjust its height based on selections */
+    height: auto; 
 }
 
-/* Style the submit button */
+
 button[type="submit"] {
     padding: 10px 20px;
     background-color: #007bff;
@@ -45,7 +45,6 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-/* Apply some space to the success message */
 p {
     margin-top: 10px;
 }

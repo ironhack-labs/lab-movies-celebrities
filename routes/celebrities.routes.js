@@ -32,7 +32,6 @@ router.post("/create", (req, res, next) => {
     }
 
   Celebrity.create({ name, occupation, catchphrase })
-    //.then(bookFromDB => console.log(`New book created: ${bookFromDB.title}.`))
     .then(() => res.redirect('/celebrities'))
     .catch(error => res.render('celebrities/new-celebrity', error));
 });
