@@ -24,14 +24,15 @@
 
     <label> Cast:
 
-        <select name="name">
+        <select name="cast" multiple>
             {{#each celebrity}}
             <option value="{{this.id}}">{{this.name}}</option>
             {{/each}}
+  
         </select>
 
     </label>
 
-    <button type="submit">Create Celebrity</button>
+    <button type="submit">Create Movie</button>
 
 </form>

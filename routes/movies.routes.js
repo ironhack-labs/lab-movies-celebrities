@@ -50,4 +50,28 @@ router.get("/movies", (req, res, next) => {
 
 })
 
+router.get("/movies/:id", (req, res, next) => {
+    const id = req.params.id;
+    Movie.findById(id)
+    .populate("cast")
+    .then((movieFromDB) => {
+        // console.log(movieFromDB.cast)
+        res.render("movies/movie-details", movieFromDB)
+    })
+    .catch(e => {
+        console.log("An error has occured while checking the details of the movie", e)
+        next(e)
+    })
+})
+
+router.post("/movies/:id/delete", (req, res, next) => {
+    const id = req.params.id; 
+    Movie.findByIdAndDelete(id)
+    .then(() => res.redirect("/movies"))
+    .catch(e => {
+        console.log("An error has occured while deleting the movie", e)
+        next(e)
+    })
+})
+
 module.exports = router;
