@@ -24,27 +24,27 @@ router.post("/celebrities/create", (req, res, next) => {
     }
 
     Celebrity.create(newCelebrity)
-    .then((newCelebrity) => {
-        res.redirect("/celebrities")
-    })
-    .catch(e => {
-        console.log("An error has occured while creating a celebrity", e)
-        next(e)
-    })
+        .then((newCelebrity) => {
+            res.redirect("/celebrities")
+        })
+        .catch(e => {
+            console.log("An error has occured while creating a celebrity", e)
+            next(e)
+        })
 })
 
 router.get("/celebrities", (req, res, next) => {
     Celebrity.find()
-    .then(celebritiesFromDB => {
-        const data = {
-            celebrities: celebritiesFromDB,
-        }
-        res.render("celebrities/celebrities", data)
-    })
-    .catch(e => {
-        console.log("An error has occured while getting the list of celebrities", e)
-        next(e)
-    })
+        .then(celebritiesFromDB => {
+            const data = {
+                celebrities: celebritiesFromDB,
+            }
+            res.render("celebrities/celebrities", data)
+        })
+        .catch(e => {
+            console.log("An error has occured while getting the list of celebrities", e)
+            next(e)
+        })
 })
 
 module.exports = router;

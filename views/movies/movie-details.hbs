@@ -8,6 +8,9 @@
         {{name}} <br>
         {{/each}}
 
+
+        <br>
+        <form action="/movies/{{_id}}/edit"><button type="submit">Edit</button></form> <br>
         <form action="/movies/{{_id}}/delete" method="POST"><button type="submit">Delete</button></form>
     </div>
 </section>
