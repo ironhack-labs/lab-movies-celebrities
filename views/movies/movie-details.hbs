@@ -1,0 +1,16 @@
+<section>
+    <h2>{{title}}</h2>
+    <div>
+        <h3>Genre:</h3> {{genre}} <br>
+        <h3>Plot:</h3> {{plot}} <br>
+        <h3>Cast:</h3>
+        {{#each cast}}
+        {{name}} <br>
+        {{/each}}
+
+
+        <br>
+        <form action="/movies/{{_id}}/edit"><button type="submit">Edit</button></form> <br>
+        <form action="/movies/{{_id}}/delete" method="POST"><button type="submit">Delete</button></form>
+    </div>
+</section>
