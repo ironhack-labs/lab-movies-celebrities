@@ -1,0 +1,13 @@
+<h1>List of movies in database:</h1>
+
+{{#each movies}}
+  <div>
+    <p><strong>Title:</strong> {{this.title}}</p> 
+    <p><strong>Genre:</strong> {{this.genre}}</p> 
+    <p><strong>Plot:</strong> {{this.plot}}</p> 
+    <p><strong>Cast:</strong> {{this.cast}}</p> 
+  </div>
+{{/each}}
+
+<a href="/movies/create">Add a movie to the database</a>
+<a href="/">Go back to home page</a>
