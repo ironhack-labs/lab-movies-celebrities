@@ -6,7 +6,7 @@ const Celebrity = require('../models/Celebrity.model')
 router.get("/celebrities", (req, res, next) => {
     Celebrity.find()
         .then((allCelebs) => {
-            res.render("/celebrities", {allCelebs});
+            res.render("celebrities", {allCelebs});
         })
         .catch(e => console.log(e));
 });
@@ -14,7 +14,7 @@ router.get("/celebrities", (req, res, next) => {
 // create the GET route /celebrities/create
 // render celebrities/new-celebrity view
 router.get("/celebrities/create", (req, res, next) => {
-    res.render("/new-celebrity");
+    res.render("new-celebrity");
 });
 
 // create the POST route /celebrities/create
@@ -32,11 +32,11 @@ router.post("/celebrities/create", (req, res, next) => {
 
     Celebrity.create(data)
     .then(() => {
-        res.render("/celebrities");
+        res.render("celebrities");
     })
     .catch(e => {
         console.log(e);
-        res.render("/new-celebrity");
+        res.render("new-celebrity");
     }) 
 });
 
