@@ -1,0 +1,20 @@
+<h1>Movies</h1>
+
+{{#each movies}}
+<section>
+    <h2>{{this.title}}</h2>
+    <p>
+        Genre: {{this.genre}} <br />
+        Plot: {{this.plot}} <br />
+        Cast: {{this.cast.name}} <br />
+    
+        <a href="/books/{{this._id}}">More details</a>
+        <a href="/books/{{this._id}}/edit">Edit</a>
+    </p>
+
+    <form action="/books/{{_id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
+    
+</section>
+{{/each}}
