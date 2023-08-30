@@ -5,10 +5,12 @@ const Movies = require("../models/Movies.model");
 
 router.get("/movies", (req, res, next) => {
     Movies.find()
+        .populate("celebrities")
         .then((moviesFromDB) => {
             const data = {
                 movies: moviesFromDB,
             };
+
             res.render("movies/movies.hbs", data);
         })
         .catch((e) => {
@@ -18,7 +20,17 @@ router.get("/movies", (req, res, next) => {
 });
 
 router.get("/movies/create", (req, res, next) => {
-    res.render("movies/new-movie.hbs", data);
+    Celebrity.find()
+        .then((celebritiesFromDB) => {
+            const data = {
+                celebrities: celebritiesFromDB,
+            };
+            res.render("movies/new-movie.hbs", data);
+        })
+        .catch((e) => {
+            console.log("Error getting list of authors from DB", e);
+            next(e);
+        });
 });
 
 // CREATE: process form
