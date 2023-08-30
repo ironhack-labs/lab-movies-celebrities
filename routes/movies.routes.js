@@ -8,14 +8,14 @@ router.get("/movies/create", (req, res, next) => {
 
 router.post("/movies/create", (req, res, next) => {
     console.log(req.body)
-    const newMovie = {
+    const newMovie = [{
         title: req.body.title,
         genre: req.body.genre,
         plot: req.body.plot,
         cast: req.body.cast 
-    }
+    }]
 
-    Movie.create(newMovie)
+    Movie.create([newMovie])
         .then( (movieFromDB) => {
             console.log(movieFromDB)
             res.redirect("/movies")
