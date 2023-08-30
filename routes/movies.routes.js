@@ -15,7 +15,7 @@ router.post("/movies/create", (req, res, next) => {
         cast: req.body.cast 
     }
 
-    Celebrity.create(newMovie)
+    Movie.create(newMovie)
         .then( (movieFromDB) => {
             console.log(movieFromDB)
             res.redirect("/movies")
