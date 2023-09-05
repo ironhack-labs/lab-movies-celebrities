@@ -1,32 +1,11 @@
-<h2>
-All Celebrities
-</h2>
 
-<form action="/celebrities/create" method="POST">
-  <label> Celebrity Name:
-    <input type="text" name="name" />
-  </label>
+<h1>All celebrities</h1>
+
+{{#each celebsFromDb}}
+  <h2><a href="/celebrities/{{_id}}">{{name}}</a></h2>
+{{/each}}
+
 <br>
-  <label> Celebrity Occupation:
-    <input type="text" name="occupation" />
-  </label>
 <br>
-  <label> Celebrity Catch phrase:
-    <input type="text" name="catchPhrase" />
-  </label>
-
-  <br>
-
-  <button type="submit"> Create  </button>
-
-
-  <h2>Get All Celebs!</h2>
-
-<ul>
-  {{#each celebs}}
-    <li>
-      {{this.name}}
-    </li>
-  {{/each}}
-</ul>
-  </form>
+<br>
+<a href="/">⬅️ Back to homepage</a>

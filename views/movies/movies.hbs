@@ -1,0 +1,14 @@
+<h2>All Movies!</h2>
+ 
+<ul>
+  {{#each moviesFromDb}}
+    <li>
+        {{!-- {{ this.title }} --}}
+          <h2><a href="/movies/{{_id}}">{{this.name}}</a></h2>
+    </li>
+  {{/each}}
+</ul>
+<br>
+<br>
+<br>
+<a href="/">⬅️ Back to mainpage</a>
