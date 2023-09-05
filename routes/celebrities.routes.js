@@ -73,7 +73,7 @@ router.post("/celebrities/:id/edit", (req, res, next) => {
     occupation,
     catchPhrase,
   },  { new: true })
-    .then(updatedCelebrities => res.redicret(`/celebrities/${updatedCelebrities.id}`))
+    .then(updatedCelebrities => res.redirect(`/celebrities/${updatedCelebrities.id}`))
     .catch((err) => next(err));
 });
 
