@@ -77,11 +77,12 @@ router.get('/movies/:id/edit', (req, res, next) => {
 // POST route to  make updates on a specific movie
 router.post('/movies/:id/edit', (req, res, next) => {
     const { id } = req.params;
+    // console.log(req.body)
     const { title, genre, plot, cast } = req.body;
-    console.log("+++The detail: ", id, title, genre, plot, cast)
-    // Movies.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
-    //     .then(updatedMovie => res.redirect(`/movies/${updatedMovie.id}`)) // go to the details page to see the updates
-    //     .catch(error => next(error));
+
+    Movies.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+        .then(updatedMovie => res.redirect(`/movies/${updatedMovie.id}`)) // go to the details page to see the updates
+        .catch(error => next(error));
 });
 
 // GET route to retrieve and display all the celebs
