@@ -19,8 +19,8 @@ router.get("/movies/create", (req, res, next) => {
    router.post("/movies/create", (req, res, next) => {
     const { title, genre, plot, cast } = req.body;
     Movie.create({ title, genre, plot, cast }) // or Post.create({req.body})
-    .then((Createdcelebrities) =>  {
-      console.log(Createdcelebrities);
+    .then((Createdmovie) =>  {
+      console.log(Createdmovie); //createdceleb?
       res.redirect('/movies')
     })
       .catch ( (err) => 
@@ -31,6 +31,7 @@ router.get("/movies/create", (req, res, next) => {
     router.get('/movies', (req, res, next) => {
       Movie.find()
         .then(moviesFromDb => {
+          console.log(moviesFromDb)
           res.render('movies/movies', {moviesFromDb});
         })
         .catch(err => {

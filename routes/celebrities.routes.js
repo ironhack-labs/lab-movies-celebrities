@@ -19,7 +19,7 @@ router.get("/celebrities/create", (req, res) => {
     const { name, occupation, catchPhrase } = req.body;
 
     Celebrity.create({ name, occupation, catchPhrase }) 
-      .then(() => {
+      .then((createdcelebrities) => { 
         res.redirect("/celebrities")
       })
       .catch((err) => {
@@ -39,7 +39,6 @@ router.get("/celebrities", (req, res, next) => {
            console.log(err);
           });
       });
-
 
 //Details
 
