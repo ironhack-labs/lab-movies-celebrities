@@ -10,29 +10,18 @@
     Genre
     <input type="text" name="genre" />
   </label>
- <label>
+  <label>
     Plot
     <textarea name="plot"> </textarea>
   </label>
 
-   <label for="cast">Choose a cast member:</label>
+  <label for="cast">Choose Cast Member:</label>
 
-    <select name="cast" id="cast" multiple>
-        {{#each celebrities}}
-        <option value="{{_id}}">{{name}}</option>
-        {{/each}}
-    <select/>
-  
+  <select name="cast" id="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
 
   <button type="submit"> Create </button>
 </form>
-
-{{!-- <label for="cars">Choose a car:</label>
-
-<select name="cars" id="cars" multiple>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select> --}}
-

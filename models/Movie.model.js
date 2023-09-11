@@ -5,7 +5,7 @@ const movieSchema = new Schema(
     title: String,
     genre: String,
     plot: String,
-    cast: [{ type: mongoose.Schema.Types.ObjectId, ref: "Celebrity" }],
+    cast: [{ type: Schema.Types.ObjectId, ref: "Celebrity" }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
