@@ -12,10 +12,26 @@ router.get("/celebrities/create", (req, res) =>
 router.post("/celebrities/create", (req, res, next) => 
 {
     const {name, occupation, catchPhrase} = req.body;
+
     Celebrity.create({name, occupation, catchPhrase})
     .then(() => res.redirect("/celebrities"))
     .catch((err) => { 
         res.render("celebrities/new-celebrity")
+        next(err)
+    })
+})
+
+router.get("/celebrities", (req, res) => 
+{
+    Celebrity.find()
+    .then((allCelebrities) => 
+    {
+        console.log("All celebrities displayed!")
+        res.render("celebrities/celebrities.hbs", {allCelebrities});
+    })
+    .catch((err) => 
+    {
+        console.log("Something went wrong while getting celebrities", err)
         next(err)
     })
 })
