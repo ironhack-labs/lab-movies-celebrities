@@ -1,0 +1,12 @@
+{{! views/movie/movie-details.hbs }}
+
+<h1 class="celebrityName">{{celebrity.name}}</h1>
+<hr />
+<p>Occupation: {{celebrity.occupation}}</p>
+<p>Catch Phrase: {{celebrity.catchPhrase}}</p>
+<hr />
+<a href="/celebrities">Back</a><hr />
+<a href="/celebrities/{{celebrity._id}}/edit">Edit: {{celebrity.name}}</a><hr />
+<form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+  <button>Delete {{celebrity.name}}</button>
+</form>

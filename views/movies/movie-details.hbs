@@ -11,7 +11,7 @@
 </p>
 <hr />
 <a href="/movies">Back</a><hr />
-<a href="/movies/{{movie._id}}/edit">Edit movie</a><hr />
+<a href="/movies/{{movie._id}}/edit">Edit {{movie.title}}</a><hr />
 <form action="/movies/{{movie._id}}/delete" method="POST">
-  <button>Delete</button>
+  <button>Delete {{movie.title}}</button>
 </form>
