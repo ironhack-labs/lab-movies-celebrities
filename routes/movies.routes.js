@@ -5,6 +5,10 @@ const Movie = require('../models/Movie.model.js');
 const Celebrity = require('../models/Celebrity.model.js');
 
 // all your routes here
+// ('/movies/create é o que aparece na barra para colocar o site no browser)
+// No res.render são as handlebars que vamos aceder
+
+//Display the page of Create a new movie
 router.get('/movies/create', async (req, res) => {
   try {
     let celebritiesFromDB = await Celebrity.find();
@@ -16,15 +20,18 @@ router.get('/movies/create', async (req, res) => {
   }
 });
 
+//Create a new movie
 router.post('/movies/create/', async (req, res) => {
   try {
     const { title, genre, plot, cast } = req.body;
     await Movie.create({ title, genre, plot, cast });
-    res.redirect(`/movies`);
+    res.redirect(`/movies`); // we redirect to routes
   } catch (error) {
     console.log(error);
   }
 });
+
+//Display all movies
 router.get('/movies', async (req, res) => {
   try {
     let moviesFromDB = await Movie.find();
@@ -38,7 +45,7 @@ router.get('/movies', async (req, res) => {
 
 module.exports = router;
 
-// ITERATION 8
+// ITERATION 8 - Display the movie details
 router.get('/movies/:movieId', async (req, res) => {
   try {
     const { movieId } = req.params;
@@ -49,7 +56,7 @@ router.get('/movies/:movieId', async (req, res) => {
   }
 });
 
-// ITERATION 9
+// ITERATION 9 - delete a specific movie
 router.post('/movies/:movieId/delete', async (req, res) => {
   const { movieId } = req.params;
   try {

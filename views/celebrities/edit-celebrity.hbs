@@ -1,0 +1,82 @@
+<div class='bg-light h-100'>
+  <nav class='navbar navbar-expand-lg bg-dark'>
+    <div class='container-fluid'>
+      <button
+        class='navbar-toggler'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbarNavAltMarkup'
+        aria-controls='navbarNavAltMarkup'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      >
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+        <div class='navbar-nav'>
+          <a
+            class='nav-link active text-light'
+            aria-current='page'
+            href='/'
+          >Home</a>
+          <a class='nav-link text-light' href='/celebrities'>Celebrities</a>
+          <a class='nav-link text-light' href='/movies'>Movies</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class='text-center pt-4'>
+    <h2>Edit the Celebrity: {{celebrity.name}}</h2>
+    <br />
+
+    <div class='rounded'>
+      <form action='/celebrities/{{celebrity._id}}/edit' method='post'>
+        <div>
+          <label class='form-label'>
+            Name:
+            <input
+              class='form-control'
+              type='text'
+              name='name'
+              value='{{celebrity.name}}'
+            />
+          </label>
+        </div>
+        <div>
+          <label class='form-label'>
+            Occupation:
+            <input
+              class='form-control'
+              type='text'
+              name='occupation'
+              value='{{celebrity.occupation}}'
+            />
+          </label>
+        </div>
+        <div>
+          <label class='form-label'>
+            Catch Phrase:
+            <input
+              class='form-control'
+              type='text'
+              name='catchPhrase'
+              value='{{celebrity.catchPhrase}}'
+            />
+          </label>
+        </div>
+        <div>
+          <label class='form-label' for='movie'>Movies:</label>
+        </div>
+        <div>
+          <select class='form-label' name='movie'>
+            {{#each movies}}
+              <option class='form-control' value='{{_id}}'>{{title}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <button class='btn btn-primary m-4' type='submit'>Save changes</button>
+      </form>
+    </div>
+  </div>
+</div>

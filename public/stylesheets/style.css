@@ -1,8 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
-
 a {
-  color: #00b7ff;
+  text-decoration: none;
+}
+.bg-home-page {
+  background: url(/images/cinema-unsplash.jpg) no-repeat center center/cover;
+  height: 100%;
+}
+.carousel-wrapper {
+  margin: 0 20%;
+}
+.carousel-item img {
+  height: 60%;
 }

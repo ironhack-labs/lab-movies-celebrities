@@ -1,8 +1,50 @@
-<h2>List of All Celebrities</h2>
-{{#each celebrities}}
-  <div>
-    <p>Name: {{name}}</p>
-    <p>Occupation: {{occupation}}</p>
-    <p>Catch Phrase: {{catchPhrase}}</p>
+<div class='bg-light h-100'>
+  <nav class='navbar navbar-expand-lg bg-dark'>
+    <div class='container-fluid'>
+      <button
+        class='navbar-toggler'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbarNavAltMarkup'
+        aria-controls='navbarNavAltMarkup'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      >
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+        <div class='navbar-nav'>
+          <a
+            class='nav-link active text-light'
+            aria-current='page'
+            href='/'
+          >Home</a>
+          <a class='nav-link text-light' href='/celebrities'>Celebrities</a>
+          <a class='nav-link text-light' href='/movies'>Movies</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class='text-center'>
+    <h2 class='p-4'>List of All Celebrities</h2>
+    <button type='button' class='btn btn-primary mx-3'><a
+        class='nav-link'
+        href='/celebrities/create/'
+      >Add a new Celebrity</a></button>
+
+    <div class='d-flex justify-content-center m-5'>
+      {{#each celebrities}}
+        <div class='card m-4' style='width: 18rem;'>
+          <div class='card-body'>
+            <h5 class='card-title'>{{name}}</h5>
+            <p class='card-text'>{{occupation}}</p>
+            <button type='button' class='btn btn-secondary btn-sm'><a
+                class='text-light text-decoration-none'
+                href='celebrities/{{_id}}'
+              >See Details</a></button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
-{{/each}}
+</div>

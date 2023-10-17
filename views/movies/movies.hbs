@@ -1,7 +1,109 @@
-<h2>List of All Movies</h2>
-{{#each movies}}
-  <div>
-    <p>Title: {{title}}</p>
-    <a href='movies/{{_id}}'>See Details</a>
+<div class='bg-light'>
+  <nav class='navbar navbar-expand-lg bg-dark'>
+    <div class='container-fluid'>
+      <button
+        class='navbar-toggler'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbarNavAltMarkup'
+        aria-controls='navbarNavAltMarkup'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      >
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+        <div class='navbar-nav'>
+          <a
+            class='nav-link active text-light'
+            aria-current='page'
+            href='/'
+          >Home</a>
+          <a class='nav-link text-light' href='/celebrities'>Celebrities</a>
+          <a class='nav-link text-light' href='/movies'>Movies</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class='text-center'>
+    <div class='carousel-wrapper'>
+      <div
+        id='carouselExampleControls'
+        class='carousel slide'
+        data-bs-ride='carousel'
+      >
+        <div class='carousel-inner'>
+          <div class='carousel-item active'>
+            <img
+              src='/images/joker.jpg'
+              class='d-block w-100 rounded'
+              alt='joker'
+            />
+          </div>
+          <div class='carousel-item'>
+            <img
+              src='/images/interstellar.jpg'
+              class='d-block w-100 rounded'
+              alt='interstellar'
+            />
+          </div>
+          <div class='carousel-item'>
+            <img
+              src='/images/whiplash.jpeg'
+              class='d-block w-100 rounded'
+              alt='whiplash'
+            />
+          </div>
+          <div class='carousel-item'>
+            <img
+              src='/images/intowild.png'
+              class='d-block w-100 rounded'
+              alt='intowild'
+            />
+          </div>
+        </div>
+        <button
+          class='carousel-control-prev bg-transparent border-0'
+          type='button'
+          data-bs-target='#carouselExampleControls'
+          data-bs-slide='prev'
+        >
+          <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+          <span class='visually-hidden'></span>
+        </button>
+        <button
+          class='carousel-control-next bg-transparent border-0'
+          type='button'
+          data-bs-target='#carouselExampleControls'
+          data-bs-slide='next'
+        >
+          <span class='carousel-control-next-icon' aria-hidden='true'></span>
+          <span class='visually-hidden'></span>
+        </button>
+      </div>
+    </div>
+
+    <h2 class='p-4'>List of All Movies</h2>
+    <button type='button' class='btn btn-primary mx-3'><a
+        class='nav-link'
+        href='/movies/create/'
+      >Add a new Movie</a></button>
+
+    <div class='d-flex justify-content-center mx-5'>
+      {{#each movies}}
+        <div class='card m-4' style='width: 18rem;'>
+          <div class='card-body'>
+            <h5 class='card-title'>{{title}}</h5>
+            <h6 class='card-subtitle mb-2 text-body-secondary'>Genre:</h6>
+            <p class='card-text'>{{genre}}</p>
+            <button type='button' class='btn btn-secondary btn-sm'><a
+                class='text-light text-decoration-none'
+                href='movies/{{_id}}'
+              >See Details</a></button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </div>
-{{/each}}
+</div>
