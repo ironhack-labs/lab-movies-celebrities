@@ -35,19 +35,23 @@
       <div class='card-body'>
         <h5 class='card-title'>Genre: {{genre}}</h5>
         <p class='card-text'> {{plot}}</p>
-        <p>Cast:</p>
         {{#each cast}}
-          <p>Name: {{this.name}}</p>
+          <p>Cast: {{this.name}}</p>
           {{!-- <p>Occupation: {{this.occupation}}</p>
           <p>Catch Phrase: {{this.catchPhrase}}</p> --}}
         {{/each}}
-        <form action='/movies/{{_id}}/delete' method='post'>
-          <button class='btn btn-secondary m-2'>Delete</button>
-          <button class='btn btn-primary m-2' type='submit'><a
-              class='text-light'
-              href='/movies/{{_id}}/edit'
-            >Edit</a></button>
-        </form>
+        <div style='display: flex;'>
+          <form action='/movies/{{_id}}/delete' method='post'>
+            <button class='btn btn-secondary m-2'>Delete</button>
+          </form>
+          <form action='/movies/{{_id}}/edit' method='post'>
+            <button class='btn btn-primary m-2' type='submit'><a
+                class='text-light'
+                href='/movies/{{_id}}/edit'
+              >Edit</a></button>
+          </form>
+
+        </div>
       </div>
     </div>
   </div>

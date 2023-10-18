@@ -41,13 +41,17 @@
           <p>Title: {{title}}</p>
           <p>Genre: {{genre}}</p>
         {{/each}}
-        <form action='/celebrities/{{celebrity._id}}/delete' method='post'>
-          <button class='btn btn-secondary m-2'>Delete</button>
-          <button class='btn btn-primary m-2' type='submit'><a
-              class='text-light'
-              href='/celebrities/{{celebrity._id}}/edit'
-            >Edit</a></button>
-        </form>
+        <div style='display: flex;'>
+          <form action='/celebrities/{{celebrity._id}}/delete' method='post'>
+            <button class='btn btn-secondary m-2'>Delete</button>
+          </form>
+          <form action='/celebrities/{{celebrity._id}}/edit' method='post'>
+            <button class='btn btn-primary m-2' type='submit'><a
+                class='text-light'
+                href='/celebrities/{{celebrity._id}}/edit'
+              >Edit</a></button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
