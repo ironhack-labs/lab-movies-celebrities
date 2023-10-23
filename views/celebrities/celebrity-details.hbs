@@ -1,0 +1,58 @@
+<div class='bg-light h-100'>
+  <nav class='navbar navbar-expand-lg bg-dark'>
+    <div class='container-fluid'>
+      <button
+        class='navbar-toggler'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbarNavAltMarkup'
+        aria-controls='navbarNavAltMarkup'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      >
+        <span class='navbar-toggler-icon'></span>
+      </button>
+      <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+        <div class='navbar-nav'>
+          <a
+            class='nav-link active text-light'
+            aria-current='page'
+            href='/'
+          >Home</a>
+          <a class='nav-link text-light' href='/celebrities'>Celebrities</a>
+          <a class='nav-link text-light' href='/movies'>Movies</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <h2 class='text-center m-5'>Celebrity Details</h2>
+
+    <div class='card border-primary m-5' style='max-width: 80rem;'>
+      <div class='card-header'>
+        <h3>{{celebrity.name}}</h3>
+      </div>
+      <div class='card-body'>
+        <h5 class='card-title'>{{celebrity.occupation}}</h5>
+        <p class='card-text'>{{celebrity.catchPhrase}}</p>
+        <p>Movies:</p>
+        {{#each celebrity.movies}}
+          <p>Title: {{title}}</p>
+          <p>Genre: {{genre}}</p>
+        {{/each}}
+        <div style='display: flex;'>
+          <form action='/celebrities/{{celebrity._id}}/delete' method='post'>
+            <button class='btn btn-secondary m-2'>Delete</button>
+          </form>
+          <form action='/celebrities/{{celebrity._id}}/edit' method='post'>
+            <button class='btn btn-primary m-2' type='submit'><a
+                class='text-light'
+                href='/celebrities/{{celebrity._id}}/edit'
+              >Edit</a></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
