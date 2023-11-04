@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-3">Here goes the pic</div>
+        <div class="col-md-6">
+            <h3>{{name}}</h3>
+            <p>{{ocupation}}</p>
+            <p>{{catchPhrase}}</p>
+            <p>Cast:</p>
+        </div>
+    </div>
+    <hr>
+    <div class="container d-flex justify-content-between">
+        <a class="btn btn-dark mt-3" href="/">Back to Home Page</a>
+        <div class="d-flex">
+            <a href="/celebrities/{{id}}/edit" class="btn  btn-dark mt-3 mr-3">Edit</a>
+            <form action="/celebrities/{{_id}}/delete" method="POST">
+                <input type="submit" value="Delete" class="btn btn-secondary btn-danger mt-3">
+            </form>
+        </div>
+    </div>
+</div>
