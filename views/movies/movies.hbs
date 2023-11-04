@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Movies List</h2>
+    <hr>
+    <table class="table">
+        <tbody>
+            {{#each movie}}
+            <tr>
+                <td>
+                    Title: {{title}}
+                </td>
+
+                <td>
+                    <a href="/movies/{{id}}">Details</a>
+                </td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
