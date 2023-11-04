@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Celebrities List</h2>
+    <hr>
+    <table class="table">
+
+        <tbody>
+
+
+            {{#each celebrity}}
+            <tr>
+
+                <td>
+                    Name: {{name}}
+                </td>
+                <td>
+                    Occupation: {{occupation}}
+                </td>
+                <td>
+                    Catchphrase: {{catchPhrase}}
+                </td>
+
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>
