@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>List of the celebrities</h1>
+    <hr>
+    <div class="row justify-content-center">
+        {{#each allCelebrities}}
+        <div class="col-4">
+            <div class="card w-75">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">{{ocupation}}</p>
+                    <p class="card-text">{{catchPhrase}}</p>
+                    <a href="/celebrities/{{id}}" class="btn btn-block btn-outline-secondary btn-light">Details</a>
+                    <a href="/celebrities/{{id}}/edit" class="btn  btn-block btn-secondary btn-light">Edit</a>
+                    <div class="d-flex justify-content-around">
+                        <form action="/celebrities/{{_id}}/delete" method="POST">
+                            <input type="submit" value="Delete" class="btn btn-sm  btn-outline-danger">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
+    <hr>
+    <div class="d-flex justify-content-center">
+        <a href="/celebrities/create" class="btn btn-primary btn-dark mt-3 mr-5">Add new celebrity</a>
+        <a class="btn btn-dark mt-3" href="/">Back to Home Page</a>
+    </div>
+</div>
