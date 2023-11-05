@@ -1,0 +1,27 @@
+<h2>Edit movie</h2>
+<p>{{title}}</p>
+<form action="/movies/create" method="POST">
+
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" value={{title}}>
+  </div>
+  <div class="mb-3">
+    <label for="genre" class="form-label">Genre</label>
+    <input type="text" class="form-control" id="genre" name="genre" value={{genre}}>
+  </div>
+   <div class="mb-3">
+    <label for="plot" class="form-label">Plot</label>
+    <input type="text" class="form-control" id="plot" name="plot" value={{plot}}>
+  </div>
+  <div>
+        {{#each cast}}
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{name}}">
+        {{/each}}
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Edit movie</button>
+  </div>
+
+</form>
