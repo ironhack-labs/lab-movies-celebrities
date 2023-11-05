@@ -1,0 +1,30 @@
+<h2>{{title}}</h2>
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="/celebrities/create" method="POST">
+
+                <div class="mb-3">
+                    <label for="celeb" class="form-label">Celebrity</label>
+                    <input type="text" class="form-control" id="celeb" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="occu" class="form-label">occupation</label>
+                    <input type="text" class="form-control" id="occu" name=" occupation">
+                </div>
+                <div class="mb-3">
+                    <label for="catchPhrase" class="form-label">Catch Phrase</label>
+                    <input type="text" class="form-control" id="catchPhrase" name="catchPhrase">
+                </div>
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo URL</label>
+                    <input type="text" class="form-control" id="photo" name="photo">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Add Celebrity</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
