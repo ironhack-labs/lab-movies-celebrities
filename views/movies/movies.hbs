@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h2>List of movies</h2>
+        {{#each movies}}
+        <h3><a href="/movies/{{_id}}">{{title}}</a></h3>
+        <form action="/movies/{{_id}}/delete" method="post">
+            <button class="btn btn-danger mb-3" type="submit">Delete</button>
+        </form>
+        <a href="/movies/{{_id}}/edit">edit</a>
+        {{/each}}
+
+    </div>
+</div>
