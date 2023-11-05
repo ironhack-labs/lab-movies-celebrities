@@ -20,8 +20,6 @@ router.get("/celebrities", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-//--------------------> Iteration #6: The Celebrity Details Page
-
 router.get("/celebrities/:id", (req, res) => {
   const { id } = req.params
   Celebrity
