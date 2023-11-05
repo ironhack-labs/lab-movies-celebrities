@@ -1,0 +1,26 @@
+<a href="/movies">
+    < back to movies</a>
+
+        <div class="container text-left mt-5">
+
+            <h2>{{title}}</h2>
+            <hr>
+            <p>Genre: {{genre}}</p>
+            <p>Plot: {{plot}}</p>
+            {{#each cast}}
+            <p>Cast: {{name}} (Occupation: {{occupation}}, Catchphrase: {{catchPhrase}})</p>
+            {{/each}}
+
+            <hr>
+
+            <div class="button-container">
+                <a href="/movies/{{id}}/edit" class="btn btn-dark">Edit</a>
+
+                <form action="/movies/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+
+
+        </div>
