@@ -1,5 +1,21 @@
-<h2>Movie details</h2>
-<p>Title: {{title}}</p>
-{{#each cast}}
-<p>{{name}}</p>
-{{/each}}
+<div class="container mt-5">
+    <h2>Movie details</h2>
+    <hr>
+    <p>Title: {{title}}</p>
+    <p>Genre: {{genre}}</p>
+    <p>Plot: {{plot}}</p>
+    <ul>
+        {{#each cast}}
+        <li>Nombre actor: {{name}}</li>
+        <p>{{occupation}}</p>
+        <p>{{catchPhrase}}</p>
+        {{/each}}
+    </ul>
+    <form action="/movies/{{_id}}/edit" method="GET">
+        <input type="submit" value="edit" class="btn btn-success btn-sm">
+    </form>
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <input type="submit" value="delete" class="btn btn-danger btn-sm">
+    </form>
+
+</div>

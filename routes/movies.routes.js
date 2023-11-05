@@ -39,10 +39,45 @@ router.get('/:id', (req, res) => {
         .findById(id)
         .populate('cast')
         .then(movie => {
-            console.log(movie)
             res.render('movies/movie-details', movie)
         })
         .catch(error => console.log(error))
+})
+
+router.post('/:id/delete', (req, res) => {
+    const { id } = req.params
+    Movie
+        .findByIdAndDelete(id)
+        .then(res.redirect('/movies'))
+        .catch(error => console.log(error))
+})
+
+router.get('/:id/edit', (req, res) => {
+    const { id } = req.params
+    Movie
+        .findById(id)
+        .populate('cast')
+        .then(movie => {
+            Celebrity
+                .find()
+                .then(celebrity => {
+                    res.render('movies/edit-movie', { movie, celebrity: celebrity })
+                })
+                .catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
+})
+
+router.post('/:id/edit', (req, res) => {
+    const { title, genre, plot } = req.body
+    const { id } = req.params
+    console.log(id)
+    console.log(title, genre, plot)
+    Movie
+        .findByIdAndUpdate(id, { title, genre, plot })
+        .then(() => {
+            res.redirect(`/movies/${id}`)
+        })
 
 })
 

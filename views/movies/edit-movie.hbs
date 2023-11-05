@@ -1,0 +1,66 @@
+<div class="container mt-5">
+    <h2>Edit movie</h2>
+    <hr>
+
+    <form action="/movies/{{movie.id}}/edit" method="POST">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{movie.title}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="genre" class="form-label">Genero</label>
+            <input type="text" class="form-control" id="genre" name="genre" value="{{movie.genre}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="plot" class="form-label">Trama</label>
+            <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}">
+        </div>
+
+        <div class="mb-3">
+            <label for="cast" class="form-label">Cast</label>
+            <select multiple id="cast" class="form-select">
+                {{#each movie.cast}}
+                <option value="{{id}}" selected>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-dark">Editar</button>
+        </div>
+
+    </form>
+
+
+
+</div>
+
+{{!-- {{#each celebrity}}
+<option value="{{id}}">{{name}}</option>
+{{/each}} --}}
+
+{{!-- <select multiple id="cast" class="form-select">
+    {{#each movie.cast}}
+    {{#each celebrity}}
+    {{#if (eq movie.cast.id celebrity.id)}}
+    <option value="{{id}}" selected>{{celebrity.name}}</option>
+    {{else}}
+    <option value="{{id}}">{{celebrity.name}}</option>
+    {{/if}}
+    {{/each}} {{/each}}
+</select> --}}
+
+{{!-- LO QUE FUNCIONA --}}
+
+{{!-- AQUI ME DA LOS NOMBRES DE LOS ACTORES EN LA PELICULA
+{{#each movie.cast}}
+<option value="{{id}}" selected>{{name}}</option>
+{{/each}} --}}
+
+{{!-- AQUI ME DA TODOS LOS ACTORES
+{{#each celebrity}}
+<option value="{{id}}" selected>{{name}}</option>
+{{/each}} --}}

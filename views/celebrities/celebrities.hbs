@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
     <h2>Celebrities List</h2>
     <hr>
     <table class="table">
@@ -18,6 +18,17 @@
                 <td>
                     Catchphrase: {{catchPhrase}}
                 </td>
+                <td>
+                    <form action="/celebrities/{{_id}}/edit" method="GET">
+                        <input type="submit" value="edit" class="btn btn-warning btn-sm">
+                    </form>
+                </td>
+                <td>
+                    <form action="/celebrities/{{_id}}/delete" method="POST">
+                        <input type="submit" value="delete" class="btn btn-danger btn-sm">
+                    </form>
+                </td>
+
 
             </tr>
             {{/each}}
