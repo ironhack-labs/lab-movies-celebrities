@@ -1,8 +1,62 @@
 body {
-  padding: 50px;
+  background-image: url("/images/backG.jpg");
+  background-size: cover;
+  /* Adjust as needed to cover the entire viewport */
+  background-position: center;
+  /* Center the background image */
+  background-attachment: fixed;
+  /* Optional: To fix the background image */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Ensure the body takes up the entire viewport height */
+  margin: 0;
+  /* Remove default body margin */
 }
 
-a {
-  color: #00b7ff;
+.formS {
+  font-size: 2 em;
+  border-radius: 10 px;
+  border-width: 2px;
+  border-color: #0d0e0f;
+  background-color: rgb(86, 86, 85);
+  opacity: 950%;
+  border-style: solid;
+  padding: 10 px;
+  align-items: center;
+  text-align: center;
+}
+
+.botoncillo {
+  font-size: 2em;
+  color: black;
+  border-color: #0d0e0f;
+  opacity: 60%;
+  background-color: rgb(79, 76, 73);
+  padding: 10px;
+  border-radius: 13px;
+  margin-right: 10px;
+  border-width: 5px;
+  border-style: solid
+}
+
+.botoncilloPe {
+  font-size: 1em;
+  color: black;
+  border-color: #0d0e0f;
+  opacity: 70%;
+  background-color: rgb(186, 142, 99);
+  padding: 10px;
+  border-width: 1px;
+  border-radius: 13px;
+  margin-right: 10px;
+}
+
+.titulaco {
+  font-family: comic sans-serif;
+  font-size: 2em;
+  text-transform: capitalize;
+  border-top: 10px;
 }
