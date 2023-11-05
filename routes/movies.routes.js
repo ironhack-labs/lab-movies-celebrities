@@ -49,3 +49,70 @@ router.get('/details/:movie_id', (req, res) => {
         )
         .catch(err => console.log(err))
 })
+
+
+router.post('/:movie_id/delete', (req, res) => {
+    const { movie_id } = req.params
+
+    Movie
+        .findByIdAndDelete(movie_id)
+        .then(() => res.redirect('/movies'))
+        .catch(err => console.log(err))
+})
+
+// router.get('/:movie_id/edit', (req, res) => {
+//     const { movie_id } = req.params
+
+//     Movie
+//         .findById(movie_id)
+//         .then(movie => {
+//             Celebrity
+//                 .find()
+//                 .then(celebrities => {
+//                     res.render('movies/edit-movie', { celebrities, movie })
+//                     console.log(movie)
+//                 })
+//                 .catch(err => console.log(err))
+//         })
+//         .catch(err => console.log(err))
+// })
+
+// router.post('/:movie_id/edit', (req, res) => {
+//     const { title, genre, plot, cast } = req.body
+//     const { movie_id } = req.params
+
+//     Movie
+//         .findByIdAndUpdate(movie_id, { title, genre, plot, cast })
+//         .then(movie_id => { res.redirect('/') })
+//         .catch(err => console.log(err))
+// })
+
+router.get('/:movie_id/edit', (req, res) => {
+    const { movie_id } = req.params
+    Celebrity
+        .find()
+        .then(Celebrity => {
+            Movie
+                .findById(movie_id)
+                .then(movie_id => {
+                    res.render('movies/edit-movie', movie_id)
+
+
+                })
+                .catch(err => console.log(err))
+
+        })
+        .catch(err => console.log(err))
+
+
+})
+
+router.post('/:movie_id/edit', (req, res) => {
+    const { title, genre, plot, cast } = req.body
+    const { movie_id } = req.params
+    Movie
+        .findByIdAndUpdate(movie_id, { title, genre, plot, cast })
+        .then(movie => res.redirect(`/movies`))
+        .catch(err => console.log(err))
+
+})
