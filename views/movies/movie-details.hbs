@@ -1,0 +1,49 @@
+
+<h2>Movie Details</h2>
+
+<div class="mt-5">
+<p>Title: {{title}} </p>
+<hr>
+<p>Genre: {{genre}} </p>
+<hr>
+<p>Plot: {{plot}} </p>
+
+
+
+
+
+</div>
+<h4 class="mt-5">cast</h4>
+
+<div class="mt-5">
+{{#each cast}}
+<div>
+<p>------------------------------------</p>
+<hr>
+<p>name: {{name}}</p>
+<hr>
+<p>occupation: {{occupation}}</p>
+<hr>
+<p>catchPhrase: {{catchPhrase}}</p>
+</div>
+{{/each}}
+</div>
+
+
+
+
+<form action="/movies/{{id}}/delete" method="POST">
+
+  
+    <div>
+        <button class="btn btn-light" type="submit" Value="Delete">Eliminar</button>    
+    </div>
+
+</form> 
+
+<button class="btn btn-light mt-3">
+<a href="/movies/{{id}}/edit">EDITAA</a>
+</button>
+
+
+{{!-- lo de delete es necesario?? --}}
