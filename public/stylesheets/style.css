@@ -1,19 +1,18 @@
 body {
   background-image: url("/images/backG.jpg");
   background-size: cover;
-  /* Adjust as needed to cover the entire viewport */
   background-position: center;
-  /* Center the background image */
   background-attachment: fixed;
-  /* Optional: To fix the background image */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* Ensure the body takes up the entire viewport height */
   margin: 0;
-  /* Remove default body margin */
+
+}
+
+.lastTouch {
+  font-size: 1.5em;
 }
 
 .formS {
@@ -29,6 +28,16 @@ body {
   text-align: center;
 }
 
+.titulillo {
+  text-align: center;
+  color: black;
+  font-size: 4em;
+  font-weight: bolder;
+  text-decoration: underline;
+
+
+}
+
 .botoncillo {
   font-size: 2em;
   color: black;
@@ -42,12 +51,34 @@ body {
   border-style: solid
 }
 
+.favCele {
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 40px;
+  padding: auto;
+  border-width: 3px;
+  border-color: #ffffff;
+  border-style: solid;
+}
+
 .botoncilloPe {
   font-size: 1em;
   color: black;
   border-color: #0d0e0f;
   opacity: 70%;
   background-color: rgb(186, 142, 99);
+  padding: 10px;
+  border-width: 1px;
+  border-radius: 13px;
+  margin-right: 10px;
+}
+
+.botoncilloPeR {
+  font-size: 1em;
+  color: rgb(252, 252, 252);
+  border-color: #ffffff;
+  opacity: 90%;
+  background-color: rgb(244, 0, 0);
   padding: 10px;
   border-width: 1px;
   border-radius: 13px;

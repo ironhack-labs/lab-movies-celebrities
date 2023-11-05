@@ -1,18 +1,18 @@
 <h2>Edit Movie {{movie.title}}</h2>
 <form action="/movies/{{movie._id}}/edit" method="POST">
-    <label for="">
+    <label class="lastTouch" for="">
         Title
         <input type="text" name="title" value="{{movie.title}}">
     </label>
-    <label for="">
+    <label class="lastTouch" for="">
         Genre
         <input type="text" name="genre" value="{{movie.genre}}">
     </label>
-    <label for="">
+    <label class="lastTouch" for="">
         Plot
         <input type="text" name="plot" value="{{movie.plot}}">
     </label>
-    <label for="cs"> Select stars
+    <label class="lastTouch" for="cs"> Select stars
         <select name="cast" multiple>
             {{#each celebrity}}
             <option value="{{_id}}">
@@ -21,5 +21,6 @@
             {{/each}}
         </select>
     </label>
+    <br>
     <button class="botoncilloPe">Submit edition</button>
 </form>

@@ -43,8 +43,9 @@ router.post('/movies/:_id/delete', (req, res) => {
 
 router.get('/movies/:_id/edit', (req, res) => {
     const { _id } = req.params
+
     Movie
-        .findById(_id).populate('cast')
+        .findByIdAndUpdate(_id).populate('cast')
         .then(movie => {
             Celebrity
                 .find()

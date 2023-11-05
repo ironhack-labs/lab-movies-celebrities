@@ -1,12 +1,12 @@
 <h2>Add your movie</h2>
 <form class="formS" action="/movies/create" method="post">
-    <label for="ti">Title: </label>
+    <label class="lastTouch" for="ti">Title: </label>
     <input type="text" name="title">
-    <label for="gr">Genre: </label>
+    <label class="lastTouch" for="gr">Genre: </label>
     <input type="text" name="genre">
-    <label for="pl">Plot </label>
+    <label class="lastTouch" for="pl">Plot </label>
     <input type="text" name="plot">
-    <label for="cst">Cast </label>
+    <label class="lastTouch" for="cst">Cast </label>
     <select name="cast" id="cst" multiple>
         {{#each celebrities}}
         <option value="{{_id}}">{{name}}</option>
