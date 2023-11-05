@@ -1,0 +1,16 @@
+<a href="/">
+    < back to home</a>
+
+        <div class=" container">
+            <h2>List of Celebrities</h2>
+            <hr>
+            <ul class="list-group">
+                {{#each celeb}}
+                <li class="list-group">
+                    <h4>{{name}}</h4>
+                    <p>Occupation: {{occupation}}</p>
+                    <p>Catch Phrase: {{catchPhrase}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
