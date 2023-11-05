@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    <hr>
+    <h4>Genre: {{genre}}</h4>
+    <h4>Plot: {{plot}}</h4>
+    <hr>
+    <h4>Cast:</h4>
+    <ul>
+        {{#each cast}}
+        <li>{{this.name}}</li>
+        {{/each}}
+    </ul>
+</div>

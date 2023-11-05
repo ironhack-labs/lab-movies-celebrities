@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-  <body>
-    <div class="container">
-      {{{body}}}
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="navbar-nav me-auto mb-2 mb-lg-0">
+      <a class="navbar-brand" href="/">Home</a>
+      <span class="navbar-brand">|</span>
+      <a class="navbar-brand" href="/celebrities">Celebrities</a>
+      <a class="navbar-brand" href="/movies">Movies</a>
+      <span class="navbar-brand">|</span>
+      <a class="navbar-brand" href="/celebrities/create">Create celebrity</a>
+      <a class="navbar-brand" href="/movies/create">Create movie</a>
+
     </div>
+  </nav>
+  <div class="container">
+    {{{body}}}
+  </div>
 
-    <script src="/javascripts/script.js"></script>
-  </body>
+  <script src="/javascripts/script.js"></script>
+</body>
 
 </html>
