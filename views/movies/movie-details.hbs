@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <h2>{{title}}</h2>
+
+    <hr class="border border-warning">
+
+    <p>Genre: {{genre}}</p>
+
+    <p>Plot: {{plot}}</p>
+
+    <p>Cast:</p>
+
+    {{#each cast}}
+    <p>{{name}} | {{occupation}} | {{catchPhrase}}</p>
+    {{/each}}
+
+    <hr class="border border-warning">
+
+    <a class="btn btn-dark" href="/movies">Back to movies</a>
+
+</div>

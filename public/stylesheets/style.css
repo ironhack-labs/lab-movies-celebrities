@@ -1,8 +1,14 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.myBar a {
+  color: white;
+}
+
+.indexStyle h1,
+h3 {
+  font-size: 2.7em;
+  text-align: center;
+  margin-top: 150px;
 }

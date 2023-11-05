@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <h2>Our movies</h2>
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Title:</th>
+                <th scope="col">Edit:</th>
+                <th scope="col">Delete:</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {{#each movies}}
+
+            <tr>
+
+                <td>
+                    <a href="/movies/{{_id}}"
+                        class="list-group-item list-group-item-action list-group-item-info">{{title}}</a>
+                </td>
+
+                <td>
+                    <a href="/movies/{{_id}}/edit"
+                        class="list-group-item list-group-item-action list-group-item-warning text-center">Edit</a>
+                </td>
+
+                <td>
+
+                    <form action="/movies/{{_id}}/delete" method="POST">
+                        <input type="submit" value="Delete"
+                            class="list-group-item list-group-item-action list-group-item-danger text-center">
+                    </form>
+
+                </td>
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+
+    <a href="/" class="btn btn-dark">Back Home</a>
+</div>

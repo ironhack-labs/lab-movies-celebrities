@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <h2>Our celebrities</h2>
+    <table class="table">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name:</th>
+                <th scope="col">Occupation:</th>
+                <th scope="col">Catch phrase:</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {{#each celebrities}}
+
+            <tr>
+
+                <td>
+                    {{name}}
+                </td>
+
+                <td>
+                    {{occupation}}
+                </td>
+
+                <td>
+                    {{catchPhrase}}
+                </td>
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+
+    <a href="/" class="btn btn-dark">Back Home</a>
+</div>
