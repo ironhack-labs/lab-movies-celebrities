@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        {{#each celebrity}}
+        <div class="col-sm-3 mt-4 mb-4">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">CELEBRITY</div>
+                <div class="card-body">
+                    <h5 class="card-title text-warning">{{name}}</h5>
+                    <p class="card-text">{{occupation}}</p>
+                    <p class="card-text">{{catchPhrase}}</p>
+                    <form action="/celebrities/{{_id}}/delete" method="POST">
+                        <button type="submit" class="btn btn-dark">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        {{#each movies}}
+        <div class="col-sm-3 mt-4 mb-4">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-header">MOVIES</div>
+                <div class="card-body">
+                    <h5 class="card-title text-warning">Title:{{title}}</h5>
+                    <p class="card-text">Genre:{{genre}}</p>
+                    <p class="card-text">Plot:{{plot}}</p>
+                    <a href="/movies/{{_id}}" class="btn btn-dark">Description</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
