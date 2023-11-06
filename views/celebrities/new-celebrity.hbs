@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <h2 class="display-6">Crear celebridad</h2>
+            <hr>
+            <form action="/celebrities/create" method="POST">
+                <div class="mb-3">
+                    <label for="tit" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="tit" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="aut" class="form-label"> Ocupacion</label>
+                    <input type="text" class="form-control" id="aut" name="occupation">
+                </div>
+
+                <div class="mb-3">
+                    <label for="desc" class="form-label"> Frase</label>
+                    <input type="text" class="form-control" id="desc" name="catchPrase">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-info">Crear </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

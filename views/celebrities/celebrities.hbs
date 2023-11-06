@@ -1,0 +1,47 @@
+<div class="container">
+    <h2 class="display-6"> Listado de Celebridades</h2>
+    <hr>
+
+
+    <table class="table">
+        <tbody>
+            {{#each celebrities}}
+            <tr>
+                <td>
+                    <p><strong>Este su nombre :</strong> {{name}} </p>
+
+                    <p><strong>Su ocupacion es :</strong> {{occupation}} </p>
+
+                    <p><strong>Su frase:</strong> {{catchPhrase}}</p>
+
+                </td>
+
+                <td>
+
+                    <a href="/celebrities/delete/{{_id}}" class="btn btn-danger "> Eliminar celebridad</a>
+
+
+                </td>
+
+
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+
+
+
+
+    </table>
+    <a href="/celebrities/create" class="btn btn-info"> Crear celebridad</a>
+    <a href="/" class="btn btn-info"> Ir al inicio</a>
+
+
+
+
+
+
+</div>

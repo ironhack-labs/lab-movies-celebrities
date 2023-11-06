@@ -1,8 +1,19 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+} */
+
+
+.home-page {
+  background: conic-gradient(at 0% 30%, red 10%, yellow 30%, #1e90ff 50%);
+  height: 100vh;
+  font-family: Helvetica;
+  color: white;
+  padding: 80px;
+
+
 }
