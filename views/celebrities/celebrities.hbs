@@ -1,0 +1,25 @@
+{{#each celebrities}}
+
+<h5>{{name}} </h5>
+
+<div class="justify-content-center">
+    <h2>Celebrity</h2>
+    <hr>
+    <br>
+    <a href="celebrities/celebrity-details/{{id}}" class="btn btn-dark">More Information</a>
+    <br>
+    <br>
+    <a href='/{{_id}}/edit' class="btn btn-dark">Update Celebrity</a>
+
+</div>
+
+
+
+<div>
+    <br>
+    <a href="/celebrities/create" class="btn btn-dark">Add New Celebrity</a>
+    <br>
+    <br>
+    <a href="/" class="btn btn-dark">Home</a>
+</div>
+{{/each}}
