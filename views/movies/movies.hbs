@@ -1,0 +1,22 @@
+<div class="justify-content-center">
+    <hr>
+
+    <h2>Movies</h2>
+    <br>
+    {{#each movies}}
+    <div>
+        <div>
+            <h5 class="card-title mt-2">{{title}} </h5>
+
+            <a href="/movies/movie-details/{{id}}" class="btn btn-dark">More Information</a>
+            <a href='/movies/{{_id}}/edit' class="btn btn-dark">Update Movie</a>
+
+        </div>
+    </div>
+
+
+    {{/each}}
+    <a href="/movies/create" class="btn btn-dark">Add New Movie!</a>
+    <br>
+    <a href=" /" class="btn btn-dark mt-2">Inicio</a>
+</div>
