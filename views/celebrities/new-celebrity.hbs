@@ -1,0 +1,18 @@
+<h2>Crea una nueva Celebrity</h2>
+
+<form action="/celebrities/crear" method="POST">
+    <div class="mb-3">
+        <label for="nm" class="form-label">Nombre: </label>
+        <input type="email" class="form-control" id="nm" aria-describedby="emailHelp" name="name">
+
+    </div>
+    <div class="mb-3">
+        <label for="ocptn" class="form-label">Trabajo: </label>
+        <input type="text" class="form-control" id="ocptn" name="occupation">
+    </div>
+    <div class="mb-3">
+        <label for="phrase" class="form-label">Frase típica: </label>
+        <input type="text" class="form-control" id="phrase" name="catchPhrase">
+    </div>
+    <input type="submit" class="btn btn-dark" value="Añadir">
+</form>

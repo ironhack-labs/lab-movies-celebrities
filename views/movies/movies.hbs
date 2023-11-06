@@ -1,0 +1,27 @@
+<h2>Lista de pelis</h2>
+<div class="row">
+    {{#each movies}}
+    <div class="col-4 mt-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{genre}}</p>
+                <p class="card-text">{{plot}}</p>
+                <p>
+                    {{#each cast}}
+                    {{this.name}}, {{this.occupation}}, {{this.catchPhrase}}
+                    <br />
+                    {{/each}}
+                </p>
+                <div class="row justify-content-around">
+                    <a href="/movies/{{_id}}/edit" class="btn btn-warning">editar</a>
+                    <a href="/movies/{{_id}}" class="btn btn-dark">detalle</a>
+                    <form action="/movies/{{_id}}/delete" method="POST">
+                        <input type="submit" class="btn btn-danger" value="borrar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
