@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Celebrities</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <ul>
+                {{#each celebrities}}
+                <li>
+                    <p>{{name}}</p>
+                    <p>{{occupation}}</p>
+                    <p>{{catchPhrase}}</p> 
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <hr>
+        <a href="/" class="btn btn-dark">HOME</a>
+    </div>
+
+</div>
