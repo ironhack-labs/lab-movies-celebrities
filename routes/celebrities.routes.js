@@ -3,7 +3,6 @@ const Celebrity = require("../models/Celebrity.model");
 const router = require("express").Router();
 
 router.get("/celebrities/create", (req, res) => {
-  console.log("fuck");
   res.render("./celebrities/new-celebrity.hbs");
 });
 router.post("/celebrities/create", (req, res) => {
