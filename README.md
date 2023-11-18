@@ -357,21 +357,20 @@ That's it! :trophy:
 
 ## FAQs
 
-
 <details>
   <summary>I am stuck and don't know how to solve the problem or where to start. What should I do?</summary>
 
   <br>
 
-  If you are stuck in your code and don't know how to solve the problem or where to start, you should take a step back and try to form a clear question about the specific issue you are facing. This will help you narrow down the problem and come up with potential solutions.
+If you are stuck in your code and don't know how to solve the problem or where to start, you should take a step back and try to form a clear question about the specific issue you are facing. This will help you narrow down the problem and come up with potential solutions.
 
-  For example, is it a concept that you don't understand, or are you receiving an error message that you don't know how to fix? It is usually helpful to try to state the problem as clearly as possible, including any error messages you are receiving. This can help you communicate the issue to others and potentially get help from classmates or online resources. 
+For example, is it a concept that you don't understand, or are you receiving an error message that you don't know how to fix? It is usually helpful to try to state the problem as clearly as possible, including any error messages you are receiving. This can help you communicate the issue to others and potentially get help from classmates or online resources.
 
-  Once you have a clear understanding of the problem, you will be able to start working toward the solution.
+Once you have a clear understanding of the problem, you will be able to start working toward the solution.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -381,45 +380,42 @@ That's it! :trophy:
   <br>
   Make sure you have <code>nodemon</code> installed on your machine:
 
-  ```bash
-  npm install -g nodemon
-  ```
+```bash
+npm install -g nodemon
+```
 
-  This will install nodemon globally on your system, making it available to all of your projects.
+This will install nodemon globally on your system, making it available to all of your projects.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
-
-
 
 <details>
   <summary>I got the error: "Cannot find module "dotenv" error in Node.js". How can I resolve it?</summary>
 
+When you get the error "Cannot find module 'dotenv'" in a Node.js application, it usually means that the "dotenv" package has not been installed in your project yet. The `dotenv` is a package that is used to load environment variables from a `.env` file.
 
-  When you get the error "Cannot find module 'dotenv'" in a Node.js application, it usually means that the "dotenv" package has not been installed in your project yet. The `dotenv` is a package that is used to load environment variables from a `.env` file.
+To fix the error, you should install the `dotenv` package by running the following command in the root directory of your project:
 
-  To fix the error, you should install the `dotenv` package by running the following command in the root directory of your project:
+```bash
+npm install dotenv
+```
 
-  ```bash
-  npm install dotenv
-  ```
+This will install the `dotenv` package and add it to the `package.json` file as a project dependency.
 
-  This will install the `dotenv` package and add it to the `package.json` file as a project dependency. 
+After the package is installed, you can use it by importing it at the top of your file. Remember to import it at the top, before other packages:
 
-  After the package is installed, you can use it by importing it at the top of your file. Remember to import it at the top, before other packages:
+```bash
+require("dotenv").config();
+```
 
-  ```bash
-  require("dotenv").config();
-  ```
-
-  Also, you should check that there is a `.env` file in the root directory of your project.
+Also, you should check that there is a `.env` file in the root directory of your project.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -428,72 +424,71 @@ That's it! :trophy:
 
   <br>
 
-  The error "Cannot find module" in a Node.js application means that the module you are trying to import or use does not exist in your project or cannot be found by Node.js.
-  There are a few things you can try to resolve the issue:
+The error "Cannot find module" in a Node.js application means that the module you are trying to import or use does not exist in your project or cannot be found by Node.js.
+There are a few things you can try to resolve the issue:
 
-  1. **Dependencies are not installed**: Make sure that all dependencies are installed.
+1. **Dependencies are not installed**: Make sure that all dependencies are installed.
    To do this, run the command `npm install` in the root folder of your project.
    This will install all of the dependencies listed in the project's `package.json` file, and ensure that all of the modules that your Node'js application requires are available.
 
-  2. **Module is not installed**: Make sure that the *package* you are trying to use is listed in the project's `package.json` and that it is installed.
+2. **Module is not installed**: Make sure that the _package_ you are trying to use is listed in the project's `package.json` and that it is installed.
    To do this, run the command `npm install <package_name>`, replacing the `<package_name>` with the name of the package.
    This will add the package to the list of dependencies in the `package.json` file, and install it in the project.
 
-  3. **Module is not imported:** Make sure that you've imported the module/package correctly and that the `require` statement is spelled correctly and available in the correct place in your code.
+3. **Module is not imported:** Make sure that you've imported the module/package correctly and that the `require` statement is spelled correctly and available in the correct place in your code.
 
-  4. **Wrong file path:** If you are importing another file as a module, make sure that the file you are trying to require is located in the correct folder and that you are using the correct file path.
+4. **Wrong file path:** If you are importing another file as a module, make sure that the file you are trying to require is located in the correct folder and that you are using the correct file path.
 
-  5. **Wrong module/package name:** Check the spelling of the package name you are trying to import.
+5. **Wrong module/package name:** Check the spelling of the package name you are trying to import.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
-
 
 <details>
   <summary>Why are my CSS styles not loading after linking the stylesheet?</summary>
 
   <br>
 
-  There are a few reasons why your CSS styles might not be loading after linking the stylesheet:
+There are a few reasons why your CSS styles might not be loading after linking the stylesheet:
 
-  1. **Incorrect file path**: Make sure that the file path for the stylesheet in the `link` tag of your Handlebars template is correct. If the path is incorrect, the browser will not be able to locate the stylesheet and the styles will not be applied.
+1. **Incorrect file path**: Make sure that the file path for the stylesheet in the `link` tag of your Handlebars template is correct. If the path is incorrect, the browser will not be able to locate the stylesheet and the styles will not be applied.
 
-   For example, if the file structure of your project is as follows:
+For example, if the file structure of your project is as follows:
 
-   ```
-   - views/
-       - layout.hbs
-       - index.hbs
-   
-   - public/
-       - stylesheets/
-           - style.css
-   ...
-   ```
+```
+- views/
+    - layout.hbs
+    - index.hbs
 
-   The correct file path for the stylesheet in the `link` tag of the `layout.hbs` file would be:
+- public/
+    - stylesheets/
+        - style.css
+...
+```
 
-   ```html
-   <link rel="stylesheet" href="/stylesheets/style.css">
-   ```
+The correct file path for the stylesheet in the `link` tag of the `layout.hbs` file would be:
 
-   <br>***Important*:** The `href` path starts with a `/`, representing the path starting from the base folder where the static files are being served from, in this case, the `public/` folder.
+```html
+<link rel="stylesheet" href="/stylesheets/style.css" />
+```
+
+<br>**_Important_:** The `href` path starts with a `/`, representing the path starting from the base folder where the static files are being served from, in this case, the `public/` folder.
 
    <br>
 
-  2. **Incorrect file name:** Make sure that you are referring to the file by its right name in the `href` of the `link` tag.
+2. **Incorrect file name:** Make sure that you are referring to the file by its right name in the `href` of the `link` tag.
 
-  3. **Middleware not configured correctly**: Make sure that you have the `express.static` middleware, that serves static files correctly configured in your Express app and that the right folder path and name is specified. If this middleware is not set up correctly, the server will not send the stylesheet when requested.
+3. **Middleware not configured correctly**: Make sure that you have the `express.static` middleware, that serves static files correctly configured in your Express app and that the right folder path and name is specified. If this middleware is not set up correctly, the server will not send the stylesheet when requested.
    <br>
 
-  4. **Restart the server:**  Sometimes, even if you made the correct changes, the browser might still be loading an old version of the file. You should try restarting your Express server. This will ensure that the new changes are loaded and being served by the server, making sure the browser will load the most recent version of the stylesheet."
-   
+4. **Restart the server:** Sometimes, even if you made the correct changes, the browser might still be loading an old version of the file. You should try restarting your Express server. This will ensure that the new changes are loaded and being served by the server, making sure the browser will load the most recent version of the stylesheet."
+
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -502,40 +497,40 @@ That's it! :trophy:
 
   <br>
 
-  There are a few reasons why your images might not be loading after linking the file:
+There are a few reasons why your images might not be loading after linking the file:
 
-  1. **Incorrect file path**: Make sure that the file path for the image in the `img` tag of your Handlebars template is correct. If the path is incorrect, the browser will not be able to locate the stylesheet and the styles will not be applied.
+1. **Incorrect file path**: Make sure that the file path for the image in the `img` tag of your Handlebars template is correct. If the path is incorrect, the browser will not be able to locate the stylesheet and the styles will not be applied.
 
-  For example, if the file structure of your project is as follows:
+For example, if the file structure of your project is as follows:
 
-   ```
-   - views/
-       - layout.hbs
-       - index.hbs
-   
-   - public/
-       - images/
-           - dog.jpg
-   ...
-   ```
+```
+- views/
+    - layout.hbs
+    - index.hbs
 
-  The correct file path for loading the image in the `index.hbs` file would be:
+- public/
+    - images/
+        - dog.jpg
+...
+```
 
-   ```html
-   <img alt="dog" src="/images/dog.jpg" />
-   ```
+The correct file path for loading the image in the `index.hbs` file would be:
 
-  ***Important***: The `src` path starts with a `/`, representing the path starting from the base folder where the static files are being served from, in this case, the `public/` folder.
+```html
+<img alt="dog" src="/images/dog.jpg" />
+```
 
-  2. **Incorrect file name:** Make sure that you are referring to the file by its right name in the `src` of the `img` tag.
+**_Important_**: The `src` path starts with a `/`, representing the path starting from the base folder where the static files are being served from, in this case, the `public/` folder.
 
-  3. **Middleware not configured correctly**: Make sure that you have the `express.static` middleware, that serves static files correctly configured in your Express app and that the right folder path and name are specified. If this middleware is not set up correctly, the server will not send the images when requested.
+2. **Incorrect file name:** Make sure that you are referring to the file by its right name in the `src` of the `img` tag.
 
-  4. **Restart the server:**  Sometimes, even if you made the correct changes, the browser might still be loading an old version of the file. You should try restarting your Express server. This will ensure that the new changes are loaded and served by the server.
+3. **Middleware not configured correctly**: Make sure that you have the `express.static` middleware, that serves static files correctly configured in your Express app and that the right folder path and name are specified. If this middleware is not set up correctly, the server will not send the images when requested.
+
+4. **Restart the server:** Sometimes, even if you made the correct changes, the browser might still be loading an old version of the file. You should try restarting your Express server. This will ensure that the new changes are loaded and served by the server.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -544,55 +539,53 @@ That's it! :trophy:
 
   <br>
 
-  Here are the things you should check in order to fix your GET form:
+Here are the things you should check in order to fix your GET form:
 
-  1. Check that the path for your GET route in Express matches the `action` and `method` attributes in the form. For example, if you have a route `GET` `/search`:
+1. Check that the path for your GET route in Express matches the `action` and `method` attributes in the form. For example, if you have a route `GET` `/search`:
 
-   ```js
-   app.get('/search', (req, res) => {
-     // form handling logic
-   })
-   ```
+```js
+app.get("/search", (req, res) => {
+  // form handling logic
+});
+```
 
-   Your form `action` attribute should have the same path and the `method` should be the same:
+Your form `action` attribute should have the same path and the `method` should be the same:
 
-   ```html
-   <form action="/search" method="GET">
-   ```
+```html
+<form action="/search" method="GET"></form>
+```
 
-  2. Check the data you are receiving from the form on the `req.query` by using `console.log()`. For example, if you have a route `GET` `/search`, you can add a `console.log()` like this:
+2. Check the data you are receiving from the form on the `req.query` by using `console.log()`. For example, if you have a route `GET` `/search`, you can add a `console.log()` like this:
 
-   ```js
-   app.get('/search', (req, res) => {
-     // Print the data coming from the form
-     console.log(req.query);
-   });
-   ```
+```js
+app.get("/search", (req, res) => {
+  // Print the data coming from the form
+  console.log(req.query);
+});
+```
 
-  3. Check that the `form` tag is properly formatted and that it has an opening and a closing tag. Example: 
+3. Check that the `form` tag is properly formatted and that it has an opening and a closing tag. Example:
 
-   ```html
-   <form action="/search" method="GET">
-     
-     <!-- Form inputs, labels, button -->
-     
-   </form>
-   ```
+```html
+<form action="/search" method="GET">
+  <!-- Form inputs, labels, button -->
+</form>
+```
 
-  4. Check that the submit button is configured properly to submit the form when clicked. Make sure that the button is located inside of the form tag and that it has a `type="submit"` attribute. Example:
+4. Check that the submit button is configured properly to submit the form when clicked. Make sure that the button is located inside of the form tag and that it has a `type="submit"` attribute. Example:
 
-   ```html
-   <form action="/search" method="GET">
-     <label>Enter search prompt</label>
-     <input type="text" name="prompt">
-   
-     <button type="submit"> Search </button>
-   </form>
-   ```
+```html
+<form action="/search" method="GET">
+  <label>Enter search prompt</label>
+  <input type="text" name="prompt" />
+
+  <button type="submit">Search</button>
+</form>
+```
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -601,30 +594,30 @@ That's it! :trophy:
 
   <br>
 
-  When linking to other pages within your Express app, as a general rule you should use relative paths that start with a forward slash `/`.
-  This way you ensure that the links will work correctly both in your development environment and when the app is deployed.
+When linking to other pages within your Express app, as a general rule you should use relative paths that start with a forward slash `/`.
+This way you ensure that the links will work correctly both in your development environment and when the app is deployed.
 
-  For example, instead of linking to a page with an absolute path like this:
+For example, instead of linking to a page with an absolute path like this:
 
-  ```html
-  <a href="http://yourdomain.com/contact"> Contact </a>
-  ```
+```html
+<a href="http://yourdomain.com/contact"> Contact </a>
+```
 
-  You should use a relative path starting with a forward slash `/` like this:
+You should use a relative path starting with a forward slash `/` like this:
 
-  ```html
-  <a href="/contact"> Contact </a>
-  ```
+```html
+<a href="/contact"> Contact </a>
+```
 
-  If you are embedding values in your Handlebars template, you should still use the relative path that starts with a forward slash `/` like this:
+If you are embedding values in your Handlebars template, you should still use the relative path that starts with a forward slash `/` like this:
 
-  ```hbs
-  <a href="/projects/{{id}}" > About </a>
-  ```
+```hbs
+<a href="/projects/{{id}}"> About </a>
+```
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -633,42 +626,102 @@ That's it! :trophy:
 
   <br>
 
-  This error means that the port is taken by another process that is still running on that port. 
-  To fix the issue, you need to kill the process using the port and then run the command again. Here's how to do it:
+This error means that the port is taken by another process that is still running on that port.
+To fix the issue, you need to kill the process using the port and then run the command again. Here's how to do it:
 
+#### On Mac/Linux
 
-  #### On Mac/Linux
+To kill the process running on port `3000`, run the following command in the terminal:
 
-  To kill the process running on port `3000`, run the following command in the terminal:
+```bash
+sudo kill -9 $(lsof -t -i:3000)
+```
 
-  ```bash
-  sudo kill -9 $(lsof -t -i:3000)   
-  ```
-
-  **Important:** Replace the above example port *3000* with the port number of the process you are trying to kill.
-
-  <br>
-
-  #### On Windows
-
-  ##### 1. Using the Task Manager
-
-  To kill the running process on Windows using the Task Manager do the following:
-
-  1. Open the **Task Manager** by pressing: **<kbd>Ctrl</kbd>** + **<kbd>Shift</kbd>** + **<kbd>Esc</kbd>** 
-  2. Find the Node process you want to terminate.
-  3. Right-click and select **End Task**
+**Important:** Replace the above example port _3000_ with the port number of the process you are trying to kill.
 
   <br>
 
-  ##### 2. Using Command Prompt
+#### On Windows
 
-  To kill the running process on Windows using the Command Prompt do the following:
+##### 1. Using the Task Manager
 
-  1. Open the windows **Start** menu
-  2. Search for **CMD** in the search bar
-  3. In the search results, right-click on **Command Prompt** and select **Run as administrator**. This will open the Command Prompt terminal.
-  4. In the Command Prompt terminal, run the following command to find the process ID:
+To kill the running process on Windows using the Task Manager do the following:
+
+1. Open the **Task Manager** by pressing: **<kbd>Ctrl</kbd>** + **<kbd>Shift</kbd>** + **<kbd>Esc</kbd>**
+2. Find the Node process you want to terminate.
+3. Right-click and select **End Task**
+
+  <br>
+
+##### 2. Using Command Prompt
+
+To kill the running process on Windows using the Command Prompt do the following:
+
+1. Open the windows **Start** menu
+2. Search for **CMD** in the search bar
+3. In the search results, right-click on **Command Prompt** and select **Run as administrator**. This will open the Command Prompt terminal.
+4. In the Command Prompt terminal, run the following command to find the process ID:
+
+```bash
+netstat -ano|findstr "PID :3000"
+```
+
+> If the process happens to be running on another port, simply replace `3000` with the number the port number the process is running on.
+
+This will return the process id (PID). You should then run the following command using the process id (PID) you got in the previous step to terminate the process:
+
+```bash
+taskkill /PID 12345 /f
+```
+
+**Important:** Replace the above example PID _12345_, with the process id (PID) you got in the previous step.
+
+  <br>
+
+[Back to top](#faqs)
+
+</details>
+
+<details>
+  <summary>I got the error "Port is already in use". How do I fix it?</summary>
+
+  <br>
+
+This error means that the port is taken by another process that is still running on that port.
+To fix the issue, you need to kill the process using the port and then run the command again. Here's how to do it:
+
+#### On Mac/Linux
+
+To kill the process running on port `3000`, run the following command in the terminal:
+
+```bash
+sudo kill -9 $(lsof -t -i:3000)
+```
+
+**Important:** Replace the above example port _3000_ with the port number of the process you are trying to kill.
+
+  <br>
+
+#### On Windows
+
+##### 1. Using the Task Manager
+
+To kill the running process on Windows using the Task Manager do the following:
+
+1. Open the **Task Manager** by pressing: **<kbd>Ctrl</kbd>** + **<kbd>Shift</kbd>** + **<kbd>Esc</kbd>**
+2. Find the Node process you want to terminate.
+3. Right-click and select **End Task**
+
+  <br>
+
+##### 2. Using Command Prompt
+
+To kill the running process on Windows using the Command Prompt do the following:
+
+1. Open the windows **Start** menu
+2. Search for **CMD** in the search bar
+3. In the search results, right-click on **Command Prompt** and select **Run as administrator**. This will open the Command Prompt terminal.
+4. In the Command Prompt terminal, run the following command to find the process ID:
 
    ```bash
    netstat -ano|findstr "PID :3000"
@@ -682,150 +735,89 @@ That's it! :trophy:
    taskkill /PID 12345 /f
    ```
 
-   **Important:** Replace the above example PID *12345*, with the process id (PID) you got in the previous step.
+   **Important:** Replace the above example PID _12345_, with the process id (PID) you got in the previous step.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
-
-<details>
-  <summary>I got the error "Port is already in use". How do I fix it?</summary>
-
-  <br>
-
-  This error means that the port is taken by another process that is still running on that port. 
-  To fix the issue, you need to kill the process using the port and then run the command again. Here's how to do it:
-
-  #### On Mac/Linux
-
-  To kill the process running on port `3000`, run the following command in the terminal:
-
-  ```bash
-  sudo kill -9 $(lsof -t -i:3000)   
-  ```
-
-  **Important:** Replace the above example port *3000* with the port number of the process you are trying to kill.
-
-  <br>
-
-  #### On Windows
-
-  ##### 1. Using the Task Manager
-
-  To kill the running process on Windows using the Task Manager do the following:
-
-  1. Open the **Task Manager** by pressing: **<kbd>Ctrl</kbd>** + **<kbd>Shift</kbd>** + **<kbd>Esc</kbd>** 
-  2. Find the Node process you want to terminate.
-  3. Right-click and select **End Task**
-
-  <br>
-
-  ##### 2. Using Command Prompt
-
-  To kill the running process on Windows using the Command Prompt do the following:
-
-  1. Open the windows **Start** menu
-  2. Search for **CMD** in the search bar
-  3. In the search results, right-click on **Command Prompt** and select **Run as administrator**. This will open the Command Prompt terminal.
-  4. In the Command Prompt terminal, run the following command to find the process ID:
-
-    ```bash
-    netstat -ano|findstr "PID :3000"
-    ```
-
-    > If the process happens to be running on another port, simply replace `3000` with the number the port number the process is running on.
-
-    This will return the process id (PID). You should then run the following command using the process id (PID) you got in the previous step to terminate the process:
-
-    ```bash
-    taskkill /PID 12345 /f
-    ```
-
-    **Important:** Replace the above example PID *12345*, with the process id (PID) you got in the previous step.
-
-  <br>
-
-  [Back to top](#faqs)
-
-</details>
-
 
 <details>
   <summary>I got the error: "Error: connect ECONNREFUSED ::1:27017". What should I do?</summary>
 
   <br>
 
-  This error means that the Node.js application is unable to connect to a MongoDB instance running on the local (same) machine.
-  There are a few things you should look at to troubleshoot this:
+This error means that the Node.js application is unable to connect to a MongoDB instance running on the local (same) machine.
+There are a few things you should look at to troubleshoot this:
 
-  1. **Check the database connection string**: Check that the connection string is correct. The database connection string should be in the format:
+1. **Check the database connection string**: Check that the connection string is correct. The database connection string should be in the format:
 
-   ```python
-   mongodb://127.0.0.1:27017/databaseName
-   ```
+```python
+mongodb://127.0.0.1:27017/databaseName
+```
 
-  2. **Verify that MongoDB is running on your machine**: Check that MongoDB is running on your machine. If it is not running, restart the service according to the following instructions:
+2. **Verify that MongoDB is running on your machine**: Check that MongoDB is running on your machine. If it is not running, restart the service according to the following instructions:
 
-   **On Mac:**
+**On Mac:**
 
-   Check if MongoDB is running on your machine, by running the command:
+Check if MongoDB is running on your machine, by running the command:
 
-   ```bash
-   brew services list
-   ```
+```bash
+brew services list
+```
 
-   You should see the service `mongodb-community` listed as `started`. If not, run the following command to start it:
+You should see the service `mongodb-community` listed as `started`. If not, run the following command to start it:
 
-   ```bash
-   brew services start mongodb-community
-   ```
+```bash
+brew services start mongodb-community
+```
 
-   **On Ubuntu:**
+**On Ubuntu:**
 
-   You can start the [`mongod`](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod) process by issuing the following command:
+You can start the [`mongod`](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod) process by issuing the following command:
 
-   ```bash
-   sudo systemctl start mongod
-   ```
+```bash
+sudo systemctl start mongod
+```
 
-   If you receive an error similar to the following when starting [`mongod`:](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod)
+If you receive an error similar to the following when starting [`mongod`:](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod)
 
-   > ```
-   > Failed to start mongod.service: Unit mongod.service not found.
-   > ```
+> ```
+> Failed to start mongod.service: Unit mongod.service not found.
+> ```
 
-   Run the following command first:
+Run the following command first:
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+```bash
+sudo systemctl daemon-reload
+```
 
-   Then run the start command above again.
+Then run the start command above again.
 
    <br>
 
-   **On Windows:**
+**On Windows:**
 
-   To open the *MongoDB* process on Windows, you will need to do these steps:
-   - Go to your *Program Files* in your *C:* drive - the local disk
-   - In *Program Files* go to the *MongoDB* folder
-   - Inside the *MongoDB* folder, follow this path `Server/4.4/bin`. The version number on your system (`4.4`) may be slightly different for the newer installations.
-   - Double-click on the file named **mongod.exe**.
+To open the _MongoDB_ process on Windows, you will need to do these steps:
 
-     <details style="font-size: 14px; cursor: pointer; outline: none;">
-      <summary> Check the image inside </summary>
+- Go to your _Program Files_ in your _C:_ drive - the local disk
+- In _Program Files_ go to the _MongoDB_ folder
+- Inside the _MongoDB_ folder, follow this path `Server/4.4/bin`. The version number on your system (`4.4`) may be slightly different for the newer installations.
+- Double-click on the file named **mongod.exe**.
 
-     <br>
-    
-     ![](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/prework/installations/win-installations-bootcamp-mongo-03.png)
-    
-     </details>
+  <details style="font-size: 14px; cursor: pointer; outline: none;">
+   <summary> Check the image inside </summary>
 
   <br>
 
-  [Back to top](#faqs)
+  ![](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/prework/installations/win-installations-bootcamp-mongo-03.png)
+
+  </details>
+
+  <br>
+
+[Back to top](#faqs)
 
 </details>
 
@@ -834,11 +826,11 @@ That's it! :trophy:
 
   <br>
 
-  It is normal for the database to be empty if you have not inserted any data into it. If you want to confirm that your connection to the database is working correctly, you can try inserting a simple document into a collection and then querying the collection or checking the database to see if the document was added.
+It is normal for the database to be empty if you have not inserted any data into it. If you want to confirm that your connection to the database is working correctly, you can try inserting a simple document into a collection and then querying the collection or checking the database to see if the document was added.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -847,113 +839,113 @@ That's it! :trophy:
 
   <br>
 
-  If you are trying to connect to a MongoDB instance running locally, you should first check that MongoDB is running on your machine. If it is not running, restart the service according to the following instructions:
+If you are trying to connect to a MongoDB instance running locally, you should first check that MongoDB is running on your machine. If it is not running, restart the service according to the following instructions:
 
-  **On Mac:**
+**On Mac:**
 
-  Check if MongoDB is running on your machine, by running the command:
+Check if MongoDB is running on your machine, by running the command:
 
-  ```bash
-  brew services list
-  ```
+```bash
+brew services list
+```
 
-  You should see the service `mongodb-community` listed as `started`. If not, run the following command to start it:
+You should see the service `mongodb-community` listed as `started`. If not, run the following command to start it:
 
-  ```bash
-  brew services start mongodb-community
-  ```
+```bash
+brew services start mongodb-community
+```
 
    <br>
 
-  **On Ubuntu:**
+**On Ubuntu:**
 
-  You can start the [`mongod`](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod) process by issuing the following command:
+You can start the [`mongod`](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod) process by issuing the following command:
 
-  ```bash
-  sudo systemctl start mongod
-  ```
+```bash
+sudo systemctl start mongod
+```
 
-  If you receive an error similar to the following when starting [`mongod`:](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod)
+If you receive an error similar to the following when starting [`mongod`:](https://www.mongodb.com/docs/manual/reference/program/mongod/#mongodb-binary-bin.mongod)
 
-  > ```
-  > Failed to start mongod.service: Unit mongod.service not found.
-  > ```
+> ```
+> Failed to start mongod.service: Unit mongod.service not found.
+> ```
 
-  Run the following command first:
+Run the following command first:
 
-  ```bash
-  sudo systemctl daemon-reload
-  ```
+```bash
+sudo systemctl daemon-reload
+```
 
-  Then run the start command above again.
+Then run the start command above again.
 
   <br>
    
    **On Windows:**
 
-   To open the *MongoDB* process on Windows, you will need to do these steps:
-   - Go to your *Program Files* in your *C:* drive - the local disk
-   - In *Program Files* go to the *MongoDB* folder
-   - Inside the *MongoDB* folder, follow this path `Server/4.4/bin`. The version number on your system (`4.4`) may be slightly different for the newer installations.
-   - Double-click on the file named **mongod.exe**.
+To open the _MongoDB_ process on Windows, you will need to do these steps:
 
-     <details style="font-size: 14px; cursor: pointer; outline: none;">
-      <summary> Check the image inside </summary>
+- Go to your _Program Files_ in your _C:_ drive - the local disk
+- In _Program Files_ go to the _MongoDB_ folder
+- Inside the _MongoDB_ folder, follow this path `Server/4.4/bin`. The version number on your system (`4.4`) may be slightly different for the newer installations.
+- Double-click on the file named **mongod.exe**.
 
-     <br>
-    
-     ![](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/prework/installations/win-installations-bootcamp-mongo-03.png)
-    
-     </details>
+  <details style="font-size: 14px; cursor: pointer; outline: none;">
+   <summary> Check the image inside </summary>
 
   <br>
 
-  [Back to top](#faqs)
+  ![](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/prework/installations/win-installations-bootcamp-mongo-03.png)
+
+  </details>
+
+  <br>
+
+[Back to top](#faqs)
 
 </details>
-
 
 <details>
   <summary>How to create a Mongoose model?</summary>
 
   <br>
 
-  The mongoose model serves as a blueprint for creating and managing documents within MongoDB collections. The mongoose model is an overlay on top of one MongoDB collection, that we use to query and interact with that database collection.
+The mongoose model serves as a blueprint for creating and managing documents within MongoDB collections. The mongoose model is an overlay on top of one MongoDB collection, that we use to query and interact with that database collection.
 
-  Here is an example of creating a `User` model to manage documents in the `users` collection:
+Here is an example of creating a `User` model to manage documents in the `users` collection:
 
-  ```js
-  // IMPORT MONGOOSE
-  const mongoose = require("mongoose");
+```js
+// IMPORT MONGOOSE
+const mongoose = require("mongoose");
 
-  // CREATE A SCHEMA - defines the shape of the documents
-  const userSchema = new mongoose.Schema({ 
-    firstName: String,
-    lastName: String 
-  });
+// CREATE A SCHEMA - defines the shape of the documents
+const userSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+});
 
-  // CREATE THE MODEL
-  const User = mongoose.model('User', schema);
+// CREATE THE MODEL
+const User = mongoose.model("User", schema);
 
-  // EXPORT THE MODEL
-  module.exports = User;
-  ```
-
-  <br>
-
-  In the above example, we created and exported a `User` model, so that it can be imported and used anywhere in the application for managing the database collection `users`.
-
-  Let's break down the above example and the steps in creating a mongoose model:
-
-  1. **Import mongoose:** The first step is to import the `mongoose` library.
-  2. **Create a schema:**  The next step is to create a schema, which defines the shape of the documents that will be stored in the `users` collection. In the above example, the schema has two fields `firstName` and `lastName` which are both strings.
-  3. **Create the model**: The last step is to create the model. This is done using the method `mongoose.model()`, which takes two arguments: the name of the model, in this case `'User'` and the schema it should use.
-    Mongoose automatically pluralizes and converts to lowercase the provided model name and uses it as the name of the collection. In this case, the string `'User'` is automatically converted into a collection name -> `users`.
-  4. **Export the model:** After the model is created, it needs to be exported so it can be used in other parts of the application.
+// EXPORT THE MODEL
+module.exports = User;
+```
 
   <br>
 
-  [Back to top](#faqs)
+In the above example, we created and exported a `User` model, so that it can be imported and used anywhere in the application for managing the database collection `users`.
+
+Let's break down the above example and the steps in creating a mongoose model:
+
+1. **Import mongoose:** The first step is to import the `mongoose` library.
+2. **Create a schema:** The next step is to create a schema, which defines the shape of the documents that will be stored in the `users` collection. In the above example, the schema has two fields `firstName` and `lastName` which are both strings.
+3. **Create the model**: The last step is to create the model. This is done using the method `mongoose.model()`, which takes two arguments: the name of the model, in this case `'User'` and the schema it should use.
+   Mongoose automatically pluralizes and converts to lowercase the provided model name and uses it as the name of the collection. In this case, the string `'User'` is automatically converted into a collection name -> `users`.
+4. **Export the model:** After the model is created, it needs to be exported so it can be used in other parts of the application.
+
+  <br>
+
+[Back to top](#faqs)
 
 </details>
 
@@ -962,16 +954,16 @@ That's it! :trophy:
 
   <br>
 
-  The error  `[ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client` occurs when you try to send a response after the response has already been sent. This means that you are calling `res.send()` or `res.render()` multiple times in your route, instead of only once at the end of the request.
+The error `[ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client` occurs when you try to send a response after the response has already been sent. This means that you are calling `res.send()` or `res.render()` multiple times in your route, instead of only once at the end of the request.
 
-  To fix the issue, check the route that threw the error and verify that you are only calling `res.send()` or `res.render()` once in the route in question, after all, database operations and other logic have been completed.
-  You can start by trying to identify all the `res.send()` or `res.render()` calls made in the route code.
+To fix the issue, check the route that threw the error and verify that you are only calling `res.send()` or `res.render()` once in the route in question, after all, database operations and other logic have been completed.
+You can start by trying to identify all the `res.send()` or `res.render()` calls made in the route code.
 
-  This error commonly arises from having nested conditionals or Promises and having multiple calls to `res.send()` or `res.render()` in the route logic. To troubleshoot it, it is advisable to check these parts of the route code for any logic errors.
+This error commonly arises from having nested conditionals or Promises and having multiple calls to `res.send()` or `res.render()` in the route logic. To troubleshoot it, it is advisable to check these parts of the route code for any logic errors.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -985,7 +977,7 @@ That's it! :trophy:
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -994,15 +986,15 @@ That's it! :trophy:
 
   <br>
 
-  The "ReferenceError: variable is not defined" error in JavaScript occurs when you try to access a variable or a function that has not been defined yet or is out of scope. 
+The "ReferenceError: variable is not defined" error in JavaScript occurs when you try to access a variable or a function that has not been defined yet or is out of scope.
 
-  To fix the issue, check that you have defined the variable or function that you are trying to use and double-check the spelling to make sure you are using the correct name.
+To fix the issue, check that you have defined the variable or function that you are trying to use and double-check the spelling to make sure you are using the correct name.
 
-  In case the variable or a function is defined in another file, make sure that the file has been imported or loaded correctly.
+In case the variable or a function is defined in another file, make sure that the file has been imported or loaded correctly.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
 
@@ -1011,29 +1003,29 @@ That's it! :trophy:
 
   <br>
 
-  There are a couple of possible reasons why you may be unable to *push* changes to a Git repository:
+There are a couple of possible reasons why you may be unable to _push_ changes to a Git repository:
 
-  1. **You have not committed your changes:** Before you can push your changes to the repository, you need to commit them using the `git commit` command. Make sure you have committed your changes and try pushing again. To do this, run the following terminal commands from the project folder:
+1. **You have not committed your changes:** Before you can push your changes to the repository, you need to commit them using the `git commit` command. Make sure you have committed your changes and try pushing again. To do this, run the following terminal commands from the project folder:
 
-   ```bash
-   git add .
-   git commit -m "Your commit message"
-   git push
-   ```
+```bash
+git add .
+git commit -m "Your commit message"
+git push
+```
 
-   2. **You do not have permission to push to the repository:** If you have cloned the repository directly from the main Ironhack repository without making a *Fork* first, you do not have write access to the repository.
-   To check which remote repository you have cloned, run the following terminal command from the project folder:
+2.  **You do not have permission to push to the repository:** If you have cloned the repository directly from the main Ironhack repository without making a _Fork_ first, you do not have write access to the repository.
+    To check which remote repository you have cloned, run the following terminal command from the project folder:
 
-   ```bash
-   git remote -v
-   ```
+```bash
+git remote -v
+```
 
-  If the link shown is the same as the main Ironhack repository, you will need to fork the repository to your GitHub account first, and then clone your fork to your local machine to be able to push the changes.
+If the link shown is the same as the main Ironhack repository, you will need to fork the repository to your GitHub account first, and then clone your fork to your local machine to be able to push the changes.
 
-  Note: You may want to make a copy of the code you have locally, to avoid losing it in the process.
+Note: You may want to make a copy of the code you have locally, to avoid losing it in the process.
 
   <br>
 
-  [Back to top](#faqs)
+[Back to top](#faqs)
 
 </details>
