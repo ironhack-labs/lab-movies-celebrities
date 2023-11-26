@@ -1,6 +1,12 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://english4future.es/wp-content/uploads/2019/07/cine.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
 }
 
 a {
