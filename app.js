@@ -5,6 +5,14 @@ require('dotenv/config');
 // ℹ️ Connects to the database
 require('./db');
 
+// BrowserSync
+// const browserSync = require('browser-sync');
+
+// browserSync({
+//     proxy: "http://localhost:3000",
+//     files: ['public', 'views']
+// });
+
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require('express');
@@ -27,6 +35,12 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 // 👇 Start handling routes here
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRoutes = require('./routes/celebrities.routes.js');
+app.use('/', celebritiesRoutes);
+
+const moviesRoutes = require('./routes/movies.routes.js');
+app.use('/', moviesRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
