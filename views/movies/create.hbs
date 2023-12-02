@@ -1,0 +1,44 @@
+<div class="container my-5">
+  <form action="/movies" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        name="title"
+        type="text"
+        class="form-control"
+        placeholder="Madagascar"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="genre" class="form-label">Genre</label>
+      <input
+        name="genre"
+        type="text"
+        class="form-control"
+        placeholder="Terror"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="plot" class="form-label">Plot</label>
+      <input
+        name="plot"
+        type="text"
+        class="form-control"
+        placeholder="An older man walks part"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="cast" class="form-label">Cast</label>
+      <select name="cast" class="form-select" multiple="">
+        {{#each celebrities as |celebrity|}}
+          <option value="{{celebrity.id}}">{{celebrity.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>
