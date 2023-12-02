@@ -1,0 +1,10 @@
+<h1>Movie detail</h1>
+
+<h3>{{movie.title}}</h3>
+<p>{{movie.genre}}</p>
+<p>{{movie.plot}}</p>
+<a href="/movies">Back</a>
+
+{{#each movie.cast as |celebrity|}}
+  <a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a>,
+{{/each}}
