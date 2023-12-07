@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h1>Celebrities</h1>
+  <div class="row">
+    {{#each celebrities as |celebrity|}}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="{{celebrity.image}}" class="card-img-top" alt="{{celebrity.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{celebrity.name}}</h5>
+            <p class="card-text">{{celebrity.catchPhrase}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

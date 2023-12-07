@@ -1,0 +1,21 @@
+
+<div class="container mt-5">
+  <h1>{{ movie.title }}</h1>
+  <p><strong>Genre:</strong> {{ movie.genre }}</p>
+  <p><strong>Plot:</strong> {{ movie.plot }}</p>
+  <p><strong>Cast:</strong> 
+  
+  <div class="container mt-4">
+    {{#each movie.cast as |celebrity|}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{celebrity.name}}</h5>
+                <p class="card-text"><strong>Occupation:</strong> {{celebrity.occupation}}</p>
+                <p class="card-text"><strong>Catchphrase:</strong> {{celebrity.catchPhrase}}</p>
+            </div>
+        </div>
+    {{/each}}
+</div>
+      </p>
+   
+</div>
