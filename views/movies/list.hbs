@@ -1,0 +1,26 @@
+<h1 class="mt-5 mb-4">Movies List</h1>
+
+<div class="container">
+  <div class="row">
+    {{#each movies}}
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <!-- Agrega aquí la URL real de las imágenes de las películas -->
+          <img src="https://picsum.photos/300/300?random=2" class="card-img-top" alt="{{title}}">
+          <div class="card-body">
+            <h3 class="card-title">{{title}}</h3>
+            <p class="card-text"><strong>Genre:</strong> {{genre}}</p>
+            <p class="card-text">{{plot}}</p>
+            <div class="d-flex justify-content-around">
+              <a href="/movies/{{this._id}}" class="btn btn-primary mr-2">Details</a>
+              <a href="/movies/{{this._id}}/edit" class="btn btn-warning mr-2">Edit</a>
+              <form action="/movies/{{this._id}}/delete" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

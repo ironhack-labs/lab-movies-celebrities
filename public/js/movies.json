@@ -1,0 +1,59 @@
+{
+  "movies": [
+  
+  {
+    "title": "The Shawshank Redemption",
+    "genre": "Drama",
+    "plot": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+  },
+  {
+    "title": "The Godfather",
+    "genre": "Crime",
+    "plot": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
+  },
+  {
+    "title": "The Dark Knight",
+    "genre": "Action",
+    "plot": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham."
+  },
+  {
+    "title": "Pulp Fiction",
+    "genre": "Crime",
+    "plot": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+  },
+  {
+    "title": "Schindler's List",
+    "genre": "Biography",
+    "plot": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis."
+  },
+  {
+    "title": "Forrest Gump",
+    "genre": "Drama",
+    "plot": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75."
+  },
+  {
+    "title": "Inception",
+    "genre": "Action",
+    "plot": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt"]
+  },
+  {
+    "title": "The Matrix",
+    "genre": "Action",
+    "plot": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "cast": ["Keanu Reeves", "Laurence Fishburne"]
+  },
+  {
+    "title": "Fight Club",
+    "genre": "Drama",
+    "plot": "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.",
+    "cast": ["Brad Pitt", "Edward Norton"]
+  },
+  {
+    "title": "The Silence of the Lambs",
+    "genre": "Crime",
+    "plot": "A young FBI cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
+    "cast": ["Jodie Foster", "Anthony Hopkins"]
+  }
+]
+}
