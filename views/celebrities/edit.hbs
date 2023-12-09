@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <h1 class="text-center">Edit Celebrity</h1>
+
+  <form  class="container-sm mx-auto" style="max-width: 400px;" action="/celebrities/{{celebrity._id}}" method="POST">
+
+    <div class="form-group mb-3">
+      <label for="name" style="color: #3498db;">Name</label>
+      <input type="text" class="form-control" name="name" id="name" value="{{celebrity.name}}" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="occupation" style="color: #3498db;">Occupation</label>
+      <input type="text" class="form-control" name="occupation" id="occupation" value="{{celebrity.occupation}}" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="catchPhrase" style="color: #3498db;">Catch Phrase</label>
+      <input type="text" class="form-control" name="catchPhrase" id="catchPhrase" value="{{celebrity.catchPhrase}}" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
