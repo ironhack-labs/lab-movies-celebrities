@@ -8,9 +8,7 @@ router.get('/', (req, res) => {
     .then((dataFromDataBase) => {
         res.render('celebrities/celebrities.hbs', { celebrities: dataFromDataBase });
     })
-    .catch((err) => {
-        console.error(err);
-    })
+    .catch(error => next(error));
 });
 router.get('/create', (req, res) => {
     res.render('celebrities/new-celebrity.hbs')
