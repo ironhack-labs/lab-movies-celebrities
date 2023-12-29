@@ -1,0 +1,24 @@
+<h2>MOVIE DETAILS</h2>
+<div class="movie-details">
+        <div class="card card-body" style="width: 18rem;">
+            <h2 class="card-title">Title: {{title}}</h2>
+            <p class="card-text">Genre: {{genre}}</p>
+            <p class="card-text">Plot: {{plot}}</p>
+            <p>Cast:</p>
+                <ul>
+                    {{#each cast}}
+                    <li>
+                        <p>Name: {{name}}</p>
+                        <p>Occupation: {{occupation}}</p>
+                        <p>Catch phrase: {{catchPhrase}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+        </div>
+</div>
+
+<form action="/movies/{{_id}}/delete" method="post">
+    <button type="submit">Delete</button>
+</form>
+
+<a href="/movies/{{_id}}/edit">Edit movie</a>
