@@ -1,0 +1,14 @@
+<h2>Movies</h2>
+<ul class="movies_list">
+    {{#each movies}}
+        <li>
+            {{this.title}} 
+            &nbsp; 
+            - 
+            &nbsp;  
+            <a href="/movies/{{this.id}}">view movie</a> 
+            &nbsp; 
+            <a href="/movies/{{this.id}}/edit">edit movie</a>
+        </li>
+    {{/each}}
+</ul>

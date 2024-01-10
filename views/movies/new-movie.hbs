@@ -1,0 +1,17 @@
+<section>
+    <h2>Add movie</h2>
+    <div>
+        <form action="/movies/create" method="post">
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="genre" placeholder="Genre">
+            <textarea rows="3" name="plot" placeholder="Plot"></textarea>
+            <label for="cast">Choose casts:</label>
+            <select name="cast" id="cast" multiple>
+                {{#each celebrities}}
+                    <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
