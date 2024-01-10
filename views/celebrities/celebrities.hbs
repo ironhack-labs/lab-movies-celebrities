@@ -1,0 +1,10 @@
+<h1 class="page-title">All Celebrities</h1>
+<div class="model">
+    {{#each celebrities}}
+    <div class="model-card">
+        <img src="{{image}}" alt="{{name}}">
+        <h2>{{name}}</h2>
+        <a href="/celebrities/{{_id}}" style="font-size: 18px">See More</a>
+    </div>
+    {{/each}}
+</div>

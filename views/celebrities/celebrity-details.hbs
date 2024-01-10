@@ -1,0 +1,31 @@
+<h1 class="page-title">Celebrity Details</h1>
+<div class="model-info">
+    <img src="{{celebrity.image}}" alt="{{celebrity.name}}" class="model-img">
+
+    <div class="details">
+        <p><span class="subtitle">Name: </span>{{celebrity.name}}</p>
+        <p><span class="subtitle">Occupation: </span>{{celebrity.occupation}}</p>
+        <p><span class="subtitle">Catch Phrase: </span><i>"{{celebrity.catchPhrase}}"</i></p>
+        {{#if movies}}
+             <div><span class="subtitle">Movies: 
+                <ul class="list">
+                    {{#each movies}}
+                    <li>{{title}}</li>
+                    {{/each}}
+                </ul>
+             </div>
+        {{/if}}
+    </div>
+</div>
+<div class="btns">
+    <form action="/celebrities/delete/{{celebrity._id}}" method="post">
+        <button type="submit" class="details-btn">Delete</button>
+    </form>
+
+    <form action="/celebrities/edit/{{celebrity._id}}" method="get">
+        <button type="submit" class="details-btn">Update</button>
+    </form>
+
+</div>
+
+
