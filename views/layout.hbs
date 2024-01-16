@@ -11,11 +11,32 @@
   </head>
 
   <body>
-    <nav id="nav-bar">
-      <a href="/celebrities">Celebrities</a>
-      <a href="/celebrities/new">New Celebrity</a>
-      <a href="/movies">Movies</a>
-      <a href="/movies/new">New Movie</a>
+    <nav>
+      <div id="nav-bar">
+        <div>
+          <a href="/celebrities">Celebrities</a>
+          <a href="/celebrities/new">New Celebrity</a>
+         <a href="/movies">Movies</a>
+         <a href="/movies/new">New Movie</a> 
+        </div>
+
+        <div id="auth-btn">
+          {{#unless currentUser}}
+          <a href="/signup">Sign up</a>
+          <a href="/login">Log in</a>
+          {{/unless}}
+          {{#if currentUser}}
+            <form action="/logout" method="post" id="log-out-btn">
+              <button type="submit">Log out</button>
+            </form>
+          {{/if}}
+        </div>
+      </div>
+      
+      {{#if currentUser}}
+        <h3 style="font-size:20px">Welcome, <span style="font-weight:900">{{currentUser.username}}</span></h3>
+      {{/if}}
+
     </nav>
 
       {{{body}}}

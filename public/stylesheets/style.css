@@ -7,13 +7,23 @@ a {
   color: #00b7ff;
 }
 
+nav h3{
+  padding: 20px;
+  margin-left: 50px;
+}
+
 #nav-bar{
   display: flex;
   flex-direction: row;
   font-size: 18px;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 2px solid #00b7ff;
   background-color: #00b7ff;
+}
+
+#nav-bar div{
+  display: flex;
+  flex-direction: row;
 }
 
 #nav-bar a{
@@ -22,6 +32,24 @@ a {
   border-radius: 20px;
   padding: 20px;
   margin: 20px 50px;
+}
+
+#auth-btn{
+  column-gap: 15px;
+  margin: 0px 10px;
+}
+
+#auth-btn a {
+  background-color: darkblue;
+  border: 1px solid white;
+  color: white;
+  margin: 20px 10px;
+}
+
+#log-out-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #title{
@@ -75,6 +103,7 @@ a {
   align-items: center;
   row-gap: 25px;
   font-size: 1.5em;
+  text-align: center;
 }
 
 button{
@@ -85,7 +114,7 @@ button{
 }
 
 .model-info{
-  margin: 0px 100px;
+  margin-top: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -95,13 +124,13 @@ button{
 }
 
 .model-img{
-  width: 300px;
+  width: 250px;
   border: 1px solid black;
   border-radius: 20px;
 }
 
 .details{
-  font-size: 1.5em;
+  font-size: 1.2em;
   width: 500px;
   line-height: 35px;
 }
@@ -123,4 +152,5 @@ button{
   column-gap: 40px;
   padding-left: 50px;
   font-size: 18px;
+  margin-top: 30px;
 }

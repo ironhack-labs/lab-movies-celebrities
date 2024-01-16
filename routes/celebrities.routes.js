@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
-const Movie = require("../models/Movie.model")
+const Movie = require("../models/Movie.model");
+const isLoggedIn = require("../utils/route-guard");
 
 router.get("/", (req, res, next) => {
   Celebrity.find()
@@ -12,11 +13,11 @@ router.get("/", (req, res, next) => {
   })
 });
 
-router.get("/new", (req, res, next) => {
+router.get("/new", isLoggedIn, (req, res, next) => {
   res.render("celebrities/new-celebrity");
 });
 
-router.post("/create", (req, res, next)=>{
+router.post("/create", isLoggedIn, (req, res, next)=>{
   const {name, occupation, catchPhrase, image} = req.body;
 
   Celebrity.create({name, occupation, catchPhrase, image})
@@ -30,7 +31,7 @@ router.post("/create", (req, res, next)=>{
   })
 });
 
-router.post("/delete/:id", (req, res, next)=>{
+router.post("/delete/:id",  isLoggedIn, (req, res, next)=>{
   Celebrity.findByIdAndDelete(req.params.id)
   .then(()=>{
     res.redirect("/celebrities");
@@ -40,7 +41,7 @@ router.post("/delete/:id", (req, res, next)=>{
   })
 });
 
-router.get("/edit/:id", (req, res, next) => {
+router.get("/edit/:id", isLoggedIn, (req, res, next) => {
   Celebrity.findById(req.params.id)
   .then((celebrity)=>{
     res.render("celebrities/edit-celebrity", celebrity)
@@ -50,7 +51,7 @@ router.get("/edit/:id", (req, res, next) => {
   })
 });
 
-router.post("/update/:id", (req, res, next)=>{
+router.post("/update/:id", isLoggedIn, (req, res, next)=>{
   const {name, occupation, catchPhrase, image} = req.body;
   
   Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase, image})
@@ -62,7 +63,7 @@ router.post("/update/:id", (req, res, next)=>{
   })
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", isLoggedIn, async (req, res, next) => {
   try{
     const celebrity = await Celebrity.findById(req.params.id);
     const movies = await Movie.find({celebrity: req.params.id});
