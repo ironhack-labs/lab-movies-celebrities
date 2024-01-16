@@ -39,7 +39,15 @@
 
     </nav>
 
+      {{#if successMessage}}
+        <div id="success">{{successMessage}}</div>
+      {{/if}}
+
       {{{body}}}
+
+      {{#if errorMessage}}
+        <div id="error">{{errorMessage}}</div>
+      {{/if}}
 
     <script src="/javascripts/script.js"></script>
   </body>

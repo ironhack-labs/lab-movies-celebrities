@@ -23,9 +23,11 @@ router.post("/create", isLoggedIn, (req, res, next)=>{
   Celebrity.create({name, occupation, catchPhrase, image})
   .then((result)=>{
     console.log ("New celebrity was added", result);
+    req.flash("successMessage", `You successfully addded ${result.name}.`);
     res.redirect ("/celebrities")
   })
   .catch((err)=>{
+    req.flash("errorMessage", "Something went wrong, " + err);
     res.redirect("/celebrities/new");
     // next(err);
   })
@@ -34,6 +36,7 @@ router.post("/create", isLoggedIn, (req, res, next)=>{
 router.post("/delete/:id",  isLoggedIn, (req, res, next)=>{
   Celebrity.findByIdAndDelete(req.params.id)
   .then(()=>{
+    req.flash("successMessage", `Your deletion was successful.`);
     res.redirect("/celebrities");
   })
   .catch((err)=>{
@@ -55,7 +58,8 @@ router.post("/update/:id", isLoggedIn, (req, res, next)=>{
   const {name, occupation, catchPhrase, image} = req.body;
   
   Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase, image})
-  .then(()=>{
+  .then((celebrity)=>{
+    req.flash("successMessage", `You successfully updated ${celebrity.name}.`);
     res.redirect("/celebrities/" + req.params.id);
   })
   .catch((err)=>{

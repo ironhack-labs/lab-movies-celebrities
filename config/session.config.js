@@ -2,6 +2,8 @@
  
 // require session
 const session = require('express-session');
+
+const flash = require('connect-flash');
  
 // ADDED: require mongostore
 const MongoStore = require('connect-mongo');
@@ -31,4 +33,6 @@ module.exports = app => {
       })
     })
   );
+
+  app.use(flash());
 };

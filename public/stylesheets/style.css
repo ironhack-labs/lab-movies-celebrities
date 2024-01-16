@@ -96,7 +96,7 @@ nav h3{
 }
 
 .form{
-  margin: 100px;
+  margin: 80px 100px 40px 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,4 +153,26 @@ button{
   padding-left: 50px;
   font-size: 18px;
   margin-top: 30px;
+}
+
+#error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightcoral;
+  text-align: center;
+  padding: 20px;
+  margin: 0px 450px;
+}
+
+#success{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightgreen;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 0px 500px;
 }

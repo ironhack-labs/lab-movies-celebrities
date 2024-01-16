@@ -35,10 +35,12 @@ router.post("/create", isLoggedIn, (req, res, next) => {
     })
     .then((result)=>{
         console.log ("A new movie was added:", result);
+        req.flash("successMessage", `You successfully addded ${result.title} in the Book Collection.`);
         res.redirect("/movies");
     })
     .catch((err)=>{
-        next(err);
+        req.flash("errorMessage", "Sorry, something went wrong " + err);
+        res.redirect("/movies/new");
     })
 });
 
@@ -52,7 +54,8 @@ router.post("/delete/:id",  isLoggedIn, async (req, res, next)=>{
 
     Movie.findByIdAndDelete(req.params.id)
     .then(()=>{
-        res.redirect("/movies")
+        req.flash("successMessage", "Your deletion was successful.")
+        res.redirect("/movies");
     })
     .catch((err)=>{
         next(err);
@@ -88,7 +91,8 @@ router.post("/update/:id", isLoggedIn, (req, res, next)=>{
     const {title, genre, plot, celebrity, image} = req.body;
     
     Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, celebrity, image})
-    .then(()=>{
+    .then((movie)=>{
+      req.flash("successMessage", `You successfully updated ${movie.title}.`);  
       res.redirect("/movies/" + req.params.id);
     })
     .catch((err)=>{
