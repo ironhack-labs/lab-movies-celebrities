@@ -24,49 +24,63 @@ router.get("/new", isLoggedIn, (req, res, next) => {
     })
 });
 
-router.post("/create", isLoggedIn, (req, res, next) => {
-    Movie.create({
-        title: req.body.title, 
-        genre: req.body.genre, 
-        plot: req.body.plot, 
-        celebrity: req.body.celebrity,
-        addedBy: req.session.currentUser._id,
-        image: req.body.image
-    })
-    .then((result)=>{
-        console.log ("A new movie was added:", result);
-        req.flash("successMessage", `You successfully addded ${result.title} in the Book Collection.`);
+router.post("/create", isLoggedIn, async (req, res, next) => {
+    
+    try{
+        const movie = await Movie.create({
+            title: req.body.title, 
+            genre: req.body.genre, 
+            plot: req.body.plot, 
+            cast: req.body.cast,
+            addedBy: req.session.currentUser._id,
+            image: req.body.image
+        });
+    
+        const celebrityUpdate = await Celebrity.updateMany(
+            {_id: {$in: req.body.cast }},
+            {$push: {movies : movie}},
+            {multi: true}
+        );
+
+        req.flash("successMessage", `You successfully added ${movie.title} in the Book Collection.`);
         res.redirect("/movies");
-    })
-    .catch((err)=>{
+
+    } catch (err){
         req.flash("errorMessage", "Sorry, something went wrong " + err);
         res.redirect("/movies/new");
-    })
+    }
+
 });
 
 router.post("/delete/:id",  isLoggedIn, async (req, res, next)=>{
-    const movie = await Movie.findById(req.params.id);
 
-    if(!movie.addedBy.equals(req.session.currentUser._id)){
-        res.redirect ("/movies");
-        return;
-    }
+    try{
+        const theMovie = await Movie.findById(req.params.id);
 
-    Movie.findByIdAndDelete(req.params.id)
-    .then(()=>{
-        req.flash("successMessage", "Your deletion was successful.")
+        if(!theMovie.addedBy.equals(req.session.currentUser._id)){
+            res.redirect ("/movies");
+            return;
+        }
+
+        const celebrityUpdate = await Celebrity.updateMany(
+            {_id: {$in: theMovie.cast}},
+            {$pull: {movies: theMovie._id}},
+            {multi: true}
+        );
+
+        const movie = await Movie.findByIdAndDelete(req.params.id);
+        req.flash("successMessage", `Your deletion was successful.`);
         res.redirect("/movies");
-    })
-    .catch((err)=>{
+        
+    } catch(err){
         next(err);
-    })
-
+    }
 });
 
 router.get("/edit/:id", isLoggedIn, async (req, res, next) => {
     try{
         const celebrities = await Celebrity.find();
-        const movie = await Movie.findById(req.params.id).populate("celebrity");
+        const movie = await Movie.findById(req.params.id).populate("cast");
 
         if(!movie.addedBy.equals(req.session.currentUser._id)){
             res.redirect ("/movies");
@@ -74,10 +88,12 @@ router.get("/edit/:id", isLoggedIn, async (req, res, next) => {
         }
 
         celebrities.forEach((celebrity)=>{
-            if(celebrity._id.equals(movie.celebrity._id)){
-                celebrity.isInMovie = true;
-                console.log(celebrity);
-            }
+            movie.cast.forEach((celeb)=>{
+                if(celebrity._id.equals(celeb._id)){
+                    celebrity.isInMovie = true;
+                    console.log(celebrity);
+                }
+            })
         });
 
         res.render("movies/edit-movie",{celebrities, movie})
@@ -87,21 +103,34 @@ router.get("/edit/:id", isLoggedIn, async (req, res, next) => {
     }
 });
   
-router.post("/update/:id", isLoggedIn, (req, res, next)=>{
-    const {title, genre, plot, celebrity, image} = req.body;
-    
-    Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, celebrity, image})
-    .then((movie)=>{
-      req.flash("successMessage", `You successfully updated ${movie.title}.`);  
-      res.redirect("/movies/" + req.params.id);
-    })
-    .catch((err)=>{
-      next(err);
-    })
+router.post("/update/:id", isLoggedIn, async (req, res, next)=>{
+    const {title, genre, plot, cast, image} = req.body;
+    console.log(cast);
+
+    try{
+        const theMovie = await Movie.findById(req.params.id);
+        const celebrityDelete = await Celebrity.updateMany(
+            {_id: {$in: theMovie.cast}},
+            {$pull: {movies: theMovie._id}},
+            {multi: true}
+        );
+
+        const movie = await Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, cast, image}, {new: true});
+        const celebrityUpdate = await Celebrity.updateMany(
+            {_id: {$in: req.body.cast}},
+            {$push: {movies : movie}},
+            {multi: true}
+        );
+
+        req.flash("successMessage", `You successfully updated ${movie.title}.`);  
+        res.redirect("/movies/" + req.params.id);
+    } catch(err){
+        next(err);
+    }
 });
 
 router.get("/:id", isLoggedIn, (req, res, next) => {
-    Movie.findById(req.params.id).populate("celebrity").populate("addedBy")
+    Movie.findById(req.params.id).populate("cast").populate("addedBy")
     .then((movie)=>{
         const deleteable = movie.addedBy.equals(req.session.currentUser._id);
         res.render("movies/movie-details", {movie, deleteable});

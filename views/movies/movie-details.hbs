@@ -6,7 +6,13 @@
         <p><span class="subtitle">Title: </span>{{movie.title}}</p>
         <p><span class="subtitle">Genre: </span>{{movie.genre}}</p>
         <p><span class="subtitle">Plot: </span>{{movie.plot}}</p>
-        <p><span class="subtitle">Celebrity: </span>{{movie.celebrity.name}}</p>
+        <p><span class="subtitle">Cast: </span>
+        
+        {{#each movie.cast}}
+            <span><a href="/celebrities/{{_id}}">{{name}}</a> | </span>
+        {{/each}}
+
+        </p>
         <p><span class="subtitle">Added By: </span>{{movie.addedBy.username}}</p>
     </div>   
 </div>

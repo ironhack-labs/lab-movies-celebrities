@@ -69,9 +69,8 @@ router.post("/update/:id", isLoggedIn, (req, res, next)=>{
 
 router.get("/:id", isLoggedIn, async (req, res, next) => {
   try{
-    const celebrity = await Celebrity.findById(req.params.id);
-    const movies = await Movie.find({celebrity: req.params.id});
-      res.render("celebrities/celebrity-details", {celebrity, movies});
+    const celebrity = await Celebrity.findById(req.params.id).populate("movies");
+      res.render("celebrities/celebrity-details", {celebrity});
   } catch (err){
     next(err);
   }

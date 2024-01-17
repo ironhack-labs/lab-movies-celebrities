@@ -6,11 +6,11 @@
         <p><span class="subtitle">Name: </span>{{celebrity.name}}</p>
         <p><span class="subtitle">Occupation: </span>{{celebrity.occupation}}</p>
         <p><span class="subtitle">Catch Phrase: </span><i>"{{celebrity.catchPhrase}}"</i></p>
-        {{#if movies}}
+        {{#if celebrity.movies}}
              <div><span class="subtitle">Movies: 
                 <ul class="list">
-                    {{#each movies}}
-                    <li>{{title}}</li>
+                    {{#each celebrity.movies}}
+                    <li><a href="/movies/{{_id}}">{{title}}</a></li>
                     {{/each}}
                 </ul>
              </div>

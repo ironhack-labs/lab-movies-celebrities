@@ -34,8 +34,9 @@ router.post(("/signup"), async (req, res, next)=>{
             email: email,
             password: hashedPassword
         })
-
-        res.redirect("/");
+        
+        req.flash("successMessage", "Your account was succesfully created.")
+        res.redirect("/login");
     } catch(err) {
         req.flash("errorMessage", "Sign up unsuccessful " + err)
         res.redirect("/signup");

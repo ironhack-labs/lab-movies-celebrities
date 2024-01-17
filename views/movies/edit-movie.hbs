@@ -17,12 +17,12 @@
 
      <div>
         <label>Celebrity:</label>
-        <select name="celebrity">
+        <select name="cast" multiple>
             {{#each celebrities}}
                 {{#if isInMovie}}
-                    <option value="{{this._id}}" selected>{{this.name}}</option>
+                    <option value="{{_id}}" selected>{{name}}</option>
                 {{else}}
-                    <option value="{{this._id}}">{{this.name}}</option>
+                    <option value="{{_id}}">{{name}}</option>
                 {{/if}}
             {{/each}}
         </select>
