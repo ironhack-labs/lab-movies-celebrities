@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
 const isLoggedIn = require("../utils/route-guard");
+const isBanned = require("../utils/banned-user");
 
 
 router.get("/", (req, res, next) => {
@@ -14,7 +15,7 @@ router.get("/", (req, res, next) => {
     })
 });
 
-router.get("/new", isLoggedIn, (req, res, next) => {
+router.get("/new", isLoggedIn, isBanned, (req, res, next) => {
     Celebrity.find()
     .then((celebrities)=>{
         res.render("movies/new-movie", {celebrities});
@@ -24,7 +25,7 @@ router.get("/new", isLoggedIn, (req, res, next) => {
     })
 });
 
-router.post("/create", isLoggedIn, async (req, res, next) => {
+router.post("/create", isLoggedIn, isBanned, async (req, res, next) => {
     
     try{
         const movie = await Movie.create({
@@ -52,7 +53,7 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
 
 });
 
-router.post("/delete/:id",  isLoggedIn, async (req, res, next)=>{
+router.post("/delete/:id",  isLoggedIn, isBanned, async (req, res, next)=>{
 
     try{
         const theMovie = await Movie.findById(req.params.id);
@@ -77,7 +78,7 @@ router.post("/delete/:id",  isLoggedIn, async (req, res, next)=>{
     }
 });
 
-router.get("/edit/:id", isLoggedIn, async (req, res, next) => {
+router.get("/edit/:id", isLoggedIn, isBanned, async (req, res, next) => {
     try{
         const celebrities = await Celebrity.find();
         const movie = await Movie.findById(req.params.id).populate("cast");
@@ -103,7 +104,7 @@ router.get("/edit/:id", isLoggedIn, async (req, res, next) => {
     }
 });
   
-router.post("/update/:id", isLoggedIn, async (req, res, next)=>{
+router.post("/update/:id", isLoggedIn, isBanned, async (req, res, next)=>{
     const {title, genre, plot, cast, image} = req.body;
     console.log(cast);
 
@@ -129,10 +130,10 @@ router.post("/update/:id", isLoggedIn, async (req, res, next)=>{
     }
 });
 
-router.get("/:id", isLoggedIn, (req, res, next) => {
+router.get("/:id", isLoggedIn, isBanned, (req, res, next) => {
     Movie.findById(req.params.id).populate("cast").populate("addedBy")
     .then((movie)=>{
-        const deleteable = movie.addedBy.equals(req.session.currentUser._id);
+        const deleteable = movie.addedBy.equals(req.session.currentUser._id) || req.session.currentUser.admin;
         res.render("movies/movie-details", {movie, deleteable});
     })
     .catch((err)=>{

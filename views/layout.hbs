@@ -16,8 +16,13 @@
         <div>
           <a href="/celebrities">Celebrities</a>
           <a href="/celebrities/new">New Celebrity</a>
-         <a href="/movies">Movies</a>
-         <a href="/movies/new">New Movie</a> 
+          <a href="/movies">Movies</a>
+          <a href="/movies/new">New Movie</a>
+          
+          {{#if currentUser.admin}}
+            <a href="/users">Users</a>
+          {{/if}}
+          
         </div>
 
         <div id="auth-btn">
@@ -41,6 +46,10 @@
 
       {{#if successMessage}}
         <div id="success">{{successMessage}}</div>
+      {{/if}}
+
+      {{#if bannedMessage}}
+        <div id="bannedMess">{{bannedMessage}}</div>
       {{/if}}
 
       {{{body}}}

@@ -177,6 +177,34 @@ button{
   margin: 20px 500px;
 }
 
+#bannedMess{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightcoral;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 20px 500px;
+}
+
 .form select{
   height: 50px;
+}
+
+.list-users {
+  margin: 40px 100px;
+}
+.list-users li{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-btn{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 0.9em;
 }

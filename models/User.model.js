@@ -20,6 +20,15 @@ const userSchema = new Schema ({
         type: String, 
         unique: true, 
         required: true 
+    },
+    regular: {
+        type: Boolean
+    },
+    admin: {
+        type: Boolean
+    },
+    banned: {
+        type: Boolean
     }
 },
 {

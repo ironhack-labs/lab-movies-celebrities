@@ -30,6 +30,7 @@ app.use((req, res, next)=>{
     app.locals.currentUser = req.session.currentUser;
     app.locals.errorMessage = req.flash("errorMessage");
     app.locals.successMessage = req.flash("successMessage");
+    app.locals.bannedMessage = req.flash("bannedMessage");
     next();
 });
 
