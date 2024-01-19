@@ -6,3 +6,8 @@ body {
 a {
   color: #00b7ff;
 }
+.index-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
