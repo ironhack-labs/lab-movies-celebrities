@@ -1,5 +1,5 @@
 <h1 class="page-title">Add New Movie</h1>
-<form action="/movies/create" method="post" class="form">
+<form action="/movies/create" method="post" class="form" enctype="multipart/form-data">
     <div>
         <label>Title:</label>
         <input type="text" name="title">
@@ -24,9 +24,9 @@
         </select>
     </div>
 
-     <div>
+     <div class="image">
         <label>Image:</label>
-        <input type="text" name="image">
+        <input type="file" name="image">
     </div>
 
 

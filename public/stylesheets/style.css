@@ -208,3 +208,22 @@ button{
   padding: 10px;
   font-size: 0.9em;
 }
+
+.image{
+  margin-left: 150px;
+}
+
+#input-img{
+  visibility: hidden;
+}
+
+#update-img-div{
+  font-size: 0.9em;
+  padding: 10px;
+}
+
+#update-img-div img{
+  border-radius: 20px;
+  border: 1px solid black;
+  margin: 0px 15px;
+}

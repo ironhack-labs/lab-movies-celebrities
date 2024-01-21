@@ -3,6 +3,7 @@ const Movie = require("../models/Movie.model");
 const Celebrity = require("../models/Celebrity.model");
 const isLoggedIn = require("../utils/route-guard");
 const isBanned = require("../utils/banned-user");
+const uploadImg = require("../config/cloudinary");
 
 
 router.get("/", (req, res, next) => {
@@ -25,7 +26,7 @@ router.get("/new", isLoggedIn, isBanned, (req, res, next) => {
     })
 });
 
-router.post("/create", isLoggedIn, isBanned, async (req, res, next) => {
+router.post("/create", isLoggedIn, isBanned, uploadImg.single("image"), async (req, res, next) => {
     
     try{
         const movie = await Movie.create({
@@ -34,8 +35,10 @@ router.post("/create", isLoggedIn, isBanned, async (req, res, next) => {
             plot: req.body.plot, 
             cast: req.body.cast,
             addedBy: req.session.currentUser._id,
-            image: req.body.image
+            image: req.file.path
         });
+
+        console.log(movie);
     
         const celebrityUpdate = await Celebrity.updateMany(
             {_id: {$in: req.body.cast }},
@@ -104,20 +107,33 @@ router.get("/edit/:id", isLoggedIn, isBanned, async (req, res, next) => {
     }
 });
   
-router.post("/update/:id", isLoggedIn, isBanned, async (req, res, next)=>{
-    const {title, genre, plot, cast, image} = req.body;
+router.post("/update/:id", isLoggedIn, isBanned, uploadImg.single("image"), async (req, res, next)=>{
+    const {title, genre, plot, cast} = req.body;
+
+    const updatedCelebrity = {
+        title,
+        genre,
+        plot, 
+        cast
+    }
+
+    if(req.file){
+        updatedCelebrity.image = req.file.path;
+    }
+  
+
     console.log(cast);
 
     try{
         const theMovie = await Movie.findById(req.params.id);
-        const celebrityDelete = await Celebrity.updateMany(
+        const celebrityDeleteEdit = await Celebrity.updateMany(
             {_id: {$in: theMovie.cast}},
             {$pull: {movies: theMovie._id}},
             {multi: true}
         );
 
-        const movie = await Movie.findByIdAndUpdate(req.params.id, {title, genre, plot, cast, image}, {new: true});
-        const celebrityUpdate = await Celebrity.updateMany(
+        const movie = await Movie.findByIdAndUpdate(req.params.id, updatedCelebrity, {new: true});
+        const celebrityUpdateEdit = await Celebrity.updateMany(
             {_id: {$in: req.body.cast}},
             {$push: {movies : movie}},
             {multi: true}
@@ -133,8 +149,8 @@ router.post("/update/:id", isLoggedIn, isBanned, async (req, res, next)=>{
 router.get("/:id", isLoggedIn, isBanned, (req, res, next) => {
     Movie.findById(req.params.id).populate("cast").populate("addedBy")
     .then((movie)=>{
-        const deleteable = movie.addedBy.equals(req.session.currentUser._id) || req.session.currentUser.admin;
-        res.render("movies/movie-details", {movie, deleteable});
+        const deletable = movie.addedBy.equals(req.session.currentUser._id) || req.session.currentUser.admin;
+        res.render("movies/movie-details", {movie, deletable});
     })
     .catch((err)=>{
         next(err);

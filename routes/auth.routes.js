@@ -38,7 +38,7 @@ router.post(("/signup"), async (req, res, next)=>{
             banned: false
         })
         
-        req.flash("successMessage", "Your account was succesfully created.")
+        req.flash("successMessage", "Your account was successfully created.")
         res.redirect("/login");
     } catch(err) {
         req.flash("errorMessage", "Sign up unsuccessful " + err)
