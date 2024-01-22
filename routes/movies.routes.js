@@ -4,9 +4,10 @@ const Celebrity = require("../models/Celebrity.model");
 const isLoggedIn = require("../utils/route-guard");
 const isBanned = require("../utils/banned-user");
 const uploadImg = require("../config/cloudinary");
+const isTempPassword = require("../utils/temp-password");
 
 
-router.get("/", (req, res, next) => {
+router.get("/", isTempPassword, (req, res, next) => {
     Movie.find()
     .then((movies)=>{
         res.render("movies/movies", {movies});
@@ -16,7 +17,7 @@ router.get("/", (req, res, next) => {
     })
 });
 
-router.get("/new", isLoggedIn, isBanned, (req, res, next) => {
+router.get("/new", isLoggedIn, isBanned, isTempPassword, (req, res, next) => {
     Celebrity.find()
     .then((celebrities)=>{
         res.render("movies/new-movie", {celebrities});
@@ -26,7 +27,7 @@ router.get("/new", isLoggedIn, isBanned, (req, res, next) => {
     })
 });
 
-router.post("/create", isLoggedIn, isBanned, uploadImg.single("image"), async (req, res, next) => {
+router.post("/create", isLoggedIn, isBanned, isTempPassword, uploadImg.single("image"), async (req, res, next) => {
     
     try{
         const movie = await Movie.create({
@@ -56,7 +57,7 @@ router.post("/create", isLoggedIn, isBanned, uploadImg.single("image"), async (r
 
 });
 
-router.post("/delete/:id",  isLoggedIn, isBanned, async (req, res, next)=>{
+router.post("/delete/:id",  isLoggedIn, isBanned, isTempPassword, async (req, res, next)=>{
 
     try{
         const theMovie = await Movie.findById(req.params.id);
@@ -81,7 +82,7 @@ router.post("/delete/:id",  isLoggedIn, isBanned, async (req, res, next)=>{
     }
 });
 
-router.get("/edit/:id", isLoggedIn, isBanned, async (req, res, next) => {
+router.get("/edit/:id", isLoggedIn, isBanned, isTempPassword, async (req, res, next) => {
     try{
         const celebrities = await Celebrity.find();
         const movie = await Movie.findById(req.params.id).populate("cast");
@@ -107,7 +108,7 @@ router.get("/edit/:id", isLoggedIn, isBanned, async (req, res, next) => {
     }
 });
   
-router.post("/update/:id", isLoggedIn, isBanned, uploadImg.single("image"), async (req, res, next)=>{
+router.post("/update/:id", isLoggedIn, isBanned, isTempPassword, uploadImg.single("image"), async (req, res, next)=>{
     const {title, genre, plot, cast} = req.body;
 
     const updatedCelebrity = {
@@ -146,7 +147,7 @@ router.post("/update/:id", isLoggedIn, isBanned, uploadImg.single("image"), asyn
     }
 });
 
-router.get("/:id", isLoggedIn, isBanned, (req, res, next) => {
+router.get("/:id", isLoggedIn, isBanned, isTempPassword, (req, res, next) => {
     Movie.findById(req.params.id).populate("cast").populate("addedBy")
     .then((movie)=>{
         const deletable = movie.addedBy.equals(req.session.currentUser._id) || req.session.currentUser.admin;

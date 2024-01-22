@@ -227,3 +227,7 @@ button{
   border: 1px solid black;
   margin: 0px 15px;
 }
+
+#forgot-div{
+  margin: 20px;
+}

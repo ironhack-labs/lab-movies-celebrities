@@ -29,6 +29,9 @@ const userSchema = new Schema ({
     },
     banned: {
         type: Boolean
+    },
+    isTempPassword: {
+        type: Boolean
     }
 },
 {

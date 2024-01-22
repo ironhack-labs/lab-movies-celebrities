@@ -3,8 +3,9 @@ const Celebrity = require("../models/Celebrity.model");
 const Movie = require("../models/Movie.model");
 const isLoggedIn = require("../utils/route-guard");
 const isBanned = require("../utils/banned-user");
+const isTempPassword = require("../utils/temp-password");
 
-router.get("/", (req, res, next) => {
+router.get("/", isTempPassword, (req, res, next) => {
   Celebrity.find()
   .then((celebrities)=>{
     res.render("celebrities/celebrities", {celebrities});
@@ -14,17 +15,17 @@ router.get("/", (req, res, next) => {
   })
 });
 
-router.get("/new", isLoggedIn, isBanned, (req, res, next) => {
+router.get("/new", isLoggedIn, isBanned, isTempPassword, (req, res, next) => {
   res.render("celebrities/new-celebrity");
 });
 
-router.post("/create", isLoggedIn, isBanned, (req, res, next)=>{
+router.post("/create", isLoggedIn, isBanned, isTempPassword, (req, res, next)=>{
   const {name, occupation, catchPhrase, image} = req.body;
 
   Celebrity.create({name, occupation, catchPhrase, image})
   .then((result)=>{
     console.log ("New celebrity was added", result);
-    req.flash("successMessage", `You successfully addded ${result.name}.`);
+    req.flash("successMessage", `You successfully added ${result.name}.`);
     res.redirect ("/celebrities")
   })
   .catch((err)=>{
@@ -45,7 +46,7 @@ router.post("/delete/:id",  isLoggedIn, isBanned, (req, res, next)=>{
   })
 });
 
-router.get("/edit/:id", isLoggedIn, isBanned, (req, res, next) => {
+router.get("/edit/:id", isLoggedIn, isBanned, isTempPassword, (req, res, next) => {
   Celebrity.findById(req.params.id)
   .then((celebrity)=>{
     res.render("celebrities/edit-celebrity", celebrity)
@@ -55,7 +56,7 @@ router.get("/edit/:id", isLoggedIn, isBanned, (req, res, next) => {
   })
 });
 
-router.post("/update/:id", isLoggedIn, isBanned, (req, res, next)=>{
+router.post("/update/:id", isLoggedIn, isBanned, isTempPassword, (req, res, next)=>{
   const {name, occupation, catchPhrase, image} = req.body;
   
   Celebrity.findByIdAndUpdate(req.params.id, {name, occupation, catchPhrase, image})
@@ -68,7 +69,7 @@ router.post("/update/:id", isLoggedIn, isBanned, (req, res, next)=>{
   })
 });
 
-router.get("/:id", isLoggedIn, isBanned, async (req, res, next) => {
+router.get("/:id", isLoggedIn, isBanned, isTempPassword, async (req, res, next) => {
   try{
     const celebrity = await Celebrity.findById(req.params.id).populate("movies");
       res.render("celebrities/celebrity-details", {celebrity});
