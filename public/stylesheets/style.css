@@ -231,3 +231,25 @@ button{
 #forgot-div{
   margin: 20px;
 }
+
+#edit-name,
+#edit-occupation,
+#edit-catchPhrase{
+  display: none;
+}
+
+#name,
+#occupation,
+#catchPhrase{
+  display: flex;
+  flex: row;
+  align-items: baseline;
+  column-gap: 15px;
+}
+
+#name button,
+#occupation button,
+#catchPhrase button{
+  background-color: white;
+  border: none;
+}

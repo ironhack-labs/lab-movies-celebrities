@@ -46,6 +46,36 @@ router.post("/delete/:id",  isLoggedIn, isBanned, (req, res, next)=>{
   })
 });
 
+router.post("/api/edit/:id", isLoggedIn, isBanned, isTempPassword, (req, res, next)=>{
+  const update = {};
+  const {name, occupation, catchPhrase} = req.body;
+  if(name) update.name = name;
+  if(occupation) update.occupation = occupation;
+  if(catchPhrase) update.catchPhrase = catchPhrase;
+  
+
+  Celebrity.findByIdAndUpdate(
+      req.params.id,
+      update,
+      {new: true}
+  ).then((response)=>{
+      res.json(response);
+  })
+  .catch((err)=>{
+      next(err);
+  })
+});
+
+// router.get("/api/details/:id", isLoggedIn, isBanned, isTempPassword, (req, res, next)=>{
+//   Celebrity.findById(req.params.id)
+//   .then((celeb)=>{
+//     res.json({celebrity: celeb});
+//   })
+//   .catch((err)=>{
+//     res.json({error:err});
+//   })
+// });
+
 router.get("/edit/:id", isLoggedIn, isBanned, isTempPassword, (req, res, next) => {
   Celebrity.findById(req.params.id)
   .then((celebrity)=>{

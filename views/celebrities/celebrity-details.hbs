@@ -3,9 +3,39 @@
     <img src="{{celebrity.image}}" alt="{{celebrity.name}}" class="model-img">
 
     <div class="details">
-        <p><span class="subtitle">Name: </span>{{celebrity.name}}</p>
-        <p><span class="subtitle">Occupation: </span>{{celebrity.occupation}}</p>
-        <p><span class="subtitle">Catch Phrase: </span><i>"{{celebrity.catchPhrase}}"</i></p>
+        <div id="edit-name" data-id="{{celebrity._id}}">
+            <input  type="text" value="{{celebrity.name}}">
+            <button id="submit-name">Submit</button>
+            <button id="cancel-name">Cancel</button>
+        </div>
+
+        <div id="name">
+            <span id="subtitle-1" class="subtitle">Name: </span><span id="celeb-name">{{celebrity.name}}</span>
+            <button id="edit-name-btn">✎</button>
+        </div>
+
+        <div id="edit-occupation" data-id="{{celebrity._id}}">
+            <input  type="text" value="{{celebrity.occupation}}">
+            <button id="submit-occupation">Submit</button>
+            <button id="cancel-occupation">Cancel</button>
+        </div>
+
+        <div id="occupation">
+            <span id="subtitle-2" class="subtitle">Occupation: </span><span id="celeb-occupation">{{celebrity.occupation}}</span>
+            <button id="edit-occupation-btn">✎</button>
+        </div>
+        
+        <div id="edit-catchPhrase" data-id="{{celebrity._id}}">
+            <input  type="text" value="{{celebrity.catchPhrase}}">
+            <button id="submit-catchPhrase">Submit</button>
+            <button id="cancel-catchPhrase">Cancel</button>
+        </div>
+
+        <div id="catchPhrase">
+            <span id="subtitle-3" class="subtitle">Catch Phrase: </span><span id="celeb-catchPhrase">{{celebrity.catchPhrase}}</span>
+            <button id="edit-catchPhrase-btn">✎</button>
+        </div>
+        
         {{#if celebrity.movies}}
              <div><span class="subtitle">Movies: 
                 <ul class="list">
@@ -15,8 +45,10 @@
                 </ul>
              </div>
         {{/if}}
-    </div>
+
+    </div>  
 </div>
+
 <div class="btns">
     <form action="/celebrities/delete/{{celebrity._id}}" method="post">
         <button type="submit" class="details-btn">Delete</button>
@@ -29,3 +61,5 @@
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"></script>
+<script src="/javascripts/edit-celebrity.js"></script>
