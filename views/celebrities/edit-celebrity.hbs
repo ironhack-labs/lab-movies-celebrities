@@ -1,0 +1,22 @@
+<h2>Edit Movie</h2>
+<hr />
+<form action="/celebrities/{{id}}/edit" method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" value="{{name}}" name="name" />
+    </div>
+
+    <div class="mb-3">
+        <label for="ocupation" class="form-label">Ocupation</label>
+        <input type="text" class="form-control" id="ocupation" value="{{ocupation}}" name="ocupation" />
+    </div>
+
+    <div class="mb-3">
+        <label for="cp" class="form-label">Catch phrase</label>
+        <input type="text" class="form-control" id="cp" value="{{catchPhrase}}" name="cp" />
+    </div>
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+</form>

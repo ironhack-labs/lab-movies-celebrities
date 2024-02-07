@@ -1,0 +1,21 @@
+<h2>List of Movies</h2>
+<hr>
+<table class="table">
+    <tbody>
+        {{#each movies}}
+        <tr>
+            <td>
+                <a href="/movies/{{id}}">{{title}}</a>
+            </td>
+            <td>
+                <a href="/movies/{{id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+            </td>
+            <td>
+                <form action="/movies/{{id}}/delete" method="post">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
