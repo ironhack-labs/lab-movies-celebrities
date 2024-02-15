@@ -1,0 +1,12 @@
+<h1>Celebrities</h1>
+<a class="btn btn-success mr-2" href="/">Back Home</a>
+<a class="btn btn-primary" href="celebrities/new">Create New Celebrity</a>
+<ul class="list-group list-group-flush">
+  {{#each celebrities as |celebrity|}}
+    <li class="list-group-item">
+      <a href="celebrity/{{celebrity.id}}">
+        {{celebrity.name}}
+      </a>
+    </li>
+  {{/each}}
+</ul>

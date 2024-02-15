@@ -1,0 +1,39 @@
+<h1>Movie details</h1>
+<a class="btn btn-primary mr-3" href="/celebrity/{{celebrity.id}}">Back</a>
+<a class="btn btn-success mr-2" href="/">Home</a>
+
+<form action="/celebrity/{{celebrity.id}}" method="POST">
+  <div class="d-flex flex-column">
+    {{! - Name - }}
+    <div class="card-body">
+      <label class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        value="{{celebrity.name}}"
+      />
+    </div>
+    {{! - Occupation - }}
+    <div class="card-body">
+      <label class="form-label">Occupation</label>
+      <input
+        type="text"
+        class="form-control"
+        name="occupation"
+        value="{{celebrity.occupation}}"
+      />
+    </div>
+    {{! - Catch Phrase - }}
+    <div class="card-body">
+      <label class="form-label">Catch Phrase</label>
+      <textarea
+        type="text"
+        class="form-control"
+        name="catchPhrase"
+      >{{celebrity.catchPhrase}}</textarea>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

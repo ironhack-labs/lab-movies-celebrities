@@ -1,0 +1,39 @@
+<h1>New Celebrity</h1>
+<div class="mb-3 d-flex border-bottom pb-3">
+  <a class="btn btn-primary me-2" href="/celebrities">Back</a>
+</div>
+
+<form method="POST" action="/celebrities">
+  {{! - Name - }}
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input
+      name="name"
+      type="text"
+      class="form-control"
+      placeholder="Name of new celebrity"
+    />
+  </div>
+  {{! - occupation - }}
+  <div class="mb-3">
+    <label class="form-label">Occupation</label>
+    <input
+      name="occupation"
+      type="text"
+      class="form-control"
+      placeholder="Occupation of celebrity"
+    />
+  </div>
+  {{! - Catch Phrase - }}
+  <div class="mb-3">
+    <label class="form-label">Catch Phrase</label>
+    <input
+      name="catchPhrase"
+      type="text"
+      class="form-control"
+      placeholder="Catch Phrase of this Celebrity"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-success">Add celebritie</button>
+</form>

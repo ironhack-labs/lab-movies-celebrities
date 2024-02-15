@@ -1,0 +1,55 @@
+<h1>Movie details</h1>
+<a class="btn btn-primary mr-3" href="/movie/{{movie.id}}">Back</a>
+<a class="btn btn-success mr-2" href="/">Home</a>
+<form action="/movie/{{movie.id}}" method="POST">
+  <div class="d-flex flex-column">
+    {{! - Title - }}
+    <div class="card-body">
+      <label class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        value="{{movie.title}}"
+      />
+    </div>
+    {{! - Genre - }}
+    <div class="card-body">
+      <label class="form-label">Genre</label>
+      <input
+        type="text"
+        class="form-control"
+        name="genre"
+        value="{{movie.genre}}"
+      />
+    </div>
+    {{! - Plot - }}
+    <div class="card-body">
+      <label class="form-label">Plot</label>
+      <textarea
+        type="text"
+        class="form-control"
+        name="plot"
+      >{{movie.plot}}</textarea>
+    </div>
+    {{! - Casting - }}
+    {{#if haveCelebrities}}
+      <div class="card-body">
+        <label class="form-label">Select one celebrity</label>
+        <div class="d-flex justify-content-center">
+          <label>Casting:</label>
+          <div class="form-group">
+            <select name="cast" multiple>
+              {{#each celebrities as |celebrity|}}
+                <option value="{{celebrity.id}}">{{celebrity.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

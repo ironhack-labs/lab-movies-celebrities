@@ -1,0 +1,50 @@
+<h1>New Movie</h1>
+<div class="mb-3 d-flex border-bottom pb-3">
+  <a class="btn btn-primary me-2" href="/movies">Back</a>
+</div>
+
+<form method="POST" action="/movies">
+  {{! - Title - }}
+  <div class="mb-3">
+    <label class="form-label">Title Movie</label>
+    <input
+      name="title"
+      type="text"
+      class="form-control"
+      placeholder="Title of new movie"
+    />
+  </div>
+  {{! - Genre - }}
+  <div class="mb-3">
+    <label class="form-label">Genre</label>
+    <input
+      name="genre"
+      type="text"
+      class="form-control"
+      placeholder="Genre of movie"
+    />
+  </div>
+  {{! - Plot - }}
+  <div class="mb-3">
+    <label class="form-label">Plot</label>
+    <textarea name="plot" type="text" placeholder="plot"></textarea>
+  </div>
+  {{! - Casting - }}
+  {{#if haveCelebrities}}
+    <div>
+      <p>Select one celebrity</p>
+      <div>
+        <label for="cast">Casting:</label>
+        <div class="form-group">
+          <select name="cast" id="cast" multiple>
+            {{#each celebrities as |celebrity|}}
+              <option value="{{celebrity.id}}">{{celebrity.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+
+  <button type="submit" class="btn btn-success">Add Movie</button>
+</form>
