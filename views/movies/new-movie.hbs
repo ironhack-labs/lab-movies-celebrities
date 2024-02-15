@@ -1,0 +1,39 @@
+<h1>Crear Pelicula</h1>
+<div>
+  <a href="/movies" class="btn btn-primary mb-3">Lista de Peliculas</a>
+
+</div>
+
+<p>Puedes elegir más de una celebridad</p>
+
+<form action="/movies/create" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Nombre de la Pelicula</label>
+    <input name="name" type="text" placeholder="Nombre de la pelicula"/>
+  </div>
+
+  <div class="mb-3">
+   <label class="form-label">Genre</label>
+   <input name="genre" type="text" placeholder="genre"/>
+  </div>
+  
+  <div class="mb-3">
+    <label class="form-label">Plot</label>
+    <textarea name="plot" type="text" placeholder="plot"></textarea>
+  </div>
+  
+  <div>
+    <label for="celebrities">Cast:</label>
+    <select name="celebrityId" id="celebrities" multiple>
+      {{#each celebrities as |celebrity|}}
+        <option value="{{celebrity._id}}">{{celebrity.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+ <input type="submit" value="Submit" class="btn btn-success">
+</form>
+
+
+
+

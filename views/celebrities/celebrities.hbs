@@ -1,0 +1,13 @@
+<div>
+    <a href="/" class="btn btn-primary">return</a>
+
+    <a class="btn btn-success" href="celebrities/create">Create Celebrity</a>
+</div>
+<br><br>
+<h1>Celebrities</h1>
+<br>
+<div>
+    {{#each celebrities as |Celebrity|}}
+    <h3>{{Celebrity.name}}</h3>
+    {{/each}}
+</div>
