@@ -1,0 +1,25 @@
+<h1 class="page-title">Sign Up</h1>
+
+<form action="/signup" method="post" class="form">
+    <div>
+        <label>Username</label><br>
+        <input type="text" name="username" required>
+    </div>
+
+    <div>
+        <label>Email</label><br>
+        <input type="text" name="email" placeholder="example@mail.com" required>
+    </div>
+
+    <div>
+        <label>Password</label><br>
+        <input type="password" name="password" required>
+    </div>
+
+    <div>
+        <input type="checkbox" name="confirmationEmail" value="confirmationEmail">
+        <label>Receive a confirmation email</label><br>
+    </div>
+
+    <button type="submit">Create Account</button>
+</form>

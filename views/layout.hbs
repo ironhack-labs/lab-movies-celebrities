@@ -11,9 +11,52 @@
   </head>
 
   <body>
-    <div class="container">
+    <nav>
+      <div id="nav-bar">
+        <div>
+          <a href="/celebrities">Celebrities</a>
+          <a href="/celebrities/new">New Celebrity</a>
+          <a href="/movies">Movies</a>
+          <a href="/movies/new">New Movie</a>
+          
+          {{#if currentUser.admin}}
+            <a href="/users">Users</a>
+          {{/if}}
+          
+        </div>
+
+        <div id="auth-btn">
+          {{#unless currentUser}}
+          <a href="/signup">Sign up</a>
+          <a href="/login">Log in</a>
+          {{/unless}}
+          {{#if currentUser}}
+            <form action="/logout" method="post" id="log-out-btn">
+              <button type="submit">Log out</button>
+            </form>
+          {{/if}}
+        </div>
+      </div>
+      
+      {{#if currentUser}}
+        <h3 style="font-size:20px">Welcome, <span style="font-weight:900">{{currentUser.username}}</span></h3>
+      {{/if}}
+
+    </nav>
+
+      {{#if successMessage}}
+        <div id="success">{{successMessage}}</div>
+      {{/if}}
+
+      {{#if bannedMessage}}
+        <div id="bannedMess">{{bannedMessage}}</div>
+      {{/if}}
+
       {{{body}}}
-    </div>
+
+      {{#if errorMessage}}
+        <div id="error">{{errorMessage}}</div>
+      {{/if}}
 
     <script src="/javascripts/script.js"></script>
   </body>

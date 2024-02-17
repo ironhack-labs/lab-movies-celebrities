@@ -1,8 +1,255 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px;
 }
 
 a {
   color: #00b7ff;
+}
+
+nav h3{
+  padding: 20px;
+  margin-left: 50px;
+}
+
+#nav-bar{
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  justify-content: space-between;
+  border-bottom: 2px solid #00b7ff;
+  background-color: #00b7ff;
+}
+
+#nav-bar div{
+  display: flex;
+  flex-direction: row;
+}
+
+#nav-bar a{
+  background-color: white;
+  border: 2px solid #00b7ff;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 50px;
+}
+
+#auth-btn{
+  column-gap: 15px;
+  margin: 0px 10px;
+}
+
+#auth-btn a {
+  background-color: darkblue;
+  border: 1px solid white;
+  color: white;
+  margin: 20px 10px;
+}
+
+#log-out-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title{
+  margin: 200px;
+  display: flex;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 25px;
+}
+
+.page-title{
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.model{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px 250px;
+  justify-content: center;
+}
+
+.model-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  margin: 40px 50px;
+}
+
+.model-card img{
+  width: 200px;
+  height: 260px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.model-card h2{
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.form{
+  margin: 80px 100px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 25px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+button{
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.model-info{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 60px;
+  
+}
+
+.model-img{
+  width: 250px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.details{
+  font-size: 1.2em;
+  width: 550px;
+  line-height: 35px;
+}
+
+.subtitle{
+  font-weight: 900;
+}
+
+.list{
+  font-weight: 200;
+  padding: 10px 20px;
+  list-style: square;
+}
+
+.btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 40px;
+  padding-left: 50px;
+  font-size: 18px;
+  margin: 30px 0px;
+}
+
+#error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightcoral;
+  text-align: center;
+  padding: 20px;
+  margin: 0px 450px;
+}
+
+#success{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightgreen;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 20px 500px;
+}
+
+#bannedMess{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  background-color: lightcoral;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 20px 500px;
+}
+
+.form select{
+  height: 50px;
+}
+
+.list-users {
+  margin: 40px 100px;
+}
+.list-users li{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-btn{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+.image{
+  margin-left: 150px;
+}
+
+#input-img{
+  visibility: hidden;
+}
+
+#update-img-div{
+  font-size: 0.9em;
+  padding: 10px;
+}
+
+#update-img-div img{
+  border-radius: 20px;
+  border: 1px solid black;
+  margin: 0px 15px;
+}
+
+#forgot-div{
+  margin: 20px;
+}
+
+#edit-name,
+#edit-occupation,
+#edit-catchPhrase{
+  display: none;
+}
+
+#name,
+#occupation,
+#catchPhrase{
+  display: flex;
+  flex: row;
+  align-items: baseline;
+  column-gap: 15px;
+}
+
+#name button,
+#occupation button,
+#catchPhrase button{
+  background-color: white;
+  border: none;
 }

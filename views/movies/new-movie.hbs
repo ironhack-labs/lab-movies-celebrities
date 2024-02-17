@@ -1,0 +1,34 @@
+<h1 class="page-title">Add New Movie</h1>
+<form action="/movies/create" method="post" class="form" enctype="multipart/form-data">
+    <div>
+        <label>Title:</label>
+        <input type="text" name="title">
+    </div>
+
+    <div>
+        <label>Genre:</label>
+        <input type="text" name="genre">
+    </div>
+
+    <div>
+        <label>Plot:</label>
+        <input type="text" name="plot">
+    </div>
+
+    <div>
+        <label>Celebrity:</label>
+        <select name="cast" multiple>
+            {{#each celebrities}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+     <div class="image">
+        <label>Image:</label>
+        <input type="file" name="image">
+    </div>
+
+
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,24 @@
+<h1 class="page-title">Update {{name}}</h1>
+<form action="/celebrities/update/{{_id}}" method="post" class="form">
+    <div>
+        <label>Name:</label>
+        <input type="text" name="name" value="{{name}}">
+    </div>
+
+    <div>
+        <label>Occupation:</label>
+        <input type="text" name="occupation" value="{{occupation}}">
+    </div>
+
+    <div>
+        <label>Catch Phrase:</label>
+        <input type="text" name="catchPhrase" value="{{catchPhrase}}">
+    </div>
+
+    <div>
+        <label>Image URL:</label>
+        <input type="text" name="image" value="{{image}}">
+    </div>
+
+    <button type="submit">Save</button>
+</form>

@@ -1,0 +1,46 @@
+<h1 class="page-title">Update {{movie.name}}</h1>
+<form action="/movies/update/{{movie._id}}" method="post" class="form" enctype="multipart/form-data">
+    <div>
+        <label>Title:</label>
+        <input type="text" name="title" value="{{movie.title}}">
+    </div>
+
+    <div>
+        <label>Genre:</label>
+        <input type="text" name="genre" value="{{movie.genre}}">
+    </div>
+
+    <div>
+        <label>Plot:</label>
+        <input type="text" name="plot" value="{{movie.plot}}">
+    </div>
+
+     <div>
+        <label>Celebrity:</label>
+        <select name="cast" multiple>
+            {{#each celebrities}}
+                {{#if isInMovie}}
+                    <option value="{{_id}}" selected>{{name}}</option>
+                {{else}}
+                    <option value="{{_id}}">{{name}}</option>
+                {{/if}}
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <div id="input-img" class="image">
+            <label >Image:</label>
+            <input type="file" name="image" value="{{movie.image}}">
+        </div>
+
+        {{#if movie.image}}
+            <div id ="update-img-div">
+                <img src="{{movie.image}}" alt="{{movie.title}}" style="width:150px">
+                <button type="button" id="image-edit-btn">Edit Image</button>
+            </div>
+        {{/if}}
+    </div>
+
+    <button type="submit">Save</button>
+</form>

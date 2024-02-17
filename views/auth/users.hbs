@@ -1,0 +1,19 @@
+<h1 class="page-title">All Users</h1>
+<ul class="list-users">
+    {{#each users}}
+        <li>
+            <h3>{{username}}<h3>
+
+            <div class="btns">
+                <form action="/users/delete/{{_id}}" method="post">
+                    <button type="submit" class="user-btn">Delete</button>
+                </form>
+
+                <form action="/users/banUser/{{_id}}" method="post">
+                    <button type="submit" class="user-btn">Ban</button>
+                </form>   
+            </div>
+ 
+        </li>
+    {{/each}}
+</ul>
