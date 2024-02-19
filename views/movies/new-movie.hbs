@@ -1,0 +1,30 @@
+
+
+<form action="/movies/create" method="post" enctype="application/x-www-form-urlencoded">
+
+  <div class="input-group mb-3">
+    <label for="title" class="input-group-text">Title</label>
+    <input type="text" name="title" class="form-control" placeholder="Movie title...">
+  </div>
+
+  <div class="input-group mb-3">
+    <label for="genre" class="input-group-text">Genre</label>
+    <input type="text" name="genre" class="form-control" placeholder="Movie genre...">
+  </div>
+
+  <div class="input-group mb-3">
+    <label for="plot" class="input-group-text">Plot</label>
+    <input type="text" name="plot" class="form-control" placeholder="Movie plot...">
+  </div>
+
+  <div class="input-group mb-3">
+    <label for="cast" class="input-group-text">Cast</label>
+    <select name="cast" id="cast" class="form-control" multiple>
+      {{#each artist}}
+        <option value={{_id}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
