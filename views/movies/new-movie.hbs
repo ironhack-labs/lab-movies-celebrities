@@ -1,0 +1,44 @@
+<!-- new-movie.hbs -->
+
+<h2>Add New Movie</h2>
+
+<form action="/movies/create" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" required /><br />
+
+  <label>Genre:</label>
+  <input type="text" name="genre" required /><br />
+
+  <label>Plot:</label>
+  <textarea name="plot" required></textarea><br />
+
+  <label>Cast:</label>
+  <select name="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select><br />
+
+  <button type="submit">Submit</button>
+</form>
+
+<!-- new-celebrity.hbs -->
+
+<h2>Create New Celebrity</h2>
+
+<form action="/celebrities/create" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name" required /><br />
+
+  <label>Occupation:</label>
+  <input type="text" name="occupation" required /><br />
+
+  <label>Catchphrase:</label>
+  <select name="cast" multiple>
+    {{#each movies}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select><br />
+
+  <button type="submit">Submit</button>
+</form>
