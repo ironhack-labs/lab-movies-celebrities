@@ -1,0 +1,14 @@
+<h2>Lista de Celebrities</h2>
+<div class="row">
+    {{#each celebrities}}
+    <div class="col-4 mt-3 mb-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{occupation}}</p>
+                <p class="card-text">{{catchPhrase}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

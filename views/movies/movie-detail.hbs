@@ -1,0 +1,18 @@
+<h1>Detalle de {{title}}</h1>
+
+<hr>
+
+<p>Genero: {{genre}}</p>
+
+<p>Trama: {{plot}}</p>
+
+<p>Celebrities:</p>
+
+{{#each cast}}
+<div class="card">
+    <h4>{{name}}</h4>
+    <p>{{occupation}} {{catchPhrase}}</p>
+</div>
+{{/each}}
+
+<a class="btn btn-dark" href="/movies">Volver a Movies</a>
