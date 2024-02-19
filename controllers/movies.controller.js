@@ -11,7 +11,6 @@ module.exports.createMovie = (req, res, next) => {
 }
 
 module.exports.doCreateMovie = (req, res, next) => {
-  console.log(req.body);
   const movie = req.body;
 
   MovieModel.create(movie)
@@ -62,4 +61,27 @@ module.exports.delete = (req, res, next) => {
       }
     })
     .catch((error) => next(error));
+}
+
+module.exports.editMovie = (req, res, next) => {
+  const { id } = req.params;
+
+  Promise.all([MovieModel.findById(id), CelebrityModel.find()])
+    .then(([movie, celebrities]) => res.render('movies/edit-movie', {movie, celebrities, id}))
+    .catch((error) => next(error));
+}
+
+module.exports.doEditMovie = (req, res, next) => {
+  const editedMovie = req.body;
+  const { id } = req.params;
+
+  MovieModel.findByIdAndUpdate(id, editedMovie, { new: true })
+    .then((filmEdited) => res.redirect(`/movies/${id}`))
+    .catch((error) => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.status(400).render('movies/edit-movie', {editedMovie, errors: error.errors})
+      } else {
+        next(error);
+      }
+    })
 }
