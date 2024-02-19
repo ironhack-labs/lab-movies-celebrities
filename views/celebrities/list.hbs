@@ -1,0 +1,12 @@
+<h2>Celebrities</h2>
+
+<ul>
+    {{#each celebrities}}
+    <li class="card">
+        <h3>{{this.name}}</h3>
+        <p>{{this.occupation}}</p>
+        <p>{{this.catchPhrase}}</p>
+        <a href="/celebrities/{{this._id}}">{{this.name}}</a>
+    </li>
+    {{/each}}
+</ul>
