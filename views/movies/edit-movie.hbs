@@ -1,0 +1,38 @@
+<style>
+    body {
+
+        background-color: beige;
+    }
+</style>
+
+<div class="row justify-content-center text-center">
+    <h2>Edit movie</h2>
+    <hr>
+    <div class="col-6">
+        <form action="/movies/{{movie._id}}/edit" method="POST">
+            <div class="row justify-content-center">
+                <div class="col-10 mb-4 d-grid">
+                    <h4>Title</h4>
+                    <input class="btn btn-light" type="text" value="{{movie.title}}" name="title">
+                </div>
+                <h4>Genre</h4>
+                <div class="col-10 mb-4 d-grid"><input class="btn btn-light" type="text" value="{{movie.genre}}"
+                        name="genre">
+                </div>
+                <h4>Plot</h4>
+                <div class="col-10 mb-4 d-grid"><input class="btn btn-light" type="text" value="{{movie.plot}}"
+                        name="plot">
+                </div>
+                <h4>Cast</h4>
+                <div class="col-8">
+                    <select class="form-select text-center mb-3" multiple name="cast">
+                        {{#each celebrities}}
+                        <option value="{{_id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <button class="btn btn-dark" type="submit">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
