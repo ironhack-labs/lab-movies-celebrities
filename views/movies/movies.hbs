@@ -1,0 +1,9 @@
+<h2>MOVIES LIST</h2>
+
+{{#each movies as |movie|}}
+    <li class="list-group-item">
+        <h2>Title: {{movie.title}}</h2>
+        <h4>Genre: {{movie.genre}}</h4>
+        <h4>Plot: {{movie.plot}}</h4>
+    </li>
+{{/each}}

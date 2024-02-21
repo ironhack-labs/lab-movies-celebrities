@@ -1,1 +1,9 @@
-holaa
+<h2>CELEBRITIES LIST</h2>
+
+{{#each celebs as |celeb|}}
+    <li class="list-group-item">
+        <h2>Name: {{celeb.name}}</h2>
+        <h4>Occupation: {{celeb.occupation}}</h4>
+        <h4>Catchphrase: {{celeb.catchPhrase}}</h4>
+    </li>
+{{/each}}
