@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <h2 class="text-center">Everything you need to know about
+    {{movie.title}}</h2>
+  <div class="card text-center">
+    <div class="card-header">
+      <h4>{{movie.title}}</h4>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Genre: {{movie.genre}}</p>
+      <p class="card-text">Plot:
+        {{movie.plot}}</p>
+      <div class="card">
+        <h3>Cast:</h3>
+        {{#each movie.cast as |celeb|}}
+          <a href="/celebrities/{{celeb._id}}">{{celeb.name}}</a>
+          |
+        {{/each}}
+      </div>
+    </div>
+    <div class="card-footer text-body-secondary">
+      <a href="/movies" class="btn btn-primary">Back</a>
+      <a href="/movies/{{movie._id}}/edit" class="btn btn-success">Edit this movie</a>
+      <form action="/movies/{{movie.id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<h2>Create a new celebrity in your database</h2>
+
+<div class="container my-5">
+  <form action="/celebrities" method="POST">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="Name of the celeb"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="occupation" class="form-label">Occupation</label>
+      <input
+        name="occupation"
+        type="text"
+        class="form-control"
+        placeholder="Occupation of the celeb"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="catchPhrase" class="form-label">Classic catchphrase</label>
+      <input
+        name="catchPhrase"
+        type="text"
+        class="form-control"
+        placeholder="What he/she said"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success">Create a new celeb</button>
+  </form>
+</div>

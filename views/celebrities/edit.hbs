@@ -1,0 +1,41 @@
+<h2>Edit {{celebrity.name}}'s profile</h2>
+
+<div class="container my-5">
+  <form action="/celebrities/{{celebrity._id}}" method="POST">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="Name of the celeb"
+        value="{{celebrity.name}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="occupation" class="form-label">Occupation</label>
+      <input
+        name="occupation"
+        type="text"
+        class="form-control"
+        placeholder="Occupation of the celeb"
+        value="{{celebrity.occupation}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="catchPhrase" class="form-label">Classic catchphrase</label>
+      <input
+        name="catchPhrase"
+        type="text"
+        class="form-control"
+        placeholder="What he/she said"
+        value="{{celebrity.catchPhrase}}"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update this celeb's info</button>
+  </form>
+</div>

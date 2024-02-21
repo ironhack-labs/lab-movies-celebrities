@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <h2 class="text-center">Everything you need to know about
+    {{celebrity.name}}</h2>
+  <div class="card text-center">
+    <div class="card-header">
+      <h4>{{celebrity.name}}</h4>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Occupation: {{celebrity.occupation}}</p>
+      <p class="card-text">That's what he/she said:
+        {{celebrity.catchPhrase}}</p>
+      <div class="card">
+        <h3>Movies:</h3>
+        {{#each celebrity.movies as |movie|}}
+          <a href="/movies/{{movie._id}}">{{movie.title}}</a>
+          |
+        {{/each}}
+      </div>
+    </div>
+    <div class="card-footer text-body-secondary">
+      <a href="/celebrities" class="btn btn-primary">Back</a>
+      <a href="/celebrities/{{celebrity._id}}/edit" class="btn btn-success">Edit this celeb</a>
+      <form action="/celebrities/{{celebrity.id}}/delete" method="POST">
+      <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>

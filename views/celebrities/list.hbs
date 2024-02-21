@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>All celebrities</h2>
+  {{#each celebrities}}
+    <div class="card my-5" style="width: 18rem;">
+      <div class="card-body">
+        <h3 class="card-title"><a
+            href="/celebrities/{{this._id}}"
+          >{{this.name}}</a></h3>
+        <p>{{this.occupation}}</p>
+        <p>{{this.catchPhrase}}</p>
+      </div>
+    </div>
+
+  {{/each}}
+</div>
