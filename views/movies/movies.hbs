@@ -1,0 +1,8 @@
+<h1 class="display-4">List of Movies</h1>
+<ul class="list-group">
+    {{#each movies}}
+    <li class="list-group-item">
+        <a class="titulaco" href="/{{_id}}">{{title}}</a>
+    </li>
+    {{/each}}
+</ul>

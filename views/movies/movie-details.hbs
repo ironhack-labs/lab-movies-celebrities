@@ -1,0 +1,40 @@
+<h2>{{title}} details:</h2>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th>Genre</th>
+            <td>{{genre}}</td>
+        </tr>
+        <tr>
+            <th>Plot</th>
+            <td>{{plot}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+    {{#each cast}}
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <hr>
+                <p class="card-text">Occupation: {{occupation}}</p>
+                <p class="card-text">Catch-phrase: {{catchPhrase}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<div class="row">
+    <div class="col md-4 mt-2">
+        <form action="/movies/{{_id}}/delete" method="POST">
+            <button class="botoncilloPeR">Delete Movie</button>
+        </form>
+    </div>
+    <div class="col md-4 mt-2"></div>
+    <a href="/movies/{{_id}}/edit">
+        <button class="botoncilloPe">Edit Movie</button>
+    </a>
+</div>
+</div>
