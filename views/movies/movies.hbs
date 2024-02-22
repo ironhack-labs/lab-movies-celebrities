@@ -1,0 +1,50 @@
+<div class="container">
+    <h2 class="display-6"> Listado de peliculas</h2>
+
+
+    <table class="table">
+        <tbody>
+            {{#each movies}}
+            <tr>
+                <td>
+                    <p><strong> Nombre de la pelicula:</strong> {{title}} </p>
+
+                    <p><strong> Genero :</strong> {{genre}} </p>
+
+                    <p><strong> Trama:</strong> {{plot}}</p>
+
+
+                    <p><strong> Elenco:</strong> {{cast}}</p>
+
+
+                </td>
+
+
+                <td>
+                    <a href="/movies/details/{{_id}}" class="btn btn-dark "> Detallle de la pelicula</a>
+                    <a href="/movies/edit/{{_id}}" class="btn btn-warning "> Editar pelicula</a>
+                    <a href="/movies/delete/{{_id}}" class="btn btn-danger "> Eliminar pelicula</a>
+
+                </td>
+
+
+
+
+            </tr>
+
+            {{/each}}
+
+        </tbody>
+
+    </table>
+
+    <hr>
+    <a href="/movies/create" class="btn btn-info"> Crear pelicula</a>
+    <a href="/" class="btn btn-info"> Ir al inicio</a>
+
+
+
+
+
+
+</div>
