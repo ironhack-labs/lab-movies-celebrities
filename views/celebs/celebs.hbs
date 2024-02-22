@@ -1,0 +1,12 @@
+<h1>List of celebs in database:</h1>
+
+{{#each celebs}}
+  <div>
+    <p><strong>Name:</strong> {{this.name}}</p> 
+    <p><strong>Occupation:</strong> {{this.occupation}}</p> 
+    <p><strong>Catch Phrase:</strong> {{this.catchPhrase}}</p> 
+  </div>
+{{/each}}
+
+<a href="/celebs/create">Add a caleb to the database</a>
+<a href="/">Go back to home page</a>

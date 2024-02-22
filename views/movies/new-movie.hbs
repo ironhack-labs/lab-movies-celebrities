@@ -1,0 +1,21 @@
+<h2>Add a movie</h2>
+
+
+<form method="POST" action="/movies/create">
+    <label> Title:
+        <input type="text" name="title" />
+    </label>
+    <label> Genre:
+        <input type="text" name="genre" />
+    </label>
+    <label> Plot:
+        <textarea name="plot"></textarea>
+    </label>
+    <label> Cast:
+             <input type="text" name="cast" />
+    </label>
+
+    <button type="submit">Add new movie to database</button>
+</form>
+
+<a href="/movies">Go back to the list of movies in our database</a>
