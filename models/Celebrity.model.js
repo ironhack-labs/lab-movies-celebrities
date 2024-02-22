@@ -1,5 +1,3 @@
-//  Add your code here
-
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
@@ -7,13 +5,16 @@ const Schema = mongoose.Schema
 const celebSchema = new Schema (
     {
         name: {
-            type: String
+            type: String,
+            required: true
         },
         occupation: {
-            type: String
+            type: String,
+            required: true
         },
         catchPhrase: {
-            type: String
+            type: String,
+            required: true
         }
     }
 )

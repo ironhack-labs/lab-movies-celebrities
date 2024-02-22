@@ -1,0 +1,24 @@
+<div class="mt-5 mb-5">
+    <h2>CELEB DETAILS</h2>
+</div>
+
+<div class="list-group-item">
+
+    <P>NAME:</p>
+    <h4>{{celeb.name}}</h4>
+
+    <p>OCCUPATION:</p>
+    <h4>{{celeb.occupation}}</h4>
+
+    <p>CATCHPHRASE:</p>
+    <h4>{{celeb.catchPhrase}}</h4>
+
+
+
+<form action="/celebrities/{{celeb.id}}/delete" method="POST" >
+    <button type="submit" class="btn btn-danger">DELETE</button>
+</form>
+
+<a class="btn btn-primary mt-3" href="/celebrities/{{celeb.id}}/edit">EDIT</a>
+
+</div>

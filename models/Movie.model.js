@@ -5,16 +5,19 @@ const Schema = mongoose.Schema
 const movieSchema = new Schema (
     {
         title: {
-            type: String
+            type: String,
+            required: true
         },
         genre: {
-            type: String
+            type: String,
+            required: true
         },
         plot: {
-            type: String
+            type: String,
+            required: true
         },
         cast: {
-            type: [Schema.Types.ObjectId],
+            type: [mongoose.SchemaTypes.ObjectId],
             ref: 'Celebrity'
         }
     }

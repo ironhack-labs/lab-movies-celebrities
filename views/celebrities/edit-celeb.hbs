@@ -1,0 +1,24 @@
+<div class="mt-5 mb-5">
+    <h2>EDIT CELEB</h2>
+</div>
+
+<form action="/celebrities/{{celeb.id}}/edit" method="POST">
+    <div class="form-group mb-3">
+        <label>NAME</label>
+        <input name="name" value="{{celeb.name}}" placeholder="Name" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>OCCUPATION</label>
+        <input name="occupation" value="{{celeb.occupation}}" placeholder="Occupation" class="form-control">
+    </div>
+    
+    <div class="form-group mb-3">
+        <label>CATCHPHRASE</label>
+        <input name="catchphrase" value="{{celeb.catchPhrase}}" placeholder="" class="form-control">
+    </div>
+
+   
+   <button class="btn btn-outline-primary" type="submit">Confirm</button>
+
+</form>
