@@ -1,0 +1,13 @@
+<h2>All celebrities</h2>
+
+{{#if drones}}
+    <ul>
+        {{#each celebrities}}
+            <li>
+                Name: {{this.name}} 
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p> Error: No celebrities found. </p>
+{{/if}}
