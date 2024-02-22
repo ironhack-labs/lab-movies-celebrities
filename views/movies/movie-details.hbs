@@ -1,0 +1,22 @@
+<h2>Movie Details</h2>
+
+<div>
+  <h2>Title: {{title}}</h2>
+  <h3>Genre: {{genre}}</h3>
+  <h4>Plot: {{plot}}</h4>
+  {{#if cast.length}}
+  <h5>Cast: </h5>
+   <ul>
+    {{#each cast}}
+    <li>Name: {{name}}</li>
+    <li> Occupation: {{occupation}}</li>
+    <li>Catch-Phrase: {{catchPhrase}}</li>
+    {{/each}}
+   </ul>
+  {{else}}
+  <h5>No Cast Available</h5>
+  {{/if}}
+</div>
+
+
+<a href="/movies"> Return </a>

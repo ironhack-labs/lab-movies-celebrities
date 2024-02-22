@@ -1,0 +1,29 @@
+<h1>Movies</h1>
+
+{{#each movies}}
+<div>
+  <h2>Title: {{title}}</h2>
+  <h3>Genre: {{genre}}</h3>
+  <h4>Plot: {{plot}}</h4>
+  {{#if cast.length}}
+  <h5>Cast: </h5>
+   <ul>
+    {{#each cast}}
+    <li>{{name}}</li>
+    {{/each}}
+   </ul>
+  {{else}}
+  <h5>No Cast Available</h5>
+  {{/if}}
+  <a href="/movies/{{_id}}">Details</a>
+  <br>
+  <form action="/movies/{{_id}}/delete" method="post">
+     <button>Delete Movies</button>
+  </form>
+</div>
+{{/each}}
+
+<br/>
+
+
+<a href="/movies/create">ADD MOVIE</a>
