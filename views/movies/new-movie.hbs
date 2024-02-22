@@ -1,0 +1,28 @@
+<div class="container mt-2">
+    <h2>Add Movie</h2>
+
+    <form action="/movies/create" method="POST">
+        <div>
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control" type="text" id="title" name="title" value="{{title}}">
+        </div>
+        <div>
+            <label class="form-label" for="genre">Genre</label>
+            <input class="form-control" type="text" id="genre" name="genre" value="{{genre}}">
+        </div>
+        <div>
+            <label class="form-label" for="plot">Plot</label>
+            <input class="form-control" type="text" id="plot" name="plot" value="{{plot}}">
+        </div>
+        <div>
+            <label class="form-label" for="cast">Cast</label>
+            <select class="form-select" multiple name="cast" id="cast">
+                {{#each celebrities}}
+                <option value="{{_id}}">{{name}}</option>
+                {{/each}}
+            </select>
+
+        </div>
+        <button class="btn btn-dark" type="submit">Add to database</button>
+    </form>
+</div>
