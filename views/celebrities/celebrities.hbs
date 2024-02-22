@@ -1,0 +1,27 @@
+<h1>Our favourite celebrities</h1>
+
+
+
+
+{{#each celebrities}}
+
+<p>Name: {{name}}</p>
+
+<a href="/celebrities/{{_id}}" class="btn btn-primary">Details</a>
+
+
+<a href="/celebrities/{{_id}}/edit-celebrity" class="btn btn-warning">Edit</a>
+
+
+<form action="/celebrities/{{_id}}/delete" method="POST" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<hr>
+
+{{/each}}
+
+
+
+<a href="/" style="display: inline-block; margin-bottom: 20px;">Volver a inicio</a>
+</div>
