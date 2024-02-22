@@ -1,0 +1,23 @@
+<h2>Movie details</h2>
+
+<div class='celeb-detail-container'>
+  <img src='{{url}}' alt='{{title}}' />
+  <div class='celeb-detail-sidetext'>
+    <p><span>Title:</span> {{title}}</p>
+    <p><span>Genre:</span> {{genre}}</p>
+    <p><span>Plot:</span> {{plot}}</p>
+  </div>
+  <hr />
+</div>
+<hr class='movie-det-hr' />
+<h3>Cast:</h3>
+<div class='movie-details-cast'>
+  {{#each cast}}
+    <div class='card' style='width: 18rem;'>
+      <img src='{{url}}' class='card-img-top' alt='{{title}}' />
+      <div class='card-body'>
+        <p class='card-text'>{{name}}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>

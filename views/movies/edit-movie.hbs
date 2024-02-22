@@ -1,0 +1,31 @@
+<h2>Edit movie</h2>
+<div class='new-celeb-container'>
+  <form action='/movies/{{movie._id}}/edit' method='POST'>
+    <div class='mb-3'>
+      <label>Title:</label>
+      <input type='text' name='title' value='{{movie.title}}' class='form-control' />
+    </div>
+    <div class='mb-3'>
+      <label>Genre:</label>
+      <input type='text' name='genre' value='{{movie.genre}}' class='form-control' />
+    </div>
+    <div class='mb-3'>
+      <label>Plot:</label>
+      <input type='text' name='plot' value='{{movie.plot}}' class='form-control' />
+    </div>
+    <div class='mb-3'>
+      <label>Image URL:</label>
+      <input type='text' name='url' value='{{movie.url}}' class='form-control' />
+    </div>
+    <label>
+      <select name='cast' multiple>
+        <option value='{{movieCast._id}}' selected>{{movieCast.name}}</option>
+        {{#each filterCelebs}}
+          <option value='{{_id}}'>{{name}}</option>
+        {{/each}}
+      </select>
+    </label>
+    <br /><br />
+    <button type='submit' class='btn btn-secondary'>Submit</button>
+  </form>
+</div>
