@@ -15,9 +15,10 @@ const MovieSchema = new Schema(
     },
     cast: [{
       type: ObjectId,
-      ref: 'celebrity'
+      ref: 'Celebrity'
     }]
-  }
+  },
+  { timestamps: true },
 )
 
 const Movie = mongoose.model('movie', MovieSchema);

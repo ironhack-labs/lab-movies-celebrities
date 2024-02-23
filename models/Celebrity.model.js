@@ -13,9 +13,10 @@ const celebritySchema = new Schema(
     catchPhrase: {
       type: String
     }
-  }
+  },
+  { timestamps: true },
 )
 
-const Celebrity = mongoose.model('celebrity', celebritySchema);
+const Celebrity = mongoose.model('Celebrity', celebritySchema);
 
 module.exports = Celebrity;

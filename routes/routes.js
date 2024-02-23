@@ -7,6 +7,12 @@ router.get('/', celebrities.index);
 router.get('/celebrities/create', celebrities.createCelebrities);
 router.post('/celebrities/create', celebrities.doCreateCelebrities);
 router.get('/celebrities', celebrities.list);
+router.get('/celebrity/:id', celebrities.details);
+router.post('/celebrity/:id/delete', celebrities.delete);
+router.get('/celebrity/:id/edit', celebrities.edit);
+router.post('/celebrity/:id/edit', celebrities.doEdit);
+
+
 router.get('/movies/create', movies.createMovie);
 router.post('/movies/create', movies.doCreateMovie);
 router.get('/movies', movies.list);

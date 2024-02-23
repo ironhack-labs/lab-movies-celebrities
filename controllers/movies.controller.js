@@ -43,7 +43,7 @@ module.exports.details = (req, res, next) => {
       if (!movie) {
         next(createError(404, 'Movie not found'));
       } else {
-        res.render('movies/movie-details', { movie })
+        res.render('movies/movie-details', { movie });
       }
     })
     .catch((error) => next(error));
@@ -67,7 +67,9 @@ module.exports.editMovie = (req, res, next) => {
   const { id } = req.params;
 
   Promise.all([MovieModel.findById(id), CelebrityModel.find()])
-    .then(([movie, celebrities]) => res.render('movies/edit-movie', {movie, celebrities, id}))
+    .then(([movie, celebrities]) => {
+      res.render('movies/edit-movie', {movie, celebrities, id, cast: movie.cast})
+    })
     .catch((error) => next(error));
 }
 

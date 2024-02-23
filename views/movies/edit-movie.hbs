@@ -20,7 +20,7 @@
     <label for="cast" class="input-group-text">Cast</label>
     <select name="cast" id="cast" class="form-control" multiple>
       {{#each celebrities}}
-        <option value="{{_id}}">{{name}}</option>
+        <option value="{{_id}}" {{#celebrityInCast ../cast this}}selected{{/celebrityInCast}}>{{name}}</option>
       {{/each}}
     </select>
   </div>

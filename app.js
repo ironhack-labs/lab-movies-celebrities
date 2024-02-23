@@ -13,16 +13,17 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+hbs.registerHelper('celebrityInCast', function(movie, celebrities, options) {
+  const arrayIds = movie.map(film => film._id.toString());
+  const isSelected = arrayIds.includes(celebrities._id.toString());
+  return isSelected ? options.fn(this) : options.inverse(this);
+});
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 
-// default value for title local
-// const projectName = 'lab-movies-celebrities';
-// const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
-
-// app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
 // 👇 Start handling routes here
 const index = require('./routes/routes');
