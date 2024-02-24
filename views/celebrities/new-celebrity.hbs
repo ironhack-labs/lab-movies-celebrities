@@ -1,0 +1,27 @@
+<h2>New Celebrity</h2>
+
+<form action="/celebrities/create" method="post">
+
+{{!-- NAME --}}
+<div class="mb-2">
+    <label class="form-label">Name</label>
+    <input type="text" name="name" class="form-control"/>
+</div>
+
+{{!-- OCCUPATION --}}
+<div class="mb-2">
+    <label class="form-label">Occupation</label>
+    <input type="text" name="occupation" class="form-control"/>
+</div>
+
+{{!-- CATCH PHRASE --}}
+<div class="mb-2">
+    <label class="form-label">Catch Phrase</label>
+    <input type="text" name="catchPhrase" class="form-control"/>
+</div>
+
+<button type="submit" class="btn btn-primary">Add Celebrity</button>
+
+
+</form>
+
