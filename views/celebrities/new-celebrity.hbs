@@ -1,0 +1,24 @@
+<h2 class="mt-3 mb-3">CREATE CELEBRITY</h2>
+
+<form action="/celebrities/create" method="POST">
+    <div class="input-group mb-2">
+        <span class="input-group-text"><i class="fa fa-tag fa-fw"></i></span>
+        <input type="text" name="name" value="{{celebrity.name}}" class="form-control {{#if errors.name }}is-invalid{{/if}}" placeholder="Celebrity name...">
+        {{#if errors.name }}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
+    </div>
+
+    <div class="input-group mb-2">
+        <span class="input-group-text"><i class="fa fa-tag fa-fw"></i></span>
+        <input type="text" name="occupation" value="{{celebrity.occupation}}" class="form-control {{#if errors.occupation }}is-invalid{{/if}}" placeholder="Celebrity occupation...">
+        {{#if errors.occupation }}<div class="invalid-feedback">{{ errors.occupation }}</div>{{/if}}
+    </div>
+
+    <div class="mb-1 {{#if celebrity.catchPhrase }}is-invalid{{/if}}">
+        <textarea name="catchPhrase" class="{{#if errors.catchPhrase }}is-invalid{{/if}}"></textarea>
+        {{#if errors.catchPhrase }}<div class="invalid-feedback">{{errors.catchPhrase}}</div>{{/if}}
+    </div>
+  
+  <div class="form-actions mt-2">
+    <button type="submit" class="btn btn-outline-primary">Create celebrity</button>
+  </div>
+</form>

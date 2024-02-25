@@ -5,13 +5,18 @@ const celebritySchema = new Schema (
     {
         name: {
             type: String,
-            required: true
+            required: [true, 'Name is required'],
+            minLength: [2, 'Name needs at least 2 chars']
         },
         occupation: {
-            type: String
+            type: String,
+            required: [true, 'Occupation is required'],
+            minLength: [2, 'Occupation needs at least 2 chars']
         },
         catchPhrase: {
-            type: String
+            type: String,
+            required: [true, "Phrase is required"],
+            minLength: [2, "Phrase needs at least 2 chars"]
         }
 
     },
