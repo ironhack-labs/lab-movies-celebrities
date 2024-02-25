@@ -1,0 +1,26 @@
+{{>navbar}}
+
+<div class="container mt-5">
+    <h2>{{movie.title}}</h2>
+    <h5><span class="badge text-bg-secondary">{{movie.genre}}</span></h5>
+    <div class="mt-4">
+        <h5>Movie's plot:</h5>
+        <p>{{movie.plot}}</p>
+    </div>
+    <div class="mt-4">
+        <h5>Celebrities in this movie:</h5>
+        <div class="list-group mt-3">
+            {{#each movie.cast as |celebrity|}}
+            <a class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{celebrity.name}}</h5>
+                </div>
+                <p class="mb-1">{{celebrity.catchPhrase}}</p>
+                <small>{{celebrity.occupation}}</small>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+    <a type="submit" href="/movies/{{movie.id}}/edit-movie" class="btn btn-primary px-5 mt-4">Edit</a>
+</div>
+

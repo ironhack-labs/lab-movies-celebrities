@@ -1,0 +1,23 @@
+{{>navbar}}
+<form action="/new-celebrity" method="post">
+    <div class="container">
+        <div class="mt-5">
+            <h3 style="color:#1a1a1a">Create a new celebrity!</h3>
+            <div class="input-group mb-3 mt-4">
+                <span class="input-group-text">Celebrity's name</span>
+                <input type="text" name="name" class="form-control" placeholder="Is it Tom Cruise? Or maybe is it Beyonce?" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Celebrity's occupation</span>
+                <input type="text" name="occupation" class="form-control" placeholder="Is it singer? Or maybe is it an actor?" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Celebrity's catch phrase</span>
+                <textarea class="form-control" name="catchPhrase" type="text" placeholder="Something cool like: 'Carefull Radioactiveman!' 😎 " aria-label="With textarea"></textarea>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">Done</button>
+            </div>
+        </div>
+    </div>
+</form>
