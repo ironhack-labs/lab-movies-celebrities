@@ -1,0 +1,36 @@
+<h2 class="mb-3">New Celebrity</h2>
+
+{{#if errors}}
+  <div class="alert alert-danger">
+    <div>{{global_err_msg}}</div>
+    <ul>
+      {{#each errors as |error|}}
+        <li>{{error}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+<form method="POST" action="/new-celebrity">
+  <div class="form-group mb-2">
+    <label>Name</label>
+    <input name="name" type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" value="{{celebrity.name}}"/>
+    <small class="invalid-feedback">{{errors.name}}</small>
+  </div>
+
+  <div class="form-group">
+    <label>Occupation</label>
+    <input name="occupation" type="text" class="form-control {{#if errors.occupation}}is-invalid{{/if}}" value="{{celebrity.occupation}}"/>
+    <small class="invalid-feedback">{{errors.occupation}}</small>
+  </div>
+
+  <div class="form-group">
+    <label>Catch Phrase</label>
+    <input name="catchPhrase" type="text" class="form-control {{#if errors.catchPhrase}}is-invalid{{/if}}" value="{{celebrity.catchPhrase}}"/>
+    <small class="invalid-feedback">{{errors.catchPhrase}}</small>
+  </div>
+
+  <div class="d-flex mt-5">
+    <button type="submit" class="btn btn-primary me-2">Submit</button>
+  </div>
+</form>

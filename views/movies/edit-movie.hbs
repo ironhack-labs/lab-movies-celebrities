@@ -1,0 +1,43 @@
+<h2 class="mb-3">Edit Movie</h2>
+
+{{#if errors}}
+  <div class="alert alert-danger">
+    <ul>
+      {{#each errors as |error|}}
+        <li>{{error}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+<form method="POST" action="/movies/{{movie.id}}/edit">
+  <div class="form-group mb-2">
+    <label>Title</label>
+    <input value ="{{movie.title}}" name="title" type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" />
+    <small class="invalid-feedback">{{errors.title}}</small>
+  </div>
+
+  <div class="form-group">
+    <label>Genre</label>
+    <input value ="{{movie.genre}}" name="genre" type="text" class="form-control {{#if errors.genre}}is-invalid{{/if}}" />
+    <small class="invalid-feedback">{{errors.genre}}</small>
+  </div>
+
+  <div class="form-group">
+    <label>Plot</label>
+    <input value ="{{movie.plot}}" name="plot" type="text" class="form-control {{#if errors.plot}}is-invalid{{/if}}" />
+    <small class="invalid-feedback">{{errors.plot}}</small>
+  </div>
+
+<div class="form-group">
+  <select class="form-select" multiple aria-label="multiple select example" name="cast">
+    {{#each celebrities as |actor|}}
+  <option value="{{actor.id}}">{{actor.name}}</option>
+    {{/each}}
+</select>
+</div>
+
+  <div class="d-flex mt-5">
+    <button type="submit" class="btn btn-primary me-2">Save</button>
+  </div>
+</form>
