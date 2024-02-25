@@ -1,0 +1,39 @@
+{{>navbar}}
+<form action="/movies/{{movie.id}}/edit-movie" method="POST" class="container mt-5">
+    <div class="container">
+        <div class="mt-5">
+            <h3 style="color:#1a1a1a">Edit this movie</h3>
+            <div class="input-group mb-3 mt-4">
+                <span class="input-group-text">Movie's title</span>
+                <input type="text" name="title" class="form-control" value="{{movie.title}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Movie's genre</span>
+                <input type="text" name="genre" class="form-control" value="{{movie.genre}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Movie's plot</span>
+                <input type="text" name="plot" class="form-control" value="{{movie.plot}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div>
+                <h6>Celebrities in the movie:</h6>
+                <ul class="list-group">
+                {{#each celebrities as |celebrity|}}
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" name="cast" id="cast{{celebrity._id}}" type="checkbox" value="{{celebrity._id}}" id="firstCheckboxStretched">
+                            <label class="form-check-label">{{celebrity.name}}</label>
+                        </li>
+                {{/each}}
+                </ul>
+            </div>          
+        </div>
+    </div>
+    <div class="container d-flex justify-content-between">
+        <div>
+            <button type="submit" href="/movies/{{movie.id}}" class="btn btn-success px-5 mt-4">Done</button>
+        </div>
+</form>
+        <form action="/movies/{{movie.id}}/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger px-5 mt-4">Delete movie</button>
+        </form>
+    </div>

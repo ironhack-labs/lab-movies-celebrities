@@ -1,0 +1,9 @@
+{{>navbar}}
+<div class="container mt-5">
+    <h3 class="mb-4" style="color:#1a1a1a">Movies list</h3>
+    {{#each movies}}
+        <div class="list-group">
+            <a href="/movies/{{id}}" class="list-group-item list-group-item-action" aria-current="true">{{title}}</a>
+        </div>
+    {{/each}}
+</div>
