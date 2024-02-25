@@ -1,0 +1,16 @@
+<h2>Movies</h2>
+<ul class="list-group">
+  {{#each movies as |movie|}}
+    <li class="list-group-item d-flex">
+      <p>{{movie.title}}</p>
+      <p>{{movie.genre}}</p>
+      <p>{{movie.plot}}</p>
+      <ul>
+        {{#each celebrities as |celebrity|}}
+          <li>{{celebrity.name}}</li>
+        {{/each}}
+      </ul>
+      <a href="/movies/{{movie.id}}">See details</a>
+    </li>
+  {{/each}}
+</ul>

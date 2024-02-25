@@ -1,0 +1,10 @@
+<h2>Celebrities</h2>
+<ul class="list-group">
+  {{#each celebrities as |celebrity|}}
+    <li class="list-group-item d-flex">
+      <p>{{celebrity.name}}</p>
+      <p>{{celebrity.occupation}}</p>
+      <p>{{celebrity.catchPhrase}}</p>
+    </li>
+  {{/each}}
+</ul>
