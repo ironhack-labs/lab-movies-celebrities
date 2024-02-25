@@ -1,0 +1,43 @@
+<form action="/movies-create" method="post">
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input class="form-control" type="text" name="title" placeholder="" />
+
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Director</label>
+    <input
+      type="text"
+      class="form-control"
+      name="director"
+      value=""
+      placeholder=""
+    />
+  </div>
+  <div class="mb-3">
+    <select
+      class="form-select"
+      name="genre"
+      aria-label="Default select example"
+    >
+      <option selected>Genre</option>
+      <option value="Action">Action</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Plot</label>
+    <br />
+    <input class="form-control" type="text" name="plot" id="" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Cast</label>
+    <br />
+    <input class="form-control" type="text" name="cast" id="" />
+  </div>
+
+  <button type="submit" class="btn btn-outline-primary">Done</button>
+
+</form>
