@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon -e env,hbs,css,js,json,css app.js",
+    "seeds": "node bin/seeds.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
+    "http-errors": "^2.0.0",
     "mongoose": "^6.1.2",
     "morgan": "^1.10.0",
     "serve-favicon": "^2.5.0"

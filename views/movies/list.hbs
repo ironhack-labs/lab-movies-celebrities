@@ -1,0 +1,23 @@
+<h1>list movies</h1>
+<div>
+  {{#each movies as |movie|}}
+
+    <div class="list-group">
+      <a
+        href="/movies-details/{{movie.id}}"
+        class="list-group-item list-group-item-action flex-column align-items-start"
+      >
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Title:{{movie.title}}</h5>
+          <h5 class="mb-1">Director:{{movie.director}}</h5>
+          <!--
+        <h5 class="mb-1">Genre:{{movie.genre}}</h5>
+      <h5 class="mb-1">Plot:{{movie.plot}}</h5>-->
+
+        </div>
+
+      </a>
+    </div>
+
+  {{/each}}
+</div>

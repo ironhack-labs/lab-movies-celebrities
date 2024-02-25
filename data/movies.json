@@ -1,0 +1,62 @@
+[
+	{
+		"title": "Spiderman1",
+		"genre": "Action",
+		"language": "Spanish",
+		"duration": "150",
+		"rating": "Good",
+		"summary": "Spiderman begins",
+		"production_year": "2016",
+		"format": "3D",
+		"director": "Alan King",
+		"classification": "B"
+	},
+	{
+		"title": "Wonder Woman",
+		"genre": "Action",
+		"language": "English",
+		"duration": "150",
+		"rating": "Bad",
+		"summary": "Woman fights against evil",
+		"production_year": "2020",
+		"format": "3D",
+		"director": "Camila Carrillo",
+		"classification": "A"
+	},
+	{
+		"title": "Batman",
+		"genre": "Animated",
+		"language": "Spanish",
+		"duration": "210",
+		"rating": "Good",
+		"summary": "Batman fights against Joker for Gotham City",
+		"production_year": "2018",
+		"format": "3D",
+		"director": "Jon Morrison",
+		"classification": "C"
+	},
+	{
+		"title": "Captain America",
+		"genre": "Action",
+		"language": "English",
+		"duration": "215",
+		"rating": "Excellent",
+		"summary": "Superhero fights against evil",
+		"production_year": "2020",
+		"format": "2D",
+		"director": "Dwany Jonson",
+		"classification": "A"
+	},
+	{
+		"title": "Ant Man",
+		"genre": "Comedy",
+		"language": "Spanish",
+		"duration": "200",
+		"rating": "Good",
+		"summary": "Ant Man fights against evil",
+		"production_year": "2015",
+		"format": "3D",
+		"director": "Cameron Jonson",
+		"classification": "A"
+	}
+]
