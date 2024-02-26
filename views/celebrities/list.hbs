@@ -4,7 +4,7 @@
     <ul>
         {{#each celebrities as |celebrity|}}
         <li>
-            <h4>{{celebrity.name}}</h4>
+            <a class="me-auto" href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a>
         </li>
         {{/each}}
     </ul>

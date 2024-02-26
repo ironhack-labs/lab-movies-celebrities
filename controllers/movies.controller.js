@@ -11,11 +11,11 @@ module.exports.doCreate = (req, res, next) => {
         .then((movie) => res.redirect("/movies"))
         .catch((error) => {
             if (error instanceof mongoose.Error.ValidationError) {
-              res
+                res
                 .status(400)
                 .render("movies/new-movie", { movie, errors: error.errors });
             } else {
-              next(error);
+                next(error);
             }
     });
 };
@@ -62,7 +62,7 @@ module.exports.edit = (req, res, next) => {
             res.render(`movies/edit-movie`, { movie });
             }
         })
-        .catch(next);
+        .catch((error) => next(error));
 };
 
 module.exports.doEdit = (req, res, next) => {
@@ -81,7 +81,6 @@ module.exports.doEdit = (req, res, next) => {
             if (error instanceof mongoose.Error.ValidationError) {
             res
                 .status(400)
-
                 .render("movies/edit-movie", { movie: req.body, errors: error.errors });
             } else {
             next(error);
