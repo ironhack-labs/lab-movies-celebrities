@@ -1,11 +1,14 @@
 <h2>CELEBRITIES LIST</h2>
 
-<ul>
-    {{#each celebrities as |celebrity|}}
-    <li>
-        <h4>{{celebrity.name}}</h4>
-    </li>
-    {{/each}}
-</ul>
+<div class="container">
+    <ul>
+        {{#each celebrities as |celebrity|}}
+        <li>
+            <h4>{{celebrity.name}}</h4>
+        </li>
+        {{/each}}
+    </ul>
 
-<a href="/celebrities/create">Create celebrity</a>
+    <a href="/celebrities/create">Create celebrity</a>
+    </div>
+
