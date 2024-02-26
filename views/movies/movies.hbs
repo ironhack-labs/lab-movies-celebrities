@@ -1,0 +1,11 @@
+<div class="mt-5 mb-5">
+    <h2>MOVIES LIST</h2>
+</div>
+
+{{#each movies as |movie|}}
+    <li class="list-group-item">
+        <h3>Title: {{movie.title}}</h3>
+
+        <a href="/movies/{{movie.id}}">View movie</a>
+    </li>
+{{/each}}

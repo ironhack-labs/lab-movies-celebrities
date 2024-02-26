@@ -1,0 +1,12 @@
+<div class="mt-5 mb-5">
+    <h2>CELEBRITIES LIST</h2>
+</div>
+
+{{#each celebs as |celeb|}}
+    <li class="list-group-item">
+        <h2>{{celeb.name}}</h2>
+
+        <a href="/celebrities/{{celeb.id}}">Details</a>
+    </li>
+{{/each}}
+

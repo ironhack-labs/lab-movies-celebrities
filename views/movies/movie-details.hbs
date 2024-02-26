@@ -1,0 +1,32 @@
+<div class="mt-5 mb-5">
+    <h2>MOVIE DETAILS</h2>
+</div>
+
+<div class="list-group-item">
+
+    <P>TITLE:</p>
+    <h4>{{movies.title}}</h4>
+
+    <p>GENRE:</p>
+    <h4>{{movies.genre}}</h4>
+
+    <p>PLOT:</p>
+    <h4>{{movies.plot}}</h4>
+
+<p>CAST:</p>
+
+{{#each cast as |celebrity|}}
+    <li class="list-group-item">
+        <h2>Name: {{celebrity.name}}</h2>
+        <h4>Occupation: {{celebrity.occupation}}</h4>
+        <h4>Catch Phrase: {{celebrity.catchPhrase}}</h4>
+    </li>
+{{/each}}
+
+
+<form action="/movies/{{movies.id}}/delete" method="POST" >
+    <button type="submit" class="btn btn-danger">DELETE</button>
+</form>
+
+<a class="btn btn-primary mt-3" href="/movies/{{movies.id}}/edit">EDIT</a>
+</div>

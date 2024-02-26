@@ -1,0 +1,32 @@
+<div class="mt-5 mb-5">
+    <h2>EDIT MOVIES</h2>
+</div>
+
+
+<form action="/movies/{{movies.id}}/edit" method="POST">
+    <div class="form-group mb-3">
+        <label>TITLE</label>
+        <input name="title" value="{{movies.title}}" placeholder="Title" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+        <label>GENRE</label>
+        <input name="genre" value="{{movies.genre}}" placeholder="Genre" class="form-control">
+    </div>
+    
+    <div class="form-group mb-3">
+        <label>PLOT</label>
+        <input name="plot" value="{{movies.plot}}" placeholder="Plot" class="form-control">
+    </div>
+
+    <div class="form-group mb-3">
+        <select name="cast" multiple value="{{movies.cast}}" class="form-control">
+            {{#each celebs as |celeb|}}
+                <option value="{{celeb.id}}">{{celeb.name}}</option>
+            {{/each}}    
+        </select>
+    </div>
+   
+   <button class="btn btn-outline-primary" type="submit">Confirm</button>
+
+</form>
