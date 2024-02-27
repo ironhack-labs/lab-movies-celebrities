@@ -1,0 +1,22 @@
+<h2>Edit movie</h2>
+<a href="/">Go Home</a>
+<form action="/movies/{{movie.id}}/edit" method="post" enctype="application/x-www-form-urlencoded" class="mt-5">
+    <div class="form-group">
+        <label>Edit title</label>
+        <input type="text" name="title" value="{{movie.title}}" class="mb-3 form-control {{#if errors.title}}is-invalid{{/if}}" />
+        {{#if errors.title}}<small class="invalid-feedback mb-3">{{errors.title}}</small>{{/if}}
+        <label>Edit genre</label>
+        <input type="text" name="genre" value="{{movie.genre}}" class="mb-3 form-control {{#if errors.genre}}is-invalid{{/if}}" />
+        {{#if errors.genre}}<small class="invalid-feedback mb-3">{{errors.genre}}</small>{{/if}}
+        <label>Edit plot</label>
+        <input type="text" name="plot" value="{{movie.plot}}" class="mb-3 form-control {{#if errors.plot}}is-invalid{{/if}}" />
+        {{#if errors.plot}}<small class="invalid-feedback mb-3">{{errors.plot}}</small>{{/if}}
+        <label>Edit cast</label>
+        <ul>
+            {{#each celebrities as |celebrity|}}
+            <li class="mb-2"><input type="checkbox" name="cast" value="{{celebrity.id}}" />{{celebrity.name}}</li>
+            {{/each}}
+        </ul>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </div>
+</form>
