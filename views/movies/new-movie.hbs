@@ -1,0 +1,35 @@
+<h2>New Movie</h2>
+
+<form action="/movies/create" method="post">
+
+{{!-- TITLE --}}
+<div class="mb-2">
+    <label class="form-label">Title</label>
+    <input type="text" name="title" class="form-control"/>
+</div>
+
+{{!-- GENRE --}}
+<div class="mb-2">
+    <label class="form-label">Genre</label>
+    <input type="text" name="genre" class="form-control"/>
+</div>
+
+{{!-- PLOT --}}
+<div class="mb-2">
+    <label class="form-label">Plot</label>
+    <input type="text" name="plot" class="form-control"/>
+</div>
+
+{{!-- CAST --}}
+<div class="mb-2">
+  <select class="form-select" aria-label="multiple select example" name="cast" multiple>
+    {{#each celebrity}}
+      <option value="{{_id}}">{{name}}</option>
+    {{/each}}
+  </select>
+</div>
+
+<button type="submit" class="btn btn-primary">Add Movie</button>
+
+
+</form>
