@@ -1,0 +1,13 @@
+<h2>MOVIES LIST</h2>
+
+<div class="container">
+    <ul>
+        {{#each movies as |movie|}}
+        <li>
+            <a class="me-auto" href="/movies/{{movie.id}}">{{movie.title}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/movies/create">Create movie</a>
+</div>

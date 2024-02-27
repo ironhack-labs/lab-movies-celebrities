@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>TITLE:</h1>
+    <h2>{{movie.title}}</h2>
+    <h1>GENRE:</h1>
+    <h2>{{movie.genre}}</h2>
+    <h1>PLOT:</h1>
+    <p>{{movie.plot}}</p>
+    <h1>CAST:</h1>
+    <h2>{{movie.cast}}</h2>
+</div>
+
+<div class="container">
+    {{#each celebrities as |celebrity|}}
+    <h2>{{celebrity.name}}</h2>
+    <h2>{{celebrity.occupation}}</h2>
+    <p>{{celebrity.catchPhrase}}</p>
+    {{/each}}
+</div>
+
+<form action="/movies/{{movie.id}}/delete" method="POST">
+    <button type="submit" class="btn btn-outline-primary">Delete movie</button>
+</form>
+
+<form action="/movies/{{movie.id}}/edit" method="GET">
+    <button type="submit" class="btn btn-outline-primary">Edit movie</button>
+</form>

@@ -1,0 +1,14 @@
+<h2>CELEBRITIES LIST</h2>
+
+<div class="container">
+    <ul>
+        {{#each celebrities as |celebrity|}}
+        <li>
+            <a class="me-auto" href="/celebrities/{{celebrity.id}}">{{celebrity.name}}</a>
+        </li>
+        {{/each}}
+    </ul>
+
+    <a href="/celebrities/create">Create celebrity</a>
+    </div>
+
