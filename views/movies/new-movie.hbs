@@ -1,0 +1,48 @@
+<div id="new-movie" class="container col-xxl-4 mt-5">
+
+{{#if movie}}
+<h2>Edit:</h2>
+<form action="/movies/{{movie._id}}/edit" method="post" class="row g-3 mt-2">
+{{else}}
+<h2>Create a movie:</h2>
+<form action="/movies/create" method="post" class="row g-3 mt-2">
+{{/if}}
+  <div class="mb-3">
+  <label for="title" class="form-label">Title:</label>
+  <input required type="text" class="form-control" 
+  name="title" id="title" placeholder="Title" value="{{movie.title}}" required>
+  </div>
+  <div class="mb-3">
+  <label for="genre" class="form-label">Genre:</label>
+  <input required type="text" class="form-control" 
+  name="genre" id="genre" placeholder="Genre" value="{{movie.genre}}" required>
+  </div>
+  <div class="mb-3">
+  <label for="plot" class="form-label">Plot:</label>
+  <input required type="text" class="form-control" 
+  name="plot" id="plot" placeholder="Plot" value="{{movie.plot}}" required>
+  </div>
+  <div>
+  <label for="cast">Cast:</label>
+  <select name="cast" id="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  </div>
+  {{#if movie}}
+  <div>
+    <button type="submit" class="btn btn-primary">Edit Movie</button>
+  </div>
+  {{else}}
+  <div>
+    <button type="submit" class="btn btn-primary">Create Movie</button>
+  </div>
+  {{/if}}
+</form>
+
+{{#if errorMessage}}
+  <p style="color: red;">{{errorMessage}}</p>
+{{/if}}
+
+</div>
