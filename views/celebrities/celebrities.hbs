@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+        background-color: lightcyan;
+        color: black;
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h2>Celebrities</h2>
+    <br>
+    {{#each celebs}}
+    <div class="content">
+        <h5>{{name}}</h5>
+        <h6>{{occupation}}</h6>
+        <p>{{catchPhrase}}</p>
+    </div> 
+    {{/each}} 
+</body>
+</html>
