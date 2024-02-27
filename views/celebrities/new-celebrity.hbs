@@ -1,0 +1,16 @@
+<h2>New celebrity</h2>
+<a href="/">Go Home</a>
+<form action="/celebrities/create" method="post" enctype="application/x-www-form-urlencoded" class="mt-5">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" value="{{celebrity.name}}" class="mb-3 form-control {{#if errors.name}}is-invalid{{/if}}" />
+        {{#if errors.name}}<small class="invalid-feedback mb-3">{{errors.name}}</small>{{/if}}
+        <label>Occupation</label>
+        <input type="text" name="occupation" value="{{celebrity.occupation}}" class="mb-3 form-control {{#if errors.occupation}}is-invalid{{/if}}" />
+        {{#if errors.occupation}}<small class="invalid-feedback mb-3">{{errors.occupation}}</small>{{/if}}
+        <label>Catchphrase</label>
+        <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}" class="mb-3 form-control {{#if errors.catchPhrase}}is-invalid{{/if}}" />
+        {{#if errors.catchPhrase}}<small class="invalid-feedback mb-3">{{errors.catchPhrase}}</small>{{/if}}
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

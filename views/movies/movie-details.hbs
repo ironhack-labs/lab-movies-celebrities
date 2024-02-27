@@ -1,0 +1,22 @@
+<h2>Movie's details</h2>
+<a href="/">Go Home</a>
+<ul class="mt-5">
+    <li class="mb-3">Title: {{movie.title}}</li>
+    <li class="mb-3">Genre: {{movie.genre}}</li>
+    <li class="mb-3">Plot: {{movie.plot}}</li>
+    <li class="mb-1">Cast:</li>
+    <div class="row col-sm-6">
+        {{#each movie.cast as |celebrity|}}
+        <div class="d-flex justify-content">
+            <div class="card-body">
+            <h5 class="card-title">{{celebrity.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{celebrity.occupation}}</h6>
+            <p class="card-text">{{celebrity.catchPhrase}}</p>
+        </div>
+        {{/each}}
+    </div>
+</ul>
+<form action="/movies/{{movie.id}}/delete" method="post">
+    <button type="submit" class="btn btn-danger">Delete movie</button>
+</form>
+<a href="/movies/{{movie.id}}/edit" class="btn btn-primary mt-5">Edit movie</a>

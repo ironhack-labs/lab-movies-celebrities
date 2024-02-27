@@ -1,0 +1,7 @@
+<h2>Movies</h2>
+<a href="/">Go Home</a>
+<ul class="list-group mt-5">
+    {{#each movies as |movie|}}
+    <li class="list-group-item"><a href="/movies/{{movie.id}}">{{movie.title}}</a></li>
+    {{/each}}
+</ul>
