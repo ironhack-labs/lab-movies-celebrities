@@ -1,0 +1,32 @@
+<h2 class="font-weight-bold">MOVIE DETAILS</h2>
+
+<h3 class="font-weight-bold">Title:</h3>
+<h3>{{movie.title}}</h3>
+
+<h3 class="font-weight-bold">Genre:</h3>
+<h3>{{movie.genre}}</h3>
+
+<h3 class="font-weight-bold">Plot:</h3>
+<h3>{{movie.plot}}</h3>
+
+<h3 class="font-weight-bold">Cast:</h3>
+    {{#each movie.cast}}
+
+        <h4>{{this.name}}</h4>
+        <p>{{this.ocupation}}</p>
+        <p>{{this.catchPhrase}}</p>
+
+    {{/each}}
+
+<div class="d-flex">
+    <div class="mr-3"> 
+        <form action="/movies/{{movie._id}}/edit" method="GET">
+        <button class="btn btn-primary">Edit movie</button>
+        </form>
+    </div>
+    <div> 
+        <form action="/movies/{{movie._id}}/delete" method="POST">
+        <button class="btn btn-danger">Delete movie</button>
+        </form>
+    </div>
+</div>

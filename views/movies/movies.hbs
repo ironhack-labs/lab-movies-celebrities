@@ -1,0 +1,14 @@
+<h2>MOVIES</h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+        {{#each movie}}
+    <div class="col">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <a href="/movies/{{this._id}}"><button class="btn btn-primary">See movie details</button></a>
+        </div>
+        </div>
+    </div>
+    {{/each}}
+    </div> 
