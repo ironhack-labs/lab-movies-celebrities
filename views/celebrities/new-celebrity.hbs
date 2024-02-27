@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="form">
+        <h1>Create a celebrity!</h1>
+        <form action="/celebrities/create" method="POST">
+            <div class="mb-3">
+                <label for="nameceleb" class="form-label">Name of the celebrity</label>
+                <input type="text" class="form-control" id="nameceleb" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="occupationceleb" class="form-label">Occupation of the Celebrity</label>
+                <input type="text" class="form-control" id="occupationceleb" name="occupation">
+            </div>
+            <div class="mb-3">
+                <label for="catchPhraseCeleb" class="form-label">Catch phrase of the Celebrity</label>
+                <input type="text" class="form-control" id="catchPhraseCeleb" name="catchPhrase">
+            </div>
+
+            <button type="submit" class="btn btn-info">Create!</button>
+        </form>
+    </div>
+</div>

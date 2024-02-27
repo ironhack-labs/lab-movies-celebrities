@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="form">
+        <h1>Edit Celebrity!</h1>
+        <form action="/celebrities/{{_id}}/edit" method="POST">
+            <div class="mb-3">
+                <label for="nameceleb" class="form-label">Name of the celebrity</label>
+                <input type="text" class="form-control" id="nameceleb" name="name" value="{{name}}">
+            </div>
+            <div class="mb-3">
+                <label for="occupationceleb" class="form-label">Occupation of the Celebrity</label>
+                <input type="text" class="form-control" id="occupationceleb" name="occupation" value="{{occupation}}">
+            </div>
+            <div class="mb-3">
+                <label for="catchPhraseCeleb" class="form-label">Catch phrase of the Celebrity</label>
+                <input type="text" class="form-control" id="catchPhraseCeleb" name="catchPhrase"
+                    value="{{catchPhrase}}">
+            </div>
+
+            <button type="submit" class="btn btn-success">Edit!</button>
+        </form>
+    </div>
+</div>

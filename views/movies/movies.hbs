@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="container text-center ">
+        <h2>Your movies</h2>
+        <hr>
+        <div class="row  text-center justify-content-around">
+            <div class="col-3">
+                <h5>title</h5>
+            </div>
+            <div class="col-3">
+                <h5>genre</h5>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+
+
+        </div>
+        <hr>
+        {{#each movies}}
+        <div class="row text-center align-items-center justify-content-around">
+            <div class="col-3">
+                <p class="mb-0">{{title}}</p>
+            </div>
+            <div class="col-3">
+                <p class="mb-0">{{genre}}</p>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-success" href="/movies/details/{{_id}}" role="button">Details</a>
+            </div>
+            <div class="col-2">
+                <a class="btn btn-warning" href="/movies/{{_id}}/edit" role="button">Edit</a>
+            </div>
+
+
+        </div>
+        <hr>
+        {{/each}}
+
+    </div>
+</div>
