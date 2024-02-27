@@ -1,0 +1,13 @@
+<h2>List of Movies</h2>
+
+{{#each movies}}
+<section class="movies-summary">
+    <h3>{{title}}</h3>
+    <p>
+        Genre: {{genre}} <br />
+        Plot: {{plot}} <br />
+        Cast: {{celebrity.name}} <br />
+    </p>
+</section>
+{{/each}}
+
