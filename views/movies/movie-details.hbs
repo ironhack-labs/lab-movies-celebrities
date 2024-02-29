@@ -1,0 +1,11 @@
+<h3>{{title}}</h3>
+<hr>
+<p><strong>Genre: </strong>{{genre}}</p>
+<p><strong>Plot: </strong> {{plot}}</p>
+<p><strong>Cast: </strong></p>
+{{#each cast}}
+<ul>
+	<li>{{name}}</li>
+</ul>
+{{/each}}
+<a href="/" class="btn btn-dark">Back to home</a>
