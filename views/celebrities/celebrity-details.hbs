@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{celebrity.name}}</h5>
+      <p class="card-text">oacupation: {{celebrity.ocupation}}</p>
+      <p class="card-text">Catchphrase: {{celebrity.catchPhrase}}</p>
+      <h5>Movies:</h5>
+      <ul>
+        {{#each movie}}
+          <li>{{this.title}}</li>
+        {{/each}}
+      </ul>
+      <a href="/celebrity/{{celebrity._id}}/edit" class="btn btn-primary my-2">Edit celebrity</a>
+      <form action="/celebrity/{{celebrity._id}}/delete" method="post" enctype="application/x-www-form-urlencoded">
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </form>
+    </div>
+</div>

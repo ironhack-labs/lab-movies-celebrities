@@ -1,0 +1,22 @@
+<h2>Edit Celebrity</h2>
+
+<form action="/celebrity/{{celebrity.id}}/edit" method="post" enctype="application/x-www-form-urlencoded">
+  <div class="input-group mb-1">
+    <label class="input-group-text" for="name">Name</label>
+    <input type="text" name="name" class="form-control" placeholder="celebrity name..." value="{{celebrity.name}}">
+  </div>
+
+  <div class="input-group mb-1">
+    <label class="input-group-text" for="ocupation">Ocupation</label>
+    <input type="text" name="ocupation" class="form-control" placeholder="celebrity ocupation..." value="{{celebrity.ocupation}}">
+  </div>
+
+  <div class="input-group mb-1">
+    <label class="input-group-text" for="catchPhrase">catchphrase</label>
+    <input type="text" name="catchPhrase" class="form-control" placeholder="celebrity catchphrase..." value="{{celebrity.catchPhrase}}">
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

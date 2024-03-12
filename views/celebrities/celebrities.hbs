@@ -1,0 +1,12 @@
+<h2>Celebs</h2>
+
+<div class="card">
+  {{#each artist}}
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <p class="card-text">Ocupation: {{ocupation}}</p>
+      <p class="card-text">Catchphrase: {{catchPhrase}}</p>
+      <a href="/celebrity/{{_id}}">Details</a>
+    </div>
+  {{/each}}
+</div>
