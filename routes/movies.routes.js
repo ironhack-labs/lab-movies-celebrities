@@ -63,15 +63,87 @@ router.get("/new", (req, res) => {
   res.render("movies/new-movie");
 });
 
+// Iteration #8: The Movie Details Page
+
 // Renders movie-details.hbs in the movies folder
 // :id is a dynamic parameter representing the unique identifier of a specific movie. For example, if a client navigates to /movies/123, where 123 is the ID of a movie, it renders the movie-details.hbs template located in the views/movies folder.
+// GET route to show a specific movie
 router.get("/:id", (req, res) => {
-  res.render("movies/movie-details");
+  const { id } = req.params; // const id = req.params.id;
+  Movie.findById(id)
+    .populate("cast") // Because 'cast' is the field in Movie model that references Celebrity model
+    .then((movie) => {
+      if (!movie) {
+        return res.status(404).send("Movie not found.");
+      }
+      res.render("movies/movie-details", { movie });
+    })
+    .catch((error) => {
+      console.error("Error fetching movie details:", error);
+      res.status(500).send("Error retrieving movie from the database.");
+    });
 });
 
-// Renders edit-movie.hbs in the movies folder
+// // Renders edit-movie.hbs in the movies folder
+// router.get("/:id/edit", (req, res) => {
+//   res.render("movies/edit-movie");
+// });
+
+// Iteration #9: Deleting Movies - Back-end-part
+router.post("/:id/delete", (req, res) => {
+  const { id } = req.params;
+  Movie.findByIdAndRemove(id)
+    .then(() => {
+      //  // Redirect to the movies list page once the movie is successfully deleted
+      res.redirect("/movies");
+    })
+    .catch((error) => {
+      // Handle errors, such as the movie not found or database errors
+      console.error("Error deleting the movie:", error);
+      res.status(500).send("Error deleting the movie");
+    });
+});
+
+// Iteration #10: Editing Movies
+// Route GET to Show a form to edit a movie
 router.get("/:id/edit", (req, res) => {
-  res.render("movies/edit-movie");
+  const { id } = req.params;
+
+  // Retrieve the specific movie
+  Movie.findById(id)
+    .then((movie) => {
+      // Retrieve all celebrities to select for the cast
+      Celebrity.find().then((celebrities) => {
+        // Make celebrities selected if they are in the movie's cast
+        const options = celebrities.map((celebrity) => {
+          return {
+            ...celebrity.toObject(),
+            selected: movie.cast.includes(celebrity._id.toString()),
+          };
+        });
+
+        res.render("movies/edit-movie", {
+          movie: movie.toObject(),
+          celebrities: options
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching movie details:", error);
+      res.status(500).send("Error retrieving movie from the database.");
+    });
 });
 
+// Route POST to Send the data from the form to this route to update the specific movie
+router.post("/:id", (req, res) => {
+  // This line extracts the id parameter from the route parameters (req.params). When you have a route like /movies/:id/edit, :id is a placeholder in the URL for the unique identifier of a movie. This part of the URL is accessible in your Express route handler through req.params.id. By using destructuring, you're directly extracting the id value into a constant named id. Purpose: Specifically, this id is used to identify which movie document to update or delete in the database.
+  const { id } = req.params;
+
+  // This line extracts title, genre, plot, and cast properties from the request body (req.body). When a form is submitted to update a movie, the data entered into the form fields is sent in the request body. The names of these fields in the request body match the names of the input fields in your form. Purpose: These extracted values are used to update the movie document in the database with new data provided by the user.
+  const { title, genre, plot, cast } = req.body;
+
+  Movie.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
+    .then(updatedMovie => res.redirect(`/movies/${updatedMovie._id}`)) // Go to the details page to see the updates
+    .catch(error => next(error));
+});
 module.exports = router;

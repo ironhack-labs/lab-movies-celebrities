@@ -11,6 +11,8 @@ const movieSchema = new Schema({
     cast: [{ type: Schema.Types.ObjectId, ref: 'Celebrity'}]
 });
 
+// With this schema setup (in cast), when you call .populate('cast') on a query, Mongoose knows to look in the collection associated with the Celebrity model and replace each ObjectId in the cast array with the corresponding full document from the Celebrity collection.
+
 const Movie = model("Movie", movieSchema);
 
 module.exports = Movie;
