@@ -1,1 +1,15 @@
-//  Add your code here
+// Iteration #2: The Celebrity model
+
+const mongoose = require("mongoose");
+
+const { Schema, model } = require("mongoose");
+
+const celebritySchema = new Schema({
+  name: { type: String, required: true },
+  occupation: { type: String, required: true },
+  catchPhrase: { type: String, required: true }
+});
+
+const Celebrity = model("Celebrity", celebritySchema);
+
+module.exports = Celebrity;
