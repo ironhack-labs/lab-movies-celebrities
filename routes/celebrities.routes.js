@@ -16,8 +16,6 @@ router.get("/new", (req, res) => {
   res.render("celebrities/new-celebrity");
 });
 
-
-
 // Iteration #3: Adding New Celebrities
 
 // GET Route to show form to create a new celebrity
@@ -47,23 +45,79 @@ router.post("/create", (req, res) => {
     });
 });
 
-
-
 // Iteration #4: Listing Our Celebrities
 
 // GET route to show all celebrities
 router.get("/", (req, res) => {
-    // Retrieve all celebrities from the database
-    Celebrity.find()
-      .then(celebrities => {
-        // If successful, render the celebrities view with the list of celebrities
-        res.render("celebrities/celebrities", { celebrities });
-        console.log(celebrities)
-      })
-      .catch(error => {
-        // If there's an error, render an error page or handle it accordingly
-        res.status(500).send("Error retrieving celebrities from the database.");
-      });
-  });
+  // Retrieve all celebrities from the database
+  Celebrity.find()
+    .then((celebrities) => {
+      // If successful, render the celebrities view with the list of celebrities
+      res.render("celebrities/celebrities", { celebrities });
+      console.log(celebrities);
+    })
+    .catch((error) => {
+      // If there's an error, render an error page or handle it accordingly
+      res.status(500).send("Error retrieving celebrities from the database.");
+    });
+});
+
+// Bonus for Celebrity model
+// GET route to show the details of a specific celebrity
+router.get("/:id", (req, res) => {
+  const { id } = req.params;
+
+  Celebrity.findById(id)
+    .then((celebrity) => {
+      res.render("celebrities/celebrity-details", { celebrity });
+    })
+    .catch((error) => {
+      console.error("Error fetching celebrity details:", error);
+      res.status(500).send("Error retrieving celebrity from the database.");
+    });
+});
+
+// GET route to show the edit form for a celebrity
+router.get("/:id/edit", (req, res) => {
+  const { id } = req.params;
+
+  Celebrity.findById(id)
+    .then((celebrityToEdit) => {
+      res.render("celebrities/edit-celebrity", { celebrity: celebrityToEdit });
+    })
+    .catch((error) => {
+      console.error("Error fetching celebrity for edit:", error);
+      res.status(500).send("Error retrieving celebrity for edit.");
+    });
+});
+
+// POST route to update a celebrity
+router.post("/:id", (req, res) => {
+  const { id } = req.params;
+  const { name, occupation, catchPhrase } = req.body;
+
+  Celebrity.findByIdAndUpdate(id, { name, occupation, catchPhrase })
+    .then(() => {
+      res.redirect(`/celebrities/${id}`);
+    })
+    .catch((error) => {
+      console.error("Error updating celebrity:", error);
+      res.status(500).send("Error updating celebrity.");
+    });
+});
+
+// POST route to delete a celebrity
+router.post("/:id/delete", (req, res) => {
+  const { id } = req.params;
+
+  Celebrity.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect("/celebrities");
+    })
+    .catch((error) => {
+      console.error("Error deleting celebrity:", error);
+      res.status(500).send("Error deleting celebrity.");
+    });
+});
 
 module.exports = router;

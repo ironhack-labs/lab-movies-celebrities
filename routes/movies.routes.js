@@ -113,18 +113,21 @@ router.get("/:id/edit", (req, res) => {
   Movie.findById(id)
     .then((movie) => {
       // Retrieve all celebrities to select for the cast
-      Celebrity.find().then((celebrities) => {
+      Celebrity.find()
+        .then((celebrities) => {
         // Make celebrities selected if they are in the movie's cast
         const options = celebrities.map((celebrity) => {
           return {
-            ...celebrity.toObject(),
+            // Converts the Mongoose document into a plain JavaScript object. This is necessary.
+            ...celebrity.toObject(),            
+            // Converting the ID to a string for comparison is necessary due to the way MongoDB and Mongoose handle document IDs.
             selected: movie.cast.includes(celebrity._id.toString()),
           };
         });
 
         res.render("movies/edit-movie", {
           movie: movie.toObject(),
-          celebrities: options
+          celebrities: options,
         });
       });
     })
@@ -143,7 +146,7 @@ router.post("/:id", (req, res) => {
   const { title, genre, plot, cast } = req.body;
 
   Movie.findByIdAndUpdate(id, { title, genre, plot, cast }, { new: true })
-    .then(updatedMovie => res.redirect(`/movies/${updatedMovie._id}`)) // Go to the details page to see the updates
-    .catch(error => next(error));
+    .then((updatedMovie) => res.redirect(`/movies/${updatedMovie._id}`)) // Go to the details page to see the updates
+    .catch((error) => next(error));
 });
 module.exports = router;
