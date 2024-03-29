@@ -1,0 +1,31 @@
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+</head>
+<body>
+  <h2>Movie Details</h2>
+  <h3>Title: {{ movie.title }}</h3>
+  <p>Genre: {{ movie.genre }}</p>
+  <p>Plot: {{ movie.plot }}</p>
+  
+  <h3>Cast:</h3>
+  <ul>
+    {{#each movie.cast}}
+      <li>Name: {{ this.name }}</li>
+      <li>Occupation: {{ this.occupation }}</li>
+      <li>Catch Phrase: {{ this.catchPhrase }}</li>
+    {{/each}}
+  </ul>
+
+   <form action="/movies/{{ movie._id }}/delete" method="post">
+    <button type="submit">Delete Movie</button>
+  </form>
+
+     <form action="/movies/{{ movie._id }}/edit" method="post">
+    <button type="submit">Edit Movie</button>
+  </form>
+
+</body>
+</html>
