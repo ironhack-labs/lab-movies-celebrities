@@ -1,0 +1,19 @@
+<h2>Details of Celebrities</h2>
+<h3>{{celebrity.name}}</h3>
+<ul>
+  <li>Occupation: {{celebrity.occupation}}</li>
+  <li>CatchPhrase: {{celebrity.catchPhrase}}</li>
+  <li>Movies cameo:
+    <ul>
+      {{#each movies}}
+        <li>
+          <a href="/movies/{{_id}}">{{title}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </li>
+</ul>
+<form action="/celebrities/{{celebrity._id}}/delete" method="POST">
+  <button type="submit" class="btn btn-primary">Delete</button>
+</form>
+<a href="/celebrities/{{celebrity._id}}/edit">Edit Celebrity</a>

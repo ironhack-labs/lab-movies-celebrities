@@ -1,0 +1,46 @@
+<h2>Movie Edit</h2>
+<div class="container">
+  <form action="/movies/{{movie._id}}" method="POST">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        value="{{movie.title}}"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="genre">Genre:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="genre"
+        name="genre"
+        value="{{movie.genre}}"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="plot">Plot:</label>
+      <input type="text" class="form-control" id="plot" name="plot" value="{{movie.plot}}" required />
+    </div>
+
+    <label for="plot">Choose the Cast</label>
+    <select
+      name="cast"
+      class="form-select"
+      id="floatingSelect"
+      aria-label="Floating label select example"
+      multiple
+    >
+      {{#each celebrities}}
+        <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+     
+    </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
