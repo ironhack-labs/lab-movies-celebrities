@@ -1,0 +1,8 @@
+<h2>Celebrity detail page:</h2>
+<p>Name:{{celebrity.name}}</p>
+<p>Occupation:{{celebrity.occupation}}</p>
+<p>Catch Phrase:{{movie.catchPhrase}}</p>
+
+<form action="/celebrities/{{celebrity._id}}/delete" method="post">
+    <button type="submit">Delete celebrity</button>
+</form>
