@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Tom Hanks",
+        "occupation": "Actor",
+        "age": 65,
+        "nationality": "American"
+    },
+    {
+        "name": "Beyoncé",
+        "occupation": "Singer",
+        "age": 40,
+        "nationality": "American"
+    },
+    {
+        "name": "Cristiano Ronaldo",
+        "occupation": "Footballer",
+        "age": 37,
+        "nationality": "Portuguese"
+    },
+    {
+        "name": "Emma Watson",
+        "occupation": "Actress",
+        "age": 32,
+        "nationality": "British"
+    },
+    {
+        "name": "Shakira",
+        "occupation": "Singer",
+        "age": 45,
+        "nationality": "Colombian"
+    }
+]

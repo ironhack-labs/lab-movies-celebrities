@@ -1,34 +1,44 @@
-// ℹ️ Gets access to environment variables/settings
-// https://www.npmjs.com/package/dotenv
-require('dotenv/config');
 
-// ℹ️ Connects to the database
-require('./db');
-
-// Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
+require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose')
+const createError = require('http-errors');
 
-// Handles the handlebars
-// https://www.npmjs.com/package/hbs
-const hbs = require('hbs');
+require('./config/db.config');
+require('./config/hbs.config')
 
 const app = express();
 
-// ℹ️ This function is getting exported from the config folder. It runs most middlewares
-require('./config')(app);
+app.set("view engine", "hbs");
+app.set("views", `${__dirname}/views`);
+app.use(express.urlencoded());
 
-// default value for title local
-const projectName = 'lab-movies-celebrities';
-const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
+const router = require('./config/routes.config')
+app.use('/', router);
 
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
+app.use((error, req, res, next) => {
+  if(error instanceof mongoose.Error.CastError && error.message.includes("_id")){
+    error = createError(404, "resource not found")
+  } else if(!error.status){
+    error = createError(500, error)
 
-// 👇 Start handling routes here
-const index = require('./routes/index');
-app.use('/', index);
+  }
+  console.error(error);
+  res.status(error.status).render(`errors/${error.status}`)
+})
 
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+
+
+
+
+
+
+
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server listening on port http://localhost:${PORT}`);
+});
 
 module.exports = app;
