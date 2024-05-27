@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Celebrity</title>
+    <link href="/stylesheets/tailwind.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-violet-800">Create a New Celebrity</h1>
+    <h2>Fill in the details below:</h2>
+    <form action="/celebrities/create" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" required>
+    </div>
+    <div>
+        <label for="catchPhrase">Catch Phrase:</label>
+        <input type="text" id="catchPhrase" name="catchPhrase">
+    </div>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>
