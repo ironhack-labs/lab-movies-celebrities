@@ -1,0 +1,10 @@
+
+<h2 class="text-2xl font-bold mb-4">All Movies</h2>
+<ul class="list-disc pl-5 space-y-2">
+  {{#each movies}}
+    <li>
+      <a href="/movies/{{this._id}}" class="text-lg text-blue-500 hover:underline">{{this.title}}</a>
+    </li>
+  {{/each}}
+</ul>
+

@@ -1,0 +1,20 @@
+
+<h2 class="text-2xl font-bold mb-4">{{movie.title}}</h2>
+<p><strong class="text-lg">Genre:</strong> {{movie.genre}}</p>
+<p><strong class="text-lg">Plot:</strong> {{movie.plot}}</p>
+<h3 class="text-lg font-bold mt-4">Cast:</h3>
+<ul class="list-disc pl-5 mt-2">
+  {{#each movie.cast}}
+    <li>
+      <span>{{this.name}} - {{this.occupation}} ({{this.catchPhrase}})</span>
+    </li>
+  {{/each}}
+</ul>
+
+<form action="/movies/{{movie._id}}/delete" method="post" class="mt-4">
+  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Delete Movie</button>
+</form>
+
+<a href="/movies/edit/{{movie._id}}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded-sm text-sm">Modify</a>
+
+

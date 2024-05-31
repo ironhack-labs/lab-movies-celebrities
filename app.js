@@ -28,6 +28,23 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
+const celebritiesRoutes = require("./routes/celebrities.routes");
+app.use("/celebrities", celebritiesRoutes);
+
+const moviesRoutes = require("./routes/movies.routes");
+app.use("/movies", moviesRoutes);
+
+// const exphbs = require(`express-handlebars`);
+// const hbsHelpers = require(`./helpers/handlebarsHelpers`);
+
+//const hbs = exphbs.create({
+    // extname: `.hbs`,
+    // helpers: hbsHelpers
+// });
+
+// app.engine(`hbs`, hbs.engine);
+// app.set(`view engine`, `hbs`);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

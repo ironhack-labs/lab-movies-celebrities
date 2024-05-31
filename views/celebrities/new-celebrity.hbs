@@ -1,0 +1,19 @@
+
+<div class="container mx-auto p-4">
+        <h2 class="text-2xl font-bold text-center mb-6">Create celebrity</h2>
+        <form action="/celebrities/create" method="post" class="max-w-lg mx-auto bg-white p-6 rounded shadow-md">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            </div>
+            <div class="mb-4">
+                <label for="occupation" class="block text-sm font-medium text-gray-700">Occupation</label>
+                <input type="text" id="occupation" name="occupation" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            </div>
+            <div class="mb-4">
+                <label for="catchPhrase" class="block text-sm font-medium text-gray-700">Catch Phrase</label>
+                <input type="text" id="catchPhrase" name="catchPhrase" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Create celebrity</button>
+        </form>
+    </div>
