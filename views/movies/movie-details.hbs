@@ -1,0 +1,21 @@
+<h2>Movie details</h2>
+
+<section class="movie-container">
+	<p>
+		Title: {{title}} <br />
+		Genre: {{genre}} <br />
+		Plot: {{plot}} <br />
+		Cast: <br />
+		<hr />
+		{{#each cast}}
+			{{this.name}} <br />
+			{{this.occupation}} <br />
+			{{this.catchPhrase}} <br />
+			<hr />
+		{{/each}}
+		<a href="/movies/{{_id}}/edit">Edit</a>
+		<form method="POST" action="/movies/{{_id}}/delete">
+			<button> Delete </button>
+		</form>
+	</p>
+</section>
