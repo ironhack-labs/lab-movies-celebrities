@@ -1,0 +1,15 @@
+<h2>Celebrities</h2>
+<hr />
+
+{{#each celebrities}}
+  <h3>Name: {{name}}</h3>
+  <br />
+  <h4>Occupation: {{occupation}}</h4>
+  <p>Catch Phrase: {{catchPhrase}}</p>
+  <br />
+  {{!-- <a href='/drones/{{_id}}/edit'>Edit</a>
+  <form action='/drones/{{_id}}/delete' method='POST'>
+    <input type='submit' value='Delete' />
+  </form> --}}
+  <hr />
+{{/each}}

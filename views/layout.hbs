@@ -1,21 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
     <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
   <body>
-    <div class="container">
+    <div class='container'>
+
+      <a class='button' href='/'>Home |</a>
+      <a class='button' href='/celebrities'>Celebrities List |</a>
+      <a class='button' href='/celebrities/create'>Add New Celebrity |</a>
+      <a class='button' href='/movies'>Movies List |</a>
+      <a class='button' href='/movies/create'>Add New Movie |</a>
+
+      <hr />
+
       {{{body}}}
     </div>
 
-    <script src="/javascripts/script.js"></script>
+    <script src='/javascripts/script.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js'></script>
   </body>
 
 </html>
