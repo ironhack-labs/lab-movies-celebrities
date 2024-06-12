@@ -1,2 +1,22 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container">
+    <h1>{{title}}</h1>
+    <p class="mb-5">Welcome to {{title}}</p>
+</div>
+<div class="d-flex justify-content-around">
+    <div class="card text-center mr-5" style="width: 50%">
+        <div class="card-body">
+            <h5 class="card-title">Celebrities</h5>
+            <p class="card-text">Check the section with celebrities</p>
+            <a href="/celebrities/create" class="btn btn-primary btn-dark mr-5">Add celebrity</a>
+            <a href="/celebrities" class="btn btn-primary btn-dark">List celebrities</a>
+        </div>
+    </div>
+    <div class="card text-center" style="width: 50%;">
+        <div class="card-body">
+            <h5 class="card-title">Movies</h5>
+            <p class="card-text">Check the section with movies</p>
+            <a href="/movies/create" class="btn btn-primary btn-dark mr-5">Add Movie</a>
+            <a href="/movies" class="btn btn-primary btn-dark">List Movies</a>
+        </div>
+    </div>
+</div>

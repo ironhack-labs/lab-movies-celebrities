@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Add new Movie</h1>
+    <hr>
+
+    <form action="/movies/create" method="post">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="title" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" class="form-control" name="genre" id="genre">
+                </div>
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <input type="text" class="form-control" name="plot" id="plot">
+                </div>
+                {{!-- editar
+                <div class="form-group">
+                    <label for="cast">Cast</label>
+                    <input type="text" class="form-control" name="cast" id="cast">
+                </div> --}}
+                <label for="sel">Cast</label>
+                <div class="input-group-prepend mb-3">
+                    <select multiple class="form-control" id="sel" name="cast">
+                        {{#each all}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary btn-dark">Submit</button>
+                    <a href="/" class="btn btn-primary btn-dark">Back to homepage</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
