@@ -1,0 +1,48 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>Editar {{title}}</h1>
+
+            <hr>
+
+            <form action="/movies/{{_id}}/edit" method="POST">
+
+                <div class="mb-3">
+                    <label for="field1" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="field1" name="title" value="{{title}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="field2" class="form-label">Género</label>
+                    <input type="text" class="form-control" id="field2" name="genre" value="{{genre}}">
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="field2" class="form-label">Argumento</label>
+                    <input type="text" class="form-control" id="field2" name="plot" value="{{plot}}">
+                </div>
+
+                {{!-- <label for="celebrities">Elenco: <br> </label>
+                <select name="cast" id="celebrities" multiple>
+                    {{#each celebrities}}
+                    <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+                <p class="cursiva">Nota: para seleccionar varias opciones mantenga pulsada la
+                    tecla ctrl</p>
+                --}}
+
+                <input type="text" name="movie_id" hidden value="{{_id}}">
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Guardar edición</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
