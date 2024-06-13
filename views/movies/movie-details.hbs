@@ -1,0 +1,25 @@
+<h1> Movie detail</h1>
+
+<div>
+  <p>Title: {{foundMovie.title}}</p>
+  <p>Genre: {{foundMovie.genre}}</p>
+  <p>Plot: {{foundMovie.plot}}</p>
+  Cast:
+  <ul>
+    {{#each foundMovie.cast}}
+      <li>Name: {{this.name}}</li>
+      <li>Occupation: {{this.occupation}}</li>
+      <li>Catchphrase: {{this.catchPhrase}}</li>
+    {{/each}}
+
+    <form action="/movies/{{foundMovie._id}}/delete" method="POST">
+      <button>
+        Delete
+      </button></form>
+
+    <form action="/movies/{{foundMovie._id}}/edit" method="get">
+      <button>
+        Edit
+      </button></form>
+  </ul>
+</div>
