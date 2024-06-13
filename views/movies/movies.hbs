@@ -1,0 +1,13 @@
+<h2>All Movies</h2>
+<hr>
+{{#each allMovies}}
+        <h2>{{title}}</h2>
+        <p>{{genre}}</p>
+        {{#each cast}}
+        <h2>{{name}}</h2>
+        {{/each}}
+        <h4>{{plot}}</h4>
+        <a href="/movies/{{_id}}" > <button class="button" type="submit">See Movie Details</button></a>
+    {{/each}}
+
+

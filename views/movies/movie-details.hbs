@@ -1,0 +1,12 @@
+<div>
+<h1>
+    Movie Details
+</h1>
+{{title}}
+{{genre}}
+{{plot}}
+<form action="/movies/{{_id}}/delete" method="POST">
+<button class="button" type="submit">Delete Movie</button>
+<a href="/movies/{{_id}}/edit" class="button" type="submit">Edit Movie Info</a>
+</form>
+</div>
