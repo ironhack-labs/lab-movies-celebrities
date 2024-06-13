@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<hr>
+<div class="container">
+    <div class="row">
+
+        {{#each celebrity}}
+        <div class="col-md-4">
+            <img src="{{photo}}" alt="{{name}}">
+            <p>{{name}}</p>
+            <p>{{occupation}}</p>
+            <p>{{catchPhrase}}</p>
+
+        </div>
+        {{/each}}
+    </div>
+</div>
