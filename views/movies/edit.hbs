@@ -1,0 +1,32 @@
+<h1 class="text-center mt-5 mb-4">Edit Movie</h1>
+
+<form class="container-sm mx-auto" style="max-width: 400px;" action="/movies/{{movie._id}}" method="POST">
+
+  <div class="form-group mb-3">
+    <label for="title" style="color: #3498db;">Title</label>
+    <input type="text" class="form-control" name="title" id="title" placeholder="Movie title" value="{{movie.title}}" required>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="genre" style="color: #3498db;">Genre</label>
+    <input type="text" class="form-control" name="genre" id="genre" placeholder="Movie genre" value="{{movie.genre}}" required>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="plot" style="color: #3498db;">Plot</label>
+    <input type="text" class="form-control" name="plot" id="plot" placeholder="Movie plot" value="{{movie.plot}}" required>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="cast" style="color: #3498db;">Cast</label>
+    <select name="cast" id="cast" multiple class="form-control" required>
+      {{#each celebrities as |celebrity|}}
+        <option value="{{celebrity._id}}" {{#castContains cast=../movie.cast celebrityId=celebrity._id}}selected
+      {{/castContains}}>{{celebrity.name}}</option>
+      {{/each}}
+    </select>
+
+  </div>
+
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>

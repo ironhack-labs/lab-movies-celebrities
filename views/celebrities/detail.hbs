@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <h1>Celebrity Detail</h1>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h3 class="card-title">{{celebrity.name}}</h3>
+      <p class="card-text"><strong>Occupation:</strong>
+        {{celebrity.occupation}}</p>
+      <p class="card-text"><strong>Catch Phrase:</strong>
+        {{celebrity.catchPhrase}}</p>
+
+      <div class="mt-3">
+        <h4>Movies</h4>
+        <ul>
+          {{#each celebrity.movies as |movie|}}
+            <li><a href="/movies/{{movie._id}}">{{movie.title}}</a></li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="mt-3">
+        <a href="/celebrities" class="btn btn-secondary">Back</a>
+        {{#if currentUser.isAdmin}}
+          <a
+            href="/celebrities/{{celebrity._id}}/edit"
+            class="btn btn-primary"
+          >Edit</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

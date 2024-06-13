@@ -1,0 +1,19 @@
+<h1 class="mt-5 mb-4">Celebrities</h1>
+
+<div class="container">
+  <div class="row">
+    {{#each celebrities}}
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="https://randomuser.me/api/portraits/men/{{@index}}.jpg" class="card-img-top" alt="{{this.name}}">
+          <div class="card-body">
+            <h3 class="card-title">{{this.name}}</h3>
+            <p class="card-text">{{this.occupation}}</p>
+            <p class="card-text">{{this.catchPhrase}}</p>
+            <a href="/celebrities/{{this._id}}" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
