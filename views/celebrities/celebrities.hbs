@@ -1,0 +1,22 @@
+<h2>Celebrities</h2>
+<hr class="mb-5">
+<div class="row">
+    <div class="col">
+
+        {{#each celebrities}}
+        <div class="row mb-2 ml-2">
+            <p class="mr-2"> {{name}} </p>
+            <a href="/celebrities/{{_id}}" class="btn btn-sm btn-outline-dark mr-2">See more</a></p>
+            <a href="/celebrities/{{_id}}/edit" class="btn btn-sm btn-outline-info mr-2">Edit</a></p>
+            <form action="celebrities/{{_id}}/delete" method="POST" style="display: inline">
+                <input type="submit" value="DELETE" class="btn btn-sm btn-outline-danger mr-2">
+            </form>
+        </div>
+        {{/each}}
+
+    </div>
+
+</div>
+<hr class="mb-3">
+<a href="/celebrities/create" alt="add another" class="btn btn-info"> add another</a>
+<a href="/" alt="add another" class="btn btn-dark"> back</a>

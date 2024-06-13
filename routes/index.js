@@ -1,8 +1,13 @@
-const router = require("express").Router();
+module.exports = app => {
 
-/* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
+  const indexRoutes = require("./index.routes")
+  app.use("/", indexRoutes)
 
-module.exports = router;
+  const celebritiesRoutes = require("./celebrities.routes")
+  app.use("/celebrities", celebritiesRoutes)
+
+  const moviesRoutes = require("./movies.routes")
+  app.use("/movies", moviesRoutes)
+
+
+}

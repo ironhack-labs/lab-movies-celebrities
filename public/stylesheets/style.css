@@ -6,3 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
+
+.divider {
+  background-color: #3e3e3e;
+  padding-left: 5px;
+}
+
+.divider-p {
+  color: #fff;
+}

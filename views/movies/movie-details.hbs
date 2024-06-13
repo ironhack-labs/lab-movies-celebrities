@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col">
+
+            <h2>More details</h2>
+            <hr class="mb-5">
+
+            <div class="col-md-6">
+                <p>Title: {{title}} </p>
+                <p>Genre: {{genre}}</p>
+                <p>Plot: {{plot}}</p>
+                <p>Cast:</p>
+                <div class="row">
+                    {{#each cast}}
+                    <div class="col">
+                        <div class="divider">
+                            <p class="divider-p">{{name}}</p>
+                        </div>
+                        <p>Credit: {{this.occupation}}</p>
+                        <p>Catch Phrase: {{this.catchPhrase}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr class="mb-3">
+    <a href="/movies" alt="back" class="btn btn-dark"> back</a>
+    <form action="/movies/{{_id}}/delete" method="POST" style="display: inline">
+        <input type="submit" value="DELETE" class="btn btn-danger">
+    </form>
+
+</div>
