@@ -1,0 +1,14 @@
+<h1>Details</h1>
+<hr>
+<h3>Title: {{title}}</h3>
+<h3>Genre: {{genre}}</h3>
+<h3>Plot: {{plot}}</h3>
+<h3>Cast:
+    {{#each cast}}
+    <li>Name: {{name}}</li>
+    <li>Ocuppation: {{occupation}}</li>
+    <li>CatchPhrase: {{catchPhrase}}</li>
+    {{/each}}
+</h3>
+
+<a href="/movies">Inicio</a>
