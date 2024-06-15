@@ -1,0 +1,10 @@
+<h2>Create a new movie</h2>
+<form action="/celebrities/{{_id}}/edit" method="POST">
+  <label for="name">Name</label>
+    <input type="text" name="name" value="{{name}}" required/>
+    <label for="occupation">Occupation</label>
+    <input type="text" name="occupation" value="{{occupation}}" required/>
+    <label for="plot">catchPhrase</label>
+    <input type="text" name="catchPhrase" value="{{catchPhrase}}" required/>
+    <button type="submit">Edit</button>
+</form>
