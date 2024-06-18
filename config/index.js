@@ -17,6 +17,15 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+const hbs = require("hbs");
+
+hbs.registerHelper('ifIn', function(elem, list, options) {
+  if(list.indexOf(elem.toString()) > -1) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs
