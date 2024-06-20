@@ -1,0 +1,18 @@
+<h2>Celebrities</h2>
+<br>
+<hr>
+<br>
+{{#each celebrities}}
+  <div>
+    <h4>{{name}}</h4>
+
+    <a href="/celebrities/{{_id}}/edit">Edit</a>
+
+    <form action="/celebrities/{{_id}}/delete" method="POST">
+      <button>Delete</button>
+    </form>
+  </div>
+{{/each}}
+<br>
+<hr>
+<a href="/">Back</a>
