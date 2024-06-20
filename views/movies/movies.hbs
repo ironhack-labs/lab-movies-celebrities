@@ -1,0 +1,9 @@
+<h2>Hallo Movies</h2>
+<a href="/">Go Home</a>
+{{#each movies}}
+  <h4>Movie Title: {{this.title}}</h4>
+  <a href="/movies/{{this._id}}">Go to Movie</a>
+  <a href="/movies/{{this._id}}/edit">Edit Movie</a>
+{{/each}}
+
+<a href="/">Go Home</a>

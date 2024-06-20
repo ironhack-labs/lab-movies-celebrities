@@ -1,0 +1,31 @@
+<h2>Edit: {{movie.title}}</h2>
+
+{{!-- {{log cast}} --}}
+{{log movie}}
+
+<form action="/movies/{{movie._id}}/edit" method="POST">
+
+  <label>
+    title:
+    <input type="text" name="title" value="{{movie.title}}" />
+  </label>
+  <label>
+    genre:
+    <input type="text" name="genre" value="{{movie.genre}}" />
+  </label>
+  <label>
+    plot:
+    <textarea type="text" name="plot" value="{{movie.plot}}"></textarea>
+  </label>
+  <label>
+    cast:
+    <select name="cast">
+      {{#each cast}}
+        <option value={{this._id}}>{{this.name}}</option>
+      {{/each}}
+    </select>
+  </label>
+
+  <button>Update</button>
+
+</form>
