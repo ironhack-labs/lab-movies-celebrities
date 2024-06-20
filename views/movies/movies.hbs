@@ -1,0 +1,10 @@
+<h2>All Movies</h2>
+{{#each movies}}
+<div>
+  <a href="/movies/{{_id}}">
+    <h2>{{title}}</h2>
+    <img src="/images/{{image}}" alt="{{title}} Image">
+  </a>
+  <a class="btn btn-warning" href="/movies/{{_id}}/edit">Edit Movie</a>
+</div>
+{{/each}}
