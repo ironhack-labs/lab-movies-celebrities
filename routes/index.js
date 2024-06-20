@@ -1,6 +1,13 @@
 const router = require("express").Router();
 
-/* GET home page */
+const celebritiesRoutes = require('./celebrities.routes');
+const moviesRoutes = require('./movies.routes');
+
+
+router.use('/celebrities', celebritiesRoutes);
+router.use('/movies', moviesRoutes);
+
+
 router.get("/", (req, res, next) => {
   res.render("index");
 });
