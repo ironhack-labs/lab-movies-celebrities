@@ -15,3 +15,8 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
+
+//atempt to discard console error due to DeprecationWarning
+mongoose
+  .set('strictQuery', false)
+  .connect(MONGO_URI)
