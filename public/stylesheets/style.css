@@ -1,8 +1,16 @@
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00b7ff;
+.container {
+  margin-top: 55px
+}
+
+.btn {
+  margin-top: 15px;
+}
+
+.form-labe {
+  margin-top: 100px;
 }
