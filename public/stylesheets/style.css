@@ -1,8 +1,17 @@
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00b7ff;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.container {
+  padding-top: 25px
 }
