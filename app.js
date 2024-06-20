@@ -11,22 +11,24 @@ const express = require('express');
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
-const hbs = require('hbs');
-
 const app = express();
+const hbs = require('hbs');
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
 
-// default value for title local
-const projectName = 'lab-movies-celebrities';
-const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
-
-app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
-
 // 👇 Start handling routes here
 const index = require('./routes/index');
 app.use('/', index);
+
+const celebritiesRoute = require("./routes/celebrities.routes");
+app.use("/", celebritiesRoute);
+
+const moviesRoute = require("./routes/movies.routes");
+app.use("/", moviesRoute);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
