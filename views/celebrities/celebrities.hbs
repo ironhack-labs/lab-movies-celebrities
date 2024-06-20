@@ -1,0 +1,11 @@
+<h2>List of celebrities</h2>
+
+{{#each celebrity}}
+
+	<section class='celebrity-listing'>
+		<h3>{{this.name}}</h3>
+		<h4>Occupation: {{this.occupation}}</h4>
+		<h4>Catchphrase: `{{this.catchPhrase}}`</h4>
+	</section>
+
+{{/each}}
