@@ -1,0 +1,15 @@
+<h2>All Celebrities</h2>
+
+  {{#each celebrity}}
+  <div class="list-container">
+    <h5>{{name}}</h5>
+    
+    <a href="/celebrities/{{_id}}">See details</a>
+    
+    <form action="/celebrities/{{_id}}/edit" method="get">
+      <button type="submit">Edit</button>
+    </form>
+  </div>
+  {{/each}}
+
+<a href="/">Home</a>
