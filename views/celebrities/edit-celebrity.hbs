@@ -1,0 +1,30 @@
+<form action='/celebrities/{{_id}}/edit' method="POST">
+    <div class="mb-3 mt-5">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{name}}">
+    </div>
+    <div class="mb-3">
+        <label for="occupation" class="form-label">Occupation</label>
+        <input type="text" class="form-control" id="occupation" name="occupation" value="{{occupation}}">
+    </div>
+    <div class="mb-3">
+        <label for="catchPhrase" class="form-label">catchPhrase</label>
+        <input type="catchPhrase" class="form-control" id="catchPhrase" name="catchPhrase" value="{{catchPhrase}}">
+    </div>
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-dark">Update Celebrity</button>
+    </div>
+
+
+</form>
+
+<form action="/celebrities/{{_id}}/delete" method="POST">
+    <input type="submit" value="Delete Celebrity" class="btn btn-danger mt-3">
+</form>
+
+<a href="/celebrities" class="btn btn-dark mt-2">Volver al listado</a>
+
+<hr>
+
+<a href="/" class="btn btn-dark">Volver al Inicio</a>

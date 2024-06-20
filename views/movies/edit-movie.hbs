@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <form action='/movies/{{_id}}/edit' method="POST">
+                <div class="mb-3 mt-5">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{title}}">
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="plot" name="genre" value="{{genre}}">
+                </div>
+                <div class="mb-3">
+                    <label for="plot" class="form-label">Plot</label>
+                    <input type="plot" class="form-control" id="plot" name="plot" value="{{plot}}">
+                </div>
+                <div class="mb-3">
+                    <label for="cast" class="form-label">Cast</label>
+                    <input type="cast" class="form-control" id="cast" name="cast" value="{{cast}}">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark">Update Movie</button>
+                </div>
+
+
+            </form>
+
+            <form action="/movies/{{_id}}/delete" method="POST">
+                <input type="submit" value="Delete Movie" class="btn btn-danger mt-3">
+            </form>
+
+            <a href="/movies" class="btn btn-dark mt-2">Volver al listado</a>
+
+            <hr>
+        </div>
+    </div>
+    <a href="/" class="btn btn-dark">Volver al Inicio</a>
+</div>
