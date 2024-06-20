@@ -1,0 +1,16 @@
+<h2>Create new Movie</h2>
+<form action="/movies/create" method="post">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="genre" placeholder="genre">
+    <input type="text" name="plot" placeholder="plot">
+    {{!-- <input type="text" name="cast" placeholder="cast"> --}}
+
+    <select multiple name="cast">
+        <option value="">Select Cast</option>
+        {{#each celebrities}} 
+            <option value="{{_id}}">{{name}}{{occupation}}</option>
+        {{/each}}
+    </select>
+   
+    <button>Submit</button>
+</form>
