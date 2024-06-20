@@ -1,0 +1,19 @@
+<a href="/">Home</a>
+<hr />
+<h2>Movies List</h2>
+<hr />
+
+{{#each movies}}
+  <div>
+    <h3>Movie Title: {{title}}</h3>
+    <h3>Genre: {{genre}}</h3>
+    <h3>Plot {{plot}}</h3>
+    <h3>Cast: </h3>
+    {{#each cast}}
+      <H4>{{name}}</H4>
+    {{/each}}
+    <a href="/movies/{{_id}}">See movie details</a>
+
+  </div>
+  <hr />
+{{/each}}
