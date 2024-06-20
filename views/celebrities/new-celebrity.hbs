@@ -1,0 +1,25 @@
+
+<container class="form-newCelebrity"> 
+
+    <h2>Adding a new celebrity</h2>
+
+        <form action="/celebrities/create" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation">
+            </div>
+
+            <div>
+                <label for="catchPhrase">Catch phrase:</label>
+                <input type="text" id="catchPhrase" name="catchPhrase">
+            </div>
+
+        <button id="button-create-celeb" type="submit">Create a new celebrity</button>
+
+    </form>
+</container>
