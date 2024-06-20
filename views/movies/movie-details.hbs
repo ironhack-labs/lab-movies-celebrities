@@ -1,0 +1,24 @@
+<h2>Movie page</h2>
+
+<form method="POST" action="/movies/create">
+
+<label> Title:
+    <input type="text" name="title" />
+  </label>
+ 
+  <label> Genre:
+    <input type="text" name="genre" />
+  </label>
+ 
+  <label> Plot:
+    <input type="text" name="plot" />
+  </label>
+
+{{#each movies}}
+    <section class="movie-summary">
+        <h2>{{this.cast.name}}</h2>
+    </section>
+{{/each}}
+
+  <button type="submit"> Create </button>
+</form>
