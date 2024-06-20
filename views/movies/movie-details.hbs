@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h2>Movies</h2>
+
+    {{#each movies}}
+
+    <h5>{{title}}</h5>
+   
+   
+    <hr>
+    <p>{{genre}}</p>
+    <p>{{plot}}</p>
+
+
+    {{#each cast}}
+    <p>Name: {{name}}, Occupation: {{occupation}}, Catchphrase: {{catchPhrase}}</p>
+    {{/each}}
+
+
+    {{/each}}
+
+
+
+
+</div>
