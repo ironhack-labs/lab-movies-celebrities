@@ -1,0 +1,30 @@
+<div class="container">
+    <h2> Movies </h2>
+
+    <table class="table">
+        <tbody>
+            {{#each movies }}
+            <tr>
+                <td> {{title}} </td>
+                <td>
+                    <a href="/movies/{{_id}}"> Details of the movie</a>
+                </td>
+                <td>
+                    <a href="/movies/{{_id}}/edit" class="btn btn-warning"> Edit </a>
+                </td>
+                <td>
+                    <form action="movies/{{_id}}/delete" method="POST">
+
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+
+    <a href="/" class="btn btn-dark"> Back home </a>
+
+</div>
