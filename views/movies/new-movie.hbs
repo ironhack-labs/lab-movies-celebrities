@@ -1,0 +1,41 @@
+
+{{#if movie}}
+<h2>Edit:</h2>
+<form action="/movies/{{movie._id}}/edit" method="post">
+{{else}}
+<h1>Create a new movie</h1>
+  <form action="/movies/create" method="post">
+  {{/if}}
+    <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input value="{{movie.title}}" type="text" class="form-control" id="title" name="title" placeholder="title" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="genre" class="form-label">Genre</label>
+    <input value="{{movie.genre}}" type="text" class="form-control" id="genre" name="genre" placeholder="genre" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="plot" class="form-label">Plot</label>
+    <input value="{{movie.plot}}" type="text" class="form-control" id="plot" name="plot" placeholder="plot" required>
+  </div>
+ <div class="mb-3">
+    <label for="cast" class="form-label">Cast</label>
+   <select name="cast" id="cast" multiple>
+    {{#each celebrities}}
+      <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <br>
+  {{#if movie}}
+    <button type="submit">Edit Movie</button>
+  {{else}}
+    <button type="submit">Create Movie</button>
+  {{/if}}
+
+</form>
+
+{{#if errorMessage}}
+  <p style="color: red;">{{errorMessage}}</p>
+{{/if}}
