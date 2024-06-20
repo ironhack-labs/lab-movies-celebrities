@@ -1,0 +1,14 @@
+<h2>List of Movies 🎥</h2>
+{{#each movies}}
+  <section>
+
+    <h4>{{this.title}}</h4>
+
+    <a href="/movies/{{this._id}}">Movie details</a>
+    <br />
+    <a href="/movies/{{this._id}}/edit">Edit</a>
+    <br /><br />
+
+  </section>
+
+{{/each}}
