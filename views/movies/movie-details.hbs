@@ -1,0 +1,20 @@
+<!-- views/movies/movie-details.hbs -->
+<h2>{{movie.title}}</h2>
+<p>Genre: {{movie.genre}}</p>
+<p>Plot: {{movie.plot}}</p>
+<h3>Cast:</h3>
+<ul>
+  {{#each movie.cast}}
+    <li>
+      <strong>Name:</strong> {{this.name}}<br>
+      <strong>Occupation:</strong> {{this.occupation}}<br>
+      <strong>Catchphrase:</strong> {{this.catchPhrase}}
+    </li>
+  {{/each}}
+  
+</ul>
+<a href="/movies/{{movie._id}}/edit">Edit The Movie</a>
+
+<form action="/movies/{{movie._id}}/delete" method="post">
+  <button type="submit">Delete Movie</button>
+</form>

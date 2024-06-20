@@ -1,0 +1,10 @@
+<!-- views/celebrities/celebrity-details.hbs -->
+<h2>{{ celebrity.name }} Details</h2>
+<p>Occupation: {{ celebrity.occupation }}</p>
+<p>Catch Phrase: {{ celebrity.catchPhrase }}</p>
+
+<a href="/celebrities/{{ celebrity._id }}/edit">Edit Celebrity</a>
+
+<form action="/celebrities/{{ celebrity._id }}/delete" method="post">
+  <button type="submit">Delete Celebrity</button>
+</form>

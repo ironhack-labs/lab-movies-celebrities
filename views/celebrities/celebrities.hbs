@@ -1,0 +1,8 @@
+<!-- views/celebrities/celebrities.hbs -->
+<h2>Celebrities List</h2>
+<ul>
+  {{#each celebrities}}
+    <li>{{this.name}}</li>
+    <a href="/celebrities/{{this._id}}">Edit</a>
+  {{/each}}
+</ul>
