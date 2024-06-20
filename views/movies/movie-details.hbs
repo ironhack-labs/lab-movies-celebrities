@@ -1,0 +1,21 @@
+<h2>{{title}} details</h2>
+<div class="row justify-content-center">
+    <div class="col-4 mt-5">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <hr>
+                <h6 class="card-subtitle mb-2 text-muted">Genre: {{genre}}</h6>
+                <hr>
+                <p class="card-text">Sinopsis: {{plot}}</p>
+                <hr>
+                <p>Cast:</p>
+                <ul>
+                    {{#each cast}}
+                    <li>{{name}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

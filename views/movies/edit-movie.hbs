@@ -1,0 +1,34 @@
+<h2>Movie Edition</h2>
+<hr>
+<div class="row justify-content-center mt-5">
+    <div class="col-6">
+        <form action="/movies/{{_id}}/edit" method="post">
+            <div class="mb-3">
+                <label for="Title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="Title" name="title" value="{{movie.title}}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Genre" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="Genre" name="genre" value="{{movie.genre}}">
+            </div>
+
+            <div class=" mb-3">
+                <label for="Plot" class="form-label">Plot</label>
+                <input type="text" class="form-control" id="Plot" name="plot" value="{{movie.plot}}">
+            </div>
+
+            <div class="mb-3">
+                <label for="cast" class="form-label">Cast</label>
+                <select class="form-select" multiple id="cast" name="cast" value="{{movie.cast}}">
+                    <option>Selecciona un/a autor/a</option>
+                    {{#each celebrities}}
+                    <option value="{{_id}}">{{name}} </option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <button type=" submit" class="btn btn-light">Submit</button>
+        </form>
+    </div>
+</div>
