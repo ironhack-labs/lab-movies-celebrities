@@ -1,0 +1,21 @@
+<h1 class="text-center mt-5 mb-4">Create Celebrity</h1>
+
+<form class="container-sm mx-auto" style="max-width: 400px;" action="/celebrities/create" method="POST">
+
+  <div class="form-group mb-3">
+    <label for="name" style="color: #3498db;">Name</label>
+    <input type="text" class="form-control" name="name" id="name" placeholder="Celebrity name" required>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="occupation" style="color: #3498db;">Occupation</label>
+    <input type="text" class="form-control" name="occupation" id="occupation" placeholder="Occupation" required>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="catchPhrase" style="color: #3498db;">Catchphrase</label>
+    <input type="text" class="form-control" name="catchPhrase" id="catchPhrase" placeholder="Catchphrase" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
