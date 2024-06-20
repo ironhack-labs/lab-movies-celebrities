@@ -1,0 +1,32 @@
+{{!-- Iteration 6 --}}
+
+<h2>Ceate a new Movie</h2>
+<form action="/movies/create" method="POST">
+    <label>Title</label>
+    <input id="title" type="text" name="title"/>
+    <br>
+    <label>Genre</label>
+    <input id="genre" type="text" name="genre"/>
+    <br>
+    <label>Plot</label>
+    <input id="plot" type="text" name="plot"/>
+    <br>
+
+    <label for="cast">Cast:</label>
+    <select name="actors" id="cast" multiple>
+        {{#each celebrities}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <label>
+        For selecting multiple actors:
+            <br>
+            Windows - Hold down the control (ctrl) button
+            <br>
+            Mac - Hold down the command button
+    </label>
+
+    <br>
+
+    <button type="submit">Create new Movie</button>
+</form>
