@@ -1,0 +1,19 @@
+<h2>{{title}}</h2>
+
+<hr />
+<h3>Genre:</h3>
+<p>{{genre}}</p>
+
+<h3>Plot:</h3>
+<p>{{plot}}</p>
+
+{{#each celebrities}}
+<section class="celebrity-summary">
+	<h2>{{this.name}}</h2>
+</section>
+{{/each}}
+
+
+<hr />
+
+<a href="/movies">Back</a>

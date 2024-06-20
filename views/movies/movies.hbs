@@ -1,0 +1,17 @@
+<h2>Movies</h2>
+
+{{#each movies}}
+<section class="movie-summary">
+	<h2>{{this.title}}</h2>
+	<p>
+		Celebrity: {{this.celebrity.name}} <br />
+		<a href="/movies/{{this._id}}">More details</a>
+		<a href="/movies/{{this._id}}/edit">Edit</a>
+	</p>
+
+	<form action="/movies/{{_id}}/delete" method="POST">
+		<button>Delete</button>
+	</form>
+
+</section>
+{{/each}}
