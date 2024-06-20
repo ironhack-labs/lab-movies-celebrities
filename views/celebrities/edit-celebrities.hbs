@@ -1,0 +1,15 @@
+<div>
+   <h2>Edit: {{celebrity.name}}</h2>
+    <form action="/celebrities/{{celebrity._id}}/edit" method="POST">
+        <label> Name: <input type="text" name="name" value="{{celebrity.name}}" /> </label><br>
+        <label> Occupation: <input type="text" name="occupation" value="{{celebrity.occupation}}" /></label><br>
+        <label> Catch phrase: <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}" /> </label><br>
+        <br>
+        <button type="submit">Save movie</button>
+    </form>
+</div>
+
+    <a href="/celebrities/{{celebrity._id}}/delete">Delete this movie 😢</a>
+    <br>
+    <br>
+    <a href="/celebrities">⬅️ Back to movies</a>
