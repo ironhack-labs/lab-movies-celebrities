@@ -1,0 +1,22 @@
+{{!-- Add an <h2> for the page's heading.
+Display tags with the movie's title, genre and plot.
+Use an hbs #each loop to display the cast's name, occupation and catchPhrase --}}
+<h2>{{movie.title}}</h2>
+<p>Genre: {{movie.genre}}</p>
+<p>Plot: {{movie.plot}}</p>
+<h3>Cast</h3>
+<ul>
+    {{#each movie.cast}}
+        <li>{{this.name}} - {{this.occupation}} - {{this.catchPhrase}}</li>
+    {{/each}}
+</ul>
+{{!-- Add a link that goes back to the movies list --}}
+<a href="/movies">Back to movies</a>
+
+{{!-- 
+Add a <form> tag that makes a POST request to /movies/:id/delete where the :id is replaced by the actual id of the movie.
+Add a <button> tag inside the form so that it can be submitted. --}}
+<form action="/movies/{{movie._id}}/delete" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
