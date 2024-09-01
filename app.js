@@ -1,34 +1,35 @@
-// ℹ️ Gets access to environment variables/settings
-// https://www.npmjs.com/package/dotenv
 require('dotenv/config');
-
-// ℹ️ Connects to the database
 require('./db');
 
-// Handles http requests (express is node js framework)
-// https://www.npmjs.com/package/express
+
 const express = require('express');
-
-// Handles the handlebars
-// https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
-
 const app = express();
 
-// ℹ️ This function is getting exported from the config folder. It runs most middlewares
+
 require('./config')(app);
 
-// default value for title local
+
 const projectName = 'lab-movies-celebrities';
 const capitalized = string => string[0].toUpperCase() + string.slice(1).toLowerCase();
-
 app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 
-// 👇 Start handling routes here
-const index = require('./routes/index');
-app.use('/', index);
+const indexRoutes = require('./routes/index');
+const celebrityRoutes = require('./routes/celebrities.routes');
+const movieRoutes = require('./routes/movies.routes');
 
-// ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
+
+/*const indexR = require('./routes/index');
+const Celebrity = require('./routes/celebrities.routes');*/
+app.use('/', indexRoutes);
+app.use('/celebrities', celebrityRoutes);
+app.use('/movies', movieRoutes);
+
+
+
 require('./error-handling')(app);
-
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
 module.exports = app;

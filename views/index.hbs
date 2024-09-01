@@ -1,2 +1,13 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+<a href="/celebrities/create">Creat new Celebrity</a>
+  <h1>Welcome to Celebrity</h1>
+  <a href="/celebrities">View Celebrities</a>
+  <h1>Movies List</h1>
+<a href="/movies/create">Create a New Movie</a>
+<ul>
+  {{#each movies}}
+    <li>{{this.title}}</li>
+  {{/each}}
+</ul>
+  

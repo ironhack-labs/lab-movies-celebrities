@@ -1,0 +1,8 @@
+<a href="/">Go back</a>
+<ul>
+{{#each movies}}
+    <li>{{title}}</li>
+    <a href="/movies/{{_id}}">See Details</a>
+{{/each}}
+</ul>
+<a href="/movies/create">Create Movie</a>
