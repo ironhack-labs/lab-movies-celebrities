@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="container my-5"> 
+        <h1 class="mb-5">Create a celebritie</h1>
+        <form action="/celebrities/create" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Title</label>
+            <input type="text" name="name" value="{{celebrity.name}}" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="ocupation" class="form-label">ocupation</label>
+            <input type="text" name="ocupation" value="{{celebrity.ocupation}}" class="form-control" id="director" required>
+        </div>
+        <div class="mb-3">
+            <label for="catchPhrase" class="form-label">catchPhrase</label>
+            <input type="text" name="catchPhrase" value="{{celebrity.catchPhrase}}" class="form-control" id="catchPhrase">
+        <div id="starsHelp" class="form-text">Type the stars separated by commas.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    </div>
+</div>

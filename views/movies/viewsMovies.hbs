@@ -1,0 +1,19 @@
+<div class="container mb-5">
+  <h1 class="my-5">Movies</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each movieList}}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.genre}}</p>
+            <p class="card-text">{{this.plot}}</p>
+             <p class="card-text">{{this.cast}}</p>
+            <a href="/movies/{{this._id}}">Details</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="container my-5"> 
+        <h1 class="mb-5">Create a movie</h1>
+        <form action="/movies/create" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" value="{{movie.title}}" class="form-control" id="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="genre" class="form-label">genre</label>
+            <input type="text" name="genre" value="{{movie.genre}}" class="form-control" id="genre" required>
+        </div>
+         <div class="mb-3">
+            <label for="plot" class="form-label">plot</label>
+            <input type="text" name="plot" value="{{movie.plot}}" class="form-control" id="plot" required>
+        </div>
+            <label for="cast">Choose a cast:</label>
+           <select name="cast" value="{{this._id}}"id="cast" multiple class="form-control">
+        {{#each celebrities}}
+          <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+      </select> 
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    </div>
+</div>

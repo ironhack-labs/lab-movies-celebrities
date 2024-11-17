@@ -1,0 +1,16 @@
+<div class="container mb-5">
+  <h1 class="my-5"> name : {{celeb.name}}</h1>
+  <h2 class="my-5"> ocupation :{{celeb.ocupation}}</h2>
+  <h2 class="my-5"> catchPhrase :{{celeb.catchPhrase}}</h2>
+   
+    <div class="col-6">
+      <div class="movie-action-buttons">
+        <form action="/celebrities/{{celeb.id}}/delete" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        <a href="/celebrities/{{celeb.id}}/edit" class="btn btn-primary">Edit</a>
+      </div>
+    </div>
+    
+  </div>
+

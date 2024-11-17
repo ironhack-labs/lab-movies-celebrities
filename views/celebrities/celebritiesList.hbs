@@ -1,0 +1,18 @@
+<div class="container mb-5">
+  <h1 class="my-5">celebrities</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each celebList}}
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.ocupation}}</p>
+            <p class="card-text">{{this.catchPhrase}}</p>
+            <a href="/celebrities/{{this._id}}">Details</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

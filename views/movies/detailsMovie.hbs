@@ -1,0 +1,18 @@
+<div class="container mb-5">
+  <h1 class="my-5"> name : {{movie.title}}</h1>
+  <p class="my-5"> ocupation :{{movie.genre}}</p>
+  <p class="my-5"> catchPhrase :{{movie.plot}}</p>
+  {{#each movie.cast}}
+  <p>{{this.name}}</p>
+{{/each}}
+   
+    <div class="col-6">
+      <div class="movie-action-buttons">
+        <form action="/movies/{{movie.id}}/delete" method="POST">
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        <a href="/movies/{{movie.id}}/edit" class="btn btn-primary">Edit</a>
+      </div>
+    </div>
+    
+  </div>
