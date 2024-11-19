@@ -1,0 +1,30 @@
+<div class="container mb-5">
+  <h1 class="text-center my-5 text-uppercase fw-bold">Movies</h1>
+
+  <div class="row justify-content-center g-4">
+    {{#each movies as |movie|}}
+      <div class="col-12 mb-5 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+        <div class="card w-100 border-0 shadow-lg rounded-3">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title text-center text-dark fw-bold">{{movie.name}}</h5>
+            <hr class="my-3 mx-auto" style="width: 50%;">
+            <p class="card-text text-secondary"><strong>Genre:</strong> {{movie.genre}}</p>
+            <p class="card-text text-secondary"><strong>Plot:</strong> {{movie.plot}}</p>
+
+            <p class="card-text text-secondary"><strong>Cast:</strong>
+              {{#each movie.cast as |celeb|}}
+                {{celeb.name}}
+              {{/each}}
+            </p>
+
+            <div class="mt-auto text-center">
+              <a href="/movies/{{movie._id}}" class="btn btn-primary btn-sm w-75">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
