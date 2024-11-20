@@ -1,0 +1,21 @@
+<a href="/" type="button" class="btn btn-primary mb-5">Main Page</a>
+<h2>Create a celebrity: </h2>
+<form action="/celebrities/create" method="POST" class="row g-3" >
+  <div class="col-md-6">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control">
+  </div>
+  <div class="col-md-6">
+    <label for="occupation" class="form-label">Occupation</label>
+    <input type="text" name="occupation" class="form-control" >
+  </div>
+  <div class="col-12">
+    <label for="catchFrase" class="form-label">CatchFrase</label>
+    <input type="text" name="catchFrase" class="form-control" id="inputAddress">
+  </div>
+ 
+  <div class="col-md-4">
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+
+<a href="/" type="button" class="btn btn-primary mb-4">Main Page</a>
+<a href="/movies" type="button" class="btn btn-primary mb-4">Go back</a>
+<div class="card">
+  <div class="card-header">
+    Movie details
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Movie title: {{movie.title}}</h4>
+     <h4 class="card-title">Genre:{{movie.genre}}</h4>
+    <h4 class="card-text">Plot:{{movie.plot}}</h4>
+    <ul class="list-group list-unstyled">
+        <h4>Cast:</h4>
+    {{#each movie.cast as |celebrity|}}
+  <li  class="fs-5">-{{celebrity.name}}</li>
+{{/each}}
+</ul>
+
+  </div>
+</div>
+

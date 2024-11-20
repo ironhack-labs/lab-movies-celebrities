@@ -1,0 +1,26 @@
+<a href="/" type="button" class="btn btn-primary mb-4">Main Page</a>
+
+<h1>Movie list:</h1>
+
+{{!-- <ul>
+  {{#each movies as |movie|}}
+    <li><a href="/movies/{{movie.id}}">{{movie.title}}</a></li>
+  {{/each}}
+</ul> --}}
+
+<ul class="list-group mb-4">
+    {{#each movies as |movie|}}
+  <li class="list-group-item"><a href="/movies/{{movie.id}}">{{movie.title}}</a>
+   <form
+            action="/movies/delete/{{movie.id}}"
+            method="POST"
+            style="display:inline;"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+          <a href="/movies/{{movie.id}}/edit" style="display:inline" type="button" class="btn btn-primary">Edit movie</a>
+           </li>
+  
+  <hr>
+{{/each}}
+</ul>

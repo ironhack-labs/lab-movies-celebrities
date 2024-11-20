@@ -1,0 +1,10 @@
+<a href="/" type="button" class="btn btn-primary mb-4">Main Page</a>
+<h1 class="mb-4">Celebrity list:</h1>
+
+<ul class="list-group">
+    {{#each celebrities as |celebrity|}}
+    <li class="list-group-item">{{celebrity.name}}</li>
+    <hr>
+    {{/each}}
+</ul>
+

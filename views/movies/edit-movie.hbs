@@ -1,0 +1,50 @@
+<a href="/" type="button" class="btn btn-primary mb-5">Main Page</a>
+<h2>Edit a Movie:</h2>
+<form action="/movies/{{movie.id}}/edit" method="POST" class="row g-3">
+  <div class="col-md-6">
+    <label for="title" class="form-label">Title</label>
+    <input value="{{movie.title}}" type="text" name="title" id="title" class="form-control" required />
+  </div>
+  <div class="col-md-6">
+    <label for="genre" class="form-label">Genre</label>
+    <select name="genre" id="genre" class="form-select" multiple required>
+      <option value="Action">Action</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Horror">Horror</option>
+      <option value="Mystery">Mystery</option>
+      <option value="Romance">Romance</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Thriller">Thriller</option>
+    </select>
+    <small class="form-text text-muted">Hold Ctrl (or Cmd on Mac) to select
+      multiple genres.</small>
+  </div>
+  <div class="col-12">
+    <label for="plot" class="form-label">Plot</label>
+    <textarea
+    
+      name="plot"
+      id="plot"
+      class="form-control"
+      rows="3"
+      required
+    >{{movie.plot}}</textarea>
+  </div>
+  <div class="col-12">
+    <label for="celebrities" class="form-label">Cast</label>
+    <select name="cast" id="celebrities" class="form-select" multiple required>
+      {{#each celebrities as |celebrity|}}
+        <option {{isSelected celebrity.id ../movie.cast}}  value="{{celebrity.id}}">{{celebrity.name}}</option>
+      {{/each}}
+    </select>
+    <small class="form-text text-muted">Hold Ctrl (or Cmd on Mac) to select
+      multiple celebrities.</small>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </div>
+</form>
+
