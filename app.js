@@ -9,6 +9,7 @@ require('./db');
 // https://www.npmjs.com/package/express
 const express = require('express');
 
+require('./config/hbs.config');
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
@@ -17,6 +18,10 @@ const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
+
+// **Place middleware for body parsing before routes!**
+app.use(express.json()); // Parses JSON bodies
+app.use(express.urlencoded({ extended: false })); // Parses form data
 
 // default value for title local
 const projectName = 'lab-movies-celebrities';
