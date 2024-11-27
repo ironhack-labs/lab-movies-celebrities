@@ -1,0 +1,12 @@
+<h1>Celebrities</h1>
+
+<a href="/celebrities/create" class="btn btn-warning"><h7>Add a new celebrity!</h7></a>
+
+<div class="row">
+  {{#each celebrities}}
+    <div class="col-3 celeb">
+      <h3>{{name}}</h3>
+      <p>{{occupation}}</p>
+    </div>
+  {{/each}}
+</div>
