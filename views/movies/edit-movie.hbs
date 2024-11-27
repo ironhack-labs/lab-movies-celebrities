@@ -1,0 +1,25 @@
+
+<form action="" method="POST">
+
+    <label for="">
+        Title
+        <input type="text" name="title" value="{{oneMovie.title}}">
+    </label>
+        <label for="">
+            Genre
+        <input type="text" name="genre" value="{{oneMovie.genre}}">
+    </label>
+        <label for="">
+            Plot
+        <input type="text" name="plot" value="{{oneMovie.plot}}">
+    </label>
+    <select name="cast" id="" multiple>
+        {{#each allCelebrities}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+     </select>
+    <button>Save Changes</button>
+</form>
+<br>
+<br>
+<a href="/">Go Back</a>
