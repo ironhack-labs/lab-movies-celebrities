@@ -1,0 +1,9 @@
+<h2>All of our Movies 📷👸🎥</h2>
+
+{{#each moviesFromDB}} <br>
+<section>
+    <h4>{{this.title}}</h4>
+    <a href="/movies/{{this._id}}">More details</a>
+    <hr>
+</section>
+{{/each}}
