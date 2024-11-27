@@ -1,0 +1,38 @@
+<div class="container my-5">
+  <form action="/celebrities/{{celebrity._id}}" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        placeholder="Brad Pitt"
+        value="{{celebrity.name}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="occupation" class="form-label">Occupation</label>
+      <input
+        name="occupation"
+        type="text"
+        class="form-control"
+        placeholder="Actor"
+        value="{{celebrity.occupation}}"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="catchPhrase" class="form-label">Catch phrase</label>
+      <input
+        name="catchPhrase"
+        type="text"
+        class="form-control"
+        placeholder="You must lose everything in order to gain anything"
+        value="{{celebrity.catchPhrase}}"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

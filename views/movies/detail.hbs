@@ -1,0 +1,19 @@
+<div class="container my-5">
+  <h2 class="text-center">Movie Detail</h2>
+  <div class="card text-center">
+    <div class="card-header">
+      <h5>
+        {{movie.title}}
+      </h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{movie.genre}}</p>
+      <p class="card-text">{{movie.plot}}</p>
+      {{#each movie.cast as |celebrity|}}
+        <a href="/celebrities/{{celebrity._id}}">{{celebrity.name}}</a>,
+      {{/each}}
+    </div>
+    <div class="card-footer text-body-secondary">
+    </div>
+  </div>
+</div>

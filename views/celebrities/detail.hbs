@@ -1,0 +1,24 @@
+<div class="container my-5">
+  <h2 class="text-center">Celebrity Details</h2>
+  <div class="card text-center">
+    <div class="card-header">
+      <h5>
+        {{celebrity.name}}
+      </h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{celebrity.occupation}}</p>
+      <p class="card-text">{{celebrity.catchPhrase}}</p>
+      <div class="card">
+        <h3>Movies</h3>
+        {{#each celebrity.movies as |movie|}}
+          <a href="/movies/{{movie._id}}">{{movie.title}}</a>,
+        {{/each}}
+      </div>
+    </div>
+    <div class="card-footer text-body-secondary">
+      <a href="/celebrities">Back</a>
+      <a href="/celebrities/{{celebrity._id}}/edit">Edit</a>
+    </div>
+  </div>
+</div>
