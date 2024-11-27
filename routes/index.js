@@ -5,4 +5,8 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+router.get(`./celebrities.routes`, (req, res) => {
+  res.send(`Celebrities`)
+})
+
 module.exports = router;
