@@ -1,0 +1,24 @@
+<h2>Create a celebrity data</h2>
+
+<form method="POST" action="/celebrities/create">
+  <label> Name:
+        <select name="celebrity">
+        {{#each celebritiesArr}}
+          <option value={{this._id}}>
+            {{this.name}}
+          </option>
+        {{/each}}
+    </select>
+    <input type="text" name="celebName" />
+  </label>
+
+  <label> Occupation:
+    <input type= "text" name="occupation" />
+  </label>
+ 
+  <label> CatchPhrase:
+    <textarea type="text" name="catchPhrase" cols="30" rows="4"></textarea>
+  </label>
+
+  <button type="submit"> Create </button>
+</form>
