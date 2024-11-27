@@ -1,0 +1,17 @@
+<h2>{{title}}</h2>
+<p>{{genre}}</p>
+<p>{{plot}}</p>
+{{#each this.cast}}
+  <p>{{this.name}}</p>
+   <p>{{this.occupation}}</p>
+    <p>{{this.catchPhrase}}</p>
+{{/each}}
+
+<br />
+
+  <form action="/movies/{{_id}}/delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+    </div>
+
+<a href="/">Return Home</a>
