@@ -1,0 +1,30 @@
+<div class="max-w-md mx-auto my-8 p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Create a New Celebrity</h2>
+
+  <form action="/celebrities/create" method="POST">
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+      <input type="text" id="name" name="name" required 
+             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <div class="mb-4">
+      <label for="occupation" class="block text-gray-700 text-sm font-bold mb-2">Occupation:</label>
+      <input type="text" id="occupation" name="occupation" required 
+             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <div class="mb-6">
+      <label for="catchPhrase" class="block text-gray-700 text-sm font-bold mb-2">Catch Phrase:</label>
+      <textarea id="catchPhrase" name="catchPhrase" required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-24"></textarea>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <button type="submit" 
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Celebrity</button>
+      <a href="/celebrities" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+

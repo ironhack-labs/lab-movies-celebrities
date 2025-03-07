@@ -1,0 +1,42 @@
+<div class="max-w-md mx-auto my-8 p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Edit Movie: {{movie.title}}</h2>
+
+  <form action="/movies/{{movie._id}}/edit" method="POST">
+    <div class="mb-4">
+      <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
+      <input type="text" id="title" name="title" value="{{movie.title}}" required 
+             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <div class="mb-4">
+      <label for="genre" class="block text-gray-700 text-sm font-bold mb-2">Genre:</label>
+      <input type="text" id="genre" name="genre" value="{{movie.genre}}" required 
+             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
+
+    <div class="mb-4">
+      <label for="plot" class="block text-gray-700 text-sm font-bold mb-2">Plot:</label>
+      <textarea id="plot" name="plot" required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-24">{{movie.plot}}</textarea>
+    </div>
+
+    <div class="mb-6">
+      <label for="cast" class="block text-gray-700 text-sm font-bold mb-2">Cast:</label>
+      <select id="cast" name="cast" multiple required 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        {{#each celebrities}}
+          <option value="{{this._id}}" {{#if (includes ../castIds this._id)}}selected{{/if}}>
+            {{this.name}}
+          </option>
+        {{/each}}
+      </select>
+      <p class="text-sm text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple celebrities</p>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <button type="submit" 
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update Movie</button>
+      <a href="/movies" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</a>
+    </div>
+  </form>
+</div>

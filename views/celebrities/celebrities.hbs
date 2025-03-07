@@ -1,0 +1,26 @@
+<h1 class="text-3xl font-bold text-center mb-6">Celebrities</h1>
+
+<div class="max-w-4xl mx-auto px-4">
+  {{#if celebrities}}
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{#each celebrities}}
+        <li class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">{{this.name}}</h3>
+            <p class="text-gray-600 mb-1"><span class="font-medium">Occupation:</span> {{this.occupation}}</p>
+            <p class="text-gray-600 mb-4"><span class="font-medium">Catch Phrase:</span> {{this.catchPhrase}}</p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+      <p class="text-yellow-700">No celebrities found. Why not add some?</p>
+    </div>
+  {{/if}}
+</div>
+
+<div class="mt-8 text-center">
+  <a href="/celebrities/create" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-md transition-colors duration-300">Add New Celebrity</a>
+</div>
+

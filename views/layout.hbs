@@ -6,14 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{title}}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body>
-    <div class="container">
+  <body class="bg-gray-100 min-h-screen">
+    <header class="bg-blue-600 text-white shadow-md">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-xl font-bold">Celebrity App</a>
+          <div class="space-x-4">
+            <a href="/" class="hover:text-blue-200 transition">Home</a>
+            <a href="/celebrities" class="hover:text-blue-200 transition">Celebrities</a>
+            <a href="/celebrities/create" class="hover:text-blue-200 transition">Add Celebrity</a>
+            <a href="/movies" class="hover:text-blue-200 transition">Movies</a>
+            <a href="/movies/create" class="hover:text-blue-200 transition">Add Movie</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {{{body}}}
-    </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-center md:text-left">&copy; 2025 Celebrity App. All rights reserved.</p>
+          <div class="mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white mx-2">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="/javascripts/script.js"></script>
   </body>

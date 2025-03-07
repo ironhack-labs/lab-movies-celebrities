@@ -1,0 +1,57 @@
+<div class="container mx-auto px-4">
+  <div class="bg-white rounded-lg shadow-md overflow-hidden my-6">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold text-gray-800">{{movie.title}}</h1>
+        <div class="space-x-2">
+          <a href="/movies/{{movie._id}}/edit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</a>
+          <form action="/movies/{{movie._id}}/delete" method="POST" class="inline">
+            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2">
+          <div class="mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Plot</h2>
+            <p class="text-gray-600">{{movie.plot}}</p>
+          </div>
+
+          <div class="mb-6">
+            <h2 class="text-xl font-semibold text-gray-700 mb-2">Cast</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {{#each movie.cast}}
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h3 class="font-bold text-gray-800">{{this.name}}</h3>
+                  <p class="text-gray-600 text-sm">{{this.occupation}}</p>
+                  <p class="text-gray-500 italic mt-2">"{{this.catchPhrase}}"</p>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-lg h-fit">
+          <h2 class="text-xl font-semibold text-gray-700 mb-4">Movie Info</h2>
+          <div class="space-y-3">
+            <div>
+              <span class="font-semibold text-gray-700">Genre:</span>
+              <span class="text-gray-600">{{movie.genre}}</span>
+            </div>
+            <div>
+              <span class="font-semibold text-gray-700">Cast Size:</span>
+              <span class="text-gray-600">{{movie.cast.length}} actors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <a href="/movies" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Back to Movies
+    </a>
+  </div>
+</div>
